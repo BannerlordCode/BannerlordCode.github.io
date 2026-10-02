@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampaignBehaviors</title>
+  <meta name="description" content="实现战役沙盒中的周期性行为、事件监听与全局系统逻辑。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/campaignbehaviors/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/campaignbehaviors/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="active">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CampaignBehaviors</span>
+    </nav>
+  
+  <h1>CampaignBehaviors</h1>
+  <h2 id="shang-ji-dao-hang">上级导航</h2>
+<ul>
+<li><a href="../">返回 campaign 目录</a></li>
+<li><a href="../../">API 目录</a></li>
+<li><a href="../../../">版本首页</a></li>
+</ul>
+<h2 id="zi-xi-tong-gai-shu">子系统概述</h2>
+<p>这里是 <strong>campaign 目录</strong> 的 <strong>CampaignBehaviors</strong> 子系统。同一命名空间下的类负责相近功能，可从中找到需要的类型后再进入类页查看方法。</p>
+<p>实现战役沙盒中的周期性行为、事件监听与全局系统逻辑。</p>
+<h2 id="lei-lie-biao">类列表</h2>
+<table><thead><tr><th>类</th><th>用途</th></tr></thead><tbody>
+<tr><td><a href="../AgingCampaignBehavior/"><code>AgingCampaignBehavior</code></a></td><td>AgingCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AiArmyMemberBehavior/"><code>AiArmyMemberBehavior</code></a></td><td>AiArmyMemberBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AiEngagePartyBehavior/"><code>AiEngagePartyBehavior</code></a></td><td>AiEngagePartyBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AiLandBanditPatrollingBehavior/"><code>AiLandBanditPatrollingBehavior</code></a></td><td>AiLandBanditPatrollingBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AiMilitaryBehavior/"><code>AiMilitaryBehavior</code></a></td><td>AiMilitaryBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AIMoveToNearestLandBehavior/"><code>AIMoveToNearestLandBehavior</code></a></td><td>AIMoveToNearestLandBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AiPartyThinkBehavior/"><code>AiPartyThinkBehavior</code></a></td><td>AiPartyThinkBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AiPatrollingBehavior/"><code>AiPatrollingBehavior</code></a></td><td>AiPatrollingBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AiVisitSettlementBehavior/"><code>AiVisitSettlementBehavior</code></a></td><td>AiVisitSettlementBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../Alliance/"><code>Alliance</code></a></td><td>Alliance 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AllianceCampaignBehavior/"><code>AllianceCampaignBehavior</code></a></td><td>AllianceCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AllianceCampaignBehaviorTypeDefiner/"><code>AllianceCampaignBehaviorTypeDefiner</code></a></td><td>AllianceCampaignBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../BackstoryCampaignBehavior/"><code>BackstoryCampaignBehavior</code></a></td><td>BackstoryCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../BanditInteractionsCampaignBehavior/"><code>BanditInteractionsCampaignBehavior</code></a></td><td>BanditInteractionsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../BanditInteractionsCampaignBehaviorTypeDefiner/"><code>BanditInteractionsCampaignBehaviorTypeDefiner</code></a></td><td>BanditInteractionsCampaignBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../BanditSpawnCampaignBehavior/"><code>BanditSpawnCampaignBehavior</code></a></td><td>BanditSpawnCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../BannerCampaignBehavior/"><code>BannerCampaignBehavior</code></a></td><td>BannerCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../BattleCampaignBehavior/"><code>BattleCampaignBehavior</code></a></td><td>BattleCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../BuildingsCampaignBehavior/"><code>BuildingsCampaignBehavior</code></a></td><td>BuildingsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CallToWarAgreement/"><code>CallToWarAgreement</code></a></td><td>CallToWarAgreement 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CampaignBattleRecoveryBehavior/"><code>CampaignBattleRecoveryBehavior</code></a></td><td>CampaignBattleRecoveryBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CampaignBehaviorManager/"><code>CampaignBehaviorManager</code></a></td><td>CampaignBehaviorManager 是一个管理器，位于 TaleWorlds.CampaignSystem.CampaignBehaviors，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../CampaignFactionManagerBehaviour/"><code>CampaignFactionManagerBehaviour</code></a></td><td>CampaignFactionManagerBehaviour 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CampaignWarManagerBehavior/"><code>CampaignWarManagerBehavior</code></a></td><td>CampaignWarManagerBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CaravanConversationsCampaignBehavior/"><code>CaravanConversationsCampaignBehavior</code></a></td><td>CaravanConversationsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CaravansCampaignBehavior/"><code>CaravansCampaignBehavior</code></a></td><td>CaravansCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CaravansCampaignBehaviorTypeDefiner/"><code>CaravansCampaignBehaviorTypeDefiner</code></a></td><td>CaravansCampaignBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CharacterCreationCampaignBehavior/"><code>CharacterCreationCampaignBehavior</code></a></td><td>CharacterCreationCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CharacterDevelopmentCampaignBehavior/"><code>CharacterDevelopmentCampaignBehavior</code></a></td><td>CharacterDevelopmentCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CharacterRelationCampaignBehavior/"><code>CharacterRelationCampaignBehavior</code></a></td><td>CharacterRelationCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../ClanVariablesCampaignBehavior/"><code>ClanVariablesCampaignBehavior</code></a></td><td>ClanVariablesCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentCharacterBornBehavior/"><code>CommentCharacterBornBehavior</code></a></td><td>CommentCharacterBornBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentChildbirthBehavior/"><code>CommentChildbirthBehavior</code></a></td><td>CommentChildbirthBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnChangeRomanticStateBehavior/"><code>CommentOnChangeRomanticStateBehavior</code></a></td><td>CommentOnChangeRomanticStateBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnChangeSettlementOwnerBehavior/"><code>CommentOnChangeSettlementOwnerBehavior</code></a></td><td>CommentOnChangeSettlementOwnerBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnChangeVillageStateBehavior/"><code>CommentOnChangeVillageStateBehavior</code></a></td><td>CommentOnChangeVillageStateBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnCharacterKilledBehavior/"><code>CommentOnCharacterKilledBehavior</code></a></td><td>CommentOnCharacterKilledBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnClanDestroyedBehavior/"><code>CommentOnClanDestroyedBehavior</code></a></td><td>CommentOnClanDestroyedBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnClanLeaderChangedBehavior/"><code>CommentOnClanLeaderChangedBehavior</code></a></td><td>CommentOnClanLeaderChangedBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnDeclareWarBehavior/"><code>CommentOnDeclareWarBehavior</code></a></td><td>CommentOnDeclareWarBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnDefeatCharacterBehavior/"><code>CommentOnDefeatCharacterBehavior</code></a></td><td>CommentOnDefeatCharacterBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnDestroyMobilePartyBehavior/"><code>CommentOnDestroyMobilePartyBehavior</code></a></td><td>CommentOnDestroyMobilePartyBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnEndPlayerBattleBehavior/"><code>CommentOnEndPlayerBattleBehavior</code></a></td><td>CommentOnEndPlayerBattleBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnKingdomDestroyedBehavior/"><code>CommentOnKingdomDestroyedBehavior</code></a></td><td>CommentOnKingdomDestroyedBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnLeaveFactionBehavior/"><code>CommentOnLeaveFactionBehavior</code></a></td><td>CommentOnLeaveFactionBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnMakePeaceBehavior/"><code>CommentOnMakePeaceBehavior</code></a></td><td>CommentOnMakePeaceBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentOnPlayerMeetLordBehavior/"><code>CommentOnPlayerMeetLordBehavior</code></a></td><td>CommentOnPlayerMeetLordBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommentPregnancyBehavior/"><code>CommentPregnancyBehavior</code></a></td><td>CommentPregnancyBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CompanionGrievanceBehavior/"><code>CompanionGrievanceBehavior</code></a></td><td>CompanionGrievanceBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CompanionGrievanceBehaviorTypeDefiner/"><code>CompanionGrievanceBehaviorTypeDefiner</code></a></td><td>CompanionGrievanceBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CompanionRolesCampaignBehavior/"><code>CompanionRolesCampaignBehavior</code></a></td><td>CompanionRolesCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CompanionsCampaignBehavior/"><code>CompanionsCampaignBehavior</code></a></td><td>CompanionsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CraftedItemInitializationData/"><code>CraftedItemInitializationData</code></a></td><td>CraftedItemInitializationData 是一个数据载体，位于 TaleWorlds.CampaignSystem.CampaignBehaviors，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../CraftingCampaignBehavior/"><code>CraftingCampaignBehavior</code></a></td><td>CraftingCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CraftingCampaignBehaviorTypeDefiner/"><code>CraftingCampaignBehaviorTypeDefiner</code></a></td><td>CraftingCampaignBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CraftingOrderSlots/"><code>CraftingOrderSlots</code></a></td><td>CraftingOrderSlots 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CrimeCampaignBehavior/"><code>CrimeCampaignBehavior</code></a></td><td>CrimeCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultLogsCampaignBehavior/"><code>DefaultLogsCampaignBehavior</code></a></td><td>DefaultLogsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../DesertersCampaignBehavior/"><code>DesertersCampaignBehavior</code></a></td><td>DesertersCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../DesertionCampaignBehavior/"><code>DesertionCampaignBehavior</code></a></td><td>DesertionCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../DiplomaticBartersBehavior/"><code>DiplomaticBartersBehavior</code></a></td><td>DiplomaticBartersBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../DisbandPartyCampaignBehavior/"><code>DisbandPartyCampaignBehavior</code></a></td><td>DisbandPartyCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../DiscardItemsCampaignBehavior/"><code>DiscardItemsCampaignBehavior</code></a></td><td>DiscardItemsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../DisorganizedStateCampaignBehavior/"><code>DisorganizedStateCampaignBehavior</code></a></td><td>DisorganizedStateCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../DynamicBodyCampaignBehavior/"><code>DynamicBodyCampaignBehavior</code></a></td><td>DynamicBodyCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../EducationCampaignBehavior/"><code>EducationCampaignBehavior</code></a></td><td>EducationCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../EducationCharacterProperties/"><code>EducationCharacterProperties</code></a></td><td>EducationCharacterProperties 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../EmissarySystemCampaignBehavior/"><code>EmissarySystemCampaignBehavior</code></a></td><td>EmissarySystemCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../EncounterGameMenuBehavior/"><code>EncounterGameMenuBehavior</code></a></td><td>EncounterGameMenuBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../FactionDiscontinuationCampaignBehavior/"><code>FactionDiscontinuationCampaignBehavior</code></a></td><td>FactionDiscontinuationCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../FiefBarterBehavior/"><code>FiefBarterBehavior</code></a></td><td>FiefBarterBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../FindingItemOnMapBehavior/"><code>FindingItemOnMapBehavior</code></a></td><td>FindingItemOnMapBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../FoodConsumptionBehavior/"><code>FoodConsumptionBehavior</code></a></td><td>FoodConsumptionBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../GarrisonRecruitmentCampaignBehavior/"><code>GarrisonRecruitmentCampaignBehavior</code></a></td><td>GarrisonRecruitmentCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../GarrisonTroopsCampaignBehavior/"><code>GarrisonTroopsCampaignBehavior</code></a></td><td>GarrisonTroopsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../GoldBarterBehavior/"><code>GoldBarterBehavior</code></a></td><td>GoldBarterBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../GovernorCampaignBehavior/"><code>GovernorCampaignBehavior</code></a></td><td>GovernorCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../Grievance/"><code>Grievance</code></a></td><td>Grievance 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../GrievanceType/"><code>GrievanceType</code></a></td><td>GrievanceType 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../HeroAgentSpawnCampaignBehavior/"><code>HeroAgentSpawnCampaignBehavior</code></a></td><td>HeroAgentSpawnCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../HeroCraftingRecord/"><code>HeroCraftingRecord</code></a></td><td>HeroCraftingRecord 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../HeroKnownInformationCampaignBehavior/"><code>HeroKnownInformationCampaignBehavior</code></a></td><td>HeroKnownInformationCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../HeroSpawnCampaignBehavior/"><code>HeroSpawnCampaignBehavior</code></a></td><td>HeroSpawnCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../HideoutCampaignBehavior/"><code>HideoutCampaignBehavior</code></a></td><td>HideoutCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IAlleyCampaignBehavior/"><code>IAlleyCampaignBehavior</code></a></td><td>IAlleyCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IAllianceCampaignBehavior/"><code>IAllianceCampaignBehavior</code></a></td><td>IAllianceCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../ICaptivityCampaignBehavior/"><code>ICaptivityCampaignBehavior</code></a></td><td>ICaptivityCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../ICraftingCampaignBehavior/"><code>ICraftingCampaignBehavior</code></a></td><td>ICraftingCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IDisbandPartyCampaignBehavior/"><code>IDisbandPartyCampaignBehavior</code></a></td><td>IDisbandPartyCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IEducationLogic/"><code>IEducationLogic</code></a></td><td>IEducationLogic 是一个行为逻辑类，位于 TaleWorlds.CampaignSystem.CampaignBehaviors，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../IFacegenCampaignBehavior/"><code>IFacegenCampaignBehavior</code></a></td><td>IFacegenCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IGarrisonRecruitmentBehavior/"><code>IGarrisonRecruitmentBehavior</code></a></td><td>IGarrisonRecruitmentBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IHideoutCampaignBehavior/"><code>IHideoutCampaignBehavior</code></a></td><td>IHideoutCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IMapTracksCampaignBehavior/"><code>IMapTracksCampaignBehavior</code></a></td><td>IMapTracksCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IMarriageOfferCampaignBehavior/"><code>IMarriageOfferCampaignBehavior</code></a></td><td>IMarriageOfferCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IncidentsCampaignBehaviour/"><code>IncidentsCampaignBehaviour</code></a></td><td>IncidentsCampaignBehaviour 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IncidentTrigger/"><code>IncidentTrigger</code></a></td><td>IncidentTrigger 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IncidentType/"><code>IncidentType</code></a></td><td>IncidentType 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../InfluenceGainCampaignBehavior/"><code>InfluenceGainCampaignBehavior</code></a></td><td>InfluenceGainCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../InitialChildGenerationCampaignBehavior/"><code>InitialChildGenerationCampaignBehavior</code></a></td><td>InitialChildGenerationCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../INonReadyObjectHandler/"><code>INonReadyObjectHandler</code></a></td><td>INonReadyObjectHandler 是一个处理器，位于 TaleWorlds.CampaignSystem.CampaignBehaviors，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../IParleyCampaignBehavior/"><code>IParleyCampaignBehavior</code></a></td><td>IParleyCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IPatrolPartiesCampaignBehavior/"><code>IPatrolPartiesCampaignBehavior</code></a></td><td>IPatrolPartiesCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IRetrainOutlawPartyMembersCampaignBehavior/"><code>IRetrainOutlawPartyMembersCampaignBehavior</code></a></td><td>IRetrainOutlawPartyMembersCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IssuesCampaignBehavior/"><code>IssuesCampaignBehavior</code></a></td><td>IssuesCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IStatisticsCampaignBehavior/"><code>IStatisticsCampaignBehavior</code></a></td><td>IStatisticsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../ITeleportationCampaignBehavior/"><code>ITeleportationCampaignBehavior</code></a></td><td>ITeleportationCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../ItemBarterBehavior/"><code>ItemBarterBehavior</code></a></td><td>ItemBarterBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../ItemConsumptionBehavior/"><code>ItemConsumptionBehavior</code></a></td><td>ItemConsumptionBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../ItemTradeData/"><code>ItemTradeData</code></a></td><td>ItemTradeData 是一个数据载体，位于 TaleWorlds.CampaignSystem.CampaignBehaviors，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../ITradeAgreementsCampaignBehavior/"><code>ITradeAgreementsCampaignBehavior</code></a></td><td>ITradeAgreementsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../ITradeRumorCampaignBehavior/"><code>ITradeRumorCampaignBehavior</code></a></td><td>ITradeRumorCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IVassalAndMercenaryOfferCampaignBehavior/"><code>IVassalAndMercenaryOfferCampaignBehavior</code></a></td><td>IVassalAndMercenaryOfferCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IWorkshopWarehouseCampaignBehavior/"><code>IWorkshopWarehouseCampaignBehavior</code></a></td><td>IWorkshopWarehouseCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../JournalLogsCampaignBehavior/"><code>JournalLogsCampaignBehavior</code></a></td><td>JournalLogsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../KingdomDecisionProposalBehavior/"><code>KingdomDecisionProposalBehavior</code></a></td><td>KingdomDecisionProposalBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../LiftSiegeBarterBehavior/"><code>LiftSiegeBarterBehavior</code></a></td><td>LiftSiegeBarterBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../LordConversationsCampaignBehavior/"><code>LordConversationsCampaignBehavior</code></a></td><td>LordConversationsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../LordDefectionCampaignBehavior/"><code>LordDefectionCampaignBehavior</code></a></td><td>LordDefectionCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../LordDefectionCampaignBehaviorTypeDefiner/"><code>LordDefectionCampaignBehaviorTypeDefiner</code></a></td><td>LordDefectionCampaignBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../MapTracksCampaignBehavior/"><code>MapTracksCampaignBehavior</code></a></td><td>MapTracksCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../MapWeatherCampaignBehavior/"><code>MapWeatherCampaignBehavior</code></a></td><td>MapWeatherCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../MarriageOfferCampaignBehavior/"><code>MarriageOfferCampaignBehavior</code></a></td><td>MarriageOfferCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../MilitiasCampaignBehavior/"><code>MilitiasCampaignBehavior</code></a></td><td>MilitiasCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../MobilePartyTrainingBehavior/"><code>MobilePartyTrainingBehavior</code></a></td><td>MobilePartyTrainingBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../NotableHelperCharacterCampaignBehavior/"><code>NotableHelperCharacterCampaignBehavior</code></a></td><td>NotableHelperCharacterCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../NotablePowerManagementBehavior/"><code>NotablePowerManagementBehavior</code></a></td><td>NotablePowerManagementBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../NotablesCampaignBehavior/"><code>NotablesCampaignBehavior</code></a></td><td>NotablesCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../NotableSupportersCampaignBehavior/"><code>NotableSupportersCampaignBehavior</code></a></td><td>NotableSupportersCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../NPCEquipmentsCampaignBehavior/"><code>NPCEquipmentsCampaignBehavior</code></a></td><td>NPCEquipmentsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../Number/"><code>Number</code></a></td><td>Number 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../OrderOfBattleCampaignBehavior/"><code>OrderOfBattleCampaignBehavior</code></a></td><td>OrderOfBattleCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../OrderOfBattleFormationData/"><code>OrderOfBattleFormationData</code></a></td><td>OrderOfBattleFormationData 是一个数据载体，位于 TaleWorlds.CampaignSystem.CampaignBehaviors，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../ParleyCampaignBehavior/"><code>ParleyCampaignBehavior</code></a></td><td>ParleyCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PartiesBuyFoodCampaignBehavior/"><code>PartiesBuyFoodCampaignBehavior</code></a></td><td>PartiesBuyFoodCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PartiesBuyHorseCampaignBehavior/"><code>PartiesBuyHorseCampaignBehavior</code></a></td><td>PartiesBuyHorseCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PartiesSellLootCampaignBehavior/"><code>PartiesSellLootCampaignBehavior</code></a></td><td>PartiesSellLootCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PartiesSellPrisonerCampaignBehavior/"><code>PartiesSellPrisonerCampaignBehavior</code></a></td><td>PartiesSellPrisonerCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PartyDiplomaticHandlerCampaignBehavior/"><code>PartyDiplomaticHandlerCampaignBehavior</code></a></td><td>PartyDiplomaticHandlerCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PartyHealCampaignBehavior/"><code>PartyHealCampaignBehavior</code></a></td><td>PartyHealCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PartyRolesCampaignBehavior/"><code>PartyRolesCampaignBehavior</code></a></td><td>PartyRolesCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PartyUpgraderCampaignBehavior/"><code>PartyUpgraderCampaignBehavior</code></a></td><td>PartyUpgraderCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PatrolPartiesCampaignBehavior/"><code>PatrolPartiesCampaignBehavior</code></a></td><td>PatrolPartiesCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PeaceOfferCampaignBehavior/"><code>PeaceOfferCampaignBehavior</code></a></td><td>PeaceOfferCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PerkActivationHandlerCampaignBehavior/"><code>PerkActivationHandlerCampaignBehavior</code></a></td><td>PerkActivationHandlerCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PerkResetCampaignBehavior/"><code>PerkResetCampaignBehavior</code></a></td><td>PerkResetCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerArmyWaitBehavior/"><code>PlayerArmyWaitBehavior</code></a></td><td>PlayerArmyWaitBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerCaptivityCampaignBehavior/"><code>PlayerCaptivityCampaignBehavior</code></a></td><td>PlayerCaptivityCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerTownVisitCampaignBehavior/"><code>PlayerTownVisitCampaignBehavior</code></a></td><td>PlayerTownVisitCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerTrackCompanionBehavior/"><code>PlayerTrackCompanionBehavior</code></a></td><td>PlayerTrackCompanionBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerVariablesBehavior/"><code>PlayerVariablesBehavior</code></a></td><td>PlayerVariablesBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PoliticalStagnationAndBorderIncidentCampaignBehavior/"><code>PoliticalStagnationAndBorderIncidentCampaignBehavior</code></a></td><td>PoliticalStagnationAndBorderIncidentCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../Pregnancy/"><code>Pregnancy</code></a></td><td>Pregnancy 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PregnancyCampaignBehavior/"><code>PregnancyCampaignBehavior</code></a></td><td>PregnancyCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PregnancyCampaignBehaviorTypeDefiner/"><code>PregnancyCampaignBehaviorTypeDefiner</code></a></td><td>PregnancyCampaignBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PrisonerCaptureCampaignBehavior/"><code>PrisonerCaptureCampaignBehavior</code></a></td><td>PrisonerCaptureCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PrisonerRecruitCampaignBehavior/"><code>PrisonerRecruitCampaignBehavior</code></a></td><td>PrisonerRecruitCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PrisonerReleaseCampaignBehavior/"><code>PrisonerReleaseCampaignBehavior</code></a></td><td>PrisonerReleaseCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../RansomOfferCampaignBehavior/"><code>RansomOfferCampaignBehavior</code></a></td><td>RansomOfferCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../RebellionsCampaignBehavior/"><code>RebellionsCampaignBehavior</code></a></td><td>RebellionsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../RecruitingDetail/"><code>RecruitingDetail</code></a></td><td>RecruitingDetail 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../RecruitmentCampaignBehavior/"><code>RecruitmentCampaignBehavior</code></a></td><td>RecruitmentCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../RecruitmentCampaignBehaviorTypeDefiner/"><code>RecruitmentCampaignBehaviorTypeDefiner</code></a></td><td>RecruitmentCampaignBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../RecruitPrisonersCampaignBehavior/"><code>RecruitPrisonersCampaignBehavior</code></a></td><td>RecruitPrisonersCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../RetrainOutlawPartyMembersBehavior/"><code>RetrainOutlawPartyMembersBehavior</code></a></td><td>RetrainOutlawPartyMembersBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../RomanceCampaignBehavior/"><code>RomanceCampaignBehavior</code></a></td><td>RomanceCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../RomanticPreference/"><code>RomanticPreference</code></a></td><td>RomanticPreference 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../SallyOutsCampaignBehavior/"><code>SallyOutsCampaignBehavior</code></a></td><td>SallyOutsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../SetPrisonerFreeBarterBehavior/"><code>SetPrisonerFreeBarterBehavior</code></a></td><td>SetPrisonerFreeBarterBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementClaimantCampaignBehavior/"><code>SettlementClaimantCampaignBehavior</code></a></td><td>SettlementClaimantCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementVariablesBehavior/"><code>SettlementVariablesBehavior</code></a></td><td>SettlementVariablesBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeAftermathCampaignBehavior/"><code>SiegeAftermathCampaignBehavior</code></a></td><td>SiegeAftermathCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeAmbushCampaignBehavior/"><code>SiegeAmbushCampaignBehavior</code></a></td><td>SiegeAmbushCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeEventCampaignBehavior/"><code>SiegeEventCampaignBehavior</code></a></td><td>SiegeEventCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TeleportationCampaignBehavior/"><code>TeleportationCampaignBehavior</code></a></td><td>TeleportationCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TeleportationCampaignBehaviorTypeDefiner/"><code>TeleportationCampaignBehaviorTypeDefiner</code></a></td><td>TeleportationCampaignBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TeleportationData/"><code>TeleportationData</code></a></td><td>TeleportationData 是一个数据载体，位于 TaleWorlds.CampaignSystem.CampaignBehaviors，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../TownMercenaryData/"><code>TownMercenaryData</code></a></td><td>TownMercenaryData 是一个数据载体，位于 TaleWorlds.CampaignSystem.CampaignBehaviors，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../TownSecurityCampaignBehavior/"><code>TownSecurityCampaignBehavior</code></a></td><td>TownSecurityCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TradeActionLog/"><code>TradeActionLog</code></a></td><td>TradeActionLog 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TradeActionLogPool/"><code>TradeActionLogPool</code></a></td><td>TradeActionLogPool 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TradeAgreement/"><code>TradeAgreement</code></a></td><td>TradeAgreement 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TradeAgreementsCampaignBehavior/"><code>TradeAgreementsCampaignBehavior</code></a></td><td>TradeAgreementsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TradeAgreementsCampaignBehaviorTypeDefiner/"><code>TradeAgreementsCampaignBehaviorTypeDefiner</code></a></td><td>TradeAgreementsCampaignBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TradeCampaignBehavior/"><code>TradeCampaignBehavior</code></a></td><td>TradeCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TradeGoodType/"><code>TradeGoodType</code></a></td><td>TradeGoodType 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TradeRumorsCampaignBehavior/"><code>TradeRumorsCampaignBehavior</code></a></td><td>TradeRumorsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TradeSkillCampaignBehavior/"><code>TradeSkillCampaignBehavior</code></a></td><td>TradeSkillCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TradeSkillCampaignBehaviorTypeDefiner/"><code>TradeSkillCampaignBehaviorTypeDefiner</code></a></td><td>TradeSkillCampaignBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TransferPrisonerBarterBehavior/"><code>TransferPrisonerBarterBehavior</code></a></td><td>TransferPrisonerBarterBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../VassalAndMercenaryOfferCampaignBehavior/"><code>VassalAndMercenaryOfferCampaignBehavior</code></a></td><td>VassalAndMercenaryOfferCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../ViewDataTrackerCampaignBehavior/"><code>ViewDataTrackerCampaignBehavior</code></a></td><td>ViewDataTrackerCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../VillageGoodProductionCampaignBehavior/"><code>VillageGoodProductionCampaignBehavior</code></a></td><td>VillageGoodProductionCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../VillageHealCampaignBehavior/"><code>VillageHealCampaignBehavior</code></a></td><td>VillageHealCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../VillageHostileActionCampaignBehavior/"><code>VillageHostileActionCampaignBehavior</code></a></td><td>VillageHostileActionCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../VillagerCampaignBehavior/"><code>VillagerCampaignBehavior</code></a></td><td>VillagerCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../VillagerCampaignBehaviorTypeDefiner/"><code>VillagerCampaignBehaviorTypeDefiner</code></a></td><td>VillagerCampaignBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../VillageTradeBoundCampaignBehavior/"><code>VillageTradeBoundCampaignBehavior</code></a></td><td>VillageTradeBoundCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../VolunteerTroop/"><code>VolunteerTroop</code></a></td><td>VolunteerTroop 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../WorkshopData/"><code>WorkshopData</code></a></td><td>WorkshopData 是一个数据载体，位于 TaleWorlds.CampaignSystem.CampaignBehaviors，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../WorkshopsCampaignBehavior/"><code>WorkshopsCampaignBehavior</code></a></td><td>WorkshopsCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../WorkshopsCampaignBehaviorTypeDefiner/"><code>WorkshopsCampaignBehaviorTypeDefiner</code></a></td><td>WorkshopsCampaignBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../WorkshopsCharactersCampaignBehavior/"><code>WorkshopsCharactersCampaignBehavior</code></a></td><td>WorkshopsCharactersCampaignBehavior 是 TaleWorlds.CampaignSystem.CampaignBehaviors 下的公开类型。</td></tr>
+</tbody></table>
+<h2 id="ben-qu-yu-qi-ta-zi-xi-tong">本区域其他子系统</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../agentorigins/">AgentOrigins</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../bartersystem/">BarterSystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../charactercreationcontent/">CharacterCreationContent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../characterdevelopment/">CharacterDevelopment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../characters/">Characters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../componentinterfaces/">ComponentInterfaces</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../conversation/">Conversation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../election/">Election</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../encounters/">Encounters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../encyclopedia/">Encyclopedia</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../extensions/">Extensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../gamecomponents/">GameComponents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../gamemenus/">GameMenus</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../gamestate/">GameState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../heroes/">Heroes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../inventory/">Inventory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../issues/">Issues</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../logentries/">LogEntries</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../map/">Map</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../mapevents/">MapEvents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../mapnotificationtypes/">MapNotificationTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../naval/">Naval</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../parties/">Parties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../party/">Party</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../quests/">Quests</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../roster/">Roster</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../savecompability/">SaveCompability</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../sceneinformationpopuptypes/">SceneInformationPopupTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../settlements/">Settlements</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../siege/">Siege</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/campaignbehaviors/./../tournamentgames/">TournamentGames</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

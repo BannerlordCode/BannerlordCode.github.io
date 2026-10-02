@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampaignTime</title>
+  <meta name="description" content="Bannerlord 战役世界的时间&#x2F;日期表示：一个以整数 tick 存储、完全不可变的结构体，提供时刻构造、时长算术、精确比较、日历换算与本地化日期字符串等能力。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/CampaignTime/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/CampaignTime/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CampaignTime</span>
+    </nav>
+  
+  <h1>CampaignTime</h1>
+  <h1 id="campaigntime">CampaignTime</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public struct CampaignTime : IComparable&lt;CampaignTime&gt;</code><br />
+<strong>Base:</strong> <code>IComparable&lt;CampaignTime&gt;</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/CampaignTime.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>CampaignTime</code> 是战役地图（campaign）里<strong>时间的统一表示</strong>：它既可以是一"时刻"（某年某季某日），也可以是一"时长"（30 天、3 小时）。它内部只用一个 <code>readonly long _numTicks</code> 存储——从战役起点（<code>CampaignTimeModel.CampaignStartTime</code>）算起的整数 tick 数，所有更大的时间单位（毫秒、秒、分、时、天、周、季、年）都由一组静态常数 <code>TimeTicksPerXxx</code> 换算得到。因为只存一个整数，所以它<strong>是不可变结构体</strong>：任何"加一天""三天后"的操作都返回一个全新的 <code>CampaignTime</code>，原来的实例永远不变。游戏里几乎所有需要"记录某个时点"或"判断两条时间先后"的地方（英雄死亡日、军团成立时刻、商队合约冷却、任务截止等）都用它，而不是 <code>float</code>。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>CampaignTime</code> 想成<strong>战役世界里的"时间戳/秒表"</strong>，由引擎唯一持有，mod 只读取或基于它构造新值：</p>
+<ul>
+<li><strong>谁持有它</strong>：真正的时钟在 <code>Campaign.Current.MapTimeTracker</code>（<code>internal</code> 单例，每帧推进 <code>_numTicks</code>）。<code>CampaignTime.Now</code>、<code>CampaignTime.DeltaTime</code> 只是它的只读快照。<code>CampaignTime</code> 本身没有 setter，你改不了"全局现在"。</li>
+<li><strong>不可变</strong>：<code>t + CampaignTime.Days(1)</code> 返回新值，旧的 <code>t</code> 不变；没有 <code>t.AddDays(...)</code> 这种就地修改方法。需要"更新"时请重新赋值：<code>next = now + CampaignTime.Days(1)</code>。</li>
+<li><strong>不要用原始 <code>float</code> 比较时间</strong>：<code>Campaign.CurrentTime</code> 是 <code>(float)CampaignTime.Now.ToHours</code>，是一个以"小时"为单位的浮点数。用它做加法或 <code>&gt;</code>/<code>&lt;</code> 比较会丢失 tick 精度、受浮点误差影响，且不同版本行为可能漂移。要比较或调度，请保存 <code>CampaignTime</code> 字段，用其内置的比较运算符或 <code>ElapsedDaysUntilNow</code>。</li>
+<li><strong>tick 顺序</strong>：在<strong>同一个 campaign tick 内</strong>，<code>CampaignTime.Now</code> 是恒定不变的；时间只在下一 tick 的 <code>MapTimeTracker.Tick</code> 调用后才会推进。依赖"时间已经过去"的逻辑必须等到下一个 tick 才会观察到变化。<code>DeltaTime</code> 表示<strong>上一个 tick</strong> 实际前进的步长（受游戏速度倍率影响）。</li>
+<li>不要在战役创建之前（<code>Campaign.Current</code> 为空，例如主菜单、战斗场景早期）读取 <code>Now</code>/<code>DeltaTime</code>，否则会抛 <code>NullReferenceException</code>。</li>
+</ul>
+<h2 id="ru-he-huo-qu-campaigntime">如何获取 CampaignTime</h2>
+<pre><code data-lang="csharp">// 1. 当前战役时刻（最常用）：等价于 Campaign.Current.MapTimeTracker.Now
+CampaignTime now = CampaignTime.Now;
+
+// 2. 上一个 tick 推进了多久（受游戏速度影响，用于平滑推进逻辑）
+CampaignTime step = CampaignTime.DeltaTime;
+
+// 3. 用一个 Duration 构造一个&quot;时长&quot;（基准是 tick 0，不是现在）
+CampaignTime thirtyDays = CampaignTime.Days(30f);
+CampaignTime threeHours = CampaignTime.Hours(3f);
+
+// 4. 以&quot;现在&quot;为基准，向后偏移得到&quot;未来时刻&quot;
+CampaignTime threeDaysLater = CampaignTime.DaysFromNow(3f);
+CampaignTime oneHourLater  = CampaignTime.HoursFromNow(1f);
+
+// 5. 反例：Campaign.CurrentTime 是 float（小时），仅适合内部便捷读取，不要拿来做时间比较/调度
+float hoursFloat = Campaign.CurrentTime; // = (float)CampaignTime.Now.ToHours
+</code></pre>
+<blockquote>
+<p>约定值：<code>CampaignTime.Zero</code> 是战役起点（等于 <code>CampaignStartTime</code>），<code>CampaignTime.Never</code> 是 <code>long.MaxValue</code>，用来表示"没有截止时间 / 永不"。不要对 <code>Never</code> 做算术或 <code>ElapsedXxx</code> 计算，会溢出。</p>
+</blockquote>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<h3 id="jing-tai-shu-xing">静态属性</h3>
+<table><thead><tr><th>属性</th><th>类型</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>Now</code></td><td><code>CampaignTime</code></td><td>当前战役时刻；读取 <code>Campaign.Current.MapTimeTracker</code> 当前 tick 的 <code>_numTicks</code>。</td></tr>
+<tr><td><code>DeltaTime</code></td><td><code>CampaignTime</code></td><td>上一个 tick 到当前 tick 经过的时长（<code>MapTimeTracker.DeltaTimeInTicks</code> 换算）。</td></tr>
+<tr><td><code>Zero</code></td><td><code>CampaignTime</code></td><td>零时刻 = 战役起点。</td></tr>
+<tr><td><code>Never</code></td><td><code>CampaignTime</code></td><td>代表"无限未来"（<code>long.MaxValue</code>），用于"无截止"约定。</td></tr>
+<tr><td><code>DaysInSeason</code></td><td><code>int</code></td><td>每季天数 = <code>WeeksInSeason * DaysInWeek</code>。</td></tr>
+<tr><td><code>DaysInYear</code></td><td><code>int</code></td><td>每年天数 = <code>DaysInSeason * SeasonsInYear</code>。</td></tr>
+</tbody></table>
+<h3 id="shi-li-shu-xing-xiang-dui-xian-zai-de-huan-suan">实例属性（相对"现在"的换算）</h3>
+<table><thead><tr><th>属性</th><th>类型</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>IsFuture</code> / <code>IsPast</code> / <code>IsNow</code></td><td><code>bool</code></td><td>本时刻相对当前时间：在未来 / 已过去 / 正是现在。</td></tr>
+<tr><td><code>IsDayTime</code> / <code>IsNightTime</code></td><td><code>bool</code></td><td>当前小时是否落在 <code>[SunRise, SunSet)</code>；夜晚即"非白天"。</td></tr>
+<tr><td><code>CurrentHourInDay</code></td><td><code>float</code></td><td>当天内的小时小数（0 ~ <code>HoursInDay</code>）。</td></tr>
+<tr><td><code>ElapsedMillisecondsUntilNow</code> … <code>ElapsedYearsUntilNow</code></td><td><code>float</code></td><td>从**本时刻到"现在"**经过了多少（单位）。本时刻越早，值越大。</td></tr>
+<tr><td><code>RemainingMillisecondsFromNow</code> … <code>RemainingYearsFromNow</code></td><td><code>float</code></td><td>从**"现在"到本时刻**还有多少（本时刻在未来时为正）。</td></tr>
+<tr><td><code>ToMilliseconds</code> … <code>ToYears</code></td><td><code>double</code></td><td>把本时刻的 ticks <strong>直接</strong>换算成对应单位（绝对量，不相对"现在"）。</td></tr>
+<tr><td><code>GetHourOfDay</code> / <code>GetDayOfWeek</code> / <code>GetDayOfSeason</code> / <code>GetDayOfYear</code> / <code>GetWeekOfSeason</code></td><td><code>int</code></td><td>在各自周期内的序号（从 0 起）。</td></tr>
+<tr><td><code>GetSeasonOfYear</code></td><td><code>CampaignTime.Seasons</code></td><td>当前季节枚举：<code>Spring</code>/<code>Summer</code>/<code>Autumn</code>/<code>Winter</code>。</td></tr>
+<tr><td><code>GetYear</code></td><td><code>int</code></td><td>从战役起点算起的年份序号。</td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="gou-zao-shi-chang-yu-wei-lai-shi-ke">构造时长与未来时刻</h3>
+<h4 id="public-static-campaigntime-days-float-valueindays-hours-weeks-years"><code>public static CampaignTime Days(float valueInDays)</code> / <code>Hours</code> / <code>Weeks</code> / <code>Years</code></h4>
+<p>构造一个代表"时长"的 <code>CampaignTime</code>（以 tick 0 为基准）。常用于 <code>+</code>/<code>-</code> 运算或 <code>ElapsedXxx</code> 比较。</p>
+<pre><code data-lang="csharp">// 30 天时长
+CampaignTime cooldown = CampaignTime.Days(30f);
+</code></pre>
+<h4 id="public-static-campaigntime-daysfromnow-float-valueindays-hoursfromnow-weeksfromnow-yearsfromnow"><code>public static CampaignTime DaysFromNow(float valueInDays)</code> / <code>HoursFromNow</code> / <code>WeeksFromNow</code> / <code>YearsFromNow</code></h4>
+<p>以"现在"为基准向后偏移，返回未来的绝对时刻。</p>
+<pre><code data-lang="csharp">// 4 天后这个时间点（CompanionGrievanceBehavior 里就用来安排下一次可抱怨时间）
+CampaignTime nextGrievance = CampaignTime.DaysFromNow(4f);
+</code></pre>
+<h4 id="public-static-campaigntime-seconds-long-minutes-long-milliseconds-long-ji-qi-fromnow-bian-ti"><code>public static CampaignTime Seconds(long)</code> / <code>Minutes(long)</code> / <code>Milliseconds(long)</code> 及其 <code>*FromNow</code> 变体</h4>
+<p>更细粒度（毫秒/秒/分）的构造；参数用 <code>long</code>，避免浮点截断。</p>
+<pre><code data-lang="csharp">CampaignTime inFiveMinutes = CampaignTime.MinutesFromNow(5L);
+</code></pre>
+<h3 id="suan-shu">算术</h3>
+<h4 id="public-static-campaigntime-operator-campaigntime-g1-campaigntime-g2"><code>public static CampaignTime operator +(CampaignTime g1, CampaignTime g2)</code></h4>
+<p>把两个 <code>CampaignTime</code> 相加，<strong>返回新值</strong>。语义取决于操作数：时刻 + 时长 = 新时刻；时长 + 时长 = 更长的时长。</p>
+<pre><code data-lang="csharp">// 在当前时刻的基础上加一个冷却时长，得到合约冷却到期时刻（BarterManager 写法）
+CampaignTime expiry = CampaignTime.Now + CampaignTime.Days(
+    (float)Campaign.Current.Models.BarterModel.BarterCooldownWithHeroInDays);
+</code></pre>
+<h4 id="public-static-campaigntime-operator-campaigntime-g1-campaigntime-g2-1"><code>public static CampaignTime operator -(CampaignTime g1, CampaignTime g2)</code></h4>
+<p>相减，<strong>返回新值</strong>：时刻 − 时刻 = 时长；时刻 − 时长 = 更早的时刻。</p>
+<pre><code data-lang="csharp">// Army 用&quot;现在&quot;减去成立时刻，得到军团年龄，再换算成天（Army.cs）
+CampaignTime age = CampaignTime.Now - this._creationTime;
+float ageInDays = age.ElapsedDaysUntilNow;
+</code></pre>
+<h3 id="bi-jiao">比较</h3>
+<h4 id=""><code>==</code> / <code>!=</code> / <code>&lt;</code> / <code>&gt;</code> / <code>&lt;=</code> / <code>&gt;=</code></h4>
+<p>基于内部 <code>_numTicks</code> 的<strong>整数</strong>比较，精确、无浮点误差。比较两个时刻请优先用这些运算符。</p>
+<pre><code data-lang="csharp">if (tournament.CreationTime &lt; CampaignTime.Now - CampaignTime.Days(15f))
+{
+    // 锦标赛创建已超过 15 天
+}
+</code></pre>
+<h4 id="public-int-compareto-campaigntime-other-public-bool-equals-campaigntime-other"><code>public int CompareTo(CampaignTime other)</code> / <code>public bool Equals(CampaignTime other)</code></h4>
+<p><code>IComparable&lt;CampaignTime&gt;</code> 实现：相等当且仅当 <code>_numTicks</code> 相等。<code>Equals</code> 用整数比较，<code>GetHashCode</code> 直接返回 <code>_numTicks</code> 的哈希，因此 <code>CampaignTime</code> 可作为字典键稳定使用。</p>
+<h3 id="zhuan-huan-yu-ge-shi-hua">转换与格式化</h3>
+<h4 id="public-double-todays-tohours-toseconds-tomilliseconds-toweeks-toseasons-toyears"><code>public double ToDays</code> / <code>ToHours</code> / <code>ToSeconds</code> / <code>ToMilliseconds</code> / <code>ToWeeks</code> / <code>ToSeasons</code> / <code>ToYears</code></h4>
+<p>把本时刻的 ticks <strong>直接</strong>换算成对应单位的 <code>double</code>（绝对量）。常用于把"时刻"存成整数天数索引：</p>
+<pre><code data-lang="csharp">// Kingdom 记录&quot;上次建军团的那一天&quot;作为整数天编号（Kingdom.cs）
+this.LastArmyCreationDay = (int)CampaignTime.Now.ToDays;
+
+// JournalLog 计算两条日志相隔几天
+int daysBetween = MathF.Ceiling(CampaignTime.Now.ToDays) - MathF.Ceiling(this.LogTime.ToDays);
+</code></pre>
+<h4 id="public-override-string-tostring"><code>public override string ToString()</code></h4>
+<p>用本地化文本 <code>str_date_format</code> 输出"季节 年 日"形式（如 <code>Spring, Year 5, Day 12</code>，具体措辞随游戏语言）。内部会填入 <code>SEASON</code>/<code>YEAR</code>/<code>DAY</code> 三个文本变量。</p>
+<pre><code data-lang="csharp">// KillCharacterAction 在死亡日志里写入死亡年份
+textObject2.SetTextVariable(&quot;YEAR&quot;, CampaignTime.Now.GetYear.ToString());
+InformationManager.DisplayMessage(new InformationMessage(CampaignTime.Now.ToString()));
+</code></pre>
+<blockquote>
+<p>本版本（v1.3.15 及 v1.4.5）<strong>没有</strong> <code>ToDateString()</code> 方法——它是在更晚的版本才加入的。要得到日期字符串请用 <code>ToString()</code>。</p>
+</blockquote>
+<h4 id="public-bool-stringsameas-campaigntime-othertime"><code>public bool StringSameAs(CampaignTime otherTime)</code></h4>
+<p>判断两个时刻是否落在<strong>同一天</strong>（比较 <code>_numTicks / TimeTicksPerDay</code> 是否相等），忽略当天内的小时差。</p>
+<pre><code data-lang="csharp">if (someTime.StringSameAs(CampaignTime.Now))
+{
+    // 是同一天
+}
+</code></pre>
+<h2 id="dian-xing-yong-fa-shi-li">典型用法示例</h2>
+<h3 id="shi-li-1-pan-duan-mou-ying-xiong-shi-fou-yi-si-wang-chao-guo-40-tian">示例 1：判断某英雄是否已死亡超过 40 天</h3>
+<p><code>Hero.DeathDay</code> 在死亡时被设为 <code>CampaignTime.Now</code>；之后随时可用 <code>ElapsedDaysUntilNow</code> 求距今天数（<code>CompanionsCampaignBehavior</code> 写法）：</p>
+<pre><code data-lang="csharp">if (hero.IsWanderer &amp;&amp; hero.DeathDay.ElapsedDaysUntilNow &gt;= 40f)
+{
+    // 流浪者已去世超过 40 天，可触发招募新流浪者等逻辑
+}
+</code></pre>
+<h3 id="shi-li-2-wei-xing-wei-an-pai-yi-ge-leng-que-dao-qi-shi-ke-bing-zai-mei-tian-tick-jian-cha">示例 2：为行为安排一个"冷却到期时刻"并在每天 tick 检查</h3>
+<p>行为里保存一个 <code>CampaignTime</code> 字段，用 <code>DaysFromNow</code> 设定下次可触发时间；每天 <code>DailyTick</code> 里用 <code>ElapsedDaysUntilNow</code> 判断是否已到（<code>CompanionGrievanceBehavior</code> 写法）：</p>
+<pre><code data-lang="csharp">// 设定 4 天后的下一次可抱怨时刻
+value.NextGrievanceTime = CampaignTime.DaysFromNow(4f);
+
+// 在 DailyTick 中：只要距上次已 &gt;= 56 天就允许清算
+if (value.NextGrievanceTime.ElapsedDaysUntilNow &gt;= 56f)
+{
+    // 触发抱怨逻辑
+}
+</code></pre>
+<h3 id="shi-li-3-ji-suan-liang-ge-shi-ke-zhi-jian-de-shi-chang-bing-bi-jiao-xian-hou">示例 3：计算两个时刻之间的时长并比较先后</h3>
+<p><code>Army</code> 记录成立时刻，再随时用减法得到"年龄"；<code>TournamentCampaignBehavior</code> 用 <code>ElapsedDaysUntilNow</code> 判断锦标赛是否该移除：</p>
+<pre><code data-lang="csharp">// 成立时记录
+this._creationTime = CampaignTime.Now;
+
+// 之后任意时刻：计算年龄天数
+float ageInDays = (CampaignTime.Now - this._creationTime).ElapsedDaysUntilNow;
+
+// 锦标赛超过 RemoveTournamentAfterDays 天则移除
+if (tournamentGame.CreationTime.ElapsedDaysUntilNow &gt;= (float)tournamentGame.RemoveTournamentAfterDays)
+{
+    // 移除该锦标赛
+}
+</code></pre>
+<h2 id="feng-xian-yu-beng-kui-bian-jie">风险与崩溃边界</h2>
+<ul>
+<li><strong>误以为 <code>CampaignTime</code> 可就地修改</strong>：它是不可变结构体，所有 <code>+</code>/<code>-</code>/<code>*FromNow</code> 都返回<strong>新值</strong>。不存在 <code>t.AddDays(1)</code> 之类的方法；忘记接收返回值会让逻辑"看起来没生效"。</li>
+<li><strong>拿 <code>float</code>（<code>Campaign.CurrentTime</code>）做时间比较/调度</strong>：<code>Campaign.CurrentTime</code> 是 <code>(float)CampaignTime.Now.ToHours</code>，用它 <code>+ 30f * HoursInDay</code> 或互相比较会引入浮点误差、且无法精确表达 tick。引擎内部个别地方（如 <code>StartMercenaryServiceAction</code>）确实这么写，但那是对内部字段的妥协；mod 应保存 <code>CampaignTime</code> 字段并用 <code>&gt;</code>/<code>&lt;</code> 运算符或 <code>ElapsedDaysUntilNow</code>。</li>
+<li><strong>战役初始化前访问</strong>：<code>Now</code>/<code>DeltaTime</code>/<code>CurrentTicks</code> 都读取 <code>Campaign.Current.MapTimeTracker</code>。在 <code>Campaign.Current</code> 为 <code>null</code> 的阶段（主菜单、战斗场景早期、部分模块加载时机）调用会抛 <code>NullReferenceException</code>。</li>
+<li><strong>tick 顺序误解</strong>：<code>Now</code> 在同一次 campaign tick 内恒定不变；在 tick 中途反复读取不会看到"时间流动"。依赖时间推进的代码（如冷却到期）要等下一个 tick 才生效。<code>DeltaTime</code> 是上一个 tick 的步长，会随玩家调游戏速度（暂停/加速）变化。</li>
+<li><strong><code>Never</code>/<code>Zero</code> 的算术</strong>：<code>Never</code> 为 <code>long.MaxValue</code>，对其做 <code>+</code> 或 <code>ElapsedXxx</code> 会整数溢出；只把它当"哨兵值"比较或赋值，不要参与运算。</li>
+<li><strong>换算溢出与截断</strong>：<code>Days/Hours/Weeks/Years</code> 用 <code>(long)(value * TimeTicksPerXxx)</code> 截断，超大值会溢出 <code>long</code>；<code>Seconds/Minutes/Milliseconds</code> 接受 <code>long</code> 但仍受 <code>long.MaxValue</code> 限制。需要"超大未来"请用 <code>Never</code>。</li>
+</ul>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li><strong>v1.3.0 / v1.3.15</strong>：本页描述的全部公开 API 适用。<code>Now</code>、<code>DeltaTime</code>、<code>Zero</code>、<code>Never</code> 等以 <code>get</code> 访问器属性形式提供。</li>
+<li><strong>v1.4.5</strong>：公开 API 与行为<strong>完全一致</strong>；仅把 <code>Now</code>/<code>DeltaTime</code>/<code>Zero</code>/<code>Never</code> 等只读属性改写成了表达式体属性（<code>=&gt; …</code>），对调用方无影响，无需改代码。</li>
+<li><strong><code>ToDateString()</code> 不存在于 v1.3.15 与 v1.4.5</strong>：它是在更晚版本才加入的便捷方法。当前要拿到本地化日期字符串请使用 <code>ToString()</code>。</li>
+<li><code>Campaign.CurrentTime</code>（返回 <code>float</code> 小时）在上述所有版本中都存在，作为引擎内部便捷入口；写 mod 的比较与调度逻辑时仍应优先使用 <code>CampaignTime</code> 本身。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+<li><a href="../../campaign/Campaign/">Campaign</a> — <code>Campaign.Current</code>、<code>MapTimeTracker</code> 与 <code>Campaign.CurrentTime</code> 的来源</li>
+<li><a href="../../campaign-ext/CampaignBehaviorBase/">CampaignBehaviorBase</a> — 在每日/每帧 tick 中读取 <code>CampaignTime.Now</code> 的典型位置</li>
+<li><a href="../../campaign-ext/Army/">Army</a> — 用 <code>CampaignTime.Now</code> 记录 <code>_creationTime</code> 并用减法计算军团年龄</li>
+<li><a href="../../campaign-ext/GameModels/">GameModels</a> — <code>CampaignTimeModel</code> 提供昼夜与刻度常数（SunRise/SunSet/TimeTicksPerXxx）</li>
+<li><a href="../../campaign/Clan/">Clan</a> — <code>Clan.LastFactionChangeTime</code> 用 <code>CampaignTime.Now</code> 记录</li>
+<li><a href="../../campaign/Hero/">Hero</a> — <code>Hero.DeathDay</code> 等时点字段使用 <code>CampaignTime</code></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign-ext/">campaign-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign-ext/NotablePowerManagementBehavior/">&larr; NotablePowerManagementBehavior</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign-ext/DefaultPartySizeLimitModel/">DefaultPartySizeLimitModel &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

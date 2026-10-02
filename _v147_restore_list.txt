@@ -1,0 +1,15 @@
+content/v1.4.7/en/api/achievementsystem/_index.md
+content/v1.4.7/en/api/activitysystem/_index.md
+content/v1.4.7/en/api/campaign/_index.md
+content/v1.4.7/en/api/core/_index.md
+content/v1.4.7/en/api/core-extra/_index.md
+content/v1.4.7/en/api/custombattle/_index.md
+content/v1.4.7/en/api/engine/_index.md
+content/v1.4.7/en/api/gui/_index.md
+content/v1.4.7/en/api/mission/_index.md
+content/v1.4.7/en/api/mission-ext/_index.md
+content/v1.4.7/en/api/modulemanager/_index.md
+content/v1.4.7/en/api/network/_index.md
+content/v1.4.7/en/api/sandbox/_index.md
+content/v1.4.7/en/api/system/_index.md
+content/v1.4.7/en/api/viewmodel/_index.md

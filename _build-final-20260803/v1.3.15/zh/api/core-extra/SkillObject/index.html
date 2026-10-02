@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillObject</title>
+  <meta name="description" content="Bannerlord 中“技能”的静态定义对象：单手、骑术、交易等 18 个内置技能通过 DefaultSkills 注册进 ObjectManager，仅持有名称、描述、所属属性与学习提示；角色的实际技能等级由 Hero&#x2F;HeroDeveloper 与 SkillLevelingManager 另行维护，本类本身不保存任何个人进度。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core-extra/SkillObject/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core-extra/SkillObject/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/core-extra/SkillObject/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/core-extra/SkillObject/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/core-extra/SkillObject/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/core-extra/SkillObject/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="active">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;core-extra&#x2F;">core-extra 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">SkillObject</span>
+    </nav>
+  
+  <h1>SkillObject</h1>
+  <h1 id="skillobject">SkillObject</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Core<br />
+<strong>Module:</strong> TaleWorlds.Core<br />
+<strong>Type:</strong> <code>public sealed class SkillObject : PropertyObject</code><br />
+<strong>Base:</strong> <code>PropertyObject</code>（<code>→ MBObjectBase</code>）<br />
+<strong>File:</strong> <code>TaleWorlds.Core/SkillObject.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>SkillObject</code> 是<strong>技能目录里的一条“定义”</strong>，而不是某个角色当前的技能等级。游戏启动时 <code>DefaultSkills</code> 把 18 个内置技能（单手武器、双手武器、骑术、贸易、领导、工程……）逐个 <code>new</code> 出来、注册进 <code>MBObjectManager</code>、再 <code>Initialize</code> 上名称与描述。从此之后，这 18 个实例就是全局唯一的“技能身份证”。</p>
+<p>真正的“某人某技能多少级、攒了多少经验”并不在这个类里：那些数据挂在 <code>Hero</code>/<code>CharacterObject</code> 上（经 <code>HeroDeveloper</code> 维护），升级逻辑由 <code>SkillLevelingManager</code> 这个模型驱动。所以 <code>SkillObject</code> 的职责是<strong>被引用</strong>——当你要查询/修改一个英雄的技能、要遍历所有技能、或要在 UI 上展示“这个技能练什么属性、怎么学”时，你拿的就是它。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>SkillObject</code> 想成**“技能卡片”的模板**：</p>
+<ul>
+<li>它和英雄是一对多的关系——成千上万个 <code>Hero</code> 都引用同一个 <code>DefaultSkills.OneHanded</code> 实例，但各自保存自己的等级。</li>
+<li>它是 <code>MBObjectBase</code> 派生对象，<strong>靠 <code>StringId</code> 在存档里被引用</strong>。你永远不要自己 <code>new SkillObject("OneHanded")</code> 来当“单手武器”用——那样得到的是另一个未被注册、无法参与存档解析的对象。要拿单手武器，用 <code>DefaultSkills.OneHanded</code> 或 <code>MBObjectManager.Instance.GetObject&lt;SkillObject&gt;("OneHanded")</code>。</li>
+<li>它是只读数据：名称、描述、<code>Attributes</code>、<code>HowToLearnSkillText</code> 在游戏初始化后就固定了。<code>Initialize</code> 由引擎在加载期调用，模组通常不应再对已注册技能调用它。</li>
+<li><strong>何时用</strong>：需要一个“技能”的引用去读它的属性、遍历全部技能、或传给 <code>Hero.GetSkillValue</code> / <code>Hero.AddSkillXp</code> / <code>SkillLevelingManager</code> 时。</li>
+<li><strong>何时不要用</strong>：想给某个角色加技能经验或改等级时——直接改 <code>SkillObject</code> 毫无效果。正确入口是 <code>Hero.MainHero.AddSkillXp(skill, xp)</code>（内部转交 <code>HeroDeveloper</code>），升级判定走 <code>SkillLevelingManager</code> 的 <code>On*</code> 事件。</li>
+<li><strong>依赖</strong>：上游是 <code>PropertyObject</code>/<code>MBObjectBase</code>（身份与文本）、<code>CharacterAttribute</code>/<code>DefaultCharacterAttributes</code>（它贡献的属性）、<code>GameTexts</code>（学习提示文本）、<code>MBObjectManager</code>（注册与检索）；下游是 <code>DefaultSkills</code>（18 个实例）、<code>Hero</code>/<code>HeroDeveloper</code>（个人等级）、<code>CharacterObject</code>（模板等级）、<code>Campaign.Current.AllSkills</code>（全集）、<code>SkillLevelingManager</code>（升级）。</li>
+<li><strong>失败模式</strong>：在 <code>Campaign</code> 尚未建立时访问 <code>DefaultSkills.*</code> 或 <code>Campaign.Current.AllSkills</code> 会得到 <code>null</code>；自定义技能若未先 <code>MBObjectManager</code> 注册就参与存档，重载后会变成无法解析的悬挂引用。</li>
+</ul>
+<h2 id="yi-lai-tu">依赖图</h2>
+<p><strong>上游（定义与注册）</strong></p>
+<ul>
+<li><a href="../../core-extra/PropertyObject/">PropertyObject</a> — 基类，提供 <code>Name</code> / <code>Description</code> / <code>StringId</code></li>
+<li><a href="../../core-extra/CharacterAttribute/">CharacterAttribute</a> — <code>Attributes</code> 的元素类型</li>
+<li><a href="../../core-extra/DefaultCharacterAttributes/">DefaultCharacterAttributes</a> — 六个内置属性（Vigor / Control / Endurance / Cunning / Social / Intelligence）</li>
+<li><a href="../../campaign-ext/MBObjectManager/">MBObjectManager</a> — 技能的注册与按 <code>StringId</code> 检索</li>
+</ul>
+<p><strong>下游（引用 SkillObject 的子系统）</strong></p>
+<ul>
+<li><a href="../../core-extra/DefaultSkills/">DefaultSkills</a> — 18 个内置 <code>SkillObject</code> 实例的工厂</li>
+<li><a href="../../campaign/Hero/">Hero</a> — <code>GetSkillValue</code> / <code>AddSkillXp</code> 接收 <code>SkillObject</code></li>
+<li><a href="../../campaign-ext/HeroDeveloper/">HeroDeveloper</a> — 英雄技能等级与经验的真实存储</li>
+<li><a href="../../campaign/CharacterObject/">CharacterObject</a> — <code>GetSkillValue</code> 的模板级实现</li>
+<li><a href="../../campaign-ext/SkillLevelingManager/">SkillLevelingManager</a> — 升级模型，消费各 <code>SkillObject</code></li>
+<li><a href="../../campaign/Campaign/">Campaign</a> — <code>AllSkills</code> 即全部已注册技能</li>
+</ul>
+<h2 id="feng-xian-duan">风险段</h2>
+<ul>
+<li><strong>不要手工 <code>new SkillObject</code> 当内置技能用</strong>：内置技能由 <code>DefaultSkills</code> 在加载期注册，引擎与存档靠 <code>StringId</code> 解析引用。复制一个同名实例不会等于已注册实例，参与存档序列化后重载会出现引用错位甚至读档失败。</li>
+<li><strong>初始化期之外调用 <code>Initialize</code> 会覆盖定义</strong>：<code>Initialize</code> 设置名称/描述/属性并触发 <code>AfterInitialized</code>。对已注册技能再次调用会改写全局共享的定义，影响所有引用它的英雄。新增自定义技能时，必须先 <code>MBObjectManager.Instance.RegisterPresumedObject(new SkillObject(id))</code> 再 <code>Initialize</code>。</li>
+<li><strong><code>DefaultSkills.*</code> / <code>Campaign.Current.AllSkills</code> 在游戏未就绪时为 <code>null</code></strong>：在 <code>MBSubModuleBase</code> 构造函数或 <code>OnSubModuleLoad</code> 里（战役尚未开始）访问会空引用崩溃。要拿技能定义在 <code>OnGameStart</code> / Behavior 里取。</li>
+<li><strong><code>HowToLearnSkillText</code> 依赖本地化键</strong>：它读取 <code>str_how_to_learn_skill</code> + 技能 <code>StringId</code> 的本地化文本；缺失时返回内容为 <code>"Not available"</code> 的 <code>TextObject</code>，不是 <code>null</code>——UI 上直接显示即可，但不要把它当权威数据。</li>
+<li><strong><code>Attributes</code> 不是存档点</strong>：属性数组在 <code>Initialize</code> 时一次性设定，并不单独序列化；运行时改它不会持久化。</li>
+</ul>
+<h2 id="cheng-yuan-shuo-ming">成员说明</h2>
+<h3 id="shen-fen-yu-wen-ben">身份与文本</h3>
+<h4 id="public-string-stringid-ji-cheng-zi-mbobjectbase"><code>public string StringId</code>（继承自 <code>MBObjectBase</code>）</h4>
+<p>技能的稳定字符串 ID，如 <code>"OneHanded"</code>、<code>"Riding"</code>。<code>MBObjectManager</code> 与存档都靠它定位实例。<br />
+<strong>副作用</strong>：无。<strong>何时用</strong>：作为检索键（<code>GetObject&lt;SkillObject&gt;(stringId)</code>）或在日志/调试里标识技能。</p>
+<h4 id="public-textobject-name-ji-cheng-zi-propertyobject"><code>public TextObject Name</code>（继承自 <code>PropertyObject</code>）</h4>
+<p>技能的本地化显示名（如“单手武器”）。由 <code>Initialize</code> 写入。<br />
+<strong>副作用</strong>：无。<strong>何时用</strong>：UI 展示、拼消息。</p>
+<h4 id="public-textobject-description-ji-cheng-zi-propertyobject"><code>public TextObject Description</code>（继承自 <code>PropertyObject</code>）</h4>
+<p>技能的长描述文本。由 <code>Initialize</code> 写入。</p>
+<h4 id="public-override-string-tostring"><code>public override string ToString()</code></h4>
+<p>直接返回 <code>Name?.ToString() ?? StringId</code>——没有本地化名时退化为 ID。<br />
+<strong>副作用</strong>：无。<strong>何时用</strong>：调试输出、日志。</p>
+<h4 id="public-textobject-howtolearnskilltext"><code>public TextObject HowToLearnSkillText</code></h4>
+<p>按 <code>StringId</code> 查 <code>GameTexts</code> 的 <code>str_how_to_learn_skill</code> 变体；找不到则返回内容为 <code>"Not available"</code> 的 <code>TextObject</code>。<br />
+<strong>副作用</strong>：无。<strong>何时用</strong>：在技能界面显示“如何提升该技能”的提示。</p>
+<h3 id="shu-xing-guan-lian">属性关联</h3>
+<h4 id="public-characterattribute-attributes-get-private-set"><code>public CharacterAttribute[] Attributes { get; private set; }</code></h4>
+<p>该技能<strong>贡献于哪些角色属性</strong>。绝大多数内置技能只映射到 1 个属性（如 <code>OneHanded → Vigor</code>、<code>Trade → Social</code>），但类型本身是数组，自定义技能可挂多个。由 <code>Initialize</code> 设定，之后不可变。<br />
+<strong>副作用</strong>：无。<strong>何时用</strong>：判断“练这个技能会涨哪个属性”，或按属性归类技能（见下方示例 3）。</p>
+<h3 id="chu-shi-hua-yin-qing-nei-bu-wei-zhu">初始化（引擎内部为主）</h3>
+<h4 id="public-skillobject-string-stringid-public-skillobject-initialize-textobject-name-textobject-description-characterattribute-attributes"><code>public SkillObject(string stringId)</code> / <code>public SkillObject Initialize(TextObject name, TextObject description, CharacterAttribute[] attributes)</code></h4>
+<p>构造并填充一条技能定义；<code>Initialize</code> 会写入 <code>Name</code>/<code>Description</code>/<code>Attributes</code> 并触发 <code>AfterInitialized()</code>，最后返回 <code>this</code> 便于链式调用。引擎在 <code>DefaultSkills.RegisterAll</code> → <code>InitializeAll</code> 中对 18 个内置技能调用。<br />
+<strong>副作用</strong>：设定全局共享的定义数据；对已注册技能重复调用会覆盖。<br />
+<strong>何时用</strong>：仅当你要新增<strong>自定义</strong>技能——先经 <code>MBObjectManager</code> 注册，再调用 <code>Initialize</code>，且务必在游戏加载阶段完成。</p>
+<h2 id="zhen-shi-shi-li">真实示例</h2>
+<h3 id="shi-li-1-na-dao-nei-zhi-ji-neng-ding-yi-bing-du-qu-ta-gong-xian-de-shu-xing">示例 1：拿到内置技能定义并读取它贡献的属性</h3>
+<pre><code data-lang="csharp">// 通过 DefaultSkills 取“单手武器”技能定义（等价于 MBObjectManager 中 StringId=&quot;OneHanded&quot; 的实例）
+SkillObject oneHanded = DefaultSkills.OneHanded;
+
+// 它贡献的属性（内置技能通常是 1 个）：活力 Vigor
+foreach (CharacterAttribute attribute in oneHanded.Attributes)
+{
+    InformationManager.DisplayMessage(new InformationMessage($&quot;{oneHanded.Name} 贡献于属性 {attribute.Name}&quot;));
+}
+
+// 读取“如何学习”提示（缺失本地化时回退为 &quot;Not available&quot;，不会是 null）
+TextObject howToLearn = oneHanded.HowToLearnSkillText;
+</code></pre>
+<h3 id="shi-li-2-gei-zhu-jiao-de-ji-neng-jia-jing-yan-bing-cha-xun-deng-ji">示例 2：给主角的技能加经验并查询等级</h3>
+<pre><code data-lang="csharp">// 在战役 Behavior / 对话 / 调试指令中：给主角“交易”技能加 1500 经验
+SkillObject trade = DefaultSkills.Trade;
+Hero.MainHero.AddSkillXp(trade, 1500f);
+
+// 查询当前等级（内部转交 HeroDeveloper）
+int tradeLevel = Hero.MainHero.GetSkillValue(trade);
+</code></pre>
+<blockquote>
+<p>真正的升级/降级判定由 <code>SkillLevelingManager</code> 在收到 <code>On*</code> 事件时完成，不要试图直接改 <code>SkillObject</code> 来提升等级。</p>
+</blockquote>
+<h3 id="shi-li-3-an-shu-xing-bian-li-quan-bu-ji-neng-tong-guo-mbobjectmanager-qu-quan-ji">示例 3：按属性遍历全部技能（通过 <code>MBObjectManager</code> 取全集）</h3>
+<pre><code data-lang="csharp">// Campaign.Current.AllSkills 即 MBObjectManager 中全部已注册 SkillObject
+foreach (SkillObject skill in Campaign.Current.AllSkills)
+{
+    // 找出所有贡献于“社交”属性的技能
+    if (skill.Attributes.Contains(DefaultCharacterAttributes.Social))
+    {
+        InformationManager.DisplayMessage(new InformationMessage(skill.Name.ToString()));
+    }
+}
+
+// 也可按 StringId 精确取回已注册实例
+SkillObject riding = MBObjectManager.Instance.GetObject&lt;SkillObject&gt;(&quot;Riding&quot;);
+</code></pre>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li><strong>1.3.0 → 1.4.5</strong>：<code>SkillObject</code> 的公开成员（<code>Attributes</code>、<code>HowToLearnSkillText</code>、<code>Initialize</code>、<code>ToString</code> 及继承的 <code>Name</code>/<code>StringId</code>/<code>Description</code>）保持稳定，无破坏性改动。</li>
+<li>一些旧资料或自动生成摘要里提到的 <code>SkillType</code>、<code>Characteristic</code>、<code>MinValue</code>/<code>MaxValue</code>、<code>IsPartySkill</code> <strong>并不是 <code>SkillObject</code> 的成员</strong>——本类只持有“定义级”数据（名称、描述、属性、学习提示），个人等级与战斗/队伍标签分别由 <code>Hero</code>/<code>HeroDeveloper</code> 与 perk/技能效果系统维护。若你看到这些名字，请核对 <code>Hero</code> 或 <code>SkillEffect</code> 相关页面，而非在 <code>SkillObject</code> 上寻找。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../../core-extra/DefaultSkills/">DefaultSkills</a> — 18 个内置技能实例</li>
+<li><a href="../../core-extra/CharacterAttribute/">CharacterAttribute</a> — 技能贡献的属性类型</li>
+<li><a href="../../core-extra/PropertyObject/">PropertyObject</a> — 基类与文本字段</li>
+<li><a href="../../campaign/Hero/">Hero</a> — 个人技能等级入口（<code>GetSkillValue</code> / <code>AddSkillXp</code>）</li>
+<li><a href="../../campaign-ext/HeroDeveloper/">HeroDeveloper</a> — 技能等级与经验的真实存储</li>
+<li><a href="../../campaign-ext/SkillLevelingManager/">SkillLevelingManager</a> — 升级模型</li>
+<li><a href="../../campaign/Campaign/">Campaign</a> — <code>AllSkills</code> 全集</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/core-extra/">core-extra 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/core-extra/FormationPositionPreference/">&larr; FormationPositionPreference</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/core-extra/ShipUpgradePiece/">ShipUpgradePiece &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

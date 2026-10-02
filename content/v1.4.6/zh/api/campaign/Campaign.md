@@ -341,4 +341,4 @@ public override void OnCampaignStart()
 - 实体基类：[MBObjectBase](../../campaign-ext/MBObjectBase) — 所有集合元素的公共祖先。
 - 典型实体：[Hero](../Hero) 与 [Settlement](../Settlement)。
 - 战斗内扩展：[MissionBehavior](../../mission/MissionBehavior) 与 [Mission](../../mission/Mission)。
-- 父级：campaign API 目录导览位于版本根 `../../../`。
+- 父级：[campaign API 目录导览](../)

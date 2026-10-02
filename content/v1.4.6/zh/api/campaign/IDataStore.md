@@ -98,4 +98,4 @@ public class MercenaryRoster : CampaignBehaviorBase
 - 注册入口：[CampaignGameStarter](../CampaignGameStarter) — Behavior 必须先被注册才会收到 `SyncData` 调用。
 - 存档执行方：[SaveManager](../../save-system/SaveManager) — 实际创建并驱动 `IDataStore` 实现的流程总管。
 - 对象层：[MBObjectBase](../../campaign-ext/MBObjectBase) — 与 `IDataStore` 并列的另一套保存机制。
-- 父级：campaign API 目录导览位于版本根 `../../../`。
+- 父级：[campaign API 目录导览](../)

@@ -211,15 +211,15 @@ foreach (XmlNode node in merged.DocumentElement.ChildNodes)
 ## Dependencies
 
 - Upstream / providers:
-  - [Game](../../core-extra/Game) calls `Init()` during startup, holds `ObjectManager`, and routes save loading through `LoadSaveGame`.
+  - `Game` calls `Init()` during startup, holds `ObjectManager`, and routes save loading through `LoadSaveGame`. It has no English page — the Chinese [zh `Game`](../../../../zh/api/core-extra/Game) is the only one on disk.
   - [MBObjectBase](../MBObjectBase) is the base of every type this manager owns; it receives the `Deserialize` callback from here.
   - [MBSubModuleBase](../../core/MBSubModuleBase)'s `RegisterSubModuleTypes()` is the standard place for a submodule to register types.
 - Peers / downstream:
   - [Campaign](../../campaign/Campaign) feeds campaign-layer types in through `OnRegisterTypes(MBObjectManager)` and `BeforeRegisterTypes`.
-  - The save system, [SaveManager](../../save-system/SaveManager) with [SaveContext](../../save-system/SaveContext) and [LoadContext](../../save-system/LoadContext), resolves MBObject references.
-  - UI and diagnostics reach it through [MBDebug](../../engine/MBDebug).
+  - The save system, `SaveManager` with `SaveContext` and `LoadContext`, resolves MBObject references. That bucket has no English pages; all three are Chinese-only: [zh `SaveManager`](../../../../zh/api/save-system/SaveManager) · [zh `SaveContext`](../../../../zh/api/save-system/SaveContext) · [zh `LoadContext`](../../../../zh/api/save-system/LoadContext).
+  - UI and diagnostics reach it through `MBDebug`, which has no English page ([zh `MBDebug`](../../../../zh/api/engine/MBDebug)).
 
 ## See Also
 
-- ↑ Parent: [campaign-ext index](../)
-- ↔ Related: [MBObjectBase](../MBObjectBase) · [Game](../../core-extra/Game) · [MBSubModuleBase](../../core/MBSubModuleBase) · [Campaign](../../campaign/Campaign) · [MBDebug](../../engine/MBDebug)
+- ↑ Parent: this bucket has no index page. It holds two pages: [MBObjectBase](../MBObjectBase) and this one.
+- ↔ Related: [MBObjectBase](../MBObjectBase) · [MBSubModuleBase](../../core/MBSubModuleBase) · [Campaign](../../campaign/Campaign) · zh [Game](../../../../zh/api/core-extra/Game) · zh [MBDebug](../../../../zh/api/engine/MBDebug) (the two `zh` entries have no English pages; see [the gap list](../../../../GAPS))

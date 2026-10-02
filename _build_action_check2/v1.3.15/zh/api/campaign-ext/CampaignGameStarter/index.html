@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampaignGameStarter</title>
+  <meta name="description" content="战役初始化阶段由引擎创建、交给各 SubModule 的注册器：用来向新战役注册 CampaignBehaviorBase 行为与 GameModel 模型，以及菜单、对话等内容。它本身是一次性“登记簿”，生命周期只在战役启动的极短时间内。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/CampaignGameStarter/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/CampaignGameStarter/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CampaignGameStarter</span>
+    </nav>
+  
+  <h1>CampaignGameStarter</h1>
+  <h1 id="campaigngamestarter">CampaignGameStarter</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public class CampaignGameStarter : IGameStarter</code><br />
+<strong>Base:</strong> <code>IGameStarter</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/CampaignGameStarter.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>CampaignGameStarter</code> 是 Bannerlord 在<strong>新战役创建 / 读档加载</strong>那一刻，用来把“行为（behavior）”“模型（model）”以及菜单、对话等战役内容<strong>登记进游戏</strong>的收集器。它不像 <code>Campaign</code> 那样长期存活，而是一个“短命登记簿”：引擎在 <code>Campaign</code> 的初始化流程里 <code>new</code> 出来（<code>Campaign.cs</code> 第 1904 行，构造函数需要 <code>GameMenuManager</code> 与 <code>ConversationManager</code>），先让 <code>SandBoxManager</code> 写入所有内置 behavior 与 model，再逐个调用各 SubModule 的 <code>InitializeGameStarter</code> / <code>OnCampaignStart</code> 钩子把 mod 的内容也加进去，最后用它内部的两份列表（<code>_campaignBehaviors</code>、<code>_models</code>）去构造 <code>CampaignBehaviorManager</code> 与 <code>GameModels</code>。行为一旦登记完，这个 starter 就被丢弃，你手里拿到的引用便不再影响运行中的战役。</p>
+<p><code>IGameStarter</code> 接口本身只声明了 <code>AddModel(GameModel)</code>、<code>AddModel&lt;T&gt;(MBGameModel&lt;T&gt;)</code> 与 <code>Models</code>；<code>AddBehavior</code> 及所有菜单/对话登记方法都是 <code>CampaignGameStarter</code> 在战役层额外提供的。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把它想成**“开新档时引擎递给你的那张登记表”**，而不是一个服务或状态对象：</p>
+<ul>
+<li>它由 <code>Campaign</code> 在战役加载流程中创建，<strong>你不要自己 <code>new CampaignGameStarter(...)</code></strong>，也不要在战役跑起来之后长期保存它的引用——它只在那一小段时间里有效。</li>
+<li>真正“让行为活起来”的是它登记完后构造出来的 <code>CampaignBehaviorManager</code>；starter 只是把 <code>CampaignBehaviorBase</code> 实例先收进 <code>ICollection</code>，随后由管理器统一调用每个 behavior 的 <code>RegisterEvents()</code>。</li>
+<li>登记时机只有一次：在 <code>MBSubModuleBase</code> 的 <code>OnCampaignStart</code> / <code>InitializeGameStarter</code> / <code>OnGameLoaded</code> 钩子里。错过这个窗口再 <code>AddBehavior</code> 没有任何效果，因为行为管理器已经建好。</li>
+<li>同一 behavior <strong>不要登记两次</strong>（详见“风险与崩溃边界”）；model 同理，重复 <code>AddModel</code> 只会被多次计入，取用时按逆序返回最后一个。</li>
+</ul>
+<h2 id="ru-he-zhu-ce-behavior-model">如何注册 Behavior / Model</h2>
+<p>你拿不到、也不该 <code>new</code> 一个 <code>CampaignGameStarter</code>。引擎在战役初始化时会把它作为参数传给 <code>MBSubModuleBase</code> 的几个钩子，你要做的是<strong>重写对应钩子、把参数转成 <code>CampaignGameStarter</code>、调用 <code>AddBehavior</code> / <code>AddModel</code></strong>。</p>
+<p>最常用、也最直接对应“新战役里加 behavior”的钩子是 <code>OnCampaignStart</code>：</p>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+namespace MyMod
+{
+    public class MySubModule : MBSubModuleBase
+    {
+        // 新战役 / 教学 / 编辑器开局时触发；读档走 OnGameLoaded
+        public override void OnCampaignStart(Game game, object starterObject)
+        {
+            CampaignGameStarter starter = (CampaignGameStarter)starterObject;
+            starter.AddBehavior(new DailyGoldBehavior());
+        }
+    }
+}
+</code></pre>
+<p>如果你想让 behavior <strong>既能在新档、也能在读档时都注册</strong>（比如一个需要长期保存状态的 behavior），用 <code>InitializeGameStarter</code> 更稳妥——它在所有加载类型下都会被无条件调用（见 <code>Campaign.cs</code> 第 1906 行），早于 <code>OnCampaignStart</code>：</p>
+<pre><code data-lang="csharp">protected internal override void InitializeGameStarter(Game game, IGameStarter starterObject)
+{
+    CampaignGameStarter starter = (CampaignGameStarter)starterObject;
+    starter.AddBehavior(new PersistentTrackingBehavior());
+    starter.AddModel(new MyDifficultyModel());
+}
+</code></pre>
+<p>模型同样在这两个钩子里登记：</p>
+<pre><code data-lang="csharp">protected internal override void InitializeGameStarter(Game game, IGameStarter starterObject)
+{
+    CampaignGameStarter starter = (CampaignGameStarter)starterObject;
+    // 直接追加一个自定义模型；之后通过 Campaign.Current.Models 访问
+    starter.AddModel(new MyClanFinanceModel());
+}
+</code></pre>
+<blockquote>
+<p>注意：上面的 <code>DailyGoldBehavior</code>、<code>PersistentTrackingBehavior</code>、<code>MyDifficultyModel</code> 等只是用来示意“你自己实现的子类”占位；实际写 mod 时把它们换成你 <code>继承 CampaignBehaviorBase</code> / <code>继承 GameModel</code> 的真实类名即可，不要照抄这些名字。真正的基类与契约见下方“参见”。</p>
+</blockquote>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>属性</th><th>类型</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>CampaignBehaviors</code></td><td><code>ICollection&lt;CampaignBehaviorBase&gt;</code></td><td>starter 当前收集到的所有 behavior 实例。集合本身可读写（通过 <code>AddBehavior</code> 增长），但你在钩子外修改它毫无意义——行为管理器已经构造完毕。</td></tr>
+<tr><td><code>Models</code></td><td><code>IEnumerable&lt;GameModel&gt;</code></td><td>starter 当前收集到的所有 model。战役启动后这些值被写入 <code>GameModels</code> 管理器，运行时可通过 <code>Campaign.Current.Models</code> 取得。</td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="behavior-zhu-ce">Behavior 注册</h3>
+<h4 id="public-void-addbehavior-campaignbehaviorbase-campaignbehavior"><code>public void AddBehavior(CampaignBehaviorBase campaignBehavior)</code></h4>
+<p>把一个 <code>CampaignBehaviorBase</code> 子类实例登记进战役。<code>campaignBehavior</code> 为 <code>null</code> 时直接忽略、不抛异常。</p>
+<ul>
+<li><strong>副作用</strong>：仅把实例加入内部列表；真正的事件订阅发生在稍后 <code>CampaignBehaviorManager.RegisterEvents()</code> 遍历每个 behavior 调用其 <code>RegisterEvents()</code> 时。</li>
+<li><strong>调用时机</strong>：只能在 starter 被引擎分发的钩子内部（<code>OnCampaignStart</code> / <code>InitializeGameStarter</code> / <code>OnGameLoaded</code>）调用；之后调用无效。</li>
+</ul>
+<pre><code data-lang="csharp">public override void OnCampaignStart(Game game, object starterObject)
+{
+    CampaignGameStarter starter = (CampaignGameStarter)starterObject;
+    starter.AddBehavior(new DailyGoldBehavior());
+}
+</code></pre>
+<h4 id="public-bool-removebehavior-t-t-behavior-where-t-campaignbehaviorbase"><code>public bool RemoveBehavior&lt;T&gt;(T behavior) where T : CampaignBehaviorBase</code></h4>
+<p>从登记列表里移除指定实例，成功返回 <code>true</code>。</p>
+<pre><code data-lang="csharp">starter.RemoveBehavior(someBehaviorInstance);
+</code></pre>
+<h4 id="public-void-removebehaviors-t-where-t-campaignbehaviorbase"><code>public void RemoveBehaviors&lt;T&gt;() where T : CampaignBehaviorBase</code></h4>
+<p>按类型移除所有匹配实例（从后往前遍历，避免下标错位）。</p>
+<pre><code data-lang="csharp">starter.RemoveBehaviors&lt;ObsoleteBehavior&gt;();
+</code></pre>
+<h3 id="model-zhu-ce-yu-cha-xun">Model 注册与查询</h3>
+<h4 id="public-void-addmodel-gamemodel-gamemodel"><code>public void AddModel(GameModel gameModel)</code></h4>
+<p>追加一个模型实例。战役启动后它进入 <code>GameModels</code>，可用 <code>Campaign.Current.Models.GetXxxModel()</code> 一类方法按类型取到。</p>
+<ul>
+<li><strong>副作用</strong>：只是加入内部列表，无校验；同名/同类型可重复添加，取用时返回最后一个。</li>
+<li><strong>调用时机</strong>：同 <code>AddBehavior</code>，仅在 starter 钩子内有效。</li>
+</ul>
+<pre><code data-lang="csharp">starter.AddModel(new MyClanFinanceModel());
+</code></pre>
+<h4 id="public-void-addmodel-t-mbgamemodel-t-gamemodel-where-t-gamemodel"><code>public void AddModel&lt;T&gt;(MBGameModel&lt;T&gt; gameModel) where T : GameModel</code></h4>
+<p>追加一个 <code>MBGameModel&lt;T&gt;</code> 包装模型：构造时先找到已注册的 <code>T</code> 类型默认模型，调用 <code>gameModel.Initialize(model)</code> 把旧模型交给你，让你在其基础上扩展/替换，再登记进来。适合“改写某个内置模型但想复用其默认值”的场景。</p>
+<ul>
+<li><strong>副作用</strong>：会触发 <code>Initialize</code>，因此你的 <code>MBGameModel&lt;T&gt;</code> 必须正确实现 <code>Initialize(T)</code>。</li>
+</ul>
+<pre><code data-lang="csharp">// 以现有 DefaultSmithingModel 为基底扩展自己的打铁模型
+starter.AddModel&lt;DefaultSmithingModel&gt;(new MySmithingModel());
+</code></pre>
+<h4 id="public-t-getmodel-t-where-t-gamemodel"><code>public T GetModel&lt;T&gt;() where T : GameModel</code></h4>
+<p>从已登记列表<strong>逆序</strong>查找第一个 <code>T</code> 类型模型并返回；找不到时 v1.3.x 返回 <code>default(T)</code>（引用类型为 <code>null</code>），v1.4.5 显式返回 <code>null</code>。</p>
+<ul>
+<li><strong>用途</strong>：在 starter 钩子里排查/取出某个已登记模型，或供 <code>AddModel&lt;T&gt;(MBGameModel&lt;T&gt;)</code> 内部获取基底模型。</li>
+</ul>
+<pre><code data-lang="csharp">DefaultSmithingModel baseModel = starter.GetModel&lt;DefaultSmithingModel&gt;();
+</code></pre>
+<h3 id="cai-dan-nei-rong-deng-ji-zhan-yi-qi-dong-shi">菜单内容登记（战役启动时）</h3>
+<p>starter 也负责把游戏菜单与对话“内容”登记进 <code>GameMenuManager</code> / <code>ConversationManager</code>，所以菜单/对话 mod 同样在这些钩子里完成注册。</p>
+<h4 id="public-void-addgamemenu-string-menuid-string-menutext-oninitdelegate-initdelegate-gamemenu-menuoverlaytype-overlay-none-gamemenu-menuflags-menuflags-none-object-relatedobject-null"><code>public void AddGameMenu(string menuId, string menuText, OnInitDelegate initDelegate, GameMenu.MenuOverlayType overlay = None, GameMenu.MenuFlags menuFlags = None, object relatedObject = null)</code></h4>
+<p>按 <code>menuId</code> 登记（或取用）一个菜单并初始化其显示文本与进入回调。</p>
+<pre><code data-lang="csharp">starter.AddGameMenu(
+    &quot;my_mod_menu&quot;,
+    &quot;我的自定义菜单&quot;,
+    new OnInitDelegate((args) =&gt; { /* 进入菜单时的初始化 */ }));
+</code></pre>
+<h4 id="public-void-addgamemenuoption-string-menuid-string-optionid-string-optiontext-gamemenuoption-onconditiondelegate-condition-gamemenuoption-onconsequencedelegate-consequence-bool-isleave-false-int-index-1-bool-isrepeatable-false-object-relatedobject-null"><code>public void AddGameMenuOption(string menuId, string optionId, string optionText, GameMenuOption.OnConditionDelegate condition, GameMenuOption.OnConsequenceDelegate consequence, bool isLeave = false, int index = -1, bool isRepeatable = false, object relatedObject = null)</code></h4>
+<p>给已存在的菜单追加一个可点选项：condition 控制是否显示/可点，consequence 是点击后的结果。</p>
+<pre><code data-lang="csharp">starter.AddGameMenuOption(
+    &quot;my_mod_menu&quot;,
+    &quot;my_mod_option&quot;,
+    &quot;打开我的面板&quot;,
+    new GameMenuOption.OnConditionDelegate(() =&gt; true),
+    new GameMenuOption.OnConsequenceDelegate(() =&gt; { /* 点击后逻辑 */ }),
+    false);
+</code></pre>
+<h4 id="public-gamemenu-getpresumedgamemenu-string-stringid"><code>public GameMenu GetPresumedGameMenu(string stringId)</code></h4>
+<p>按 <code>stringId</code> 取用菜单：存在就返回现有实例，不存在就新建并登记一个空菜单再返回。多数 <code>AddGameMenu*</code> 内部都先调它。</p>
+<pre><code data-lang="csharp">GameMenu menu = starter.GetPresumedGameMenu(&quot;my_mod_menu&quot;);
+</code></pre>
+<p>（<code>AddWaitGameMenu</code> 用于带等待计时的菜单，签名更长，用法与 <code>AddGameMenu</code> 类似，此处不展开。）</p>
+<h3 id="dui-hua-nei-rong-deng-ji-zhan-yi-qi-dong-shi">对话内容登记（战役启动时）</h3>
+<h4 id="public-conversationsentence-addplayerline-string-id-string-inputtoken-string-outputtoken-string-text-conversationsentence-onconditiondelegate-conditiondelegate-conversationsentence-onconsequencedelegate-consequencedelegate-int-priority-100"><code>public ConversationSentence AddPlayerLine(string id, string inputToken, string outputToken, string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int priority = 100, ...)</code></h4>
+<p>登记一句“玩家可说的台词”，返回构造出的 <code>ConversationSentence</code>。input/output token 用于把对话节点串成图。</p>
+<pre><code data-lang="csharp">starter.AddPlayerLine(
+    &quot;my_mod_player_line&quot;,
+    &quot;lord_talk&quot;,
+    &quot;my_mod_response&quot;,
+    &quot;我想和你谈谈贸易&quot;,
+    new ConversationSentence.OnConditionDelegate(() =&gt; Hero.OneToOneConversationHero != null),
+    new ConversationSentence.OnConsequenceDelegate(() =&gt; { /* 触发后果 */ }));
+</code></pre>
+<p>（其余 <code>AddDialogLine</code> / <code>AddRepeatablePlayerLine</code> / <code>AddDialogLineWithVariation</code> / <code>AddDialogLineMultiAgent</code> / <code>AddDialogFlow</code> 都是同一套对话图登记入口，签名更长，按需查阅源码即可。）</p>
+<h3 id="qi-ta">其它</h3>
+<h4 id="public-void-unregisternonreadyobjects"><code>public void UnregisterNonReadyObjects()</code></h4>
+<p>让 <code>Game.Current.ObjectManager</code> 与 <code>GameMenuManager</code> 注销尚未就绪的对象。由引擎在初始化末尾自动调用（<code>Campaign.cs</code> 第 1959 行），mod 一般不需要手动调。</p>
+<h2 id="dian-xing-yong-fa-shi-li">典型用法示例</h2>
+<h3 id="shi-li-1-zai-submodule-li-gei-xin-zhan-yi-jia-yi-ge-zi-ding-yi-behavior-chang-jing-ce-shi-1-de-biao-zhun-zuo-fa">示例 1：在 SubModule 里给新战役加一个自定义 Behavior（场景测试 #1 的标准做法）</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+namespace MyMod
+{
+    public class MySubModule : MBSubModuleBase
+    {
+        public override void OnCampaignStart(Game game, object starterObject)
+        {
+            // 引擎把当次战役的 CampaignGameStarter 当作 starterObject 传进来
+            CampaignGameStarter starter = (CampaignGameStarter)starterObject;
+            starter.AddBehavior(new DailyGoldBehavior());
+        }
+    }
+
+    public class DailyGoldBehavior : CampaignBehaviorBase
+    {
+        public override void RegisterEvents()
+        {
+            // 在这里订阅 CampaignEventDispatcher 的事件，例如每日结算
+        }
+
+        public override void SyncData(IDataStore dataStore)
+        {
+            // 这里登记需要随存档保存的字段
+        }
+    }
+}
+</code></pre>
+<h3 id="shi-li-2-jia-yi-ge-zi-ding-yi-gamemodel">示例 2：加一个自定义 GameModel</h3>
+<pre><code data-lang="csharp">protected internal override void InitializeGameStarter(Game game, IGameStarter starterObject)
+{
+    CampaignGameStarter starter = (CampaignGameStarter)starterObject;
+    starter.AddModel(new MyClanFinanceModel());
+}
+
+// 运行时取用（GameModels 按模型类型提供对应访问器，具体名称取决于模型种类）
+var model = Campaign.Current.Models; // 再用对应的模型访问器取出 MyClanFinanceModel
+</code></pre>
+<h3 id="shi-li-3-xin-dang-yu-du-dang-du-yao-cun-zai-de-behavior">示例 3：新档与读档都要存在的 Behavior</h3>
+<pre><code data-lang="csharp">// 用 InitializeGameStarter 而非 OnCampaignStart，确保读档时也能登记
+protected internal override void InitializeGameStarter(Game game, IGameStarter starterObject)
+{
+    CampaignGameStarter starter = (CampaignGameStarter)starterObject;
+    starter.AddBehavior(new PersistentTrackingBehavior());
+}
+</code></pre>
+<h2 id="feng-xian-yu-beng-kui-bian-jie">风险与崩溃边界</h2>
+<ul>
+<li><strong>在错误阶段登记无效</strong>：<code>AddBehavior</code> / <code>AddModel</code> 只在引擎分发 starter 的钩子内有效。战役已经跑起来后你再拿早先保存的 <code>CampaignGameStarter</code> 引用去 <code>AddBehavior</code>，列表虽然变了，但 <code>CampaignBehaviorManager</code> 早已构造完成，新行为不会被订阅任何事件，等于没加。需要运行时增删行为应改用 <code>Campaign.Current.CampaignBehaviorManager</code> 的相关方法（属于另一套 API）。</li>
+<li><strong>重复登记</strong>：同一个 behavior 实例或同类型被 <code>AddBehavior</code> 两次，会导致其 <code>RegisterEvents()</code> 被调用两次，事件被重复订阅（例如每日 tick 跑两遍）。不要在各钩子里无保护地重复 <code>AddBehavior</code>。</li>
+<li><strong>读档漏登记</strong>：<code>OnCampaignStart</code> 只在“非读档”开局时触发；如果你的 behavior 需要在读旧档时也生效，必须放到 <code>InitializeGameStarter</code>（或同时处理 <code>OnGameLoaded</code>）。否则旧存档里该 behavior 全程缺席。</li>
+<li><strong><code>Campaign.Current</code> 还未就绪</strong>：这些钩子发生在 <code>Campaign</code> 自身初始化流程中，此时访问 <code>Campaign.Current.Models</code> 等可能拿到尚未装配完的世界。需要读取已登记模型时，优先用 starter 上的 <code>GetModel&lt;T&gt;()</code>，而不是 <code>Campaign.Current</code>。</li>
+<li><strong>behavior 子类必须实现 <code>RegisterEvents</code> 与 <code>SyncData</code></strong>：<code>CampaignBehaviorBase</code> 两者都是 <code>abstract</code>。若你的行为持有需要跨存档保留的字段，必须在 <code>SyncData(IDataStore)</code> 里登记，否则读档后状态丢失或字段为默认值，可能引发逻辑错乱。</li>
+<li><strong><code>MBGameModel&lt;T&gt;</code> 的 <code>Initialize</code></strong>：用 <code>AddModel&lt;T&gt;(MBGameModel&lt;T&gt;)</code> 时，若基类 <code>T</code> 还没被任何 mod/内置登记，<code>GetModel&lt;T&gt;()</code> 返回 <code>null</code>，你的 <code>Initialize(T)</code> 需能处理 <code>null</code> 基底。</li>
+</ul>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li><strong>v1.3.0</strong>：本类与 <code>AddBehavior</code> / <code>AddModel</code> / <code>OnCampaignStart</code> / <code>InitializeGameStarter</code> 这套注册形态已经稳定存在，与本页描述一致。<code>IGameStarter</code> 契约未变。</li>
+<li><strong>v1.4.5</strong>：<code>GetModel&lt;T&gt;()</code> 在找不到时由返回 <code>default(T)</code> 改为显式返回 <code>null</code>，对 mod 调用方行为一致；其余 <code>AddBehavior</code> / <code>AddModel</code> / <code>AddModel&lt;T&gt;</code> / <code>RemoveBehavior</code> / 菜单对话登记方法均保持不变。需要注意：本类<strong>没有</strong>名为 <code>InitializeCampaign</code> 或 <code>OnNewGameDataEnded</code> 的成员——战役注册的唯一入口就是上方 <code>MBSubModuleBase</code> 的几个钩子。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../CampaignBehaviorBase">CampaignBehaviorBase</a> — 你要 <code>AddBehavior</code> 的基类，必须实现 <code>RegisterEvents</code> / <code>SyncData</code></li>
+<li><a href="../GameModels">GameModels</a> — 登记进来的 model 最终汇总的运行时管理器（<code>Campaign.Current.Models</code>）</li>
+<li><a href="../../campaign/Campaign">Campaign</a> — 真正长期存活的战役世界；starter 由它在初始化流程中创建</li>
+<li><a href="../../">API 总目录</a> — <code>MBSubModuleBase</code>（<code>OnCampaignStart</code> / <code>InitializeGameStarter</code> 钩子的声明处，本页注册模式的入口）等未单列文档的类型在此索引</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign-ext/">campaign-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign-ext/GoldGain/">&larr; GoldGain</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign-ext/InviteToClanMessage/">InviteToClanMessage &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

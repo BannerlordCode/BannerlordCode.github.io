@@ -1,46 +1,39 @@
 ---
-title: "Mission — mod entry classes only"
-description: "This directory holds only the 5 entry classes a mod author actually subclasses. It is a deliberately small entry bucket,"
+title: "Mission — the mission entry classes only"
+description: "Four name-carved entry classes out of mission-ext. 0 pages in this tree; the 4 pages are Chinese-tree-only."
 ---
-# Mission — mod entry classes only
+# Mission — the mission entry classes only
 
-This directory holds **only the 5 entry classes a mod author actually subclasses**. It is a deliberately small entry bucket, not the full API surface.
+Four classes live in this directory: `Mission`, `MissionState`, `MissionBehavior`, `Agent`. They were **carved out by name** from [mission-ext](../mission-ext/) (669 `.cs` files), not by any namespace rule, so that "I want to change a battle" is one click away instead of a search inside a 669-page directory.
 
-The whole `TaleWorlds.MountAndBlade` type surface lives in [Mission-Ext](../mission-ext/). If what you need is not here, **stop looking here** and go straight to Mission-Ext.
-
-These five were picked by name out of `mission-ext/` rather than by a namespace rule, for one reason: keeping URLs like 1.4.5's `api/mission/Mission` aligned for cross-version comparison.
-
-## When to go to the other directory
-
-| What you want to do | Go to |
-| --- | --- |
-| Subclass and override an entry class | **this page** |
-| Look up everything else in battle/mission logic | [Mission-Ext](../mission-ext/) |
-| Look up campaign entities and state | [Campaign](../campaign/) |
-| Look up runtime facilities beyond module loading | [Core-Extra](../core-extra/) |
-
-The reverse link exists too: the `Mission-Ext` index page points back here.
+`Formation` belongs here by the same carve-out but has no page in either tree.
 
 ## Pages in this area (0 in English)
 
-The five entry classes this bucket exists for are documented in the Chinese tree:
+No pages in this bucket have been written in this tree. The four pages that do exist are in the Chinese tree:
 
-| Page | Type |
+| Page | What it covers |
 | --- | --- |
-| [zh/api/mission/Mission](../../../zh/api/mission/Mission) | `public sealed class Mission` |
-| [zh/api/mission/MissionState](../../../zh/api/mission/MissionState) | `public class MissionState` |
-| [zh/api/mission/MissionBehavior](../../../zh/api/mission/MissionBehavior) | `public abstract class MissionBehavior` |
-| [zh/api/mission/Agent](../../../zh/api/mission/Agent) | `public sealed class Agent` |
+| [zh/api/mission/Mission](../../../zh/api/mission/Mission) | the battle-scene object; created through its mission logic, not by `new` |
+| [zh/api/mission/MissionState](../../../zh/api/mission/MissionState) | the state enum a mission ends on |
+| [zh/api/mission/MissionBehavior](../../../zh/api/mission/MissionBehavior) | the abstract behaviour base you register on a mission |
+| [zh/api/mission/Agent](../../../zh/api/mission/Agent) | one soldier or horse on the battlefield |
 
-`Formation` belongs to this bucket by the entry-point carve-out but has no page in either tree.
+Read together those four are the minimum useful set for a mod author: derive a `MissionBehavior`, register it on the mission, get the `Mission` reference from it, check `MissionState` to know which phase you are in, and walk `Agent` when you need to touch individual units.
+
+One thing the pages cannot tell you from this directory: you do not create a `Mission` with `new Mission()`. The game creates it through the `MissionLogic` family, which sits in `mission-ext/` and has no page.
+
+## Not yet written
+
+In this tree, all four. Across both trees, only `Formation` — everything else that resolves to `mission-ext/` is roughly 665 classes that are not in this bucket.
 
 ## Sibling areas
 
-[core](../core/) · [core-extra](../core-extra/) · [mission-ext](../mission-ext/) · [campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [gui](../gui/) · [save-system](../save-system/) · [viewmodel](../viewmodel/) · [localization](../localization/) · [engine](../engine/) · [system](../system/) · [custombattle](../custombattle/) · [modulemanager](../modulemanager/) · [network](../network/) · [sandbox](../sandbox/) · [storymode](../storymode/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
+[mission-ext](../mission-ext/) · [campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [core](../core/) · [core-extra](../core-extra/) · [gui](../gui/) · [viewmodel](../viewmodel/) · [engine](../engine/) · [sandbox](../sandbox/) · [custombattle](../custombattle/) · [system](../system/) · [network](../network/) · [modulemanager](../modulemanager/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
 
 ## See also
 
 - ↑ [Version home](../../)
 - ↑ [API reference](../)
 - ↔ [Architecture overview](../../architecture/)
-- ↘ [module-system](../../architecture/module-system)
+- ↘ [UI Stack](../../architecture/ui-stack)

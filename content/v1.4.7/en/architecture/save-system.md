@@ -133,4 +133,4 @@ Does it need to outlive a campaign, be shared between mods, or save a whole obje
 
 - ↔ [Architecture hub](../) · [Module System](../module-system) — how behaviours get registered
 - ↘ [UI Stack](../ui-stack)
-- ↑ [Save System](../../api/save-system/) · [Campaign-Ext](../../api/campaign-ext/)
+- ↑ `api/save-system/` and `api/campaign-ext/` have no bucket index in this tree. `api/save-system/` has no English directory at all; its three pages (`SaveManager`, `SaveContext`, `LoadContext`) are Chinese-only. `api/campaign-ext/` holds two hand-written English pages, `MBObjectBase` and `MBObjectManager`. See [the gap list](../../../GAPS).

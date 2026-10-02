@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SandBox &#x2F; StoryMode &#x2F; Native Reading Policy</title>
+  <meta name="description" content="How to read official content modules and the native layer; what to document and what not to; ties into noise policy to avoid fake deep pages and wrong dependencies.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/architecture/sandbox-native-policy/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/architecture/sandbox-native-policy/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="active">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;architecture&#x2F;">Architecture</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">SandBox &#x2F; StoryMode &#x2F; Native Reading Policy</span>
+    </nav>
+  
+  <h1>SandBox &#x2F; StoryMode &#x2F; Native Reading Policy</h1>
+  <h1 id="sandbox-storymode-native-reading-policy">SandBox / StoryMode / Native Reading Policy</h1>
+<blockquote>
+<p>This site is a <strong>modder handbook</strong>, not a prose dump of every official campaign script and Native export.<br />
+This page defines: when you hit <strong>SandBox / StoryMode / Native</strong>, what to read, what to write, and what is forbidden.</p>
+</blockquote>
+<h2 id="one-line-role">One-line role</h2>
+<p>Separate three surfaces that <em>look</em> like business APIs but should not all get generic deep pages, and point readers back to the <strong>managed hubs</strong> they should depend on.</p>
+<h2 id="three-surfaces">Three surfaces</h2>
+<table><thead><tr><th>Surface</th><th>Typical location</th><th>What it is</th><th>Site policy</th></tr></thead><tbody>
+<tr><td><strong>SandBox</strong></td><td><code>SandBox</code> / <code>SandBox.View</code> / <code>SandBox.GauntletUI</code> etc.</td><td>Official <strong>single-player content implementation</strong> (concrete Issue/Quest classes, menus, dialogs, AI behaviors)</td><td><strong>Learn patterns, copy structure</strong>; do not deep-write every <code>*Issue</code>/<code>*Quest</code> as a product page (prefer family mental model + exemplars)</td></tr>
+<tr><td><strong>StoryMode</strong></td><td><code>StoryMode</code> / <code>StoryMode.View*</code></td><td>Official main campaign; strong narrative, strong order</td><td><strong>Study only</strong>; mods generally <strong>should not</strong> treat its internals as stable API</td></tr>
+<tr><td><strong>Native</strong></td><td><code>TaleWorlds.Native.dll</code>, <code>IMB*</code>, <code>[EngineMethod]</code></td><td>Render / physics / scene implementation</td><td><strong>Go through managed wrappers</strong>; see <a href="../native-interop">managed/native interop</a> and <a href="../noise-policy">noise policy</a></td></tr>
+</tbody></table>
+<p>Relation to <a href="../noise-policy">noise policy</a>:</p>
+<ul>
+<li>AutoGen / third-party / platform bridges → <strong>noise</strong> (inventory + backlinks)</li>
+<li>SandBox/StoryMode <strong>concrete content types</strong> → <strong>content layer</strong> (indexable, family-explainable; no signature-wall fake deep pages)</li>
+<li>What actually deserves deep pages: <strong>CampaignSystem / MountAndBlade / Engine managed contracts</strong> (Action, Model, Behavior, Mission, Save, UI bases)</li>
+</ul>
+<h2 id="mental-model">Mental model</h2>
+<pre><code>Your mod (DLL)
+    │  should depend on
+    ▼
+TaleWorlds.CampaignSystem / MountAndBlade / Engine / Library   ← this site&#39;s deep-write focus
+    │  may reference for &quot;how official does it&quot;
+    ▼
+SandBox / StoryMode   ← sample tree (churns, couples to narrative)
+    │  rarely depend on directly
+    ▼
+Native (IMB* / EngineMethod)  ← only reach indirectly via managed wrappers
+</code></pre>
+<table><thead><tr><th>You want to…</th><th>Correct entry</th><th>Wrong entry</th></tr></thead><tbody>
+<tr><td>Add a custom Issue</td><td>Inherit <a href="../../api/campaign/IssueBase"><code>IssueBase</code></a> + <code>IssueManager</code> pattern; study one SandBox Issue's structure</td><td>Copy-paste entire SandBox Issue namespaces as a "library"</td></tr>
+<tr><td>Add quest log</td><td><a href="../../api/campaign-ext/QuestBase"><code>QuestBase</code></a></td><td>Directly edit StoryMode quest classes</td></tr>
+<tr><td>Change balance formulas</td><td><a href="../../api/campaign-ext/GameModels"><code>GameModels</code></a> / <a href="../../api/campaign-ext/">Campaign API</a></td><td>Treat a local constant in one SandBox call site as sole truth</td></tr>
+<tr><td>Change world state</td><td><a href="../../api/campaign-ext/actions-index"><code>*Action.Apply</code></a></td><td>Copy "mutate fields casually" habits from SandBox Behaviors</td></tr>
+<tr><td>Touch scene / camera</td><td><code>Mission</code> / <code>Scene</code> / Engine managed API</td><td>Direct P/Invoke Native</td></tr>
+<tr><td>Learn dialog / menu</td><td><a href="../../api/campaign-ext/DialogFlow"><code>DialogFlow</code></a> · <a href="../../api/campaign-ext/GameMenu"><code>GameMenu</code></a> + SandBox samples</td><td>Treat Gauntlet prefabs as C# API</td></tr>
+</tbody></table>
+<h2 id="when-to-read-sandbox-source">When to read SandBox source</h2>
+<p><strong>Do read:</strong></p>
+<ol>
+<li>How official code does <code>RegisterEvents</code> / <code>AddDialogFlow</code> / <code>AddGameMenu</code></li>
+<li>State-machine splits for a play style (bandits, caravans, noble needs): Issue ↔ Quest ↔ Menu</li>
+<li>Real call order into <code>*Action</code> / <code>Campaign.Current.Models</code></li>
+</ol>
+<p><strong>Take away:</strong> patterns and call chains — not "SandBox type name = public SDK".</p>
+<h2 id="runnable-sandbox-chain">Runnable SandBox chain</h2>
+<p>The following is the smallest source-backed chain to trace before adding a
+single-player feature. The implementation classes live in the v1.4.5 source
+bundle under <code>Bannerlord.Source/Modules.SandBox</code>; the managed contracts linked
+below are the stable v1.3.15 mod surface.</p>
+<ol>
+<li>The module enters <code>MBSubModuleBase.OnGameStart</code> and receives an
+<code>IGameStarter</code>.</li>
+<li>For a campaign start, cast to <code>CampaignGameStarter</code> and call
+<code>AddBehavior</code> once. The behavior implements <code>RegisterEvents</code> and
+<code>SyncData(IDataStore)</code>.</li>
+<li>Register a <code>DialogFlow</code> or <code>GameMenu</code> from that behavior. Conditions only
+decide whether an option is visible; the consequence callback performs one
+documented <code>*Action.Apply</code> mutation.</li>
+<li>If a calculation must be replaced, call <code>AddModel</code> during game-start
+registration. Consumers read the replacement through <code>Campaign.Current.Models</code>.</li>
+<li>A screen or mission creates its <code>ViewModel</code>, attaches a
+<code>GauntletLayer</code>, and releases both from <code>OnFinalize</code>/screen teardown.</li>
+</ol>
+<pre><code data-lang="csharp">protected override void OnGameStart(Game game, IGameStarter starter)
+{
+    if (game.GameType is Campaign)
+    {
+        var campaignStarter = (CampaignGameStarter)starter;
+        campaignStarter.AddBehavior(new CampaignBehaviorBaseImpl());
+        campaignStarter.AddModel(new DiplomacyModelImpl());
+    }
+}
+</code></pre>
+<p>The concrete types in a real module replace the two <code>Impl</code> names; the
+registration methods and lifecycle are the important contract. Read the
+<a href="../../api/campaign-ext/CampaignBehaviorBase">CampaignBehaviorBase</a>,
+<a href="../../api/campaign-ext/CampaignGameStarter">CampaignGameStarter</a>,
+<a href="../../api/campaign-ext/DialogFlow">DialogFlow</a>,
+<a href="../../api/campaign-ext/GameMenu">GameMenu</a>,
+<a href="../../api/campaign-ext/GameModels">GameModels</a>, and
+<a href="../../api/engine/GauntletLayer">GauntletLayer</a> pages together. Do not copy a
+SandBox private class as a public API or call <code>Campaign.Current</code> before a
+campaign exists.</p>
+<p><strong>Don't:</strong></p>
+<ul>
+<li>Document SandBox <code>internal</code> / tightly coupled types as stable public API in mod docs</li>
+<li>Generate signature-wall deep pages for every <code>LordNeedsXIssue</code> and count them as R1 "business handwritten" completion (use family pages + exemplar deep pages)</li>
+<li>Paste long <code>using</code> lists of StoryMode-only types as the default sample path</li>
+</ul>
+<h2 id="when-to-read-storymode">When to read StoryMode</h2>
+<table><thead><tr><th>Scenario</th><th>Advice</th></tr></thead><tbody>
+<tr><td>Understand how mainline locks progress / special quests</td><td>Read only related Quest/Issue; map to <code>QuestBase</code> mental model</td></tr>
+<tr><td>Write a mainline-compatible mod</td><td>Subscribe public <code>CampaignEvents</code>; avoid hooking private mainline fields</td></tr>
+<tr><td>Write a fully custom campaign</td><td><strong>Do not</strong> use StoryMode as framework; CampaignSystem + your own Behaviors</td></tr>
+</tbody></table>
+<p>StoryMode <strong>can change heavily between versions</strong>; deep-page priority is lower than Campaign hubs.</p>
+<h2 id="when-to-touch-native">When to touch Native</h2>
+<p>See <a href="../native-interop">native-interop</a>. Summary:</p>
+<ol>
+<li>Default: call only <strong>managed</strong> <code>TaleWorlds.Engine</code> / <code>MountAndBlade</code></li>
+<li>Thin <code>IMB*</code> wrappers → <a href="../noise-policy">noise policy</a>: inventory, no fake long prose</li>
+<li>When comparing decompiles: <code>native-1.3.15/</code> / <code>native-1.4.5/</code> and on-site <a href="../../native-1.3.15-src/">native-1.3.15-src</a></li>
+</ol>
+<p>The native provenance map is intentionally narrow:</p>
+<table><thead><tr><th>Boundary</th><th>Evidence to inspect</th><th>Managed hand-off</th></tr></thead><tbody>
+<tr><td>Startup exports</td><td><code>native-1.3.15-src/exports-and-bridge</code> (<code>WotsMain*</code>, <code>pass_managed_*</code>)</td><td><code>MBDotNet</code> and <code>LibraryApplicationInterface</code></td></tr>
+<tr><td>Engine callbacks</td><td><code>native-1.3.15-src/engine-core</code> (<code>ftdnNative_*</code>, callback tables)</td><td><code>TaleWorlds.Engine</code> wrappers and <code>[EngineMethod]</code> interfaces</td></tr>
+<tr><td>Mission/scene bridge</td><td><code>native-1.3.15-src/mission</code> and <code>scene</code></td><td><code>Mission</code>, <code>Scene</code>, <code>Agent</code>, and managed mission behaviors</td></tr>
+<tr><td>Rendering/physics</td><td><code>native-1.3.15-src/rendering</code> and <code>physics</code></td><td>Engine managed objects; never direct P/Invoke from a campaign behavior</td></tr>
+</tbody></table>
+<p><code>IMB*</code> and <code>[EngineMethod]</code> names are provenance anchors, not a promise that
+the native DLL is a supported mod ABI. Version-specific addresses must stay in
+the native source reference and must never be presented as stable managed
+entry points.</p>
+<h2 id="on-site-presentation-rules-mandatory">On-site presentation rules (mandatory)</h2>
+<ol>
+<li><strong>Hubs first:</strong> Issue / Quest / Menu / Dialog / Action / Model / Mission / Save / UI bases must have handwritten deep or family pages.</li>
+<li><strong>SandBox content types:</strong>
+<ul>
+<li>Allowed: family index, 1–N <strong>representative</strong> deep pages (teach patterns)</li>
+<li>Forbidden: bulk-generate "looks like docs" overviews for every <code>*Issue</code>/<code>*Quest</code></li>
+</ul>
+</li>
+<li><strong>StoryMode:</strong> default inventory + backlink to this policy; short notes only for high-frequency cross-mod concepts.</li>
+<li><em><em>Native / IMB</em>:</em>* noise policy; interop rules in native-interop.</li>
+<li><strong>R1 coverage:</strong> SandBox long-tail content types may use <strong>family_entry</strong> coverage; individual deep_pass not required per type — but they <strong>must not silently vanish</strong>.</li>
+</ol>
+<h2 id="link-to-development-tasks">Link to development tasks</h2>
+<table><thead><tr><th>Task</th><th>Read first</th><th>Then check SandBox</th></tr></thead><tbody>
+<tr><td>Custom commission</td><td><a href="../../api/campaign/IssueBase">IssueBase</a> · <a href="../../api/campaign-ext/QuestBase">QuestBase</a></td><td>Any official Issue's <code>GenerateIssueQuest</code></td></tr>
+<tr><td>Dialog tree</td><td><a href="../../api/campaign-ext/DialogFlow">DialogFlow</a> · <a href="../../api/campaign-ext/ConversationManager">ConversationManager</a></td><td>SandBox dialog registration</td></tr>
+<tr><td>Game menu</td><td><a href="../../api/campaign-ext/GameMenu">GameMenu</a> · <a href="../../api/campaign-ext/MenuContext">MenuContext</a></td><td>Town / encounter menus</td></tr>
+<tr><td>UI</td><td><a href="../../api/core-extra/ViewModel">ViewModel</a> · <a href="../../api/gui/ScreenManager">ScreenManager</a> · <a href="../../api/engine/GauntletLayer">GauntletLayer</a></td><td>How SandBox.GauntletUI mounts</td></tr>
+<tr><td>Crash boundaries</td><td><a href="../crash-boundaries">crash-boundaries</a></td><td>Official also uses Action — learn the boundary, not "skip events"</td></tr>
+</tbody></table>
+<h2 id="maintenance-notes">Maintenance notes</h2>
+<ul>
+<li>When scanning new assemblies: classify <code>SandBox*</code> / <code>StoryMode*</code> / <code>*Native*</code> / <code>IMB*</code>.</li>
+<li>If generators produce fake deep pages for content types: treat as stubs; do not count as done.</li>
+<li>English transfer carries the <strong>same policy</strong> — no competing rule set.</li>
+<li>When adding exemplar deep pages: link one "example" entry here or on the roadmap; do not expand the whole SandBox tree in prose.</li>
+</ul>
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/sandbox-native-policy/./">Architecture overview</a></li>
+<li><a href="../doc-contract">Doc contract</a></li>
+<li><a href="../sdk-overview">SDK overview</a></li>
+</ul>
+<h2 id="sibling-navigation">↔ Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>Relation</th></tr></thead><tbody>
+<tr><td><a href="../noise-policy">Noise and non-business type policy</a></td><td>AutoGen / third-party / platform / IMB*</td></tr>
+<tr><td><a href="../native-interop">Managed/native interop</a></td><td>EngineMethod boundary</td></tr>
+<tr><td><a href="../developer-roadmap">Developer task roadmap</a></td><td>Task entries link only business hubs</td></tr>
+<tr><td><a href="../crash-boundaries">Crash and save boundaries</a></td><td>Content layer still obeys Action/Save rules</td></tr>
+<tr><td><a href="../module-system">Module system</a></td><td>How your DLL hooks in — not how to fork SandBox</td></tr>
+</tbody></table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../../api/campaign-ext/QuestBase">QuestBase</a> · <a href="../../api/campaign/IssueBase">IssueBase</a></li>
+<li><a href="../../api/campaign-ext/actions-index">Actions family</a> · <a href="../../api/campaign-ext/">Campaign API</a></li>
+<li><a href="../../api/campaign-ext/CampaignEvents">CampaignEvents</a> · <a href="../../api/campaign-ext/CampaignEventReceiver">CampaignEventReceiver</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/architecture/">Architecture</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/architecture/crash-boundaries/">&larr; Crash &amp; Save Boundaries</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/architecture/version-delta/">Version Delta &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/architecture/doc-contract/">Doc Contract</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/sdk-overview/">SDK Overview</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/module-system/">Module System</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/save-system/">Save System</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/version-delta/">Version Delta</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/native-interop/">Managed-Native Interop</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/developer-roadmap/">Developer Roadmap</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/crash-boundaries/">Crash Boundaries</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/noise-policy/">Noise Policy</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/sandbox-native-policy/">SandBox&#x2F;StoryMode&#x2F;Native Policy</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

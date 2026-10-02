@@ -221,5 +221,5 @@ foreach (XmlNode node in merged.DocumentElement.ChildNodes)
 
 ## 参见
 
-- ↑ 父级：[campaign-ext 索引](../)
+- ↑ 父级：campaign-ext 目录下没有索引页；本目录只有两个页面——[MBObjectBase](../MBObjectBase) 与本页 `MBObjectManager`。
 - ↔ 相关：[MBObjectBase](../MBObjectBase) · [Game](../../core-extra/Game) · [MBSubModuleBase](../../core/MBSubModuleBase) · [Campaign](../../campaign/Campaign) · [MBDebug](../../engine/MBDebug)

@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ConversationManager</title>
+  <meta name="description" content="ConversationManager 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/ConversationManager/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/ConversationManager/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/ConversationManager/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/ConversationManager/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="active">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">ConversationManager</span>
+    </nav>
+  
+  <h1>ConversationManager</h1>
+  <h1 id="conversationmanager">ConversationManager</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Conversation
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class ConversationManager</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Conversation/ConversationManager.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>ConversationManager</code> 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>ConversationManager</code> 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>CurrentSentenceText</code></td><td><code>public string CurrentSentenceText { get; }</code></td></tr>
+<tr><td><code>IsConversationFlowActive</code></td><td><code>public bool IsConversationFlowActive { get; }</code></td></tr>
+<tr><td><code>CurOptions</code></td><td><code>public List&lt;ConversationSentenceOption&gt; CurOptions { get; set; }</code></td></tr>
+<tr><td><code>ConversationAgents</code></td><td><code>public IReadOnlyList&lt;IAgent&gt; ConversationAgents { get; }</code></td></tr>
+<tr><td><code>OneToOneConversationAgent</code></td><td><code>public IAgent OneToOneConversationAgent { get; }</code></td></tr>
+<tr><td><code>SpeakerAgent</code></td><td><code>public IAgent SpeakerAgent { get; }</code></td></tr>
+<tr><td><code>ListenerAgent</code></td><td><code>public IAgent ListenerAgent { get; }</code></td></tr>
+<tr><td><code>IsConversationInProgress</code></td><td><code>public bool IsConversationInProgress { get; }</code></td></tr>
+<tr><td><code>OneToOneConversationHero</code></td><td><code>public Hero OneToOneConversationHero { get; }</code></td></tr>
+<tr><td><code>OneToOneConversationCharacter</code></td><td><code>public CharacterObject OneToOneConversationCharacter { get; }</code></td></tr>
+<tr><td><code>ConversationCharacters</code></td><td><code>public IEnumerable&lt;CharacterObject&gt; ConversationCharacters { get; }</code></td></tr>
+<tr><td><code>ConversationParty</code></td><td><code>public MobileParty ConversationParty { get; }</code></td></tr>
+<tr><td><code>NeedsToActivateForMapConversation</code></td><td><code>public bool NeedsToActivateForMapConversation { get; }</code></td></tr>
+<tr><td><code>Handler</code></td><td><code>public IConversationStateHandler Handler { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="createconversationsentenceindex">CreateConversationSentenceIndex</h3>
+<p><code>public int CreateConversationSentenceIndex()</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 conversation sentence index 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+var result = conversationManager.CreateConversationSentenceIndex();
+</code></pre>
+<h3 id="startnew">StartNew</h3>
+<p><code>public void StartNew(int startingToken, bool setActionsInstantly)</code></p>
+<p><strong>用途 / Purpose:</strong> 启动new流程或状态机。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.StartNew(0, false);
+</code></pre>
+<h3 id="processsentence">ProcessSentence</h3>
+<p><code>public void ProcessSentence(ConversationSentenceOption conversationSentenceOption)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ProcessSentence 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.ProcessSentence(conversationSentenceOption);
+</code></pre>
+<h3 id="updatecurrentsentencetext">UpdateCurrentSentenceText</h3>
+<p><code>public void UpdateCurrentSentenceText()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 current sentence text 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.UpdateCurrentSentenceText();
+</code></pre>
+<h3 id="isconversationended">IsConversationEnded</h3>
+<p><code>public bool IsConversationEnded()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 conversation ended 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+var result = conversationManager.IsConversationEnded();
+</code></pre>
+<h3 id="clearcurrentoptions">ClearCurrentOptions</h3>
+<p><code>public void ClearCurrentOptions()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的current options。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.ClearCurrentOptions();
+</code></pre>
+<h3 id="addtocurrentoptions">AddToCurrentOptions</h3>
+<p><code>public void AddToCurrentOptions(TextObject text, string id, bool isClickable, TextObject hintText)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 to current options 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.AddToCurrentOptions(text, &quot;example&quot;, false, hintText);
+</code></pre>
+<h3 id="getplayersentenceoptions">GetPlayerSentenceOptions</h3>
+<p><code>public void GetPlayerSentenceOptions()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 player sentence options 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.GetPlayerSentenceOptions();
+</code></pre>
+<h3 id="getstateindex">GetStateIndex</h3>
+<p><code>public int GetStateIndex(string str)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 state index 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+var result = conversationManager.GetStateIndex(&quot;example&quot;);
+</code></pre>
+<h3 id="disablesentencesort">DisableSentenceSort</h3>
+<p><code>public void DisableSentenceSort()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DisableSentenceSort 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.DisableSentenceSort();
+</code></pre>
+<h3 id="enablesentencesort">EnableSentenceSort</h3>
+<p><code>public void EnableSentenceSort()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EnableSentenceSort 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.EnableSentenceSort();
+</code></pre>
+<h3 id="adddialogflow">AddDialogFlow</h3>
+<p><code>public void AddDialogFlow(DialogFlow dialogFlow, object relatedObject = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 dialog flow 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.AddDialogFlow(dialogFlow, null);
+</code></pre>
+<h3 id="adddialoglinemultiagent">AddDialogLineMultiAgent</h3>
+<p><code>public ConversationSentence AddDialogLineMultiAgent(string id, string inputToken, string outputToken, TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, int agentIndex, int nextAgentIndex, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 dialog line multi agent 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+var result = conversationManager.AddDialogLineMultiAgent(&quot;example&quot;, &quot;example&quot;, &quot;example&quot;, text, conditionDelegate, consequenceDelegate, 0, 0, 0, null);
+</code></pre>
+<h3 id="isagentinconversation">IsAgentInConversation</h3>
+<p><code>public bool IsAgentInConversation(IAgent agent)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 agent in conversation 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+var result = conversationManager.IsAgentInConversation(agent);
+</code></pre>
+<h3 id="beginconversation">BeginConversation</h3>
+<p><code>public void BeginConversation()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BeginConversation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.BeginConversation();
+</code></pre>
+<h3 id="endconversation">EndConversation</h3>
+<p><code>public void EndConversation()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndConversation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.EndConversation();
+</code></pre>
+<h3 id="dooption">DoOption</h3>
+<p><code>public void DoOption(int optionIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DoOption 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.DoOption(0);
+</code></pre>
+<h3 id="dooption-1">DoOption</h3>
+<p><code>public void DoOption(string optionID)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DoOption 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.DoOption(&quot;example&quot;);
+</code></pre>
+<h3 id="doconversationcontinuedcallback">DoConversationContinuedCallback</h3>
+<p><code>public void DoConversationContinuedCallback()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DoConversationContinuedCallback 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.DoConversationContinuedCallback();
+</code></pre>
+<h3 id="dooptioncontinue">DoOptionContinue</h3>
+<p><code>public void DoOptionContinue()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DoOptionContinue 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.DoOptionContinue();
+</code></pre>
+<h3 id="continueconversation">ContinueConversation</h3>
+<p><code>public void ContinueConversation()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ContinueConversation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.ContinueConversation();
+</code></pre>
+<h3 id="setupandstartmissionconversation">SetupAndStartMissionConversation</h3>
+<p><code>public void SetupAndStartMissionConversation(IAgent agent, IAgent mainAgent, bool setActionsInstantly)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 up and start mission conversation 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.SetupAndStartMissionConversation(agent, mainAgent, false);
+</code></pre>
+<h3 id="setupandstartmissionconversationwithmultipleagents">SetupAndStartMissionConversationWithMultipleAgents</h3>
+<p><code>public void SetupAndStartMissionConversationWithMultipleAgents(IEnumerable&lt;IAgent&gt; agents, IAgent mainAgent)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 up and start mission conversation with multiple agents 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.SetupAndStartMissionConversationWithMultipleAgents(agents, mainAgent);
+</code></pre>
+<h3 id="setupandstartmapconversation">SetupAndStartMapConversation</h3>
+<p><code>public void SetupAndStartMapConversation(MobileParty party, IAgent agent, IAgent mainAgent)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 up and start map conversation 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.SetupAndStartMapConversation(party, agent, mainAgent);
+</code></pre>
+<h3 id="addconversationagents">AddConversationAgents</h3>
+<p><code>public void AddConversationAgents(IEnumerable&lt;IAgent&gt; agents, bool setActionsInstantly)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 conversation agents 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.AddConversationAgents(agents, false);
+</code></pre>
+<h3 id="removeconversationagent">RemoveConversationAgent</h3>
+<p><code>public void RemoveConversationAgent(IAgent agent)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 conversation agent。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.RemoveConversationAgent(agent);
+</code></pre>
+<h3 id="isconversationagent">IsConversationAgent</h3>
+<p><code>public bool IsConversationAgent(IAgent agent)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 conversation agent 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+var result = conversationManager.IsConversationAgent(agent);
+</code></pre>
+<h3 id="removerelatedlines">RemoveRelatedLines</h3>
+<p><code>public void RemoveRelatedLines(object o)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 related lines。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.RemoveRelatedLines(o);
+</code></pre>
+<h3 id="onconversationdeactivate">OnConversationDeactivate</h3>
+<p><code>public void OnConversationDeactivate()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 conversation deactivate 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.OnConversationDeactivate();
+</code></pre>
+<h3 id="onconversationactivate">OnConversationActivate</h3>
+<p><code>public void OnConversationActivate()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 conversation activate 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.OnConversationActivate();
+</code></pre>
+<h3 id="findmatchingtextornull">FindMatchingTextOrNull</h3>
+<p><code>public TextObject FindMatchingTextOrNull(string id, CharacterObject character)</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找满足条件的matching text or null。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+var result = conversationManager.FindMatchingTextOrNull(&quot;example&quot;, character);
+</code></pre>
+<h3 id="getapplicabletagnames">GetApplicableTagNames</h3>
+<p><code>public IEnumerable&lt;string&gt; GetApplicableTagNames(CharacterObject character)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 applicable tag names 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+var result = conversationManager.GetApplicableTagNames(character);
+</code></pre>
+<h3 id="istagapplicable">IsTagApplicable</h3>
+<p><code>public bool IsTagApplicable(string tagId, CharacterObject character)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 tag applicable 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+var result = conversationManager.IsTagApplicable(&quot;example&quot;, character);
+</code></pre>
+<h3 id="openmapconversation">OpenMapConversation</h3>
+<p><code>public void OpenMapConversation(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData)</code></p>
+<p><strong>用途 / Purpose:</strong> 打开map conversation对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.OpenMapConversation(playerCharacterData, conversationPartnerData);
+</code></pre>
+<h3 id="startpersuasion">StartPersuasion</h3>
+<p><code>public static void StartPersuasion(float goalValue, float successValue, float failValue, float criticalSuccessValue, float criticalFailValue, float initialProgress = -1f, PersuasionDifficulty difficulty = PersuasionDifficulty.Medium)</code></p>
+<p><strong>用途 / Purpose:</strong> 启动persuasion流程或状态机。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ConversationManager.StartPersuasion(0, 0, 0, 0, 0, 0, persuasionDifficulty.Medium);
+</code></pre>
+<h3 id="endpersuasion">EndPersuasion</h3>
+<p><code>public static void EndPersuasion()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndPersuasion 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ConversationManager.EndPersuasion();
+</code></pre>
+<h3 id="persuasioncommitprogress">PersuasionCommitProgress</h3>
+<p><code>public static void PersuasionCommitProgress(PersuasionOptionArgs persuasionOptionArgs)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PersuasionCommitProgress 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ConversationManager.PersuasionCommitProgress(persuasionOptionArgs);
+</code></pre>
+<h3 id="clear">Clear</h3>
+<p><code>public static void Clear()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的内容。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ConversationManager.Clear();
+</code></pre>
+<h3 id="getpersuasionchancevalues">GetPersuasionChanceValues</h3>
+<p><code>public void GetPersuasionChanceValues(out float successValue, out float critSuccessValue, out float critFailValue)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 persuasion chance values 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.GetPersuasionChanceValues(successValue, critSuccessValue, critFailValue);
+</code></pre>
+<h3 id="getpersuasionisactive">GetPersuasionIsActive</h3>
+<p><code>public static bool GetPersuasionIsActive()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 persuasion is active 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ConversationManager.GetPersuasionIsActive();
+</code></pre>
+<h3 id="getpersuasionprogresssatisfied">GetPersuasionProgressSatisfied</h3>
+<p><code>public static bool GetPersuasionProgressSatisfied()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 persuasion progress satisfied 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ConversationManager.GetPersuasionProgressSatisfied();
+</code></pre>
+<h3 id="getpersuasionisfailure">GetPersuasionIsFailure</h3>
+<p><code>public static bool GetPersuasionIsFailure()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 persuasion is failure 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ConversationManager.GetPersuasionIsFailure();
+</code></pre>
+<h3 id="getpersuasionprogress">GetPersuasionProgress</h3>
+<p><code>public static float GetPersuasionProgress()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 persuasion progress 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ConversationManager.GetPersuasionProgress();
+</code></pre>
+<h3 id="getpersuasiongoalvalue">GetPersuasionGoalValue</h3>
+<p><code>public static float GetPersuasionGoalValue()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 persuasion goal value 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ConversationManager.GetPersuasionGoalValue();
+</code></pre>
+<h3 id="getpersuasionchosenoptions">GetPersuasionChosenOptions</h3>
+<p><code>public static IEnumerable&lt;Tuple&lt;PersuasionOptionArgs, PersuasionOptionResult&gt;&gt; GetPersuasionChosenOptions()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 persuasion chosen options 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ConversationManager.GetPersuasionChosenOptions();
+</code></pre>
+<h3 id="getpersuasionchances">GetPersuasionChances</h3>
+<p><code>public void GetPersuasionChances(ConversationSentenceOption conversationSentenceOption, out float successChance, out float critSuccessChance, out float critFailChance, out float failChance)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 persuasion chances 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ConversationManager 实例
+ConversationManager conversationManager = ...;
+conversationManager.GetPersuasionChances(conversationSentenceOption, successChance, critSuccessChance, critFailChance, failChance);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">var manager = ConversationManager.Current;
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/api/campaign/Scouting/">&larr; Scouting</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/api/campaign/Pregnancy/">Pregnancy &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

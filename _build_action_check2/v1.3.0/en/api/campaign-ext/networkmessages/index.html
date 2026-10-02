@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NetworkMessages</title>
+  <meta name="description" content="Mission-synchronization network messages.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign-ext/networkmessages/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign-ext/networkmessages/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">NetworkMessages</span>
+    </nav>
+  
+  <h1>NetworkMessages</h1>
+  <h2 id="up">Up</h2>
+<ul>
+<li><a href="../">Back to campaign-ext index</a></li>
+<li><a href="../../">API Index</a></li>
+<li><a href="../../../">Version Home</a></li>
+</ul>
+<h2 id="subsystem-overview">Subsystem overview</h2>
+<p>This is the <strong>NetworkMessages</strong> subsystem inside <strong>campaign-ext index</strong>. Classes in the same namespace tackle related concerns; pick a type, then open its page for methods.</p>
+<p>Mission-synchronization network messages.</p>
+<h2 id="classes">Classes</h2>
+<table><thead><tr><th>Class</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="../AddMissionObjectBodyFlags/"><code>AddMissionObjectBodyFlags</code></a></td><td>AddMissionObjectBodyFlags is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../AddPeerComponent/"><code>AddPeerComponent</code></a></td><td>AddPeerComponent is a component-style object in NetworkMessages.FromServer, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../AddPrefabComponentToAgentBone/"><code>AddPrefabComponentToAgentBone</code></a></td><td>AddPrefabComponentToAgentBone is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../AddTeam/"><code>AddTeam</code></a></td><td>AddTeam is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../AdminMultiplayerOptionInfo/"><code>AdminMultiplayerOptionInfo</code></a></td><td>AdminMultiplayerOptionInfo is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../AdminMuteUnmutePlayer/"><code>AdminMuteUnmutePlayer</code></a></td><td>AdminMuteUnmutePlayer is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../AdminRequestAnnouncement/"><code>AdminRequestAnnouncement</code></a></td><td>AdminRequestAnnouncement is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../AdminRequestClassRestrictionChange/"><code>AdminRequestClassRestrictionChange</code></a></td><td>AdminRequestClassRestrictionChange is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../AdminRequestEndMission/"><code>AdminRequestEndMission</code></a></td><td>AdminRequestEndMission is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../AdminRequestEndWarmup/"><code>AdminRequestEndWarmup</code></a></td><td>AdminRequestEndWarmup is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../AdminUpdateMultiplayerOptions/"><code>AdminUpdateMultiplayerOptions</code></a></td><td>AdminUpdateMultiplayerOptions is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../AgentSetFormation/"><code>AgentSetFormation</code></a></td><td>AgentSetFormation is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../AgentSetTeam/"><code>AgentSetTeam</code></a></td><td>AgentSetTeam is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../AgentTeleportToFrame/"><code>AgentTeleportToFrame</code></a></td><td>AgentTeleportToFrame is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../AgentVisualsBreakInvulnerability/"><code>AgentVisualsBreakInvulnerability</code></a></td><td>AgentVisualsBreakInvulnerability is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../ApplyOrder/"><code>ApplyOrder</code></a></td><td>ApplyOrder is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../ApplyOrderWithAgent/"><code>ApplyOrderWithAgent</code></a></td><td>ApplyOrderWithAgent is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../ApplyOrderWithFormation/"><code>ApplyOrderWithFormation</code></a></td><td>ApplyOrderWithFormation is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../ApplyOrderWithFormationAndNumber/"><code>ApplyOrderWithFormationAndNumber</code></a></td><td>ApplyOrderWithFormationAndNumber is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../ApplyOrderWithFormationAndPercentage/"><code>ApplyOrderWithFormationAndPercentage</code></a></td><td>ApplyOrderWithFormationAndPercentage is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../ApplyOrderWithMissionObject/"><code>ApplyOrderWithMissionObject</code></a></td><td>ApplyOrderWithMissionObject is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../ApplyOrderWithPosition/"><code>ApplyOrderWithPosition</code></a></td><td>ApplyOrderWithPosition is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../ApplyOrderWithTwoPositions/"><code>ApplyOrderWithTwoPositions</code></a></td><td>ApplyOrderWithTwoPositions is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../ApplySiegeWeaponOrder/"><code>ApplySiegeWeaponOrder</code></a></td><td>ApplySiegeWeaponOrder is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../AssignFormationToPlayer/"><code>AssignFormationToPlayer</code></a></td><td>AssignFormationToPlayer is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../AttachWeaponToAgent/"><code>AttachWeaponToAgent</code></a></td><td>AttachWeaponToAgent is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../AttachWeaponToSpawnedWeapon/"><code>AttachWeaponToSpawnedWeapon</code></a></td><td>AttachWeaponToSpawnedWeapon is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../AttachWeaponToWeaponInAgentEquipmentSlot/"><code>AttachWeaponToWeaponInAgentEquipmentSlot</code></a></td><td>AttachWeaponToWeaponInAgentEquipmentSlot is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../BarkAgent/"><code>BarkAgent</code></a></td><td>BarkAgent is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../BarkSelected/"><code>BarkSelected</code></a></td><td>BarkSelected is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../BotsControlledChange/"><code>BotsControlledChange</code></a></td><td>BotsControlledChange is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../BurstAllHeavyHitParticles/"><code>BurstAllHeavyHitParticles</code></a></td><td>BurstAllHeavyHitParticles is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../BurstMissionObjectParticles/"><code>BurstMissionObjectParticles</code></a></td><td>BurstMissionObjectParticles is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../CancelCheering/"><code>CancelCheering</code></a></td><td>CancelCheering is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../ChangeClassRestrictions/"><code>ChangeClassRestrictions</code></a></td><td>ChangeClassRestrictions is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../ChangeCulture/"><code>ChangeCulture</code></a></td><td>ChangeCulture is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../ChangeGamePoll/"><code>ChangeGamePoll</code></a></td><td>ChangeGamePoll is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../ChangeWelcomeMessage/"><code>ChangeWelcomeMessage</code></a></td><td>ChangeWelcomeMessage is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../ClearAgentTargetFrame/"><code>ClearAgentTargetFrame</code></a></td><td>ClearAgentTargetFrame is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../ClearMission/"><code>ClearMission</code></a></td><td>ClearMission is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../ClearSelectedFormations/"><code>ClearSelectedFormations</code></a></td><td>ClearSelectedFormations is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../CombatLogNetworkMessage/"><code>CombatLogNetworkMessage</code></a></td><td>CombatLogNetworkMessage is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../ConsumeWeaponAmount/"><code>ConsumeWeaponAmount</code></a></td><td>ConsumeWeaponAmount is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../CreateAgent/"><code>CreateAgent</code></a></td><td>CreateAgent is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../CreateAgentVisuals/"><code>CreateAgentVisuals</code></a></td><td>CreateAgentVisuals is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../CreateBanner/"><code>CreateBanner</code></a></td><td>CreateBanner is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../CreateCorpseAgent/"><code>CreateCorpseAgent</code></a></td><td>CreateCorpseAgent is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../CreateFreeCorpseMountAgent/"><code>CreateFreeCorpseMountAgent</code></a></td><td>CreateFreeCorpseMountAgent is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../CreateFreeMountAgent/"><code>CreateFreeMountAgent</code></a></td><td>CreateFreeMountAgent is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../CreateMissile/"><code>CreateMissile</code></a></td><td>CreateMissile is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../CreateMissionObject/"><code>CreateMissionObject</code></a></td><td>CreateMissionObject is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../CultureVoteClient/"><code>CultureVoteClient</code></a></td><td>CultureVoteClient is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../CultureVoteServer/"><code>CultureVoteServer</code></a></td><td>CultureVoteServer is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../DebugAgentScaleOnNetworkTest/"><code>DebugAgentScaleOnNetworkTest</code></a></td><td>DebugAgentScaleOnNetworkTest is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../DropWeapon/"><code>DropWeapon</code></a></td><td>DropWeapon is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../DuelEnded/"><code>DuelEnded</code></a></td><td>DuelEnded is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../DuelPointsUpdateMessage/"><code>DuelPointsUpdateMessage</code></a></td><td>DuelPointsUpdateMessage is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../DuelPreparationStartedForTheFirstTime/"><code>DuelPreparationStartedForTheFirstTime</code></a></td><td>DuelPreparationStartedForTheFirstTime is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../DuelRequest/"><code>DuelRequest</code></a></td><td>DuelRequest is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../DuelResponse/"><code>DuelResponse</code></a></td><td>DuelResponse is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../DuelRoundEnded/"><code>DuelRoundEnded</code></a></td><td>DuelRoundEnded is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../DuelSessionStarted/"><code>DuelSessionStarted</code></a></td><td>DuelSessionStarted is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../EquipEquipmentToPeer/"><code>EquipEquipmentToPeer</code></a></td><td>EquipEquipmentToPeer is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../EquipWeaponFromSpawnedItemEntity/"><code>EquipWeaponFromSpawnedItemEntity</code></a></td><td>EquipWeaponFromSpawnedItemEntity is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../EquipWeaponWithNewEntity/"><code>EquipWeaponWithNewEntity</code></a></td><td>EquipWeaponWithNewEntity is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../ExistingObjectsBegin/"><code>ExistingObjectsBegin</code></a></td><td>ExistingObjectsBegin is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../ExistingObjectsEnd/"><code>ExistingObjectsEnd</code></a></td><td>ExistingObjectsEnd is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../FinishedLoading/"><code>FinishedLoading</code></a></td><td>FinishedLoading is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../FlagDominationCapturePointMessage/"><code>FlagDominationCapturePointMessage</code></a></td><td>FlagDominationCapturePointMessage is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../FlagDominationFlagsRemovedMessage/"><code>FlagDominationFlagsRemovedMessage</code></a></td><td>FlagDominationFlagsRemovedMessage is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../FlagDominationMoraleChangeMessage/"><code>FlagDominationMoraleChangeMessage</code></a></td><td>FlagDominationMoraleChangeMessage is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../FlagRaisingStatus/"><code>FlagRaisingStatus</code></a></td><td>FlagRaisingStatus is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../FormationWipedMessage/"><code>FormationWipedMessage</code></a></td><td>FormationWipedMessage is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../GoldGain/"><code>GoldGain</code></a></td><td>GoldGain is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../HandleMissileCollisionReaction/"><code>HandleMissileCollisionReaction</code></a></td><td>HandleMissileCollisionReaction is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../InitializeCustomGameMessage/"><code>InitializeCustomGameMessage</code></a></td><td>InitializeCustomGameMessage is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../InitializeFormation/"><code>InitializeFormation</code></a></td><td>InitializeFormation is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../InitializeLobbyPeer/"><code>InitializeLobbyPeer</code></a></td><td>InitializeLobbyPeer is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../IntermissionVote/"><code>IntermissionVote</code></a></td><td>IntermissionVote is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../KickPlayer/"><code>KickPlayer</code></a></td><td>KickPlayer is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../KickPlayerPollClosed/"><code>KickPlayerPollClosed</code></a></td><td>KickPlayerPollClosed is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../KickPlayerPollOpened/"><code>KickPlayerPollOpened</code></a></td><td>KickPlayerPollOpened is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../KickPlayerPollRequested/"><code>KickPlayerPollRequested</code></a></td><td>KickPlayerPollRequested is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../KillDeathCountChange/"><code>KillDeathCountChange</code></a></td><td>KillDeathCountChange is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../LoadMission/"><code>LoadMission</code></a></td><td>LoadMission is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../LossReplicationMessage/"><code>LossReplicationMessage</code></a></td><td>LossReplicationMessage is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../MakeAgentDead/"><code>MakeAgentDead</code></a></td><td>MakeAgentDead is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../MissionStateChange/"><code>MissionStateChange</code></a></td><td>MissionStateChange is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../MultiplayerIntermissionCultureItemAdded/"><code>MultiplayerIntermissionCultureItemAdded</code></a></td><td>MultiplayerIntermissionCultureItemAdded is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../MultiplayerIntermissionCultureItemVoteCountChanged/"><code>MultiplayerIntermissionCultureItemVoteCountChanged</code></a></td><td>MultiplayerIntermissionCultureItemVoteCountChanged is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../MultiplayerIntermissionMapItemAdded/"><code>MultiplayerIntermissionMapItemAdded</code></a></td><td>MultiplayerIntermissionMapItemAdded is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../MultiplayerIntermissionMapItemVoteCountChanged/"><code>MultiplayerIntermissionMapItemVoteCountChanged</code></a></td><td>MultiplayerIntermissionMapItemVoteCountChanged is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../MultiplayerIntermissionUpdate/"><code>MultiplayerIntermissionUpdate</code></a></td><td>MultiplayerIntermissionUpdate is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../MultiplayerIntermissionUsableMapAdded/"><code>MultiplayerIntermissionUsableMapAdded</code></a></td><td>MultiplayerIntermissionUsableMapAdded is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../MultiplayerOptionsDefault/"><code>MultiplayerOptionsDefault</code></a></td><td>MultiplayerOptionsDefault is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../MultiplayerOptionsImmediate/"><code>MultiplayerOptionsImmediate</code></a></td><td>MultiplayerOptionsImmediate is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../MultiplayerOptionsInitial/"><code>MultiplayerOptionsInitial</code></a></td><td>MultiplayerOptionsInitial is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../NotificationMessage/"><code>NotificationMessage</code></a></td><td>NotificationMessage is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../PingReplication/"><code>PingReplication</code></a></td><td>PingReplication is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../PlayerMessageAll/"><code>PlayerMessageAll</code></a></td><td>PlayerMessageAll is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../PlayerMessageTeam/"><code>PlayerMessageTeam</code></a></td><td>PlayerMessageTeam is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../PollCancelled/"><code>PollCancelled</code></a></td><td>PollCancelled is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../PollProgress/"><code>PollProgress</code></a></td><td>PollProgress is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../PollRequestRejected/"><code>PollRequestRejected</code></a></td><td>PollRequestRejected is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../PollResponse/"><code>PollResponse</code></a></td><td>PollResponse is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../RangedSiegeWeaponChangeProjectile/"><code>RangedSiegeWeaponChangeProjectile</code></a></td><td>RangedSiegeWeaponChangeProjectile is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../RemoveAgentVisualsForPeer/"><code>RemoveAgentVisualsForPeer</code></a></td><td>RemoveAgentVisualsForPeer is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../RemoveAgentVisualsFromIndexForPeer/"><code>RemoveAgentVisualsFromIndexForPeer</code></a></td><td>RemoveAgentVisualsFromIndexForPeer is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../RemoveEquippedWeapon/"><code>RemoveEquippedWeapon</code></a></td><td>RemoveEquippedWeapon is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../RemoveMissionObject/"><code>RemoveMissionObject</code></a></td><td>RemoveMissionObject is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../RemoveMissionObjectBodyFlags/"><code>RemoveMissionObjectBodyFlags</code></a></td><td>RemoveMissionObjectBodyFlags is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../RemovePeerComponent/"><code>RemovePeerComponent</code></a></td><td>RemovePeerComponent is a component-style object in NetworkMessages.FromServer, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../ReplaceBotWithPlayer/"><code>ReplaceBotWithPlayer</code></a></td><td>ReplaceBotWithPlayer is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../RequestChangeCharacterMessage/"><code>RequestChangeCharacterMessage</code></a></td><td>RequestChangeCharacterMessage is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../RequestChangePreferredTroopType/"><code>RequestChangePreferredTroopType</code></a></td><td>RequestChangePreferredTroopType is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../RequestCultureChange/"><code>RequestCultureChange</code></a></td><td>RequestCultureChange is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../RequestForfeitSpawn/"><code>RequestForfeitSpawn</code></a></td><td>RequestForfeitSpawn is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../RequestPerkChange/"><code>RequestPerkChange</code></a></td><td>RequestPerkChange is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../RequestStopUsingObject/"><code>RequestStopUsingObject</code></a></td><td>RequestStopUsingObject is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../RequestToSpawnAsBot/"><code>RequestToSpawnAsBot</code></a></td><td>RequestToSpawnAsBot is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../RequestTroopIndexChange/"><code>RequestTroopIndexChange</code></a></td><td>RequestTroopIndexChange is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../RequestUseObject/"><code>RequestUseObject</code></a></td><td>RequestUseObject is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../RoundCountChange/"><code>RoundCountChange</code></a></td><td>RoundCountChange is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../RoundEndReasonChange/"><code>RoundEndReasonChange</code></a></td><td>RoundEndReasonChange is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../RoundStateChange/"><code>RoundStateChange</code></a></td><td>RoundStateChange is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../RoundWinnerChange/"><code>RoundWinnerChange</code></a></td><td>RoundWinnerChange is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SelectAllFormations/"><code>SelectAllFormations</code></a></td><td>SelectAllFormations is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../SelectAllSiegeWeapons/"><code>SelectAllSiegeWeapons</code></a></td><td>SelectAllSiegeWeapons is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../SelectFormation/"><code>SelectFormation</code></a></td><td>SelectFormation is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../SelectSiegeWeapon/"><code>SelectSiegeWeapon</code></a></td><td>SelectSiegeWeapon is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../SendVoiceRecord/"><code>SendVoiceRecord</code></a></td><td>SendVoiceRecord is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../SendVoiceToPlay/"><code>SendVoiceToPlay</code></a></td><td>SendVoiceToPlay is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../ServerAdminMessage/"><code>ServerAdminMessage</code></a></td><td>ServerAdminMessage is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../ServerMessage/"><code>ServerMessage</code></a></td><td>ServerMessage is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../ServerPerformanceState/"><code>ServerPerformanceState</code></a></td><td>ServerPerformanceState is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../ServerPerformanceStateReplicationMessage/"><code>ServerPerformanceStateReplicationMessage</code></a></td><td>ServerPerformanceStateReplicationMessage is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetAgentActionSet/"><code>SetAgentActionSet</code></a></td><td>SetAgentActionSet is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetAgentHealth/"><code>SetAgentHealth</code></a></td><td>SetAgentHealth is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetAgentIsPlayer/"><code>SetAgentIsPlayer</code></a></td><td>SetAgentIsPlayer is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetAgentPeer/"><code>SetAgentPeer</code></a></td><td>SetAgentPeer is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetAgentPrefabComponentVisibility/"><code>SetAgentPrefabComponentVisibility</code></a></td><td>SetAgentPrefabComponentVisibility is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetAgentTargetPosition/"><code>SetAgentTargetPosition</code></a></td><td>SetAgentTargetPosition is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetAgentTargetPositionAndDirection/"><code>SetAgentTargetPositionAndDirection</code></a></td><td>SetAgentTargetPositionAndDirection is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetBatteringRamHasArrivedAtTarget/"><code>SetBatteringRamHasArrivedAtTarget</code></a></td><td>SetBatteringRamHasArrivedAtTarget is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetBoundariesState/"><code>SetBoundariesState</code></a></td><td>SetBoundariesState is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetFollowedAgent/"><code>SetFollowedAgent</code></a></td><td>SetFollowedAgent is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../SetMachineRotation/"><code>SetMachineRotation</code></a></td><td>SetMachineRotation is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../SetMachineTargetRotation/"><code>SetMachineTargetRotation</code></a></td><td>SetMachineTargetRotation is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetMissionObjectAnimationAtChannel/"><code>SetMissionObjectAnimationAtChannel</code></a></td><td>SetMissionObjectAnimationAtChannel is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetMissionObjectAnimationChannelParameter/"><code>SetMissionObjectAnimationChannelParameter</code></a></td><td>SetMissionObjectAnimationChannelParameter is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetMissionObjectAnimationPaused/"><code>SetMissionObjectAnimationPaused</code></a></td><td>SetMissionObjectAnimationPaused is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetMissionObjectColors/"><code>SetMissionObjectColors</code></a></td><td>SetMissionObjectColors is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetMissionObjectDisabled/"><code>SetMissionObjectDisabled</code></a></td><td>SetMissionObjectDisabled is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetMissionObjectFrame/"><code>SetMissionObjectFrame</code></a></td><td>SetMissionObjectFrame is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetMissionObjectFrameOverTime/"><code>SetMissionObjectFrameOverTime</code></a></td><td>SetMissionObjectFrameOverTime is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetMissionObjectGlobalFrame/"><code>SetMissionObjectGlobalFrame</code></a></td><td>SetMissionObjectGlobalFrame is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetMissionObjectGlobalFrameOverTime/"><code>SetMissionObjectGlobalFrameOverTime</code></a></td><td>SetMissionObjectGlobalFrameOverTime is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetMissionObjectImpulse/"><code>SetMissionObjectImpulse</code></a></td><td>SetMissionObjectImpulse is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetMissionObjectVertexAnimation/"><code>SetMissionObjectVertexAnimation</code></a></td><td>SetMissionObjectVertexAnimation is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetMissionObjectVertexAnimationProgress/"><code>SetMissionObjectVertexAnimationProgress</code></a></td><td>SetMissionObjectVertexAnimationProgress is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetMissionObjectVisibility/"><code>SetMissionObjectVisibility</code></a></td><td>SetMissionObjectVisibility is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetPeerTeam/"><code>SetPeerTeam</code></a></td><td>SetPeerTeam is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetRangedSiegeWeaponAmmo/"><code>SetRangedSiegeWeaponAmmo</code></a></td><td>SetRangedSiegeWeaponAmmo is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetRangedSiegeWeaponState/"><code>SetRangedSiegeWeaponState</code></a></td><td>SetRangedSiegeWeaponState is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetRoundMVP/"><code>SetRoundMVP</code></a></td><td>SetRoundMVP is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetSiegeLadderState/"><code>SetSiegeLadderState</code></a></td><td>SetSiegeLadderState is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetSiegeMachineMovementDistance/"><code>SetSiegeMachineMovementDistance</code></a></td><td>SetSiegeMachineMovementDistance is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetSiegeTowerGateState/"><code>SetSiegeTowerGateState</code></a></td><td>SetSiegeTowerGateState is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetSiegeTowerHasArrivedAtTarget/"><code>SetSiegeTowerHasArrivedAtTarget</code></a></td><td>SetSiegeTowerHasArrivedAtTarget is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetSpawnedFormationCount/"><code>SetSpawnedFormationCount</code></a></td><td>SetSpawnedFormationCount is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetStonePileAmmo/"><code>SetStonePileAmmo</code></a></td><td>SetStonePileAmmo is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetUsableMissionObjectIsDeactivated/"><code>SetUsableMissionObjectIsDeactivated</code></a></td><td>SetUsableMissionObjectIsDeactivated is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetUsableMissionObjectIsDisabledForPlayers/"><code>SetUsableMissionObjectIsDisabledForPlayers</code></a></td><td>SetUsableMissionObjectIsDisabledForPlayers is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetWeaponAmmoData/"><code>SetWeaponAmmoData</code></a></td><td>SetWeaponAmmoData is a data carrier in NetworkMessages.FromServer that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../SetWeaponNetworkData/"><code>SetWeaponNetworkData</code></a></td><td>SetWeaponNetworkData is a data carrier in NetworkMessages.FromServer that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../SetWeaponReloadPhase/"><code>SetWeaponReloadPhase</code></a></td><td>SetWeaponReloadPhase is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SetWieldedItemIndex/"><code>SetWieldedItemIndex</code></a></td><td>SetWieldedItemIndex is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SiegeMoraleChangeMessage/"><code>SiegeMoraleChangeMessage</code></a></td><td>SiegeMoraleChangeMessage is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SpawnAttachedWeaponOnCorpse/"><code>SpawnAttachedWeaponOnCorpse</code></a></td><td>SpawnAttachedWeaponOnCorpse is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SpawnAttachedWeaponOnSpawnedWeapon/"><code>SpawnAttachedWeaponOnSpawnedWeapon</code></a></td><td>SpawnAttachedWeaponOnSpawnedWeapon is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SpawnWeaponAsDropFromAgent/"><code>SpawnWeaponAsDropFromAgent</code></a></td><td>SpawnWeaponAsDropFromAgent is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SpawnWeaponWithNewEntity/"><code>SpawnWeaponWithNewEntity</code></a></td><td>SpawnWeaponWithNewEntity is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../StartSwitchingWeaponUsageIndex/"><code>StartSwitchingWeaponUsageIndex</code></a></td><td>StartSwitchingWeaponUsageIndex is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../StopPhysicsAndSetFrameOfMissionObject/"><code>StopPhysicsAndSetFrameOfMissionObject</code></a></td><td>StopPhysicsAndSetFrameOfMissionObject is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../StopUsingObject/"><code>StopUsingObject</code></a></td><td>StopUsingObject is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SyncGoldsForSkirmish/"><code>SyncGoldsForSkirmish</code></a></td><td>SyncGoldsForSkirmish is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SynchronizeAgentSpawnEquipment/"><code>SynchronizeAgentSpawnEquipment</code></a></td><td>SynchronizeAgentSpawnEquipment is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SynchronizeMissionObject/"><code>SynchronizeMissionObject</code></a></td><td>SynchronizeMissionObject is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SynchronizeMissionTimeTracker/"><code>SynchronizeMissionTimeTracker</code></a></td><td>SynchronizeMissionTimeTracker is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SynchronizingDone/"><code>SynchronizingDone</code></a></td><td>SynchronizingDone is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SyncMutedPlayers/"><code>SyncMutedPlayers</code></a></td><td>SyncMutedPlayers is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SyncObjectDestructionLevel/"><code>SyncObjectDestructionLevel</code></a></td><td>SyncObjectDestructionLevel is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SyncObjectHitpoints/"><code>SyncObjectHitpoints</code></a></td><td>SyncObjectHitpoints is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SyncPerksForCurrentlySelectedTroop/"><code>SyncPerksForCurrentlySelectedTroop</code></a></td><td>SyncPerksForCurrentlySelectedTroop is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SyncPlayerMuteState/"><code>SyncPlayerMuteState</code></a></td><td>SyncPlayerMuteState is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../SyncRelevantGameOptionsToServer/"><code>SyncRelevantGameOptionsToServer</code></a></td><td>SyncRelevantGameOptionsToServer is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../TauntSelected/"><code>TauntSelected</code></a></td><td>TauntSelected is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../TeamChange/"><code>TeamChange</code></a></td><td>TeamChange is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../TeamInitialPerkInfoMessage/"><code>TeamInitialPerkInfoMessage</code></a></td><td>TeamInitialPerkInfoMessage is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../TeamSetIsEnemyOf/"><code>TeamSetIsEnemyOf</code></a></td><td>TeamSetIsEnemyOf is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../UnloadMission/"><code>UnloadMission</code></a></td><td>UnloadMission is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../UnselectFormation/"><code>UnselectFormation</code></a></td><td>UnselectFormation is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../UnselectSiegeWeapon/"><code>UnselectSiegeWeapon</code></a></td><td>UnselectSiegeWeapon is a public type in NetworkMessages.FromClient.</td></tr>
+<tr><td><a href="../UpdateIntermissionVotingManagerValues/"><code>UpdateIntermissionVotingManagerValues</code></a></td><td>UpdateIntermissionVotingManagerValues is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../UpdateRoundScores/"><code>UpdateRoundScores</code></a></td><td>UpdateRoundScores is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../UpdateSelectedTroopIndex/"><code>UpdateSelectedTroopIndex</code></a></td><td>UpdateSelectedTroopIndex is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../UseObject/"><code>UseObject</code></a></td><td>UseObject is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../WarmupStateChange/"><code>WarmupStateChange</code></a></td><td>WarmupStateChange is a public type in NetworkMessages.FromServer.</td></tr>
+<tr><td><a href="../WeaponUsageIndexChangeMessage/"><code>WeaponUsageIndexChangeMessage</code></a></td><td>WeaponUsageIndexChangeMessage is a public type in NetworkMessages.FromServer.</td></tr>
+</tbody></table>
+<h2 id="other-subsystems-in-this-area">Other subsystems in this area</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/networkmessages/./../global/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/networkmessages/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/networkmessages/./../actions/">Actions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/networkmessages/./../sandbox/">SandBox</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/networkmessages/./../storymode/">StoryMode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/networkmessages/./../taleworlds/">TaleWorlds</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

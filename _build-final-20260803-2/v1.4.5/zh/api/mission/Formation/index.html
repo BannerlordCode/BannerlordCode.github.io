@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formation</title>
+  <meta name="description" content="Formation 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission/Formation/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission/Formation/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission/Formation/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission/Formation/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission/Formation/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission/Formation/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="active">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;mission&#x2F;">任务 API — v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Formation</span>
+    </nav>
+  
+  <h1>Formation</h1>
+  <h1 id="formation">Formation</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public sealed class Formation : IFormation</code>
+<strong>Base:</strong> <code>IFormation</code>
+<strong>File:</strong> <code>bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Formation.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>Formation</code> 位于 <code>TaleWorlds.MountAndBlade</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.MountAndBlade</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>Formation</code></td><td><code>public IFormationArrangement Formation { get; }</code></td></tr>
+<tr><td><code>FormationFileIndex</code></td><td><code>public int FormationFileIndex { get; set; }</code></td></tr>
+<tr><td><code>FormationRankIndex</code></td><td><code>public int FormationRankIndex { get; set; }</code></td></tr>
+<tr><td><code>FollowedUnit</code></td><td><code>public IFormationUnit FollowedUnit { get; }</code></td></tr>
+<tr><td><code>RetreatPositionCache</code></td><td><code>public RetreatPositionCacheSystem RetreatPositionCache { get; }</code></td></tr>
+<tr><td><code>RepresentativeClass</code></td><td><code>public FormationClass RepresentativeClass { get; }</code></td></tr>
+<tr><td><code>IsAIControlled</code></td><td><code>public bool IsAIControlled { get; }</code></td></tr>
+<tr><td><code>Direction</code></td><td><code>public Vec2 Direction { get; }</code></td></tr>
+<tr><td><code>UnitSpacing</code></td><td><code>public int UnitSpacing { get; }</code></td></tr>
+<tr><td><code>OrderPositionLock</code></td><td><code>public object OrderPositionLock { get; }</code></td></tr>
+<tr><td><code>SimulationFormationLock</code></td><td><code>public object SimulationFormationLock { get; }</code></td></tr>
+<tr><td><code>AttackEntityOrderSecondaryDetachment</code></td><td><code>public AttackEntityOrderSecondaryDetachment AttackEntityOrderSecondaryDetachment { get; }</code></td></tr>
+<tr><td><code>AI</code></td><td><code>public FormationAI AI { get; }</code></td></tr>
+<tr><td><code>TargetFormation</code></td><td><code>public Formation TargetFormation { get; }</code></td></tr>
+<tr><td><code>QuerySystem</code></td><td><code>public FormationQuerySystem QuerySystem { get; }</code></td></tr>
+<tr><td><code>CachedFormationIntegrityData</code></td><td><code>public FormationIntegrityDataGroup CachedFormationIntegrityData { get; }</code></td></tr>
+<tr><td><code>CachedAveragePosition</code></td><td><code>public Vec2 CachedAveragePosition { get; }</code></td></tr>
+<tr><td><code>CachedMedianPosition</code></td><td><code>public WorldPosition CachedMedianPosition { get; }</code></td></tr>
+<tr><td><code>CachedCurrentVelocity</code></td><td><code>public Vec2 CachedCurrentVelocity { get; }</code></td></tr>
+<tr><td><code>CachedMovementSpeed</code></td><td><code>public float CachedMovementSpeed { get; }</code></td></tr>
+<tr><td><code>CachedClosestEnemyFormationDistanceSquared</code></td><td><code>public float CachedClosestEnemyFormationDistanceSquared { get; }</code></td></tr>
+<tr><td><code>OverridenUnitCount</code></td><td><code>public int? OverridenUnitCount { get; }</code></td></tr>
+<tr><td><code>IsSpawning</code></td><td><code>public bool IsSpawning { get; }</code></td></tr>
+<tr><td><code>IsAITickedAfterSplit</code></td><td><code>public bool IsAITickedAfterSplit { get; }</code></td></tr>
+<tr><td><code>HasPlayerControlledTroop</code></td><td><code>public bool HasPlayerControlledTroop { get; }</code></td></tr>
+<tr><td><code>IsPlayerTroopInFormation</code></td><td><code>public bool IsPlayerTroopInFormation { get; }</code></td></tr>
+<tr><td><code>ContainsAgentVisuals</code></td><td><code>public bool ContainsAgentVisuals { get; set; }</code></td></tr>
+<tr><td><code>PlayerOwner</code></td><td><code>public Agent PlayerOwner { get; set; }</code></td></tr>
+<tr><td><code>BannerCode</code></td><td><code>public string BannerCode { get; set; }</code></td></tr>
+<tr><td><code>IsSplittableByAI</code></td><td><code>public bool IsSplittableByAI { get; }</code></td></tr>
+<tr><td><code>IsAIOwned</code></td><td><code>public bool IsAIOwned { get; }</code></td></tr>
+<tr><td><code>IsConvenientForTransfer</code></td><td><code>public bool IsConvenientForTransfer { get; }</code></td></tr>
+<tr><td><code>OrderLocalAveragePosition</code></td><td><code>public Vec2 OrderLocalAveragePosition { get; }</code></td></tr>
+<tr><td><code>FacingOrder</code></td><td><code>public FacingOrder FacingOrder { get; }</code></td></tr>
+<tr><td><code>ArrangementOrder</code></td><td><code>public ArrangementOrder ArrangementOrder { get; }</code></td></tr>
+<tr><td><code>FormOrder</code></td><td><code>public FormOrder FormOrder { get; }</code></td></tr>
+<tr><td><code>RidingOrder</code></td><td><code>public RidingOrder RidingOrder { get; }</code></td></tr>
+<tr><td><code>FiringOrder</code></td><td><code>public FiringOrder FiringOrder { get; }</code></td></tr>
+<tr><td><code>HasAnyMountedUnit</code></td><td><code>public bool HasAnyMountedUnit { get; }</code></td></tr>
+<tr><td><code>Width</code></td><td><code>public float Width { get; }</code></td></tr>
+<tr><td><code>SecondaryLogicalClasses</code></td><td><code>public IEnumerable&lt;FormationClass&gt; SecondaryLogicalClasses { get; }</code></td></tr>
+<tr><td><code>Arrangement</code></td><td><code>public IFormationArrangement Arrangement { get; set; }</code></td></tr>
+<tr><td><code>SecondaryPhysicalClasses</code></td><td><code>public IEnumerable&lt;FormationClass&gt; SecondaryPhysicalClasses { get; }</code></td></tr>
+<tr><td><code>Interval</code></td><td><code>public float Interval { get; }</code></td></tr>
+<tr><td><code>CalculateHasSignificantNumberOfMounted</code></td><td><code>public bool CalculateHasSignificantNumberOfMounted { get; }</code></td></tr>
+<tr><td><code>Distance</code></td><td><code>public float Distance { get; }</code></td></tr>
+<tr><td><code>CurrentPosition</code></td><td><code>public Vec2 CurrentPosition { get; }</code></td></tr>
+<tr><td><code>Captain</code></td><td><code>public Agent Captain { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="formationintegritydatagroup">FormationIntegrityDataGroup</h3>
+<p><code>public struct FormationIntegrityDataGroup(Vec2 averageVelocityExcludeFarAgents, float deviationOfPositionsExcludeFarAgents, float maxDeviationOfPositionExcludeFarAgents, float averageMaxUnlimitedSpeedExcludeFarAgents)</code></p>
+<p><strong>用途 / Purpose:</strong> 将ion integrity data group格式化为适合显示或存储的字符串。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.FormationIntegrityDataGroup(averageVelocityExcludeFarAgents, 0, 0, 0);
+</code></pre>
+<h3 id="getretreatpositionfromcache">GetRetreatPositionFromCache</h3>
+<p><code>public WorldPosition GetRetreatPositionFromCache(Vec2 agentPosition)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 retreat position from cache 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetRetreatPositionFromCache(agentPosition);
+</code></pre>
+<h3 id="addnewpositiontocache">AddNewPositionToCache</h3>
+<p><code>public void AddNewPositionToCache(Vec2 agentPostion, WorldPosition retreatingPosition)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 new position to cache 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.AddNewPositionToCache(agentPostion, retreatingPosition);
+</code></pre>
+<h3 id="createneworderworldposition">CreateNewOrderWorldPosition</h3>
+<p><code>public WorldPosition CreateNewOrderWorldPosition(WorldPosition.WorldPositionEnforcedCache worldPositionEnforcedCache)</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 new order world position 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.CreateNewOrderWorldPosition(worldPositionEnforcedCache);
+</code></pre>
+<h3 id="setmovementorder">SetMovementOrder</h3>
+<p><code>public void SetMovementOrder(MovementOrder input)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 movement order 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.SetMovementOrder(input);
+</code></pre>
+<h3 id="setfacingorder">SetFacingOrder</h3>
+<p><code>public void SetFacingOrder(FacingOrder order)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 facing order 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.SetFacingOrder(order);
+</code></pre>
+<h3 id="setarrangementorder">SetArrangementOrder</h3>
+<p><code>public void SetArrangementOrder(ArrangementOrder order)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 arrangement order 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.SetArrangementOrder(order);
+</code></pre>
+<h3 id="setformorder">SetFormOrder</h3>
+<p><code>public void SetFormOrder(FormOrder order, bool updateDesiredFileCount = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 form order 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.SetFormOrder(order, false);
+</code></pre>
+<h3 id="setridingorder">SetRidingOrder</h3>
+<p><code>public void SetRidingOrder(RidingOrder order)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 riding order 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.SetRidingOrder(order);
+</code></pre>
+<h3 id="setfiringorder">SetFiringOrder</h3>
+<p><code>public void SetFiringOrder(FiringOrder order)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 firing order 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.SetFiringOrder(order);
+</code></pre>
+<h3 id="setcontrolledbyai">SetControlledByAI</h3>
+<p><code>public void SetControlledByAI(bool isControlledByAI, bool enforceNotSplittableByAI = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 controlled by a i 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.SetControlledByAI(false, false);
+</code></pre>
+<h3 id="settargetformation">SetTargetFormation</h3>
+<p><code>public void SetTargetFormation(Formation targetFormation)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 target formation 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.SetTargetFormation(targetFormation);
+</code></pre>
+<h3 id="ondeploymentfinished">OnDeploymentFinished</h3>
+<p><code>public void OnDeploymentFinished()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 deployment finished 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.OnDeploymentFinished();
+</code></pre>
+<h3 id="resetarrangementorderticktimer">ResetArrangementOrderTickTimer</h3>
+<p><code>public void ResetArrangementOrderTickTimer()</code></p>
+<p><strong>用途 / Purpose:</strong> 将 arrangement order tick timer 重置回默认或初始状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.ResetArrangementOrderTickTimer();
+</code></pre>
+<h3 id="setpositioning">SetPositioning</h3>
+<p><code>public void SetPositioning(WorldPosition? position = null, Vec2? direction = null, int? unitSpacing = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 positioning 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.SetPositioning(null, null, 0);
+</code></pre>
+<h3 id="getcountofunitswithcondition">GetCountOfUnitsWithCondition</h3>
+<p><code>public int GetCountOfUnitsWithCondition(Func&lt;Agent, bool&gt; function)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 count of units with condition 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetCountOfUnitsWithCondition(func&lt;Agent, false);
+</code></pre>
+<h3 id="getreadonlymovementorderreference">GetReadonlyMovementOrderReference</h3>
+<p><code>public ref readonly MovementOrder GetReadonlyMovementOrderReference()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 readonly movement order reference 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetReadonlyMovementOrderReference();
+</code></pre>
+<h3 id="getfirstunit">GetFirstUnit</h3>
+<p><code>public Agent GetFirstUnit()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 first unit 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetFirstUnit();
+</code></pre>
+<h3 id="getcountofunitsbelongingtologicalclass">GetCountOfUnitsBelongingToLogicalClass</h3>
+<p><code>public int GetCountOfUnitsBelongingToLogicalClass(FormationClass logicalClass)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 count of units belonging to logical class 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetCountOfUnitsBelongingToLogicalClass(logicalClass);
+</code></pre>
+<h3 id="getcountofunitsbelongingtophysicalclass">GetCountOfUnitsBelongingToPhysicalClass</h3>
+<p><code>public int GetCountOfUnitsBelongingToPhysicalClass(FormationClass physicalClass, bool excludeBannerBearers)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 count of units belonging to physical class 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetCountOfUnitsBelongingToPhysicalClass(physicalClass, false);
+</code></pre>
+<h3 id="setspawnindex">SetSpawnIndex</h3>
+<p><code>public void SetSpawnIndex(int value = 0)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 spawn index 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.SetSpawnIndex(0);
+</code></pre>
+<h3 id="getnextspawnindex">GetNextSpawnIndex</h3>
+<p><code>public int GetNextSpawnIndex()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 next spawn index 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetNextSpawnIndex();
+</code></pre>
+<h3 id="getunitwithindex">GetUnitWithIndex</h3>
+<p><code>public Agent GetUnitWithIndex(int unitIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 unit with index 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetUnitWithIndex(0);
+</code></pre>
+<h3 id="getaveragepositionofunits">GetAveragePositionOfUnits</h3>
+<p><code>public Vec2 GetAveragePositionOfUnits(bool excludeDetachedUnits, bool excludePlayer)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 average position of units 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetAveragePositionOfUnits(false, false);
+</code></pre>
+<h3 id="getmedianagent">GetMedianAgent</h3>
+<p><code>public Agent GetMedianAgent(bool excludeDetachedUnits, bool excludePlayer, Vec2 averagePosition)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 median agent 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetMedianAgent(false, false, averagePosition);
+</code></pre>
+<h3 id="getunderattacktypeofunits">GetUnderAttackTypeOfUnits</h3>
+<p><code>public Agent.UnderAttackType GetUnderAttackTypeOfUnits(float timeLimit = 3f)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 under attack type of units 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetUnderAttackTypeOfUnits(0);
+</code></pre>
+<h3 id="getmovementtypeofunits">GetMovementTypeOfUnits</h3>
+<p><code>public Agent.MovementBehaviorType GetMovementTypeOfUnits()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 movement type of units 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetMovementTypeOfUnits();
+</code></pre>
+<h3 id="getunitswithoutdetachedones">GetUnitsWithoutDetachedOnes</h3>
+<p><code>public IEnumerable&lt;Agent&gt; GetUnitsWithoutDetachedOnes()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 units without detached ones 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetUnitsWithoutDetachedOnes();
+</code></pre>
+<h3 id="getwalldirectionofrelativeformationlocation">GetWallDirectionOfRelativeFormationLocation</h3>
+<p><code>public Vec2 GetWallDirectionOfRelativeFormationLocation(Agent unit)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 wall direction of relative formation location 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetWallDirectionOfRelativeFormationLocation(unit);
+</code></pre>
+<h3 id="getdirectionofunit">GetDirectionOfUnit</h3>
+<p><code>public Vec2 GetDirectionOfUnit(Agent unit)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 direction of unit 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetDirectionOfUnit(unit);
+</code></pre>
+<h3 id="getmovementstate">GetMovementState</h3>
+<p><code>public MovementOrder.MovementStateEnum GetMovementState()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 movement state 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetMovementState();
+</code></pre>
+<h3 id="getorderpositionofunit">GetOrderPositionOfUnit</h3>
+<p><code>public WorldPosition GetOrderPositionOfUnit(Agent unit)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 order position of unit 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetOrderPositionOfUnit(unit);
+</code></pre>
+<h3 id="getcurrentglobalpositionofunit">GetCurrentGlobalPositionOfUnit</h3>
+<p><code>public Vec2 GetCurrentGlobalPositionOfUnit(Agent unit, bool blendWithOrderDirection)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 current global position of unit 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetCurrentGlobalPositionOfUnit(unit, false);
+</code></pre>
+<h3 id="getaveragemaximummovementspeedofunits">GetAverageMaximumMovementSpeedOfUnits</h3>
+<p><code>public float GetAverageMaximumMovementSpeedOfUnits()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 average maximum movement speed of units 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetAverageMaximumMovementSpeedOfUnits();
+</code></pre>
+<h3 id="getformationpower">GetFormationPower</h3>
+<p><code>public float GetFormationPower()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 formation power 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetFormationPower();
+</code></pre>
+<h3 id="getformationmeleefightingpower">GetFormationMeleeFightingPower</h3>
+<p><code>public float GetFormationMeleeFightingPower()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 formation melee fighting power 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetFormationMeleeFightingPower();
+</code></pre>
+<h3 id="getdetachmentframe">GetDetachmentFrame</h3>
+<p><code>public WorldFrame? GetDetachmentFrame(Agent agent)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 detachment frame 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetDetachmentFrame(agent);
+</code></pre>
+<h3 id="getmiddlefrontunitpositionoffset">GetMiddleFrontUnitPositionOffset</h3>
+<p><code>public Vec2 GetMiddleFrontUnitPositionOffset()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 middle front unit position offset 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetMiddleFrontUnitPositionOffset();
+</code></pre>
+<h3 id="getunitstopopwithreferenceposition">GetUnitsToPopWithReferencePosition</h3>
+<p><code>public List&lt;IFormationUnit&gt; GetUnitsToPopWithReferencePosition(int count, Vec3 targetPosition)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 units to pop with reference position 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetUnitsToPopWithReferencePosition(0, targetPosition);
+</code></pre>
+<h3 id="getunitstopop">GetUnitsToPop</h3>
+<p><code>public List&lt;IFormationUnit&gt; GetUnitsToPop(int count)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 units to pop 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetUnitsToPop(0);
+</code></pre>
+<h3 id="getunitspawnframewithindex">GetUnitSpawnFrameWithIndex</h3>
+<p><code>public void GetUnitSpawnFrameWithIndex(int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitCount, int unitSpacing, bool isMountedFormation, out WorldPosition? unitSpawnPosition, out Vec2? unitSpawnDirection)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 unit spawn frame with index 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.GetUnitSpawnFrameWithIndex(0, formationPosition, formationDirection, 0, 0, 0, false, unitSpawnPosition, unitSpawnDirection);
+</code></pre>
+<h3 id="getunitpositionwithindexaccordingtoneworder">GetUnitPositionWithIndexAccordingToNewOrder</h3>
+<p><code>public void GetUnitPositionWithIndexAccordingToNewOrder(Formation simulationFormation, int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitSpacing, out WorldPosition? unitSpawnPosition, out Vec2? unitSpawnDirection)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 unit position with index according to new order 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.GetUnitPositionWithIndexAccordingToNewOrder(simulationFormation, 0, formationPosition, formationDirection, 0, 0, unitSpawnPosition, unitSpawnDirection);
+</code></pre>
+<h3 id="getunitpositionwithindexaccordingtoneworder-1">GetUnitPositionWithIndexAccordingToNewOrder</h3>
+<p><code>public void GetUnitPositionWithIndexAccordingToNewOrder(Formation simulationFormation, int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitSpacing, int overridenUnitCount, out WorldPosition? unitPosition, out Vec2? unitDirection)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 unit position with index according to new order 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.GetUnitPositionWithIndexAccordingToNewOrder(simulationFormation, 0, formationPosition, formationDirection, 0, 0, 0, unitPosition, unitDirection);
+</code></pre>
+<h3 id="getunitpositionwithindexaccordingtoneworder-2">GetUnitPositionWithIndexAccordingToNewOrder</h3>
+<p><code>public void GetUnitPositionWithIndexAccordingToNewOrder(Formation simulationFormation, int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitSpacing, out WorldPosition? unitSpawnPosition, out Vec2? unitSpawnDirection, out float actualWidth)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 unit position with index according to new order 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.GetUnitPositionWithIndexAccordingToNewOrder(simulationFormation, 0, formationPosition, formationDirection, 0, 0, unitSpawnPosition, unitSpawnDirection, actualWidth);
+</code></pre>
+<h3 id="hasunitswithcondition">HasUnitsWithCondition</h3>
+<p><code>public bool HasUnitsWithCondition(Func&lt;Agent, bool&gt; function)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 units with condition。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.HasUnitsWithCondition(func&lt;Agent, false);
+</code></pre>
+<h3 id="hasunitswithcondition-1">HasUnitsWithCondition</h3>
+<p><code>public bool HasUnitsWithCondition(Func&lt;Agent, bool&gt; function, out Agent result)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 units with condition。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.HasUnitsWithCondition(func&lt;Agent, false, result);
+</code></pre>
+<h3 id="hasanyenemyformationsthatisnotempty">HasAnyEnemyFormationsThatIsNotEmpty</h3>
+<p><code>public bool HasAnyEnemyFormationsThatIsNotEmpty()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 any enemy formations that is not empty。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.HasAnyEnemyFormationsThatIsNotEmpty();
+</code></pre>
+<h3 id="hasunitwithconditionlimitedrandom">HasUnitWithConditionLimitedRandom</h3>
+<p><code>public bool HasUnitWithConditionLimitedRandom(Func&lt;Agent, bool&gt; function, int startingIndex, int willBeCheckedUnitCount, out Agent resultAgent)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 unit with condition limited random。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.HasUnitWithConditionLimitedRandom(func&lt;Agent, false, 0, 0, resultAgent);
+</code></pre>
+<h3 id="collectunitindices">CollectUnitIndices</h3>
+<p><code>public int CollectUnitIndices()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CollectUnitIndices 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.CollectUnitIndices();
+</code></pre>
+<h3 id="applyactiononeachunit">ApplyActionOnEachUnit</h3>
+<p><code>public void ApplyActionOnEachUnit(Action&lt;Agent&gt; action, Agent ignoreAgent = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 action on each unit 的效果应用到当前对象。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.ApplyActionOnEachUnit(action, null);
+</code></pre>
+<h3 id="applyactiononeachattachedunit">ApplyActionOnEachAttachedUnit</h3>
+<p><code>public void ApplyActionOnEachAttachedUnit(Action&lt;Agent&gt; action)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 action on each attached unit 的效果应用到当前对象。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.ApplyActionOnEachAttachedUnit(action);
+</code></pre>
+<h3 id="applyactiononeachdetachedunit">ApplyActionOnEachDetachedUnit</h3>
+<p><code>public void ApplyActionOnEachDetachedUnit(Action&lt;Agent&gt; action)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 action on each detached unit 的效果应用到当前对象。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.ApplyActionOnEachDetachedUnit(action);
+</code></pre>
+<h3 id="applyactiononeachunitviabackuplist">ApplyActionOnEachUnitViaBackupList</h3>
+<p><code>public void ApplyActionOnEachUnitViaBackupList(Action&lt;Agent&gt; action)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 action on each unit via backup list 的效果应用到当前对象。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.ApplyActionOnEachUnitViaBackupList(action);
+</code></pre>
+<h3 id="applyactiononeachunit-1">ApplyActionOnEachUnit</h3>
+<p><code>public void ApplyActionOnEachUnit(Action&lt;Agent, List&lt;WorldPosition&gt;&gt; action, List&lt;WorldPosition&gt; list)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 action on each unit 的效果应用到当前对象。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.ApplyActionOnEachUnit(action&lt;Agent, action, list);
+</code></pre>
+<h3 id="countunitsonnavmeshidmod10">CountUnitsOnNavMeshIDMod10</h3>
+<p><code>public int CountUnitsOnNavMeshIDMod10(int navMeshID, bool includeOnlyPositionedUnits)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CountUnitsOnNavMeshIDMod10 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.CountUnitsOnNavMeshIDMod10(0, false);
+</code></pre>
+<h3 id="onagentcontrollerchanged">OnAgentControllerChanged</h3>
+<p><code>public void OnAgentControllerChanged(Agent agent, AgentControllerType oldController)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 agent controller changed 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.OnAgentControllerChanged(agent, oldController);
+</code></pre>
+<h3 id="onmassunittransferstart">OnMassUnitTransferStart</h3>
+<p><code>public void OnMassUnitTransferStart()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 mass unit transfer start 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.OnMassUnitTransferStart();
+</code></pre>
+<h3 id="onmassunittransferend">OnMassUnitTransferEnd</h3>
+<p><code>public void OnMassUnitTransferEnd()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 mass unit transfer end 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.OnMassUnitTransferEnd();
+</code></pre>
+<h3 id="onbatchunitremovalstart">OnBatchUnitRemovalStart</h3>
+<p><code>public void OnBatchUnitRemovalStart()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 batch unit removal start 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.OnBatchUnitRemovalStart();
+</code></pre>
+<h3 id="onbatchunitremovalend">OnBatchUnitRemovalEnd</h3>
+<p><code>public void OnBatchUnitRemovalEnd()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 batch unit removal end 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.OnBatchUnitRemovalEnd();
+</code></pre>
+<h3 id="onunitaddedorremoved">OnUnitAddedOrRemoved</h3>
+<p><code>public void OnUnitAddedOrRemoved()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 unit added or removed 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.OnUnitAddedOrRemoved();
+</code></pre>
+<h3 id="onagentlostmount">OnAgentLostMount</h3>
+<p><code>public void OnAgentLostMount(Agent agent)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 agent lost mount 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.OnAgentLostMount(agent);
+</code></pre>
+<h3 id="onformationdispersed">OnFormationDispersed</h3>
+<p><code>public void OnFormationDispersed()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 formation dispersed 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.OnFormationDispersed();
+</code></pre>
+<h3 id="onunitdetachmentchanged">OnUnitDetachmentChanged</h3>
+<p><code>public void OnUnitDetachmentChanged(Agent unit, bool isOldDetachmentLoose, bool isNewDetachmentLoose)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 unit detachment changed 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.OnUnitDetachmentChanged(unit, false, false);
+</code></pre>
+<h3 id="onundetachablenonplayerunitadded">OnUndetachableNonPlayerUnitAdded</h3>
+<p><code>public void OnUndetachableNonPlayerUnitAdded(Agent unit)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 undetachable non player unit added 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.OnUndetachableNonPlayerUnitAdded(unit);
+</code></pre>
+<h3 id="onundetachablenonplayerunitremoved">OnUndetachableNonPlayerUnitRemoved</h3>
+<p><code>public void OnUndetachableNonPlayerUnitRemoved(Agent unit)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 undetachable non player unit removed 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.OnUndetachableNonPlayerUnitRemoved(unit);
+</code></pre>
+<h3 id="resetmovementorderpositioncache">ResetMovementOrderPositionCache</h3>
+<p><code>public void ResetMovementOrderPositionCache()</code></p>
+<p><strong>用途 / Purpose:</strong> 将 movement order position cache 重置回默认或初始状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.ResetMovementOrderPositionCache();
+</code></pre>
+<h3 id="reset">Reset</h3>
+<p><code>public void Reset()</code></p>
+<p><strong>用途 / Purpose:</strong> 将当前对象重置为默认或初始状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.Reset();
+</code></pre>
+<h3 id="split">Split</h3>
+<p><code>public IEnumerable&lt;Formation&gt; Split(int count = 2)</code></p>
+<p><strong>用途 / Purpose:</strong> 将split拆分为多个部分或子项。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.Split(0);
+</code></pre>
+<h3 id="transferunits">TransferUnits</h3>
+<p><code>public void TransferUnits(Formation target, int unitCount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TransferUnits 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.TransferUnits(target, 0);
+</code></pre>
+<h3 id="transferunitsaux">TransferUnitsAux</h3>
+<p><code>public void TransferUnitsAux(Formation target, int unitCount, bool isPlayerOrder, bool useSelectivePop)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TransferUnitsAux 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.TransferUnitsAux(target, 0, false, false);
+</code></pre>
+<h3 id="debugarrangements">DebugArrangements</h3>
+<p><code>public void DebugArrangements()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DebugArrangements 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.DebugArrangements();
+</code></pre>
+<h3 id="addunit">AddUnit</h3>
+<p><code>public void AddUnit(Agent unit)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 unit 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.AddUnit(unit);
+</code></pre>
+<h3 id="removeunit">RemoveUnit</h3>
+<p><code>public void RemoveUnit(Agent unit)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 unit。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.RemoveUnit(unit);
+</code></pre>
+<h3 id="detachunit">DetachUnit</h3>
+<p><code>public void DetachUnit(Agent unit, bool isLoose)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DetachUnit 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.DetachUnit(unit, false);
+</code></pre>
+<h3 id="attachunit">AttachUnit</h3>
+<p><code>public void AttachUnit(Agent unit)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AttachUnit 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.AttachUnit(unit);
+</code></pre>
+<h3 id="switchunitlocations">SwitchUnitLocations</h3>
+<p><code>public void SwitchUnitLocations(Agent firstUnit, Agent secondUnit)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SwitchUnitLocations 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.SwitchUnitLocations(firstUnit, secondUnit);
+</code></pre>
+<h3 id="forcecalculatecaches">ForceCalculateCaches</h3>
+<p><code>public void ForceCalculateCaches()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ForceCalculateCaches 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.ForceCalculateCaches();
+</code></pre>
+<h3 id="tick">Tick</h3>
+<p><code>public void Tick(float dt)</code></p>
+<p><strong>用途 / Purpose:</strong> 推进当前对象一帧/一个更新周期的状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.Tick(0);
+</code></pre>
+<h3 id="sethaspendingunitpositions">SetHasPendingUnitPositions</h3>
+<p><code>public void SetHasPendingUnitPositions(bool hasPendingUnitPositions)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 has pending unit positions 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.SetHasPendingUnitPositions(false);
+</code></pre>
+<h3 id="joindetachment">JoinDetachment</h3>
+<p><code>public void JoinDetachment(IDetachment detachment)</code></p>
+<p><strong>用途 / Purpose:</strong> 把若干detachment连接成一个整体。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.JoinDetachment(detachment);
+</code></pre>
+<h3 id="formattackentitydetachment">FormAttackEntityDetachment</h3>
+<p><code>public void FormAttackEntityDetachment(GameEntity targetEntity)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 FormAttackEntityDetachment 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.FormAttackEntityDetachment(targetEntity);
+</code></pre>
+<h3 id="leavedetachment">LeaveDetachment</h3>
+<p><code>public void LeaveDetachment(IDetachment detachment)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 LeaveDetachment 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.LeaveDetachment(detachment);
+</code></pre>
+<h3 id="disbandattackentitydetachment">DisbandAttackEntityDetachment</h3>
+<p><code>public void DisbandAttackEntityDetachment()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DisbandAttackEntityDetachment 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.DisbandAttackEntityDetachment();
+</code></pre>
+<h3 id="rearrange">Rearrange</h3>
+<p><code>public void Rearrange(IFormationArrangement arrangement)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Rearrange 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.Rearrange(arrangement);
+</code></pre>
+<h3 id="tickforcolumnarrangementinitialpositioning">TickForColumnArrangementInitialPositioning</h3>
+<p><code>public void TickForColumnArrangementInitialPositioning(Formation formation)</code></p>
+<p><strong>用途 / Purpose:</strong> 在每一帧或每个更新周期内推进for column arrangement initial positioning的状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.TickForColumnArrangementInitialPositioning(formation);
+</code></pre>
+<h3 id="calculateformationdirectionenforcingfactorforrank">CalculateFormationDirectionEnforcingFactorForRank</h3>
+<p><code>public float CalculateFormationDirectionEnforcingFactorForRank(int rankIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 计算formation direction enforcing factor for rank的当前值或结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.CalculateFormationDirectionEnforcingFactorForRank(0);
+</code></pre>
+<h3 id="beginspawn">BeginSpawn</h3>
+<p><code>public void BeginSpawn(int unitCount, bool isMounted)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BeginSpawn 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.BeginSpawn(0, false);
+</code></pre>
+<h3 id="endspawn">EndSpawn</h3>
+<p><code>public void EndSpawn()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndSpawn 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+formation.EndSpawn();
+</code></pre>
+<h3 id="gethashcode">GetHashCode</h3>
+<p><code>public override int GetHashCode()</code></p>
+<p><strong>用途 / Purpose:</strong> 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Formation 实例
+Formation formation = ...;
+var result = formation.GetHashCode();
+</code></pre>
+<h3 id="getlastsimulatedformationsoccupationwidthiflesserthanactualwidth">GetLastSimulatedFormationsOccupationWidthIfLesserThanActualWidth</h3>
+<p><code>public static float GetLastSimulatedFormationsOccupationWidthIfLesserThanActualWidth(Formation simulationFormation)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 last simulated formations occupation width if lesser than actual width 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.GetLastSimulatedFormationsOccupationWidthIfLesserThanActualWidth(simulationFormation);
+</code></pre>
+<h3 id="getformationframesforbeforeformationcreation">GetFormationFramesForBeforeFormationCreation</h3>
+<p><code>public static List&lt;WorldFrame&gt; GetFormationFramesForBeforeFormationCreation(float width, int manCount, bool areMounted, WorldPosition spawnOrigin, Mat3 spawnRotation)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 formation frames for before formation creation 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.GetFormationFramesForBeforeFormationCreation(0, 0, false, spawnOrigin, spawnRotation);
+</code></pre>
+<h3 id="getdefaultunitdiameter">GetDefaultUnitDiameter</h3>
+<p><code>public static float GetDefaultUnitDiameter(bool isMounted)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 default unit diameter 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.GetDefaultUnitDiameter(false);
+</code></pre>
+<h3 id="getdefaultminimumunitinterval">GetDefaultMinimumUnitInterval</h3>
+<p><code>public static float GetDefaultMinimumUnitInterval(bool isMounted)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 default minimum unit interval 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.GetDefaultMinimumUnitInterval(false);
+</code></pre>
+<h3 id="getdefaultunitinterval">GetDefaultUnitInterval</h3>
+<p><code>public static float GetDefaultUnitInterval(bool isMounted, int unitSpacing)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 default unit interval 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.GetDefaultUnitInterval(false, 0);
+</code></pre>
+<h3 id="getdefaultminimumunitdistance">GetDefaultMinimumUnitDistance</h3>
+<p><code>public static float GetDefaultMinimumUnitDistance(bool isMounted)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 default minimum unit distance 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.GetDefaultMinimumUnitDistance(false);
+</code></pre>
+<h3 id="getdefaultunitdistance">GetDefaultUnitDistance</h3>
+<p><code>public static float GetDefaultUnitDistance(bool isMounted, int unitSpacing)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 default unit distance 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.GetDefaultUnitDistance(false, 0);
+</code></pre>
+<h3 id="getdefaultfilewidth">GetDefaultFileWidth</h3>
+<p><code>public static float GetDefaultFileWidth(int fileUnitCount, int unitSpacing, bool isMounted)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 default file width 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.GetDefaultFileWidth(0, 0, false);
+</code></pre>
+<h3 id="getdefaultrankdepth">GetDefaultRankDepth</h3>
+<p><code>public static float GetDefaultRankDepth(int rankUnitCount, int unitSpacing, bool isMounted)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 default rank depth 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.GetDefaultRankDepth(0, 0, false);
+</code></pre>
+<h3 id="infantryinterval">InfantryInterval</h3>
+<p><code>public static float InfantryInterval(int unitSpacing)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 InfantryInterval 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.InfantryInterval(0);
+</code></pre>
+<h3 id="cavalryinterval">CavalryInterval</h3>
+<p><code>public static float CavalryInterval(int unitSpacing)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CavalryInterval 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.CavalryInterval(0);
+</code></pre>
+<h3 id="infantrydistance">InfantryDistance</h3>
+<p><code>public static float InfantryDistance(int unitSpacing)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 InfantryDistance 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.InfantryDistance(0);
+</code></pre>
+<h3 id="cavalrydistance">CavalryDistance</h3>
+<p><code>public static float CavalryDistance(int unitSpacing)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CavalryDistance 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.CavalryDistance(0);
+</code></pre>
+<h3 id="isdefenserelatedaidrivencomponent">IsDefenseRelatedAIDrivenComponent</h3>
+<p><code>public static bool IsDefenseRelatedAIDrivenComponent(DrivenProperty drivenProperty)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 defense related a i driven component 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Formation.IsDefenseRelatedAIDrivenComponent(drivenProperty);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+Formation formation = ...;
+formation.FormationIntegrityDataGroup(averageVelocityExcludeFarAgents, 0, 0, 0);
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/zh/api/mission/">任务 API — v1.4.5</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/zh/api/mission/IMBItem/">&larr; IMBItem</a>
+          
+          
+            <a rel="next" href="/v1.4.5/zh/api/mission/AdminPanelMultiSelectionOption/">AdminPanelMultiSelectionOption &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

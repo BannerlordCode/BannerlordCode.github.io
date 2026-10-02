@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workshop</title>
+  <meta name="description" content="城镇中一个具体的生产工坊实例：绑定所属城镇、拥有者英雄与生产类型，记录运营资本、盈亏与每日生产进度，是工坊经济与玩家投资的载体。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/Workshop/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/Workshop/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/Workshop/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/Workshop/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/Workshop/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/Workshop/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Workshop</span>
+    </nav>
+  
+  <h1>Workshop</h1>
+  <h1 id="workshop">Workshop</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Settlements.Workshops<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public class Workshop : SettlementArea</code><br />
+<strong>Base:</strong> <code>SettlementArea</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Settlements/Workshops/Workshop.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>Workshop</code> 是 Bannerlord 战役世界里<strong>一个具体城镇里一间具体工坊</strong>的运行时实例——不是工坊的“类型定义”（那是 <a href="../../campaign-ext/WorkshopType/"><code>WorkshopType</code></a>），也不是工坊的每日生产逻辑（那在 <a href="../../campaign-ext/WorkshopsCampaignBehavior/"><code>WorkshopsCampaignBehavior</code></a> 里）。它把四件事绑在一起：</p>
+<ul>
+<li><strong>位置与归属</strong>：属于哪个城镇（<a href="../Settlement/"><code>Settlement</code></a> / <a href="../Town/"><code>Town</code></a>）、归哪个英雄（<a href="../Hero/"><code>Hero</code></a>）所有、在城镇里的唯一标签 <code>Tag</code>。</li>
+<li><strong>生产类型</strong>：<code>WorkshopType</code> 决定它把哪些原料（<a href="../../campaign-ext/"><code>ItemCategory</code></a>) 转成哪些商品，以及转换速度。</li>
+<li><strong>经营账本</strong>：<code>Capital</code>（当前周转资金）、<code>InitialCapital</code>（初始资金）、<code>ProfitMade</code>（累计利润）、<code>Expense</code>（每日开销）。</li>
+<li><strong>生产进度</strong>：<code>_productionProgress[]</code>（对每种 <code>WorkshopType.Productions</code> 各一条 0~1 的进度）。</li>
+</ul>
+<p>你几乎所有“工坊 mod”都会碰到它：读玩家在某个城镇开了哪些铺子、看哪间在赚钱、把某间转产、或给某间注资。注意 <code>Workshop</code> 只是一个<strong>状态和归属容器</strong>；真正的“每天生产/卖货/扣钱”由 <code>WorkshopsCampaignBehavior</code> 的每日 tick 驱动，并通过 <a href="../../campaign-ext/WorkshopModel/"><code>WorkshopModel</code></a> 读取经济参数。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>Workshop</code> 当成**“城镇里一间铺面的营业执照 + 账本”**：</p>
+<ul>
+<li>它在<strong>战役（Campaign）层</strong>，不属于战斗场景（Mission）。进战斗后工坊不会变成 <code>Agent</code>。</li>
+<li>一个 <code>Workshop</code> 实例对应一个<strong>城镇里的固定槽位</strong>（<code>Tag</code> 唯一）。槽位由 <code>Town.InitializeWorkshops(...)</code> 在开局分配，<code>Workshop[]</code> 数组长度固定；你拿到的 <code>Workshop</code> 是已经存在的、被序列化保存的对象，<strong>不要自己 <code>new Workshop(...)</code></strong>。</li>
+<li>它<strong>不做生产计算</strong>：<code>ChangeGold</code>、<code>SetProgress</code>、<code>UpdateLastRunTime</code> 都是“被动记录”，由 <code>WorkshopsCampaignBehavior.DailyTickTown</code> 在每个城镇的每日 tick 里调用。你自己直接调它们，相当于手动改账本，会和行为内部的仓库/进度数据脱节。</li>
+<li><strong>何时直接用 <code>Workshop</code> 的方法</strong>：只读（看利润、看归属、看进度）、或用 <code>SetCustomName</code> 改个店名。</li>
+<li><strong>何时不要直接调变更方法</strong>：换所有者、换生产类型、改资本——这些应走对应的 Action（<code>ChangeOwnerOfWorkshopAction</code>、<code>ChangeProductionTypeOfWorkshopAction</code>、<code>InitializeWorkshopAction</code>），否则会绕过行为数据与事件，见下方风险段。</li>
+<li><strong>依赖</strong>：向上依赖 <code>WorkshopType</code>（XML 加载的 <code>MBObjectBase</code>）、<code>WorkshopModel</code>（经济参数）；向下被 <code>WorkshopsCampaignBehavior</code>（每日 tick）、<code>Clan</code> 财务面板、仓库 UI 读取；变更会通过 <code>CampaignEventDispatcher</code> 广播事件。</li>
+</ul>
+<h2 id="yi-lai-tu">依赖图</h2>
+<table><thead><tr><th>方向</th><th>节点</th><th>关系</th></tr></thead><tbody>
+<tr><td>上游（定义/参数）</td><td><a href="../../campaign-ext/WorkshopType/">WorkshopType</a></td><td>决定生产配方 <code>Productions</code>、名称、隐藏性</td></tr>
+<tr><td>上游（参数）</td><td><a href="../../campaign-ext/WorkshopModel/">WorkshopModel</a></td><td><code>InitialCapital</code> / <code>DailyExpense</code> / <code>CapitalLowLimit</code> 等来源</td></tr>
+<tr><td>下游（驱动者）</td><td><a href="../../campaign-ext/WorkshopsCampaignBehavior/">WorkshopsCampaignBehavior</a></td><td>每日 tick 调用 <code>SetProgress</code> / <code>ChangeGold</code> / <code>UpdateLastRunTime</code></td></tr>
+<tr><td>下游（变更入口）</td><td><a href="../../campaign-ext/ChangeOwnerOfWorkshopAction/">ChangeOwnerOfWorkshopAction</a> · <a href="../../campaign-ext/ChangeProductionTypeOfWorkshopAction/">ChangeProductionTypeOfWorkshopAction</a> · <a href="../../campaign-ext/InitializeWorkshopAction/">InitializeWorkshopAction</a></td><td>正确换主/转产/开局建坊的入口</td></tr>
+<tr><td>事件</td><td><a href="../../campaign-ext/CampaignEventDispatcher/">CampaignEventDispatcher</a></td><td><code>OnItemProduced</code> / <code>OnItemConsumed</code>；<code>WorkshopOwnerChangedEvent</code> / <code>WorkshopTypeChangedEvent</code></td></tr>
+<tr><td>仓库接口</td><td><a href="../../campaign-ext/IWorkshopWarehouseCampaignBehavior/">IWorkshopWarehouseCampaignBehavior</a></td><td>玩家工坊的仓库出入库比例与原料判定</td></tr>
+<tr><td>归属</td><td><a href="../Hero/">Hero</a> · <a href="../Clan/">Clan</a></td><td><code>Owner.OwnedWorkshops</code> 反向持有；玩家铺面计入家族财务</td></tr>
+<tr><td>容器</td><td><a href="../Town/">Town</a> · <a href="../Settlement/">Settlement</a></td><td><code>Town.Workshops</code> 是获取入口；<code>Settlement</code> 是地理位置</td></tr>
+</tbody></table>
+<h2 id="feng-xian-duan">风险段</h2>
+<blockquote>
+<p>直接改 <code>Workshop</code> 的低级 setter 而不走 Action，是工坊 mod 最常见的“坏档/黑屏仓库”来源。</p>
+</blockquote>
+<ol>
+<li><strong>换主/转产要走过场 Action，不要裸调 <code>ChangeOwnerOfWorkshop</code> / <code>ChangeWorkshopProduction</code>。</strong> 这两个方法只是改字段；而 <code>WorkshopsCampaignBehavior</code> 在 <code>OnWorkshopOwnerChanged</code> / <code>OnWorkshopTypeChanged</code> 里才维护玩家工坊的 <code>_workshopData</code>（仓库进度、库存比例）和 <code>_warehouseRosterPerSettlement</code>。裸调会让“仓库数据”和实际工坊脱节：玩家在城镇开“进入仓库”菜单时可能拿到错配的 <code>ItemRoster</code>，甚至因为 <code>_workshopData</code> 找不到对应条目而静默丢失仓库。正确做法见示例 2。</li>
+<li><strong><code>SetProgress(i, value)</code> 越界会抛 <code>IndexOutOfRangeException</code>。</strong> <code>_productionProgress</code> 数组长度严格等于 <code>WorkshopType.Productions.Count</code>。任何 <code>i</code> 必须满足 <code>0 &lt;= i &lt; WorkshopType.Productions.Count</code>。换生产类型后数组会被 <code>ChangeWorkshopProduction</code> 重建，老的索引含义已变。</li>
+<li><strong>不要随便 <code>ChangeGold</code> 灌资本。</strong> <code>Capital</code> 由每日 tick 的 <code>HandlePlayerWorkshopExpense</code> / <code>HandleNotableWorkshopExpense</code> 管理；资本低于 <code>CapitalLowLimit</code> 且所有者付不起开销时，行为会触发 <code>ChangeWorkshopOwnerByBankruptcy</code>（走 <code>ChangeOwnerOfWorkshopAction.ApplyByBankruptcy</code>，铺子被名人接管）。你直接把 <code>Capital</code> 拉高会掩盖破产逻辑，或直接调低会提前触发破产转移。</li>
+<li><strong>不要用 <code>new Workshop(...)</code> 自建实例。</strong> 槽位与序列化由引擎拥有；存档加载时 <code>AfterLoad()</code> 会按 <code>WorkshopType.Productions.Count</code> 校正 <code>_productionProgress</code> 长度、把 <code>LastRunCampaignTime == CampaignTime.Zero</code> 的实例推到“现在”。自己 new 出来的对象不会被保存、也不会出现在 <code>Town.Workshops</code> 中，反而可能成为孤儿引用。</li>
+<li><strong><code>WorkshopType</code> 是 <code>MBObjectBase</code>（模块 XML 加载），不能 <code>new</code>。</strong> 通过 <code>WorkshopType.Find(id)</code> 或 <code>WorkshopType.All</code> 获取；传一个不存在/<code>null</code> 的 type 给 <code>InitializeWorkshop</code> / <code>ChangeWorkshopProduction</code> 会在 <code>type.Productions</code> 处崩溃。</li>
+<li><strong>在每日 tick 之外改 <code>Capital</code> / <code>ProductionProgress</code> 可能与行为内 <code>_workshopData</code> 不同步。</strong> 若必须改，优先在 <code>CampaignBehaviorBase</code> 的 <code>DailyTickTownEvent</code> 订阅里操作，此时行为自身也在跑同一步骤。</li>
+</ol>
+<h2 id="ru-he-huo-qu-workshop">如何获取 Workshop</h2>
+<pre><code data-lang="csharp">// 路径 1：从当前所在城镇拿到全部工坊（每个元素是 Workshop）
+Town town = Settlement.CurrentSettlement.Town;
+Workshop[] workshops = town.Workshops;
+foreach (Workshop w in workshops)
+{
+    // w 是一间具体工坊
+}
+
+// 路径 2：从某个英雄拿到其拥有的全部工坊
+MBReadOnlyList&lt;Workshop&gt; owned = Hero.MainHero.OwnedWorkshops;
+foreach (Workshop w in owned)
+{
+    // 玩家开的铺子
+}
+
+// 路径 3：从 WorkshopType 的定义反查“所有此类工坊”并没有直接索引，
+// 通常遍历 Town.Workshops 按 w.WorkshopType 过滤：
+foreach (Town t in Town.AllTowns)
+{
+    foreach (Workshop w in t.Workshops)
+    {
+        if (w.WorkshopType == WorkshopType.Find(&quot;brewery&quot;))
+        {
+            // 找到所有酿酒坊
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p><code>Town.Workshops</code> 是 <code>Workshop[]</code>；<code>Hero.OwnedWorkshops</code> 是 <code>MBReadOnlyList&lt;Workshop&gt;</code>。两者引用的是同一批实例。</p>
+</blockquote>
+<h2 id="cheng-yuan-shuo-ming-an-zhu-ti">成员说明（按主题）</h2>
+<h3 id="shen-fen-yu-gui-shu">身份与归属</h3>
+<h4 id="public-override-settlement-settlement-get"><code>public override Settlement Settlement { get; }</code></h4>
+<p>工坊所属城镇（<a href="../Settlement/"><code>Settlement</code></a>）。只读，构造时由 <code>Town.InitializeWorkshops</code> 注入，序列化保存。<strong>查看何时调用</strong>：任何需要知道“这间铺子在哪”的逻辑（如邻近村庄补给、城镇税率判定）。</p>
+<h4 id="public-override-string-tag-get"><code>public override string Tag { get; }</code></h4>
+<p>工坊在该城镇内的唯一短标签（如 <code>"workshop_1"</code>）。与 <code>Settlement</code> 一起参与 <code>GetHashCode()</code>。只读。<strong>查看何时调用</strong>：需要稳定区分同一城镇内多间工坊时（比数组下标更稳健）。</p>
+<h4 id="public-override-hero-owner-get"><code>public override Hero Owner { get; }</code></h4>
+<p>当前所有者英雄。只读属性，但内部可变；变更应通过 <code>ChangeOwnerOfWorkshopAction</code>。<strong>副作用注意</strong>：<code>Owner.OwnedWorkshops</code> 反向列表由 <code>AddOwnedWorkshop</code> / <code>RemoveOwnedWorkshop</code> 维护——裸调 <code>ChangeOwnerOfWorkshop</code> 才会同步该列表，但<strong>不会</strong>同步行为仓库数据（见风险段）。</p>
+<h4 id="public-override-textobject-name-get"><code>public override TextObject Name { get; }</code></h4>
+<p>显示名称：优先用 <code>SetCustomName</code> 设的自定义名，否则用 <code>WorkshopType.Name</code>，都没有则返回 <code>Empty Workshop</code>。只读。<strong>查看何时调用</strong>：UI 列表、日志、对话文本。</p>
+<h4 id="public-workshoptype-workshoptype-get-private-set"><code>public WorkshopType WorkshopType { get; private set; }</code></h4>
+<p>这间工坊当前的生产类型。决定 <code>Productions</code>（配方）、<code>IsHidden</code>、名称。<strong>设置何时调用</strong>：仅通过 <code>ChangeWorkshopProduction</code> 或对应的 <code>ChangeProductionTypeOfWorkshopAction</code>；不要赋 <code>null</code>。</p>
+<h3 id="jing-ying-zhuang-tai">经营状态</h3>
+<h4 id="public-int-capital-get-private-set"><code>public int Capital { get; private set; }</code></h4>
+<p>当前周转资金。由 <code>ChangeGold</code> 增减，日常被开销扣减，生产卖出时增加。<strong>查看何时调用</strong>：判断是否盈利、是否接近破产阈值 <code>WorkshopModel.CapitalLowLimit</code>。</p>
+<h4 id="public-int-initialcapital-get-private-set"><code>public int InitialCapital { get; private set; }</code></h4>
+<p>开局/购入时的初始资金。在 <code>InitializeWorkshop</code> 中由 <code>WorkshopModel.InitialCapital</code> 设定，之后不变。</p>
+<h4 id="public-int-profitmade-get"><code>public int ProfitMade { get; }</code></h4>
+<p>累计利润，计算为 <code>MathF.Max(Capital - InitialCapital, 0)</code>。<strong>只读、派生值</strong>：不需要调用方维护。</p>
+<h4 id="public-int-expense-get"><code>public int Expense { get; }</code></h4>
+<p>每日固定开销，等于 <code>Campaign.Current.Models.WorkshopModel.DailyExpense</code>。<strong>只读、派生值</strong>；若 <code>WorkshopType.IsHidden</code> 为 true，行为在每日 tick 中skip 这笔开销。</p>
+<h4 id="public-campaigntime-lastruncampaigntime-get-private-set"><code>public CampaignTime LastRunCampaignTime { get; private set; }</code></h4>
+<p>上一次跑生产循环的战役时刻。由 <code>UpdateLastRunTime</code> 写入 <code>CampaignTime.Now</code>。<strong>查看何时调用</strong>：需要判断“多久没产出了”或冷却时。</p>
+<h3 id="sheng-chan-jin-du">生产进度</h3>
+<h4 id="public-float-getproductionprogress-int-index"><code>public float GetProductionProgress(int index)</code></h4>
+<p>读取第 <code>index</code> 种配方的进度（0~1）。<code>index</code> 必须 <code>&lt; WorkshopType.Productions.Count</code>，否则越界。<strong>查看何时调用</strong>：只读展示进度条，或判断某配方这轮是否能产出。</p>
+<h4 id="public-void-setprogress-int-i-float-value"><code>public void SetProgress(int i, float value)</code></h4>
+<p>写入第 <code>i</code> 种配方的进度。<code>i</code> 越界抛 <code>IndexOutOfRangeException</code>。<strong>副作用</strong>：仅改本实例数组；由 <code>WorkshopsCampaignBehavior.RunTownWorkshop</code> 每日累加 <code>WorkshopModel.GetEffectiveConversionSpeedOfProduction</code> 的结果后回写。<strong>何时调用</strong>：一般不要手动调；若必须，在每日 tick 订阅中、且确保 <code>i</code> 落在 <code>Productions.Count</code> 内。</p>
+<h3 id="sheng-ming-zhou-qi-yu-chu-shi-hua">生命周期与初始化</h3>
+<h4 id="public-workshop-settlement-settlement-string-tag"><code>public Workshop(Settlement settlement, string tag)</code></h4>
+<p><strong>引擎内部</strong>构造：分配槽位、清零资本、不绑定 <code>WorkshopType</code> 和 <code>Owner</code>。<strong>mod 不应调用</strong>——由 <code>Town.InitializeWorkshops</code> 调用；之后请走 <code>InitializeWorkshopAction.ApplyByNewGame</code>。</p>
+<h4 id="public-void-initializeworkshop-hero-owner-workshoptype-type"><code>public void InitializeWorkshop(Hero owner, WorkshopType type)</code></h4>
+<p>把空槽位真正变成一间营业工坊：设置 <code>WorkshopType</code>、<code>_owner</code>（并 <code>owner.AddOwnedWorkshop(this)</code>）、按 <code>WorkshopModel.InitialCapital</code> 设 <code>Capital</code> / <code>InitialCapital</code>、按 <code>type.Productions.Count</code> 分配进度数组。<strong>正常入口是</strong> <code>InitializeWorkshopAction.ApplyByNewGame(workshop, owner, type)</code>；直接调本方法不会触发 <code>WorkshopOwnerChangedEvent</code>，且对玩家铺子不会建 <code>_workshopData</code>。</p>
+<h4 id="internal-void-afterload"><code>internal void AfterLoad()</code></h4>
+<p>存档加载后校正：<code>_productionProgress</code> 长度与 <code>WorkshopType.Productions.Count</code> 对齐（不一致则重建，==丢进度），<code>LastRunCampaignTime == Zero</code> 则推到 Now。<strong>mod 不可访问（internal）</strong>，仅记录其存在以避免误以为能手动“修复”进度。</p>
+<h3 id="bian-geng-cao-zuo-duo-shu-ying-zou-action">变更操作（多数应走 Action）</h3>
+<h4 id="public-void-changeownerofworkshop-hero-newowner-workshoptype-type-int-capital"><code>public void ChangeOwnerOfWorkshop(Hero newOwner, WorkshopType type, int capital)</code></h4>
+<p>低级换主：从旧主 <code>RemoveOwnedWorkshop</code>、新主 <code>AddOwnedWorkshop</code>、<code>Capital = capital</code>；若 <code>type != WorkshopType</code> 顺带 <code>ChangeWorkshopProduction</code>。<strong>副作用/风险</strong>：同步了 <code>Hero.OwnedWorkshops</code>，但<strong>不同步</strong> <code>WorkshopsCampaignBehavior</code> 的仓库数据，也不发事件。正确入口：<code>ChangeOwnerOfWorkshopAction.ApplyByPlayerBuying</code> / <code>ApplyByDeath</code> / <code>ApplyByBankruptcy</code>。</p>
+<h4 id="public-void-changeworkshopproduction-workshoptype-newworkshoptype"><code>public void ChangeWorkshopProduction(WorkshopType newWorkshopType)</code></h4>
+<p>换生产类型并<strong>重建</strong> <code>_productionProgress</code> 数组（长度 = 新类型的 <code>Productions.Count</code>，旧进度清零）。<strong>风险</strong>：会丢失进度；且裸调不触发 <code>WorkshopTypeChangedEvent</code>，玩家铺子的 <code>_workshopData</code> 不会被刷新。正确入口：<code>ChangeProductionTypeOfWorkshopAction.Apply(workshop, newType, ignoreCost)</code>。</p>
+<h4 id="public-void-setcustomname-textobject-customname"><code>public void SetCustomName(TextObject customName)</code></h4>
+<p>设置自定义店名，覆盖 <code>WorkshopType.Name</code>。<strong>安全、可直接调用</strong>：仅改显示名，无经济副作用。空名回退到 <code>WorkshopType.Name</code> 或 <code>Empty Workshop</code>。</p>
+<h4 id="public-void-changegold-int-goldchange"><code>public void ChangeGold(int goldChange)</code></h4>
+<p><code>Capital += goldChange</code>。<strong>副作用</strong>：直接动账本。日常由 <code>WorkshopsCampaignBehavior</code> 在生产卖出（加）、开销（减）时调用。<strong>何时调用</strong>：除非你明确要手动注资/扣款，否则不要调——会干扰破产与盈亏统计。</p>
+<h4 id="public-void-updatelastruntime"><code>public void UpdateLastRunTime()</code></h4>
+<p><code>LastRunCampaignTime = CampaignTime.Now</code>。由 <code>RunTownWorkshop</code> 在当天有产出时调用。<strong>何时调用</strong>：手动模拟一次生产循环后如需刷新时间戳，可在每日 tick 订阅内调用。</p>
+<h3 id="za-xiang">杂项</h3>
+<h4 id="public-override-int-gethashcode"><code>public override int GetHashCode()</code></h4>
+<p>基于 <code>Settlement</code> 与 <code>Tag</code> 的哈希（用于在字典/集合中稳定识别同一间工坊）。可直接使用。</p>
+<h4 id="public-override-string-tostring"><code>public override string ToString()</code></h4>
+<p><code>Name.ToString() + " " + Settlement.ToString()</code>，用于日志/调试。</p>
+<h2 id="dian-xing-yong-fa-shi-li">典型用法示例</h2>
+<h3 id="shi-li-1-lie-chu-dang-qian-cheng-zhen-mei-jian-gong-fang-de-ming-cheng-lei-xing-yu-lei-ji-li-run-zhi-du-an-quan">示例 1：列出当前城镇每间工坊的名称、类型与累计利润（只读，安全）</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.CampaignSystem.Settlements.Workshops;
+
+Town town = Settlement.CurrentSettlement.Town;
+foreach (Workshop workshop in town.Workshops)
+{
+    string name = workshop.Name.ToString();
+    string type = workshop.WorkshopType?.Name.ToString() ?? &quot;(none)&quot;;
+    int profit = workshop.ProfitMade;
+    int capital = workshop.Capital;
+    InformationManager.DisplayMessage(
+        new InformationMessage($&quot;{name} [{type}] 利润 {profit}, 资本 {capital}&quot;));
+}
+</code></pre>
+<h3 id="shi-li-2-ba-wan-jia-yong-you-de-mou-jian-gong-fang-zhuan-chan-wei-niang-jiu-fang-zou-zheng-que-de-action">示例 2：把玩家拥有的某间工坊转产为“酿酒坊”——走正确的 Action</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem.Settlements.Workshops;
+using TaleWorlds.CampaignSystem.Actions;
+
+// 获取目标工坊：玩家拥有的第一间，或任意 town.Workshops 元素
+Workshop playerShop = Hero.MainHero.OwnedWorkshops.FirstOrDefault();
+if (playerShop != null)
+{
+    // 正确的转产入口：会扣转产费、同步 WorkshopsCampaignBehavior 的 _workshopData，
+    // 并广播 WorkshopTypeChangedEvent
+    WorkshopType brewery = WorkshopType.Find(&quot;brewery&quot;);
+    if (brewery != null &amp;&amp; playerShop.WorkshopType != brewery)
+    {
+        ChangeProductionTypeOfWorkshopAction.Apply(playerShop, brewery);
+    }
+}
+</code></pre>
+<blockquote>
+<p>对比：直接 <code>playerShop.ChangeWorkshopProduction(brewery)</code> 虽然也能换类型，但会丢失生产进度、且不刷新玩家仓库数据，长期运行会出现仓库菜单与实际不符。始终优先用 <code>ChangeProductionTypeOfWorkshopAction</code> / <code>ChangeOwnerOfWorkshopAction</code>。</p>
+</blockquote>
+<h3 id="shi-li-3-jian-ce-mou-jian-wan-jia-gong-fang-shi-fou-bin-lin-po-chan-zhi-du-zhen-duan">示例 3：检测某间玩家工坊是否濒临破产（只读诊断）</h3>
+<pre><code data-lang="csharp">Workshop w = Hero.MainHero.OwnedWorkshops.FirstOrDefault();
+if (w != null)
+{
+    int lowLimit = Campaign.Current.Models.WorkshopModel.CapitalLowLimit;
+    bool nearBankruptcy = w.Capital &lt;= lowLimit &amp;&amp; w.Owner.Gold &lt; w.Expense;
+    if (nearBankruptcy)
+    {
+        InformationManager.DisplayMessage(
+            new InformationMessage($&quot;{w.Name} 即将破产（资本 {w.Capital} / 下限 {lowLimit}）&quot;));
+    }
+}
+</code></pre>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li><strong>v1.3.15 与 v1.4.5 的 <code>Workshop</code> 公开 API 完全一致</strong>：<code>Workshop(Settlement, string)</code>、<code>InitializeWorkshop</code>、<code>ChangeOwnerOfWorkshop</code>、<code>ChangeWorkshopProduction</code>、<code>SetCustomName</code>、<code>ChangeGold</code>、<code>SetProgress</code>、<code>GetProductionProgress</code>、<code>UpdateLastRunTime</code>、<code>AfterLoad</code>（internal）、<code>GetHashCode</code>、<code>ToString</code>，以及全部属性名与签名均无变化。</li>
+<li><code>WorkshopType</code> 的 <code>All</code>（<code>=&gt; Campaign.Current.Workshops</code>）与 <code>Find(string)</code> 在两个版本同样存在；<code>Productions</code> 为 <code>MBReadOnlyList&lt;WorkshopType.Production&gt;</code>。</li>
+<li>行为层 <code>WorkshopsCampaignBehavior</code>、三个 Action、以及 <code>WorkshopModel</code> 的经济参数（<code>InitialCapital</code> / <code>DailyExpense</code> / <code>CapitalLowLimit</code>）在 v1.3.15 同样适用，跨版本 mod 可直接依赖。</li>
+</ul>
+<h2 id="dao-hang">导航</h2>
+<ul>
+<li>↑ 父级：<a href="../../campaign/">战役 API 索引</a> · <a href="../../">api 根</a></li>
+<li>↔ 同级：<a href="../Town/">Town</a> · <a href="../Settlement/">Settlement</a> · <a href="../Village/">Village</a> · <a href="../Hero/">Hero</a> · <a href="../Clan/">Clan</a> · <a href="../WorkshopData/">WorkshopData</a> · <a href="../MobileParty/">MobileParty</a> · <a href="../Campaign/">Campaign</a></li>
+<li>相关类型 / 行为 / 动作：
+<ul>
+<li><a href="../../campaign-ext/WorkshopType/">WorkshopType</a> — 生产类型定义（配方、名称）</li>
+<li><a href="../../campaign-ext/WorkshopModel/">WorkshopModel</a> — 工坊经济参数</li>
+<li><a href="../../campaign-ext/WorkshopsCampaignBehavior/">WorkshopsCampaignBehavior</a> — 每日 tick 驱动器</li>
+<li><a href="../../campaign-ext/InitializeWorkshopAction/">InitializeWorkshopAction</a> — 开局建坊</li>
+<li><a href="../../campaign-ext/ChangeOwnerOfWorkshopAction/">ChangeOwnerOfWorkshopAction</a> — 换主/买卖/破产</li>
+<li><a href="../../campaign-ext/ChangeProductionTypeOfWorkshopAction/">ChangeProductionTypeOfWorkshopAction</a> — 转产</li>
+<li><a href="../../campaign-ext/CampaignEventDispatcher/">CampaignEventDispatcher</a> — 产出/消耗与工坊事件</li>
+<li><a href="../../campaign-ext/IWorkshopWarehouseCampaignBehavior/">IWorkshopWarehouseCampaignBehavior</a> — 玩家仓库出入库接口</li>
+</ul>
+</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign/QuestStates/">&larr; QuestStates</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign/PartyBase/">PartyBase &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

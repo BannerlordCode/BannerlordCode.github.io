@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SDK Overview — Module Map and Developer Roadmap</title>
+  <meta name="description" content="Bannerlord SDK module map, layered architecture, and mod developer roadmap (v1.3.0)">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/architecture/sdk-overview/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/architecture/sdk-overview/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/architecture/sdk-overview/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/architecture/sdk-overview/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="active">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;architecture&#x2F;">Architecture (v1.3.0)</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">SDK Overview — Module Map and Developer Roadmap</span>
+    </nav>
+  
+  <h1>SDK Overview — Module Map and Developer Roadmap</h1>
+  <h1 id="sdk-overview-module-map-and-developer-roadmap">SDK Overview — Module Map and Developer Roadmap</h1>
+<blockquote>
+<p>This article is not just a module list; it is a <strong>developer roadmap</strong>. It answers three questions: why each layer exists, when you will touch it, and how to jump to the corresponding API docs.</p>
+</blockquote>
+<h2 id="one-sentence-orientation">One-sentence orientation</h2>
+<p>Bannerlord's managed code is a <strong>strictly layered</strong> set of <code>TaleWorlds.*</code> assemblies:</p>
+<pre><code>Foundation → Systems → Core → Engine → UI → MountAndBlade → Campaign → Platform
+</code></pre>
+<p><strong>Dependencies run bottom-up</strong>: upper layers reference lower layers, never the reverse. Mod code lives at the very top and can reach any layer. <strong>Beginners only need the top four layers (Campaign, Mission, UI, Save) to get started.</strong></p>
+<hr />
+<h2 id="before-you-start">Before You Start</h2>
+<p>Make sure you have Mount &amp; Blade II: Bannerlord v1.3.0, Visual Studio 2022 with the .NET Desktop Development workload, and basic C# / XML reading skills. If you have not created a SubModule yet, start with the <a href="../../guide/">Developer Guide</a>.</p>
+<hr />
+<h2 id="documentation-structure-and-navigation">Documentation Structure and Navigation</h2>
+<p>The site now uses a section-tree based sidebar (<code>section-tree.json</code>): version → language → category → chapter, with a way back up at every level. The top nav remembers your current page, so switching language/version does not lose your place; breadcrumbs let you return to the parent directory. All internal links are checked by <code>tools/audit-links.mjs</code>.</p>
+<p>Content is organized into four entry points:</p>
+<ul>
+<li><strong>Architecture:</strong> module maps and roadmaps like this one.</li>
+<li><strong>Developer Guide:</strong> hands-on workflows for specific systems.</li>
+<li><strong>API Reference:</strong> descriptions, mental models, signatures, and examples for every class.</li>
+<li><strong>Cross-version Comparison (versions/):</strong> auto-generated API diff pages.</li>
+</ul>
+<h2 id="how-to-find-a-class-quickly">How to Find a Class Quickly</h2>
+<p>API directories (e.g. <a href="../../api/campaign/">Campaign API</a>) are no longer alphabetical dumps; they are grouped by namespace/functional area:</p>
+<ul>
+<li>Kingdom and faction logic → <code>Campaign</code> module → kingdom/politics groups</li>
+<li>Party movement and AI → <code>Campaign</code> module → party/movement groups</li>
+<li>Mission/combat extensions → <code>Mission</code> or <code>Mission-Ext</code> module → relevant subsystem groups</li>
+<li>Every class page has breadcrumbs, so you can return to the API directory or SDK overview at any time</li>
+</ul>
+<blockquote>
+<p>High-impact core classes (Tier-S) are documented by hand where possible; all remaining classes are generated to ensure complete coverage and improved descriptions over time.</p>
+</blockquote>
+<hr />
+<h2 id="parent-navigation">Parent Navigation</h2>
+<ul>
+<li><a href="../../">Home</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/sdk-overview/./">Architecture</a></li>
+<li><a href="../../api/">API Index</a></li>
+<li><a href="../../guide/">Developer Guide</a></li>
+</ul>
+<h2 id="sibling-navigation">Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>What it covers</th></tr></thead><tbody>
+<tr><td><a href="../module-system/">Module System</a></td><td><code>MBSubModuleBase</code> lifecycle and behavior registration</td></tr>
+<tr><td><a href="../save-system/">Save System</a></td><td><code>[SaveableField]</code> and <code>SaveManager</code></td></tr>
+<tr><td><a href="../version-delta/">Version Delta</a></td><td>Differences between v1.3.0, v1.3.15, and v1.4.5</td></tr>
+<tr><td><a href="../native-interop/">Native Interop</a></td><td>How C# calls into <code>TaleWorlds.Native.dll</code></td></tr>
+<tr><td><a href="../../guide/">Developer Guide</a></td><td>Entry points from idea to a working mod</td></tr>
+<tr><td><a href="../../guide/campaign-basics/">Campaign Basics</a></td><td>Campaign system, behaviors, and events</td></tr>
+<tr><td><a href="../../guide/mission-basics/">Mission Basics</a></td><td>Mission, Agent, and combat logic</td></tr>
+<tr><td><a href="../../guide/ui-basics/">UI Basics</a></td><td>Gauntlet / ViewModel primer</td></tr>
+</tbody></table>
+<hr />
+<h2 id="layer-dependency-diagram">Layer Dependency Diagram</h2>
+<pre><code>┌─────────────────────────────────────────────────────────────┐
+│ Layer 7  Platform &amp; Services                                  │
+│   ModuleManager · PlatformService · PlayerServices            │
+├─────────────────────────────────────────────────────────────┤
+│ Layer 6  Campaign  ← 90% of campaign mods live here           │
+│   CampaignSystem · CampaignSystem.ViewModelCollection         │
+│   Hero · MobileParty · Kingdom · Clan · Settlement · Town     │
+├─────────────────────────────────────────────────────────────┤
+│ Layer 5  MountAndBlade  ← 90% of combat mods live here        │
+│   Mission · Agent · Formation · Team · MissionBehavior        │
+├─────────────────────────────────────────────────────────────┤
+│ Layer 4  Gauntlet UI                                         │
+│   GauntletUI · ViewModel · GauntletMovie · Widget             │
+├─────────────────────────────────────────────────────────────┤
+│ Layer 3  Engine Bridge                                       │
+│   Scene · GameEntity · MatrixFrame · NavigationSystem         │
+├─────────────────────────────────────────────────────────────┤
+│ Layer 2  Core Data                                           │
+│   ItemObject · CharacterObject · Equipment · MBObjectManager  │
+├─────────────────────────────────────────────────────────────┤
+│ Layer 1  Systems Base                                        │
+│   ObjectSystem · ScreenSystem · InputSystem · Network         │
+├─────────────────────────────────────────────────────────────┤
+│ Layer 0  Foundation                                          │
+│   Library · Localization (TextObject)                         │
+└─────────────────────────────────────────────────────────────┘
+        ↕ Native engine (TaleWorlds.Native.dll) throughout
+</code></pre>
+<hr />
+<h2 id="decision-table-i-want-to-do-x-which-layers-do-i-touch">Decision Table: I Want to Do X, Which Layers Do I Touch?</h2>
+<table><thead><tr><th>I want to...</th><th>Layer</th><th>Entry class / mechanism</th><th>Starting docs</th></tr></thead><tbody>
+<tr><td>Register a mod (game-start hooks)</td><td>L7 + L5</td><td><a href="../../api/core/MBSubModuleBase/"><code>MBSubModuleBase</code></a> · <code>ModuleInfo</code></td><td><a href="../../guide/">Developer Guide</a></td></tr>
+<tr><td>Add troops / items / equipment</td><td>L2 + XML</td><td><a href="../../../../versions/ItemObject/"><code>ItemObject</code></a> · <code>CharacterObject</code> · <code>MBObjectManager</code></td><td><a href="../../api/core/">Core API</a> · <a href="../../api/core-extra/">Core-Extra API</a></td></tr>
+<tr><td>Build a campaign mod</td><td>L6</td><td><a href="../../api/campaign/CampaignBehaviorBase/"><code>CampaignBehaviorBase</code></a> · <code>CampaignEvents</code></td><td><a href="../../api/campaign/">Campaign API</a> · <a href="../../guide/campaign-basics/">Campaign Basics</a></td></tr>
+<tr><td>Build a mission / combat mod</td><td>L5</td><td><a href="../../api/mission/MissionBehavior/"><code>MissionBehavior</code></a> · <code>MissionLogic</code> · <code>Agent</code> · <code>Formation</code></td><td><a href="../../api/mission/">Mission API</a> · <a href="../../guide/mission-basics/">Mission Basics</a></td></tr>
+<tr><td>Add a custom UI screen</td><td>L4 + L5</td><td><a href="../../api/core-extra/ViewModel/"><code>ViewModel</code></a> · <code>GauntletMovie</code> · <code>ScreenBase</code></td><td><a href="../../api/gui/">GUI API</a> · <a href="../../guide/ui-basics/">UI Basics</a></td></tr>
+<tr><td>Persist custom save data</td><td>L5 + L2</td><td><code>[SaveableField]</code> · <code>[SaveableProperty]</code> · <code>SaveManager</code></td><td><a href="../save-system/">Save Architecture</a> · <a href="../../guide/save-system/">Save Guide</a></td></tr>
+<tr><td>Add localized text</td><td>L0</td><td><code>TextObject</code> · <code>MBTextManager</code></td><td><a href="../../api/localization/">Localization API</a> · <a href="../../guide/ui-basics/">UI Basics</a></td></tr>
+<tr><td>Manipulate scene entities</td><td>L3</td><td><code>Scene</code> · <code>GameEntity</code> · <code>MatrixFrame</code></td><td><a href="../../api/engine/">Engine API</a></td></tr>
+<tr><td>Read player input</td><td>L1</td><td><code>InputContext</code> · <code>InputKey</code></td><td><a href="../../api/">API Index</a></td></tr>
+<tr><td>Add a new ViewModel / binding</td><td>L4 + L1</td><td><a href="../../api/core-extra/ViewModel/"><code>ViewModel</code></a> · <code>DataSourceProperty</code></td><td><a href="../../api/viewmodel/">ViewModel API</a></td></tr>
+<tr><td>Add campaign extension types</td><td>L6 + L2</td><td><a href="../../../../versions/Settlement/"><code>Settlement</code></a> · <code>PartyTemplateObject</code> · <code>CultureObject</code></td><td><a href="../../api/campaign-ext/">Campaign-Ext API</a></td></tr>
+<tr><td>Add combat components / Agent behavior</td><td>L5</td><td><code>AgentComponent</code> · <code>MissionLogic</code> subclass</td><td><a href="../../api/mission-ext/">Mission-Ext API</a></td></tr>
+<tr><td>Extend core models</td><td>L2</td><td><code>SkillObject</code> · <code>CraftingTemplate</code> · <code>BasicCharacterObject</code></td><td><a href="../../api/core-extra/">Core-Extra API</a></td></tr>
+</tbody></table>
+<blockquote>
+<p><strong>How to use</strong>: pick the row, read the entry class signature, then return here to check whether you need a lower layer (campaign mods almost always need saves, for example).</p>
+</blockquote>
+<hr />
+<h2 id="data-flow-from-xml-to-screen">Data Flow: From XML to Screen</h2>
+<p>A typical mod that adds a new troop follows this chain:</p>
+<pre><code>SubModule.xml declares XML assets
+        │
+        ▼
+ModuleManager loads the module
+        │
+        ▼
+MBObjectManager deserializes XML → ItemObject / CharacterObject
+        │
+        ▼
+Campaign startup turns those into equipment for MobileParty / Hero
+        │
+        ▼
+Mission spawns Agents wearing the equipment
+        │
+        ▼
+Gauntlet ViewModels bind the data to HUD / Encyclopedia
+</code></pre>
+<p>If anything breaks, start with the <a href="../../guide/">Developer Guide</a> and <a href="../../api/core/">Core API</a>.</p>
+<hr />
+<h2 id="module-list-v1-3-0-grouped-by-layer">Module List (v1.3.0, Grouped by Layer)</h2>
+<blockquote>
+<p>Scale: <strong>31 TaleWorlds modules / 4596 .cs files / 5306 types</strong>. This is the early baseline of the 1.3 series.</p>
+</blockquote>
+<h3 id="layer-0-foundation">Layer 0 — Foundation</h3>
+<table><thead><tr><th>Module</th><th>Responsibility</th><th>Mod relevance</th></tr></thead><tbody>
+<tr><td><code>TaleWorlds.Library</code></td><td><code>Vec3</code>/<code>Mat3</code>/<code>Vec2</code> math, <code>MBList</code>, <code>InformationManager</code> messages, debug</td><td>Almost every file <code>using</code> this; show messages, vector math, logs</td></tr>
+<tr><td><code>TaleWorlds.Localization</code></td><td><code>TextObject</code>, <code>MBTextManager</code>, language data</td><td>Required for any player-facing text</td></tr>
+</tbody></table>
+<h3 id="layer-1-systems-base">Layer 1 — Systems base</h3>
+<table><thead><tr><th>Module</th><th>Responsibility</th><th>Mod relevance</th></tr></thead><tbody>
+<tr><td><code>TaleWorlds.ObjectSystem</code></td><td><code>MBObjectManager</code>, <code>MBObjectBase</code>, XML deserialization</td><td>Load custom items/characters from XML</td></tr>
+<tr><td><code>TaleWorlds.ScreenSystem</code></td><td><code>ScreenBase</code>/<code>ScreenManager</code> screen stack</td><td>Custom full-screen UI</td></tr>
+<tr><td><code>TaleWorlds.InputSystem</code></td><td><code>InputContext</code>, keys/gamepad</td><td>Custom hotkeys</td></tr>
+</tbody></table>
+<h3 id="layer-2-core-data">Layer 2 — Core data</h3>
+<table><thead><tr><th>Module</th><th>Responsibility</th><th>Mod relevance</th></tr></thead><tbody>
+<tr><td><code>TaleWorlds.Core</code></td><td><code>ItemObject</code>, <code>Equipment</code>, <code>CharacterObject</code>, crafting/skills/concepts</td><td>Define new troops, items, equipment</td></tr>
+<tr><td><code>TaleWorlds.Core.ViewModelCollection</code></td><td>Core ViewModels</td><td>Data binding for L4</td></tr>
+</tbody></table>
+<h3 id="layer-3-engine-bridge">Layer 3 — Engine bridge</h3>
+<table><thead><tr><th>Module</th><th>Responsibility</th><th>Mod relevance</th></tr></thead><tbody>
+<tr><td><code>TaleWorlds.Engine</code></td><td><code>Scene</code>, <code>GameEntity</code>, <code>MatrixFrame</code>, <code>Skeleton</code></td><td>Manipulate combat scene entities, effects, positions</td></tr>
+<tr><td><code>TaleWorlds.NavigationSystem</code></td><td>Navmesh/pathfinding</td><td>Custom AI pathfinding</td></tr>
+</tbody></table>
+<h3 id="layer-4-gauntlet-ui">Layer 4 — Gauntlet UI</h3>
+<table><thead><tr><th>Module</th><th>Responsibility</th><th>Mod relevance</th></tr></thead><tbody>
+<tr><td><code>TaleWorlds.GauntletUI</code></td><td><code>Widget</code>, <code>ViewModel</code> binding, <code>GauntletMovie</code>, animations</td><td>Foundation for any custom UI</td></tr>
+</tbody></table>
+<h3 id="layer-5-mountandblade">Layer 5 — MountAndBlade</h3>
+<table><thead><tr><th>Module</th><th>Responsibility</th><th>Mod relevance</th></tr></thead><tbody>
+<tr><td><code>TaleWorlds.MountAndBlade</code></td><td><code>Mission</code>, <code>Agent</code>, <code>Formation</code>, <code>Team</code>, <code>MissionBehavior</code></td><td>Core of all combat mods</td></tr>
+<tr><td><code>TaleWorlds.MountAndBlade.ViewModelCollection</code></td><td>M&amp;B ViewModels</td><td>Combat UI data binding</td></tr>
+</tbody></table>
+<h3 id="layer-6-campaign">Layer 6 — Campaign</h3>
+<table><thead><tr><th>Module</th><th>Responsibility</th><th>Mod relevance</th></tr></thead><tbody>
+<tr><td><code>TaleWorlds.CampaignSystem</code></td><td><code>MobileParty</code>, <code>Hero</code>, <code>Kingdom</code>, <code>Clan</code>, <code>Settlement</code>, <code>Town</code>, <code>Village</code>, <code>Campaign</code></td><td>Core of campaign mods</td></tr>
+<tr><td><code>TaleWorlds.CampaignSystem.ViewModelCollection</code></td><td>Campaign ViewModels</td><td>Campaign map UI</td></tr>
+</tbody></table>
+<h3 id="layer-7-platform-services">Layer 7 — Platform &amp; services</h3>
+<table><thead><tr><th>Module</th><th>Responsibility</th><th>Mod relevance</th></tr></thead><tbody>
+<tr><td><code>TaleWorlds.ModuleManager</code></td><td>Module load/dependency resolution <code>ModuleInfo</code>/<code>ModuleHelper</code></td><td>Writing <code>SubModule.xml</code>, declaring dependencies</td></tr>
+<tr><td><code>TaleWorlds.PlatformService.*</code></td><td>Steam / Epic / GOG abstraction</td><td>Cross-platform compatibility</td></tr>
+</tbody></table>
+<hr />
+<h2 id="links-to-key-classes">Links to Key Classes</h2>
+<p>These are the high-traffic entry points for modders (<code>*</code> marks auto-generated cross-version diff pages):</p>
+<ul>
+<li>Campaign: <a href="../../api/campaign/Campaign/"><code>Campaign</code></a> · <a href="../../api/campaign/CampaignBehaviorBase/"><code>CampaignBehaviorBase</code></a> · <a href="../../../../versions/Hero/"><code>Hero*</code></a> · <a href="../../../../versions/MobileParty/"><code>MobileParty*</code></a> · <a href="../../../../versions/Kingdom/"><code>Kingdom*</code></a> · <a href="../../../../versions/Clan/"><code>Clan*</code></a> · <a href="../../../../versions/Settlement/"><code>Settlement*</code></a> · <a href="../../../../versions/Town/"><code>Town*</code></a> · <a href="../../../../versions/Village/"><code>Village*</code></a></li>
+<li>Combat: <a href="../../../../versions/Mission/"><code>Mission*</code></a> · <a href="../../api/mission/MissionBehavior/"><code>MissionBehavior</code></a> · <a href="../../api/mission/Agent/"><code>Agent</code></a> · <a href="../../../../versions/Formation/"><code>Formation*</code></a> · <a href="../../api/mission-ext/Team/"><code>Team</code></a></li>
+<li>Core: <a href="../../../../versions/ItemObject/"><code>ItemObject*</code></a> · <code>CampaignObjectManager</code> · <a href="../../api/localization/TextObject/"><code>TextObject</code></a></li>
+<li>UI: <a href="../../api/core-extra/ViewModel/"><code>ViewModel</code></a> · <a href="../../api/gui/GauntletMovie/"><code>GauntletMovie</code></a></li>
+<li>Save: <code>[SaveableField]</code> · <code>[SaveableProperty]</code> · <code>SaveManager</code> (see <a href="../save-system/">Save Architecture</a>)</li>
+<li>Module entry point: <a href="../../api/core/MBSubModuleBase/"><code>MBSubModuleBase</code></a></li>
+</ul>
+<blockquote>
+<p>Note: links target the closest available page. If a cross-version or API page does not yet exist, the link points where it will appear once generated.</p>
+</blockquote>
+<hr />
+<h2 id="version-snapshot">Version Snapshot</h2>
+<table><thead><tr><th>Aspect</th><th>v1.3.0 (this doc)</th><th>v1.3.15</th><th>v1.4.5</th></tr></thead><tbody>
+<tr><td>Modules</td><td>31</td><td>54</td><td>65 (DLL)</td></tr>
+<tr><td>Types</td><td>5306</td><td>5811</td><td>2523*</td></tr>
+<tr><td>Key changes</td><td>Includes SandBox/StoryMode gameplay modules</td><td><code>SaveSystem</code> becomes independent; platform services split</td><td>Multiplayer/View/Gauntlet split into separate assemblies</td></tr>
+</tbody></table>
+<p>See the <a href="../../../../versions/">cross-version index</a> for full per-class diffs.</p>
+<hr />
+<h2 id="where-to-go-next">Where to Go Next</h2>
+<ul>
+<li><a href="../module-system/">Module System</a> — when your code runs and how to register behaviors</li>
+<li><a href="../save-system/">Save System</a> — persisting custom data</li>
+<li><a href="../version-delta/">Version Delta</a> — migrating to v1.3.15 or v1.4.5</li>
+<li><a href="../native-interop/">Native Interop</a> — calling into the native engine</li>
+<li><a href="../../guide/campaign-basics/">Campaign Basics</a> — campaign system, behaviors, events</li>
+<li><a href="../../guide/mission-basics/">Mission Basics</a> — Mission, Agent, and combat logic</li>
+<li><a href="../../guide/ui-basics/">UI Basics</a> — Gauntlet / ViewModel primer</li>
+<li><a href="../../guide/">Developer Guide</a> — environment, project structure, testing, publishing</li>
+<li><a href="../../guide/common-issues/">Common Issues</a> — typical adaptation problems and troubleshooting</li>
+<li><a href="../../../../versions/">Cross-version comparison</a> — check API changes before migrating</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/architecture/">Architecture (v1.3.0)</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/architecture/native-interop/">&larr; Managed-Native Interop</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/architecture/module-system/">Module System &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,2437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scene</title>
+  <meta name="description" content="Auto-generated class reference for Scene.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/engine/Scene/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/engine/Scene/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/engine/Scene/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/engine/Scene/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/engine/Scene/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/engine/Scene/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="active">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;engine&#x2F;">engine index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Scene</span>
+    </nav>
+  
+  <h1>Scene</h1>
+  <h1 id="scene">Scene</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Engine
+<strong>Module:</strong> TaleWorlds.Engine
+<strong>Type:</strong> <code>public sealed class Scene : NativeObject</code>
+<strong>Base:</strong> <code>NativeObject</code>
+<strong>File:</strong> <code>TaleWorlds.Engine/Scene.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Scene</code> lives in <code>TaleWorlds.Engine</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.Engine</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>RootEntityCount</code></td><td><code>public int RootEntityCount { get; }</code></td></tr>
+<tr><td><code>HasTerrainHeightmap</code></td><td><code>public bool HasTerrainHeightmap { get; }</code></td></tr>
+<tr><td><code>ContainsTerrain</code></td><td><code>public bool ContainsTerrain { get; }</code></td></tr>
+<tr><td><code>TimeOfDay</code></td><td><code>public float TimeOfDay { get; set; }</code></td></tr>
+<tr><td><code>IsDayTime</code></td><td><code>public bool IsDayTime { get; }</code></td></tr>
+<tr><td><code>IsAtmosphereIndoor</code></td><td><code>public bool IsAtmosphereIndoor { get; }</code></td></tr>
+<tr><td><code>LastFinalRenderCameraPosition</code></td><td><code>public Vec3 LastFinalRenderCameraPosition { get; }</code></td></tr>
+<tr><td><code>LastFinalRenderCameraFrame</code></td><td><code>public MatrixFrame LastFinalRenderCameraFrame { get; }</code></td></tr>
+<tr><td><code>TimeSpeed</code></td><td><code>public float TimeSpeed { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="isdefaulteditorscene">IsDefaultEditorScene</h3>
+<p><code>public bool IsDefaultEditorScene()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the default editor scene state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.IsDefaultEditorScene();
+</code></pre>
+<h3 id="ismultiplayerscene">IsMultiplayerScene</h3>
+<p><code>public bool IsMultiplayerScene()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the multiplayer scene state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.IsMultiplayerScene();
+</code></pre>
+<h3 id="takephotomodepicture">TakePhotoModePicture</h3>
+<p><code>public string TakePhotoModePicture(bool saveAmbientOcclusionPass, bool savingObjectIdPass, bool saveShadowPass)</code></p>
+<p><strong>Purpose:</strong> Executes the TakePhotoModePicture logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.TakePhotoModePicture(false, false, false);
+</code></pre>
+<h3 id="getallcolorgradenames">GetAllColorGradeNames</h3>
+<p><code>public string GetAllColorGradeNames()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the all color grade names value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetAllColorGradeNames();
+</code></pre>
+<h3 id="getallfilternames">GetAllFilterNames</h3>
+<p><code>public string GetAllFilterNames()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the all filter names value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetAllFilterNames();
+</code></pre>
+<h3 id="getphotomoderoll">GetPhotoModeRoll</h3>
+<p><code>public float GetPhotoModeRoll()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the photo mode roll value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetPhotoModeRoll();
+</code></pre>
+<h3 id="getphotomodeorbit">GetPhotoModeOrbit</h3>
+<p><code>public bool GetPhotoModeOrbit()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the photo mode orbit value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetPhotoModeOrbit();
+</code></pre>
+<h3 id="getphotomodeon">GetPhotoModeOn</h3>
+<p><code>public bool GetPhotoModeOn()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the photo mode on value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetPhotoModeOn();
+</code></pre>
+<h3 id="getphotomodefocus">GetPhotoModeFocus</h3>
+<p><code>public void GetPhotoModeFocus(ref float focus, ref float focusStart, ref float focusEnd, ref float exposure, ref bool vignetteOn)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the photo mode focus value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetPhotoModeFocus(focus, focusStart, focusEnd, exposure, vignetteOn);
+</code></pre>
+<h3 id="getscenecolorgradeindex">GetSceneColorGradeIndex</h3>
+<p><code>public int GetSceneColorGradeIndex()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the scene color grade index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetSceneColorGradeIndex();
+</code></pre>
+<h3 id="getscenefilterindex">GetSceneFilterIndex</h3>
+<p><code>public int GetSceneFilterIndex()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the scene filter index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetSceneFilterIndex();
+</code></pre>
+<h3 id="enablefixedtick">EnableFixedTick</h3>
+<p><code>public void EnableFixedTick()</code></p>
+<p><strong>Purpose:</strong> Executes the EnableFixedTick logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.EnableFixedTick();
+</code></pre>
+<h3 id="getloadingstatename">GetLoadingStateName</h3>
+<p><code>public string GetLoadingStateName()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the loading state name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetLoadingStateName();
+</code></pre>
+<h3 id="isloadingfinished">IsLoadingFinished</h3>
+<p><code>public bool IsLoadingFinished()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the loading finished state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.IsLoadingFinished();
+</code></pre>
+<h3 id="setphotomoderoll">SetPhotoModeRoll</h3>
+<p><code>public void SetPhotoModeRoll(float roll)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to photo mode roll and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetPhotoModeRoll(0);
+</code></pre>
+<h3 id="setphotomodeorbit">SetPhotoModeOrbit</h3>
+<p><code>public void SetPhotoModeOrbit(bool orbit)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to photo mode orbit and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetPhotoModeOrbit(false);
+</code></pre>
+<h3 id="getfalldensity">GetFallDensity</h3>
+<p><code>public float GetFallDensity()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the fall density value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetFallDensity();
+</code></pre>
+<h3 id="setphotomodeon">SetPhotoModeOn</h3>
+<p><code>public void SetPhotoModeOn(bool on)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to photo mode on and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetPhotoModeOn(false);
+</code></pre>
+<h3 id="setphotomodefocus">SetPhotoModeFocus</h3>
+<p><code>public void SetPhotoModeFocus(float focusStart, float focusEnd, float focus, float exposure)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to photo mode focus and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetPhotoModeFocus(0, 0, 0, 0);
+</code></pre>
+<h3 id="setphotomodefov">SetPhotoModeFov</h3>
+<p><code>public void SetPhotoModeFov(float verticalFov)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to photo mode fov and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetPhotoModeFov(0);
+</code></pre>
+<h3 id="getphotomodefov">GetPhotoModeFov</h3>
+<p><code>public float GetPhotoModeFov()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the photo mode fov value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetPhotoModeFov();
+</code></pre>
+<h3 id="hasdecalrenderer">HasDecalRenderer</h3>
+<p><code>public bool HasDecalRenderer()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds decal renderer.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.HasDecalRenderer();
+</code></pre>
+<h3 id="setphotomodevignette">SetPhotoModeVignette</h3>
+<p><code>public void SetPhotoModeVignette(bool vignetteOn)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to photo mode vignette and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetPhotoModeVignette(false);
+</code></pre>
+<h3 id="setscenecolorgradeindex">SetSceneColorGradeIndex</h3>
+<p><code>public void SetSceneColorGradeIndex(int index)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to scene color grade index and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetSceneColorGradeIndex(0);
+</code></pre>
+<h3 id="setscenefilterindex">SetSceneFilterIndex</h3>
+<p><code>public int SetSceneFilterIndex(int index)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to scene filter index and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.SetSceneFilterIndex(0);
+</code></pre>
+<h3 id="setscenecolorgrade">SetSceneColorGrade</h3>
+<p><code>public void SetSceneColorGrade(string textureName)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to scene color grade and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetSceneColorGrade(&quot;example&quot;);
+</code></pre>
+<h3 id="setupgradelevel">SetUpgradeLevel</h3>
+<p><code>public void SetUpgradeLevel(int level)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to upgrade level and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetUpgradeLevel(0);
+</code></pre>
+<h3 id="createburstparticle">CreateBurstParticle</h3>
+<p><code>public void CreateBurstParticle(int particleId, MatrixFrame frame)</code></p>
+<p><strong>Purpose:</strong> Constructs a new burst particle entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.CreateBurstParticle(0, frame);
+</code></pre>
+<h3 id="getterrainheightdata">GetTerrainHeightData</h3>
+<p><code>public float GetTerrainHeightData(int nodeXIndex, int nodeYIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the terrain height data value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetTerrainHeightData(0, 0);
+</code></pre>
+<h3 id="getterrainphysicsmaterialindexdata">GetTerrainPhysicsMaterialIndexData</h3>
+<p><code>public short GetTerrainPhysicsMaterialIndexData(int nodeXIndex, int nodeYIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the terrain physics material index data value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetTerrainPhysicsMaterialIndexData(0, 0);
+</code></pre>
+<h3 id="getterraindata">GetTerrainData</h3>
+<p><code>public void GetTerrainData(out Vec2i nodeDimension, out float nodeSize, out int layerCount, out int layerVersion)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the terrain data value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetTerrainData(nodeDimension, nodeSize, layerCount, layerVersion);
+</code></pre>
+<h3 id="getterrainnodedata">GetTerrainNodeData</h3>
+<p><code>public void GetTerrainNodeData(int xIndex, int yIndex, out int vertexCountAlongAxis, out float quadLength, out float minHeight, out float maxHeight)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the terrain node data value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetTerrainNodeData(0, 0, vertexCountAlongAxis, quadLength, minHeight, maxHeight);
+</code></pre>
+<h3 id="getterrainphysicsmaterialatlayer">GetTerrainPhysicsMaterialAtLayer</h3>
+<p><code>public PhysicsMaterial GetTerrainPhysicsMaterialAtLayer(int layerIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the terrain physics material at layer value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetTerrainPhysicsMaterialAtLayer(0);
+</code></pre>
+<h3 id="setscenecolorgrade-1">SetSceneColorGrade</h3>
+<p><code>public void SetSceneColorGrade(Scene scene, string textureName)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to scene color grade and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetSceneColorGrade(scene, &quot;example&quot;);
+</code></pre>
+<h3 id="getwaterlevel">GetWaterLevel</h3>
+<p><code>public float GetWaterLevel()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the water level value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetWaterLevel();
+</code></pre>
+<h3 id="getwaterlevelatposition">GetWaterLevelAtPosition</h3>
+<p><code>public float GetWaterLevelAtPosition(Vec2 position, bool useWaterRenderer, bool checkWaterBodyEntities)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the water level at position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetWaterLevelAtPosition(position, false, false);
+</code></pre>
+<h3 id="getwaterspeedatposition">GetWaterSpeedAtPosition</h3>
+<p><code>public Vec3 GetWaterSpeedAtPosition(Vec2 position, bool doChoppinessCorrection)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the water speed at position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetWaterSpeedAtPosition(position, false);
+</code></pre>
+<h3 id="getbulkwaterlevelatpositions">GetBulkWaterLevelAtPositions</h3>
+<p><code>public void GetBulkWaterLevelAtPositions(Vec2 waterHeightQueryArray, ref float waterHeightsAtVolumes, ref Vec3 waterSurfaceNormals)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bulk water level at positions value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetBulkWaterLevelAtPositions(waterHeightQueryArray, waterHeightsAtVolumes, waterSurfaceNormals);
+</code></pre>
+<h3 id="getinterpolationfactorforbodyworldtransformsmoothing">GetInterpolationFactorForBodyWorldTransformSmoothing</h3>
+<p><code>public void GetInterpolationFactorForBodyWorldTransformSmoothing(out float interpolationFactor, out float fixedDt)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the interpolation factor for body world transform smoothing value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetInterpolationFactorForBodyWorldTransformSmoothing(interpolationFactor, fixedDt);
+</code></pre>
+<h3 id="getbulkwaterlevelatvolumes">GetBulkWaterLevelAtVolumes</h3>
+<p><code>public void GetBulkWaterLevelAtVolumes(UIntPtr waterHeightQueryArray, int waterHeightQueryArrayCount, in MatrixFrame globalFrame)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bulk water level at volumes value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetBulkWaterLevelAtVolumes(waterHeightQueryArray, 0, globalFrame);
+</code></pre>
+<h3 id="getwaterstrength">GetWaterStrength</h3>
+<p><code>public float GetWaterStrength()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the water strength value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetWaterStrength();
+</code></pre>
+<h3 id="deregistershipvisual">DeRegisterShipVisual</h3>
+<p><code>public void DeRegisterShipVisual(UIntPtr visualPointer)</code></p>
+<p><strong>Purpose:</strong> Executes the DeRegisterShipVisual logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.DeRegisterShipVisual(visualPointer);
+</code></pre>
+<h3 id="registershipvisualtowaterrenderer">RegisterShipVisualToWaterRenderer</h3>
+<p><code>public UIntPtr RegisterShipVisualToWaterRenderer(WeakGameEntity entity, in Vec3 waterEffectBB)</code></p>
+<p><strong>Purpose:</strong> Registers ship visual to water renderer with the current system so it can later be observed or dispatched.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.RegisterShipVisualToWaterRenderer(entity, waterEffectBB);
+</code></pre>
+<h3 id="setwaterstrength">SetWaterStrength</h3>
+<p><code>public void SetWaterStrength(float newWaterStrength)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to water strength and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetWaterStrength(0);
+</code></pre>
+<h3 id="addwaterwakewithsphere">AddWaterWakeWithSphere</h3>
+<p><code>public void AddWaterWakeWithSphere(Vec3 position, float radius, float wakeVisibility, float foamVisibility)</code></p>
+<p><strong>Purpose:</strong> Adds water wake with sphere to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.AddWaterWakeWithSphere(position, 0, 0, 0);
+</code></pre>
+<h3 id="addwaterwakewithcapsule">AddWaterWakeWithCapsule</h3>
+<p><code>public void AddWaterWakeWithCapsule(Vec3 positionA, float radiusA, Vec3 positionB, float radiusB, float wakeVisibility, float foamVisibility)</code></p>
+<p><strong>Purpose:</strong> Adds water wake with capsule to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.AddWaterWakeWithCapsule(positionA, 0, positionB, 0, 0, 0);
+</code></pre>
+<h3 id="getpathbetweenaifaces">GetPathBetweenAIFaces</h3>
+<p><code>public bool GetPathBetweenAIFaces(UIntPtr startingFace, UIntPtr endingFace, Vec2 startingPosition, Vec2 endingPosition, float agentRadius, NavigationPath path, int excludedFaceIds)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the path between a i faces value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetPathBetweenAIFaces(startingFace, endingFace, startingPosition, endingPosition, 0, path, 0);
+</code></pre>
+<h3 id="hasnavmeshfaceunsharededges">HasNavmeshFaceUnsharedEdges</h3>
+<p><code>public bool HasNavmeshFaceUnsharedEdges(in PathFaceRecord faceRecord)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds navmesh face unshared edges.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.HasNavmeshFaceUnsharedEdges(faceRecord);
+</code></pre>
+<h3 id="getnavmeshfacecountbetweentwoids">GetNavmeshFaceCountBetweenTwoIds</h3>
+<p><code>public int GetNavmeshFaceCountBetweenTwoIds(int firstId, int secondId)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the navmesh face count between two ids value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetNavmeshFaceCountBetweenTwoIds(0, 0);
+</code></pre>
+<h3 id="getnavmeshfacerecordsbetweentwoids">GetNavmeshFaceRecordsBetweenTwoIds</h3>
+<p><code>public void GetNavmeshFaceRecordsBetweenTwoIds(int firstId, int secondId, PathFaceRecord faceRecords)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the navmesh face records between two ids value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetNavmeshFaceRecordsBetweenTwoIds(0, 0, faceRecords);
+</code></pre>
+<h3 id="setfixedtickcallbackactive">SetFixedTickCallbackActive</h3>
+<p><code>public void SetFixedTickCallbackActive(bool isActive)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to fixed tick callback active and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetFixedTickCallbackActive(false);
+</code></pre>
+<h3 id="setoncollisionfiltercallbackactive">SetOnCollisionFilterCallbackActive</h3>
+<p><code>public void SetOnCollisionFilterCallbackActive(bool isActive)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to on collision filter callback active and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetOnCollisionFilterCallbackActive(false);
+</code></pre>
+<h3 id="getpathbetweenaifaces-1">GetPathBetweenAIFaces</h3>
+<p><code>public bool GetPathBetweenAIFaces(UIntPtr startingFace, UIntPtr endingFace, Vec2 startingPosition, Vec2 endingPosition, float agentRadius, NavigationPath path, int excludedFaceIds, int regionSwitchCostTo0, int regionSwitchCostTo1)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the path between a i faces value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetPathBetweenAIFaces(startingFace, endingFace, startingPosition, endingPosition, 0, path, 0, 0, 0);
+</code></pre>
+<h3 id="getpathbetweenaifaces-2">GetPathBetweenAIFaces</h3>
+<p><code>public bool GetPathBetweenAIFaces(int startingFace, int endingFace, Vec2 startingPosition, Vec2 endingPosition, float agentRadius, NavigationPath path, int excludedFaceIds, float extraCostMultiplier)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the path between a i faces value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetPathBetweenAIFaces(0, 0, startingPosition, endingPosition, 0, path, 0, 0);
+</code></pre>
+<h3 id="getpathbetweenaifaces-3">GetPathBetweenAIFaces</h3>
+<p><code>public bool GetPathBetweenAIFaces(int startingFace, int endingFace, Vec2 startingPosition, Vec2 endingPosition, float agentRadius, NavigationPath path, int excludedFaceIds, float extraCostMultiplier, int regionSwitchCostTo0, int regionSwitchCostTo1)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the path between a i faces value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetPathBetweenAIFaces(0, 0, startingPosition, endingPosition, 0, path, 0, 0, 0, 0);
+</code></pre>
+<h3 id="getpathdistancebetweenaifaces">GetPathDistanceBetweenAIFaces</h3>
+<p><code>public bool GetPathDistanceBetweenAIFaces(int startingAiFace, int endingAiFace, Vec2 startingPosition, Vec2 endingPosition, float agentRadius, float distanceLimit, out float distance, int excludedFaceIds, int regionSwitchCostTo0, int regionSwitchCostTo1)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the path distance between a i faces value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetPathDistanceBetweenAIFaces(0, 0, startingPosition, endingPosition, 0, 0, distance, 0, 0, 0);
+</code></pre>
+<h3 id="getnavmeshfaceindex">GetNavMeshFaceIndex</h3>
+<p><code>public void GetNavMeshFaceIndex(ref PathFaceRecord record, Vec2 position, bool isRegion1, bool checkIfDisabled, bool ignoreHeight = false)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the nav mesh face index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetNavMeshFaceIndex(record, position, false, false, false);
+</code></pre>
+<h3 id="getnavmeshfaceindex-1">GetNavMeshFaceIndex</h3>
+<p><code>public void GetNavMeshFaceIndex(ref PathFaceRecord record, Vec3 position, bool checkIfDisabled)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the nav mesh face index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetNavMeshFaceIndex(record, position, false);
+</code></pre>
+<h3 id="createnewscene">CreateNewScene</h3>
+<p><code>public static Scene CreateNewScene(bool initialize_physics = true, bool enable_decals = true, DecalAtlasGroup atlasGroup = DecalAtlasGroup.All, string sceneName = "mono_renderscene")</code></p>
+<p><strong>Purpose:</strong> Constructs a new new scene entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Scene.CreateNewScene(false, false, decalAtlasGroup.All, &quot;example&quot;);
+</code></pre>
+<h3 id="addalwaysrenderedskeleton">AddAlwaysRenderedSkeleton</h3>
+<p><code>public void AddAlwaysRenderedSkeleton(Skeleton skeleton)</code></p>
+<p><strong>Purpose:</strong> Adds always rendered skeleton to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.AddAlwaysRenderedSkeleton(skeleton);
+</code></pre>
+<h3 id="removealwaysrenderedskeleton">RemoveAlwaysRenderedSkeleton</h3>
+<p><code>public void RemoveAlwaysRenderedSkeleton(Skeleton skeleton)</code></p>
+<p><strong>Purpose:</strong> Removes always rendered skeleton from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.RemoveAlwaysRenderedSkeleton(skeleton);
+</code></pre>
+<h3 id="createpathmesh">CreatePathMesh</h3>
+<p><code>public MetaMesh CreatePathMesh(string baseEntityName, bool isWaterPath)</code></p>
+<p><strong>Purpose:</strong> Constructs a new path mesh entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.CreatePathMesh(&quot;example&quot;, false);
+</code></pre>
+<h3 id="setactivevisibilitylevels">SetActiveVisibilityLevels</h3>
+<p><code>public void SetActiveVisibilityLevels(List&lt;string&gt; levelsToActivate)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to active visibility levels and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetActiveVisibilityLevels(levelsToActivate);
+</code></pre>
+<h3 id="setdonotwaitforloadingstatestorender">SetDoNotWaitForLoadingStatesToRender</h3>
+<p><code>public void SetDoNotWaitForLoadingStatesToRender(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to do not wait for loading states to render and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetDoNotWaitForLoadingStatesToRender(false);
+</code></pre>
+<h3 id="setdynamicsnowtexture">SetDynamicSnowTexture</h3>
+<p><code>public void SetDynamicSnowTexture(Texture texture)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to dynamic snow texture and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetDynamicSnowTexture(texture);
+</code></pre>
+<h3 id="getwindflowmapdata">GetWindFlowMapData</h3>
+<p><code>public void GetWindFlowMapData(float flowMapData)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the wind flow map data value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetWindFlowMapData(0);
+</code></pre>
+<h3 id="createdynamicraintexture">CreateDynamicRainTexture</h3>
+<p><code>public void CreateDynamicRainTexture(int w, int h)</code></p>
+<p><strong>Purpose:</strong> Constructs a new dynamic rain texture entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.CreateDynamicRainTexture(0, 0);
+</code></pre>
+<h3 id="createpathmesh-1">CreatePathMesh</h3>
+<p><code>public MetaMesh CreatePathMesh(IList&lt;GameEntity&gt; pathNodes, bool isWaterPath = false)</code></p>
+<p><strong>Purpose:</strong> Constructs a new path mesh entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.CreatePathMesh(pathNodes, false);
+</code></pre>
+<h3 id="getentitywithguid">GetEntityWithGuid</h3>
+<p><code>public GameEntity GetEntityWithGuid(string guid)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the entity with guid value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetEntityWithGuid(&quot;example&quot;);
+</code></pre>
+<h3 id="isentityframechanged">IsEntityFrameChanged</h3>
+<p><code>public bool IsEntityFrameChanged(string containsName)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the entity frame changed state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.IsEntityFrameChanged(&quot;example&quot;);
+</code></pre>
+<h3 id="getterrainheightandnormal">GetTerrainHeightAndNormal</h3>
+<p><code>public void GetTerrainHeightAndNormal(Vec2 position, out float height, out Vec3 normal)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the terrain height and normal value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetTerrainHeightAndNormal(position, height, normal);
+</code></pre>
+<h3 id="getflorainstancecount">GetFloraInstanceCount</h3>
+<p><code>public int GetFloraInstanceCount()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the flora instance count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetFloraInstanceCount();
+</code></pre>
+<h3 id="getflorarenderertextureusage">GetFloraRendererTextureUsage</h3>
+<p><code>public int GetFloraRendererTextureUsage()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the flora renderer texture usage value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetFloraRendererTextureUsage();
+</code></pre>
+<h3 id="getterrainmemoryusage">GetTerrainMemoryUsage</h3>
+<p><code>public int GetTerrainMemoryUsage()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the terrain memory usage value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetTerrainMemoryUsage();
+</code></pre>
+<h3 id="setfetchcrcinfoofscene">SetFetchCrcInfoOfScene</h3>
+<p><code>public void SetFetchCrcInfoOfScene(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to fetch crc info of scene and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetFetchCrcInfoOfScene(false);
+</code></pre>
+<h3 id="getscenexmlcrc">GetSceneXMLCRC</h3>
+<p><code>public uint GetSceneXMLCRC()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the scene x m l c r c value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetSceneXMLCRC();
+</code></pre>
+<h3 id="getnavigationmeshcrc">GetNavigationMeshCRC</h3>
+<p><code>public uint GetNavigationMeshCRC()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the navigation mesh c r c value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetNavigationMeshCRC();
+</code></pre>
+<h3 id="setglobalwindstrengthvector">SetGlobalWindStrengthVector</h3>
+<p><code>public void SetGlobalWindStrengthVector(in Vec2 windVector)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to global wind strength vector and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetGlobalWindStrengthVector(windVector);
+</code></pre>
+<h3 id="getglobalwindstrengthvector">GetGlobalWindStrengthVector</h3>
+<p><code>public Vec2 GetGlobalWindStrengthVector()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the global wind strength vector value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetGlobalWindStrengthVector();
+</code></pre>
+<h3 id="getglobalwindvelocity">GetGlobalWindVelocity</h3>
+<p><code>public Vec2 GetGlobalWindVelocity()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the global wind velocity value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetGlobalWindVelocity();
+</code></pre>
+<h3 id="setglobalwindvelocity">SetGlobalWindVelocity</h3>
+<p><code>public void SetGlobalWindVelocity(in Vec2 windVector)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to global wind velocity and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetGlobalWindVelocity(windVector);
+</code></pre>
+<h3 id="getenginephysicsenabled">GetEnginePhysicsEnabled</h3>
+<p><code>public bool GetEnginePhysicsEnabled()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the engine physics enabled value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetEnginePhysicsEnabled();
+</code></pre>
+<h3 id="clearnavmesh">ClearNavMesh</h3>
+<p><code>public void ClearNavMesh()</code></p>
+<p><strong>Purpose:</strong> Removes all nav mesh from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.ClearNavMesh();
+</code></pre>
+<h3 id="stallloadingrenderingsuntilfurthernotice">StallLoadingRenderingsUntilFurtherNotice</h3>
+<p><code>public void StallLoadingRenderingsUntilFurtherNotice()</code></p>
+<p><strong>Purpose:</strong> Executes the StallLoadingRenderingsUntilFurtherNotice logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.StallLoadingRenderingsUntilFurtherNotice();
+</code></pre>
+<h3 id="getnavmeshfacecount">GetNavMeshFaceCount</h3>
+<p><code>public int GetNavMeshFaceCount()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the nav mesh face count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetNavMeshFaceCount();
+</code></pre>
+<h3 id="resumeloadingrenderings">ResumeLoadingRenderings</h3>
+<p><code>public void ResumeLoadingRenderings()</code></p>
+<p><strong>Purpose:</strong> Executes the ResumeLoadingRenderings logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.ResumeLoadingRenderings();
+</code></pre>
+<h3 id="getupgradelevelmask">GetUpgradeLevelMask</h3>
+<p><code>public uint GetUpgradeLevelMask()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the upgrade level mask value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetUpgradeLevelMask();
+</code></pre>
+<h3 id="setupgradelevelvisibility">SetUpgradeLevelVisibility</h3>
+<p><code>public void SetUpgradeLevelVisibility(uint mask)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to upgrade level visibility and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetUpgradeLevelVisibility(0);
+</code></pre>
+<h3 id="setupgradelevelvisibility-1">SetUpgradeLevelVisibility</h3>
+<p><code>public void SetUpgradeLevelVisibility(List&lt;string&gt; levels)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to upgrade level visibility and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetUpgradeLevelVisibility(levels);
+</code></pre>
+<h3 id="getidofnavmeshface">GetIdOfNavMeshFace</h3>
+<p><code>public int GetIdOfNavMeshFace(int faceIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the id of nav mesh face value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetIdOfNavMeshFace(0);
+</code></pre>
+<h3 id="setclothsimulationstate">SetClothSimulationState</h3>
+<p><code>public void SetClothSimulationState(bool state)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to cloth simulation state and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetClothSimulationState(false);
+</code></pre>
+<h3 id="getnavmeshcenterposition">GetNavMeshCenterPosition</h3>
+<p><code>public void GetNavMeshCenterPosition(int faceIndex, ref Vec3 centerPosition)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the nav mesh center position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetNavMeshCenterPosition(0, centerPosition);
+</code></pre>
+<h3 id="getnavmeshpathfacerecord">GetNavMeshPathFaceRecord</h3>
+<p><code>public PathFaceRecord GetNavMeshPathFaceRecord(int faceIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the nav mesh path face record value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetNavMeshPathFaceRecord(0);
+</code></pre>
+<h3 id="getpathfacerecordfromnavmeshfacepointer">GetPathFaceRecordFromNavMeshFacePointer</h3>
+<p><code>public PathFaceRecord GetPathFaceRecordFromNavMeshFacePointer(UIntPtr navMeshFacePointer)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the path face record from nav mesh face pointer value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetPathFaceRecordFromNavMeshFacePointer(navMeshFacePointer);
+</code></pre>
+<h3 id="getallnavmeshfacerecords">GetAllNavmeshFaceRecords</h3>
+<p><code>public void GetAllNavmeshFaceRecords(PathFaceRecord faceRecords)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the all navmesh face records value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetAllNavmeshFaceRecords(faceRecords);
+</code></pre>
+<h3 id="getfirstentitywithname">GetFirstEntityWithName</h3>
+<p><code>public GameEntity GetFirstEntityWithName(string name)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the first entity with name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetFirstEntityWithName(&quot;example&quot;);
+</code></pre>
+<h3 id="getcampaignentitywithname">GetCampaignEntityWithName</h3>
+<p><code>public GameEntity GetCampaignEntityWithName(string name)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the campaign entity with name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetCampaignEntityWithName(&quot;example&quot;);
+</code></pre>
+<h3 id="getfirstentitywithscriptcomponent">GetFirstEntityWithScriptComponent</h3>
+<p><code>public GameEntity GetFirstEntityWithScriptComponent(string scriptName)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the first entity with script component value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetFirstEntityWithScriptComponent(&quot;example&quot;);
+</code></pre>
+<h3 id="getupgradelevelmaskoflevelname">GetUpgradeLevelMaskOfLevelName</h3>
+<p><code>public uint GetUpgradeLevelMaskOfLevelName(string levelName)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the upgrade level mask of level name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetUpgradeLevelMaskOfLevelName(&quot;example&quot;);
+</code></pre>
+<h3 id="getupgradelevelnameofindex">GetUpgradeLevelNameOfIndex</h3>
+<p><code>public string GetUpgradeLevelNameOfIndex(int index)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the upgrade level name of index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetUpgradeLevelNameOfIndex(0);
+</code></pre>
+<h3 id="getupgradelevelcount">GetUpgradeLevelCount</h3>
+<p><code>public int GetUpgradeLevelCount()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the upgrade level count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetUpgradeLevelCount();
+</code></pre>
+<h3 id="getwintertimefactor">GetWinterTimeFactor</h3>
+<p><code>public float GetWinterTimeFactor()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the winter time factor value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetWinterTimeFactor();
+</code></pre>
+<h3 id="getnavmeshfacefirstvertexz">GetNavMeshFaceFirstVertexZ</h3>
+<p><code>public float GetNavMeshFaceFirstVertexZ(int faceIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the nav mesh face first vertex z value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetNavMeshFaceFirstVertexZ(0);
+</code></pre>
+<h3 id="setwintertimefactor">SetWinterTimeFactor</h3>
+<p><code>public void SetWinterTimeFactor(float winterTimeFactor)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to winter time factor and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetWinterTimeFactor(0);
+</code></pre>
+<h3 id="setdrynessfactor">SetDrynessFactor</h3>
+<p><code>public void SetDrynessFactor(float drynessFactor)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to dryness factor and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetDrynessFactor(0);
+</code></pre>
+<h3 id="getfog">GetFog</h3>
+<p><code>public float GetFog()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the fog value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetFog();
+</code></pre>
+<h3 id="setfog">SetFog</h3>
+<p><code>public void SetFog(float fogDensity, ref Vec3 fogColor, float fogFalloff)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to fog and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetFog(0, fogColor, 0);
+</code></pre>
+<h3 id="setfogadvanced">SetFogAdvanced</h3>
+<p><code>public void SetFogAdvanced(float fogFalloffOffset, float fogFalloffMinFog, float fogFalloffStartDist)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to fog advanced and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetFogAdvanced(0, 0, 0);
+</code></pre>
+<h3 id="setfogambientcolor">SetFogAmbientColor</h3>
+<p><code>public void SetFogAmbientColor(ref Vec3 fogAmbientColor)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to fog ambient color and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetFogAmbientColor(fogAmbientColor);
+</code></pre>
+<h3 id="settemperature">SetTemperature</h3>
+<p><code>public void SetTemperature(float temperature)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to temperature and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetTemperature(0);
+</code></pre>
+<h3 id="sethumidity">SetHumidity</h3>
+<p><code>public void SetHumidity(float humidity)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to humidity and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetHumidity(0);
+</code></pre>
+<h3 id="setdynamicshadowmapcascadesradiusmultiplier">SetDynamicShadowmapCascadesRadiusMultiplier</h3>
+<p><code>public void SetDynamicShadowmapCascadesRadiusMultiplier(float multiplier)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to dynamic shadowmap cascades radius multiplier and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetDynamicShadowmapCascadesRadiusMultiplier(0);
+</code></pre>
+<h3 id="setenvironmentmultiplier">SetEnvironmentMultiplier</h3>
+<p><code>public void SetEnvironmentMultiplier(bool useMultiplier, float multiplier)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to environment multiplier and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetEnvironmentMultiplier(false, 0);
+</code></pre>
+<h3 id="setskyrotation">SetSkyRotation</h3>
+<p><code>public void SetSkyRotation(float rotation)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to sky rotation and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetSkyRotation(0);
+</code></pre>
+<h3 id="setskybrightness">SetSkyBrightness</h3>
+<p><code>public void SetSkyBrightness(float brightness)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to sky brightness and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetSkyBrightness(0);
+</code></pre>
+<h3 id="setforcedsnow">SetForcedSnow</h3>
+<p><code>public void SetForcedSnow(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to forced snow and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetForcedSnow(false);
+</code></pre>
+<h3 id="setsunlight">SetSunLight</h3>
+<p><code>public void SetSunLight(ref Vec3 color, ref Vec3 direction)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to sun light and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetSunLight(color, direction);
+</code></pre>
+<h3 id="setsundirection">SetSunDirection</h3>
+<p><code>public void SetSunDirection(ref Vec3 direction)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to sun direction and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetSunDirection(direction);
+</code></pre>
+<h3 id="setsun">SetSun</h3>
+<p><code>public void SetSun(ref Vec3 color, float altitude, float angle, float intensity)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to sun and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetSun(color, 0, 0, 0);
+</code></pre>
+<h3 id="setsunanglealtitude">SetSunAngleAltitude</h3>
+<p><code>public void SetSunAngleAltitude(float angle, float altitude)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to sun angle altitude and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetSunAngleAltitude(0, 0);
+</code></pre>
+<h3 id="setsunsize">SetSunSize</h3>
+<p><code>public void SetSunSize(float size)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to sun size and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetSunSize(0);
+</code></pre>
+<h3 id="setsunshaftstrength">SetSunShaftStrength</h3>
+<p><code>public void SetSunShaftStrength(float strength)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to sun shaft strength and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetSunShaftStrength(0);
+</code></pre>
+<h3 id="getraindensity">GetRainDensity</h3>
+<p><code>public float GetRainDensity()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the rain density value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetRainDensity();
+</code></pre>
+<h3 id="setraindensity">SetRainDensity</h3>
+<p><code>public void SetRainDensity(float density)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to rain density and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetRainDensity(0);
+</code></pre>
+<h3 id="getsnowdensity">GetSnowDensity</h3>
+<p><code>public float GetSnowDensity()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the snow density value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetSnowDensity();
+</code></pre>
+<h3 id="setsnowdensity">SetSnowDensity</h3>
+<p><code>public void SetSnowDensity(float density)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to snow density and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetSnowDensity(0);
+</code></pre>
+<h3 id="adddecalinstance">AddDecalInstance</h3>
+<p><code>public void AddDecalInstance(Decal decal, string decalSetID, bool deletable)</code></p>
+<p><strong>Purpose:</strong> Adds decal instance to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.AddDecalInstance(decal, &quot;example&quot;, false);
+</code></pre>
+<h3 id="removedecalinstance">RemoveDecalInstance</h3>
+<p><code>public void RemoveDecalInstance(Decal decal, string decalSetID)</code></p>
+<p><strong>Purpose:</strong> Removes decal instance from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.RemoveDecalInstance(decal, &quot;example&quot;);
+</code></pre>
+<h3 id="setshadow">SetShadow</h3>
+<p><code>public void SetShadow(bool shadowEnabled)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to shadow and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetShadow(false);
+</code></pre>
+<h3 id="addpointlight">AddPointLight</h3>
+<p><code>public int AddPointLight(ref Vec3 position, float radius)</code></p>
+<p><strong>Purpose:</strong> Adds point light to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.AddPointLight(position, 0);
+</code></pre>
+<h3 id="adddirectionallight">AddDirectionalLight</h3>
+<p><code>public int AddDirectionalLight(ref Vec3 position, ref Vec3 direction, float radius)</code></p>
+<p><strong>Purpose:</strong> Adds directional light to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.AddDirectionalLight(position, direction, 0);
+</code></pre>
+<h3 id="setlightposition">SetLightPosition</h3>
+<p><code>public void SetLightPosition(int lightIndex, ref Vec3 position)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to light position and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetLightPosition(0, position);
+</code></pre>
+<h3 id="setlightdiffusecolor">SetLightDiffuseColor</h3>
+<p><code>public void SetLightDiffuseColor(int lightIndex, ref Vec3 diffuseColor)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to light diffuse color and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetLightDiffuseColor(0, diffuseColor);
+</code></pre>
+<h3 id="setlightdirection">SetLightDirection</h3>
+<p><code>public void SetLightDirection(int lightIndex, ref Vec3 direction)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to light direction and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetLightDirection(0, direction);
+</code></pre>
+<h3 id="setmiescatterfocus">SetMieScatterFocus</h3>
+<p><code>public void SetMieScatterFocus(float strength)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to mie scatter focus and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetMieScatterFocus(0);
+</code></pre>
+<h3 id="setmiescatterstrength">SetMieScatterStrength</h3>
+<p><code>public void SetMieScatterStrength(float strength)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to mie scatter strength and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetMieScatterStrength(0);
+</code></pre>
+<h3 id="setbrightpassthreshold">SetBrightpassThreshold</h3>
+<p><code>public void SetBrightpassThreshold(float threshold)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to brightpass threshold and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetBrightpassThreshold(0);
+</code></pre>
+<h3 id="setlensdistortion">SetLensDistortion</h3>
+<p><code>public void SetLensDistortion(float amount)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to lens distortion and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetLensDistortion(0);
+</code></pre>
+<h3 id="sethexagonvignettealpha">SetHexagonVignetteAlpha</h3>
+<p><code>public void SetHexagonVignetteAlpha(float amount)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to hexagon vignette alpha and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetHexagonVignetteAlpha(0);
+</code></pre>
+<h3 id="setminexposure">SetMinExposure</h3>
+<p><code>public void SetMinExposure(float minExposure)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to min exposure and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetMinExposure(0);
+</code></pre>
+<h3 id="setmaxexposure">SetMaxExposure</h3>
+<p><code>public void SetMaxExposure(float maxExposure)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to max exposure and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetMaxExposure(0);
+</code></pre>
+<h3 id="settargetexposure">SetTargetExposure</h3>
+<p><code>public void SetTargetExposure(float targetExposure)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to target exposure and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetTargetExposure(0);
+</code></pre>
+<h3 id="setmiddlegray">SetMiddleGray</h3>
+<p><code>public void SetMiddleGray(float middleGray)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to middle gray and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetMiddleGray(0);
+</code></pre>
+<h3 id="setbloomstrength">SetBloomStrength</h3>
+<p><code>public void SetBloomStrength(float bloomStrength)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to bloom strength and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetBloomStrength(0);
+</code></pre>
+<h3 id="setbloomamount">SetBloomAmount</h3>
+<p><code>public void SetBloomAmount(float bloomAmount)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to bloom amount and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetBloomAmount(0);
+</code></pre>
+<h3 id="setgrainamount">SetGrainAmount</h3>
+<p><code>public void SetGrainAmount(float grainAmount)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to grain amount and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetGrainAmount(0);
+</code></pre>
+<h3 id="additementity">AddItemEntity</h3>
+<p><code>public GameEntity AddItemEntity(ref MatrixFrame placementFrame, MetaMesh metaMesh)</code></p>
+<p><strong>Purpose:</strong> Adds item entity to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.AddItemEntity(placementFrame, metaMesh);
+</code></pre>
+<h3 id="removeentity">RemoveEntity</h3>
+<p><code>public void RemoveEntity(GameEntity entity, int removeReason)</code></p>
+<p><strong>Purpose:</strong> Removes entity from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.RemoveEntity(entity, 0);
+</code></pre>
+<h3 id="removeentity-1">RemoveEntity</h3>
+<p><code>public void RemoveEntity(WeakGameEntity entity, int removeReason)</code></p>
+<p><strong>Purpose:</strong> Removes entity from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.RemoveEntity(entity, 0);
+</code></pre>
+<h3 id="attachentity">AttachEntity</h3>
+<p><code>public bool AttachEntity(GameEntity entity, bool showWarnings = false)</code></p>
+<p><strong>Purpose:</strong> Executes the AttachEntity logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.AttachEntity(entity, false);
+</code></pre>
+<h3 id="attachentity-1">AttachEntity</h3>
+<p><code>public bool AttachEntity(WeakGameEntity entity, bool showWarnings = false)</code></p>
+<p><strong>Purpose:</strong> Executes the AttachEntity logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.AttachEntity(entity, false);
+</code></pre>
+<h3 id="addentitywithmesh">AddEntityWithMesh</h3>
+<p><code>public void AddEntityWithMesh(Mesh mesh, ref MatrixFrame frame)</code></p>
+<p><strong>Purpose:</strong> Adds entity with mesh to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.AddEntityWithMesh(mesh, frame);
+</code></pre>
+<h3 id="addentitywithmultimesh">AddEntityWithMultiMesh</h3>
+<p><code>public void AddEntityWithMultiMesh(MetaMesh mesh, ref MatrixFrame frame)</code></p>
+<p><strong>Purpose:</strong> Adds entity with multi mesh to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.AddEntityWithMultiMesh(mesh, frame);
+</code></pre>
+<h3 id="tick">Tick</h3>
+<p><code>public void Tick(float dt)</code></p>
+<p><strong>Purpose:</strong> Advances the this instance's state by one frame or update cycle.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.Tick(0);
+</code></pre>
+<h3 id="clearall">ClearAll</h3>
+<p><code>public void ClearAll()</code></p>
+<p><strong>Purpose:</strong> Removes all all from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.ClearAll();
+</code></pre>
+<h3 id="setdefaultlighting">SetDefaultLighting</h3>
+<p><code>public void SetDefaultLighting()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to default lighting and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetDefaultLighting();
+</code></pre>
+<h3 id="calculateeffectivelighting">CalculateEffectiveLighting</h3>
+<p><code>public bool CalculateEffectiveLighting()</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of effective lighting.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.CalculateEffectiveLighting();
+</code></pre>
+<h3 id="getpathdistancebetweenpositions">GetPathDistanceBetweenPositions</h3>
+<p><code>public bool GetPathDistanceBetweenPositions(ref WorldPosition point0, ref WorldPosition point1, float agentRadius, out float pathDistance)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the path distance between positions value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetPathDistanceBetweenPositions(point0, point1, 0, pathDistance);
+</code></pre>
+<h3 id="islinetopointclear">IsLineToPointClear</h3>
+<p><code>public bool IsLineToPointClear(ref WorldPosition position, ref WorldPosition destination, float agentRadius)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the line to point clear state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.IsLineToPointClear(position, destination, 0);
+</code></pre>
+<h3 id="islinetopointclear-1">IsLineToPointClear</h3>
+<p><code>public bool IsLineToPointClear(UIntPtr startingFace, Vec2 position, Vec2 destination, float agentRadius)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the line to point clear state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.IsLineToPointClear(startingFace, position, destination, 0);
+</code></pre>
+<h3 id="islinetopointclear-2">IsLineToPointClear</h3>
+<p><code>public bool IsLineToPointClear(int startingFace, Vec2 position, Vec2 destination, float agentRadius)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the line to point clear state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.IsLineToPointClear(0, position, destination, 0);
+</code></pre>
+<h3 id="getlastpointonnavigationmeshfrompositiontodestination">GetLastPointOnNavigationMeshFromPositionToDestination</h3>
+<p><code>public Vec2 GetLastPointOnNavigationMeshFromPositionToDestination(int startingFace, Vec2 position, Vec2 destination, int excludedFaceIds)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the last point on navigation mesh from position to destination value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetLastPointOnNavigationMeshFromPositionToDestination(0, position, destination, 0);
+</code></pre>
+<h3 id="getlastpositiononnavmeshfaceforpointanddirection">GetLastPositionOnNavMeshFaceForPointAndDirection</h3>
+<p><code>public Vec2 GetLastPositionOnNavMeshFaceForPointAndDirection(PathFaceRecord record, Vec2 position, Vec2 destination)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the last position on nav mesh face for point and direction value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetLastPositionOnNavMeshFaceForPointAndDirection(record, position, destination);
+</code></pre>
+<h3 id="getlastpointonnavigationmeshfromworldpositiontodestination">GetLastPointOnNavigationMeshFromWorldPositionToDestination</h3>
+<p><code>public Vec3 GetLastPointOnNavigationMeshFromWorldPositionToDestination(ref WorldPosition position, Vec2 destination)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the last point on navigation mesh from world position to destination value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetLastPointOnNavigationMeshFromWorldPositionToDestination(position, destination);
+</code></pre>
+<h3 id="doespathexistbetweenfaces">DoesPathExistBetweenFaces</h3>
+<p><code>public bool DoesPathExistBetweenFaces(int firstNavMeshFace, int secondNavMeshFace, bool ignoreDisabled)</code></p>
+<p><strong>Purpose:</strong> Returns a boolean answer to whether path exist between faces is true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.DoesPathExistBetweenFaces(0, 0, false);
+</code></pre>
+<h3 id="getheightatpoint">GetHeightAtPoint</h3>
+<p><code>public bool GetHeightAtPoint(Vec2 point, BodyFlags excludeBodyFlags, ref float height)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the height at point value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetHeightAtPoint(point, excludeBodyFlags, height);
+</code></pre>
+<h3 id="getnormalat">GetNormalAt</h3>
+<p><code>public Vec3 GetNormalAt(Vec2 position)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the normal at value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetNormalAt(position);
+</code></pre>
+<h3 id="getentities">GetEntities</h3>
+<p><code>public void GetEntities(ref List&lt;GameEntity&gt; entities)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the entities value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetEntities(entities);
+</code></pre>
+<h3 id="getrootentities">GetRootEntities</h3>
+<p><code>public void GetRootEntities(NativeObjectArray entities)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the root entities value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetRootEntities(entities);
+</code></pre>
+<h3 id="selectentitiescollidedwith">SelectEntitiesCollidedWith</h3>
+<p><code>public int SelectEntitiesCollidedWith(ref Ray ray, Intersection intersectionsOutput, UIntPtr entityIds)</code></p>
+<p><strong>Purpose:</strong> Executes the SelectEntitiesCollidedWith logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.SelectEntitiesCollidedWith(ray, intersectionsOutput, entityIds);
+</code></pre>
+<h3 id="raycastexcludingtwoentities">RayCastExcludingTwoEntities</h3>
+<p><code>public bool RayCastExcludingTwoEntities(BodyFlags flags, in Ray ray, WeakGameEntity entity1, WeakGameEntity entity2)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastExcludingTwoEntities logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.RayCastExcludingTwoEntities(flags, ray, entity1, entity2);
+</code></pre>
+<h3 id="generatecontactswithcapsule">GenerateContactsWithCapsule</h3>
+<p><code>public int GenerateContactsWithCapsule(ref CapsuleData capsule, BodyFlags exclude_flags, bool isFixedTick, Intersection intersectionsOutput, WeakGameEntity gameEntities, UIntPtr entityPointers)</code></p>
+<p><strong>Purpose:</strong> Generates an instance, data, or representation of contacts with capsule.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GenerateContactsWithCapsule(capsule, exclude_flags, false, intersectionsOutput, gameEntities, entityPointers);
+</code></pre>
+<h3 id="generatecontactswithcapsuleagainstentity">GenerateContactsWithCapsuleAgainstEntity</h3>
+<p><code>public int GenerateContactsWithCapsuleAgainstEntity(ref CapsuleData capsule, BodyFlags excludeFlags, WeakGameEntity entity, Intersection intersectionsOutput)</code></p>
+<p><strong>Purpose:</strong> Generates an instance, data, or representation of contacts with capsule against entity.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GenerateContactsWithCapsuleAgainstEntity(capsule, excludeFlags, entity, intersectionsOutput);
+</code></pre>
+<h3 id="invalidateterrainphysicsmaterials">InvalidateTerrainPhysicsMaterials</h3>
+<p><code>public void InvalidateTerrainPhysicsMaterials()</code></p>
+<p><strong>Purpose:</strong> Executes the InvalidateTerrainPhysicsMaterials logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.InvalidateTerrainPhysicsMaterials();
+</code></pre>
+<h3 id="read">Read</h3>
+<p><code>public void Read(string sceneName)</code></p>
+<p><strong>Purpose:</strong> Reads the data or state of the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.Read(&quot;example&quot;);
+</code></pre>
+<h3 id="read-1">Read</h3>
+<p><code>public void Read(string sceneName, string moduleId, ref SceneInitializationData initData, string forcedAtmoName = "")</code></p>
+<p><strong>Purpose:</strong> Reads the data or state of the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.Read(&quot;example&quot;, &quot;example&quot;, initData, &quot;example&quot;);
+</code></pre>
+<h3 id="read-2">Read</h3>
+<p><code>public void Read(string sceneName, ref SceneInitializationData initData, string forcedAtmoName = "")</code></p>
+<p><strong>Purpose:</strong> Reads the data or state of the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.Read(&quot;example&quot;, initData, &quot;example&quot;);
+</code></pre>
+<h3 id="readandcalculateinitialcamera">ReadAndCalculateInitialCamera</h3>
+<p><code>public MatrixFrame ReadAndCalculateInitialCamera()</code></p>
+<p><strong>Purpose:</strong> Reads the data or state of and calculate initial camera.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.ReadAndCalculateInitialCamera();
+</code></pre>
+<h3 id="optimizescene">OptimizeScene</h3>
+<p><code>public void OptimizeScene(bool optimizeFlora = true, bool optimizeOro = false)</code></p>
+<p><strong>Purpose:</strong> Executes the OptimizeScene logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.OptimizeScene(false, false);
+</code></pre>
+<h3 id="getterrainheight">GetTerrainHeight</h3>
+<p><code>public float GetTerrainHeight(Vec2 position, bool checkHoles = true)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the terrain height value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetTerrainHeight(position, false);
+</code></pre>
+<h3 id="checkresources">CheckResources</h3>
+<p><code>public void CheckResources(bool checkInvisibleEntities)</code></p>
+<p><strong>Purpose:</strong> Verifies whether resources holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.CheckResources(false);
+</code></pre>
+<h3 id="forceloadresources">ForceLoadResources</h3>
+<p><code>public void ForceLoadResources(bool checkInvisibleEntities)</code></p>
+<p><strong>Purpose:</strong> Executes the ForceLoadResources logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.ForceLoadResources(false);
+</code></pre>
+<h3 id="setdepthoffieldparameters">SetDepthOfFieldParameters</h3>
+<p><code>public void SetDepthOfFieldParameters(float depthOfFieldFocusStart, float depthOfFieldFocusEnd, bool isVignetteOn)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to depth of field parameters and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetDepthOfFieldParameters(0, 0, false);
+</code></pre>
+<h3 id="setdepthoffieldfocus">SetDepthOfFieldFocus</h3>
+<p><code>public void SetDepthOfFieldFocus(float depthOfFieldFocus)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to depth of field focus and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetDepthOfFieldFocus(0);
+</code></pre>
+<h3 id="resetdepthoffieldparams">ResetDepthOfFieldParams</h3>
+<p><code>public void ResetDepthOfFieldParams()</code></p>
+<p><strong>Purpose:</strong> Returns depth of field params to its default or initial condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.ResetDepthOfFieldParams();
+</code></pre>
+<h3 id="preloadforrendering">PreloadForRendering</h3>
+<p><code>public void PreloadForRendering()</code></p>
+<p><strong>Purpose:</strong> Executes the PreloadForRendering logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.PreloadForRendering();
+</code></pre>
+<h3 id="setcolorgradeblend">SetColorGradeBlend</h3>
+<p><code>public void SetColorGradeBlend(string texture1, string texture2, float alpha)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to color grade blend and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetColorGradeBlend(&quot;example&quot;, &quot;example&quot;, 0);
+</code></pre>
+<h3 id="getgroundheightatposition">GetGroundHeightAtPosition</h3>
+<p><code>public float GetGroundHeightAtPosition(Vec3 position, BodyFlags excludeFlags = BodyFlags.CommonCollisionExcludeFlags)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the ground height at position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetGroundHeightAtPosition(position, bodyFlags.CommonCollisionExcludeFlags);
+</code></pre>
+<h3 id="getgroundheightandbodyflagsatposition">GetGroundHeightAndBodyFlagsAtPosition</h3>
+<p><code>public float GetGroundHeightAndBodyFlagsAtPosition(Vec3 position, out BodyFlags contactPointFlags, BodyFlags excludeFlags = BodyFlags.CommonCollisionExcludeFlags)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the ground height and body flags at position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetGroundHeightAndBodyFlagsAtPosition(position, contactPointFlags, bodyFlags.CommonCollisionExcludeFlags);
+</code></pre>
+<h3 id="getgroundheightatposition-1">GetGroundHeightAtPosition</h3>
+<p><code>public float GetGroundHeightAtPosition(Vec3 position, out Vec3 normal, BodyFlags excludeFlags = BodyFlags.CommonCollisionExcludeFlags)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the ground height at position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetGroundHeightAtPosition(position, normal, bodyFlags.CommonCollisionExcludeFlags);
+</code></pre>
+<h3 id="pausescenesounds">PauseSceneSounds</h3>
+<p><code>public void PauseSceneSounds()</code></p>
+<p><strong>Purpose:</strong> Executes the PauseSceneSounds logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.PauseSceneSounds();
+</code></pre>
+<h3 id="resumescenesounds">ResumeSceneSounds</h3>
+<p><code>public void ResumeSceneSounds()</code></p>
+<p><strong>Purpose:</strong> Executes the ResumeSceneSounds logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.ResumeSceneSounds();
+</code></pre>
+<h3 id="finishscenesounds">FinishSceneSounds</h3>
+<p><code>public void FinishSceneSounds()</code></p>
+<p><strong>Purpose:</strong> Concludes the scene sounds flow and performs any cleanup.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.FinishSceneSounds();
+</code></pre>
+<h3 id="boxcastonlyforcamera">BoxCastOnlyForCamera</h3>
+<p><code>public bool BoxCastOnlyForCamera(Vec3 boxPoints, in Vec3 centerPoint, bool castSupportRay, in Vec3 supportRaycastPoint, in Vec3 dir, float distance, WeakGameEntity ignoredEntity, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, BodyFlags excludedBodyFlags = BodyFlags.Disabled | BodyFlags.Dynamic | BodyFlags.Ladder | BodyFlags.OnlyCollideWithRaycast | BodyFlags.AILimiter | BodyFlags.Barrier | BodyFlags.Barrier3D | BodyFlags.Ragdoll | BodyFlags.RagdollLimiter | BodyFlags.DroppedItem | BodyFlags.DoNotCollideWithRaycast | BodyFlags.DontCollideWithCamera | BodyFlags.WaterBody | BodyFlags.AgentOnly | BodyFlags.MissileOnly | BodyFlags.StealthBox)</code></p>
+<p><strong>Purpose:</strong> Executes the BoxCastOnlyForCamera logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.BoxCastOnlyForCamera(boxPoints, centerPoint, false, supportRaycastPoint, dir, 0, ignoredEntity, collisionDistance, closestPoint, collidedEntity, bodyFlags.StealthBox);
+</code></pre>
+<h3 id="boxcast">BoxCast</h3>
+<p><code>public bool BoxCast(Vec3 boxMin, Vec3 boxMax, bool castSupportRay, Vec3 supportRaycastPoint, Vec3 dir, float distance, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, BodyFlags excludedBodyFlags = BodyFlags.CameraCollisionRayCastExludeFlags)</code></p>
+<p><strong>Purpose:</strong> Executes the BoxCast logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.BoxCast(boxMin, boxMax, false, supportRaycastPoint, dir, 0, collisionDistance, closestPoint, collidedEntity, bodyFlags.CameraCollisionRayCastExludeFlags);
+</code></pre>
+<h3 id="raycastforclosestentityorterrain">RayCastForClosestEntityOrTerrain</h3>
+<p><code>public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastForClosestEntityOrTerrain logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.RayCastForClosestEntityOrTerrain(sourcePoint, targetPoint, collisionDistance, closestPoint, collidedEntity, 0, bodyFlags.CommonFocusRayCastExcludeFlags);
+</code></pre>
+<h3 id="raycastforclosestentityorterrainfixedphysics">RayCastForClosestEntityOrTerrainFixedPhysics</h3>
+<p><code>public bool RayCastForClosestEntityOrTerrainFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastForClosestEntityOrTerrainFixedPhysics logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.RayCastForClosestEntityOrTerrainFixedPhysics(sourcePoint, targetPoint, collisionDistance, closestPoint, collidedEntity, 0, bodyFlags.CommonFocusRayCastExcludeFlags);
+</code></pre>
+<h3 id="focusraycastforfixedphysics">FocusRayCastForFixedPhysics</h3>
+<p><code>public bool FocusRayCastForFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)</code></p>
+<p><strong>Purpose:</strong> Executes the FocusRayCastForFixedPhysics logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.FocusRayCastForFixedPhysics(sourcePoint, targetPoint, collisionDistance, closestPoint, collidedEntity, 0, bodyFlags.CommonFocusRayCastExcludeFlags);
+</code></pre>
+<h3 id="raycastforclosestentityorterrain-1">RayCastForClosestEntityOrTerrain</h3>
+<p><code>public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastForClosestEntityOrTerrain logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.RayCastForClosestEntityOrTerrain(sourcePoint, targetPoint, collisionDistance, collidedEntity, 0, bodyFlags.CommonFocusRayCastExcludeFlags);
+</code></pre>
+<h3 id="raycastforclosestentityorterrainfixedphysics-1">RayCastForClosestEntityOrTerrainFixedPhysics</h3>
+<p><code>public bool RayCastForClosestEntityOrTerrainFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out WeakGameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastForClosestEntityOrTerrainFixedPhysics logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.RayCastForClosestEntityOrTerrainFixedPhysics(sourcePoint, targetPoint, collisionDistance, collidedEntity, 0, bodyFlags.CommonFocusRayCastExcludeFlags);
+</code></pre>
+<h3 id="raycastforramming">RayCastForRamming</h3>
+<p><code>public bool RayCastForRamming(in Vec3 sourcePoint, in Vec3 targetPoint, WeakGameEntity ignoredEntity, float rayThickness, out float collisionDistance, out Vec3 intersectionPoint, out WeakGameEntity collidedEntity, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags, BodyFlags includeBodyFlags = BodyFlags.None)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastForRamming logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.RayCastForRamming(sourcePoint, targetPoint, ignoredEntity, 0, collisionDistance, intersectionPoint, collidedEntity, bodyFlags.CommonFocusRayCastExcludeFlags, bodyFlags.None);
+</code></pre>
+<h3 id="raycastforclosestentityorterrainignoreentity">RayCastForClosestEntityOrTerrainIgnoreEntity</h3>
+<p><code>public bool RayCastForClosestEntityOrTerrainIgnoreEntity(in Vec3 sourcePoint, in Vec3 targetPoint, WeakGameEntity ignoredEntity, out float collisionDistance, out GameEntity collidedEntity, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastForClosestEntityOrTerrainIgnoreEntity logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.RayCastForClosestEntityOrTerrainIgnoreEntity(sourcePoint, targetPoint, ignoredEntity, collisionDistance, collidedEntity, 0, bodyFlags.CommonFocusRayCastExcludeFlags);
+</code></pre>
+<h3 id="raycastforclosestentityorterrain-2">RayCastForClosestEntityOrTerrain</h3>
+<p><code>public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastForClosestEntityOrTerrain logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.RayCastForClosestEntityOrTerrain(sourcePoint, targetPoint, collisionDistance, closestPoint, 0, bodyFlags.CommonFocusRayCastExcludeFlags);
+</code></pre>
+<h3 id="raycastforclosestentityorterrainfixedphysics-2">RayCastForClosestEntityOrTerrainFixedPhysics</h3>
+<p><code>public bool RayCastForClosestEntityOrTerrainFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, out Vec3 closestPoint, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastForClosestEntityOrTerrainFixedPhysics logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.RayCastForClosestEntityOrTerrainFixedPhysics(sourcePoint, targetPoint, collisionDistance, closestPoint, 0, bodyFlags.CommonFocusRayCastExcludeFlags);
+</code></pre>
+<h3 id="raycastforclosestentityorterrainfixedphysics-3">RayCastForClosestEntityOrTerrainFixedPhysics</h3>
+<p><code>public bool RayCastForClosestEntityOrTerrainFixedPhysics(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastForClosestEntityOrTerrainFixedPhysics logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.RayCastForClosestEntityOrTerrainFixedPhysics(sourcePoint, targetPoint, collisionDistance, 0, bodyFlags.CommonFocusRayCastExcludeFlags);
+</code></pre>
+<h3 id="raycastforclosestentityorterrain-3">RayCastForClosestEntityOrTerrain</h3>
+<p><code>public bool RayCastForClosestEntityOrTerrain(Vec3 sourcePoint, Vec3 targetPoint, out float collisionDistance, float rayThickness = 0.01f, BodyFlags excludeBodyFlags = BodyFlags.CommonFocusRayCastExcludeFlags)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastForClosestEntityOrTerrain logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.RayCastForClosestEntityOrTerrain(sourcePoint, targetPoint, collisionDistance, 0, bodyFlags.CommonFocusRayCastExcludeFlags);
+</code></pre>
+<h3 id="importnavigationmeshprefab">ImportNavigationMeshPrefab</h3>
+<p><code>public void ImportNavigationMeshPrefab(string navMeshPrefabName, int navMeshGroupShift)</code></p>
+<p><strong>Purpose:</strong> Executes the ImportNavigationMeshPrefab logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.ImportNavigationMeshPrefab(&quot;example&quot;, 0);
+</code></pre>
+<h3 id="importnavigationmeshprefabwithframe">ImportNavigationMeshPrefabWithFrame</h3>
+<p><code>public void ImportNavigationMeshPrefabWithFrame(string navMeshPrefabName, MatrixFrame frame)</code></p>
+<p><strong>Purpose:</strong> Executes the ImportNavigationMeshPrefabWithFrame logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.ImportNavigationMeshPrefabWithFrame(&quot;example&quot;, frame);
+</code></pre>
+<h3 id="savenavmeshprefabwithframe">SaveNavMeshPrefabWithFrame</h3>
+<p><code>public void SaveNavMeshPrefabWithFrame(string navMeshPrefabName, MatrixFrame frame)</code></p>
+<p><strong>Purpose:</strong> Writes nav mesh prefab with frame to persistent storage or a stream.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SaveNavMeshPrefabWithFrame(&quot;example&quot;, frame);
+</code></pre>
+<h3 id="setnavmeshregionmap">SetNavMeshRegionMap</h3>
+<p><code>public void SetNavMeshRegionMap(bool regionMap)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to nav mesh region map and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetNavMeshRegionMap(false);
+</code></pre>
+<h3 id="markfaceswithidasladder">MarkFacesWithIdAsLadder</h3>
+<p><code>public void MarkFacesWithIdAsLadder(int faceGroupId, bool isLadder)</code></p>
+<p><strong>Purpose:</strong> Executes the MarkFacesWithIdAsLadder logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.MarkFacesWithIdAsLadder(0, false);
+</code></pre>
+<h3 id="setabilityoffaceswithid">SetAbilityOfFacesWithId</h3>
+<p><code>public int SetAbilityOfFacesWithId(int faceGroupId, bool isEnabled)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to ability of faces with id and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.SetAbilityOfFacesWithId(0, false);
+</code></pre>
+<h3 id="swapfaceconnectionswithid">SwapFaceConnectionsWithID</h3>
+<p><code>public bool SwapFaceConnectionsWithID(int hubFaceGroupID, int toBeSeparatedFaceGroupId, int toBeMergedFaceGroupId, bool canFail)</code></p>
+<p><strong>Purpose:</strong> Executes the SwapFaceConnectionsWithID logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.SwapFaceConnectionsWithID(0, 0, 0, false);
+</code></pre>
+<h3 id="mergefaceswithid">MergeFacesWithId</h3>
+<p><code>public void MergeFacesWithId(int faceGroupId0, int faceGroupId1, int newFaceGroupId)</code></p>
+<p><strong>Purpose:</strong> Executes the MergeFacesWithId logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.MergeFacesWithId(0, 0, 0);
+</code></pre>
+<h3 id="separatefaceswithid">SeparateFacesWithId</h3>
+<p><code>public void SeparateFacesWithId(int faceGroupId0, int faceGroupId1)</code></p>
+<p><strong>Purpose:</strong> Executes the SeparateFacesWithId logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SeparateFacesWithId(0, 0);
+</code></pre>
+<h3 id="isanyfacewithid">IsAnyFaceWithId</h3>
+<p><code>public bool IsAnyFaceWithId(int faceGroupId)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the any face with id state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.IsAnyFaceWithId(0);
+</code></pre>
+<h3 id="getnavigationmeshforposition">GetNavigationMeshForPosition</h3>
+<p><code>public UIntPtr GetNavigationMeshForPosition(in Vec3 position)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the navigation mesh for position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetNavigationMeshForPosition(position);
+</code></pre>
+<h3 id="getnearestnavigationmeshforposition">GetNearestNavigationMeshForPosition</h3>
+<p><code>public UIntPtr GetNearestNavigationMeshForPosition(in Vec3 position, float heightDifferenceLimit, bool excludeDynamicNavigationMeshes)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the nearest navigation mesh for position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetNearestNavigationMeshForPosition(position, 0, false);
+</code></pre>
+<h3 id="getnavigationmeshforposition-1">GetNavigationMeshForPosition</h3>
+<p><code>public UIntPtr GetNavigationMeshForPosition(in Vec3 position, out int faceGroupId, float heightDifferenceLimit, bool excludeDynamicNavigationMeshes)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the navigation mesh for position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetNavigationMeshForPosition(position, faceGroupId, 0, false);
+</code></pre>
+<h3 id="doespathexistbetweenpositions">DoesPathExistBetweenPositions</h3>
+<p><code>public bool DoesPathExistBetweenPositions(WorldPosition position, WorldPosition destination)</code></p>
+<p><strong>Purpose:</strong> Returns a boolean answer to whether path exist between positions is true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.DoesPathExistBetweenPositions(position, destination);
+</code></pre>
+<h3 id="setlandscaperainmaskdata">SetLandscapeRainMaskData</h3>
+<p><code>public void SetLandscapeRainMaskData(byte data)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to landscape rain mask data and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetLandscapeRainMaskData(0);
+</code></pre>
+<h3 id="ensurepostfxsystem">EnsurePostfxSystem</h3>
+<p><code>public void EnsurePostfxSystem()</code></p>
+<p><strong>Purpose:</strong> Ensures postfx system is in the expected state, initializing or correcting it if necessary.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.EnsurePostfxSystem();
+</code></pre>
+<h3 id="setbloom">SetBloom</h3>
+<p><code>public void SetBloom(bool mode)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to bloom and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetBloom(false);
+</code></pre>
+<h3 id="setdofmode">SetDofMode</h3>
+<p><code>public void SetDofMode(bool mode)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to dof mode and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetDofMode(false);
+</code></pre>
+<h3 id="setocclusionmode">SetOcclusionMode</h3>
+<p><code>public void SetOcclusionMode(bool mode)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to occlusion mode and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetOcclusionMode(false);
+</code></pre>
+<h3 id="setexternalinjectiontexture">SetExternalInjectionTexture</h3>
+<p><code>public void SetExternalInjectionTexture(Texture texture)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to external injection texture and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetExternalInjectionTexture(texture);
+</code></pre>
+<h3 id="setsunshaftmode">SetSunshaftMode</h3>
+<p><code>public void SetSunshaftMode(bool mode)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to sunshaft mode and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetSunshaftMode(false);
+</code></pre>
+<h3 id="getsundirection">GetSunDirection</h3>
+<p><code>public Vec3 GetSunDirection()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the sun direction value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetSunDirection();
+</code></pre>
+<h3 id="getnorthangle">GetNorthAngle</h3>
+<p><code>public float GetNorthAngle()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the north angle value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetNorthAngle();
+</code></pre>
+<h3 id="getnorthrotation">GetNorthRotation</h3>
+<p><code>public float GetNorthRotation()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the north rotation value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetNorthRotation();
+</code></pre>
+<h3 id="getterrainminmaxheight">GetTerrainMinMaxHeight</h3>
+<p><code>public bool GetTerrainMinMaxHeight(out float minHeight, out float maxHeight)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the terrain min max height value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetTerrainMinMaxHeight(minHeight, maxHeight);
+</code></pre>
+<h3 id="getphysicsminmax">GetPhysicsMinMax</h3>
+<p><code>public void GetPhysicsMinMax(ref Vec3 min_max)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the physics min max value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetPhysicsMinMax(min_max);
+</code></pre>
+<h3 id="iseditorscene">IsEditorScene</h3>
+<p><code>public bool IsEditorScene()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the editor scene state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.IsEditorScene();
+</code></pre>
+<h3 id="setmotionblurmode">SetMotionBlurMode</h3>
+<p><code>public void SetMotionBlurMode(bool mode)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to motion blur mode and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetMotionBlurMode(false);
+</code></pre>
+<h3 id="setantialiasingmode">SetAntialiasingMode</h3>
+<p><code>public void SetAntialiasingMode(bool mode)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to antialiasing mode and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetAntialiasingMode(false);
+</code></pre>
+<h3 id="setdlssmode">SetDLSSMode</h3>
+<p><code>public void SetDLSSMode(bool mode)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to d l s s mode and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetDLSSMode(false);
+</code></pre>
+<h3 id="findweakentitieswithtag">FindWeakEntitiesWithTag</h3>
+<p><code>public IEnumerable&lt;WeakGameEntity&gt; FindWeakEntitiesWithTag(string tag)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching weak entities with tag in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.FindWeakEntitiesWithTag(&quot;example&quot;);
+</code></pre>
+<h3 id="findweakentitywithtag">FindWeakEntityWithTag</h3>
+<p><code>public WeakGameEntity FindWeakEntityWithTag(string tag)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching weak entity with tag in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.FindWeakEntityWithTag(&quot;example&quot;);
+</code></pre>
+<h3 id="findentitieswithtag">FindEntitiesWithTag</h3>
+<p><code>public IEnumerable&lt;GameEntity&gt; FindEntitiesWithTag(string tag)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching entities with tag in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.FindEntitiesWithTag(&quot;example&quot;);
+</code></pre>
+<h3 id="findentitywithtag">FindEntityWithTag</h3>
+<p><code>public GameEntity FindEntityWithTag(string tag)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching entity with tag in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.FindEntityWithTag(&quot;example&quot;);
+</code></pre>
+<h3 id="findentitywithname">FindEntityWithName</h3>
+<p><code>public GameEntity FindEntityWithName(string name)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching entity with name in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.FindEntityWithName(&quot;example&quot;);
+</code></pre>
+<h3 id="findweakentitieswithtagexpression">FindWeakEntitiesWithTagExpression</h3>
+<p><code>public IEnumerable&lt;WeakGameEntity&gt; FindWeakEntitiesWithTagExpression(string expression)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching weak entities with tag expression in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.FindWeakEntitiesWithTagExpression(&quot;example&quot;);
+</code></pre>
+<h3 id="findentitieswithtagexpression">FindEntitiesWithTagExpression</h3>
+<p><code>public IEnumerable&lt;GameEntity&gt; FindEntitiesWithTagExpression(string expression)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching entities with tag expression in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.FindEntitiesWithTagExpression(&quot;example&quot;);
+</code></pre>
+<h3 id="getsoftboundaryvertexcount">GetSoftBoundaryVertexCount</h3>
+<p><code>public int GetSoftBoundaryVertexCount()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the soft boundary vertex count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetSoftBoundaryVertexCount();
+</code></pre>
+<h3 id="gethardboundaryvertexcount">GetHardBoundaryVertexCount</h3>
+<p><code>public int GetHardBoundaryVertexCount()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the hard boundary vertex count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetHardBoundaryVertexCount();
+</code></pre>
+<h3 id="getsoftboundaryvertex">GetSoftBoundaryVertex</h3>
+<p><code>public Vec2 GetSoftBoundaryVertex(int index)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the soft boundary vertex value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetSoftBoundaryVertex(0);
+</code></pre>
+<h3 id="gethardboundaryvertex">GetHardBoundaryVertex</h3>
+<p><code>public Vec2 GetHardBoundaryVertex(int index)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the hard boundary vertex value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetHardBoundaryVertex(0);
+</code></pre>
+<h3 id="getpathwithname">GetPathWithName</h3>
+<p><code>public Path GetPathWithName(string name)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the path with name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetPathWithName(&quot;example&quot;);
+</code></pre>
+<h3 id="deletepathwithname">DeletePathWithName</h3>
+<p><code>public void DeletePathWithName(string name)</code></p>
+<p><strong>Purpose:</strong> Executes the DeletePathWithName logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.DeletePathWithName(&quot;example&quot;);
+</code></pre>
+<h3 id="addpath">AddPath</h3>
+<p><code>public void AddPath(string name)</code></p>
+<p><strong>Purpose:</strong> Adds path to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.AddPath(&quot;example&quot;);
+</code></pre>
+<h3 id="addpathpoint">AddPathPoint</h3>
+<p><code>public void AddPathPoint(string name, MatrixFrame frame)</code></p>
+<p><strong>Purpose:</strong> Adds path point to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.AddPathPoint(&quot;example&quot;, frame);
+</code></pre>
+<h3 id="getboundingbox">GetBoundingBox</h3>
+<p><code>public void GetBoundingBox(out Vec3 min, out Vec3 max)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bounding box value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetBoundingBox(min, max);
+</code></pre>
+<h3 id="getscenelimits">GetSceneLimits</h3>
+<p><code>public void GetSceneLimits(out Vec3 min, out Vec3 max)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the scene limits value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.GetSceneLimits(min, max);
+</code></pre>
+<h3 id="setname">SetName</h3>
+<p><code>public void SetName(string name)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to name and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetName(&quot;example&quot;);
+</code></pre>
+<h3 id="getname">GetName</h3>
+<p><code>public string GetName()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetName();
+</code></pre>
+<h3 id="getmodulepath">GetModulePath</h3>
+<p><code>public string GetModulePath()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the module path value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetModulePath();
+</code></pre>
+<h3 id="setownerthread">SetOwnerThread</h3>
+<p><code>public void SetOwnerThread()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to owner thread and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetOwnerThread();
+</code></pre>
+<h3 id="getpathswithnameprefix">GetPathsWithNamePrefix</h3>
+<p><code>public Path GetPathsWithNamePrefix(string prefix)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the paths with name prefix value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetPathsWithNamePrefix(&quot;example&quot;);
+</code></pre>
+<h3 id="setuseconstanttime">SetUseConstantTime</h3>
+<p><code>public void SetUseConstantTime(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to use constant time and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetUseConstantTime(false);
+</code></pre>
+<h3 id="checkpointcanseepoint">CheckPointCanSeePoint</h3>
+<p><code>public bool CheckPointCanSeePoint(Vec3 source, Vec3 target, float? distanceToCheck = null)</code></p>
+<p><strong>Purpose:</strong> Verifies whether point can see point holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.CheckPointCanSeePoint(source, target, 0);
+</code></pre>
+<h3 id="setplaysoundeventsafterreadytorender">SetPlaySoundEventsAfterReadyToRender</h3>
+<p><code>public void SetPlaySoundEventsAfterReadyToRender(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to play sound events after ready to render and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetPlaySoundEventsAfterReadyToRender(false);
+</code></pre>
+<h3 id="disablestaticshadows">DisableStaticShadows</h3>
+<p><code>public void DisableStaticShadows(bool value)</code></p>
+<p><strong>Purpose:</strong> Executes the DisableStaticShadows logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.DisableStaticShadows(false);
+</code></pre>
+<h3 id="getskyboxmesh">GetSkyboxMesh</h3>
+<p><code>public Mesh GetSkyboxMesh()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the skybox mesh value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.GetSkyboxMesh();
+</code></pre>
+<h3 id="setatmospherewithname">SetAtmosphereWithName</h3>
+<p><code>public void SetAtmosphereWithName(string name)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to atmosphere with name and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetAtmosphereWithName(&quot;example&quot;);
+</code></pre>
+<h3 id="fillentitywithhardborderphysicsbarrier">FillEntityWithHardBorderPhysicsBarrier</h3>
+<p><code>public void FillEntityWithHardBorderPhysicsBarrier(GameEntity entity)</code></p>
+<p><strong>Purpose:</strong> Executes the FillEntityWithHardBorderPhysicsBarrier logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.FillEntityWithHardBorderPhysicsBarrier(entity);
+</code></pre>
+<h3 id="cleardecals">ClearDecals</h3>
+<p><code>public void ClearDecals()</code></p>
+<p><strong>Purpose:</strong> Removes all decals from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.ClearDecals();
+</code></pre>
+<h3 id="setphotoatmosphereviatod">SetPhotoAtmosphereViaTod</h3>
+<p><code>public void SetPhotoAtmosphereViaTod(float tod, bool withStorm)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to photo atmosphere via tod and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetPhotoAtmosphereViaTod(0, false);
+</code></pre>
+<h3 id="ispositiononadynamicnavmesh">IsPositionOnADynamicNavMesh</h3>
+<p><code>public bool IsPositionOnADynamicNavMesh(Vec3 position)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the position on a dynamic nav mesh state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.IsPositionOnADynamicNavMesh(position);
+</code></pre>
+<h3 id="waitwaterrenderercpusimulation">WaitWaterRendererCPUSimulation</h3>
+<p><code>public void WaitWaterRendererCPUSimulation()</code></p>
+<p><strong>Purpose:</strong> Pauses the current flow until the water renderer c p u simulation condition is met.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.WaitWaterRendererCPUSimulation();
+</code></pre>
+<h3 id="enableinclusiveasyncphysx">EnableInclusiveAsyncPhysx</h3>
+<p><code>public void EnableInclusiveAsyncPhysx()</code></p>
+<p><strong>Purpose:</strong> Executes the EnableInclusiveAsyncPhysx logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.EnableInclusiveAsyncPhysx();
+</code></pre>
+<h3 id="ensurewaterwakerenderer">EnsureWaterWakeRenderer</h3>
+<p><code>public void EnsureWaterWakeRenderer()</code></p>
+<p><strong>Purpose:</strong> Ensures water wake renderer is in the expected state, initializing or correcting it if necessary.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.EnsureWaterWakeRenderer();
+</code></pre>
+<h3 id="deletewaterwakerenderer">DeleteWaterWakeRenderer</h3>
+<p><code>public void DeleteWaterWakeRenderer()</code></p>
+<p><strong>Purpose:</strong> Executes the DeleteWaterWakeRenderer logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.DeleteWaterWakeRenderer();
+</code></pre>
+<h3 id="scenehadwaterwakerenderer">SceneHadWaterWakeRenderer</h3>
+<p><code>public bool SceneHadWaterWakeRenderer()</code></p>
+<p><strong>Purpose:</strong> Executes the SceneHadWaterWakeRenderer logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.SceneHadWaterWakeRenderer();
+</code></pre>
+<h3 id="setwaterwakeworldsize">SetWaterWakeWorldSize</h3>
+<p><code>public void SetWaterWakeWorldSize(float worldSize, float eraseFactor)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to water wake world size and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetWaterWakeWorldSize(0, 0);
+</code></pre>
+<h3 id="setwaterwakecameraoffset">SetWaterWakeCameraOffset</h3>
+<p><code>public void SetWaterWakeCameraOffset(float cameraOffset)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to water wake camera offset and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetWaterWakeCameraOffset(0);
+</code></pre>
+<h3 id="tickwake">TickWake</h3>
+<p><code>public void TickWake(float dt)</code></p>
+<p><strong>Purpose:</strong> Advances the wake state each frame or update cycle.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.TickWake(0);
+</code></pre>
+<h3 id="setdonotaddentitiestoticklist">SetDoNotAddEntitiesToTickList</h3>
+<p><code>public void SetDoNotAddEntitiesToTickList(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to do not add entities to tick list and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetDoNotAddEntitiesToTickList(false);
+</code></pre>
+<h3 id="setdontloadinvisibleentities">SetDontLoadInvisibleEntities</h3>
+<p><code>public void SetDontLoadInvisibleEntities(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to dont load invisible entities and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetDontLoadInvisibleEntities(false);
+</code></pre>
+<h3 id="setusesdeletelatersystem">SetUsesDeleteLaterSystem</h3>
+<p><code>public void SetUsesDeleteLaterSystem(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to uses delete later system and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.SetUsesDeleteLaterSystem(false);
+</code></pre>
+<h3 id="clearcurrentframetickentities">ClearCurrentFrameTickEntities</h3>
+<p><code>public void ClearCurrentFrameTickEntities()</code></p>
+<p><strong>Purpose:</strong> Removes all current frame tick entities from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+scene.ClearCurrentFrameTickEntities();
+</code></pre>
+<h3 id="findclosestexitpositionforpositiononaboundaryface">FindClosestExitPositionForPositionOnABoundaryFace</h3>
+<p><code>public Vec2 FindClosestExitPositionForPositionOnABoundaryFace(Vec3 position, UIntPtr boundaryFacePointer)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching closest exit position for position on a boundary face in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Scene from the subsystem API first
+Scene scene = ...;
+var result = scene.FindClosestExitPositionForPositionOnABoundaryFace(position, boundaryFacePointer);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+Scene scene = ...;
+scene.IsDefaultEditorScene();
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/engine/">engine index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/engine/ITime/">&larr; ITime</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/engine/PhysicsJoint/">PhysicsJoint &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

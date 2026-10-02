@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Town</title>
+  <meta name="description" content="据点（城镇&#x2F;城堡）的核心运行时对象：承载建筑、工坊、市场与每日繁荣&#x2F;忠诚&#x2F;安全&#x2F;粮草结算，并持有总督与所属家族等治理状态。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/Town/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/Town/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/Town/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/Town/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/Town/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/Town/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Town</span>
+    </nav>
+  
+  <h1>Town</h1>
+  <h1 id="town">Town</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Settlements<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public class Town : Fief</code><br />
+<strong>Base:</strong> <code>Fief</code> → <code>SettlementComponent</code> → <code>MBObjectBase</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem.Settlements/Town.cs</code></p>
+<h2 id="yi-ju-hua-zhi-ze">一句话职责</h2>
+<p>一座城镇（或城堡）在战役世界里全部运行时状态的容器：它<strong>每天自动结算</strong>繁荣、忠诚、安全、粮草与民兵，并向 mod 暴露建筑、工坊、市场等可被读写的入口，以及总督、所属家族等治理关系。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>Town</code> 当作**“某据点每天都会被推演一次的账本 + 资产清单”**，而不是一个能直接捏来用的普通对象：</p>
+<ul>
+<li><strong>你不会 <code>new Town()</code>。</strong> 它的实例由据点 XML 经 <code>MBObjectManager</code> 反序列化（<code>Deserialize</code>）生成，随后作为 <code>Settlement.Town</code> 这条 <strong>public 字段</strong>长期挂在某个据点下。手动 <code>new</code> 出来的 <code>Town</code> 不会被注册进存档系统，也没有 parent <code>Settlement</code>，引用它只会得到坏档或空引用。</li>
+<li><strong>它是每日 tick 的结算单元。</strong> <code>Campaign.DailyTickSettlement</code> 在每日据点结算时调用 <code>settlement.Town.DailyTick()</code>（见 <code>Town.cs:596</code>），内部用各 <code>SettlementXxxModel</code> 算出变化量并就地累加：<code>Loyalty += LoyaltyChange</code>、<code>Security += SecurityChange</code>、<code>Prosperity += ProsperityChange</code>、<code>base.Owner.Settlement.Militia += MilitiaChange</code>，同时推进粮草与城墙修复。累加完成后会触发 <code>DailyTickTownEvent</code>。</li>
+<li><strong>它在 Campaign（战役）层，不在 Mission（战斗）层。</strong> 场景战斗里没有 <code>Town</code>；进入战斗后据点会生成 <code>Party</code>/<code>Agent</code>，但 <code>Town</code> 的状态只在地图上演进。</li>
+<li><strong>谁持有 / 谁被持有：</strong> parent 是 <code>Settlement</code>（<code>Settlement.Town</code>）。上游依赖 <code>Settlement.Owner</code>（即拥有该据点的 <code>Clan</code>）、<code>Hero Governor</code>（总督）；下游驱动 <code>Building</code>（建筑）、<code>Workshop</code>（工坊）、<code>TownMarketData</code>（市场）、<code>Village</code>（绑定村庄 / 贸易绑定村庄）。</li>
+<li><code>Town</code> 同时代表<strong>城镇与城堡</strong>：<code>IsTown</code> / <code>IsCastle</code> 由反序列化时的 <code>is_castle</code> 标志决定，二者互斥。</li>
+</ul>
+<h2 id="he-shi-yong-he-shi-bu-yao-yong">何时用 / 何时不要用</h2>
+<p><strong>用 <code>Town</code> 当：</strong></p>
+<ul>
+<li>读状态：繁荣 <code>Prosperity</code>、忠诚 <code>Loyalty</code>、安全 <code>Security</code>、粮草 <code>FoodStocks</code>、民兵（经 <code>Settlement.Militia</code>）、贸易税 <code>TradeTaxAccumulated</code>、反叛态 <code>InRebelliousState</code>。</li>
+<li>遍历资产：建筑 <code>Buildings</code> / <code>BuildingsInProgress</code>、工坊 <code>Workshops</code>、市场 <code>MarketData</code>、绑定村庄 <code>Villages</code> / <code>TradeBoundVillages</code>。</li>
+<li>订阅 <code>DailyTickTownEvent</code> 做每日逻辑；判断据点类型（<code>IsTown</code> / <code>IsCastle</code>）与归属（<code>OwnerClan</code>）。</li>
+</ul>
+<p><strong>不要用 <code>Town</code> 当：</strong></p>
+<ul>
+<li><strong>不要 <code>new Town()</code></strong>：创建走据点 XML + <code>MBObjectManager</code>，见上文。</li>
+<li><strong>不要把 <code>Prosperity</code> / <code>Loyalty</code> / <code>Security</code> 当成持久目标去直接赋值。</strong> 每日 <code>DailyTick</code> 会用 <code>SettlementXxxModel</code> 重新算出变化量并<strong>累加覆盖</strong>，且直接写字段<strong>不会广播任何变更事件</strong>（源码里没有 <code>OnSettlementProsperityChanged</code> 之类的通知）。想长期抬升某项，应改“影响项”——建筑等级、总督特性、政策，或<strong>覆写对应的 <code>SettlementXxxModel</code></strong>。</li>
+<li><strong>改归属不要只写 <code>town.OwnerClan = clan</code>。</strong> 字段 setter 会更新家族关系（<code>ChangeClanInternal</code> → <code>OnFortificationAdded/Removed</code>），但完整的所有权转移应走 <code>ChangeOwnerOfSettlementAction.ApplyBy*</code>——它还会广播 <code>OnSettlementOwnerChangedEvent</code> 并处理其它连带状态。</li>
+<li><strong>不要缓存 <code>[CachedData]</code> 集合的引用跨存档。</strong> <code>Villages</code> / <code>TradeBoundVillages</code> / <code>BesiegerCampPositions1/2</code> 都是会话期缓存，在 <code>OnLoad()</code> / <code>OnSessionStart()</code> 里被重建（见 <code>Town.cs:508</code>、<code>Town.cs:488</code>）。跨读档后你手里那份引用会指向已废弃的集合。</li>
+<li>不要混淆 <code>Settlement.Town</code>（据点上的字段）与 <code>Town</code> 自身——<code>Town</code> 没有名为 <code>Town</code> 的属性。</li>
+</ul>
+<h2 id="yi-lai-tu-ke-dian-ji">依赖图（可点击）</h2>
+<ul>
+<li><strong>上游（持有 / 创建 / 归属）</strong>
+<ul>
+<li><a href="../Settlement/">Settlement</a> — parent；<code>Town</code> 作为 <code>Settlement.Town</code> 字段存在，多数状态（如 <code>Militia</code>、<code>FoodStocks</code> 的上限）经由 <code>Settlement</code>/<code>SettlementComponent</code> 暴露。</li>
+<li><a href="../Clan/">Clan</a> — <code>OwnerClan</code>（当前拥有家族）、<code>LastCapturedBy</code>（上一次被谁攻占）。</li>
+<li><a href="../Hero/">Hero</a> — <code>Governor</code>（总督，双向关联 <code>Hero.GovernorOf</code>）。</li>
+<li><a href="../../campaign-ext/MBObjectManager/">MBObjectManager</a> — 据点 XML 反序列化时创建 <code>Town</code> 实例并接入存档。</li>
+</ul>
+</li>
+<li><strong>下游（Town 持有 / 驱动）</strong>
+<ul>
+<li><a href="../Workshop/">Workshop</a> — <code>Workshops</code>（<code>Workshop[]</code>，工坊数组）。</li>
+<li><a href="../Village/">Village</a> — <code>Villages</code>（绑定村庄）、<code>TradeBoundVillages</code>（贸易绑定村庄）。</li>
+<li><code>Building</code> — <code>Buildings</code> / <code>BuildingsInProgress</code>（建筑列表；<code>Building</code> 类型本身见 Settlement 建筑系统，本页仅描述 <code>Town</code> 对它的持有方式）。</li>
+<li><code>TownMarketData</code> — <code>MarketData</code>（市场定价与价格因子）。</li>
+</ul>
+</li>
+<li><strong>相关事件 / Action（位于 <code>CampaignEvents</code> / <code>TaleWorlds.CampaignSystem.Actions</code>）</strong>
+<ul>
+<li><code>DailyTickTownEvent</code> — 每个据点 <code>DailyTick</code> 结束后广播（订阅例见下文）。</li>
+<li><code>OnSettlementOwnerChangedEvent</code> — <code>OwnerClan</code> 经 Action 改变时广播。</li>
+<li><code>ChangeOwnerOfSettlementAction</code>、<code>ChangeOwnerOfWorkshopAction</code>、<code>ChangeProductionTypeOfWorkshopAction</code>、<code>InitializeWorkshopAction</code> — 合法的归属/工坊变更入口。</li>
+</ul>
+</li>
+<li><strong>相关 Model（<code>Campaign.Current.Models.*</code>，统一入口见 <a href="../Campaign/">Campaign</a>）</strong>
+<ul>
+<li><code>SettlementProsperityModel</code>、<code>SettlementLoyaltyModel</code>、<code>SettlementSecurityModel</code>、<code>SettlementFoodModel</code>、<code>SettlementMilitiaModel</code>、<code>BuildingConstructionModel</code>、<code>SettlementGarrisonModel</code>、<code>WorkshopModel</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="feng-xian-ke-neng-dao-zhi-beng-kui-pi-dang">风险（可能导致崩溃 / 坏档）</h2>
+<ol>
+<li><strong>在错误的阶段改字段被每日 tick 覆盖。</strong> <code>DailyTick</code> 在每日据点结算时被 <code>Campaign.DailyTickSettlement</code> 调用；若你在 <code>OnSessionStart</code>、读档回调或任意非每日时机直接写 <code>town.Loyalty = 100</code>，下一次 <code>DailyTick</code> 仍会 <code>Loyalty += LoyaltyChange</code>，且你这次写入<strong>没有经过任何变更事件</strong>。若想“固定”某个值，正确做法是改影响它的输入（建筑/总督/政策）或覆写对应 Model，而不是在 tick 之外硬写字段。</li>
+<li><strong>缓存 <code>[CachedData]</code> 集合跨读档 → 悬空引用 / 坏档。</strong> <code>Villages</code>、<code>TradeBoundVillages</code>、<code>BesiegerCampPositions1/2</code> 在 <code>OnLoad()</code>（<code>Town.cs:508</code>）与 <code>OnSessionStart()</code>（<code>Town.cs:488</code>）被重新 <code>new</code> 出来。把 <code>town.TradeBoundVillages</code>（一个 <code>MBReadOnlyList&lt;Village&gt;</code>）存进你自己的字段后，玩家存读档一次，你手里的列表就与当前世界脱节——遍历它会拿到陈旧甚至已释放的对象。每次访问都重新从 <code>town.Villages</code> / <code>town.TradeBoundVillages</code> 取，不要长期持有。</li>
+<li><strong>直接赋值 <code>Prosperity</code>/<code>Loyalty</code>/<code>Security</code> 而非经由 Model/Event。</strong> 源码中这些 setter 只做数值钳制（忠诚/安全钳到 0–100，繁荣下限 0），既不广播事件，也不参与 Model 的“解释项”累加。其它系统（UI、AI、任务判定）读取的是 Model 计算结果与每日 tick 后的真实值，直接写字段会让各方看到不一致的状态。</li>
+<li><strong>错误设置 <code>Governor</code> 可能留下半吊子双向关联。</strong> <code>Governor</code> setter 会同步 <code>hero.GovernorOf = this</code>；若你只改了 <code>Hero.GovernorOf</code> 而没设 <code>Town.Governor</code>（或反之），就会出现“城镇认为某人是总督、但该英雄的 <code>GovernorOf</code> 却指向别处”的不一致。<code>AfterLoad()</code> 会兜底把 <code>GovernorOf == null</code> 的总督清空（<code>Town.cs:554</code>），但正常运行期仍应成对维护。</li>
+<li><strong><code>BesiegerCampPositions1/2</code> 仅在会话期有效。</strong> 这两个 <code>[CachedData]</code> 数组由 <code>OnSessionStart</code> 从地图场景取帧填充；在读档完成前或地图场景未就绪时访问，得到的是 <code>MatrixFrame.Identity</code> 占位，不应据此做逻辑判定。</li>
+<li><strong><code>new Town()</code> 不会进入存档。</strong> 任何手动构造的 <code>Town</code> 都不在 <code>MBObjectManager</code> 与 <code>Campaign.Current.AllTowns</code> 的管辖内，既不会被 <code>DailyTick</code> 推进，也不会被序列化；引用它等于引用一个游离对象。</li>
+</ol>
+<h2 id="cheng-yuan-shuo-ming-an-zhu-ti-fen-zu">成员说明（按主题分组）</h2>
+<blockquote>
+<p>字段多为「可读写的状态」，但其“正确写入时机”几乎都集中在每日 tick 或经由 Action/Model。下面按用途标注副作用与调用时机。</p>
+</blockquote>
+<h3 id="zhi-li-yu-gui-shu">治理与归属</h3>
+<h4 id="public-clan-ownerclan-get-set"><code>public Clan OwnerClan { get; set; }</code></h4>
+<p>当前拥有该据点的家族。<strong>副作用</strong>：setter 在值变化时调用 <code>ChangeClanInternal</code>，内部 <code>RemoveOwnerClan()</code> / <code>SetNewOwnerClan()</code>，会触发 <code>Clan.OnFortificationAdded/Removed</code> 并刷新绑定村庄的可视。<strong>调用时机</strong>：绝大多数情况下不要直接赋值；用 <code>ChangeOwnerOfSettlementAction.ApplyByDefault(Hero, Settlement)</code> 等，它会同步广播 <code>OnSettlementOwnerChangedEvent</code>。</p>
+<h4 id="public-hero-governor-get-set"><code>public Hero Governor { get; set; }</code></h4>
+<p>总督。<strong>副作用</strong>：setter 会<strong>双向</strong>维护 <code>hero.GovernorOf = this</code>（切换时先把旧总督的 <code>GovernorOf</code> 置空）。<strong>调用时机</strong>：设/撤总督时成对维护；每日 tick 会读取 <code>Governor</code> 的特性（<code>DefaultPerks.Roguery.WhiteLies</code> / <code>Scarface</code>）来随机加关系。</p>
+<h4 id="public-clan-lastcapturedby-get-set"><code>public Clan LastCapturedBy { get; set; }</code></h4>
+<p>上一次攻占据点的家族；由攻城/易主流程写入，用于战利品与声望结算的归属判定。</p>
+<h4 id="public-cultureobject-culture"><code>public CultureObject Culture</code></h4>
+<p>只读，等于 <code>Settlement.Culture</code>（据点文化）。用于兵种、名字、建筑风格等判定。</p>
+<h4 id="public-bool-inrebelliousstate"><code>public bool InRebelliousState</code></h4>
+<p>是否处于叛乱态；影响每日防守方民兵是否参战（<code>DailyTick</code> 中的 <code>GetDefenderParties</code> 逻辑）。由叛乱判定行为写入。</p>
+<h3 id="fan-rong-zhong-cheng-an-quan-liang-cao">繁荣 / 忠诚 / 安全 / 粮草</h3>
+<h4 id="public-float-prosperity-get-set"><code>public float Prosperity { get; set; }</code></h4>
+<p>繁荣度；setter 钳到 <code>&gt;= 0</code>。<strong>注意</strong>：直接写只改字段，不广播事件，且每日 tick 会用 <code>SettlementProsperityModel</code> 重新累加覆盖。读它取当前值即可；改它应走 Model 影响项。</p>
+<h4 id="public-float-loyalty-get-set"><code>public float Loyalty { get; set; }</code></h4>
+<p>忠诚度；setter 钳到 0–100。机制同 <code>Prosperity</code>。</p>
+<h4 id="public-float-security-get-set"><code>public float Security { get; set; }</code></h4>
+<p>安全度；setter 钳到 0–100。机制同 <code>Prosperity</code>。</p>
+<h4 id="public-float-foodstocks-ji-cheng-zi-fief"><code>public float FoodStocks</code>（继承自 <code>Fief</code>）</h4>
+<p>粮草库存；<code>DailyTick</code> 中按 <code>FoodChange</code> 累加，低于 0 时置 0 并标记 <code>RemainingFoodPercentage = -100</code>，高于 <code>FoodStocksUpperLimit()</code> 时截断。不要把粮草当持久值硬写——它每日被 <code>SettlementFoodModel</code> 重算。</p>
+<h4 id="public-int-tradetaxaccumulated-get-set"><code>public int TradeTaxAccumulated { get; set; }</code></h4>
+<p>累计贸易税；<code>OnInit</code> 时城镇初始化为 <code>1000 + RandomInt(1000)</code>，城堡为 0。由贸易行为累积，可被征税行为读取/清零。</p>
+<h4 id="public-ireadonlycollection-selllog-solditems"><code>public IReadOnlyCollection&lt;SellLog&gt; SoldItems</code></h4>
+<p>本城镇近期卖出记录（<code>SellLog</code>：类别 + 数量）。由市场卖出逻辑写入（<code>SetSoldItems</code>）；只读展示用。</p>
+<h3 id="mei-ri-bian-hua-liang-zhi-du-lai-zi-model">每日变化量（只读，来自 Model）</h3>
+<p>这些属性<strong>不是状态，而是“如果现在结算会发生什么”的预测值</strong>，由对应 Model 实时计算，只读：</p>
+<ul>
+<li><code>ProsperityChange</code> / <code>ProsperityChangeExplanation</code> — <code>SettlementProsperityModel.CalculateProsperityChange</code>。</li>
+<li><code>LoyaltyChange</code> / <code>LoyaltyChangeExplanation</code> — <code>SettlementLoyaltyModel.CalculateLoyaltyChange</code>。</li>
+<li><code>SecurityChange</code> / <code>SecurityChangeExplanation</code> — <code>SettlementSecurityModel.CalculateSecurityChange</code>。</li>
+<li><code>FoodChange</code> / <code>FoodChangeWithoutMarketStocks</code> / <code>FoodChangeExplanation</code> — <code>SettlementFoodModel.CalculateTownFoodStocksChange</code>。</li>
+<li><code>MilitiaChange</code> / <code>MilitiaChangeExplanation</code> — <code>SettlementMilitiaModel.CalculateMilitiaChange</code>（作用于 <code>Settlement.Militia</code>）。</li>
+<li><code>Construction</code> / <code>ConstructionExplanation</code> — <code>BuildingConstructionModel.CalculateDailyConstructionPower</code>（每日建筑进度点）。</li>
+</ul>
+<p><code>*Explanation</code> 变体返回 <code>ExplainedNumber</code>，可在 UI/调试里展开每一项贡献来源，是排查“为什么繁荣在掉”的正确入口。</p>
+<h3 id="jian-zhu">建筑</h3>
+<h4 id="public-mblist-building-buildings"><code>public MBList&lt;Building&gt; Buildings</code></h4>
+<p>该据点的全部建筑（含等级与进度）。<strong>调用时机</strong>：遍历/读取安全；修改建筑等级应经由 <code>Building</code> 自身与 <code>BuildingConstructionModel</code>，不要直接改内部字段。<code>AfterLoad</code> 会剔除 <code>BuildingType == null</code> 或 <code>!IsReady</code> 的条目（<code>Town.cs:526</code>）。</p>
+<h4 id="public-queue-building-buildingsinprogress"><code>public Queue&lt;Building&gt; BuildingsInProgress</code></h4>
+<p>正在施工的建筑队列（队首即当前施工项）。</p>
+<h4 id="public-building-currentbuilding"><code>public Building CurrentBuilding</code></h4>
+<p>当前施工的建筑：队列非空取队首 <code>Peek()</code>，否则取 <code>CurrentDefaultBuilding</code>。</p>
+<h4 id="public-building-currentdefaultbuilding"><code>public Building CurrentDefaultBuilding</code></h4>
+<p>无在建项时的“默认施工建筑”（第一个 <code>IsCurrentlyDefault</code> 的建筑）；有在建项时返回 <code>null</code>。</p>
+<h4 id="public-int-boostbuildingprocess"><code>public int BoostBuildingProcess</code></h4>
+<p>玩家用金币额外注入的施工加速点（累加进每日 <code>Construction</code>）。真实写入口是 <code>TaleWorlds.CampaignSystem.Helpers.BuildingHelper.BoostBuildingProcessWithGold(int gold, Town town)</code>，它会用 <code>GiveGoldAction</code> 在玩家与城镇间转账后再写该字段——不要直接赋值，否则金币账目会错。</p>
+<h4 id="public-float-construction-jian-shang-mei-ri-bian-hua-liang"><code>public float Construction</code>（见上“每日变化量”）</h4>
+<h4 id="public-int-getwalllevel"><code>public int GetWallLevel()</code></h4>
+<p>返回城墙建筑当前等级（城镇取 <code>SettlementFortifications</code>，城堡取 <code>CastleFortifications</code>）；用于攻城伤害与外观。<code>DailyTick</code> 内部调用 <code>RepairWallsOfSettlementDaily</code> 用 <code>SettlementGarrisonModel</code> 修复墙段。</p>
+<h3 id="gong-fang">工坊</h3>
+<h4 id="saveableproperty-public-workshop-workshops-get-protected-set"><code>[SaveableProperty] public Workshop[] Workshops { get; protected set; }</code></h4>
+<p>该据点的工坊数组（长度由 <code>InitializeWorkshops</code> 决定）。<strong>调用时机</strong>：只读遍历安全；增删工坊走 <code>InitializeWorkshopAction</code> / <code>ChangeOwnerOfWorkshopAction</code> / <code>ChangeProductionTypeOfWorkshopAction</code>。<code>AfterLoad</code> 会对每个工坊调用 <code>Workshop.AfterLoad()</code>。</p>
+<h4 id="public-void-initializeworkshops-int-count"><code>public void InitializeWorkshops(int count)</code></h4>
+<p>按 <code>count</code> 以 <code>"workshop_i"</code> 为 id 创建空工坊数组；由新游戏初始化流程调用，mod 一般不应在运行时直接调。</p>
+<h3 id="shi-chang-yu-jia-ge">市场与价格</h3>
+<h4 id="public-townmarketdata-marketdata"><code>public TownMarketData MarketData</code></h4>
+<p>市场数据（价格、价格因子、库存更新回调）。<code>GetItemPrice(ItemObject, ...)</code> / <code>GetItemPrice(EquipmentElement, ...)</code> 与 <code>GetItemCategoryPriceIndex(ItemCategory)</code> 都转调它；买卖走这里而非自己算价。</p>
+<h4 id="public-int-getitemprice-itemobject-item-mobileparty-tradingparty-null-bool-isselling-false"><code>public int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)</code></h4>
+<p>委托 <code>MarketData.GetPrice</code>；是据点买卖定价唯一可靠入口。</p>
+<h4 id="public-float-getitemcategorypriceindex-itemcategory-itemcategory"><code>public float GetItemCategoryPriceIndex(ItemCategory itemCategory)</code></h4>
+<p>某物品类别的价格指数（用于供需波动展示）。</p>
+<h3 id="cun-zhuang-bu-gei-jian-dui">村庄 / 补给 / 舰队</h3>
+<h4 id="cacheddata-public-mbreadonlylist-village-villages"><code>[CachedData] public MBReadOnlyList&lt;Village&gt; Villages</code></h4>
+<p>绑定到本据点的村庄（<code>Settlement.BoundVillages</code> 的缓存视图）。<strong>[风险]</strong> 见上文“缓存跨读档”段——每次访问重新取，勿长期持有。</p>
+<h4 id="public-mbreadonlylist-village-tradeboundvillages"><code>public MBReadOnlyList&lt;Village&gt; TradeBoundVillages</code></h4>
+<p>贸易绑定村庄（<code>_tradeBoundVillagesCache</code>，<code>OnLoad</code> 重建）。机制与风险同上。</p>
+<h4 id="public-mbreadonlylist-ship-availableships"><code>public MBReadOnlyList&lt;Ship&gt; AvailableShips</code></h4>
+<p>本据点船坞可用的舰船（<code>Settlement.Party.Ships</code>）。</p>
+<h4 id="public-bool-hastournament"><code>public bool HasTournament</code></h4>
+<p>仅城镇且 <code>TournamentManager.GetTournamentGame(this) != null</code> 时为 <code>true</code>。</p>
+<h3 id="cha-xun-yu-jing-tai-ru-kou">查询与静态入口</h3>
+<h4 id="public-static-mbreadonlylist-town-alltowns-allcastles"><code>public static MBReadOnlyList&lt;Town&gt; AllTowns</code> / <code>AllCastles</code></h4>
+<p><code>Campaign.Current.AllTowns</code> / <code>AllCastles</code> 的便捷转发；遍历全部城镇/城堡用这两个，而不是自己 filter。</p>
+<h4 id="public-static-ienumerable-town-allfiefs"><code>public static IEnumerable&lt;Town&gt; AllFiefs</code></h4>
+<p><code>AllTowns</code> 与 <code>AllCastles</code> 的合并枚举（城镇 + 城堡）。</p>
+<h4 id="public-override-bool-istown-public-override-bool-iscastle"><code>public override bool IsTown</code> / <code>public override bool IsCastle</code></h4>
+<p>是否城镇 / 城堡（互斥）；读据点类型时优先用 <code>Settlement.IsTown</code> / <code>IsCastle</code>，它们内部就是转发到 <code>Town</code>。</p>
+<h4 id="public-bool-isundersiege"><code>public bool IsUnderSiege</code></h4>
+<p>转发 <code>Settlement.IsUnderSiege</code>。</p>
+<h4 id="public-mbreadonlylist-settlement-getneighborfortifications-mobileparty-navigationtype-navigationtype"><code>public MBReadOnlyList&lt;Settlement&gt; GetNeighborFortifications(MobileParty.NavigationType navigationType)</code></h4>
+<p>经 <code>MapDistanceModel.GetNeighborsOfFortification</code> 取相邻据点，用于增援/行军判定。</p>
+<h4 id="public-int-foodstocksupperlimit"><code>public int FoodStocksUpperLimit()</code></h4>
+<p>粮草上限：<code>SettlementFoodModel</code> 基础值 + 城堡加成 + 建筑（<code>BuildingEffectEnum.FoodStock</code>）贡献。<code>DailyTick</code> 用它截断粮草。</p>
+<h2 id="zui-xiao-zhen-shi-shi-li">最小真实示例</h2>
+<h3 id="shi-li-1-bian-li-suo-you-wan-jia-cheng-zhen-de-gong-fang-zhi-du-cha-xun-ren-he-shi-ji-jun-ke">示例 1：遍历所有玩家城镇的工坊（只读查询，任何时机均可）</h3>
+<pre><code data-lang="csharp">// 真实获取路径：Settlement.All → Settlement.Town → Town.Workshops
+foreach (Settlement settlement in Settlement.All)
+{
+    if (!settlement.IsTown)
+    {
+        continue;
+    }
+
+    Town town = settlement.Town;
+    foreach (Workshop workshop in town.Workshops)
+    {
+        if (workshop.Owner == Hero.MainHero)
+        {
+            // 这是玩家拥有的工坊，可读 workshop.Capital / workshop.ProfitOfTheLastDay 等
+            int capital = workshop.Capital;
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p>这个模式直接来自 <code>WorkshopsCampaignBehavior.RemoveDeadOwnersFromWorkshops</code>（<code>WorkshopsCampaignBehavior.cs:170</code> 附近）：<code>Workshop[] workshops = item.Town.Workshops;</code> 后逐项遍历。</p>
+</blockquote>
+<h3 id="shi-li-2-zai-campaignbehavior-zhong-ding-yue-mei-ri-cheng-zhen-jie-suan-zheng-que-de-he-shi">示例 2：在 CampaignBehavior 中订阅每日城镇结算（正确的“何时”）</h3>
+<pre><code data-lang="csharp">public class MyTownWatcherBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        // 真实事件：每个据点 DailyTick 之后广播
+        CampaignEvents.DailyTickTownEvent.AddNonSerializedListener(this, OnDailyTickTown);
+    }
+
+    private void OnDailyTickTown(Town town)
+    {
+        if (town.OwnerClan != Clan.PlayerClan)
+        {
+            return;
+        }
+
+        // 读“每日变化量”而非硬写字段：
+        float loyaltyChange = town.LoyaltyChange;
+        float prosperityChange = town.ProsperityChange;
+
+        // 若想长期抬升忠诚度，应改影响项（建筑/总督特性/政策），
+        // 或覆写 SettlementLoyaltyModel，而不是 town.Loyalty += x。
+        if (town.Loyalty &lt; 25f)
+        {
+            // 触发你的告警/事件逻辑
+        }
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        // 没有需要持久化的字段
+    }
+}
+</code></pre>
+<h3 id="shi-li-3-yong-he-fa-ru-kou-gei-jian-zhu-zhu-ru-shi-gong-jia-su-gai-zhuang-tai-de-zheng-que-zi-shi">示例 3：用合法入口给建筑注入施工加速（改状态的正确姿势）</h3>
+<pre><code data-lang="csharp">// 不要直接写 town.BoostBuildingProcess，而用 BuildingHelper 处理金币转账：
+Town town = Settlement.CurrentSettlement.Town;
+if (town != null)
+{
+    TaleWorlds.CampaignSystem.Helpers.BuildingHelper.BoostBuildingProcessWithGold(1000, town);
+}
+
+// 遍历建筑（只读）：
+foreach (Building building in town.Buildings)
+{
+    if (building.BuildingType == DefaultBuildingTypes.SettlementMilitiaBarracks)
+    {
+        int level = building.CurrentLevel;
+    }
+}
+</code></pre>
+<h3 id="shi-li-4-he-fa-zhuan-yi-ju-dian-gui-shu-er-fei-zhi-jie-xie-ownerclan">示例 4：合法转移据点归属（而非直接写 OwnerClan）</h3>
+<pre><code data-lang="csharp">Settlement target = Settlement.Find(&quot;town_ESWE_1&quot;);
+if (target != null &amp;&amp; target.Town != null)
+{
+    // 会正确更新 Town.OwnerClan 并广播 OnSettlementOwnerChangedEvent：
+    ChangeOwnerOfSettlementAction.ApplyByDefault(Hero.MainHero, target);
+}
+</code></pre>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li>本页 API 语义以 <strong>1.4.5 权威源码</strong>为准。对照 <code>bannerlord-1.3.15</code> 的 <code>Town.cs</code>，其<strong>公开接口与 1.4.5 基本一致</strong>（均为 <code>Town : Fief</code>，拥有 <code>Prosperity</code>/<code>Loyalty</code>/<code>Security</code>/<code>Buildings</code>/<code>Workshops</code>/<code>Governor</code>/<code>OwnerClan</code> 等成员，以及 <code>DailyTick</code>、<code>InitializeWorkshops</code>），本页放在 <code>v1.3.15</code> 文档桶下共用同一套 API 描述。</li>
+<li><code>DailyTickTownEvent</code>、<code>ChangeOwnerOfSettlementAction</code>、<code>BuildingHelper.BoostBuildingProcessWithGold</code> 在 1.3.x 已存在，示例可直接复用。</li>
+<li>若写跨版本 mod，注意 <code>Town</code> 的 <code>FoodStocks</code> 继承自 <code>Fief</code>（1.3.x 同样如此）；粮草上限/城墙修复逻辑走对应 <code>SettlementXxxModel</code>，覆写 Model 比硬写字段更稳。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li>↑ 父级：<a href="../Settlement/">Settlement</a> — <code>Town</code> 挂在 <code>Settlement.Town</code> 下，是其 parent 组件</li>
+<li>↔ 同级 / 相关：<a href="../Clan/">Clan</a>（OwnerClan）、<a href="../Hero/">Hero</a>（Governor）、<a href="../Workshop/">Workshop</a>（工坊）、<a href="../Village/">Village</a>（绑定村庄）</li>
+<li>相关行为与模型入口：<a href="../Campaign/">Campaign</a> — <code>Campaign.Current.Models</code> 与各 <code>SettlementXxxModel</code>、<code>CampaignEvents</code></li>
+<li>创建与反序列化：<a href="../../campaign-ext/MBObjectManager/">MBObjectManager</a> — <code>Town</code> 实例由据点 XML 经它生成</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign/DialogFlowContext/">&larr; DialogFlowContext</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign/ItemTradeData/">ItemTradeData &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

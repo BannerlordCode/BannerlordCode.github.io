@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameModels</title>
+  <meta name="description" content="The central container of every campaign-layer calculation subsystem (*Model) in Bannerlord — read through Campaign.Current.Models, and registered or replaced by modders via CampaignGameStarter.AddModel during InitializeGameStarter.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/GameModels/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/GameModels/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">GameModels</span>
+    </nav>
+  
+  <h1>GameModels</h1>
+  <h1 id="gamemodels">GameModels</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public sealed class GameModels : GameModelsManager</code>
+<strong>Base:</strong> <code>GameModelsManager</code> (in <code>TaleWorlds.Core</code>)
+<strong>Source:</strong> <code>TaleWorlds.CampaignSystem/GameModels.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>GameModels</code> is the campaign layer's <strong>model container</strong>: it does not hold any world state, but it exposes — as strongly-typed properties — the hundred-plus "pure calculation" subsystems that drive the game (party map speed, diplomacy scoring, clan finance, settlement loyalty, wage caps, siege resolution, and so on). Each property is backed by an instance derived from <code>GameModel</code> (or <code>MBGameModel&lt;T&gt;</code>), and together they answer the question "how is this number computed?" for virtually every campaign mechanic. When you want to know "what's the wage cap for this party", "how fast does this army move", or "what's the score for declaring war", the answer lives in a model under <code>Campaign.Current.Models</code> — not in an <code>*Action</code>.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of <code>GameModels</code> as the campaign's <strong>formula book</strong>, not its ledger:</p>
+<ul>
+<li>It only answers "how is X computed"; it does not perform state changes. Calling any model method is usually just a read/compute — it never mutates the world. The things that actually change the world are <code>*Action</code>s (e.g. <code>DeclareWarAction</code>, <code>ChangeKingdomInfluenceAction</code>).</li>
+<li>Every model is reachable through <code>Campaign.Current.Models</code> as a strongly-typed property (e.g. <code>Campaign.Current.Models.DiplomacyModel</code>, <code>Campaign.Current.Models.PartyWageModel</code>).</li>
+<li>The container itself is <strong>assembled once</strong>, at campaign construction time, and then treated as read-only. You cannot <code>AddModel</code> mid-campaign (e.g. from inside a <code>CampaignBehaviorBase</code>) and expect it to take effect — by then <code>GameModels</code> is already wired up and a freshly added model will never be assigned to those typed properties.</li>
+<li>Registering or replacing a model is only valid during <code>SubModule.InitializeGameStarter(Game, IGameStarter)</code>, which runs <em>before</em> the <code>Campaign</code> object is created.</li>
+<li>Internally, each property is resolved by <code>GetGameModel&lt;T&gt;()</code>, which searches the registered list <strong>from the end backward and returns the last matching type</strong>. That is exactly why a later-registered model overrides an earlier one — this is the standard mechanism both the game and the community use to replace models.</li>
+<li>Note: the typed properties are only populated when <code>Campaign.Current.GameMode</code> is <code>Campaign</code> or <code>Tutorial</code> (see <code>GetSpecificGameBehaviors()</code>). In a non-campaign mode (e.g. a custom battle), those properties stay <code>null</code>.</li>
+</ul>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p>Use <code>GameModels</code> / a specific <code>*Model</code> when you need to <strong>read or influence a computed value</strong> — party speed, recruitment cost, diplomacy score, settlement prosperity deltas, XP curves, etc. You retrieve a model through <code>Campaign.Current.Models.&lt;ModelName&gt;</code> and call its methods, passing in world objects (<code>MobileParty</code>, <code>Hero</code>, <code>Settlement</code>, <code>Clan</code>).</p>
+<p>Do <strong>NOT</strong> use a model to change the world. Model methods are near-stateless calculators; if you "tweaked a field on a model" and the world did not move, you used the wrong layer. State changes belong to <code>*Action</code> (e.g. <code>DeclareWarAction.ApplyByPlayerHostility(...)</code>, <code>ChangeClanInfluenceAction.Apply(...)</code>). Confusing Model (logic) with Action (state mutation) is the single most common misuse.</p>
+<p>Do <strong>NOT</strong> register a model at any point other than <code>InitializeGameStarter</code>. Adding models later, or trying to swap a property at runtime, will not propagate to <code>Campaign.Current.Models</code>.</p>
+<h2 id="dependencies">Dependencies</h2>
+<p><code>GameModels</code> sits in the campaign layer and is wired together from several upstream/downstream pieces:</p>
+<ul>
+<li><a href="../../campaign/Campaign/">Campaign</a> — <code>Campaign.Current.Models</code> is the live handle to the whole container; also the <code>GameMode</code> check that gates property population.</li>
+<li><a href="../CampaignGameStarter/">CampaignGameStarter</a> — the <code>AddModel</code> / <code>GetModel</code> entry point where you register or replace models.</li>
+<li><a href="../CampaignBehaviorBase/">CampaignBehaviorBase</a> — where you <em>safely read</em> models at runtime (registering here is too late).</li>
+<li><a href="../../core-extra/Game/">Game</a> — <code>IGameStarter</code> is the abstraction handed to <code>InitializeGameStarter</code>, and <code>CurrentGame</code> is the holder of the assembled model list.</li>
+<li><a href="../../campaign/Hero/">Hero</a> — models are frequently passed <code>Hero</code> (and other world objects) as inputs to their calculations.</li>
+<li><a href="../DeclareWarAction/">DeclareWarAction</a> — the canonical example of the <em>Action</em> layer that consumes a model's score rather than being the model itself.</li>
+</ul>
+<h2 id="key-model-families">Key Model Families</h2>
+<p>The container exposes well over a hundred typed properties (the set grows by version — v1.4.5 is the most complete). Rather than dumping every one, the families you will most often touch, and what each is for:</p>
+<table><thead><tr><th>Family</th><th>Representative models</th><th>Purpose (one line)</th></tr></thead><tbody>
+<tr><td>Party movement &amp; size</td><td><code>PartySpeedCalculatingModel</code> (<code>PartySpeedModel</code>), <code>PartySizeLimitModel</code>, <code>PartyWageModel</code>, <code>InventoryCapacityModel</code></td><td>Map movement speed, troop/size caps, wage ceiling (<code>MaxWagePaymentLimit</code>), and inventory limits.</td></tr>
+<tr><td>Party morale &amp; upkeep</td><td><code>PartyMoraleModel</code>, <code>PartyDesertionModel</code>, <code>MobilePartyFoodConsumptionModel</code>, <code>PartyFoodBuyingModel</code>, <code>PartyImpairmentModel</code></td><td>Morale swings, desertion chance, daily food use, auto-buy food, non-combat attrition.</td></tr>
+<tr><td>Diplomacy &amp; kingdom</td><td><code>DiplomacyModel</code>, <code>AllianceModel</code>, <code>KingdomCreationModel</code>, <code>KingdomDecisionPermissionModel</code>, <code>ClanPoliticsModel</code>, <code>MinorFactionsModel</code></td><td>War/peace scores, influence cost, kingdom-merge rating, council permissions, faction politics.</td></tr>
+<tr><td>Economy &amp; settlements</td><td><code>ClanFinanceModel</code>, <code>ClanTierModel</code>, <code>SettlementTaxModel</code>, <code>SettlementLoyaltyModel</code>, <code>SettlementProsperityModel</code>, <code>SettlementSecurityModel</code>, <code>SettlementFoodModel</code>, <code>WorkshopModel</code>, <code>ValuationModel</code>, <code>TradeItemPriceFactorModel</code></td><td>Clan income/expense, settlement taxes/loyalty/prosperity/security/food, workshop income, item valuation and trade spreads.</td></tr>
+<tr><td>Combat &amp; XP</td><td><code>CombatXpModel</code>, <code>GenericXpModel</code>, <code>CombatSimulationModel</code>, <code>BattleRewardModel</code>, <code>PartyTrainingModel</code></td><td>Post-battle XP, generic XP curves, auto-resolve simulation, victory rewards (influence/renown), training-while-moving.</td></tr>
+<tr><td>Character development</td><td><code>CharacterDevelopmentModel</code>, <code>CharacterStatsModel</code>, <code>PregnancyModel</code>, <code>AgeModel</code>, <code>MarriageModel</code>, <code>HeirSelectionCalculationModel</code>, <code>HeroDeathProbabilityCalculationModel</code></td><td>Level-up XP threshold (<code>GetXpRequiredForLevel</code>), derived attributes/skills, pregnancy/age/marriage/heir/death logic.</td></tr>
+<tr><td>Siege &amp; military AI</td><td><code>SiegeEventModel</code>, <code>SiegeAftermathModel</code>, <code>SiegeStrategyActionModel</code>, <code>MilitaryPowerModel</code>, <code>TargetScoreCalculatingModel</code></td><td>Siege progression, post-capture handling, siege strategy, military-strength rating for war score, AI target weighting.</td></tr>
+</tbody></table>
+<p>The uniform access shape is always <code>Campaign.Current.Models.&lt;ModelName&gt;</code>.</p>
+<h2 id="members-you-will-call">Members You Will Call</h2>
+<p><code>GameModels</code> itself has no public methods of its own (its assembly logic, <code>GetSpecificGameBehaviors()</code>, is private). The usable entry points come from the base <code>GameModelsManager</code> and from the typed properties.</p>
+<h3 id="reading-a-model-by-type">Reading a model by type</h3>
+<h4 id="protected-t-getgamemodel-t-where-t-gamemodel-base-gamemodelsmanager"><code>protected T GetGameModel&lt;T&gt;() where T : GameModel</code> (base <code>GameModelsManager</code>)</h4>
+<p>Searches the registered list <strong>from the end backward</strong> and returns the last <code>T</code> instance; returns <code>null</code> if no such type is registered. This is the low-level implementation of "last registration wins". Prefer it over a typed property when you must stay safe across versions or game modes.</p>
+<pre><code data-lang="csharp">// Safe pattern: null-check before calling, so a missing model in a non-campaign
+// mode or an older version cannot throw a NullReferenceException.
+PartySpeedModel speed = Campaign.Current.Models.GetGameModel&lt;PartySpeedModel&gt;();
+if (speed != null)
+{
+    ExplainedNumber result = speed.CalculateBaseSpeed(party);
+}
+</code></pre>
+<h4 id="public-mbreadonlylist-gamemodel-getgamemodels-base-gamemodelsmanager"><code>public MBReadOnlyList&lt;GameModel&gt; GetGameModels()</code> (base <code>GameModelsManager</code>)</h4>
+<p>Returns a read-only list of <strong>every</strong> registered model. Handy for debugging, bulk enumeration, or discovery when you do not want to depend on a typed property name.</p>
+<pre><code data-lang="csharp">foreach (GameModel model in Campaign.Current.Models.GetGameModels())
+{
+    // e.g. print every assembled model type to confirm a registration succeeded
+    Debug.Print(model.GetType().Name);
+}
+</code></pre>
+<h3 id="typed-property-access">Typed property access</h3>
+<p>Each subsystem is exposed as a <code>get</code> property (e.g. <code>Campaign.Current.Models.DiplomacyModel</code>). This is the <strong>most common</strong> access style in campaign code; the returned type is the model's own interface/abstract class, and you call its methods directly.</p>
+<pre><code data-lang="csharp">// Real call styles (mirrors official SandBox usage):
+float recruitCost = Campaign.Current.Models.PartyWageModel.GetTroopRecruitmentCost(
+    troop, Hero.MainHero, false);
+float dist = Campaign.Current.Models.MapDistanceModel.GetDistance(
+    fromSettlement, toSettlement, false, false, MobileParty.NavigationType.Default);
+</code></pre>
+<h2 id="risks">Risks</h2>
+<ul>
+<li><strong>Null model.</strong> If a model was never registered (or you access a typed property under a non-campaign <code>GameMode</code>, where properties are only populated in <code>Campaign</code>/<code>Tutorial</code>), that property is <code>null</code>. Calling <code>Campaign.Current.Models.X.Method()</code> directly throws <code>NullReferenceException</code>. Always use <code>GetGameModel&lt;T&gt;()</code> and null-check before calling.</li>
+<li><strong>Accessing before the campaign exists.</strong> <code>Campaign.Current</code> is <code>null</code> until the campaign is actually created, so <code>Campaign.Current.Models</code> is unavailable. Every model read must happen <em>after</em> campaign start (e.g. inside a <code>CampaignBehaviorBase</code> <code>RegisterEvents</code> / <code>DailyTick</code>), never during <code>SubModule</code> load.</li>
+<li><strong>Model is not the mutation entry point.</strong> Model methods are nearly all read-only calculations. If you changed a model field and saw no world effect, you used the wrong layer — use an <code>*Action</code> for state changes.</li>
+<li><strong>Mid-campaign <code>AddModel</code> is a no-op.</strong> <code>GameModels</code> is assembled once during campaign construction. Calling <code>AddModel</code> from a behavior at runtime will not reach <code>Campaign.Current.Models</code> typed properties; registration must be complete in <code>InitializeGameStarter</code>.</li>
+<li><strong>Override-order conflicts.</strong> The last registration of a given type wins. If two modules both replace the same model, the later one silently overrides the earlier — potentially interacting in unexpected ways. When cooperation is needed, prefer the decorator pattern (<code>MBGameModel&lt;T&gt;.BaseModel</code>) over a wholesale replacement.</li>
+<li><strong><code>GetSpecificGameBehaviors</code> mode gate.</strong> Typed properties are only filled in <code>Campaign</code>/<code>Tutorial</code> mode. A model registered for a custom-battle-style mode will not populate <code>GameModels</code> typed properties (though <code>GetGameModel&lt;T&gt;()</code> can still retrieve it).</li>
+</ul>
+<h2 id="example">Example</h2>
+<h3 id="example-1-read-the-party-speed-model-and-compute-a-party-s-speed">Example 1: Read the party-speed model and compute a party's speed</h3>
+<p>Models are stateless calculators — pass in a world object, get a result, change nothing.</p>
+<pre><code data-lang="csharp">MobileParty party = MobileParty.MainParty;
+PartySpeedModel speedModel = Campaign.Current.Models.PartySpeedCalculatingModel;
+if (speedModel != null)
+{
+    ExplainedNumber speed = speedModel.CalculateBaseSpeed(party);
+    InformationManager.DisplayMessage(new InformationMessage(
+        $&quot;Current base march speed: {speed.ResultNumber:F1}&quot;));
+}
+</code></pre>
+<h3 id="example-2-subclass-and-replace-diplomacymodel-to-change-the-declare-war-score">Example 2: Subclass and replace <code>DiplomacyModel</code> to change the "declare war" score</h3>
+<p>This is the canonical answer to "do I change the Model or the Action for war scoring?" — the score lives in <code>DiplomacyModel</code>, so you replace the Model, not an Action.</p>
+<pre><code data-lang="csharp">// 1) Inherit the official default and override only the scoring you care about.
+public class MyDiplomacyModel : DefaultDiplomacyModel
+{
+    public override float GetScoreOfDeclaringWar(
+        IFaction factionDeclaresWar, IFaction factionDeclaredWar,
+        Clan evaluatingClan, out TextObject reason, bool includeReason = false)
+    {
+        // Take the original score, then scale it by your own rule.
+        float baseScore = base.GetScoreOfDeclaringWar(
+            factionDeclaresWar, factionDeclaredWar, evaluatingClan, out reason, includeReason);
+        return baseScore * 1.5f; // e.g. make the AI more eager to declare war
+    }
+
+    public override ExplainedNumber GetWarProgressScore(
+        IFaction factionDeclaresWar, IFaction factionDeclaredWar, bool includeDescriptions = false)
+    {
+        return base.GetWarProgressScore(factionDeclaresWar, factionDeclaredWar, includeDescriptions);
+    }
+}
+
+// 2) Register it in InitializeGameStarter. Because it is added AFTER the official
+//    default model, GetGameModel&lt;DiplomacyModel&gt;() returns your version, so
+//    Campaign.Current.Models.DiplomacyModel now points at MyDiplomacyModel.
+protected override void InitializeGameStarter(Game game, IGameStarter starter)
+{
+    starter.AddModel(new MyDiplomacyModel());
+}
+</code></pre>
+<blockquote>
+<p>Actually <em>starting</em> the war still goes through <code>DeclareWarAction.ApplyByPlayerHostility(...)</code>; you only changed the score the AI uses when deciding whether to declare war.</p>
+</blockquote>
+<h3 id="example-3-wrap-an-existing-model-with-the-decorator-pattern-keep-original-logic-add-your-fix">Example 3: Wrap an existing model with the decorator pattern (keep original logic + add your fix)</h3>
+<p>The generic <code>AddModel&lt;T&gt;(MBGameModel&lt;T&gt;)</code> first injects the current model into your <code>BaseModel</code>, so you can delegate to the original and append your own logic.</p>
+<pre><code data-lang="csharp">public class MyWageWrapper : MBGameModel&lt;PartyWageModel&gt;
+{
+    public override ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyer, bool withoutItemCost)
+    {
+        // Compute the original result, then apply your own adjustment (e.g. 10% off).
+        ExplainedNumber original = BaseModel.GetTroopRecruitmentCost(troop, buyer, withoutItemCost);
+        original.ResultNumber *= 0.9f;
+        return original;
+    }
+}
+
+protected override void InitializeGameStarter(Game game, IGameStarter starter)
+{
+    starter.AddModel&lt;PartyWageModel&gt;((MBGameModel&lt;PartyWageModel&gt;)new MyWageWrapper());
+}
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ <a href="../">Campaign ext bucket</a></li>
+<li>↔ <a href="../CampaignGameStarter/">CampaignGameStarter</a> · <a href="../CampaignBehaviorBase/">CampaignBehaviorBase</a> · <a href="../DeclareWarAction/">DeclareWarAction</a></li>
+<li><a href="../../campaign/Campaign/">Campaign</a> — <code>Campaign.Current.Models</code> is the live container handle</li>
+<li><a href="../../core-extra/Game/">Game</a> — <code>IGameStarter</code> and the <code>CurrentGame</code> model-list holder</li>
+<li><a href="../../campaign/Hero/">Hero</a> — common world-object input to model calculations</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/DefaultAllianceModel/">&larr; DefaultAllianceModel</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/TournamentMatch/">TournamentMatch &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

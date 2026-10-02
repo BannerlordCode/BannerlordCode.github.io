@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MapEvent</title>
+  <meta name="description" content="战役地图上一次敌对遭遇的运行时载体：持有攻防双方 MapEventSide、驱动战斗模拟与战利品&#x2F;俘虏结算，是 FieldBattle、Raid、Siege、Hideout 等所有地图战斗的基类抽象。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/MapEvent/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/MapEvent/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/MapEvent/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/MapEvent/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/MapEvent/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/MapEvent/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MapEvent</span>
+    </nav>
+  
+  <h1>MapEvent</h1>
+  <h1 id="mapevent">MapEvent</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.MapEvents<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public sealed class MapEvent : MBObjectBase</code><br />
+<strong>Base:</strong> <code>MBObjectBase</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/MapEvents/MapEvent.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>MapEvent</code> 是战役地图上<strong>一次正在进行的敌对遭遇</strong>的对象化表示。当两个（或两组）<code>MobileParty</code>/<code>PartyBase</code> 在地图上相遇并开战后，引擎就创建一个 <code>MapEvent</code>，把参战各方归入「攻方（<code>AttackerSide</code>）」与「守方（<code>DefenderSide</code>）」两个 <a href="../../campaign-ext/MapEventSide/"><code>MapEventSide</code></a>，然后在每个战役 tick 里用 <a href="../../core/"><code>CombatSimulationModel</code></a> 模拟战斗，直到分出胜负或一方撤退，最后完成战利品、俘虏、声望、影响力与据点（如攻城）的结算。</p>
+<p>它<strong>不是</strong>战斗场景本身：真正的战场是一个 <code>Mission</code>，<code>MapEvent</code> 始终活在战役（Campaign/Map）层。两者通过 <code>BattleObserver</code>（<code>IBattleObserver</code>）桥接——战场把每回合的伤亡回报给 <code>MapEvent</code>，由它落地到名册与英雄状态。</p>
+<h2 id="yi-ju-hua-zhi-ze">一句话职责</h2>
+<p>把「地图上谁正和谁打仗、打到什么阶段、谁赢了、战利品怎么分」这套状态与流程，封装成一个可被战役系统每帧推进、可被 mod 只读观察的运行时对象。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<h3 id="ta-shi-shen-me-bu-shi-shen-me">它是什么 / 不是什么</h3>
+<ul>
+<li>是：地图层的一次遭遇快照 + 一个推进状态机（<code>MapEventState.Begin → Wait → WaitingRemoval</code>）。</li>
+<li>不是：可渲染的 3D 战斗、一个可被你自由 <code>new</code> 的普通类、或一个持久保存「历史战报」的容器。它只描述<strong>当前正在发生</strong>的那一场。</li>
+</ul>
+<h3 id="sheng-ming-zhou-qi-you-yin-qing-qu-dong-bu-yao-shou-dong-zhong-fang">生命周期（由引擎驱动，不要手动重放）</h3>
+<ol>
+<li><strong>创建</strong>：引擎内部 <code>new MapEvent()</code> 后调用 <code>Initialize(attacker, defender, component, battleType)</code>。攻城/出城/封锁类由 <a href="../../core/"><code>MapEventManager</code></a> 的 <code>StartSiegeMapEvent</code> / <code>StartSallyOutMapEvent</code> / <code>StartSiegeOutsideMapEvent</code> / <code>StartBlockadeBattleMapEvent</code> 启动；玩家遭遇到的野战/劫掠/据点则由 <a href="../../campaign-ext/PlayerEncounter/"><code>PlayerEncounter.StartBattle()</code></a> 经 <code>StartBattleInternal</code> 创建。创建后 <code>State = Wait</code>，并触发 <code>OnMapEventStarted</code>。</li>
+<li><strong>双方入场</strong>：各方通过 <code>party.MapEventSide = ...</code> 被归入某一侧（<code>AddInvolvedPartyInternal</code>），<code>AttackerSide</code> / <code>DefenderSide</code> 的 <code>Parties</code> 列表随之增长；据点内驻军、附近友军也会被拉入。</li>
+<li><strong>模拟推进</strong>：每个战役 tick，<code>MapEventManager.Tick()</code> 遍历活动事件调用 <code>Update()</code>——在非玩家事件和劫掠事件上做战斗模拟（<code>SimulateBattleSessionForMapEvent</code>），根据兵力归零 / 士气崩溃 / 撤退判定 <code>BattleState</code>，决出胜负后 <code>OnBattleWon</code> 计算战果。</li>
+<li><strong>结算与收尾</strong>：分出胜负、外交停战或撤退后进入 <code>FinalizeEvent()</code>，<code>State</code> 置为 <code>WaitingRemoval</code>，触发 <code>OnMapEventEnded</code>，完成战利品/俘虏/船只分配、英雄阵亡（<code>KillCharacterAction</code>）、败方解体（<code>DestroyPartyAction</code>）、攻城完成（<code>SiegeCompleted</code> / <code>AfterSiegeCompleted</code>）。</li>
+<li><strong>移除</strong>：下一 tick <code>MapEventManager.Tick()</code> 检测到 <code>IsFinalized</code> 即把事件从 <code>MBList</code> 中移除。</li>
+</ol>
+<h3 id="shui-chuang-jian-shui-chi-you">谁创建 / 谁持有</h3>
+<ul>
+<li><strong>创建者</strong>：仅引擎（<code>MapEventManager</code> + <code>PlayerEncounter</code>），构造函数 <code>internal</code>，<strong>mod 不能 <code>new MapEvent()</code></strong>。</li>
+<li><strong>持有者</strong>：<code>Campaign.Current.MapEventManager</code> 用 <code>MBList&lt;MapEvent&gt;</code> 持有所有活动事件；同时 <code>MapEvent</code> 继承自 <code>MBObjectBase</code>，因此也登记在 <a href="../../campaign-ext/MBObjectManager/"><code>MBObjectManager</code></a> 的对象系统中，可被存档序列化。玩家那一场还会被 <code>PlayerEncounter.Current</code> 引用。</li>
+</ul>
+<h3 id="suo-zai-ceng">所在层</h3>
+<p>战役（Campaign）/ 地图层，与 <code>Mission</code>（战斗场景）平行。所有公开成员都是「地图态」数据，不依赖某个具体的战场实例。</p>
+<h2 id="he-shi-yong-he-shi-bu-yao-yong">何时用 / 何时不要用</h2>
+<p><strong>应当用 <code>MapEvent</code> 的场景</strong></p>
+<ul>
+<li>通过 <a href="../../campaign-ext/CampaignEvents/"><code>CampaignEvents</code></a> 订阅 <code>OnMapEventStarted</code> / <code>OnMapEventEnded</code> / <code>OnPartyAddedToMapEvent</code> 等，在遭遇生命周期里读取或响应（统计、提示、条件触发任务）。</li>
+<li>在合法时机（玩家手动决策、菜单逻辑）读取 <code>MapEvent.PlayerMapEvent</code> / <code>MobileParty.MapEvent</code> 的状态：双方兵力、战力、胜负、据点、是否海战等。</li>
+<li>由引擎托管的「结束」操作：<code>MapEventManager.FinalizePlayerMapEvent()</code>（玩家事件，内部顺带 <code>PlayerEncounter.Finish()</code>）、<code>MapEvent.DoSurrender(side)</code>、<code>MapEvent.SetOverrideWinner(...)</code>（用于任务脚本强制结果）。</li>
+</ul>
+<p><strong>不要用 / 危险用法</strong></p>
+<ul>
+<li>不要自己 <code>new MapEvent()</code> 或调用 <code>internal Initialize(...)</code>——事件必须由引擎按标准流程建立，否则 <code>MapEventManager</code> 不会登记它、模拟与收尾都不会跑。</li>
+<li>不要直接改写 <code>_sides</code>、<code>AttackerSide</code>/<code>DefenderSide</code> 的 <code>Parties</code>，或手动给 <code>party.MapEventSide</code> 赋值来「拉人入伙」。让引擎通过 <code>PartyBase.MapEventSide</code> 的标准路径管理；强行改会破坏模拟与战利品归属。</li>
+<li>不要在事件已 <code>IsFinalized</code>（进入 <code>WaitingRemoval</code>）后还访问两侧的具体 <code>MapEventParty</code>——见下方风险段。</li>
+<li>想「发起一场战斗」应走 <a href="../../campaign-ext/PlayerEncounter/"><code>PlayerEncounter</code></a> 与遭遇模型，而不是构造 <code>MapEvent</code>。</li>
+</ul>
+<h2 id="yi-lai-tu">依赖图</h2>
+<ul>
+<li><strong>上游（创建/提供数据）</strong>
+<ul>
+<li><a href="../MobileParty/"><code>MobileParty</code></a> / <a href="../PartyBase/"><code>PartyBase</code></a>：事件的参战主体，通过 <code>MapEventSide.Parties</code> 聚合。</li>
+<li><a href="../../campaign-ext/PlayerEncounter/"><code>PlayerEncounter</code></a>：驱动玩家遭遇的创建与结束。</li>
+<li><a href="../../core/"><code>MapEventManager</code></a>（战役系统内部）：登记、tick、移除所有活动事件。</li>
+<li><a href="../../campaign-ext/MBObjectManager/"><code>MBObjectManager</code></a>：作为 <code>MBObjectBase</code> 的注册与存档容器。</li>
+</ul>
+</li>
+<li><strong>下游（被驱动 / 结果落点）</strong>
+<ul>
+<li><a href="../../campaign-ext/MapEventSide/"><code>MapEventSide</code></a>：攻防两侧的具体阵营数据与模拟。</li>
+<li><a href="../../campaign-ext/SiegeEvent/"><code>SiegeEvent</code></a>：攻城类事件的父级抽象，<code>MapEventSettlement.SiegeEvent</code> 在收尾时联动。</li>
+<li>据点结算：被劫掠的 <a href="../Settlement/"><code>Settlement</code></a> 村庄、被攻破的城镇。</li>
+<li>各类 <code>*Action</code>：<code>KillCharacterAction</code>、<code>TakePrisonerAction</code>、<code>DestroyPartyAction</code>、<code>ChangeShipOwnerAction</code>、<code>EndCaptivityAction</code>、<code>LeaveSettlementAction</code>——在结算阶段被调用。</li>
+</ul>
+</li>
+<li><strong>相关 Events（<a href="../../campaign-ext/CampaignEvents/"><code>CampaignEvents</code></a> 家族）</strong>
+<ul>
+<li><code>OnMapEventStarted(MapEvent, PartyBase, PartyBase)</code>、<code>OnMapEventEnded(MapEvent)</code></li>
+<li><code>OnPartyAddedToMapEvent(PartyBase)</code>、<code>OnNearbyPartyAddedToPlayerMapEvent(MobileParty)</code></li>
+<li><code>OnCollectLootItems(PartyBase, ItemRoster)</code>、<code>OnLootDistributedToParty(PartyBase, PartyBase, ItemRoster)</code>、<code>OnPlayerPartyKnockedOrKilledTroop(CharacterObject)</code></li>
+<li><code>SiegeCompleted(Settlement, MobileParty, bool, BattleTypes)</code>、<code>AfterSiegeCompleted(Settlement, MobileParty, bool, BattleTypes)</code></li>
+</ul>
+</li>
+<li><strong>相关 Models（通过 <code>Campaign.Current.Models</code> 取用）</strong>
+<ul>
+<li><code>CombatSimulationModel</code>（战斗模拟与回合）、<code>BattleRewardModel</code>（战利品/声望/影响力/船只）、<code>EncounterModel</code>（撤退/加入判定）、<code>MilitaryPowerModel</code>、<code>MapDistanceModel</code>、<code>PartyMoraleModel</code>、<code>PartyHealingModel</code>、<code>DifficultyModel</code>、<code>ShipCostModel</code>、<code>TroopSupplierProbabilityModel</code>——均通过 <code>Campaign.Current.Models</code> 取用。</li>
+</ul>
+</li>
+<li><strong>存档点</strong>：随战役存档整体序列化（<code>MapEvent</code> 本身 + <code>MapEventManager</code> 的 <code>MBList</code>）；<code>OnLateLoad</code> / <code>OnAfterLoad</code> 负责旧版本存档的兼容重建（如 v1.2.0 / v1.3.0 / v1.4.1 字段迁移）。</li>
+</ul>
+<h2 id="feng-xian-wu-bi-zhu-yi">风险（务必注意）</h2>
+<ol>
+<li><strong>事件结束后访问已清空的双方</strong>：<code>FinalizeEvent()</code> → <code>FinalizeEventAux()</code> 会调用 <code>sides[i].Clear()</code> 清空每侧的 <code>MapEventParty</code> 列表。事件进入 <code>WaitingRemoval</code> 后，<code>AttackerSide.Parties</code> / <code>DefenderSide.Parties</code> 已空，<code>LeaderParty</code> 可能变为 <code>null</code>。在 <code>OnMapEventEnded</code> 回调里若再去遍历 <code>InvolvedParties</code> 或读 <code>LeaderParty</code> 姓名，会得到空数据甚至 <code>NullReferenceException</code>。需要的结算信息（如输赢、据点）应在 finalize 之前或回调入口处先缓存。</li>
+<li><strong>持有过期的 <code>MobileParty</code> / <code>PartyBase</code> 引用</strong>：败方在收尾时可能被 <code>DestroyPartyAction.Apply</code> 销毁，胜方领袖可能被 <code>RemovePartyLeader()</code> 替换。把 <code>MapEvent</code> 里取到的 party 引用存到跨事件/跨天的数据结构里，会在之后访问到已失效对象。始终用 <code>Hero</code>/<code>PartyBase</code> 的当前字段或在用前判空与 <code>IsActive</code>。</li>
+<li><strong>在错误阶段改写状态</strong>：<code>SetOverrideWinner</code> / <code>SetDefenderPulledBack</code> / <code>ResetBattleState</code> / <code>DoSurrender</code> 只在特定战斗阶段有意义。对已经 <code>IsFinalized</code> 或还未真正开打的事件调用，会产生与模拟结果冲突、或触发二次结算的诡异状态。</li>
+<li><strong>玩家事件必须走专用收尾</strong>：直接调 <code>MapEvent.FinalizeEvent()</code> 只清理事件本身；玩家那一场还需 <code>PlayerEncounter.Finish()</code> 把遭遇状态收掉，否则 <code>PlayerEncounter.Current</code> 仍挂着、菜单与后续遭遇逻辑会错乱。优先用 <code>MapEventManager.FinalizePlayerMapEvent()</code>。</li>
+<li><strong>存档期引用悬空 / 坏档</strong>：<code>MapEvent</code> 通过 <code>SaveableField</code> 引用 <code>PartyBase</code>、据点、<code>MapEventComponent</code>。若你的 mod 在自定义存档数据里长期挂着一个 <code>MapEvent</code> 引用，而该事件在加载时已因版本迁移被 <code>FinalizeEvent()</code> 掉（见 <code>OnAfterLoad</code> 的 v1.2.0 清理分支），引用会指向一个等待移除的废弃对象。mod 自定义数据不要在存档里长期保留 <code>MapEvent</code> 引用，应存 <code>stringId</code> 或 <code>PartyBase</code> 的 stable 标识。</li>
+<li><strong>不要手动改 <code>party.MapEventSide</code></strong>：它是引擎在 <code>Initialize</code> / <code>AddInvolvedPartyInternal</code> / <code>RemoveInvolvedPartyInternal</code> 中统一维护的。手动赋值会绕过战力重算（<code>RecalculateRenownAndInfluenceValuesOnPartyInvolved</code>）与视觉/AI 更新，导致战斗结果或地图表现异常。</li>
+</ol>
+<h2 id="guan-jian-cheng-yuan-an-zhu-ti-fen-zu">关键成员（按主题分组）</h2>
+<h3 id="shuang-fang-yu-zhen-ying">双方与阵营</h3>
+<ul>
+<li><code>MapEventSide AttackerSide</code> / <code>MapEventSide DefenderSide</code>：攻/守两侧的聚合视图，下标 <code>_sides[1]</code> / <code>_sides[0]</code>。<strong>副作用</strong>：finalize 后其 <code>Parties</code> 被清空。<strong>调用时机</strong>：读取参战方、兵力、战力时；不要改写。</li>
+<li><code>MapEventSide GetMapEventSide(BattleSideEnum side)</code>：按枚举取某一侧，等价于 <code>(side == Attacker ? AttackerSide : DefenderSide)</code>。<strong>时机</strong>：通用访问，避免硬编码下标。</li>
+<li><code>MBReadOnlyList&lt;MapEventParty&gt; PartiesOnSide(BattleSideEnum side)</code>：该侧参战 <code>MapEventParty</code> 只读列表。<strong>时机</strong>：遍历各方兵力与贡献。</li>
+<li><code>PartyBase GetLeaderParty(BattleSideEnum side)</code>：该侧领袖 party（通常第一个加入者）。<strong>时机</strong>：取交战对象名称、判断是否为某家族；finalize 后可能为 <code>null</code>。</li>
+<li><code>IEnumerable&lt;PartyBase&gt; InvolvedParties</code>：展平两侧所有参战 party 的枚举。<strong>时机</strong>：对全体参战方做处理（如发通知）；finalize 后为空。</li>
+<li><code>BattleSideEnum GetOtherSide(BattleSideEnum side)</code>：取对立侧枚举。</li>
+<li><code>bool CanPartyJoinBattle(PartyBase party, BattleSideEnum side)</code>：判断某 party 能否作为该侧加入（同侧须停战、对侧须交战）。<strong>时机</strong>：在你想判断「附近 AI 会不会卷入」时只读查询，不要据此手动拉人。</li>
+</ul>
+<h3 id="sheng-fu-yu-zhan-dou-zhuang-tai">胜负与战斗状态</h3>
+<ul>
+<li><code>BattleState BattleState</code>（<code>None</code>/<code>AttackerVictory</code>/<code>DefenderVictory</code>/<code>DefenderPullBack</code> 等）：当前胜负态。<strong>副作用</strong>：置为胜利时会触发 <code>OnBattleWon</code> → 计算结果。<strong>时机</strong>：只读观察；要强制结果用 <code>SetOverrideWinner</code>。</li>
+<li><code>bool HasWinner</code> / <code>BattleSideEnum WinningSide</code> / <code>MapEventSide Winner</code> / <code>BattleSideEnum DefeatedSide</code>：派生胜负信息。<strong>时机</strong>：结算/提示时读取。</li>
+<li><code>MapEventState State</code>（<code>Begin</code>/<code>Wait</code>/<code>WaitingRemoval</code>）；<code>bool IsFinalized =&gt; State == WaitingRemoval</code>：<strong>在任何访问双方成员前先判 <code>IsFinalized</code></strong>。</li>
+<li><code>BattleTypes EventType</code> 与 <code>bool IsFieldBattle</code> / <code>IsRaid</code> / <code>IsSiegeAssault</code> / <code>IsSallyOut</code> / <code>IsSiegeOutside</code> / <code>IsBlockade</code> / <code>IsHideoutBattle</code> / <code>IsForcingVolunteers</code> / <code>IsForcingSupplies</code> / <code>IsSiegeAmbush</code>：事件类型与各子类谓词。<strong>时机</strong>：按类型分支逻辑（如只对 <code>Raid</code> 做村庄处理）。</li>
+<li><code>BattleSideEnum RetreatingSide</code> / <code>bool EndedByRetreat</code> / <code>int PursuitRoundNumber</code>：撤退与追击信息（v1.3.0 起稳定存在）。<strong>时机</strong>：判断「是不是被击退收场」。</li>
+<li><code>bool IsPlayerMapEvent</code>（<code>this == MapEvent.PlayerMapEvent</code>）、<code>BattleSideEnum PlayerSide</code>（<code>PartyBase.MainParty.Side</code>）、<code>static MapEvent PlayerMapEvent</code>（<code>MobileParty.MainParty?.MapEvent</code>）：玩家相关快捷访问。<strong>时机</strong>：把逻辑限定在玩家遭遇内。</li>
+<li><code>float[] StrengthOfSide</code>（长度 2，攻/守战力）、<code>void RecalculateStrengthOfSides()</code>：双方战力快照。<strong>时机</strong>：战前预估、UI 展示；<code>RecalculateStrengthOfSides</code> 在阵营变化后刷新。</li>
+<li><code>MBList&lt;BattleSideEnum&gt; WonRounds</code>：各模拟回合的赢家；<code>int UpdateCount =&gt; WonRounds.Count</code>。<strong>时机</strong>：复盘单场进程。</li>
+</ul>
+<h3 id="di-tu-wei-zhi-yu-ju-dian">地图位置与据点</h3>
+<ul>
+<li><code>CampaignVec2 Position</code>：事件在地图上的坐标。<strong>时机</strong>：渲染、距离判定；<code>SetPositionAfterMapChange</code> / <code>CheckPositionsForMapChangeAndUpdateIfNeeded</code> 由地图切换时调用。</li>
+<li><code>Settlement MapEventSettlement</code>：关联的据点（劫掠的村庄、被攻的城镇、附近的村庄）。可能为 <code>null</code>（纯野战）。<strong>时机</strong>：读取被袭击/被攻目标；攻城收尾会用到 <code>MapEventSettlement.SiegeEvent</code>。</li>
+<li><code>TerrainType EventTerrainType</code>、<code>PowerCalculationContext SimulationContext</code>：地形与模拟上下文（影响战力模型）。<strong>时机</strong>：自定义模拟或展示。</li>
+<li><code>bool IsNavalMapEvent =&gt; !Position.IsOnLand</code>：是否海战。<strong>时机</strong>：分支船只逻辑。</li>
+<li><code>CampaignTime BattleStartTime</code>：开打时刻。<strong>时机</strong>：统计持续时间。</li>
+</ul>
+<h3 id="can-yu-fang-bian-li-yu-gong-xian">参与方遍历与贡献</h3>
+<ul>
+<li><code>int GetNumberOfInvolvedMen()</code> / <code>int GetNumberOfInvolvedMen(BattleSideEnum side)</code>：总/单侧参战人数。<strong>时机</strong>：战力提示、任务条件。</li>
+<li><code>bool HasTroopsOnBothSides()</code>：两侧都还有存活兵力。<strong>时机</strong>：判断是否还能继续打。</li>
+<li><code>void GetStrengthsRelativeToParty(BattleSideEnum partySide, out float partySideStrength, out float opposingSideStrength)</code>：基于 <code>SimulationContext</code> 的相对战力。<strong>时机</strong>：给玩家显示「我方 vs 敌方」对比。</li>
+<li><code>float GetPlayerBattleContributionRate()</code>：玩家在己方贡献占比（0~1）。<strong>时机</strong>：战利品分配展示。</li>
+<li><code>bool IsPlayerSergeant()</code>：玩家是否作为附属部队参战（非领袖）。<strong>时机</strong>：区别「主角亲征」与「作为军团小弟」。</li>
+</ul>
+<h3 id="kong-zhi-jin-shen-shi-yong">控制（谨慎使用）</h3>
+<ul>
+<li><code>void FinalizeEvent()</code>：立即收尾（置 <code>WaitingRemoval</code> 并跑结算）。玩家事件请用 <code>MapEventManager.FinalizePlayerMapEvent()</code>。</li>
+<li><code>void DoSurrender(BattleSideEnum side)</code>：让某侧投降，等价于对方获胜。<strong>时机</strong>：任务/剧情强制结果。</li>
+<li><code>void SetOverrideWinner(BattleSideEnum winner)</code> / <code>void SetDefenderPulledBack()</code> / <code>void ResetBattleState()</code>：覆盖或重置战斗结果。<strong>时机</strong>：脚本化战斗；必须在事件活跃且未被 finalize 时调用。</li>
+</ul>
+<h2 id="zui-xiao-zhen-shi-shi-li">最小真实示例</h2>
+<h3 id="shi-li-1-ding-yue-zhan-yi-shi-jian-guan-cha-wan-jia-zao-yu-de-kai-shi-yu-jie-shu">示例 1：订阅战役事件，观察玩家遭遇的开始与结束</h3>
+<pre><code data-lang="csharp">// 在 CampaignBehaviorBase 的 RegisterEvents 中挂监听
+CampaignEvents.OnMapEventStarted.AddNonSerializedListener(this, OnMapEventStarted);
+CampaignEvents.OnMapEventEnded.AddNonSerializedListener(this, OnMapEventEnded);
+
+private void OnMapEventStarted(MapEvent mapEvent, PartyBase attacker, PartyBase defender)
+{
+    if (!mapEvent.IsPlayerMapEvent)
+        return;
+
+    // EventType 是 BattleTypes 枚举，可用 IsRaid / IsSiegeAssault 等谓词分支
+    string typeName = mapEvent.IsRaid ? &quot;劫掠&quot;
+        : (mapEvent.IsSiegeAssault ? &quot;攻城&quot; : &quot;野战&quot;);
+    InformationManager.DisplayMessage(new InformationMessage(
+        $&quot;玩家卷入{typeName}：{attacker.Name} 对 {defender.Name}&quot;));
+}
+
+private void OnMapEventEnded(MapEvent mapEvent)
+{
+    // 此时事件可能已进入 WaitingRemoval，sides 可能已清空；只读取安全的标量字段
+    if (mapEvent.EventType == MapEvent.BattleTypes.Raid &amp;&amp; mapEvent.HasWinner)
+    {
+        Settlement raided = mapEvent.MapEventSettlement; // 被劫掠的村庄（未被清空）
+        if (raided != null)
+        {
+            // 例如：记录某村庄被劫次数
+        }
+    }
+}
+</code></pre>
+<h3 id="shi-li-2-zai-he-fa-shi-ji-du-qu-wan-jia-dang-qian-mapevent-de-zhuang-tai">示例 2：在合法时机读取玩家当前 MapEvent 的状态</h3>
+<pre><code data-lang="csharp">// 通过静态属性拿到玩家正在参与的事件
+MapEvent playerEvent = MapEvent.PlayerMapEvent;
+if (playerEvent == null)
+    return;
+
+BattleSideEnum mySide = playerEvent.PlayerSide;
+MapEventSide mySideData = playerEvent.GetMapEventSide(mySide);
+int involvedMen = playerEvent.GetNumberOfInvolvedMen(mySide);
+float myStrength = playerEvent.StrengthOfSide[(int)mySide];
+bool enemyStillFighting = playerEvent.HasTroopsOnBothSides();
+
+InformationManager.DisplayMessage(new InformationMessage(
+    $&quot;我方参战兵力 {involvedMen}，战力 {myStrength:F0}，敌军仍在抵抗：{enemyStillFighting}&quot;));
+
+// 也可以从任意 party 反向拿到它所在的事件
+MobileParty someParty = MobileParty.MainParty;
+MapEvent partyEvent = someParty.MapEvent; // 非玩家 party 同样适用
+</code></pre>
+<h3 id="shi-li-3-du-qu-quan-bu-huo-dong-shi-jian-diao-shi-tong-ji">示例 3：读取全部活动事件（调试 / 统计）</h3>
+<pre><code data-lang="csharp">// Campaign.Current.MapEventManager 持有所有活动事件
+foreach (MapEvent mapEvent in Campaign.Current.MapEventManager.MapEvents)
+{
+    if (mapEvent.IsFinalized)
+        continue; // 已收尾的跳过，避免访问空 sides
+
+    int attackers = mapEvent.GetNumberOfInvolvedMen(BattleSideEnum.Attacker);
+    int defenders = mapEvent.GetNumberOfInvolvedMen(BattleSideEnum.Defender);
+    // ...
+}
+</code></pre>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li>本页以 <strong>v1.4.5</strong> 源码为权威；文档落在 <code>v1.3.15</code> 子树。核心生命周期在 1.3.x 已稳定。</li>
+<li><code>WonRounds</code>、<code>RetreatingSide</code>、<code>PursuitRoundNumber</code> 等字段在 <strong>v1.3.0</strong> 才成为稳定字段（<code>OnAfterLoad</code> 中有对 <code>&lt; v1.3.0</code> 存档的兼容性重建）；写跨版本 mod 时对这些字段做空/缺省判断。</li>
+<li>v1.4.1 引入：劫掠事件中若 <code>MapEventSettlement.LastAttackerParty != MobileParty.MainParty</code>，加载旧档时会强制 <code>PlayerEncounter.Finish()</code>。若你的 mod 在旧档加载期操作 raid 事件，注意该收尾分支。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li>↑ 父级：<a href="../Campaign/">战役枢纽 Campaign</a></li>
+<li>↑ 模块索引：<a href="../">api 索引</a></li>
+<li>↔ 同级 / 相关类型
+<ul>
+<li><a href="../../campaign-ext/MapEventSide/">MapEventSide</a> — 攻防两侧的具体阵营数据</li>
+<li><a href="../../campaign-ext/SiegeEvent/">SiegeEvent</a> — 攻城类事件的父级抽象</li>
+<li><a href="../../campaign-ext/PlayerEncounter/">PlayerEncounter</a> — 玩家遭遇的创建与结束</li>
+<li><a href="../../campaign-ext/EncounterManager/">EncounterManager</a> — 遭遇与地图事件调度</li>
+<li><a href="../../campaign-ext/CampaignEvents/">CampaignEvents</a> — 地图事件相关事件家族</li>
+</ul>
+</li>
+<li>同桶类型
+<ul>
+<li><a href="../MobileParty/">MobileParty</a> — 参战主体（机动部队）</li>
+<li><a href="../PartyBase/">PartyBase</a> — 参战主体（含驻军/据点方）</li>
+<li><a href="../Settlement/">Settlement</a> — 被劫掠/被攻的据点</li>
+<li><a href="../Hero/">Hero</a> — 参战英雄与阵亡结算落点</li>
+</ul>
+</li>
+<li>基础设施
+<ul>
+<li><a href="../../campaign-ext/MBObjectManager/">MBObjectManager</a> — <code>MapEvent</code> 作为 <code>MBObjectBase</code> 的注册与存档容器</li>
+</ul>
+</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign/MapTimeTracker/">&larr; MapTimeTracker</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign/DialogFlowLine/">DialogFlowLine &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

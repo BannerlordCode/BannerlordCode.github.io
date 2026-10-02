@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Widget</title>
+  <meta name="description" content="Widget 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/gui/Widget/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/gui/Widget/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/gui/Widget/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/gui/Widget/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="active">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;">gui 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Widget</span>
+    </nav>
+  
+  <h1>Widget</h1>
+  <h1 id="widget">Widget</h1>
+<p><strong>Namespace:</strong> TaleWorlds.GauntletUI.BaseTypes
+<strong>Module:</strong> TaleWorlds.GauntletUI
+<strong>Type:</strong> <code>public class Widget : PropertyOwnerObject</code>
+<strong>Base:</strong> <code>PropertyOwnerObject</code>
+<strong>File:</strong> <code>bin/TaleWorlds.GauntletUI/TaleWorlds.GauntletUI.BaseTypes/Widget.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>Widget</code> 位于 <code>TaleWorlds.GauntletUI.BaseTypes</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.GauntletUI.BaseTypes</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>ColorFactor</code></td><td><code>public float ColorFactor { get; set; }</code></td></tr>
+<tr><td><code>AlphaFactor</code></td><td><code>public float AlphaFactor { get; set; }</code></td></tr>
+<tr><td><code>ValueFactor</code></td><td><code>public float ValueFactor { get; set; }</code></td></tr>
+<tr><td><code>SaturationFactor</code></td><td><code>public float SaturationFactor { get; set; }</code></td></tr>
+<tr><td><code>ExtendLeft</code></td><td><code>public float ExtendLeft { get; set; }</code></td></tr>
+<tr><td><code>ExtendRight</code></td><td><code>public float ExtendRight { get; set; }</code></td></tr>
+<tr><td><code>ExtendTop</code></td><td><code>public float ExtendTop { get; set; }</code></td></tr>
+<tr><td><code>ExtendBottom</code></td><td><code>public float ExtendBottom { get; set; }</code></td></tr>
+<tr><td><code>VerticalFlip</code></td><td><code>public bool VerticalFlip { get; set; }</code></td></tr>
+<tr><td><code>HorizontalFlip</code></td><td><code>public bool HorizontalFlip { get; set; }</code></td></tr>
+<tr><td><code>NinePatchTop</code></td><td><code>public int NinePatchTop { get; set; }</code></td></tr>
+<tr><td><code>NinePatchBottom</code></td><td><code>public int NinePatchBottom { get; set; }</code></td></tr>
+<tr><td><code>NinePatchLeft</code></td><td><code>public int NinePatchLeft { get; set; }</code></td></tr>
+<tr><td><code>NinePatchRight</code></td><td><code>public int NinePatchRight { get; set; }</code></td></tr>
+<tr><td><code>ImageFit</code></td><td><code>public ImageFit ImageFit { get; set; }</code></td></tr>
+<tr><td><code>GlobalRotation</code></td><td><code>public float GlobalRotation { get; set; }</code></td></tr>
+<tr><td><code>Rotation</code></td><td><code>public float Rotation { get; set; }</code></td></tr>
+<tr><td><code>PivotX</code></td><td><code>public float PivotX { get; set; }</code></td></tr>
+<tr><td><code>PivotY</code></td><td><code>public float PivotY { get; set; }</code></td></tr>
+<tr><td><code>Left</code></td><td><code>public float Left { get; }</code></td></tr>
+<tr><td><code>Top</code></td><td><code>public float Top { get; }</code></td></tr>
+<tr><td><code>Size</code></td><td><code>public Vector2 Size { get; }</code></td></tr>
+<tr><td><code>FrictionEnabled</code></td><td><code>public bool FrictionEnabled { get; set; }</code></td></tr>
+<tr><td><code>Color</code></td><td><code>public Color Color { get; set; }</code></td></tr>
+<tr><td><code>Id</code></td><td><code>public string Id { get; }</code></td></tr>
+<tr><td><code>LocalPosition</code></td><td><code>public Vector2 LocalPosition { get; }</code></td></tr>
+<tr><td><code>GlobalPosition</code></td><td><code>public Vector2 GlobalPosition { get; }</code></td></tr>
+<tr><td><code>GamepadCursorAreaRect</code></td><td><code>public Rectangle2D GamepadCursorAreaRect { get; }</code></td></tr>
+<tr><td><code>DoNotUseCustomScaleAndChildren</code></td><td><code>public bool DoNotUseCustomScaleAndChildren { get; set; }</code></td></tr>
+<tr><td><code>DoNotUseCustomScale</code></td><td><code>public bool DoNotUseCustomScale { get; set; }</code></td></tr>
+<tr><td><code>SuggestedWidth</code></td><td><code>public float SuggestedWidth { get; set; }</code></td></tr>
+<tr><td><code>SuggestedHeight</code></td><td><code>public float SuggestedHeight { get; set; }</code></td></tr>
+<tr><td><code>ScaledSuggestedWidth</code></td><td><code>public float ScaledSuggestedWidth { get; set; }</code></td></tr>
+<tr><td><code>ScaledSuggestedHeight</code></td><td><code>public float ScaledSuggestedHeight { get; set; }</code></td></tr>
+<tr><td><code>HoveredCursorState</code></td><td><code>public string HoveredCursorState { get; set; }</code></td></tr>
+<tr><td><code>AlternateClickEventHasSpecialEvent</code></td><td><code>public bool AlternateClickEventHasSpecialEvent { get; set; }</code></td></tr>
+<tr><td><code>PosOffset</code></td><td><code>public Vector2 PosOffset { get; set; }</code></td></tr>
+<tr><td><code>PositionXOffset</code></td><td><code>public float PositionXOffset { get; set; }</code></td></tr>
+<tr><td><code>PositionYOffset</code></td><td><code>public float PositionYOffset { get; set; }</code></td></tr>
+<tr><td><code>ScaledPositionXOffset</code></td><td><code>public float ScaledPositionXOffset { get; set; }</code></td></tr>
+<tr><td><code>ScaledPositionYOffset</code></td><td><code>public float ScaledPositionYOffset { get; set; }</code></td></tr>
+<tr><td><code>ParentWidget</code></td><td><code>public Widget ParentWidget { get; set; }</code></td></tr>
+<tr><td><code>Context</code></td><td><code>public UIContext Context { get; }</code></td></tr>
+<tr><td><code>MeasuredSize</code></td><td><code>public Vector2 MeasuredSize { get; }</code></td></tr>
+<tr><td><code>MarginTop</code></td><td><code>public float MarginTop { get; set; }</code></td></tr>
+<tr><td><code>MarginLeft</code></td><td><code>public float MarginLeft { get; set; }</code></td></tr>
+<tr><td><code>MarginBottom</code></td><td><code>public float MarginBottom { get; set; }</code></td></tr>
+<tr><td><code>MarginRight</code></td><td><code>public float MarginRight { get; set; }</code></td></tr>
+<tr><td><code>VerticalAlignment</code></td><td><code>public VerticalAlignment VerticalAlignment { get; set; }</code></td></tr>
+<tr><td><code>HorizontalAlignment</code></td><td><code>public HorizontalAlignment HorizontalAlignment { get; set; }</code></td></tr>
+<tr><td><code>ForcePixelPerfectRenderPlacement</code></td><td><code>public bool ForcePixelPerfectRenderPlacement { get; set; }</code></td></tr>
+<tr><td><code>UseGlobalTimeForAnimation</code></td><td><code>public bool UseGlobalTimeForAnimation { get; set; }</code></td></tr>
+<tr><td><code>UseSpriteDimensions</code></td><td><code>public bool UseSpriteDimensions { get; set; }</code></td></tr>
+<tr><td><code>WidthSizePolicy</code></td><td><code>public SizePolicy WidthSizePolicy { get; set; }</code></td></tr>
+<tr><td><code>HeightSizePolicy</code></td><td><code>public SizePolicy HeightSizePolicy { get; set; }</code></td></tr>
+<tr><td><code>AcceptDrag</code></td><td><code>public bool AcceptDrag { get; set; }</code></td></tr>
+<tr><td><code>AcceptDrop</code></td><td><code>public bool AcceptDrop { get; set; }</code></td></tr>
+<tr><td><code>HideOnDrag</code></td><td><code>public bool HideOnDrag { get; set; }</code></td></tr>
+<tr><td><code>DragWidget</code></td><td><code>public Widget DragWidget { get; set; }</code></td></tr>
+<tr><td><code>ClipContents</code></td><td><code>public bool ClipContents { get; set; }</code></td></tr>
+<tr><td><code>ClipHorizontalContent</code></td><td><code>public bool ClipHorizontalContent { get; set; }</code></td></tr>
+<tr><td><code>ClipVerticalContent</code></td><td><code>public bool ClipVerticalContent { get; set; }</code></td></tr>
+<tr><td><code>CircularClipEnabled</code></td><td><code>public bool CircularClipEnabled { get; set; }</code></td></tr>
+<tr><td><code>CircularClipRadius</code></td><td><code>public float CircularClipRadius { get; set; }</code></td></tr>
+<tr><td><code>IsCircularClipRadiusHalfOfWidth</code></td><td><code>public bool IsCircularClipRadiusHalfOfWidth { get; set; }</code></td></tr>
+<tr><td><code>IsCircularClipRadiusHalfOfHeight</code></td><td><code>public bool IsCircularClipRadiusHalfOfHeight { get; set; }</code></td></tr>
+<tr><td><code>CircularClipSmoothingRadius</code></td><td><code>public float CircularClipSmoothingRadius { get; set; }</code></td></tr>
+<tr><td><code>CircularClipXOffset</code></td><td><code>public float CircularClipXOffset { get; set; }</code></td></tr>
+<tr><td><code>CircularClipYOffset</code></td><td><code>public float CircularClipYOffset { get; set; }</code></td></tr>
+<tr><td><code>RenderLate</code></td><td><code>public bool RenderLate { get; set; }</code></td></tr>
+<tr><td><code>DoNotRenderIfNotFullyInsideScissor</code></td><td><code>public bool DoNotRenderIfNotFullyInsideScissor { get; set; }</code></td></tr>
+<tr><td><code>IsHovered</code></td><td><code>public bool IsHovered { get; }</code></td></tr>
+<tr><td><code>IsDisabled</code></td><td><code>public bool IsDisabled { get; set; }</code></td></tr>
+<tr><td><code>IsFocusable</code></td><td><code>public bool IsFocusable { get; set; }</code></td></tr>
+<tr><td><code>IsFocused</code></td><td><code>public bool IsFocused { get; }</code></td></tr>
+<tr><td><code>IsEnabled</code></td><td><code>public bool IsEnabled { get; set; }</code></td></tr>
+<tr><td><code>RestartAnimationFirstFrame</code></td><td><code>public bool RestartAnimationFirstFrame { get; set; }</code></td></tr>
+<tr><td><code>DoNotPassEventsToChildren</code></td><td><code>public bool DoNotPassEventsToChildren { get; set; }</code></td></tr>
+<tr><td><code>DoNotAcceptEvents</code></td><td><code>public bool DoNotAcceptEvents { get; set; }</code></td></tr>
+<tr><td><code>CanAcceptEvents</code></td><td><code>public bool CanAcceptEvents { get; set; }</code></td></tr>
+<tr><td><code>IsPressed</code></td><td><code>public bool IsPressed { get; set; }</code></td></tr>
+<tr><td><code>IsHidden</code></td><td><code>public bool IsHidden { get; set; }</code></td></tr>
+<tr><td><code>IsVisible</code></td><td><code>public bool IsVisible { get; set; }</code></td></tr>
+<tr><td><code>Sprite</code></td><td><code>public Sprite Sprite { get; set; }</code></td></tr>
+<tr><td><code>VisualDefinition</code></td><td><code>public VisualDefinition VisualDefinition { get; set; }</code></td></tr>
+<tr><td><code>CurrentState</code></td><td><code>public string CurrentState { get; set; }</code></td></tr>
+<tr><td><code>UpdateChildrenStates</code></td><td><code>public bool UpdateChildrenStates { get; set; }</code></td></tr>
+<tr><td><code>Tag</code></td><td><code>public object Tag { get; }</code></td></tr>
+<tr><td><code>LayoutImp</code></td><td><code>public ILayout LayoutImp { get; }</code></td></tr>
+<tr><td><code>DropEventHandledManually</code></td><td><code>public bool DropEventHandledManually { get; }</code></td></tr>
+<tr><td><code>ConnectedToRoot</code></td><td><code>public bool ConnectedToRoot { get; }</code></td></tr>
+<tr><td><code>MaxWidth</code></td><td><code>public float MaxWidth { get; set; }</code></td></tr>
+<tr><td><code>MaxHeight</code></td><td><code>public float MaxHeight { get; set; }</code></td></tr>
+<tr><td><code>MinWidth</code></td><td><code>public float MinWidth { get; set; }</code></td></tr>
+<tr><td><code>MinHeight</code></td><td><code>public float MinHeight { get; set; }</code></td></tr>
+<tr><td><code>DisableRender</code></td><td><code>public bool DisableRender { get; set; }</code></td></tr>
+<tr><td><code>ExtendCursorAreaTop</code></td><td><code>public float ExtendCursorAreaTop { get; set; }</code></td></tr>
+<tr><td><code>ExtendCursorAreaRight</code></td><td><code>public float ExtendCursorAreaRight { get; set; }</code></td></tr>
+<tr><td><code>ExtendCursorAreaBottom</code></td><td><code>public float ExtendCursorAreaBottom { get; set; }</code></td></tr>
+<tr><td><code>ExtendCursorAreaLeft</code></td><td><code>public float ExtendCursorAreaLeft { get; set; }</code></td></tr>
+<tr><td><code>CursorAreaXOffset</code></td><td><code>public float CursorAreaXOffset { get; set; }</code></td></tr>
+<tr><td><code>CursorAreaYOffset</code></td><td><code>public float CursorAreaYOffset { get; set; }</code></td></tr>
+<tr><td><code>AcceptNavigation</code></td><td><code>public bool AcceptNavigation { get; set; }</code></td></tr>
+<tr><td><code>DoNotAcceptNavigation</code></td><td><code>public bool DoNotAcceptNavigation { get; set; }</code></td></tr>
+<tr><td><code>IsUsingNavigation</code></td><td><code>public bool IsUsingNavigation { get; set; }</code></td></tr>
+<tr><td><code>UseSiblingIndexForNavigation</code></td><td><code>public bool UseSiblingIndexForNavigation { get; set; }</code></td></tr>
+<tr><td><code>GamepadNavigationIndex</code></td><td><code>public int GamepadNavigationIndex { get; set; }</code></td></tr>
+<tr><td><code>UsedNavigationMovements</code></td><td><code>public GamepadNavigationTypes UsedNavigationMovements { get; set; }</code></td></tr>
+<tr><td><code>EventFire</code></td><td><code>public event Action&lt;Widget, string, object &gt; EventFire { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="getallchildrenandthisrecursive">GetAllChildrenAndThisRecursive</h3>
+<p><code>public List&lt;Widget&gt; GetAllChildrenAndThisRecursive()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 all children and this recursive 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.GetAllChildrenAndThisRecursive();
+</code></pre>
+<h3 id="applyactiontoallchildren">ApplyActionToAllChildren</h3>
+<p><code>public void ApplyActionToAllChildren(Action&lt;Widget&gt; action)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 action to all children 的效果应用到当前对象。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.ApplyActionToAllChildren(action);
+</code></pre>
+<h3 id="applyactiontoallchildrenrecursive">ApplyActionToAllChildrenRecursive</h3>
+<p><code>public void ApplyActionToAllChildrenRecursive(Action&lt;Widget&gt; action)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 action to all children recursive 的效果应用到当前对象。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.ApplyActionToAllChildrenRecursive(action);
+</code></pre>
+<h3 id="getallchildrenrecursive">GetAllChildrenRecursive</h3>
+<p><code>public List&lt;Widget&gt; GetAllChildrenRecursive(Func&lt;Widget, bool&gt; predicate = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 all children recursive 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.GetAllChildrenRecursive(func&lt;Widget, false);
+</code></pre>
+<h3 id="getallparents">GetAllParents</h3>
+<p><code>public List&lt;Widget&gt; GetAllParents()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 all parents 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.GetAllParents();
+</code></pre>
+<h3 id="addcomponent">AddComponent</h3>
+<p><code>public void AddComponent(WidgetComponent component)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 component 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.AddComponent(component);
+</code></pre>
+<h3 id="addstate">AddState</h3>
+<p><code>public void AddState(string stateName)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 state 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.AddState(&quot;example&quot;);
+</code></pre>
+<h3 id="containsstate">ContainsState</h3>
+<p><code>public bool ContainsState(string stateName)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否含有state。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.ContainsState(&quot;example&quot;);
+</code></pre>
+<h3 id="setstate">SetState</h3>
+<p><code>public virtual void SetState(string stateName)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 state 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.SetState(&quot;example&quot;);
+</code></pre>
+<h3 id="findchild">FindChild</h3>
+<p><code>public Widget FindChild(BindingPath path)</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找满足条件的child。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.FindChild(path);
+</code></pre>
+<h3 id="findchild-1">FindChild</h3>
+<p><code>public Widget FindChild(string singlePathNode)</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找满足条件的child。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.FindChild(&quot;example&quot;);
+</code></pre>
+<h3 id="findchild-2">FindChild</h3>
+<p><code>public Widget FindChild(WidgetSearchDelegate widgetSearchDelegate)</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找满足条件的child。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.FindChild(widgetSearchDelegate);
+</code></pre>
+<h3 id="findchild-3">FindChild</h3>
+<p><code>public Widget FindChild(string id, bool includeAllChildren = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找满足条件的child。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.FindChild(&quot;example&quot;, false);
+</code></pre>
+<h3 id="getfirstinchildrenandthisrecursive">GetFirstInChildrenAndThisRecursive</h3>
+<p><code>public Widget GetFirstInChildrenAndThisRecursive(Func&lt;Widget, bool&gt; predicate)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 first in children and this recursive 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.GetFirstInChildrenAndThisRecursive(func&lt;Widget, false);
+</code></pre>
+<h3 id="getfirstinchildrenrecursive">GetFirstInChildrenRecursive</h3>
+<p><code>public Widget GetFirstInChildrenRecursive(Func&lt;Widget, bool&gt; predicate)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 first in children recursive 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.GetFirstInChildrenRecursive(func&lt;Widget, false);
+</code></pre>
+<h3 id="removeallchildren">RemoveAllChildren</h3>
+<p><code>public void RemoveAllChildren()</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 all children。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.RemoveAllChildren();
+</code></pre>
+<h3 id="updateanimationpropertiessubtask">UpdateAnimationPropertiesSubTask</h3>
+<p><code>public virtual void UpdateAnimationPropertiesSubTask(float alphaFactor)</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 animation properties sub task 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.UpdateAnimationPropertiesSubTask(0);
+</code></pre>
+<h3 id="measure">Measure</h3>
+<p><code>public void Measure(Vector2 measureSpec)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Measure 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.Measure(measureSpec);
+</code></pre>
+<h3 id="checkismychildrecursive">CheckIsMyChildRecursive</h3>
+<p><code>public bool CheckIsMyChildRecursive(Widget child)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查is my child recursive在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.CheckIsMyChildRecursive(child);
+</code></pre>
+<h3 id="addchild">AddChild</h3>
+<p><code>public void AddChild(Widget widget)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 child 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.AddChild(widget);
+</code></pre>
+<h3 id="addchildatindex">AddChildAtIndex</h3>
+<p><code>public void AddChildAtIndex(Widget widget, int index)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 child at index 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.AddChildAtIndex(widget, 0);
+</code></pre>
+<h3 id="swapchildren">SwapChildren</h3>
+<p><code>public void SwapChildren(Widget widget1, Widget widget2)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SwapChildren 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.SwapChildren(widget1, widget2);
+</code></pre>
+<h3 id="removechild">RemoveChild</h3>
+<p><code>public void RemoveChild(Widget widget)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 child。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.RemoveChild(widget);
+</code></pre>
+<h3 id="onbeforeremovedchild">OnBeforeRemovedChild</h3>
+<p><code>public virtual void OnBeforeRemovedChild(Widget widget)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 before removed child 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.OnBeforeRemovedChild(widget);
+</code></pre>
+<h3 id="haschild">HasChild</h3>
+<p><code>public bool HasChild(Widget widget)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 child。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.HasChild(widget);
+</code></pre>
+<h3 id="updatebrushes">UpdateBrushes</h3>
+<p><code>public virtual void UpdateBrushes(float dt)</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 brushes 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.UpdateBrushes(0);
+</code></pre>
+<h3 id="getchildindex">GetChildIndex</h3>
+<p><code>public int GetChildIndex(Widget child)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 child index 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.GetChildIndex(child);
+</code></pre>
+<h3 id="getvisiblechildindex">GetVisibleChildIndex</h3>
+<p><code>public int GetVisibleChildIndex(Widget child)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 visible child index 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.GetVisibleChildIndex(child);
+</code></pre>
+<h3 id="getfilterchildindex">GetFilterChildIndex</h3>
+<p><code>public int GetFilterChildIndex(Widget child, Func&lt;Widget, bool&gt; childrenFilter)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 filter child index 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.GetFilterChildIndex(child, func&lt;Widget, false);
+</code></pre>
+<h3 id="getchild">GetChild</h3>
+<p><code>public Widget GetChild(int i)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 child 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.GetChild(0);
+</code></pre>
+<h3 id="layout">Layout</h3>
+<p><code>public void Layout(float left, float bottom, float right, float top)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Layout 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.Layout(0, 0, 0, 0);
+</code></pre>
+<h3 id="handleinput">HandleInput</h3>
+<p><code>public virtual void HandleInput(IReadOnlyList&lt;int&gt; lastKeysPressed)</code></p>
+<p><strong>用途 / Purpose:</strong> 响应 input 事件，执行对应的处理逻辑。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.HandleInput(lastKeysPressed);
+</code></pre>
+<h3 id="ispointinsidemeasuredarea">IsPointInsideMeasuredArea</h3>
+<p><code>public bool IsPointInsideMeasuredArea(Vector2 p)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 point inside measured area 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.IsPointInsideMeasuredArea(p);
+</code></pre>
+<h3 id="ispointinsidegamepadcursorarea">IsPointInsideGamepadCursorArea</h3>
+<p><code>public bool IsPointInsideGamepadCursorArea(Vector2 p)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 point inside gamepad cursor area 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.IsPointInsideGamepadCursorArea(p);
+</code></pre>
+<h3 id="hide">Hide</h3>
+<p><code>public void Hide()</code></p>
+<p><strong>用途 / Purpose:</strong> 隐藏当前对象对应的界面或元素。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.Hide();
+</code></pre>
+<h3 id="show">Show</h3>
+<p><code>public void Show()</code></p>
+<p><strong>用途 / Purpose:</strong> 显示当前对象对应的界面或元素。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.Show();
+</code></pre>
+<h3 id="getlocalpoint">GetLocalPoint</h3>
+<p><code>public Vector2 GetLocalPoint(Vector2 globalPoint)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 local point 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.GetLocalPoint(globalPoint);
+</code></pre>
+<h3 id="setsiblingindex">SetSiblingIndex</h3>
+<p><code>public void SetSiblingIndex(int index, bool force = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 sibling index 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.SetSiblingIndex(0, false);
+</code></pre>
+<h3 id="getsiblingindex">GetSiblingIndex</h3>
+<p><code>public int GetSiblingIndex()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 sibling index 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.GetSiblingIndex();
+</code></pre>
+<h3 id="getvisiblesiblingindex">GetVisibleSiblingIndex</h3>
+<p><code>public int GetVisibleSiblingIndex()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 visible sibling index 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.GetVisibleSiblingIndex();
+</code></pre>
+<h3 id="render">Render</h3>
+<p><code>public void Render(TwoDimensionContext twoDimensionContext, TwoDimensionDrawContext drawContext)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Render 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.Render(twoDimensionContext, drawContext);
+</code></pre>
+<h3 id="isrecursivelyvisible">IsRecursivelyVisible</h3>
+<p><code>public bool IsRecursivelyVisible()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 recursively visible 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.IsRecursivelyVisible();
+</code></pre>
+<h3 id="tostring">ToString</h3>
+<p><code>public override string ToString()</code></p>
+<p><strong>用途 / Purpose:</strong> 返回当前对象的人类可读字符串表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+var result = widget.ToString();
+</code></pre>
+<h3 id="ongamepadnavigationfocusgain">OnGamepadNavigationFocusGain</h3>
+<p><code>public void OnGamepadNavigationFocusGain()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 gamepad navigation focus gain 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Widget 实例
+Widget widget = ...;
+widget.OnGamepadNavigationFocusGain();
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+Widget widget = ...;
+widget.GetAllChildrenAndThisRecursive();
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/zh/api/gui/">gui 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/zh/api/gui/DisabledAlphaChangerWidget/">&larr; DisabledAlphaChangerWidget</a>
+          
+          
+            <a rel="next" href="/v1.4.5/zh/api/gui/FontFactory/">FontFactory &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

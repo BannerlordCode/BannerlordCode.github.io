@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DefaultPerks</title>
+  <meta name="description" content="Auto-generated class reference for DefaultPerks.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/DefaultPerks/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/DefaultPerks/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">DefaultPerks</span>
+    </nav>
+  
+  <h1>DefaultPerks</h1>
+  <h1 id="defaultperks">DefaultPerks</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.CharacterDevelopment
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class DefaultPerks</code>
+<strong>Base:</strong> none
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/CharacterDevelopment/DefaultPerks.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>DefaultPerks</code> lives in <code>TaleWorlds.CampaignSystem.CharacterDevelopment</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.CampaignSystem.CharacterDevelopment</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>WrappedHandles</code></td><td><code>public static PerkObject WrappedHandles { get; }</code></td></tr>
+<tr><td><code>Basher</code></td><td><code>public static PerkObject Basher { get; }</code></td></tr>
+<tr><td><code>ToBeBlunt</code></td><td><code>public static PerkObject ToBeBlunt { get; }</code></td></tr>
+<tr><td><code>SwiftStrike</code></td><td><code>public static PerkObject SwiftStrike { get; }</code></td></tr>
+<tr><td><code>Cavalry</code></td><td><code>public static PerkObject Cavalry { get; }</code></td></tr>
+<tr><td><code>ShieldBearer</code></td><td><code>public static PerkObject ShieldBearer { get; }</code></td></tr>
+<tr><td><code>Trainer</code></td><td><code>public static PerkObject Trainer { get; }</code></td></tr>
+<tr><td><code>Duelist</code></td><td><code>public static PerkObject Duelist { get; }</code></td></tr>
+<tr><td><code>ShieldWall</code></td><td><code>public static PerkObject ShieldWall { get; }</code></td></tr>
+<tr><td><code>ArrowCatcher</code></td><td><code>public static PerkObject ArrowCatcher { get; }</code></td></tr>
+<tr><td><code>MilitaryTradition</code></td><td><code>public static PerkObject MilitaryTradition { get; }</code></td></tr>
+<tr><td><code>CorpsACorps</code></td><td><code>public static PerkObject CorpsACorps { get; }</code></td></tr>
+<tr><td><code>StandUnited</code></td><td><code>public static PerkObject StandUnited { get; }</code></td></tr>
+<tr><td><code>LeadByExample</code></td><td><code>public static PerkObject LeadByExample { get; }</code></td></tr>
+<tr><td><code>SteelCoreShields</code></td><td><code>public static PerkObject SteelCoreShields { get; }</code></td></tr>
+<tr><td><code>FleetOfFoot</code></td><td><code>public static PerkObject FleetOfFoot { get; }</code></td></tr>
+<tr><td><code>DeadlyPurpose</code></td><td><code>public static PerkObject DeadlyPurpose { get; }</code></td></tr>
+<tr><td><code>UnwaveringDefense</code></td><td><code>public static PerkObject UnwaveringDefense { get; }</code></td></tr>
+<tr><td><code>Prestige</code></td><td><code>public static PerkObject Prestige { get; }</code></td></tr>
+<tr><td><code>WayOfTheSword</code></td><td><code>public static PerkObject WayOfTheSword { get; }</code></td></tr>
+<tr><td><code>ChinkInTheArmor</code></td><td><code>public static PerkObject ChinkInTheArmor { get; }</code></td></tr>
+<tr><td><code>StrongGrip</code></td><td><code>public static PerkObject StrongGrip { get; }</code></td></tr>
+<tr><td><code>WoodChopper</code></td><td><code>public static PerkObject WoodChopper { get; }</code></td></tr>
+<tr><td><code>OnTheEdge</code></td><td><code>public static PerkObject OnTheEdge { get; }</code></td></tr>
+<tr><td><code>HeadBasher</code></td><td><code>public static PerkObject HeadBasher { get; }</code></td></tr>
+<tr><td><code>ShowOfStrength</code></td><td><code>public static PerkObject ShowOfStrength { get; }</code></td></tr>
+<tr><td><code>BaptisedInBlood</code></td><td><code>public static PerkObject BaptisedInBlood { get; }</code></td></tr>
+<tr><td><code>BeastSlayer</code></td><td><code>public static PerkObject BeastSlayer { get; }</code></td></tr>
+<tr><td><code>ShieldBreaker</code></td><td><code>public static PerkObject ShieldBreaker { get; }</code></td></tr>
+<tr><td><code>Confidence</code></td><td><code>public static PerkObject Confidence { get; }</code></td></tr>
+<tr><td><code>Berserker</code></td><td><code>public static PerkObject Berserker { get; }</code></td></tr>
+<tr><td><code>ProjectileDeflection</code></td><td><code>public static PerkObject ProjectileDeflection { get; }</code></td></tr>
+<tr><td><code>Terror</code></td><td><code>public static PerkObject Terror { get; }</code></td></tr>
+<tr><td><code>Hope</code></td><td><code>public static PerkObject Hope { get; }</code></td></tr>
+<tr><td><code>RecklessCharge</code></td><td><code>public static PerkObject RecklessCharge { get; }</code></td></tr>
+<tr><td><code>ThickHides</code></td><td><code>public static PerkObject ThickHides { get; }</code></td></tr>
+<tr><td><code>BladeMaster</code></td><td><code>public static PerkObject BladeMaster { get; }</code></td></tr>
+<tr><td><code>Vandal</code></td><td><code>public static PerkObject Vandal { get; }</code></td></tr>
+<tr><td><code>WayOfTheGreatAxe</code></td><td><code>public static PerkObject WayOfTheGreatAxe { get; }</code></td></tr>
+<tr><td><code>Pikeman</code></td><td><code>public static PerkObject Pikeman { get; }</code></td></tr>
+<tr><td><code>Cavalry</code></td><td><code>public static PerkObject Cavalry { get; }</code></td></tr>
+<tr><td><code>Braced</code></td><td><code>public static PerkObject Braced { get; }</code></td></tr>
+<tr><td><code>KeepAtBay</code></td><td><code>public static PerkObject KeepAtBay { get; }</code></td></tr>
+<tr><td><code>SwiftSwing</code></td><td><code>public static PerkObject SwiftSwing { get; }</code></td></tr>
+<tr><td><code>CleanThrust</code></td><td><code>public static PerkObject CleanThrust { get; }</code></td></tr>
+<tr><td><code>Footwork</code></td><td><code>public static PerkObject Footwork { get; }</code></td></tr>
+<tr><td><code>HardKnock</code></td><td><code>public static PerkObject HardKnock { get; }</code></td></tr>
+<tr><td><code>SteedKiller</code></td><td><code>public static PerkObject SteedKiller { get; }</code></td></tr>
+<tr><td><code>Lancer</code></td><td><code>public static PerkObject Lancer { get; }</code></td></tr>
+<tr><td><code>Skewer</code></td><td><code>public static PerkObject Skewer { get; }</code></td></tr>
+<tr><td><code>Guards</code></td><td><code>public static PerkObject Guards { get; }</code></td></tr>
+<tr><td><code>StandardBearer</code></td><td><code>public static PerkObject StandardBearer { get; }</code></td></tr>
+<tr><td><code>Phalanx</code></td><td><code>public static PerkObject Phalanx { get; }</code></td></tr>
+<tr><td><code>HardyFrontline</code></td><td><code>public static PerkObject HardyFrontline { get; }</code></td></tr>
+<tr><td><code>Drills</code></td><td><code>public static PerkObject Drills { get; }</code></td></tr>
+<tr><td><code>SureFooted</code></td><td><code>public static PerkObject SureFooted { get; }</code></td></tr>
+<tr><td><code>UnstoppableForce</code></td><td><code>public static PerkObject UnstoppableForce { get; }</code></td></tr>
+<tr><td><code>CounterWeight</code></td><td><code>public static PerkObject CounterWeight { get; }</code></td></tr>
+<tr><td><code>SharpenTheTip</code></td><td><code>public static PerkObject SharpenTheTip { get; }</code></td></tr>
+<tr><td><code>WayOfTheSpear</code></td><td><code>public static PerkObject WayOfTheSpear { get; }</code></td></tr>
+<tr><td><code>BowControl</code></td><td><code>public static PerkObject BowControl { get; }</code></td></tr>
+<tr><td><code>DeadAim</code></td><td><code>public static PerkObject DeadAim { get; }</code></td></tr>
+<tr><td><code>Bodkin</code></td><td><code>public static PerkObject Bodkin { get; }</code></td></tr>
+<tr><td><code>RangersSwiftness</code></td><td><code>public static PerkObject RangersSwiftness { get; }</code></td></tr>
+<tr><td><code>RapidFire</code></td><td><code>public static PerkObject RapidFire { get; }</code></td></tr>
+<tr><td><code>QuickAdjustments</code></td><td><code>public static PerkObject QuickAdjustments { get; }</code></td></tr>
+<tr><td><code>MerryMen</code></td><td><code>public static PerkObject MerryMen { get; }</code></td></tr>
+<tr><td><code>MountedArchery</code></td><td><code>public static PerkObject MountedArchery { get; }</code></td></tr>
+<tr><td><code>Trainer</code></td><td><code>public static PerkObject Trainer { get; }</code></td></tr>
+<tr><td><code>StrongBows</code></td><td><code>public static PerkObject StrongBows { get; }</code></td></tr>
+<tr><td><code>Discipline</code></td><td><code>public static PerkObject Discipline { get; }</code></td></tr>
+<tr><td><code>HunterClan</code></td><td><code>public static PerkObject HunterClan { get; }</code></td></tr>
+<tr><td><code>SkirmishPhaseMaster</code></td><td><code>public static PerkObject SkirmishPhaseMaster { get; }</code></td></tr>
+<tr><td><code>EagleEye</code></td><td><code>public static PerkObject EagleEye { get; }</code></td></tr>
+<tr><td><code>BullsEye</code></td><td><code>public static PerkObject BullsEye { get; }</code></td></tr>
+<tr><td><code>RenownedArcher</code></td><td><code>public static PerkObject RenownedArcher { get; }</code></td></tr>
+<tr><td><code>HorseMaster</code></td><td><code>public static PerkObject HorseMaster { get; }</code></td></tr>
+<tr><td><code>DeepQuivers</code></td><td><code>public static PerkObject DeepQuivers { get; }</code></td></tr>
+<tr><td><code>QuickDraw</code></td><td><code>public static PerkObject QuickDraw { get; }</code></td></tr>
+<tr><td><code>NockingPoint</code></td><td><code>public static PerkObject NockingPoint { get; }</code></td></tr>
+<tr><td><code>Deadshot</code></td><td><code>public static PerkObject Deadshot { get; }</code></td></tr>
+<tr><td><code>Piercer</code></td><td><code>public static PerkObject Piercer { get; }</code></td></tr>
+<tr><td><code>Marksmen</code></td><td><code>public static PerkObject Marksmen { get; }</code></td></tr>
+<tr><td><code>Unhorser</code></td><td><code>public static PerkObject Unhorser { get; }</code></td></tr>
+<tr><td><code>WindWinder</code></td><td><code>public static PerkObject WindWinder { get; }</code></td></tr>
+<tr><td><code>DonkeysSwiftness</code></td><td><code>public static PerkObject DonkeysSwiftness { get; }</code></td></tr>
+<tr><td><code>Sheriff</code></td><td><code>public static PerkObject Sheriff { get; }</code></td></tr>
+<tr><td><code>PeasantLeader</code></td><td><code>public static PerkObject PeasantLeader { get; }</code></td></tr>
+<tr><td><code>RenownMarksmen</code></td><td><code>public static PerkObject RenownMarksmen { get; }</code></td></tr>
+<tr><td><code>Fletcher</code></td><td><code>public static PerkObject Fletcher { get; }</code></td></tr>
+<tr><td><code>Puncture</code></td><td><code>public static PerkObject Puncture { get; }</code></td></tr>
+<tr><td><code>LooseAndMove</code></td><td><code>public static PerkObject LooseAndMove { get; }</code></td></tr>
+<tr><td><code>DeftHands</code></td><td><code>public static PerkObject DeftHands { get; }</code></td></tr>
+<tr><td><code>CounterFire</code></td><td><code>public static PerkObject CounterFire { get; }</code></td></tr>
+<tr><td><code>MountedCrossbowman</code></td><td><code>public static PerkObject MountedCrossbowman { get; }</code></td></tr>
+<tr><td><code>Steady</code></td><td><code>public static PerkObject Steady { get; }</code></td></tr>
+<tr><td><code>LongShots</code></td><td><code>public static PerkObject LongShots { get; }</code></td></tr>
+<tr><td><code>HammerBolts</code></td><td><code>public static PerkObject HammerBolts { get; }</code></td></tr>
+<tr><td><code>Pavise</code></td><td><code>public static PerkObject Pavise { get; }</code></td></tr>
+<tr><td><code>Terror</code></td><td><code>public static PerkObject Terror { get; }</code></td></tr>
+<tr><td><code>PickedShots</code></td><td><code>public static PerkObject PickedShots { get; }</code></td></tr>
+<tr><td><code>MightyPull</code></td><td><code>public static PerkObject MightyPull { get; }</code></td></tr>
+<tr><td><code>QuickDraw</code></td><td><code>public static PerkObject QuickDraw { get; }</code></td></tr>
+<tr><td><code>ShieldBreaker</code></td><td><code>public static PerkObject ShieldBreaker { get; }</code></td></tr>
+<tr><td><code>Hunter</code></td><td><code>public static PerkObject Hunter { get; }</code></td></tr>
+<tr><td><code>FlexibleFighter</code></td><td><code>public static PerkObject FlexibleFighter { get; }</code></td></tr>
+<tr><td><code>MountedSkirmisher</code></td><td><code>public static PerkObject MountedSkirmisher { get; }</code></td></tr>
+<tr><td><code>PerfectTechnique</code></td><td><code>public static PerkObject PerfectTechnique { get; }</code></td></tr>
+<tr><td><code>RunningThrow</code></td><td><code>public static PerkObject RunningThrow { get; }</code></td></tr>
+<tr><td><code>KnockOff</code></td><td><code>public static PerkObject KnockOff { get; }</code></td></tr>
+<tr><td><code>WellPrepared</code></td><td><code>public static PerkObject WellPrepared { get; }</code></td></tr>
+<tr><td><code>Skirmisher</code></td><td><code>public static PerkObject Skirmisher { get; }</code></td></tr>
+<tr><td><code>Focus</code></td><td><code>public static PerkObject Focus { get; }</code></td></tr>
+<tr><td><code>LastHit</code></td><td><code>public static PerkObject LastHit { get; }</code></td></tr>
+<tr><td><code>HeadHunter</code></td><td><code>public static PerkObject HeadHunter { get; }</code></td></tr>
+<tr><td><code>SlingingCompetitions</code></td><td><code>public static PerkObject SlingingCompetitions { get; }</code></td></tr>
+<tr><td><code>Saddlebags</code></td><td><code>public static PerkObject Saddlebags { get; }</code></td></tr>
+<tr><td><code>Splinters</code></td><td><code>public static PerkObject Splinters { get; }</code></td></tr>
+<tr><td><code>Resourceful</code></td><td><code>public static PerkObject Resourceful { get; }</code></td></tr>
+<tr><td><code>LongReach</code></td><td><code>public static PerkObject LongReach { get; }</code></td></tr>
+<tr><td><code>WeakSpot</code></td><td><code>public static PerkObject WeakSpot { get; }</code></td></tr>
+<tr><td><code>Impale</code></td><td><code>public static PerkObject Impale { get; }</code></td></tr>
+<tr><td><code>UnstoppableForce</code></td><td><code>public static PerkObject UnstoppableForce { get; }</code></td></tr>
+<tr><td><code>FullSpeed</code></td><td><code>public static PerkObject FullSpeed { get; }</code></td></tr>
+<tr><td><code>NimbleSteed</code></td><td><code>public static PerkObject NimbleSteed { get; }</code></td></tr>
+<tr><td><code>WellStraped</code></td><td><code>public static PerkObject WellStraped { get; }</code></td></tr>
+<tr><td><code>Veterinary</code></td><td><code>public static PerkObject Veterinary { get; }</code></td></tr>
+<tr><td><code>NomadicTraditions</code></td><td><code>public static PerkObject NomadicTraditions { get; }</code></td></tr>
+<tr><td><code>DeeperSacks</code></td><td><code>public static PerkObject DeeperSacks { get; }</code></td></tr>
+<tr><td><code>Sagittarius</code></td><td><code>public static PerkObject Sagittarius { get; }</code></td></tr>
+<tr><td><code>SweepingWind</code></td><td><code>public static PerkObject SweepingWind { get; }</code></td></tr>
+<tr><td><code>ReliefForce</code></td><td><code>public static PerkObject ReliefForce { get; }</code></td></tr>
+<tr><td><code>MountedWarrior</code></td><td><code>public static PerkObject MountedWarrior { get; }</code></td></tr>
+<tr><td><code>HorseArcher</code></td><td><code>public static PerkObject HorseArcher { get; }</code></td></tr>
+<tr><td><code>Shepherd</code></td><td><code>public static PerkObject Shepherd { get; }</code></td></tr>
+<tr><td><code>Breeder</code></td><td><code>public static PerkObject Breeder { get; }</code></td></tr>
+<tr><td><code>ThunderousCharge</code></td><td><code>public static PerkObject ThunderousCharge { get; }</code></td></tr>
+<tr><td><code>AnnoyingBuzz</code></td><td><code>public static PerkObject AnnoyingBuzz { get; }</code></td></tr>
+<tr><td><code>MountedPatrols</code></td><td><code>public static PerkObject MountedPatrols { get; }</code></td></tr>
+<tr><td><code>CavalryTactics</code></td><td><code>public static PerkObject CavalryTactics { get; }</code></td></tr>
+<tr><td><code>DauntlessSteed</code></td><td><code>public static PerkObject DauntlessSteed { get; }</code></td></tr>
+<tr><td><code>ToughSteed</code></td><td><code>public static PerkObject ToughSteed { get; }</code></td></tr>
+<tr><td><code>TheWayOfTheSaddle</code></td><td><code>public static PerkObject TheWayOfTheSaddle { get; }</code></td></tr>
+<tr><td><code>MorningExercise</code></td><td><code>public static PerkObject MorningExercise { get; }</code></td></tr>
+<tr><td><code>WellBuilt</code></td><td><code>public static PerkObject WellBuilt { get; }</code></td></tr>
+<tr><td><code>Fury</code></td><td><code>public static PerkObject Fury { get; }</code></td></tr>
+<tr><td><code>FormFittingArmor</code></td><td><code>public static PerkObject FormFittingArmor { get; }</code></td></tr>
+<tr><td><code>ImposingStature</code></td><td><code>public static PerkObject ImposingStature { get; }</code></td></tr>
+<tr><td><code>Stamina</code></td><td><code>public static PerkObject Stamina { get; }</code></td></tr>
+<tr><td><code>Sprint</code></td><td><code>public static PerkObject Sprint { get; }</code></td></tr>
+<tr><td><code>Powerful</code></td><td><code>public static PerkObject Powerful { get; }</code></td></tr>
+<tr><td><code>SurgingBlow</code></td><td><code>public static PerkObject SurgingBlow { get; }</code></td></tr>
+<tr><td><code>Braced</code></td><td><code>public static PerkObject Braced { get; }</code></td></tr>
+<tr><td><code>WalkItOff</code></td><td><code>public static PerkObject WalkItOff { get; }</code></td></tr>
+<tr><td><code>AGoodDaysRest</code></td><td><code>public static PerkObject AGoodDaysRest { get; }</code></td></tr>
+<tr><td><code>Durable</code></td><td><code>public static PerkObject Durable { get; }</code></td></tr>
+<tr><td><code>Energetic</code></td><td><code>public static PerkObject Energetic { get; }</code></td></tr>
+<tr><td><code>Steady</code></td><td><code>public static PerkObject Steady { get; }</code></td></tr>
+<tr><td><code>Strong</code></td><td><code>public static PerkObject Strong { get; }</code></td></tr>
+<tr><td><code>StrongLegs</code></td><td><code>public static PerkObject StrongLegs { get; }</code></td></tr>
+<tr><td><code>StrongArms</code></td><td><code>public static PerkObject StrongArms { get; }</code></td></tr>
+<tr><td><code>Spartan</code></td><td><code>public static PerkObject Spartan { get; }</code></td></tr>
+<tr><td><code>IgnorePain</code></td><td><code>public static PerkObject IgnorePain { get; }</code></td></tr>
+<tr><td><code>MightyBlow</code></td><td><code>public static PerkObject MightyBlow { get; }</code></td></tr>
+<tr><td><code>IronMaker</code></td><td><code>public static PerkObject IronMaker { get; }</code></td></tr>
+<tr><td><code>CharcoalMaker</code></td><td><code>public static PerkObject CharcoalMaker { get; }</code></td></tr>
+<tr><td><code>SteelMaker</code></td><td><code>public static PerkObject SteelMaker { get; }</code></td></tr>
+<tr><td><code>SteelMaker2</code></td><td><code>public static PerkObject SteelMaker2 { get; }</code></td></tr>
+<tr><td><code>SteelMaker3</code></td><td><code>public static PerkObject SteelMaker3 { get; }</code></td></tr>
+<tr><td><code>CuriousSmelter</code></td><td><code>public static PerkObject CuriousSmelter { get; }</code></td></tr>
+<tr><td><code>CuriousSmith</code></td><td><code>public static PerkObject CuriousSmith { get; }</code></td></tr>
+<tr><td><code>PracticalRefiner</code></td><td><code>public static PerkObject PracticalRefiner { get; }</code></td></tr>
+<tr><td><code>PracticalSmelter</code></td><td><code>public static PerkObject PracticalSmelter { get; }</code></td></tr>
+<tr><td><code>PracticalSmith</code></td><td><code>public static PerkObject PracticalSmith { get; }</code></td></tr>
+<tr><td><code>ArtisanSmith</code></td><td><code>public static PerkObject ArtisanSmith { get; }</code></td></tr>
+<tr><td><code>ExperiencedSmith</code></td><td><code>public static PerkObject ExperiencedSmith { get; }</code></td></tr>
+<tr><td><code>MasterSmith</code></td><td><code>public static PerkObject MasterSmith { get; }</code></td></tr>
+<tr><td><code>LegendarySmith</code></td><td><code>public static PerkObject LegendarySmith { get; }</code></td></tr>
+<tr><td><code>VigorousSmith</code></td><td><code>public static PerkObject VigorousSmith { get; }</code></td></tr>
+<tr><td><code>StrongSmith</code></td><td><code>public static PerkObject StrongSmith { get; }</code></td></tr>
+<tr><td><code>EnduringSmith</code></td><td><code>public static PerkObject EnduringSmith { get; }</code></td></tr>
+<tr><td><code>WeaponMasterSmith</code></td><td><code>public static PerkObject WeaponMasterSmith { get; }</code></td></tr>
+<tr><td><code>SharpenedEdge</code></td><td><code>public static PerkObject SharpenedEdge { get; }</code></td></tr>
+<tr><td><code>SharpenedTip</code></td><td><code>public static PerkObject SharpenedTip { get; }</code></td></tr>
+<tr><td><code>DayTraveler</code></td><td><code>public static PerkObject DayTraveler { get; }</code></td></tr>
+<tr><td><code>Pathfinder</code></td><td><code>public static PerkObject Pathfinder { get; }</code></td></tr>
+<tr><td><code>NightRunner</code></td><td><code>public static PerkObject NightRunner { get; }</code></td></tr>
+<tr><td><code>WaterDiviner</code></td><td><code>public static PerkObject WaterDiviner { get; }</code></td></tr>
+<tr><td><code>ForestKin</code></td><td><code>public static PerkObject ForestKin { get; }</code></td></tr>
+<tr><td><code>DesertBorn</code></td><td><code>public static PerkObject DesertBorn { get; }</code></td></tr>
+<tr><td><code>ForcedMarch</code></td><td><code>public static PerkObject ForcedMarch { get; }</code></td></tr>
+<tr><td><code>Unburdened</code></td><td><code>public static PerkObject Unburdened { get; }</code></td></tr>
+<tr><td><code>Tracker</code></td><td><code>public static PerkObject Tracker { get; }</code></td></tr>
+<tr><td><code>Ranger</code></td><td><code>public static PerkObject Ranger { get; }</code></td></tr>
+<tr><td><code>MountedScouts</code></td><td><code>public static PerkObject MountedScouts { get; }</code></td></tr>
+<tr><td><code>Patrols</code></td><td><code>public static PerkObject Patrols { get; }</code></td></tr>
+<tr><td><code>Foragers</code></td><td><code>public static PerkObject Foragers { get; }</code></td></tr>
+<tr><td><code>BeastWhisperer</code></td><td><code>public static PerkObject BeastWhisperer { get; }</code></td></tr>
+<tr><td><code>VillageNetwork</code></td><td><code>public static PerkObject VillageNetwork { get; }</code></td></tr>
+<tr><td><code>RumourNetwork</code></td><td><code>public static PerkObject RumourNetwork { get; }</code></td></tr>
+<tr><td><code>VantagePoint</code></td><td><code>public static PerkObject VantagePoint { get; }</code></td></tr>
+<tr><td><code>KeenSight</code></td><td><code>public static PerkObject KeenSight { get; }</code></td></tr>
+<tr><td><code>Vanguard</code></td><td><code>public static PerkObject Vanguard { get; }</code></td></tr>
+<tr><td><code>Rearguard</code></td><td><code>public static PerkObject Rearguard { get; }</code></td></tr>
+<tr><td><code>UncannyInsight</code></td><td><code>public static PerkObject UncannyInsight { get; }</code></td></tr>
+<tr><td><code>TightFormations</code></td><td><code>public static PerkObject TightFormations { get; }</code></td></tr>
+<tr><td><code>LooseFormations</code></td><td><code>public static PerkObject LooseFormations { get; }</code></td></tr>
+<tr><td><code>ExtendedSkirmish</code></td><td><code>public static PerkObject ExtendedSkirmish { get; }</code></td></tr>
+<tr><td><code>DecisiveBattle</code></td><td><code>public static PerkObject DecisiveBattle { get; }</code></td></tr>
+<tr><td><code>SmallUnitTactics</code></td><td><code>public static PerkObject SmallUnitTactics { get; }</code></td></tr>
+<tr><td><code>HordeLeader</code></td><td><code>public static PerkObject HordeLeader { get; }</code></td></tr>
+<tr><td><code>LawKeeper</code></td><td><code>public static PerkObject LawKeeper { get; }</code></td></tr>
+<tr><td><code>Coaching</code></td><td><code>public static PerkObject Coaching { get; }</code></td></tr>
+<tr><td><code>SwiftRegroup</code></td><td><code>public static PerkObject SwiftRegroup { get; }</code></td></tr>
+<tr><td><code>Improviser</code></td><td><code>public static PerkObject Improviser { get; }</code></td></tr>
+<tr><td><code>OnTheMarch</code></td><td><code>public static PerkObject OnTheMarch { get; }</code></td></tr>
+<tr><td><code>CallToArms</code></td><td><code>public static PerkObject CallToArms { get; }</code></td></tr>
+<tr><td><code>PickThemOfTheWalls</code></td><td><code>public static PerkObject PickThemOfTheWalls { get; }</code></td></tr>
+<tr><td><code>MakeThemPay</code></td><td><code>public static PerkObject MakeThemPay { get; }</code></td></tr>
+<tr><td><code>EliteReserves</code></td><td><code>public static PerkObject EliteReserves { get; }</code></td></tr>
+<tr><td><code>Encirclement</code></td><td><code>public static PerkObject Encirclement { get; }</code></td></tr>
+<tr><td><code>PreBattleManeuvers</code></td><td><code>public static PerkObject PreBattleManeuvers { get; }</code></td></tr>
+<tr><td><code>Besieged</code></td><td><code>public static PerkObject Besieged { get; }</code></td></tr>
+<tr><td><code>Counteroffensive</code></td><td><code>public static PerkObject Counteroffensive { get; }</code></td></tr>
+<tr><td><code>Gensdarmes</code></td><td><code>public static PerkObject Gensdarmes { get; }</code></td></tr>
+<tr><td><code>TacticalMastery</code></td><td><code>public static PerkObject TacticalMastery { get; }</code></td></tr>
+<tr><td><code>NoRestForTheWicked</code></td><td><code>public static PerkObject NoRestForTheWicked { get; }</code></td></tr>
+<tr><td><code>SweetTalker</code></td><td><code>public static PerkObject SweetTalker { get; }</code></td></tr>
+<tr><td><code>TwoFaced</code></td><td><code>public static PerkObject TwoFaced { get; }</code></td></tr>
+<tr><td><code>DeepPockets</code></td><td><code>public static PerkObject DeepPockets { get; }</code></td></tr>
+<tr><td><code>InBestLight</code></td><td><code>public static PerkObject InBestLight { get; }</code></td></tr>
+<tr><td><code>KnowHow</code></td><td><code>public static PerkObject KnowHow { get; }</code></td></tr>
+<tr><td><code>Promises</code></td><td><code>public static PerkObject Promises { get; }</code></td></tr>
+<tr><td><code>Manhunter</code></td><td><code>public static PerkObject Manhunter { get; }</code></td></tr>
+<tr><td><code>Scarface</code></td><td><code>public static PerkObject Scarface { get; }</code></td></tr>
+<tr><td><code>WhiteLies</code></td><td><code>public static PerkObject WhiteLies { get; }</code></td></tr>
+<tr><td><code>SmugglerConnections</code></td><td><code>public static PerkObject SmugglerConnections { get; }</code></td></tr>
+<tr><td><code>PartnersInCrime</code></td><td><code>public static PerkObject PartnersInCrime { get; }</code></td></tr>
+<tr><td><code>OneOfTheFamily</code></td><td><code>public static PerkObject OneOfTheFamily { get; }</code></td></tr>
+<tr><td><code>SaltTheEarth</code></td><td><code>public static PerkObject SaltTheEarth { get; }</code></td></tr>
+<tr><td><code>Carver</code></td><td><code>public static PerkObject Carver { get; }</code></td></tr>
+<tr><td><code>RansomBroker</code></td><td><code>public static PerkObject RansomBroker { get; }</code></td></tr>
+<tr><td><code>ArmsDealer</code></td><td><code>public static PerkObject ArmsDealer { get; }</code></td></tr>
+<tr><td><code>DirtyFighting</code></td><td><code>public static PerkObject DirtyFighting { get; }</code></td></tr>
+<tr><td><code>DashAndSlash</code></td><td><code>public static PerkObject DashAndSlash { get; }</code></td></tr>
+<tr><td><code>FleetFooted</code></td><td><code>public static PerkObject FleetFooted { get; }</code></td></tr>
+<tr><td><code>RogueExtraordinaire</code></td><td><code>public static PerkObject RogueExtraordinaire { get; }</code></td></tr>
+<tr><td><code>Virile</code></td><td><code>public static PerkObject Virile { get; }</code></td></tr>
+<tr><td><code>SelfPromoter</code></td><td><code>public static PerkObject SelfPromoter { get; }</code></td></tr>
+<tr><td><code>Oratory</code></td><td><code>public static PerkObject Oratory { get; }</code></td></tr>
+<tr><td><code>Warlord</code></td><td><code>public static PerkObject Warlord { get; }</code></td></tr>
+<tr><td><code>ForgivableGrievances</code></td><td><code>public static PerkObject ForgivableGrievances { get; }</code></td></tr>
+<tr><td><code>MeaningfulFavors</code></td><td><code>public static PerkObject MeaningfulFavors { get; }</code></td></tr>
+<tr><td><code>InBloom</code></td><td><code>public static PerkObject InBloom { get; }</code></td></tr>
+<tr><td><code>YoungAndRespectful</code></td><td><code>public static PerkObject YoungAndRespectful { get; }</code></td></tr>
+<tr><td><code>Firebrand</code></td><td><code>public static PerkObject Firebrand { get; }</code></td></tr>
+<tr><td><code>FlexibleEthics</code></td><td><code>public static PerkObject FlexibleEthics { get; }</code></td></tr>
+<tr><td><code>EffortForThePeople</code></td><td><code>public static PerkObject EffortForThePeople { get; }</code></td></tr>
+<tr><td><code>SlickNegotiator</code></td><td><code>public static PerkObject SlickNegotiator { get; }</code></td></tr>
+<tr><td><code>GoodNatured</code></td><td><code>public static PerkObject GoodNatured { get; }</code></td></tr>
+<tr><td><code>Tribute</code></td><td><code>public static PerkObject Tribute { get; }</code></td></tr>
+<tr><td><code>MoralLeader</code></td><td><code>public static PerkObject MoralLeader { get; }</code></td></tr>
+<tr><td><code>NaturalLeader</code></td><td><code>public static PerkObject NaturalLeader { get; }</code></td></tr>
+<tr><td><code>PublicSpeaker</code></td><td><code>public static PerkObject PublicSpeaker { get; }</code></td></tr>
+<tr><td><code>Parade</code></td><td><code>public static PerkObject Parade { get; }</code></td></tr>
+<tr><td><code>Camaraderie</code></td><td><code>public static PerkObject Camaraderie { get; }</code></td></tr>
+<tr><td><code>ImmortalCharm</code></td><td><code>public static PerkObject ImmortalCharm { get; }</code></td></tr>
+<tr><td><code>CombatTips</code></td><td><code>public static PerkObject CombatTips { get; }</code></td></tr>
+<tr><td><code>RaiseTheMeek</code></td><td><code>public static PerkObject RaiseTheMeek { get; }</code></td></tr>
+<tr><td><code>FerventAttacker</code></td><td><code>public static PerkObject FerventAttacker { get; }</code></td></tr>
+<tr><td><code>StoutDefender</code></td><td><code>public static PerkObject StoutDefender { get; }</code></td></tr>
+<tr><td><code>Authority</code></td><td><code>public static PerkObject Authority { get; }</code></td></tr>
+<tr><td><code>HeroicLeader</code></td><td><code>public static PerkObject HeroicLeader { get; }</code></td></tr>
+<tr><td><code>LoyaltyAndHonor</code></td><td><code>public static PerkObject LoyaltyAndHonor { get; }</code></td></tr>
+<tr><td><code>Presence</code></td><td><code>public static PerkObject Presence { get; }</code></td></tr>
+<tr><td><code>FamousCommander</code></td><td><code>public static PerkObject FamousCommander { get; }</code></td></tr>
+<tr><td><code>LeaderOfMasses</code></td><td><code>public static PerkObject LeaderOfMasses { get; }</code></td></tr>
+<tr><td><code>VeteransRespect</code></td><td><code>public static PerkObject VeteransRespect { get; }</code></td></tr>
+<tr><td><code>CitizenMilitia</code></td><td><code>public static PerkObject CitizenMilitia { get; }</code></td></tr>
+<tr><td><code>InspiringLeader</code></td><td><code>public static PerkObject InspiringLeader { get; }</code></td></tr>
+<tr><td><code>UpliftingSpirit</code></td><td><code>public static PerkObject UpliftingSpirit { get; }</code></td></tr>
+<tr><td><code>MakeADifference</code></td><td><code>public static PerkObject MakeADifference { get; }</code></td></tr>
+<tr><td><code>LeadByExample</code></td><td><code>public static PerkObject LeadByExample { get; }</code></td></tr>
+<tr><td><code>TrustedCommander</code></td><td><code>public static PerkObject TrustedCommander { get; }</code></td></tr>
+<tr><td><code>GreatLeader</code></td><td><code>public static PerkObject GreatLeader { get; }</code></td></tr>
+<tr><td><code>WePledgeOurSwords</code></td><td><code>public static PerkObject WePledgeOurSwords { get; }</code></td></tr>
+<tr><td><code>TalentMagnet</code></td><td><code>public static PerkObject TalentMagnet { get; }</code></td></tr>
+<tr><td><code>UltimateLeader</code></td><td><code>public static PerkObject UltimateLeader { get; }</code></td></tr>
+<tr><td><code>Appraiser</code></td><td><code>public static PerkObject Appraiser { get; }</code></td></tr>
+<tr><td><code>WholeSeller</code></td><td><code>public static PerkObject WholeSeller { get; }</code></td></tr>
+<tr><td><code>CaravanMaster</code></td><td><code>public static PerkObject CaravanMaster { get; }</code></td></tr>
+<tr><td><code>MarketDealer</code></td><td><code>public static PerkObject MarketDealer { get; }</code></td></tr>
+<tr><td><code>TravelingRumors</code></td><td><code>public static PerkObject TravelingRumors { get; }</code></td></tr>
+<tr><td><code>LocalConnection</code></td><td><code>public static PerkObject LocalConnection { get; }</code></td></tr>
+<tr><td><code>DistributedGoods</code></td><td><code>public static PerkObject DistributedGoods { get; }</code></td></tr>
+<tr><td><code>Tollgates</code></td><td><code>public static PerkObject Tollgates { get; }</code></td></tr>
+<tr><td><code>ArtisanCommunity</code></td><td><code>public static PerkObject ArtisanCommunity { get; }</code></td></tr>
+<tr><td><code>GreatInvestor</code></td><td><code>public static PerkObject GreatInvestor { get; }</code></td></tr>
+<tr><td><code>MercenaryConnections</code></td><td><code>public static PerkObject MercenaryConnections { get; }</code></td></tr>
+<tr><td><code>ContentTrades</code></td><td><code>public static PerkObject ContentTrades { get; }</code></td></tr>
+<tr><td><code>InsurancePlans</code></td><td><code>public static PerkObject InsurancePlans { get; }</code></td></tr>
+<tr><td><code>RapidDevelopment</code></td><td><code>public static PerkObject RapidDevelopment { get; }</code></td></tr>
+<tr><td><code>GranaryAccountant</code></td><td><code>public static PerkObject GranaryAccountant { get; }</code></td></tr>
+<tr><td><code>TradeyardForeman</code></td><td><code>public static PerkObject TradeyardForeman { get; }</code></td></tr>
+<tr><td><code>SwordForBarter</code></td><td><code>public static PerkObject SwordForBarter { get; }</code></td></tr>
+<tr><td><code>SelfMadeMan</code></td><td><code>public static PerkObject SelfMadeMan { get; }</code></td></tr>
+<tr><td><code>SilverTongue</code></td><td><code>public static PerkObject SilverTongue { get; }</code></td></tr>
+<tr><td><code>SpringOfGold</code></td><td><code>public static PerkObject SpringOfGold { get; }</code></td></tr>
+<tr><td><code>ManOfMeans</code></td><td><code>public static PerkObject ManOfMeans { get; }</code></td></tr>
+<tr><td><code>TrickleDown</code></td><td><code>public static PerkObject TrickleDown { get; }</code></td></tr>
+<tr><td><code>EverythingHasAPrice</code></td><td><code>public static PerkObject EverythingHasAPrice { get; }</code></td></tr>
+<tr><td><code>WarriorsDiet</code></td><td><code>public static PerkObject WarriorsDiet { get; }</code></td></tr>
+<tr><td><code>Frugal</code></td><td><code>public static PerkObject Frugal { get; }</code></td></tr>
+<tr><td><code>SevenVeterans</code></td><td><code>public static PerkObject SevenVeterans { get; }</code></td></tr>
+<tr><td><code>DrillSergant</code></td><td><code>public static PerkObject DrillSergant { get; }</code></td></tr>
+<tr><td><code>Sweatshops</code></td><td><code>public static PerkObject Sweatshops { get; }</code></td></tr>
+<tr><td><code>StiffUpperLip</code></td><td><code>public static PerkObject StiffUpperLip { get; }</code></td></tr>
+<tr><td><code>PaidInPromise</code></td><td><code>public static PerkObject PaidInPromise { get; }</code></td></tr>
+<tr><td><code>EfficientCampaigner</code></td><td><code>public static PerkObject EfficientCampaigner { get; }</code></td></tr>
+<tr><td><code>GivingHands</code></td><td><code>public static PerkObject GivingHands { get; }</code></td></tr>
+<tr><td><code>Logistician</code></td><td><code>public static PerkObject Logistician { get; }</code></td></tr>
+<tr><td><code>Relocation</code></td><td><code>public static PerkObject Relocation { get; }</code></td></tr>
+<tr><td><code>AidCorps</code></td><td><code>public static PerkObject AidCorps { get; }</code></td></tr>
+<tr><td><code>Gourmet</code></td><td><code>public static PerkObject Gourmet { get; }</code></td></tr>
+<tr><td><code>SoundReserves</code></td><td><code>public static PerkObject SoundReserves { get; }</code></td></tr>
+<tr><td><code>ForcedLabor</code></td><td><code>public static PerkObject ForcedLabor { get; }</code></td></tr>
+<tr><td><code>Contractors</code></td><td><code>public static PerkObject Contractors { get; }</code></td></tr>
+<tr><td><code>ArenicosMules</code></td><td><code>public static PerkObject ArenicosMules { get; }</code></td></tr>
+<tr><td><code>ArenicosHorses</code></td><td><code>public static PerkObject ArenicosHorses { get; }</code></td></tr>
+<tr><td><code>MasterOfPlanning</code></td><td><code>public static PerkObject MasterOfPlanning { get; }</code></td></tr>
+<tr><td><code>MasterOfWarcraft</code></td><td><code>public static PerkObject MasterOfWarcraft { get; }</code></td></tr>
+<tr><td><code>PriceOfLoyalty</code></td><td><code>public static PerkObject PriceOfLoyalty { get; }</code></td></tr>
+<tr><td><code>SelfMedication</code></td><td><code>public static PerkObject SelfMedication { get; }</code></td></tr>
+<tr><td><code>PreventiveMedicine</code></td><td><code>public static PerkObject PreventiveMedicine { get; }</code></td></tr>
+<tr><td><code>TriageTent</code></td><td><code>public static PerkObject TriageTent { get; }</code></td></tr>
+<tr><td><code>WalkItOff</code></td><td><code>public static PerkObject WalkItOff { get; }</code></td></tr>
+<tr><td><code>Sledges</code></td><td><code>public static PerkObject Sledges { get; }</code></td></tr>
+<tr><td><code>DoctorsOath</code></td><td><code>public static PerkObject DoctorsOath { get; }</code></td></tr>
+<tr><td><code>BestMedicine</code></td><td><code>public static PerkObject BestMedicine { get; }</code></td></tr>
+<tr><td><code>GoodLogdings</code></td><td><code>public static PerkObject GoodLogdings { get; }</code></td></tr>
+<tr><td><code>SiegeMedic</code></td><td><code>public static PerkObject SiegeMedic { get; }</code></td></tr>
+<tr><td><code>Veterinarian</code></td><td><code>public static PerkObject Veterinarian { get; }</code></td></tr>
+<tr><td><code>PristineStreets</code></td><td><code>public static PerkObject PristineStreets { get; }</code></td></tr>
+<tr><td><code>BushDoctor</code></td><td><code>public static PerkObject BushDoctor { get; }</code></td></tr>
+<tr><td><code>PerfectHealth</code></td><td><code>public static PerkObject PerfectHealth { get; }</code></td></tr>
+<tr><td><code>HealthAdvise</code></td><td><code>public static PerkObject HealthAdvise { get; }</code></td></tr>
+<tr><td><code>PhysicianOfPeople</code></td><td><code>public static PerkObject PhysicianOfPeople { get; }</code></td></tr>
+<tr><td><code>CleanInfrastructure</code></td><td><code>public static PerkObject CleanInfrastructure { get; }</code></td></tr>
+<tr><td><code>CheatDeath</code></td><td><code>public static PerkObject CheatDeath { get; }</code></td></tr>
+<tr><td><code>FortitudeTonic</code></td><td><code>public static PerkObject FortitudeTonic { get; }</code></td></tr>
+<tr><td><code>HelpingHands</code></td><td><code>public static PerkObject HelpingHands { get; }</code></td></tr>
+<tr><td><code>BattleHardened</code></td><td><code>public static PerkObject BattleHardened { get; }</code></td></tr>
+<tr><td><code>MinisterOfHealth</code></td><td><code>public static PerkObject MinisterOfHealth { get; }</code></td></tr>
+<tr><td><code>Scaffolds</code></td><td><code>public static PerkObject Scaffolds { get; }</code></td></tr>
+<tr><td><code>TorsionEngines</code></td><td><code>public static PerkObject TorsionEngines { get; }</code></td></tr>
+<tr><td><code>SiegeWorks</code></td><td><code>public static PerkObject SiegeWorks { get; }</code></td></tr>
+<tr><td><code>DungeonArchitect</code></td><td><code>public static PerkObject DungeonArchitect { get; }</code></td></tr>
+<tr><td><code>Carpenters</code></td><td><code>public static PerkObject Carpenters { get; }</code></td></tr>
+<tr><td><code>MilitaryPlanner</code></td><td><code>public static PerkObject MilitaryPlanner { get; }</code></td></tr>
+<tr><td><code>WallBreaker</code></td><td><code>public static PerkObject WallBreaker { get; }</code></td></tr>
+<tr><td><code>DreadfulSieger</code></td><td><code>public static PerkObject DreadfulSieger { get; }</code></td></tr>
+<tr><td><code>Salvager</code></td><td><code>public static PerkObject Salvager { get; }</code></td></tr>
+<tr><td><code>Foreman</code></td><td><code>public static PerkObject Foreman { get; }</code></td></tr>
+<tr><td><code>Stonecutters</code></td><td><code>public static PerkObject Stonecutters { get; }</code></td></tr>
+<tr><td><code>SiegeEngineer</code></td><td><code>public static PerkObject SiegeEngineer { get; }</code></td></tr>
+<tr><td><code>CampBuilding</code></td><td><code>public static PerkObject CampBuilding { get; }</code></td></tr>
+<tr><td><code>Battlements</code></td><td><code>public static PerkObject Battlements { get; }</code></td></tr>
+<tr><td><code>EngineeringGuilds</code></td><td><code>public static PerkObject EngineeringGuilds { get; }</code></td></tr>
+<tr><td><code>Apprenticeship</code></td><td><code>public static PerkObject Apprenticeship { get; }</code></td></tr>
+<tr><td><code>Metallurgy</code></td><td><code>public static PerkObject Metallurgy { get; }</code></td></tr>
+<tr><td><code>ImprovedTools</code></td><td><code>public static PerkObject ImprovedTools { get; }</code></td></tr>
+<tr><td><code>Clockwork</code></td><td><code>public static PerkObject Clockwork { get; }</code></td></tr>
+<tr><td><code>ArchitecturalCommisions</code></td><td><code>public static PerkObject ArchitecturalCommisions { get; }</code></td></tr>
+<tr><td><code>Masterwork</code></td><td><code>public static PerkObject Masterwork { get; }</code></td></tr>
+</tbody></table>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Obtain an instance from the relevant subsystem API
+DefaultPerks instance = ...;
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/EditableTextWidget/">&larr; EditableTextWidget</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/EncyclopediaDwellingVM/">EncyclopediaDwellingVM &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

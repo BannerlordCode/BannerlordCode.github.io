@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Village</title>
+  <meta name="description" content="村庄组件：挂在 Settlement 上，记录村庄归属哪个城镇（Bound）、卖货去哪个城镇（TradeBound）、炉火繁荣度（Hearth）与每日产出；不要自己创建，也不要直接改 Hearth&#x2F;Bound 引用。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/Village/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/Village/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/Village/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/Village/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/Village/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/Village/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Village</span>
+    </nav>
+  
+  <h1>Village</h1>
+  <h1 id="village">Village</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Settlements<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public class Village : SettlementComponent</code><br />
+<strong>Base:</strong> <code>SettlementComponent</code><br />
+<strong>源文件路径:</strong> <code>TaleWorlds.CampaignSystem/Settlements/Village.cs</code>（1.3.15；API 已对照 1.4.5 交叉校验）</p>
+<h2 id="yi-ju-hua-zhi-ze">一句话职责</h2>
+<p><code>Village</code> 是某个村庄据点 <code>Settlement</code> 身上的<strong>经济组件</strong>：它告诉你这个村庄归哪个城镇管、把货卖到哪个城镇、炉火（人口繁荣）还剩多少、每天产什么，以及当前是正常/被劫掠/被强征/废弃中的哪种状态。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把它想成 <strong><code>Settlement</code> 的「村庄经济卡片」</strong>，而不是一个独立实体：</p>
+<ul>
+<li><strong>它不是独立对象，挂在 Settlement 上。</strong> 拿到村庄的入口永远是 <code>someSettlement.Village</code>——每个村庄型 <code>Settlement</code> 有且只有一个 <code>Village</code> 组件。你永远不会自己 <code>new Village()</code>；它由引擎在加载/初始化时随 <code>Settlement</code> 一起建立并 <code>Deserialize</code>（从 XML 读 <code>hearth</code>、<code>bound</code>、<code>village_type</code>）。</li>
+<li><strong>纯战役层数据，不进战斗场景。</strong> <code>Village</code> 只活在战役地图（Campaign）里，代表地图上的村庄据点；进入战斗后才有 <code>PartyBase</code>/<code>Agent</code>，但那是另一回事。</li>
+<li><strong>生命周期：</strong> <code>OnInit()</code>（被设为 <code>Normal</code> 并给 1000 金）→ 每个战役日由 <code>Campaign</code> 的每日 tick 循环统一调用 <code>DailyTick()</code>（累加 <code>Hearth</code>、<code>Militia</code>，金币封顶 1000）→ 被袭击/强征/洗劫时通过 <code>ChangeVillageStateAction.Apply*</code> 改变 <code>VillageState</code>，并触发 <code>CampaignEventDispatcher</code> 事件。</li>
+<li><strong>谁持有/枚举：</strong> 由所属 <code>Settlement</code> 持有；全图所有村庄用 <code>Village.All</code>（<code>= Campaign.Current.AllVillages</code>）枚举。</li>
+</ul>
+<h2 id="he-shi-yong-he-shi-bu-yao-yong">何时用 / 何时不要用</h2>
+<p><strong>用它的场景：</strong></p>
+<ul>
+<li>读村庄经济/产出/状态：<code>Hearth</code>、<code>GetHearthLevel()</code>、<code>VillageType.Productions</code>、<code>IsProducing(...)</code>、<code>GetWarehouseCapacity()</code>。</li>
+<li>在对话或任务里把村庄和城镇关联起来：<code>Bound</code>（归属城镇）、<code>TradeBound</code>（卖货城镇）。</li>
+<li>监听村庄状态变化：订阅 <code>OnVillageBecomeNormal</code> / <code>OnVillageBeingRaided</code> / <code>OnVillageLooted</code> 等事件。</li>
+</ul>
+<p><strong>不要用 / 正确替代：</strong></p>
+<ul>
+<li>❌ 自己 <code>new Village()</code> 或运行时替换 <code>VillageType</code> / <code>Bound</code> / <code>TradeBound</code> 引用——这些是序列化字段，加载时由 <code>MBObjectManager</code> 重建，乱改会坏档且破坏城镇↔村庄双向登记表。</li>
+<li>❌ 手动把 <code>Hearth</code> 或 <code>Gold</code> 设成任意值。炉火的「每天变化量」来自 <code>SettlementProsperityModel</code>；增减金币请走 <code>ChangeGold(int)</code>（下限 0）。想影响炉火应替换/扩展模型或触发对应事件，而不是硬写字段。</li>
+<li>❌ 手动调 <code>DailyTick()</code>。它由 <code>Campaign</code> 的每日 tick 统一驱动（<code>Campaign.cs</code> 中对每个 <code>settlement.Village.DailyTick()</code>），自己调会重复结算。</li>
+<li>❌ 直接给 <code>VillageState</code> 赋值来切换状态。应改用 <code>ChangeVillageStateAction.ApplyBySettingToNormal / ApplyBySettingToBeingRaided / ApplyBySettingToLooted</code> 等，这样才会正确维护登记表并广播事件。</li>
+</ul>
+<h2 id="yi-lai-tu-ke-dian-ji">依赖图（可点击）</h2>
+<pre><code>                Settlement (持有组件, .Village)
+                     │  上游
+       ┌─────────────┼───────────────────────────────┐
+       ▼             ▼                                ▼
+    Town           VillageType                    MBObjectManager
+ (Bound 通常是   (决定 Productions)            (Deserialize 时重建引用)
+  Town 组件)                                          │
+       │                                             │ 存档重建
+       └──────────────┬──────────────────────────────┘
+                      ▼  本对象 Village
+   ┌─────────── 经济/产出/状态  ───────────────────────────┐
+   │ Hearth ← SettlementProsperityModel                    │
+   │ 产出  ← VillageProductionCalculatorModel              │
+   │ Militia ← SettlementMilitiaModel                      │
+   │ MarketData (库存) ← VillageMarketData                  │
+   │ VillagerPartyComponent (村民商队)                     │
+   └───────────────────────────────────────────────────────┘
+                      │  下游 / 副作用
+       ┌──────────────┼───────────────────────────────┐
+       ▼              ▼                               ▼
+  VillageGoodProduction   VillageHeal             VillageHostileAction
+   CampaignBehavior        CampaignBehavior         CampaignBehavior
+  (食物/产出)            (炉火恢复)              (袭击/强征)
+       │              VillageTradeBound           Raid/Force* EventComponents
+       │              CampaignBehavior                  │
+       ▼                                               ▼
+  CampaignEventDispatcher.OnVillage*            ChangeVillageStateAction /
+   (BecomeNormal/BeingRaided/Looted)            IncreaseSettlementHealthAction
+</code></pre>
+<ul>
+<li><strong>上游（它依赖谁）：</strong><a href="../Settlement/">Settlement</a>（持有组件，<code>settlement.Village</code>）、<a href="../../campaign-ext/Town/">Town</a>（<code>Bound</code> 通常是 Town，其 <code>Town</code> 组件负责登记 trade-bound）、<a href="../../campaign-ext/VillageType/">VillageType</a>（决定生产列表）、<a href="../../campaign-ext/MBObjectManager/">MBObjectManager</a>（反序列化时 <code>ReadObjectReferenceFromXml</code> 重建引用）。</li>
+<li><strong>下游（谁消费它）：</strong><a href="../../campaign-ext/SettlementProsperityModel/">SettlementProsperityModel</a>（<code>HearthChange</code>）、<a href="../../campaign-ext/VillageProductionCalculatorModel/">VillageProductionCalculatorModel</a>（<code>GetWarehouseCapacity</code>、产出）、<a href="../../campaign-ext/SettlementMilitiaModel/">SettlementMilitiaModel</a>（<code>MilitiaChange</code>）、<a href="../../campaign-ext/VillageMarketData/">VillageMarketData</a>（库存/市场）、<a href="../../campaign-ext/VillagerPartyComponent/">VillagerPartyComponent</a>（村民商队）。</li>
+<li><strong>相关事件 / Action / Behavior：</strong> <code>CampaignEventDispatcher.OnVillageBecomeNormal / OnVillageBeingRaided / OnVillageLooted</code>；<a href="../../campaign-ext/ChangeVillageStateAction/">ChangeVillageStateAction</a> 与 <code>IncreaseSettlementHealthAction</code>；<code>VillageGoodProductionCampaignBehavior</code>、<code>VillageHealCampaignBehavior</code>、<code>VillageHostileActionCampaignBehavior</code>、<code>VillageTradeBoundCampaignBehavior</code>、<code>VillagerCampaignBehavior</code>。</li>
+<li><strong>存档点：</strong> <code>[SaveableField]</code>/<code>[SaveableProperty]</code>（<code>Hearth</code>、<code>TradeTaxAccumulated</code>、<code>_villageState</code>、<code>_bound</code>、<code>_marketData</code>）、<code>[CachedData]</code>（<code>VillagerPartyComponent</code>）。</li>
+</ul>
+<h2 id="feng-xian-yu-beng-kui-bian-jie-bi-du">风险与崩溃边界（必读）</h2>
+<ol>
+<li><strong>错误阶段直接改 <code>Hearth</code> / <code>Gold</code>。</strong> <code>DailyTick()</code> 只在战役「每日 tick」跑，里面会 <code>Hearth += HearthChange</code> 并在炉火等级跨越阈值时调用 <code>Settlement.Party.SetLevelMaskIsDirty()</code>。如果你在 HourlyTick、事件回调或别处直接写 <code>Hearth</code>，会与 DailyTick 的累加冲突/被覆盖，还可能跳过等级掩码更新（影响该村庄部队的等级显示）。想改炉火应改 <code>SettlementProsperityModel</code> 或等 DailyTick。</li>
+<li><strong>跨存档缓存引用导致悬空/坏档。</strong> <code>Bound</code> / <code>TradeBound</code> / <code>VillageType</code> 在读档时由 <code>MBObjectManager</code> 通过 <code>ReadObjectReferenceFromXml</code> 按 <code>stringId</code> 重建对象图。不要把你自己的模块状态（静态字段、非 <code>[Saveable]</code> 容器）里长期持有 <code>Village</code> / <code>Settlement</code> 实例；读档后应通过 <code>Campaign.Current</code> 现取或按 <code>stringId</code> 重新查询，避免引用指向已被丢弃的旧对象。</li>
+<li><strong>直接写 <code>Hearth</code> 而非经模型/事件。</strong> <code>Hearth</code> 是 <code>[SaveableProperty]</code>，但「为什么变」由 <code>SettlementProsperityModel.CalculateHearthChange</code> 决定。硬写字段会绕过解释链，且 DailyTick 次日还会再 <code>+= HearthChange</code>，造成不可预期的叠加；<code>Hearth &lt; 10</code> 还会被夹回 10。</li>
+<li><strong><code>Bound</code> / <code>TradeBound</code> 引用失同步。</strong> <code>Bound</code> 的 setter 会同步调用 <code>Settlement.AddBoundVillageInternal</code> / <code>RemoveBoundVillageInternal</code>；<code>TradeBound</code> 的 setter（仅当 <code>Bound</code> 不是 Town 时生效）会维护 <code>Town.SetTradeBoundVillageInternal</code> / <code>RemoveTradeBoundVillageInternal</code> 双登记表。绕过属性直接改私有字段（反射）或手动改 <code>Bound</code> 而不触发 setter，会让城镇↔村庄绑定、税收、产出、村民商队全部失同步。注意：<strong>当 <code>Bound</code> 本身是 Town 时，<code>TradeBound</code> 直接返回 <code>Bound</code></strong>，单独设置 trade-bound 无效。</li>
+</ol>
+<h2 id="cheng-yuan-shuo-ming-an-zhu-ti-fen-zu">成员说明（按主题分组）</h2>
+<h3 id="gui-shu-yu-jing-ji">归属与经济</h3>
+<ul>
+<li><strong><code>Settlement Bound { get; }</code></strong> — 该村庄归属的城镇/城堡。<code>MapFaction</code> 直接取自它。引用是私有的，只在加载时由 XML 的 <code>bound</code> 引用设定；设置它会维护双向登记表。外部不要改。</li>
+<li><strong><code>Settlement TradeBound { get; set; }</code></strong> — 卖货/贸易的城镇。若 <code>Bound</code> 本身就是 Town，则直接返回 <code>Bound</code>；否则返回独立的 <code>_tradeBound</code>。setter 仅当 <code>Bound</code> 不是 Town 时生效，并维护 <code>Town</code> 的 trade-bound 登记表。<code>GetItemPrice</code> 用它取城镇市价。</li>
+<li><strong><code>IFaction MapFaction { get; }</code></strong> — 等于 <code>Bound.MapFaction</code>，村庄的外交归属（用于判断敌我）。</li>
+<li><strong><code>int Gold</code>（继承自 <code>SettlementComponent</code>，仅 <code>ChangeGold</code> 可改）</strong> — 村庄金库。<code>OnInit</code> 给 1000；<code>DailyTick</code> 里若 <code>&gt; 1000</code> 会回落到 1000。增减走 <code>ChangeGold(int)</code>（下限 0）。</li>
+<li><strong><code>VillageMarketData MarketData { get; }</code></strong> — 村庄市场/库存数据，<code>GetWarehouseCapacity</code> 与贸易定价会用到。</li>
+<li><strong><code>int TradeTaxAccumulated</code>（<code>[SaveableProperty]</code>）</strong> — 累计的贸易税。</li>
+<li><strong><code>float LastDemandSatisfiedTime</code>（<code>[SaveableProperty]</code>，私有 set）</strong> — 上次满足领主需求的时间，领主需求/任务事件会读它。</li>
+</ul>
+<h3 id="zhuang-tai-yu-zhan-dou">状态与战斗</h3>
+<ul>
+<li><strong><code>VillageStates VillageState { get; set; }</code></strong> — <code>Normal</code> / <code>BeingRaided</code> / <code>ForcedForVolunteers</code> / <code>ForcedForSupplies</code> / <code>Looted</code>。值变化时会广播 <code>CampaignEventDispatcher</code> 事件（<code>OnVillageBecomeNormal</code> / <code>OnVillageBeingRaided</code> / <code>OnVillageLooted</code>）。切换状态请用 <code>ChangeVillageStateAction.Apply*</code>。</li>
+<li><strong><code>bool IsDeserted { get; }</code></strong> — <code>_villageState == Looted</code>。废弃村庄（炉火归零后无法自行恢复）。</li>
+<li><strong><code>IEnumerable&lt;PartyBase&gt; GetDefenderParties(MapEvent.BattleTypes)</code> / <code>PartyBase GetNextDefenderParty(ref int, MapEvent.BattleTypes)</code></strong> — 村庄被袭击/强征时返回防守方（村庄自身 <code>Party</code> + 同阵营非商队部队；<code>Raid</code>/<code>Force</code> 类战斗额外纳入民兵与村民）。这是 <code>MapEvent</code> 侧调用，普通 mod 一般只读状态、不直接调。</li>
+</ul>
+<h3 id="sheng-chan-yu-fan-rong">生产与繁荣</h3>
+<ul>
+<li><strong><code>VillageType VillageType</code></strong> — 村庄类型（公开字段），决定 <code>Productions</code> 列表。加载时由 XML 的 <code>village_type</code> 引用设定；不要运行时替换（会破坏产出与反序列化一致性）。</li>
+<li><strong><code>bool IsProducing(ItemObject item)</code></strong> — 判断 <code>VillageType.Productions</code> 是否包含该物品。</li>
+<li><strong><code>int GetWarehouseCapacity()</code></strong> — 仓库容量 =（每日食物产出 + 各产物每日产出）× 5，向上取整、至少 1。用于库存上限。</li>
+<li><strong><code>float Hearth</code>（<code>[SaveableProperty]</code>）</strong> — 炉火/繁荣度。<code>DailyTick</code> 累加 <code>HearthChange</code>，<code>&lt; 10</code> 夹到 10。派生的 <code>HearthLevel</code> / <code>ProsperityLevel</code> 都来自它。</li>
+<li><strong><code>float HearthChange { get; }</code></strong> — 今天的炉火变化量 = <code>SettlementProsperityModel.CalculateHearthChange(this).ResultNumber</code>。只读查询。</li>
+<li><strong><code>float Militia</code> / <code>float MilitiaChange</code> / <code>ExplainedNumber MilitiaChangeExplanation</code></strong> — 民兵数量及其每日变化（来自 <code>SettlementMilitiaModel</code>）。<code>MilitiaChange</code> 在 <code>DailyTick</code> 里加到 <code>Settlement.Militia</code>。</li>
+<li><strong><code>ExplainedNumber HearthChangeExplanation</code></strong> — 带文字解释的炉火变化明细，调试/UI 用。</li>
+<li><strong><code>int GetHearthLevel()</code></strong> — <code>Hearth ≥ 600</code> → 2，<code>≥ 200</code> → 1，否则 0（对应常量 <code>MidHearthThreshold = 600</code>、<code>LowHearthThreshold = 200</code>）。</li>
+<li><strong><code>ProsperityLevel GetProsperityLevel()</code></strong> — 由炉火等级映射到 <code>High</code> / <code>Mid</code> / <code>Low</code>。</li>
+<li><strong><code>VillagerPartyComponent VillagerPartyComponent</code>（<code>[CachedData]</code>）</strong> — 该村庄对应的村民商队组件，由 <code>VillagerCampaignBehavior</code> 驱动。</li>
+<li><strong><code>static MBReadOnlyList&lt;Village&gt; All</code></strong> — <code>= Campaign.Current.AllVillages</code>，全图村庄枚举入口。</li>
+</ul>
+<h2 id="zui-xiao-zhen-shi-shi-li">最小真实示例</h2>
+<h3 id="shi-li-1-cong-dang-qian-ju-dian-na-dao-village-du-qu-gui-shu-yu-chan-chu">示例 1：从当前据点拿到 Village，读取归属与产出</h3>
+<pre><code data-lang="csharp">// 例如在对话/任务脚本里，当前所在据点就是村庄
+Settlement settlement = Settlement.CurrentSettlement;
+if (settlement != null &amp;&amp; settlement.Village != null)
+{
+    Village village = settlement.Village;
+
+    Settlement boundTown = village.Bound;       // 归属城镇（可能是 Town 或 Castle）
+    Settlement tradeTown = village.TradeBound;   // 卖货城镇；若 Bound 是 Town 则等于 Bound
+
+    // 遍历该村庄真实生产哪些物品（来自 VillageType.Productions）
+    foreach (var production in village.VillageType.Productions)
+    {
+        ItemObject producedItem = production.Item1;
+        float weight = production.Item2;
+        InformationManager.DisplayMessage(
+            new InformationMessage($&quot;{village.Name} 产: {producedItem.Name} x{weight}&quot;));
+    }
+
+    bool producesFirst = village.IsProducing(village.VillageType.Productions[0].Item1);
+    int warehouseCap = village.GetWarehouseCapacity();
+    int level = village.GetHearthLevel();        // 0 / 1 / 2
+
+    InformationManager.DisplayMessage(
+        new InformationMessage(
+            $&quot;{village.Name}: 归属={boundTown.Name}, 炉火={village.Hearth}, 等级={level}, 仓库={warehouseCap}&quot;));
+}
+</code></pre>
+<h3 id="shi-li-2-bian-li-suo-you-cun-zhuang-bing-tong-ji-fei-qi-cun-zhuang-yong-zheng-gui-action-hui-fu-zheng-chang">示例 2：遍历所有村庄并统计废弃村庄；用正规 Action 恢复正常</h3>
+<pre><code data-lang="csharp">int lootedCount = 0;
+foreach (Village v in Village.All)
+{
+    if (v.VillageState == Village.VillageStates.Looted || v.IsDeserted)
+    {
+        lootedCount++;
+    }
+}
+
+// 想让某个村庄恢复正常：走 ChangeVillageStateAction，会正确维护登记表并广播事件
+// （不要直接 village.VillageState = Village.VillageStates.Normal）
+Settlement target = Settlement.CurrentSettlement; // 实际应取目标村庄的 Settlement
+if (target != null &amp;&amp; target.Village != null)
+{
+    ChangeVillageStateAction.ApplyBySettingToNormal(target);
+    // 之后 target.Village.VillageState == Village.VillageStates.Normal
+}
+</code></pre>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li><strong>1.3.15（本页）↔ 1.4.5（权威源对照）：</strong> 公开成员签名基本一致。差异仅在底层模型调用与 <code>GetItemPrice</code> 的额外参数——1.3.15 的 <code>HearthChange</code> / <code>MilitiaChange</code> / <code>HearthChangeExplanation</code> 用 <code>CalculateHearthChange(this, false)</code> / <code>CalculateHearthChange(this, true)</code>（bool 重载），1.4.5 改为具名参数 <code>includeDescriptions:</code>；<code>GetItemPrice</code> 在 1.3.15 末尾多一个 <code>null</code> 参数。读写这些属性对 mod 透明。</li>
+<li><strong>1.3.0：</strong> 源目录布局为 <code>TaleWorlds.CampaignSystem/Settlements/Village.cs</code>（未拆到 <code>Bannerlord.Source/bin</code> 下），API 表面同上，可同样使用 <code>settlement.Village</code>、<code>ChangeVillageStateAction</code>。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../Settlement/">Settlement</a> — 持有 Village 组件的父据点（↑ Parent）</li>
+<li><a href="../../campaign-ext/Town/">Town</a> — Bound 通常指向的城镇组件（↔ Sibling 同级组件）</li>
+<li><a href="../../campaign-ext/VillageType/">VillageType</a> — 决定村庄生产列表的上游类型</li>
+<li><a href="../Clan/">Clan</a> — 村庄归属城镇背后的家族</li>
+<li><a href="../Campaign/">Campaign</a> — <code>Campaign.Current.AllVillages</code> 与全局状态入口</li>
+<li><a href="../../campaign-ext/MBObjectManager/">MBObjectManager</a> — 反序列化时重建 Bound/VillageType 引用</li>
+<li><a href="../../campaign-ext/ChangeVillageStateAction/">ChangeVillageStateAction</a> — 切换村庄状态的正规 Action</li>
+<li><a href="../../campaign-ext/SettlementProsperityModel/">SettlementProsperityModel</a> — 炉火变化量的来源模型</li>
+<li><a href="../../campaign-ext/VillageProductionCalculatorModel/">VillageProductionCalculatorModel</a> — 产出与仓库容量模型</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign/PeriodicTicker/">&larr; PeriodicTicker</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign/Pregnancy/">Pregnancy &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

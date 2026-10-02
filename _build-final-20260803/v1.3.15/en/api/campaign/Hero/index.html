@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hero</title>
+  <meta name="description" content="The central campaign-world character object: the player, lords, companions, and clan members, including data access and behavioral hooks.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/Hero/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Hero</span>
+    </nav>
+  
+  <h1>Hero</h1>
+  <h1 id="hero">Hero</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public sealed class Hero : MBObjectBase, ITrackableCampaignObject, ITrackableBase, IRandomOwner</code><br />
+<strong>Base:</strong> <code>MBObjectBase</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Hero.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Hero</code> represents a <strong>single campaign-world character</strong>: the player, kingdom lords, wanderers/companions, family members, caravan masters, and so on. It bridges three critical areas of campaign data:</p>
+<ul>
+<li><strong>Appearance and base stats</strong> — <code>CharacterObject</code>, <code>BodyProperties</code>, <code>Equipment</code>.</li>
+<li><strong>Social identity</strong> — <code>Clan</code>, <code>Kingdom</code>, <code>Occupation</code>, <code>IsClanLeader</code>.</li>
+<li><strong>Current state</strong> — <code>PartyBelongedTo</code>, <code>CurrentSettlement</code>, <code>Gold</code>, <code>HeroState</code>.</li>
+</ul>
+<p>Nearly every campaign mod touches <code>Hero</code> at some point: giving the player gold, changing relations, adding a lord to a kingdom, making heroes wounded or pregnant, and so on.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of <code>Hero</code> as the <strong>campaign-world character card</strong>, not the 3D battlefield model:</p>
+<ul>
+<li><code>Hero</code> itself does not animate or fight. When a battle starts, it spawns an <code>Agent</code> that represents the hero on the battlefield.</li>
+<li>The card is <strong>globally unique</strong>: every <code>Hero</code> has a <code>stringId</code> and can be retrieved with <code>Hero.Find(stringId)</code>.</li>
+<li>Do <strong>not</strong> <code>new Hero()</code> yourself. Create new heroes through <code>HeroCreator.CreateHero(...)</code> or query existing heroes with <code>Hero.FindFirst</code> / <code>Hero.FindAll</code>.</li>
+<li>State changes are usually direct property writes (<code>Gold</code>, <code>Clan</code>, etc.). Health, skills, and traits have dedicated methods (<code>ChangeHeroGold</code>, <code>AddSkillXp</code>, <code>SetTraitLevel</code>).</li>
+</ul>
+<h2 id="how-to-obtain-a-hero">How to Obtain a Hero</h2>
+<pre><code data-lang="csharp">// The player hero
+Hero main = Hero.MainHero;
+
+// The hero the player is currently talking to (tavern, lord hall, etc.)
+Hero talkTo = Hero.OneToOneConversationHero;
+
+// Exact lookup by id
+Hero arwa = Hero.Find(&quot;hero_arwa&quot;);
+
+// First hero matching a predicate
+Hero woundedHero = Hero.FindFirst(h =&gt; h.IsWounded);
+
+// Iterate over all living heroes
+foreach (Hero hero in Hero.AllAliveHeroes)
+{
+    if (hero.IsPlayerCompanion)
+    {
+        // ...
+    }
+}
+
+// Getting a hero from related objects
+Hero leader = MobileParty.MainParty.LeaderHero;
+Hero governor = Settlement.CurrentSettlement.Governor;
+</code></pre>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>Name</code></td><td><code>TextObject</code></td><td>Full name including title.</td></tr>
+<tr><td><code>FirstName</code></td><td><code>TextObject</code></td><td>First name only.</td></tr>
+<tr><td><code>CharacterObject</code></td><td><code>CharacterObject</code></td><td>Character template bound to this hero; holds skills, equipment slots, body attributes.</td></tr>
+<tr><td><code>Clan</code></td><td><code>Clan</code></td><td>Clan this hero belongs to; player clan is <code>Clan.PlayerClan</code>.</td></tr>
+<tr><td><code>Kingdom</code></td><td><code>Kingdom</code></td><td>Kingdom this hero belongs to, if any.</td></tr>
+<tr><td><code>Occupation</code></td><td><code>Occupation</code></td><td>Social role: lord, merchant, wanderer, bandit, etc.</td></tr>
+<tr><td><code>Gold</code></td><td><code>int</code></td><td>Personal money carried by the hero.</td></tr>
+<tr><td><code>PartyBelongedTo</code></td><td><code>MobileParty</code></td><td>Party this hero is currently in; player party is <code>MobileParty.MainParty</code>.</td></tr>
+<tr><td><code>CurrentSettlement</code></td><td><code>Settlement</code></td><td>Settlement the hero is currently staying in, or <code>null</code>.</td></tr>
+<tr><td><code>HomeSettlement</code></td><td><code>Settlement</code></td><td>Hero's home settlement.</td></tr>
+<tr><td><code>Spouse</code></td><td><code>Hero</code></td><td>Current spouse.</td></tr>
+<tr><td><code>ExSpouses</code></td><td><code>List&lt;Hero&gt;</code></td><td>Previous spouses.</td></tr>
+<tr><td><code>IsDead</code> / <code>IsWounded</code> / <code>IsPrisoner</code> / <code>IsFugitive</code></td><td><code>bool</code></td><td>Life-state flags.</td></tr>
+<tr><td><code>IsClanLeader</code></td><td><code>bool</code></td><td>Whether this hero leads their clan.</td></tr>
+<tr><td><code>IsNoncombatant</code></td><td><code>bool</code></td><td>Whether this hero cannot fight (children, some NPCs).</td></tr>
+<tr><td><code>CanLeadParty</code></td><td><code>bool</code></td><td>Whether this hero is eligible to lead a party.</td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="queries">Queries</h3>
+<h4 id="public-static-hero-find-string-stringid"><code>public static Hero Find(string stringId)</code></h4>
+<p>Get the unique hero by <code>stringId</code>; returns <code>null</code> if not found.</p>
+<pre><code data-lang="csharp">Hero derthert = Hero.Find(&quot;lord_derthert&quot;);
+if (derthert != null &amp;&amp; !derthert.IsDead)
+{
+    InformationManager.DisplayMessage(new InformationMessage($&quot;Found {derthert.Name}&quot;));
+}
+</code></pre>
+<h4 id="public-static-hero-findfirst-func-hero-bool-predicate"><code>public static Hero FindFirst(Func&lt;Hero, bool&gt; predicate)</code></h4>
+<p>Returns the first hero matching a predicate. Good for simple lookups.</p>
+<pre><code data-lang="csharp">Hero richLord = Hero.FindFirst(h =&gt; h.IsLord &amp;&amp; h.Gold &gt; 100000);
+</code></pre>
+<h4 id="public-static-ienumerable-hero-findall-func-hero-bool-predicate"><code>public static IEnumerable&lt;Hero&gt; FindAll(Func&lt;Hero, bool&gt; predicate)</code></h4>
+<p>Returns all matching heroes.</p>
+<pre><code data-lang="csharp">var playerFactionHeroes = Hero.FindAll(h =&gt; h.MapFaction == Hero.MainHero.MapFaction &amp;&amp; h.IsAlive);
+</code></pre>
+<h3 id="relations-state">Relations &amp; State</h3>
+<h4 id="public-float-getrelation-hero-otherhero"><code>public float GetRelation(Hero otherHero)</code></h4>
+<p>Returns the personal relation with another hero (-100 ~ 100).</p>
+<pre><code data-lang="csharp">int relation = Hero.MainHero.GetRelation(Hero.OneToOneConversationHero);
+if (relation &lt; -20)
+{
+    // Relations are bad; bribery or intimidation may be needed.
+}
+</code></pre>
+<h4 id="public-void-setpersonalrelation-hero-otherhero-int-value"><code>public void SetPersonalRelation(Hero otherHero, int value)</code></h4>
+<p>Sets the relation value directly. This affects dialogue, quests, and army-joining checks.</p>
+<pre><code data-lang="csharp">Hero.MainHero.SetPersonalRelation(someLord, 50); // become friendly
+</code></pre>
+<h4 id="public-bool-canleadparty"><code>public bool CanLeadParty()</code></h4>
+<p>Checks whether the hero can lead a party (considers age, state, occupation, etc.).</p>
+<pre><code data-lang="csharp">Hero companion = Hero.FindFirst(h =&gt; h.IsPlayerCompanion &amp;&amp; h.CanLeadParty());
+if (companion != null)
+{
+    // Assign as new party or caravan leader
+}
+</code></pre>
+<h3 id="economy-influence">Economy &amp; Influence</h3>
+<h4 id="public-void-changeherogold-int-changeamount"><code>public void ChangeHeroGold(int changeAmount)</code></h4>
+<p>Add or remove gold from this hero.</p>
+<pre><code data-lang="csharp">Hero.MainHero.ChangeHeroGold(5000);  // player gains 5000
+someLord.ChangeHeroGold(-1000);      // deduct 1000 from a lord
+</code></pre>
+<h4 id="public-void-addinfluencewithkingdom-float-additionalinfluence"><code>public void AddInfluenceWithKingdom(float additionalInfluence)</code></h4>
+<p>Adds influence if the hero belongs to a kingdom.</p>
+<pre><code data-lang="csharp">Hero.MainHero.AddInfluenceWithKingdom(25f);
+</code></pre>
+<h3 id="skills-traits">Skills &amp; Traits</h3>
+<h4 id="public-int-getskillvalue-skillobject-skill"><code>public int GetSkillValue(SkillObject skill)</code></h4>
+<p>Gets the current level of a skill.</p>
+<pre><code data-lang="csharp">int oneHanded = Hero.MainHero.GetSkillValue(DefaultSkills.OneHanded);
+</code></pre>
+<h4 id="public-void-addskillxp-skillobject-skill-float-xpamount"><code>public void AddSkillXp(SkillObject skill, float xpAmount)</code></h4>
+<p>Adds experience to a skill.</p>
+<pre><code data-lang="csharp">Hero.MainHero.AddSkillXp(DefaultSkills.Riding, 1000f);
+</code></pre>
+<h4 id="public-void-setskillvalue-skillobject-skill-int-value"><code>public void SetSkillValue(SkillObject skill, int value)</code></h4>
+<p>Directly sets a skill level.</p>
+<pre><code data-lang="csharp">Hero.MainHero.SetSkillValue(DefaultSkills.Leadership, 200);
+</code></pre>
+<h4 id="public-int-gettraitlevel-traitobject-trait"><code>public int GetTraitLevel(TraitObject trait)</code></h4>
+<p>Gets the level of a trait such as Honor, Mercy, or Valor.</p>
+<pre><code data-lang="csharp">int honor = Hero.MainHero.GetTraitLevel(DefaultTraits.Honor);
+</code></pre>
+<h4 id="public-void-settraitlevel-traitobject-trait-int-value"><code>public void SetTraitLevel(TraitObject trait, int value)</code></h4>
+<p>Sets a trait level.</p>
+<pre><code data-lang="csharp">Hero.MainHero.SetTraitLevel(DefaultTraits.Mercy, 1);
+</code></pre>
+<h3 id="lifecycle">Lifecycle</h3>
+<h4 id="public-void-makewounded-hero-killerhero-null"><code>public void MakeWounded(Hero killerHero = null, ...)</code></h4>
+<p>Wounds the hero (does not kill). Useful for events and quests.</p>
+<pre><code data-lang="csharp">Hero enemyLord = Hero.FindFirst(h =&gt; h.MapFaction.IsAtWarWith(Hero.MainHero.MapFaction));
+enemyLord?.MakeWounded();
+</code></pre>
+<blockquote>
+<p>Note: To actually kill a hero, use <code>KillCharacterAction.ApplyByOldAge(...)</code> or similar Actions, not <code>MakeWounded</code>.</p>
+</blockquote>
+<h4 id="public-void-setimmunetowound-bool-value"><code>public void SetImmuneToWound(bool value)</code></h4>
+<p>Marks the hero as immune to wounds.</p>
+<pre><code data-lang="csharp">Hero.MainHero.SetImmuneToWound(true); // protagonist cannot be wounded
+</code></pre>
+<h2 id="typical-usage-examples">Typical Usage Examples</h2>
+<h3 id="example-1-give-money-to-all-player-clan-heroes">Example 1: Give money to all player-clan heroes</h3>
+<pre><code data-lang="csharp">foreach (Hero hero in Clan.PlayerClan.Heroes)
+{
+    if (hero.IsAlive)
+    {
+        hero.ChangeHeroGold(1000);
+    }
+}
+</code></pre>
+<h3 id="example-2-set-the-current-conversation-lord-s-relation-to-50">Example 2: Set the current conversation lord's relation to 50</h3>
+<pre><code data-lang="csharp">Hero target = Hero.OneToOneConversationHero;
+if (target != null &amp;&amp; target.IsLord)
+{
+    Hero.MainHero.SetPersonalRelation(target, 50);
+}
+</code></pre>
+<h3 id="example-3-push-the-player-s-trade-skill-to-the-next-level">Example 3: Push the player's Trade skill to the next level</h3>
+<pre><code data-lang="csharp">SkillObject skill = DefaultSkills.Trade;
+int current = Hero.MainHero.GetSkillValue(skill);
+int nextLevelXp = Campaign.Current.Models.CharacterDevelopmentModel.GetXpRequiredForLevel(current + 1);
+int currentXp = Hero.MainHero.HeroDeveloper.GetSkillXpProgress(skill);
+Hero.MainHero.AddSkillXp(skill, Math.Max(0, nextLevelXp - currentXp));
+</code></pre>
+<h2 id="cross-version-notes">Cross-Version Notes</h2>
+<ul>
+<li>v1.3.0: The core API is the same; <code>Hero.MainHero</code> was previously often written as <code>CharacterObject.PlayerCharacter.HeroObject</code>.</li>
+<li>v1.4.5: Some <code>HeroDeveloper</code> and <code>Hero.Skills</code> accessors were split or renamed. For cross-version mods, prefer <code>Hero.MainHero.HeroDeveloper</code>.</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../CharacterObject/">CharacterObject</a> — template data behind a hero</li>
+<li><a href="../Clan/">Clan</a> — clan ownership and hero membership</li>
+<li><a href="../Kingdom/">Kingdom</a> — kingdoms and factions</li>
+<li><a href="../Settlement/">Settlement</a> — settlements and towns</li>
+<li><a href="../MobileParty/">MobileParty</a> — the party a hero belongs to</li>
+<li><a href="../../campaign-ext/CampaignBehaviorBase/">CampaignBehaviorBase</a> — batch-process heroes inside daily ticks</li>
+<li><a href="../Campaign/">Campaign</a> — access the whole world via <code>Campaign.Current</code></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign/">campaign index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign/Settlement/">&larr; Settlement</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign/CampaignBehaviorDataStore/">CampaignBehaviorDataStore &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

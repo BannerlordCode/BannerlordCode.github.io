@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equipment</title>
+  <meta name="description" content="Bannerlord 中一个角色“穿在身上”的完整装备集合：12 个武器&#x2F;护甲&#x2F;坐骑槽位，以及由此派生出的护甲值、重量、外观覆盖类型与装备码。战役与战斗场景都通过它读写穿戴状态。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core-extra/Equipment/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core-extra/Equipment/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/core-extra/Equipment/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/core-extra/Equipment/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/core-extra/Equipment/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/core-extra/Equipment/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="active">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;core-extra&#x2F;">core-extra 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Equipment</span>
+    </nav>
+  
+  <h1>Equipment</h1>
+  <h1 id="equipment">Equipment</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Core<br />
+<strong>Module:</strong> TaleWorlds.Core<br />
+<strong>Type:</strong> <code>public class Equipment</code><br />
+<strong>Base:</strong> 无（不继承任何基类）<br />
+<strong>File:</strong> <code>TaleWorlds.Core/Equipment.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>Equipment</code> 表示<strong>一个角色某一时刻穿戴的全部物品</strong>：主手、副手、备用武器、头盔、身甲、腿甲、手套、披风、坐骑、马具，共固定 12 个槽位（<code>EquipmentSlotLength = 12</code>）。每个槽位存放的是一个 <code>EquipmentElement</code>（物品 + 可选改造词条 + 装饰品 + 任务标记）。它自身还记录了“这是战斗装 / 平民装 / 潜行装”的类别，并据此派生出护甲合计、总重量、头发/胡须覆盖范围、身体网格类型等数据。</p>
+<p><code>Equipment</code> 是引用类型、可变对象，且直接被存档系统序列化：战役里的 <code>Hero</code> 持有的 <code>BattleEquipment</code> / <code>CivilianEquipment</code> / <code>StealthEquipment</code> 就是三个 <code>Equipment</code> 实例，改动会持久化进存档。它既出现在战役层（<code>CharacterObject</code> 的装备模板、<code>MBEquipmentRoster</code> 名册），也出现在战斗层（生成 <code>Agent</code> 前的穿戴快照）。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>Equipment</code> 想成**“一张 12 格的穿戴清单”**，而不是某种服务或流程：</p>
+<ul>
+<li><strong>它是什么</strong>：一个长度为 12 的 <code>EquipmentElement[]</code>，用 <code>EquipmentIndex</code> 枚举寻址（0–4 是武器槽，5–9 是护甲槽，10 是坐骑，11 是马具）。类别字段决定它是 Battle / Civilian / Stealth 三套之一。</li>
+<li><strong>生命周期</strong>：通常由 <code>Hero</code>、<code>CharacterObject</code>、<code>MBEquipmentRoster</code> 或装备选择模型创建并持有；你一般<strong>不要</strong> <code>new Equipment()</code> 后长期自己保管——要么从 <code>Hero</code> / <code>CharacterObject</code> 取现有实例，要么 <code>Clone()</code> 一份临时副本。</li>
+<li><strong>所在层</strong>：属于 <code>TaleWorlds.Core</code>，是战役与战斗共享的基础数据结构，横跨 <code>Campaign</code> 与 <code>Mission</code> 两层。</li>
+<li><strong>何时用</strong>：需要读取或改写某角色“现在穿了什么”时——给英雄换装、从战利品里抽物品、根据装备算护甲/重量、把装备序列化成码在网络/存档中传递。</li>
+<li><strong>何时不要用</strong>：
+<ul>
+<li>想“安全地给英雄整套换装”请走 <code>EquipmentHelper.AssignHeroEquipmentFromEquipment(hero, equipment)</code>，它会按类别自动写入 Battle/Civilian/Stealth 对应槽，<strong>不要</strong>手写 12 次槽位赋值。</li>
+<li>想改的是物品栏库存而不是穿戴状态，请用 <code>ItemRoster</code> / <code>ItemRosterElement</code>，不是 <code>EquipmentElement</code>。</li>
+<li>想基于概率/文化随机配装，请用 <code>EquipmentSelectionModel</code>（见 <a href="../../campaign/">战役模块</a>）或 <code>Equipment.GetRandomEquipmentElements</code>，不要手工拼。</li>
+</ul>
+</li>
+<li><strong>依赖</strong>：槽位里的物品来自 <code>MBObjectManager</code> 注册的 <code>ItemObject</code>；外观覆盖类型来自 <code>ItemObject.ArmorComponent</code>；脸型生成依赖 <code>BodyProperties.GetBodyProperties(Equipment)</code>。</li>
+<li><strong>出错会怎样</strong>：设置槽位时会做 <code>IsItemFitsToSlot</code> 校验，放错类型只会 <code>Debug.FailedAssert</code>（不抛异常但污染日志与表现）；<code>CreateFromEquipmentCode</code> / <code>Deserialize</code> 依赖 <code>MBObjectManager.Instance</code>，若在对象系统就绪前调用会拿到 <code>null</code> 进而崩溃；直接改 <code>Hero.BattleEquipment</code> 会写进存档。</li>
+</ul>
+<h2 id="ru-he-huo-qu-gou-zao-equipment">如何获取 / 构造 Equipment</h2>
+<pre><code data-lang="csharp">// 1) 从战役英雄读取（最常用路径）
+Equipment battleEq   = Hero.MainHero.BattleEquipment;     // 战斗装
+Equipment civilianEq = Hero.MainHero.CivilianEquipment;   // 平民装
+Equipment stealthEq  = Hero.MainHero.StealthEquipment;    // 潜行装
+
+// 2) 从角色模板读取装备集（troop / 文化默认）
+foreach (Equipment eq in someCharacter.BattleEquipments)
+{
+    // 遍历该角色所有可能的战斗装备方案
+}
+
+// 3) 从装备名册读取（文化/部队默认）
+MBEquipmentRoster roster = MBEquipmentRosterExtensions.All
+    .Find(x =&gt; x.StringId == &quot;generic_bat_dummy&quot;);
+Equipment firstBattle = roster.GetBattleEquipments().First();
+
+// 4) 用装备码构造（空码得到 12 个空槽的装备；带参则还原物品）
+Equipment fromCode    = Equipment.CreateFromEquipmentCode(&quot;&quot;);
+// 深拷贝已有实例（最稳妥的“新建”方式，避免直接 new 后类别错配）
+Equipment copied      = Hero.MainHero.BattleEquipment.Clone();
+Equipment fromCode    = Equipment.CreateFromEquipmentCode(             // 从字符串码还原
+    &quot;0-iron_sword-@null+5-northern_helmet-@null&quot;);
+Equipment random      = Equipment.GetRandomEquipmentElements(          // 按模板+类别随机
+    someCharacter, randomEquipmentModifier: false, Equipment.EquipmentType.Civilian);
+</code></pre>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<h3 id="lei-bie-yu-shen-fen">类别与身份</h3>
+<table><thead><tr><th>属性</th><th>类型</th><th>说明</th><th>副作用 / 注意</th></tr></thead><tbody>
+<tr><td><code>ItemEquipmentType</code></td><td><code>EquipmentType</code></td><td>返回内部类别（Battle / Civilian / Stealth / Invalid）。</td><td>只读；构造时设定。</td></tr>
+<tr><td><code>IsBattle</code></td><td><code>bool</code></td><td>是否为战斗装。</td><td>—</td></tr>
+<tr><td><code>IsCivilian</code></td><td><code>bool</code></td><td>是否为平民装。</td><td>—</td></tr>
+<tr><td><code>IsStealth</code></td><td><code>bool</code></td><td>是否为潜行装。</td><td>—</td></tr>
+</tbody></table>
+<h3 id="cao-wei-fang-wen">槽位访问</h3>
+<table><thead><tr><th>属性 / 索引器</th><th>类型</th><th>说明</th><th>副作用 / 注意</th></tr></thead><tbody>
+<tr><td><code>this[EquipmentIndex index]</code></td><td><code>EquipmentElement</code></td><td>按枚举读写槽位（如 <code>Weapon0</code>、<code>Head</code>、<code>Body</code>、<code>Horse</code>、<code>HorseHarness</code>）。</td><td><strong>写操作会调用 <code>IsItemFitsToSlot</code> 做类型校验</strong>；放错类型触发 <code>Debug.FailedAssert</code>，但不会阻止赋值。</td></tr>
+<tr><td><code>this[int index]</code></td><td><code>EquipmentElement</code></td><td>按 0–11 整数读写。</td><td>越界（&gt;11）抛 <code>IndexOutOfRangeException</code>；优先用 <code>EquipmentIndex</code> 枚举。</td></tr>
+<tr><td><code>Horse</code></td><td><code>EquipmentElement</code></td><td>等价于 <code>_itemSlots[10]</code>，即坐骑槽。</td><td>只读快捷方式。</td></tr>
+</tbody></table>
+<h3 id="wai-guan-ti-xing-pai-sheng-lai-zi-itemobject-armorcomponent">外观 / 体型派生（来自 <code>ItemObject.ArmorComponent</code>）</h3>
+<p>这些只读属性根据头盔、身甲、马具的 <code>ArmorComponent</code> 计算，主要供 <code>BodyProperties</code> 脸型生成与渲染使用：</p>
+<table><thead><tr><th>属性</th><th>类型</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>HairCoverType</code></td><td><code>ArmorComponent.HairCoverTypes</code></td><td>头盔/身甲对头发的覆盖范围；若身甲为空则视为 <code>Type4</code>。</td></tr>
+<tr><td><code>BeardCoverType</code></td><td><code>ArmorComponent.BeardCoverTypes</code></td><td>对胡须的覆盖范围。</td></tr>
+<tr><td><code>ManeCoverType</code></td><td><code>ArmorComponent.HorseHarnessCoverTypes</code></td><td>马具对马鬃的覆盖。</td></tr>
+<tr><td><code>ReinsMeshName</code></td><td><code>string</code></td><td>马具缰绳网格名。</td></tr>
+<tr><td><code>EarsAreHidden</code></td><td><code>bool</code></td><td>由 <code>HairCoverType</code> 推导。</td></tr>
+<tr><td><code>MouthIsHidden</code></td><td><code>bool</code></td><td>由 <code>BeardCoverType == All</code> 推导。</td></tr>
+<tr><td><code>BodyMeshType</code></td><td><code>ArmorComponent.BodyMeshTypes</code></td><td>身甲决定的身体网格类型。</td></tr>
+<tr><td><code>BodyDeformType</code></td><td><code>ArmorComponent.BodyDeformTypes</code></td><td>身甲决定的体型变形。</td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="gou-zao-yu-fu-zhi">构造与复制</h3>
+<h4 id="public-equipment"><code>public Equipment()</code></h4>
+<p>创建类别为 <code>Invalid</code> 的空装备（12 个空槽）。一般用于反序列化或作为临时容器。</p>
+<h4 id="public-equipment-equipmenttype-equipmenttype"><code>public Equipment(EquipmentType equipmentType)</code></h4>
+<p>指定类别（Battle / Civilian / Stealth）创建空装备。<strong>当你要新建一套“属于某类别”的装备时用它</strong>，而不是无参构造。</p>
+<h4 id="public-equipment-equipment-equipment"><code>public Equipment(Equipment equipment)</code></h4>
+<p>从已有实例深拷贝（逐槽 <code>new EquipmentElement</code>）。仅复制物品与改造词条，不复制 <code>SyncEquipments</code> 等运行时标志。</p>
+<h4 id="public-equipment-clone-bool-clonewithoutweapons-false"><code>public Equipment Clone(bool cloneWithoutWeapons = false)</code></h4>
+<p>返回一份新 <code>Equipment</code>。<code>cloneWithoutWeapons: true</code> 时前 5 个武器槽置为 <code>EquipmentElement.Invalid</code>，只保留护甲/坐骑——适合做“脱战换装”前的基底。
+<strong>何时调用</strong>：需要临时修改又不污染原装备/存档时（例如战斗生成前的穿戴快照、潜行预览）。</p>
+<pre><code data-lang="csharp">Equipment baseCivilian = Hero.MainHero.CivilianEquipment.Clone(cloneWithoutWeapons: true);
+baseCivilian[EquipmentIndex.Body] = new EquipmentElement(cleanTunic);
+</code></pre>
+<h4 id="public-void-fillfrom-equipment-sourceequipment-bool-usesourceequipmenttype-true"><code>public void FillFrom(Equipment sourceEquipment, bool useSourceEquipmentType = true)</code></h4>
+<p>用 <code>source</code> 的 12 个槽覆盖自身；<code>useSourceEquipmentType: true</code> 时连类别也一并复制。<strong>副作用</strong>：直接改写自身所有槽位，会反映在持有它的 <code>Hero</code> 上（若自身就是 <code>Hero.BattleEquipment</code>）。
+<strong>何时调用</strong>：需要把整套装备搬进已有实例（如 <code>MBEquipmentRoster.InitializeDefaultEquipment</code> 内部）时。</p>
+<h3 id="cao-wei-du-xie">槽位读写</h3>
+<h4 id="public-void-addequipmenttoslotwithoutagent-equipmentindex-equipmentindex-equipmentelement-itemrosterelement"><code>public void AddEquipmentToSlotWithoutAgent(EquipmentIndex equipmentIndex, EquipmentElement itemRosterElement)</code></h4>
+<p>等价于 <code>this[equipmentIndex] = itemRosterElement</code>，即写入某个槽；命名强调“不经过 Agent（战斗实体）直接改数据”。<strong>写操作同样经过 <code>IsItemFitsToSlot</code> 校验。</strong></p>
+<h4 id="public-equipmentelement-getequipmentfromslot-equipmentindex-equipmentindex"><code>public EquipmentElement GetEquipmentFromSlot(EquipmentIndex equipmentIndex)</code></h4>
+<p>返回该槽的 <code>EquipmentElement</code>（空槽返回 <code>Item == null</code> 的元素）。读取不会触发校验。</p>
+<h4 id="public-static-bool-isitemfitstoslot-equipmentindex-slotindex-itemobject-item"><code>public static bool IsItemFitsToSlot(EquipmentIndex slotIndex, ItemObject item)</code></h4>
+<p>静态方法：判断 <code>item</code> 能否放进 <code>slotIndex</code>（按 <code>ItemType</code> 映射）。<code>item == null</code> 永远返回 <code>true</code>；书、无效物品返回 <code>false</code>。<strong>何时调用</strong>：在批量写入前预判，避免触发 <code>Debug.FailedAssert</code>。注意它只是断言、不抛异常。</p>
+<h4 id="public-equipmentindex-getweaponpickupslotindex-equipmentelement-itemrosterelement-bool-isstuckmissile"><code>public EquipmentIndex GetWeaponPickUpSlotIndex(EquipmentElement itemRosterElement, bool isStuckMissile)</code></h4>
+<p>为一个拾取武器找空武器槽：带 <code>DropOnWeaponChange</code>/<code>DropOnAnyAction</code> 标志的归到 <code>ExtraWeaponSlot</code>，否则返回第一个空武器槽（<code>Weapon0</code>–<code>Weapon3</code>），无空位返回 <code>EquipmentIndex.None</code>。战斗拾取逻辑用它决定落点。</p>
+<h4 id="public-static-void-swapweapons-equipment-equipment-equipmentindex-index1-equipmentindex-index2"><code>public static void SwapWeapons(Equipment equipment, EquipmentIndex index1, EquipmentIndex index2)</code></h4>
+<p>静态交换两个槽位的内容（值交换，不涉及 Agent）。换武器动画/快捷换装底层用它。</p>
+<h3 id="cha-xun-yu-tong-ji">查询与统计</h3>
+<h4 id="public-bool-isempty"><code>public bool IsEmpty()</code></h4>
+<p>所有 12 槽 <code>Item</code> 均为 <code>null</code> 时返回 <code>true</code>。英雄成年初始化时会用它判断是否需要重新配装。</p>
+<h4 id="public-bool-hasweapon"><code>public bool HasWeapon()</code></h4>
+<p>前 5 个武器槽中是否存在“带 <code>WeaponMask</code> 标志”的武器。</p>
+<h4 id="public-bool-hasweaponofclass-weaponclass-weaponclass"><code>public bool HasWeaponOfClass(WeaponClass weaponClass)</code></h4>
+<p>是否存在指定武器类的武器（如 <code>WeaponClass.OneHanded</code>）。</p>
+<h4 id="public-float-gettotalweightofarmor-bool-forhuman-yu-public-float-gettotalweightofweapons"><code>public float GetTotalWeightOfArmor(bool forHuman)</code> 与 <code>public float GetTotalWeightOfWeapons()</code></h4>
+<p>分别累加护甲（人/马）与武器的重量，内部调用 <code>EquipmentElement.GetEquipmentElementWeight()</code>。负重、移动速度模型会用到。</p>
+<h4 id="getheadarmorsum-gethumanbodyarmorsum-getlegarmorsum-getarmarmorsum-gethorsearmorsum"><code>GetHeadArmorSum</code> / <code>GetHumanBodyArmorSum</code> / <code>GetLegArmorSum</code> / <code>GetArmArmorSum</code> / <code>GetHorseArmorSum</code></h4>
+<p>各部位护甲值合计，基于 <code>EquipmentElement.GetModified*Armor()</code>（已含 <code>ItemModifier</code> 加成）。战斗伤害结算与装备评级依赖这些数值。</p>
+<h4 id="public-underweartypes-getunderweartype-bool-isfemale"><code>public UnderwearTypes GetUnderwearType(bool isFemale)</code></h4>
+<p>根据身甲是否存在、是否为女性且 <code>DoesNotHideChest</code>，返回 <code>NoUnderwear</code> / <code>FullUnderwear</code> / <code>OnlyTop</code>，决定角色内衣渲染。</p>
+<h4 id="public-bool-isequipmentequalto-equipment-other"><code>public bool IsEquipmentEqualTo(Equipment other)</code></h4>
+<p>逐槽比较 <code>EquipmentElement.IsEqualTo</code>，并比较三类标志。用于判断英雄装备是否“还和模板一致”以决定要不要重配。</p>
+<h3 id="zhuang-bei-ma-xu-lie-hua-wang-luo-fu-zhu">装备码（序列化 / 网络辅助）</h3>
+<h4 id="public-string-calculateequipmentcode"><code>public string CalculateEquipmentCode()</code></h4>
+<p>把 12 槽编码成 <code>"槽位-物品StringId-改造StringId"</code> 用 <code>+</code> 连接的字符串（空物品用 <code>@null</code>）。用于存档/网络同步时描述穿戴。
+<strong>示例</strong>：<code>0-iron_sword-@null+5-northern_helmet-@null+10-horse-@null</code>。</p>
+<h4 id="public-static-equipment-createfromequipmentcode-string-equipmentcode"><code>public static Equipment CreateFromEquipmentCode(string equipmentCode)</code></h4>
+<p><code>CalculateEquipmentCode</code> 的逆操作：解析字符串并通过 <code>MBObjectManager.Instance.GetObject&lt;ItemObject&gt;</code> / <code>GetObject&lt;ItemModifier&gt;</code> 还原物品。<strong>依赖 <code>MBObjectManager</code> 已初始化</strong>；在对象系统就绪前调用会拿到 <code>null</code> 物品。</p>
+<h4 id="public-void-deserialize-mbobjectmanager-objectmanager-xmlnode-node-deserializenode"><code>public void Deserialize(MBObjectManager objectManager, XmlNode node)</code> / <code>DeserializeNode(...)</code></h4>
+<p>从 XML 节点还原装备（troop 模板、存档加载用）。<code>DeserializeNode</code> 内部同样走 <code>IsItemFitsToSlot</code>，不匹配会 <code>Debug.FailedAssert</code>。</p>
+<h4 id="public-static-equipmentindex-getequipmentindexfromoldequipmentindexname-string-oldequipmentindexname"><code>public static EquipmentIndex GetEquipmentIndexFromOldEquipmentIndexName(string oldEquipmentIndexName)</code></h4>
+<p>把旧 XML 槽位名（<code>Item0</code>–<code>Item4</code>）映射到新枚举（<code>Weapon0</code>–<code>ExtraWeaponSlot</code>），兼容旧版装备定义。</p>
+<h3 id="wu-qi-chu-shi-pei-zhi-yu-sui-ji">武器初始配置与随机</h3>
+<h4 id="public-void-getinitialweaponindicestoequip-out-equipmentindex-mainhandweaponindex-out-equipmentindex-offhandweaponindex-out-bool-ismainhandnotusablewithonehand-initialweaponequippreference-initialweaponequippreference-initialweaponequippreference-any"><code>public void GetInitialWeaponIndicesToEquip(out EquipmentIndex mainHandWeaponIndex, out EquipmentIndex offHandWeaponIndex, out bool isMainHandNotUsableWithOneHand, InitialWeaponEquipPreference initialWeaponEquipPreference = InitialWeaponEquipPreference.Any)</code></h4>
+<p>根据 <code>InitialWeaponEquipPreference</code>（任意 / 主手近战 / 主手远程）从 5 个武器槽挑出主手与副手槽位，并标记主手是否无法单手使用。进入战斗时 <code>Agent</code> 初始持武器逻辑依赖它。</p>
+<h4 id="public-static-equipment-getrandomequipmentelements-basiccharacterobject-character-bool-randomequipmentmodifier-equipmenttype-equipmenttype-int-seed-1"><code>public static Equipment GetRandomEquipmentElements(BasicCharacterObject character, bool randomEquipmentModifier, EquipmentType equipmentType, int seed = -1)</code></h4>
+<p>从 <code>character</code> 的对应类别装备集中随机拼出一套装备（可选 <code>seed</code> 固定随机、<code>randomEquipmentModifier</code> 决定是否随机附加改造词条）。<code>EquipmentSelectionModel</code> 内部用它给 troop/英雄随机配装。</p>
+<h2 id="dian-xing-yong-fa-shi-li">典型用法示例</h2>
+<h3 id="shi-li-1-du-qu-bing-lin-shi-xiu-gai-wan-jia-ying-xiong-de-zhan-dou-zhuang-bei">示例 1：读取并临时修改玩家英雄的战斗装备</h3>
+<p>直接改 <code>Hero.BattleEquipment</code> 会写进存档，因此这里用 <code>Clone()</code> 拿副本做演示；若要真正持久换装，请用 <code>EquipmentHelper.AssignHeroEquipmentFromEquipment</code>。</p>
+<pre><code data-lang="csharp">// 玩家英雄的战斗装备（真实获取路径：Hero.MainHero）
+Equipment battleEq = Hero.MainHero.BattleEquipment;
+
+// 通过 MBObjectManager 拿出物品后再写入槽位（索引器会校验类型）
+ItemObject sword = MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(&quot;iron_sword_a&quot;);
+if (Equipment.IsItemFitsToSlot(EquipmentIndex.Weapon0, sword))
+{
+    battleEq[EquipmentIndex.Weapon0] = new EquipmentElement(sword);
+}
+
+// 临时副本：去掉武器，用于战斗生成前的平民快照
+Equipment preview = Hero.MainHero.CivilianEquipment.Clone(cloneWithoutWeapons: true);
+EquipmentElement helm = preview.GetEquipmentFromSlot(EquipmentIndex.Head);
+if (!helm.IsEmpty)
+{
+    // helm.Item 是 ItemObject，可读其护甲/价值
+    float headArmor = preview.GetHeadArmorSum();
+}
+</code></pre>
+<h3 id="shi-li-2-cong-di-fang-jiao-se-mo-ban-chou-qu-zhan-li-pin">示例 2：从敌方角色模板抽取战利品</h3>
+<p><code>CharacterObject.BattleEquipments</code> 返回该角色所有战斗装备方案；战利品模型（<code>DefaultBattleRewardModel.GetLootedItemFromTroop</code>）正是这样工作的。</p>
+<pre><code data-lang="csharp">// 真实获取路径：CharacterObject 的战斗装备集
+CharacterObject enemy = someCombatant.Character; // 例如战斗中的敌方单位模板
+Equipment randomBattle = enemy.BattleEquipments.GetRandomElementInefficiently();
+
+// 抽取主手槽的物品作为战利品
+EquipmentElement loot = randomBattle.GetEquipmentFromSlot(EquipmentIndex.Weapon0);
+if (!loot.IsEmpty &amp;&amp; loot.Item != null &amp;&amp; !loot.Item.NotMerchandise)
+{
+    ItemObject dropped = loot.Item;        // 真实 ItemObject
+    int value = loot.GetBaseValue();        // 含改造词条后的价值
+}
+</code></pre>
+<h3 id="shi-li-3-yong-zhuang-bei-ma-zuo-cun-dang-wang-luo-tong-bu">示例 3：用装备码做存档/网络同步</h3>
+<pre><code data-lang="csharp">// 序列化当前穿戴
+string code = Hero.MainHero.BattleEquipment.CalculateEquipmentCode();
+
+// 在另一处（确保 MBObjectManager 已就绪）还原
+Equipment restored = Equipment.CreateFromEquipmentCode(code);
+</code></pre>
+<h2 id="yi-lai-yu-guan-lian">依赖与关联</h2>
+<h3 id="shang-you-shui-chuang-jian-chi-you-equipment">上游（谁创建 / 持有 Equipment）</h3>
+<ul>
+<li><a href="../../campaign/Hero/">Hero</a> — <code>BattleEquipment</code> / <code>CivilianEquipment</code> / <code>StealthEquipment</code> 三个 <code>Equipment</code> 实例，随英雄存档。</li>
+<li><a href="../../campaign/CharacterObject/">CharacterObject</a> — <code>BattleEquipments</code> / <code>CivilianEquipments</code> / <code>StealthEquipments</code> 提供模板装备集。</li>
+<li><a href="../MBEquipmentRoster/">MBEquipmentRoster</a> — 文化/部队默认装备名册，内部为 <code>MBList&lt;Equipment&gt;</code>。</li>
+</ul>
+<h3 id="xia-you-xiao-fei-equipment-de-zi-xi-tong">下游（消费 Equipment 的子系统）</h3>
+<ul>
+<li><a href="../EquipmentElement/">EquipmentElement</a> — 12 个槽位中存放的实际物品单元（<code>Item</code> + <code>ItemModifier</code> + <code>CosmeticItem</code> + <code>IsQuestItem</code>）。</li>
+<li><a href="../ItemObject/">ItemObject</a> — 槽位里 <code>EquipmentElement.Item</code> 指向的真实物品，提供 <code>ArmorComponent</code> / <code>WeaponComponent</code>。</li>
+<li><a href="../BodyProperties/">BodyProperties</a> — <code>BasicCharacterObject.GetBodyProperties(Equipment)</code> 用 <code>HairCoverType</code> / <code>BeardCoverType</code> 决定脸型生成。</li>
+<li><a href="../../campaign/">战役模块</a> — 装备选择模型 <code>EquipmentSelectionModel</code> 通过 <code>GetRandomEquipmentElements</code> 给英雄/troop 配装。</li>
+</ul>
+<h3 id="cun-dang-dian">存档点</h3>
+<ul>
+<li><a href="../../save-system/">存档系统</a> — <code>Equipment</code> 的槽位数组带 <code>[SaveableField]</code>、<code>EquipmentElement</code> 的 <code>Item</code> / <code>ItemModifier</code> 带 <code>[SaveableProperty]</code>，随持有它的 <code>Hero</code> / roster 一起序列化；对象引用通过 <code>MBObjectManager</code> 的 <code>MBGUID</code> 解析。</li>
+</ul>
+<h2 id="feng-xian-duan-beng-kui-pi-dang-biao-xian-cuo-wu">风险段（崩溃 / 坏档 / 表现错误）</h2>
+<ol>
+<li><strong>对象系统未就绪就还原</strong>：<code>CreateFromEquipmentCode</code>、<code>Deserialize</code>、<code>DeserializeNode</code> 都调用 <code>MBObjectManager.Instance.GetObject(...)</code>。若在 <code>MBObjectManager</code> 加载游戏对象之前（例如 <code>MBSubModuleBase</code> 的 <code>OnSubModuleLoad</code> 早期、或任何 <code>Game</code> 尚未启动处）调用，取到 <code>null</code> 后继续访问 <code>.Name</code> / 构造 <code>EquipmentElement</code> 会抛 <code>NullReferenceException</code>。<strong>必须在战役/战斗已加载后调用。</strong></li>
+<li><strong>直接改 <code>Hero.BattleEquipment</code> 会写进存档</strong>：<code>Hero.BattleEquipment</code> 返回的是<strong>同一个可变实例</strong>。在战斗生成、预览、临时计算里直接写它，会污染英雄的持久装备甚至坏档。需要临时穿戴时务必先 <code>Clone()</code>；要正式整套换装请走 <code>EquipmentHelper.AssignHeroEquipmentFromEquipment</code>。</li>
+<li><strong>槽位类型校验只是断言</strong>：索引器 setter 调用 <code>IsItemFitsToSlot</code>，放错类型（如把武器塞进头盔槽）只触发 <code>Debug.FailedAssert</code>，<strong>不会阻止赋值</strong>，但会导致渲染/护甲计算异常。批量写入前用 <code>IsItemFitsToSlot</code> 预判。</li>
+<li><strong>整数下标越界</strong>：<code>_itemSlots</code> 长度固定为 12。用 <code>this[int]</code> 且下标 &gt;11 会抛 <code>IndexOutOfRangeException</code>。优先使用 <code>EquipmentIndex</code> 枚举（<code>Horse = 10</code>、<code>HorseHarness = 11</code> 是上限）。</li>
+<li><strong>存档/序列化期间修改</strong>：在存档读写回调或 <code>MBObjectManager</code> 收集可序列化对象（<code>AutoGeneratedInstanceCollectObjects</code>）的过程中并发改 <code>Equipment</code> 会导致收集到的对象图不一致。改装备应在战役 tick / 行为 / 对话逻辑中完成，而非存档临界区。</li>
+</ol>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li>v1.3.15 / v1.3.0：公开 API 与 1.4.5 基本一致——同样是 12 槽 <code>EquipmentElement[]</code>、同样的 <code>EquipmentIndex</code> 映射与 <code>Clone</code> / <code>FillFrom</code> / <code>CalculateEquipmentCode</code> 等签名。本文以 1.4.5 权威源码为准。</li>
+<li>v1.4.5：索引器写操作已显式调用 <code>IsItemFitsToSlot</code> 做断言；早期反编译版本表现相同。跨版本 mod 读取装备代码（<code>CalculateEquipmentCode</code> / <code>CreateFromEquipmentCode</code>）可放心复用。</li>
+<li><code>Equipment</code> 无基类，也不实现任何接口；它与 <code>Hero</code>、<code>CharacterObject</code> 的耦合是<strong>组合</strong>而非继承。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../EquipmentElement/">EquipmentElement</a> — 单槽物品单元（Item + 改造 + 装饰）</li>
+<li><a href="../EquipmentIndex/">EquipmentIndex</a> — 12 个槽位的枚举映射</li>
+<li><a href="../MBEquipmentRoster/">MBEquipmentRoster</a> — 装备名册（一组 Equipment）</li>
+<li><a href="../ItemObject/">ItemObject</a> — 槽位中的真实物品</li>
+<li><a href="../ItemModifier/">ItemModifier</a> — 改造词条</li>
+<li><a href="../BodyProperties/">BodyProperties</a> — 依赖装备外观覆盖的脸型生成</li>
+<li><a href="../../campaign/Hero/">Hero</a> — 持有 Battle/Civilian/Stealth 三套 Equipment</li>
+<li><a href="../../campaign/CharacterObject/">CharacterObject</a> — 提供 Battle/Civilian 装备模板集</li>
+<li><a href="../../save-system/">存档系统</a> — Equipment 随 Hero 一起序列化的机制</li>
+</ul>
+<h2 id="dao-hang">导航</h2>
+<ul>
+<li>↑ 父级：<a href="../../core-extra/">核心扩展模块索引</a></li>
+<li>↔ 同级：<a href="../EquipmentElement/">EquipmentElement</a> · <a href="../MBEquipmentRoster/">MBEquipmentRoster</a> · <a href="../ItemObject/">ItemObject</a> · <a href="../EquipmentIndex/">EquipmentIndex</a> · <a href="../ItemRosterElement/">ItemRosterElement</a> · <a href="../BodyProperties/">BodyProperties</a></li>
+<li>相关类型：<a href="../../campaign/Hero/">Hero</a> · <a href="../../campaign/CharacterObject/">CharacterObject</a> · <a href="../../campaign/">战役模块</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/core-extra/">core-extra 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/core-extra/StackArray4Int/">&larr; StackArray4Int</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/core-extra/InformationManager/">InformationManager &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

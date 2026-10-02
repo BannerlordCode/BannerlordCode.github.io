@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameMenu</title>
+  <meta name="description" content="Campaign menu and map-bar UI.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/viewmodel/gamemenu/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/viewmodel/gamemenu/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Bannerlord v1.3.0 Documentation</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/" class="">Index</a><details class="group" open>
+                        <summary>API Reference</summary>
+                        <div class="group-items">
+                          <a href="/v1.3.0/en/api/">Index</a><details class="group" >
+                              <summary>campaign-ext index</summary>
+                              <div class="group-items">
+                                <a href="/v1.3.0/en/api/campaign-ext/">Index</a><a href="/v1.3.0/en/api/campaign-ext/">All 1216 pages</a><a href="/v1.3.0/en/api/campaign-ext/actions/">Actions</a><a href="/v1.3.0/en/api/campaign-ext/global/">Root</a><a href="/v1.3.0/en/api/campaign-ext/networkmessages/">NetworkMessages</a><a href="/v1.3.0/en/api/campaign-ext/root/">Root</a><a href="/v1.3.0/en/api/campaign-ext/sandbox/">SandBox</a><a href="/v1.3.0/en/api/campaign-ext/storymode/">StoryMode</a><a href="/v1.3.0/en/api/campaign-ext/taleworlds/">TaleWorlds</a></div>
+                            </details><details class="group" >
+                              <summary>campaign index</summary>
+                              <div class="group-items">
+                                <a href="/v1.3.0/en/api/campaign/">Index</a><a href="/v1.3.0/en/api/campaign/">All 1355 pages</a><a href="/v1.3.0/en/api/campaign/agentorigins/">AgentOrigins</a><a href="/v1.3.0/en/api/campaign/bartersystem/">BarterSystem</a><a href="/v1.3.0/en/api/campaign/campaignbehaviors/">CampaignBehaviors</a><a href="/v1.3.0/en/api/campaign/charactercreationcontent/">CharacterCreationContent</a><a href="/v1.3.0/en/api/campaign/characterdevelopment/">CharacterDevelopment</a><a href="/v1.3.0/en/api/campaign/characters/">Characters</a><a href="/v1.3.0/en/api/campaign/componentinterfaces/">ComponentInterfaces</a><a href="/v1.3.0/en/api/campaign/conversation/">Conversation</a><a href="/v1.3.0/en/api/campaign/election/">Election</a><a href="/v1.3.0/en/api/campaign/encounters/">Encounters</a><a href="/v1.3.0/en/api/campaign/encyclopedia/">Encyclopedia</a><a href="/v1.3.0/en/api/campaign/extensions/">Extensions</a><a href="/v1.3.0/en/api/campaign/gamecomponents/">GameComponents</a><a href="/v1.3.0/en/api/campaign/gamemenus/">GameMenus</a><a href="/v1.3.0/en/api/campaign/gamestate/">GameState</a><a href="/v1.3.0/en/api/campaign/heroes/">Heroes</a><a href="/v1.3.0/en/api/campaign/inventory/">Inventory</a><a href="/v1.3.0/en/api/campaign/issues/">Issues</a><a href="/v1.3.0/en/api/campaign/logentries/">LogEntries</a><a href="/v1.3.0/en/api/campaign/map/">Map</a><a href="/v1.3.0/en/api/campaign/mapevents/">MapEvents</a><a href="/v1.3.0/en/api/campaign/mapnotificationtypes/">MapNotificationTypes</a><a href="/v1.3.0/en/api/campaign/naval/">Naval</a><a href="/v1.3.0/en/api/campaign/parties/">Parties</a><a href="/v1.3.0/en/api/campaign/party/">Party</a><a href="/v1.3.0/en/api/campaign/quests/">Quests</a><a href="/v1.3.0/en/api/campaign/root/">Root</a><a href="/v1.3.0/en/api/campaign/roster/">Roster</a><a href="/v1.3.0/en/api/campaign/savecompability/">SaveCompability</a><a href="/v1.3.0/en/api/campaign/sceneinformationpopuptypes/">SceneInformationPopupTypes</a><a href="/v1.3.0/en/api/campaign/settlements/">Settlements</a><a href="/v1.3.0/en/api/campaign/siege/">Siege</a><a href="/v1.3.0/en/api/campaign/tournamentgames/">TournamentGames</a></div>
+                            </details><details class="group" >
+                              <summary>core-extra index</summary>
+                              <div class="group-items">
+                                <a href="/v1.3.0/en/api/core-extra/">Index</a><a href="/v1.3.0/en/api/core-extra/">All 520 pages</a><a href="/v1.3.0/en/api/core-extra/codegeneration/">CodeGeneration</a><a href="/v1.3.0/en/api/core-extra/eventsystem/">EventSystem</a><a href="/v1.3.0/en/api/core-extra/graph/">Graph</a><a href="/v1.3.0/en/api/core-extra/http/">Http</a><a href="/v1.3.0/en/api/core-extra/imageidentifiers/">ImageIdentifiers</a><a href="/v1.3.0/en/api/core-extra/newsmanager/">NewsManager</a><a href="/v1.3.0/en/api/core-extra/root/">Root</a><a href="/v1.3.0/en/api/core-extra/viewmodelcollection/">ViewModelCollection</a></div>
+                            </details><details class="group" >
+                              <summary>core index</summary>
+                              <div class="group-items">
+                                <a href="/v1.3.0/en/api/core/">Index</a><a href="/v1.3.0/en/api/core/">All 2 pages</a></div>
+                            </details><details class="group" >
+                              <summary>engine index</summary>
+                              <div class="group-items">
+                                <a href="/v1.3.0/en/api/engine/">Index</a><a href="/v1.3.0/en/api/engine/">All 204 pages</a><a href="/v1.3.0/en/api/engine/gauntletui/">GauntletUI</a><a href="/v1.3.0/en/api/engine/inputsystem/">InputSystem</a><a href="/v1.3.0/en/api/engine/options/">Options</a><a href="/v1.3.0/en/api/engine/root/">Root</a></div>
+                            </details><details class="group" >
+                              <summary>stub</summary>
+                              <div class="group-items">
+                                <a href="/v1.3.0/en/api/gameplay/">Index</a><a href="/v1.3.0/en/api/gameplay/">All 15 pages</a><a href="/v1.3.0/en/api/gameplay/sandbox/">SandBox</a><a href="/v1.3.0/en/api/gameplay/storymode/">StoryMode</a></div>
+                            </details><details class="group" >
+                              <summary>gui index</summary>
+                              <div class="group-items">
+                                <a href="/v1.3.0/en/api/gui/">Index</a><a href="/v1.3.0/en/api/gui/">All 181 pages</a><a href="/v1.3.0/en/api/gui/basetypes/">BaseTypes</a><a href="/v1.3.0/en/api/gui/data/">Data</a><a href="/v1.3.0/en/api/gui/extrawidgets/">ExtraWidgets</a><a href="/v1.3.0/en/api/gui/gamepadnavigation/">GamepadNavigation</a><a href="/v1.3.0/en/api/gui/layout/">Layout</a><a href="/v1.3.0/en/api/gui/prefabsystem/">PrefabSystem</a><a href="/v1.3.0/en/api/gui/root/">Root</a></div>
+                            </details><details class="group" >
+                              <summary>localization index</summary>
+                              <div class="group-items">
+                                <a href="/v1.3.0/en/api/localization/">Index</a><a href="/v1.3.0/en/api/localization/">All 54 pages</a><a href="/v1.3.0/en/api/localization/expressions/">Expressions</a><a href="/v1.3.0/en/api/localization/root/">Root</a><a href="/v1.3.0/en/api/localization/textprocessor/">TextProcessor</a></div>
+                            </details><details class="group" >
+                              <summary>mission-ext index</summary>
+                              <div class="group-items">
+                                <a href="/v1.3.0/en/api/mission-ext/">Index</a><a href="/v1.3.0/en/api/mission-ext/">All 1103 pages</a><a href="/v1.3.0/en/api/mission-ext/componentinterfaces/">ComponentInterfaces</a><a href="/v1.3.0/en/api/mission-ext/gauntletui/">GauntletUI</a><a href="/v1.3.0/en/api/mission-ext/missionrepresentatives/">MissionRepresentatives</a><a href="/v1.3.0/en/api/mission-ext/missions/">Missions</a><a href="/v1.3.0/en/api/mission-ext/missionspawnhandlers/">MissionSpawnHandlers</a><a href="/v1.3.0/en/api/mission-ext/network/">Network</a><a href="/v1.3.0/en/api/mission-ext/objects/">Objects</a><a href="/v1.3.0/en/api/mission-ext/options/">Options</a><a href="/v1.3.0/en/api/mission-ext/root/">Root</a><a href="/v1.3.0/en/api/mission-ext/source/">Source</a><a href="/v1.3.0/en/api/mission-ext/view/">View</a><a href="/v1.3.0/en/api/mission-ext/viewmodelcollection/">ViewModelCollection</a></div>
+                            </details><details class="group" >
+                              <summary>mission index</summary>
+                              <div class="group-items">
+                                <a href="/v1.3.0/en/api/mission/">Index</a><a href="/v1.3.0/en/api/mission/">All 52 pages</a><a href="/v1.3.0/en/api/mission/root/">Root</a></div>
+                            </details><details class="group" >
+                              <summary>system index</summary>
+                              <div class="group-items">
+                                <a href="/v1.3.0/en/api/system/">Index</a><a href="/v1.3.0/en/api/system/">All 45 pages</a></div>
+                            </details><details class="group" open>
+                              <summary>viewmodel index</summary>
+                              <div class="group-items">
+                                <a href="/v1.3.0/en/api/viewmodel/">Index</a><a href="/v1.3.0/en/api/viewmodel/">All 433 pages</a><a href="/v1.3.0/en/api/viewmodel/armymanagement/">ArmyManagement</a><a href="/v1.3.0/en/api/viewmodel/charactercreation/">CharacterCreation</a><a href="/v1.3.0/en/api/viewmodel/characterdeveloper/">CharacterDeveloper</a><a href="/v1.3.0/en/api/viewmodel/clanmanagement/">ClanManagement</a><a href="/v1.3.0/en/api/viewmodel/conversation/">Conversation</a><a href="/v1.3.0/en/api/viewmodel/education/">Education</a><a href="/v1.3.0/en/api/viewmodel/encyclopedia/">Encyclopedia</a><a href="/v1.3.0/en/api/viewmodel/gamemenu/">GameMenu</a><a href="/v1.3.0/en/api/viewmodel/inventory/">Inventory</a><a href="/v1.3.0/en/api/viewmodel/kingdommanagement/">KingdomManagement</a><a href="/v1.3.0/en/api/viewmodel/map/">Map</a><a href="/v1.3.0/en/api/viewmodel/party/">Party</a><a href="/v1.3.0/en/api/viewmodel/quests/">Quests</a><a href="/v1.3.0/en/api/viewmodel/root/">Root</a><a href="/v1.3.0/en/api/viewmodel/weaponcrafting/">WeaponCrafting</a></div>
+                            </details></div>
+                      </details><details class="group" >
+                        <summary>Architecture (v1.3.0)</summary>
+                        <div class="group-items">
+                          <a href="/v1.3.0/en/architecture/">Index</a><a href="/v1.3.0/en/architecture/">All 5 pages</a></div>
+                      </details><details class="group" >
+                        <summary>Getting Started Guide</summary>
+                        <div class="group-items">
+                          <a href="/v1.3.0/en/guide/">Index</a><a href="/v1.3.0/en/guide/">All 5 pages</a></div>
+                      </details><details class="group" >
+                        <summary>Native Interface (v1.3.0)</summary>
+                        <div class="group-items">
+                          <a href="/v1.3.0/en/native/">Index</a></div>
+                      </details><details class="group" >
+                        <summary>XML Reference (v1.3.0)</summary>
+                        <div class="group-items">
+                          <a href="/v1.3.0/en/xml-reference/">Index</a></div>
+                      </details></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a><a href="/v1.3.0/en/guide/" class="">All 5 pages</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a><a href="/v1.3.0/en/architecture/" class="">All 5 pages</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="active">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a><a href="/versions/" class="">All 18 pages</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;viewmodel&#x2F;">viewmodel index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">GameMenu</span>
+    </nav>
+  
+  <h1>GameMenu</h1>
+  <h2 id="up">Up</h2>
+<ul>
+<li><a href="../">Back to viewmodel index</a></li>
+<li><a href="../../">API Index</a></li>
+<li><a href="../../../">Version Home</a></li>
+</ul>
+<h2 id="subsystem-overview">Subsystem overview</h2>
+<p>This is the <strong>GameMenu</strong> subsystem inside <strong>viewmodel index</strong>. Classes in the same namespace tackle related concerns; pick a type, then open its page for methods.</p>
+<p>Campaign menu and map-bar UI.</p>
+<h2 id="classes">Classes</h2>
+<table><thead><tr><th>Class</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="../ArmyMenuOverlayVM/"><code>ArmyMenuOverlayVM</code></a></td><td>ArmyMenuOverlayVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay.</td></tr>
+<tr><td><a href="../CrimeValueInspectedInSettlementOverlayEvent/"><code>CrimeValueInspectedInSettlementOverlayEvent</code></a></td><td>CrimeValueInspectedInSettlementOverlayEvent is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Events.</td></tr>
+<tr><td><a href="../DescriptionType/"><code>DescriptionType</code></a></td><td>DescriptionType is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement.</td></tr>
+<tr><td><a href="../EncounterMenuOverlayVM/"><code>EncounterMenuOverlayVM</code></a></td><td>EncounterMenuOverlayVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay.</td></tr>
+<tr><td><a href="../GameMenuItemProgressVM/"><code>GameMenuItemProgressVM</code></a></td><td>GameMenuItemProgressVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.</td></tr>
+<tr><td><a href="../GameMenuItemVM/"><code>GameMenuItemVM</code></a></td><td>GameMenuItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.</td></tr>
+<tr><td><a href="../GameMenuOverlay/"><code>GameMenuOverlay</code></a></td><td>GameMenuOverlay is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay.</td></tr>
+<tr><td><a href="../GameMenuOverlayActionVM/"><code>GameMenuOverlayActionVM</code></a></td><td>GameMenuOverlayActionVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay.</td></tr>
+<tr><td><a href="../GameMenuOverlayFactory/"><code>GameMenuOverlayFactory</code></a></td><td>GameMenuOverlayFactory is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay.</td></tr>
+<tr><td><a href="../GameMenuPartyItemVM/"><code>GameMenuPartyItemVM</code></a></td><td>GameMenuPartyItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay.</td></tr>
+<tr><td><a href="../GameMenuPlunderItemVM/"><code>GameMenuPlunderItemVM</code></a></td><td>GameMenuPlunderItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.</td></tr>
+<tr><td><a href="../GameMenuTroopSelectionVM/"><code>GameMenuTroopSelectionVM</code></a></td><td>GameMenuTroopSelectionVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection.</td></tr>
+<tr><td><a href="../GameMenuVM/"><code>GameMenuVM</code></a></td><td>GameMenuVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.</td></tr>
+<tr><td><a href="../IGameMenuOverlayProvider/"><code>IGameMenuOverlayProvider</code></a></td><td>IGameMenuOverlayProvider is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay.</td></tr>
+<tr><td><a href="../ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard/"><code>ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard</code></a></td><td>ItemComparerBase is an abstract base class in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard/"><code>ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard</code></a></td><td>ItemNameComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard.</td></tr>
+<tr><td><a href="../ItemPlacementComparer/"><code>ItemPlacementComparer</code></a></td><td>ItemPlacementComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard.</td></tr>
+<tr><td><a href="../ItemPrizeComparer/"><code>ItemPrizeComparer</code></a></td><td>ItemPrizeComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard.</td></tr>
+<tr><td><a href="../ItemVictoriesComparer/"><code>ItemVictoriesComparer</code></a></td><td>ItemVictoriesComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard.</td></tr>
+<tr><td><a href="../MenuOverlay/"><code>MenuOverlay</code></a></td><td>MenuOverlay is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay.</td></tr>
+<tr><td><a href="../MenuOverlayContextList/"><code>MenuOverlayContextList</code></a></td><td>MenuOverlayContextList is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay.</td></tr>
+<tr><td><a href="../OverlayType/"><code>OverlayType</code></a></td><td>OverlayType is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay.</td></tr>
+<tr><td><a href="../RecruitmentVM/"><code>RecruitmentVM</code></a></td><td>RecruitmentVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment.</td></tr>
+<tr><td><a href="../RecruitVolunteerOwnerVM/"><code>RecruitVolunteerOwnerVM</code></a></td><td>RecruitVolunteerOwnerVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment.</td></tr>
+<tr><td><a href="../RecruitVolunteerTroopVM/"><code>RecruitVolunteerTroopVM</code></a></td><td>RecruitVolunteerTroopVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment.</td></tr>
+<tr><td><a href="../RecruitVolunteerVM/"><code>RecruitVolunteerVM</code></a></td><td>RecruitVolunteerVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Recruitment.</td></tr>
+<tr><td><a href="../SettlementBuildingProjectVM/"><code>SettlementBuildingProjectVM</code></a></td><td>SettlementBuildingProjectVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement.</td></tr>
+<tr><td><a href="../SettlementDailyProjectVM/"><code>SettlementDailyProjectVM</code></a></td><td>SettlementDailyProjectVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement.</td></tr>
+<tr><td><a href="../SettlementGovernorSelectionItemVM/"><code>SettlementGovernorSelectionItemVM</code></a></td><td>SettlementGovernorSelectionItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement.</td></tr>
+<tr><td><a href="../SettlementGovernorSelectionVM/"><code>SettlementGovernorSelectionVM</code></a></td><td>SettlementGovernorSelectionVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement.</td></tr>
+<tr><td><a href="../SettlementMenuOverlayVM/"><code>SettlementMenuOverlayVM</code></a></td><td>SettlementMenuOverlayVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Overlay.</td></tr>
+<tr><td><a href="../SettlementOverlayLeaveCharacterPermissionEvent/"><code>SettlementOverlayLeaveCharacterPermissionEvent</code></a></td><td>SettlementOverlayLeaveCharacterPermissionEvent is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Events.</td></tr>
+<tr><td><a href="../SettlementOverlayTalkPermissionEvent/"><code>SettlementOverlayTalkPermissionEvent</code></a></td><td>SettlementOverlayTalkPermissionEvent is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Events.</td></tr>
+<tr><td><a href="../SettlementOverylayQuickTalkPermissionEvent/"><code>SettlementOverylayQuickTalkPermissionEvent</code></a></td><td>SettlementOverylayQuickTalkPermissionEvent is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.Events.</td></tr>
+<tr><td><a href="../SettlementProjectSelectionVM/"><code>SettlementProjectSelectionVM</code></a></td><td>SettlementProjectSelectionVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement.</td></tr>
+<tr><td><a href="../SettlementProjectVM/"><code>SettlementProjectVM</code></a></td><td>SettlementProjectVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement.</td></tr>
+<tr><td><a href="../TournamentLeaderboardEntryItemVM/"><code>TournamentLeaderboardEntryItemVM</code></a></td><td>TournamentLeaderboardEntryItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard.</td></tr>
+<tr><td><a href="../TournamentLeaderboardSortControllerVM/"><code>TournamentLeaderboardSortControllerVM</code></a></td><td>TournamentLeaderboardSortControllerVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard.</td></tr>
+<tr><td><a href="../TournamentLeaderboardVM/"><code>TournamentLeaderboardVM</code></a></td><td>TournamentLeaderboardVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TournamentLeaderboard.</td></tr>
+<tr><td><a href="../TownManagementDescriptionItemVM/"><code>TownManagementDescriptionItemVM</code></a></td><td>TownManagementDescriptionItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement.</td></tr>
+<tr><td><a href="../TownManagementReserveControlVM/"><code>TownManagementReserveControlVM</code></a></td><td>TownManagementReserveControlVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement.</td></tr>
+<tr><td><a href="../TownManagementShopItemVM/"><code>TownManagementShopItemVM</code></a></td><td>TownManagementShopItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement.</td></tr>
+<tr><td><a href="../TownManagementVillageItemVM/"><code>TownManagementVillageItemVM</code></a></td><td>TownManagementVillageItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement.</td></tr>
+<tr><td><a href="../TownManagementVM/"><code>TownManagementVM</code></a></td><td>TownManagementVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TownManagement.</td></tr>
+<tr><td><a href="../TroopItemComparer/"><code>TroopItemComparer</code></a></td><td>TroopItemComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection.</td></tr>
+<tr><td><a href="../TroopSelectionItemVM/"><code>TroopSelectionItemVM</code></a></td><td>TroopSelectionItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu.TroopSelection.</td></tr>
+</tbody></table>
+<h2 id="other-subsystems-in-this-area">Other subsystems in this area</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../armymanagement/">ArmyManagement</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../charactercreation/">CharacterCreation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../characterdeveloper/">CharacterDeveloper</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../clanmanagement/">ClanManagement</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../conversation/">Conversation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../education/">Education</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../encyclopedia/">Encyclopedia</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../inventory/">Inventory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../kingdommanagement/">KingdomManagement</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../map/">Map</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../party/">Party</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../quests/">Quests</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/gamemenu/./../weaponcrafting/">WeaponCrafting</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

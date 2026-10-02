@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameComponents</title>
+  <meta name="description" content="Game component interfaces and default model implementations.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/gamecomponents/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/gamecomponents/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="active">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">GameComponents</span>
+    </nav>
+  
+  <h1>GameComponents</h1>
+  <h2 id="up">Up</h2>
+<ul>
+<li><a href="../">Back to campaign index</a></li>
+<li><a href="../../">API Index</a></li>
+<li><a href="../../../">Version Home</a></li>
+</ul>
+<h2 id="subsystem-overview">Subsystem overview</h2>
+<p>This is the <strong>GameComponents</strong> subsystem inside <strong>campaign index</strong>. Classes in the same namespace tackle related concerns; pick a type, then open its page for methods.</p>
+<p>Game component interfaces and default model implementations.</p>
+<h2 id="classes">Classes</h2>
+<table><thead><tr><th>Class</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="../AlleyMemberAvailabilityDetail/"><code>AlleyMemberAvailabilityDetail</code></a></td><td>AlleyMemberAvailabilityDetail is a public type in TaleWorlds.CampaignSystem.GameComponents.</td></tr>
+<tr><td><a href="../AssetIncomeType/"><code>AssetIncomeType</code></a></td><td>AssetIncomeType is a public type in TaleWorlds.CampaignSystem.GameComponents.</td></tr>
+<tr><td><a href="../DefaultAgeModel/"><code>DefaultAgeModel</code></a></td><td>DefaultAgeModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultAlleyModel/"><code>DefaultAlleyModel</code></a></td><td>DefaultAlleyModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultAllianceModel/"><code>DefaultAllianceModel</code></a></td><td>DefaultAllianceModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultArmyManagementCalculationModel/"><code>DefaultArmyManagementCalculationModel</code></a></td><td>DefaultArmyManagementCalculationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultBanditDensityModel/"><code>DefaultBanditDensityModel</code></a></td><td>DefaultBanditDensityModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultBannerItemModel/"><code>DefaultBannerItemModel</code></a></td><td>DefaultBannerItemModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultBarterModel/"><code>DefaultBarterModel</code></a></td><td>DefaultBarterModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultBattleCaptainModel/"><code>DefaultBattleCaptainModel</code></a></td><td>DefaultBattleCaptainModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultBattleRewardModel/"><code>DefaultBattleRewardModel</code></a></td><td>DefaultBattleRewardModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultBodyPropertiesModel/"><code>DefaultBodyPropertiesModel</code></a></td><td>DefaultBodyPropertiesModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultBribeCalculationModel/"><code>DefaultBribeCalculationModel</code></a></td><td>DefaultBribeCalculationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultBuildingConstructionModel/"><code>DefaultBuildingConstructionModel</code></a></td><td>DefaultBuildingConstructionModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultBuildingEffectModel/"><code>DefaultBuildingEffectModel</code></a></td><td>DefaultBuildingEffectModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultBuildingModel/"><code>DefaultBuildingModel</code></a></td><td>DefaultBuildingModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultBuildingScoreCalculationModel/"><code>DefaultBuildingScoreCalculationModel</code></a></td><td>DefaultBuildingScoreCalculationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultCampaignShipDamageModel/"><code>DefaultCampaignShipDamageModel</code></a></td><td>DefaultCampaignShipDamageModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultCampaignShipParametersModel/"><code>DefaultCampaignShipParametersModel</code></a></td><td>DefaultCampaignShipParametersModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultCampaignTimeModel/"><code>DefaultCampaignTimeModel</code></a></td><td>DefaultCampaignTimeModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultCaravanModel/"><code>DefaultCaravanModel</code></a></td><td>DefaultCaravanModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultCharacterDevelopmentModel/"><code>DefaultCharacterDevelopmentModel</code></a></td><td>DefaultCharacterDevelopmentModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultCharacterStatsModel/"><code>DefaultCharacterStatsModel</code></a></td><td>DefaultCharacterStatsModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultClanFinanceModel/"><code>DefaultClanFinanceModel</code></a></td><td>DefaultClanFinanceModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultClanPoliticsModel/"><code>DefaultClanPoliticsModel</code></a></td><td>DefaultClanPoliticsModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultClanTierModel/"><code>DefaultClanTierModel</code></a></td><td>DefaultClanTierModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultCombatSimulationModel/"><code>DefaultCombatSimulationModel</code></a></td><td>DefaultCombatSimulationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultCombatXpModel/"><code>DefaultCombatXpModel</code></a></td><td>DefaultCombatXpModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultCompanionHiringPriceCalculationModel/"><code>DefaultCompanionHiringPriceCalculationModel</code></a></td><td>DefaultCompanionHiringPriceCalculationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultCrimeModel/"><code>DefaultCrimeModel</code></a></td><td>DefaultCrimeModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultCutsceneSelectionModel/"><code>DefaultCutsceneSelectionModel</code></a></td><td>DefaultCutsceneSelectionModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultDailyTroopXpBonusModel/"><code>DefaultDailyTroopXpBonusModel</code></a></td><td>DefaultDailyTroopXpBonusModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultDefectionModel/"><code>DefaultDefectionModel</code></a></td><td>DefaultDefectionModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultDelayedTeleportationModel/"><code>DefaultDelayedTeleportationModel</code></a></td><td>DefaultDelayedTeleportationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultDifficultyModel/"><code>DefaultDifficultyModel</code></a></td><td>DefaultDifficultyModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultDiplomacyModel/"><code>DefaultDiplomacyModel</code></a></td><td>DefaultDiplomacyModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultDisguiseDetectionModel/"><code>DefaultDisguiseDetectionModel</code></a></td><td>DefaultDisguiseDetectionModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultEmissaryModel/"><code>DefaultEmissaryModel</code></a></td><td>DefaultEmissaryModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultEncounterGameMenuModel/"><code>DefaultEncounterGameMenuModel</code></a></td><td>DefaultEncounterGameMenuModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultEncounterModel/"><code>DefaultEncounterModel</code></a></td><td>DefaultEncounterModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultEquipmentSelectionModel/"><code>DefaultEquipmentSelectionModel</code></a></td><td>DefaultEquipmentSelectionModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultExecutionRelationModel/"><code>DefaultExecutionRelationModel</code></a></td><td>DefaultExecutionRelationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultFleetManagementModel/"><code>DefaultFleetManagementModel</code></a></td><td>DefaultFleetManagementModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultGenericXpModel/"><code>DefaultGenericXpModel</code></a></td><td>DefaultGenericXpModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultHeirSelectionCalculationModel/"><code>DefaultHeirSelectionCalculationModel</code></a></td><td>DefaultHeirSelectionCalculationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultHeroAgentLocationModel/"><code>DefaultHeroAgentLocationModel</code></a></td><td>DefaultHeroAgentLocationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultHeroCreationModel/"><code>DefaultHeroCreationModel</code></a></td><td>DefaultHeroCreationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultHeroDeathProbabilityCalculationModel/"><code>DefaultHeroDeathProbabilityCalculationModel</code></a></td><td>DefaultHeroDeathProbabilityCalculationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultHideoutModel/"><code>DefaultHideoutModel</code></a></td><td>DefaultHideoutModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultIncidentModel/"><code>DefaultIncidentModel</code></a></td><td>DefaultIncidentModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultInformationRestrictionModel/"><code>DefaultInformationRestrictionModel</code></a></td><td>DefaultInformationRestrictionModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultInventoryCapacityModel/"><code>DefaultInventoryCapacityModel</code></a></td><td>DefaultInventoryCapacityModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultIssueModel/"><code>DefaultIssueModel</code></a></td><td>DefaultIssueModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultItemDiscardModel/"><code>DefaultItemDiscardModel</code></a></td><td>DefaultItemDiscardModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultKingdomCreationModel/"><code>DefaultKingdomCreationModel</code></a></td><td>DefaultKingdomCreationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultKingdomDecisionPermissionModel/"><code>DefaultKingdomDecisionPermissionModel</code></a></td><td>DefaultKingdomDecisionPermissionModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultLocationModel/"><code>DefaultLocationModel</code></a></td><td>DefaultLocationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultMapDistanceModel/"><code>DefaultMapDistanceModel</code></a></td><td>DefaultMapDistanceModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultMapTrackModel/"><code>DefaultMapTrackModel</code></a></td><td>DefaultMapTrackModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultMapVisibilityModel/"><code>DefaultMapVisibilityModel</code></a></td><td>DefaultMapVisibilityModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultMapWeatherModel/"><code>DefaultMapWeatherModel</code></a></td><td>DefaultMapWeatherModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultMarriageModel/"><code>DefaultMarriageModel</code></a></td><td>DefaultMarriageModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultMilitaryPowerModel/"><code>DefaultMilitaryPowerModel</code></a></td><td>DefaultMilitaryPowerModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultMinorFactionsModel/"><code>DefaultMinorFactionsModel</code></a></td><td>DefaultMinorFactionsModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultMobilePartyAIModel/"><code>DefaultMobilePartyAIModel</code></a></td><td>DefaultMobilePartyAIModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultMobilePartyFoodConsumptionModel/"><code>DefaultMobilePartyFoodConsumptionModel</code></a></td><td>DefaultMobilePartyFoodConsumptionModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultNotablePowerModel/"><code>DefaultNotablePowerModel</code></a></td><td>DefaultNotablePowerModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultNotableSpawnModel/"><code>DefaultNotableSpawnModel</code></a></td><td>DefaultNotableSpawnModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartyDesertionModel/"><code>DefaultPartyDesertionModel</code></a></td><td>DefaultPartyDesertionModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartyFoodBuyingModel/"><code>DefaultPartyFoodBuyingModel</code></a></td><td>DefaultPartyFoodBuyingModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartyHealingModel/"><code>DefaultPartyHealingModel</code></a></td><td>DefaultPartyHealingModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartyImpairmentModel/"><code>DefaultPartyImpairmentModel</code></a></td><td>DefaultPartyImpairmentModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartyMoraleModel/"><code>DefaultPartyMoraleModel</code></a></td><td>DefaultPartyMoraleModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartyNavigationModel/"><code>DefaultPartyNavigationModel</code></a></td><td>DefaultPartyNavigationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartyShipLimitModel/"><code>DefaultPartyShipLimitModel</code></a></td><td>DefaultPartyShipLimitModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartySizeLimitModel/"><code>DefaultPartySizeLimitModel</code></a></td><td>DefaultPartySizeLimitModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartySpeedCalculatingModel/"><code>DefaultPartySpeedCalculatingModel</code></a></td><td>DefaultPartySpeedCalculatingModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartyTradeModel/"><code>DefaultPartyTradeModel</code></a></td><td>DefaultPartyTradeModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartyTrainingModel/"><code>DefaultPartyTrainingModel</code></a></td><td>DefaultPartyTrainingModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartyTransitionModel/"><code>DefaultPartyTransitionModel</code></a></td><td>DefaultPartyTransitionModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartyTroopUpgradeModel/"><code>DefaultPartyTroopUpgradeModel</code></a></td><td>DefaultPartyTroopUpgradeModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPartyWageModel/"><code>DefaultPartyWageModel</code></a></td><td>DefaultPartyWageModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPersuasionModel/"><code>DefaultPersuasionModel</code></a></td><td>DefaultPersuasionModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPlayerProgressionModel/"><code>DefaultPlayerProgressionModel</code></a></td><td>DefaultPlayerProgressionModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPregnancyModel/"><code>DefaultPregnancyModel</code></a></td><td>DefaultPregnancyModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPrisonBreakModel/"><code>DefaultPrisonBreakModel</code></a></td><td>DefaultPrisonBreakModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPrisonerDonationModel/"><code>DefaultPrisonerDonationModel</code></a></td><td>DefaultPrisonerDonationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultPrisonerRecruitmentCalculationModel/"><code>DefaultPrisonerRecruitmentCalculationModel</code></a></td><td>DefaultPrisonerRecruitmentCalculationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultRaidModel/"><code>DefaultRaidModel</code></a></td><td>DefaultRaidModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultRansomValueCalculationModel/"><code>DefaultRansomValueCalculationModel</code></a></td><td>DefaultRansomValueCalculationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultRomanceModel/"><code>DefaultRomanceModel</code></a></td><td>DefaultRomanceModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSceneModel/"><code>DefaultSceneModel</code></a></td><td>DefaultSceneModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSettlementAccessModel/"><code>DefaultSettlementAccessModel</code></a></td><td>DefaultSettlementAccessModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSettlementEconomyModel/"><code>DefaultSettlementEconomyModel</code></a></td><td>DefaultSettlementEconomyModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSettlementFoodModel/"><code>DefaultSettlementFoodModel</code></a></td><td>DefaultSettlementFoodModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSettlementGarrisonModel/"><code>DefaultSettlementGarrisonModel</code></a></td><td>DefaultSettlementGarrisonModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSettlementLoyaltyModel/"><code>DefaultSettlementLoyaltyModel</code></a></td><td>DefaultSettlementLoyaltyModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSettlementMilitiaModel/"><code>DefaultSettlementMilitiaModel</code></a></td><td>DefaultSettlementMilitiaModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSettlementPatrolModel/"><code>DefaultSettlementPatrolModel</code></a></td><td>DefaultSettlementPatrolModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSettlementProsperityModel/"><code>DefaultSettlementProsperityModel</code></a></td><td>DefaultSettlementProsperityModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSettlementSecurityModel/"><code>DefaultSettlementSecurityModel</code></a></td><td>DefaultSettlementSecurityModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSettlementTaxModel/"><code>DefaultSettlementTaxModel</code></a></td><td>DefaultSettlementTaxModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSettlementValueModel/"><code>DefaultSettlementValueModel</code></a></td><td>DefaultSettlementValueModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultShipCostModel/"><code>DefaultShipCostModel</code></a></td><td>DefaultShipCostModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultShipStatModel/"><code>DefaultShipStatModel</code></a></td><td>DefaultShipStatModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSiegeAftermathModel/"><code>DefaultSiegeAftermathModel</code></a></td><td>DefaultSiegeAftermathModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSiegeEventModel/"><code>DefaultSiegeEventModel</code></a></td><td>DefaultSiegeEventModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSiegeLordsHallFightModel/"><code>DefaultSiegeLordsHallFightModel</code></a></td><td>DefaultSiegeLordsHallFightModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSiegeStrategyActionModel/"><code>DefaultSiegeStrategyActionModel</code></a></td><td>DefaultSiegeStrategyActionModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultSmithingModel/"><code>DefaultSmithingModel</code></a></td><td>DefaultSmithingModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultTargetScoreCalculatingModel/"><code>DefaultTargetScoreCalculatingModel</code></a></td><td>DefaultTargetScoreCalculatingModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultTavernMercenaryTroopsModel/"><code>DefaultTavernMercenaryTroopsModel</code></a></td><td>DefaultTavernMercenaryTroopsModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultTournamentModel/"><code>DefaultTournamentModel</code></a></td><td>DefaultTournamentModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultTradeAgreementModel/"><code>DefaultTradeAgreementModel</code></a></td><td>DefaultTradeAgreementModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultTradeItemPriceFactorModel/"><code>DefaultTradeItemPriceFactorModel</code></a></td><td>DefaultTradeItemPriceFactorModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultTroopSacrificeModel/"><code>DefaultTroopSacrificeModel</code></a></td><td>DefaultTroopSacrificeModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultTroopSupplierProbabilityModel/"><code>DefaultTroopSupplierProbabilityModel</code></a></td><td>DefaultTroopSupplierProbabilityModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultValuationModel/"><code>DefaultValuationModel</code></a></td><td>DefaultValuationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultVassalRewardsModel/"><code>DefaultVassalRewardsModel</code></a></td><td>DefaultVassalRewardsModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultVillageProductionCalculatorModel/"><code>DefaultVillageProductionCalculatorModel</code></a></td><td>DefaultVillageProductionCalculatorModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultVillageTradeModel/"><code>DefaultVillageTradeModel</code></a></td><td>DefaultVillageTradeModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultVoiceOverModel/"><code>DefaultVoiceOverModel</code></a></td><td>DefaultVoiceOverModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultVolunteerModel/"><code>DefaultVolunteerModel</code></a></td><td>DefaultVolunteerModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultWallHitPointCalculationModel/"><code>DefaultWallHitPointCalculationModel</code></a></td><td>DefaultWallHitPointCalculationModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../DefaultWorkshopModel/"><code>DefaultWorkshopModel</code></a></td><td>DefaultWorkshopModel is a rule model in TaleWorlds.CampaignSystem.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+</tbody></table>
+<h2 id="other-subsystems-in-this-area">Other subsystems in this area</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../agentorigins/">AgentOrigins</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../bartersystem/">BarterSystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../campaignbehaviors/">CampaignBehaviors</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../charactercreationcontent/">CharacterCreationContent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../characterdevelopment/">CharacterDevelopment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../characters/">Characters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../componentinterfaces/">ComponentInterfaces</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../conversation/">Conversation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../election/">Election</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../encounters/">Encounters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../encyclopedia/">Encyclopedia</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../extensions/">Extensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../gamemenus/">GameMenus</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../gamestate/">GameState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../heroes/">Heroes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../inventory/">Inventory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../issues/">Issues</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../logentries/">LogEntries</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../map/">Map</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../mapevents/">MapEvents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../mapnotificationtypes/">MapNotificationTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../naval/">Naval</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../parties/">Parties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../party/">Party</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../quests/">Quests</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../roster/">Roster</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../savecompability/">SaveCompability</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../sceneinformationpopuptypes/">SceneInformationPopupTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../settlements/">Settlements</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../siege/">Siege</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/gamecomponents/./../tournamentgames/">TournamentGames</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -185,4 +185,4 @@ public class MyLedgerScreen : ScreenBase
 - 栈管理：[ScreenManager](../../gui/ScreenManager) — `TrySetFocus`、`Scale`、`UsableArea` 与焦点事件都来自这里。
 - 战役侧：[Campaign](../../campaign/Campaign) — ViewModel 背后的业务数据源通常取自 `Campaign.Current`。
 - 类型同源：`GauntletMovieIdentifier`、`ViewModel`、`UIContext`、`IGamepadNavigationContext` 均来自 `TaleWorlds.GauntletUI` / `TaleWorlds.Core.ViewModelCollection`，与本类分属不同程序集。
-- 父级：engine API 目录导览位于版本根 `../../../`。
+- 父级：[engine API 目录导览](../)

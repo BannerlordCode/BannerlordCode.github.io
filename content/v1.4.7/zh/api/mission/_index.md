@@ -1,38 +1,39 @@
 ---
 title: "Mission 任务系统 — 只放入口类"
-description: "本目录只收录 5 个模组作者真正会继承的入口类，是刻意做小的'入口桶'，不是完整 API 面。"
+description: "按名字从 mission-ext 切出的 4 个任务侧入口类。目前 4 页，均在中文树。"
 ---
 # Mission 任务系统 — 只放入口类
 
-本目录**只收录 5 个模组作者真正会继承的入口类**，是刻意做小的"入口桶"，不是完整 API 面。
+这个目录只放 4 个类：`Mission`、`MissionState`、`MissionBehavior`、`Agent`。它们是从 [mission-ext](../mission-ext/)（669 个 `.cs`）里**按名字**切出来的，不是按命名空间 —— 目的是让"我要改战斗"这件事点到就到，不用先在一个 669 页的目录里翻。
 
-完整的 `TaleWorlds.MountAndBlade` 类型面在 [Mission-Ext](../mission-ext/)。如果这里没有你要找的东西，**不要在这里继续找** —— 直接去 Mission-Ext。
-
-这 5 个类型是从 `mission-ext/` 里按名称挑出来的（不是按命名空间规则），目的只有一个：让 1.4.5 的 `api/mission/Mission` 这类 URL 在跨版本对比里继续对得上。
-
-## 什么时候该去另一个目录
-
-| 你想做的事 | 去哪 |
-| --- | --- |
-| 继承并覆写入口类 | **本页** |
-| 查战斗/战斗逻辑的其余全部 API | [Mission-Ext](../mission-ext/) |
-| 查战役实体与状态 | [Campaign](../campaign/) |
-| 查模块加载之外的运行时设施 | [Core-Extra](../core-extra/) |
-
-反向链接：`Mission-Ext` 的索引页也指向本页。
+`Formation` 按同一条规则也属于这个桶，但中英文两棵树都没有它的页面。
 
 ## 本区页面（4）
 
-[Agent](Agent) · [Mission](Mission) · [MissionBehavior](MissionBehavior)
-[MissionState](MissionState)
+| 页面 | 讲的是什么 |
+| --- | --- |
+| [Mission](./Mission) | 战斗场景对象；通过对应的 mission logic 创建，不是自己 new |
+| [MissionState](./MissionState) | 任务结束时所处的状态枚举 |
+| [MissionBehavior](./MissionBehavior) | 注册到任务上的抽象行为基类 |
+| [Agent](./Agent) | 战场上的一个士兵或马 |
+
+4 页合起来是一个模组作者的最小可用集：继承 `MissionBehavior` 挂到任务上，在里面拿到 `Mission` 的引用，需要时读 `MissionState` 判断阶段，需要时通过 `Mission` 遍历 `Agent`。
+
+需要注意的是，创建 `Mission` 的方式不是 `new Mission()` —— 游戏通过 `MissionLogic` 那一族创建，逻辑在 mission-ext 里，而那一族目前没有页面。
+
+## 尚未收录
+
+`Formation`。除此之外没有别的：`mission-ext/` 里剩下的约 665 个类不在这个桶。
 
 ## 相邻目录
 
-[core](../core/) · [core-extra](../core-extra/) · [mission-ext](../mission-ext/) · [campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [gui](../gui/) · [save-system](../save-system/) · [viewmodel](../viewmodel/) · [localization](../localization/) · [engine](../engine/) · [system](../system/) · [custombattle](../custombattle/) · [modulemanager](../modulemanager/) · [network](../network/) · [sandbox](../sandbox/) · [storymode](../storymode/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
+[mission-ext](../mission-ext/) · [campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [core](../core/) · [core-extra](../core-extra/) · [gui](../gui/) · [viewmodel](../viewmodel/) · [engine](../engine/) · [sandbox](../sandbox/) · [custombattle](../custombattle/) · [system](../system/) · [network](../network/) · [modulemanager](../modulemanager/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
+
+英文树里没有本区页面，对应的 4 页在 [zh/api/mission/](../../../zh/api/mission/)。
 
 ## 参见
 
 - ↑ [版本首页](../../)
 - ↑ [API 参考](../)
 - ↔ [架构总览](../../architecture/)
-- ↘ [module-system](../../architecture/module-system)
+- ↘ [界面栈](../../architecture/ui-stack)

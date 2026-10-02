@@ -544,4 +544,4 @@ public class LedgerCampaignBehavior : CampaignBehaviorBase
 - 订阅入口：[CampaignBehaviorBase](../CampaignBehaviorBase) — `RegisterEvents` 是正确的订阅位置。
 - 存读档：[IDataStore](../IDataStore) — Behavior 私有状态必须走它，事件本身不入档。
 - 任务侧：[MissionBehavior](../../mission/MissionBehavior) — 战斗内的钩子由它提供，与本类的战役级事件互补。
-- 父级：campaign API 目录导览位于版本根 `../../../`。
+- 父级：[campaign API 目录导览](../)

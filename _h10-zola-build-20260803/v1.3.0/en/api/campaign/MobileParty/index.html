@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MobileParty</title>
+  <meta name="description" content="Auto-generated class reference for MobileParty.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/MobileParty/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="active">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MobileParty</span>
+    </nav>
+  
+  <h1>MobileParty</h1>
+  <h1 id="mobileparty">MobileParty</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Party
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public sealed class MobileParty : CampaignObjectBase, ILocatable&lt;MobileParty&gt;, IMapPoint, ITrackableCampaignObject, ITrackableBase, IRandomOwner</code>
+<strong>Base:</strong> <code>CampaignObjectBase</code>
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Party/MobileParty.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>MobileParty</code> lives in <code>TaleWorlds.CampaignSystem.Party</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.CampaignSystem.Party</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>MainParty</code></td><td><code>public static MobileParty MainParty { get; }</code></td></tr>
+<tr><td><code>All</code></td><td><code>public static MBReadOnlyList&lt;MobileParty&gt; All { get; }</code></td></tr>
+<tr><td><code>AllCaravanParties</code></td><td><code>public static MBReadOnlyList&lt;MobileParty&gt; AllCaravanParties { get; }</code></td></tr>
+<tr><td><code>AllPatrolParties</code></td><td><code>public static MBReadOnlyList&lt;MobileParty&gt; AllPatrolParties { get; }</code></td></tr>
+<tr><td><code>AllBanditParties</code></td><td><code>public static MBReadOnlyList&lt;MobileParty&gt; AllBanditParties { get; }</code></td></tr>
+<tr><td><code>AllLordParties</code></td><td><code>public static MBReadOnlyList&lt;MobileParty&gt; AllLordParties { get; }</code></td></tr>
+<tr><td><code>AllGarrisonParties</code></td><td><code>public static MBReadOnlyList&lt;MobileParty&gt; AllGarrisonParties { get; }</code></td></tr>
+<tr><td><code>AllMilitiaParties</code></td><td><code>public static MBReadOnlyList&lt;MobileParty&gt; AllMilitiaParties { get; }</code></td></tr>
+<tr><td><code>AllVillagerParties</code></td><td><code>public static MBReadOnlyList&lt;MobileParty&gt; AllVillagerParties { get; }</code></td></tr>
+<tr><td><code>AllCustomParties</code></td><td><code>public static MBReadOnlyList&lt;MobileParty&gt; AllCustomParties { get; }</code></td></tr>
+<tr><td><code>AllPartiesWithoutPartyComponent</code></td><td><code>public static MBReadOnlyList&lt;MobileParty&gt; AllPartiesWithoutPartyComponent { get; }</code></td></tr>
+<tr><td><code>Count</code></td><td><code>public static int Count { get; }</code></td></tr>
+<tr><td><code>ConversationParty</code></td><td><code>public static MobileParty ConversationParty { get; }</code></td></tr>
+<tr><td><code>Name</code></td><td><code>public TextObject Name { get; }</code></td></tr>
+<tr><td><code>LastVisitedSettlement</code></td><td><code>public Settlement LastVisitedSettlement { get; }</code></td></tr>
+<tr><td><code>Bearing</code></td><td><code>public Vec2 Bearing { get; }</code></td></tr>
+<tr><td><code>AttachedParties</code></td><td><code>public MBReadOnlyList&lt;MobileParty&gt; AttachedParties { get; }</code></td></tr>
+<tr><td><code>HasLandNavigationCapability</code></td><td><code>public bool HasLandNavigationCapability { get; }</code></td></tr>
+<tr><td><code>Ships</code></td><td><code>public MBReadOnlyList&lt;Ship&gt; Ships { get; }</code></td></tr>
+<tr><td><code>HasNavalNavigationCapability</code></td><td><code>public bool HasNavalNavigationCapability { get; set; }</code></td></tr>
+<tr><td><code>Aggressiveness</code></td><td><code>public float Aggressiveness { get; set; }</code></td></tr>
+<tr><td><code>PaymentLimit</code></td><td><code>public int PaymentLimit { get; }</code></td></tr>
+<tr><td><code>Banner</code></td><td><code>public Banner Banner { get; }</code></td></tr>
+<tr><td><code>ArmyPositionAdder</code></td><td><code>public Vec2 ArmyPositionAdder { get; }</code></td></tr>
+<tr><td><code>AiBehaviorTarget</code></td><td><code>public CampaignVec2 AiBehaviorTarget { get; }</code></td></tr>
+<tr><td><code>Objective</code></td><td><code>public MobileParty.PartyObjective Objective { get; }</code></td></tr>
+<tr><td><code>Ai</code></td><td><code>public MobilePartyAi Ai { get; }</code></td></tr>
+<tr><td><code>Party</code></td><td><code>public PartyBase Party { get; }</code></td></tr>
+<tr><td><code>IsActive</code></td><td><code>public bool IsActive { get; set; }</code></td></tr>
+<tr><td><code>IsInRaftState</code></td><td><code>public bool IsInRaftState { get; set; }</code></td></tr>
+<tr><td><code>DisorganizedUntilTime</code></td><td><code>public CampaignTime DisorganizedUntilTime { get; }</code></td></tr>
+<tr><td><code>LastCalculatedBaseSpeed</code></td><td><code>public float LastCalculatedBaseSpeed { get; }</code></td></tr>
+<tr><td><code>ThinkParamsCache</code></td><td><code>public PartyThinkParams ThinkParamsCache { get; }</code></td></tr>
+<tr><td><code>Speed</code></td><td><code>public float Speed { get; }</code></td></tr>
+<tr><td><code>SpeedExplained</code></td><td><code>public ExplainedNumber SpeedExplained { get; }</code></td></tr>
+<tr><td><code>ShortTermTargetParty</code></td><td><code>public MobileParty ShortTermTargetParty { get; }</code></td></tr>
+<tr><td><code>ShortTermTargetSettlement</code></td><td><code>public Settlement ShortTermTargetSettlement { get; }</code></td></tr>
+<tr><td><code>IsDisorganized</code></td><td><code>public bool IsDisorganized { get; }</code></td></tr>
+<tr><td><code>IsCurrentlyUsedByAQuest</code></td><td><code>public bool IsCurrentlyUsedByAQuest { get; }</code></td></tr>
+<tr><td><code>ShortTermBehavior</code></td><td><code>public AiBehavior ShortTermBehavior { get; }</code></td></tr>
+<tr><td><code>IsPartyTradeActive</code></td><td><code>public bool IsPartyTradeActive { get; }</code></td></tr>
+<tr><td><code>PartyTradeGold</code></td><td><code>public int PartyTradeGold { get; set; }</code></td></tr>
+<tr><td><code>PartyTradeTaxGold</code></td><td><code>public int PartyTradeTaxGold { get; }</code></td></tr>
+<tr><td><code>StationaryStartTime</code></td><td><code>public CampaignTime StationaryStartTime { get; }</code></td></tr>
+<tr><td><code>VersionNo</code></td><td><code>public int VersionNo { get; }</code></td></tr>
+<tr><td><code>ShouldJoinPlayerBattles</code></td><td><code>public bool ShouldJoinPlayerBattles { get; set; }</code></td></tr>
+<tr><td><code>IsDisbanding</code></td><td><code>public bool IsDisbanding { get; set; }</code></td></tr>
+<tr><td><code>RandomValue</code></td><td><code>public int RandomValue { get; }</code></td></tr>
+<tr><td><code>NavigationCapability</code></td><td><code>public MobileParty.NavigationType NavigationCapability { get; }</code></td></tr>
+<tr><td><code>IsCurrentlyAtSea</code></td><td><code>public bool IsCurrentlyAtSea { get; set; }</code></td></tr>
+<tr><td><code>IsNavalVisualDirty</code></td><td><code>public bool IsNavalVisualDirty { get; }</code></td></tr>
+<tr><td><code>IsTargetingPort</code></td><td><code>public bool IsTargetingPort { get; }</code></td></tr>
+<tr><td><code>Anchor</code></td><td><code>public AnchorPoint Anchor { get; }</code></td></tr>
+<tr><td><code>IsTransitionInProgress</code></td><td><code>public bool IsTransitionInProgress { get; }</code></td></tr>
+<tr><td><code>EndPositionForNavigationTransition</code></td><td><code>public CampaignVec2 EndPositionForNavigationTransition { get; }</code></td></tr>
+<tr><td><code>NavigationTransitionStartTime</code></td><td><code>public CampaignTime NavigationTransitionStartTime { get; }</code></td></tr>
+<tr><td><code>NavigationTransitionDuration</code></td><td><code>public CampaignTime NavigationTransitionDuration { get; }</code></td></tr>
+<tr><td><code>DesiredAiNavigationType</code></td><td><code>public MobileParty.NavigationType DesiredAiNavigationType { get; set; }</code></td></tr>
+<tr><td><code>CurrentSettlement</code></td><td><code>public Settlement CurrentSettlement { get; set; }</code></td></tr>
+<tr><td><code>HomeSettlement</code></td><td><code>public Settlement HomeSettlement { get; }</code></td></tr>
+<tr><td><code>AttachedTo</code></td><td><code>public MobileParty AttachedTo { get; set; }</code></td></tr>
+<tr><td><code>Army</code></td><td><code>public Army Army { get; set; }</code></td></tr>
+<tr><td><code>BesiegerCamp</code></td><td><code>public BesiegerCamp BesiegerCamp { get; set; }</code></td></tr>
+<tr><td><code>DefaultBehavior</code></td><td><code>public AiBehavior DefaultBehavior { get; }</code></td></tr>
+<tr><td><code>TargetSettlement</code></td><td><code>public Settlement TargetSettlement { get; }</code></td></tr>
+<tr><td><code>TargetPosition</code></td><td><code>public CampaignVec2 TargetPosition { get; set; }</code></td></tr>
+<tr><td><code>TargetParty</code></td><td><code>public MobileParty TargetParty { get; set; }</code></td></tr>
+<tr><td><code>LeaderHero</code></td><td><code>public Hero LeaderHero { get; set; }</code></td></tr>
+<tr><td><code>Owner</code></td><td><code>public Hero Owner { get; }</code></td></tr>
+<tr><td><code>EffectiveScout</code></td><td><code>public Hero EffectiveScout { get; }</code></td></tr>
+<tr><td><code>EffectiveQuartermaster</code></td><td><code>public Hero EffectiveQuartermaster { get; }</code></td></tr>
+<tr><td><code>EffectiveEngineer</code></td><td><code>public Hero EffectiveEngineer { get; }</code></td></tr>
+<tr><td><code>EffectiveSurgeon</code></td><td><code>public Hero EffectiveSurgeon { get; }</code></td></tr>
+<tr><td><code>RecentEventsMorale</code></td><td><code>public float RecentEventsMorale { get; set; }</code></td></tr>
+<tr><td><code>SeeingRangeExplanation</code></td><td><code>public ExplainedNumber SeeingRangeExplanation { get; }</code></td></tr>
+<tr><td><code>InventoryCapacity</code></td><td><code>public int InventoryCapacity { get; }</code></td></tr>
+<tr><td><code>InventoryCapacityExplainedNumber</code></td><td><code>public ExplainedNumber InventoryCapacityExplainedNumber { get; }</code></td></tr>
+<tr><td><code>TotalWeightCarried</code></td><td><code>public float TotalWeightCarried { get; }</code></td></tr>
+<tr><td><code>MapEventSide</code></td><td><code>public MapEventSide MapEventSide { get; set; }</code></td></tr>
+<tr><td><code>TotalWeightCarriedExplainedNumber</code></td><td><code>public ExplainedNumber TotalWeightCarriedExplainedNumber { get; }</code></td></tr>
+<tr><td><code>Morale</code></td><td><code>public float Morale { get; }</code></td></tr>
+<tr><td><code>FoodChange</code></td><td><code>public float FoodChange { get; }</code></td></tr>
+<tr><td><code>BaseFoodChange</code></td><td><code>public float BaseFoodChange { get; }</code></td></tr>
+<tr><td><code>ActualClan</code></td><td><code>public Clan ActualClan { get; set; }</code></td></tr>
+<tr><td><code>FoodChangeExplained</code></td><td><code>public ExplainedNumber FoodChangeExplained { get; }</code></td></tr>
+<tr><td><code>MoraleExplained</code></td><td><code>public ExplainedNumber MoraleExplained { get; }</code></td></tr>
+<tr><td><code>CurrentNavigationFace</code></td><td><code>public PathFaceRecord CurrentNavigationFace { get; }</code></td></tr>
+<tr><td><code>PathBegin</code></td><td><code>public int PathBegin { get; }</code></td></tr>
+<tr><td><code>ForceAiNoPathMode</code></td><td><code>public bool ForceAiNoPathMode { get; set; }</code></td></tr>
+<tr><td><code>EventPositionAdder</code></td><td><code>public Vec2 EventPositionAdder { get; set; }</code></td></tr>
+<tr><td><code>IsVisible</code></td><td><code>public bool IsVisible { get; set; }</code></td></tr>
+<tr><td><code>Position</code></td><td><code>public CampaignVec2 Position { get; set; }</code></td></tr>
+<tr><td><code>IsInspected</code></td><td><code>public bool IsInspected { get; set; }</code></td></tr>
+<tr><td><code>GetPosition2D</code></td><td><code>public Vec2 GetPosition2D { get; }</code></td></tr>
+<tr><td><code>TotalWage</code></td><td><code>public int TotalWage { get; }</code></td></tr>
+<tr><td><code>TotalWageExplained</code></td><td><code>public ExplainedNumber TotalWageExplained { get; }</code></td></tr>
+<tr><td><code>MapEvent</code></td><td><code>public MapEvent MapEvent { get; }</code></td></tr>
+<tr><td><code>MemberRoster</code></td><td><code>public TroopRoster MemberRoster { get; }</code></td></tr>
+<tr><td><code>PrisonRoster</code></td><td><code>public TroopRoster PrisonRoster { get; }</code></td></tr>
+<tr><td><code>ItemRoster</code></td><td><code>public ItemRoster ItemRoster { get; }</code></td></tr>
+<tr><td><code>IsMainParty</code></td><td><code>public bool IsMainParty { get; }</code></td></tr>
+<tr><td><code>MapFaction</code></td><td><code>public IFaction MapFaction { get; }</code></td></tr>
+<tr><td><code>ArmyName</code></td><td><code>public TextObject ArmyName { get; }</code></td></tr>
+<tr><td><code>SiegeEvent</code></td><td><code>public SiegeEvent SiegeEvent { get; }</code></td></tr>
+<tr><td><code>Food</code></td><td><code>public float Food { get; }</code></td></tr>
+<tr><td><code>TotalFoodAtInventory</code></td><td><code>public int TotalFoodAtInventory { get; }</code></td></tr>
+<tr><td><code>SeeingRange</code></td><td><code>public float SeeingRange { get; }</code></td></tr>
+<tr><td><code>BesiegedSettlement</code></td><td><code>public Settlement BesiegedSettlement { get; }</code></td></tr>
+<tr><td><code>IsEngaging</code></td><td><code>public bool IsEngaging { get; }</code></td></tr>
+<tr><td><code>PartySizeRatio</code></td><td><code>public float PartySizeRatio { get; }</code></td></tr>
+<tr><td><code>VisualPosition2DWithoutError</code></td><td><code>public Vec2 VisualPosition2DWithoutError { get; }</code></td></tr>
+<tr><td><code>IsMoving</code></td><td><code>public bool IsMoving { get; }</code></td></tr>
+<tr><td><code>ShouldBeIgnored</code></td><td><code>public bool ShouldBeIgnored { get; }</code></td></tr>
+<tr><td><code>VillagerPartyComponent</code></td><td><code>public VillagerPartyComponent VillagerPartyComponent { get; }</code></td></tr>
+<tr><td><code>CaravanPartyComponent</code></td><td><code>public CaravanPartyComponent CaravanPartyComponent { get; }</code></td></tr>
+<tr><td><code>WarPartyComponent</code></td><td><code>public WarPartyComponent WarPartyComponent { get; }</code></td></tr>
+<tr><td><code>BanditPartyComponent</code></td><td><code>public BanditPartyComponent BanditPartyComponent { get; }</code></td></tr>
+<tr><td><code>PatrolPartyComponent</code></td><td><code>public PatrolPartyComponent PatrolPartyComponent { get; }</code></td></tr>
+<tr><td><code>LordPartyComponent</code></td><td><code>public LordPartyComponent LordPartyComponent { get; }</code></td></tr>
+<tr><td><code>GarrisonPartyComponent</code></td><td><code>public GarrisonPartyComponent GarrisonPartyComponent { get; }</code></td></tr>
+<tr><td><code>PartyComponent</code></td><td><code>public PartyComponent PartyComponent { get; }</code></td></tr>
+<tr><td><code>IsMilitia</code></td><td><code>public bool IsMilitia { get; }</code></td></tr>
+<tr><td><code>IsLordParty</code></td><td><code>public bool IsLordParty { get; }</code></td></tr>
+<tr><td><code>IsVillager</code></td><td><code>public bool IsVillager { get; }</code></td></tr>
+<tr><td><code>IsCaravan</code></td><td><code>public bool IsCaravan { get; }</code></td></tr>
+<tr><td><code>IsPatrolParty</code></td><td><code>public bool IsPatrolParty { get; }</code></td></tr>
+<tr><td><code>IsGarrison</code></td><td><code>public bool IsGarrison { get; }</code></td></tr>
+<tr><td><code>IsCustomParty</code></td><td><code>public bool IsCustomParty { get; }</code></td></tr>
+<tr><td><code>IsBandit</code></td><td><code>public bool IsBandit { get; }</code></td></tr>
+<tr><td><code>IsBanditBossParty</code></td><td><code>public bool IsBanditBossParty { get; }</code></td></tr>
+<tr><td><code>AvoidHostileActions</code></td><td><code>public bool AvoidHostileActions { get; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="setlandnavigationaccess">SetLandNavigationAccess</h3>
+<p><code>public void SetLandNavigationAccess(bool access)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to land navigation access and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetLandNavigationAccess(false);
+</code></pre>
+<h3 id="getname">GetName</h3>
+<p><code>public override TextObject GetName()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.GetName();
+</code></pre>
+<h3 id="haslimitedwage">HasLimitedWage</h3>
+<p><code>public bool HasLimitedWage()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds limited wage.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.HasLimitedWage();
+</code></pre>
+<h3 id="getavailablewagebudget">GetAvailableWageBudget</h3>
+<p><code>public int GetAvailableWageBudget()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the available wage budget value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.GetAvailableWageBudget();
+</code></pre>
+<h3 id="iswagelimitexceeded">IsWageLimitExceeded</h3>
+<p><code>public bool IsWageLimitExceeded()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the wage limit exceeded state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.IsWageLimitExceeded();
+</code></pre>
+<h3 id="setwagepaymentlimit">SetWagePaymentLimit</h3>
+<p><code>public void SetWagePaymentLimit(int newLimit)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to wage payment limit and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetWagePaymentLimit(0);
+</code></pre>
+<h3 id="setnavalvisualasdirty">SetNavalVisualAsDirty</h3>
+<p><code>public void SetNavalVisualAsDirty()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to naval visual as dirty and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetNavalVisualAsDirty();
+</code></pre>
+<h3 id="onnavalvisualsupdated">OnNavalVisualsUpdated</h3>
+<p><code>public void OnNavalVisualsUpdated()</code></p>
+<p><strong>Purpose:</strong> Invoked when the naval visuals updated event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.OnNavalVisualsUpdated();
+</code></pre>
+<h3 id="setsailatposition">SetSailAtPosition</h3>
+<p><code>public void SetSailAtPosition(CampaignVec2 position)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to sail at position and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetSailAtPosition(position);
+</code></pre>
+<h3 id="cancelnavigationtransition">CancelNavigationTransition</h3>
+<p><code>public void CancelNavigationTransition()</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for cel navigation transition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.CancelNavigationTransition();
+</code></pre>
+<h3 id="changeiscurrentlyatseacheat">ChangeIsCurrentlyAtSeaCheat</h3>
+<p><code>public void ChangeIsCurrentlyAtSeaCheat()</code></p>
+<p><strong>Purpose:</strong> Executes the ChangeIsCurrentlyAtSeaCheat logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.ChangeIsCurrentlyAtSeaCheat();
+</code></pre>
+<h3 id="setcustomhomesettlement">SetCustomHomeSettlement</h3>
+<p><code>public void SetCustomHomeSettlement(Settlement customHomeSettlement)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to custom home settlement and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetCustomHomeSettlement(customHomeSettlement);
+</code></pre>
+<h3 id="settargetsettlement">SetTargetSettlement</h3>
+<p><code>public void SetTargetSettlement(Settlement settlement, bool isTargetingPort)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to target settlement and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetTargetSettlement(settlement, false);
+</code></pre>
+<h3 id="setpartyscout">SetPartyScout</h3>
+<p><code>public void SetPartyScout(Hero hero)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to party scout and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetPartyScout(hero);
+</code></pre>
+<h3 id="setpartyquartermaster">SetPartyQuartermaster</h3>
+<p><code>public void SetPartyQuartermaster(Hero hero)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to party quartermaster and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetPartyQuartermaster(hero);
+</code></pre>
+<h3 id="setpartyengineer">SetPartyEngineer</h3>
+<p><code>public void SetPartyEngineer(Hero hero)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to party engineer and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetPartyEngineer(hero);
+</code></pre>
+<h3 id="setpartysurgeon">SetPartySurgeon</h3>
+<p><code>public void SetPartySurgeon(Hero hero)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to party surgeon and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetPartySurgeon(hero);
+</code></pre>
+<h3 id="tostring">ToString</h3>
+<p><code>public override string ToString()</code></p>
+<p><strong>Purpose:</strong> Returns a human-readable string representation of the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.ToString();
+</code></pre>
+<h3 id="changepartyleader">ChangePartyLeader</h3>
+<p><code>public void ChangePartyLeader(Hero newLeader)</code></p>
+<p><strong>Purpose:</strong> Executes the ChangePartyLeader logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.ChangePartyLeader(newLeader);
+</code></pre>
+<h3 id="onpartyinteraction">OnPartyInteraction</h3>
+<p><code>public void OnPartyInteraction(MobileParty engagingParty)</code></p>
+<p><strong>Purpose:</strong> Invoked when the party interaction event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.OnPartyInteraction(engagingParty);
+</code></pre>
+<h3 id="setpositionaftermapchange">SetPositionAfterMapChange</h3>
+<p><code>public void SetPositionAfterMapChange(CampaignVec2 newPosition)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to position after map change and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetPositionAfterMapChange(newPosition);
+</code></pre>
+<h3 id="removepartyleader">RemovePartyLeader</h3>
+<p><code>public void RemovePartyLeader()</code></p>
+<p><strong>Purpose:</strong> Removes party leader from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.RemovePartyLeader();
+</code></pre>
+<h3 id="checkpositionsformapchangeandupdateifneeded">CheckPositionsForMapChangeAndUpdateIfNeeded</h3>
+<p><code>public void CheckPositionsForMapChangeAndUpdateIfNeeded()</code></p>
+<p><strong>Purpose:</strong> Verifies whether positions for map change and update if needed holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.CheckPositionsForMapChangeAndUpdateIfNeeded();
+</code></pre>
+<h3 id="checkaiformapchangeandupdateifneeded">CheckAiForMapChangeAndUpdateIfNeeded</h3>
+<p><code>public void CheckAiForMapChangeAndUpdateIfNeeded()</code></p>
+<p><strong>Purpose:</strong> Verifies whether ai for map change and update if needed holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.CheckAiForMapChangeAndUpdateIfNeeded();
+</code></pre>
+<h3 id="movepartytotheclosestland">MovePartyToTheClosestLand</h3>
+<p><code>public void MovePartyToTheClosestLand()</code></p>
+<p><strong>Purpose:</strong> Moves party to the closest land to a new position or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.MovePartyToTheClosestLand();
+</code></pre>
+<h3 id="getbehaviortext">GetBehaviorText</h3>
+<p><code>public TextObject GetBehaviorText()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the behavior text value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.GetBehaviorText();
+</code></pre>
+<h3 id="initialize">Initialize</h3>
+<p><code>public override void Initialize()</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings the this instance needs before use.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.Initialize();
+</code></pre>
+<h3 id="initializemobilepartyatposition">InitializeMobilePartyAtPosition</h3>
+<p><code>public void InitializeMobilePartyAtPosition(CampaignVec2 position)</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings required by mobile party at position.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.InitializeMobilePartyAtPosition(position);
+</code></pre>
+<h3 id="initializemobilepartyatposition-1">InitializeMobilePartyAtPosition</h3>
+<p><code>public void InitializeMobilePartyAtPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, bool isNaval = false)</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings required by mobile party at position.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.InitializeMobilePartyAtPosition(memberRoster, prisonerRoster, position, false);
+</code></pre>
+<h3 id="initializemobilepartyaroundposition">InitializeMobilePartyAroundPosition</h3>
+<p><code>public void InitializeMobilePartyAroundPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f, bool isNaval = false)</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings required by mobile party around position.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.InitializeMobilePartyAroundPosition(memberRoster, prisonerRoster, position, 0, 0, false);
+</code></pre>
+<h3 id="initializemobilepartyatposition-2">InitializeMobilePartyAtPosition</h3>
+<p><code>public void InitializeMobilePartyAtPosition(PartyTemplateObject pt, CampaignVec2 position)</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings required by mobile party at position.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.InitializeMobilePartyAtPosition(pt, position);
+</code></pre>
+<h3 id="initializemobilepartyaroundposition-1">InitializeMobilePartyAroundPosition</h3>
+<p><code>public void InitializeMobilePartyAroundPosition(PartyTemplateObject pt, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f)</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings required by mobile party around position.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.InitializeMobilePartyAroundPosition(pt, position, 0, 0);
+</code></pre>
+<h3 id="setdisorganized">SetDisorganized</h3>
+<p><code>public void SetDisorganized(bool isDisorganized)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to disorganized and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetDisorganized(false);
+</code></pre>
+<h3 id="recalculateshorttermbehavior">RecalculateShortTermBehavior</h3>
+<p><code>public void RecalculateShortTermBehavior()</code></p>
+<p><strong>Purpose:</strong> Recalculates short term behavior to reflect the latest state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.RecalculateShortTermBehavior();
+</code></pre>
+<h3 id="isfleebehavior">IsFleeBehavior</h3>
+<p><code>public static bool IsFleeBehavior(AiBehavior aiBehavior)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the flee behavior state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MobileParty.IsFleeBehavior(aiBehavior);
+</code></pre>
+<h3 id="isfleeing">IsFleeing</h3>
+<p><code>public bool IsFleeing()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the fleeing state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.IsFleeing();
+</code></pre>
+<h3 id="setpartyusedbyquest">SetPartyUsedByQuest</h3>
+<p><code>public void SetPartyUsedByQuest(bool isActivelyUsed)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to party used by quest and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetPartyUsedByQuest(false);
+</code></pre>
+<h3 id="ignoreforhours">IgnoreForHours</h3>
+<p><code>public void IgnoreForHours(float hours)</code></p>
+<p><strong>Purpose:</strong> Executes the IgnoreForHours logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.IgnoreForHours(0);
+</code></pre>
+<h3 id="ignorebyotherpartiestill">IgnoreByOtherPartiesTill</h3>
+<p><code>public void IgnoreByOtherPartiesTill(CampaignTime time)</code></p>
+<p><strong>Purpose:</strong> Executes the IgnoreByOtherPartiesTill logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.IgnoreByOtherPartiesTill(time);
+</code></pre>
+<h3 id="setanchor">SetAnchor</h3>
+<p><code>public void SetAnchor(AnchorPoint anchor)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to anchor and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetAnchor(anchor);
+</code></pre>
+<h3 id="setpartyobjective">SetPartyObjective</h3>
+<p><code>public void SetPartyObjective(MobileParty.PartyObjective objective)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to party objective and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetPartyObjective(objective);
+</code></pre>
+<h3 id="updateversionno">UpdateVersionNo</h3>
+<p><code>public void UpdateVersionNo()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of version no.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.UpdateVersionNo();
+</code></pre>
+<h3 id="isspotted">IsSpotted</h3>
+<p><code>public bool IsSpotted()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the spotted state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.IsSpotted();
+</code></pre>
+<h3 id="addelementtomemberroster">AddElementToMemberRoster</h3>
+<p><code>public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)</code></p>
+<p><strong>Purpose:</strong> Adds element to member roster to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.AddElementToMemberRoster(element, 0, false);
+</code></pre>
+<h3 id="addprisoner">AddPrisoner</h3>
+<p><code>public int AddPrisoner(CharacterObject element, int numberToAdd)</code></p>
+<p><strong>Purpose:</strong> Adds prisoner to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.AddPrisoner(element, 0);
+</code></pre>
+<h3 id="getpositionasvec3">GetPositionAsVec3</h3>
+<p><code>public Vec3 GetPositionAsVec3()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the position as vec3 value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.GetPositionAsVec3();
+</code></pre>
+<h3 id="gettotallandstrengthwithfollowers">GetTotalLandStrengthWithFollowers</h3>
+<p><code>public float GetTotalLandStrengthWithFollowers(bool includeNonAttachedArmyMembers = true)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the total land strength with followers value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.GetTotalLandStrengthWithFollowers(false);
+</code></pre>
+<h3 id="hasperk">HasPerk</h3>
+<p><code>public bool HasPerk(PerkObject perk, bool checkSecondaryRole = false)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds perk.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.HasPerk(perk, false);
+</code></pre>
+<h3 id="setheropartyrole">SetHeroPartyRole</h3>
+<p><code>public void SetHeroPartyRole(Hero hero, PartyRole partyRole)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to hero party role and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetHeroPartyRole(hero, partyRole);
+</code></pre>
+<h3 id="getheropartyrole">GetHeroPartyRole</h3>
+<p><code>public PartyRole GetHeroPartyRole(Hero hero)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the hero party role value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.GetHeroPartyRole(hero);
+</code></pre>
+<h3 id="removeheropartyrole">RemoveHeroPartyRole</h3>
+<p><code>public void RemoveHeroPartyRole(Hero hero)</code></p>
+<p><strong>Purpose:</strong> Removes hero party role from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.RemoveHeroPartyRole(hero);
+</code></pre>
+<h3 id="getroleholder">GetRoleHolder</h3>
+<p><code>public Hero GetRoleHolder(PartyRole partyRole)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the role holder value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.GetRoleHolder(partyRole);
+</code></pre>
+<h3 id="geteffectiveroleholder">GetEffectiveRoleHolder</h3>
+<p><code>public Hero GetEffectiveRoleHolder(PartyRole partyRole)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the effective role holder value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.GetEffectiveRoleHolder(partyRole);
+</code></pre>
+<h3 id="getnumdaysforfoodtolast">GetNumDaysForFoodToLast</h3>
+<p><code>public int GetNumDaysForFoodToLast()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the num days for food to last value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.GetNumDaysForFoodToLast();
+</code></pre>
+<h3 id="recalculatelongtermpath">RecalculateLongTermPath</h3>
+<p><code>public bool RecalculateLongTermPath()</code></p>
+<p><strong>Purpose:</strong> Recalculates long term path to reflect the latest state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.RecalculateLongTermPath();
+</code></pre>
+<h3 id="getregionswitchcostfromlandtosea">GetRegionSwitchCostFromLandToSea</h3>
+<p><code>public int GetRegionSwitchCostFromLandToSea()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the region switch cost from land to sea value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.GetRegionSwitchCostFromLandToSea();
+</code></pre>
+<h3 id="getregionswitchcostfromseatoland">GetRegionSwitchCostFromSeaToLand</h3>
+<p><code>public int GetRegionSwitchCostFromSeaToLand()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the region switch cost from sea to land value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.GetRegionSwitchCostFromSeaToLand();
+</code></pre>
+<h3 id="setmovemodehold">SetMoveModeHold</h3>
+<p><code>public void SetMoveModeHold()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to move mode hold and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetMoveModeHold();
+</code></pre>
+<h3 id="setmoveengageparty">SetMoveEngageParty</h3>
+<p><code>public void SetMoveEngageParty(MobileParty party, MobileParty.NavigationType navigationType)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to move engage party and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetMoveEngageParty(party, navigationType);
+</code></pre>
+<h3 id="setmovegoaroundparty">SetMoveGoAroundParty</h3>
+<p><code>public void SetMoveGoAroundParty(MobileParty party, MobileParty.NavigationType navigationType)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to move go around party and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetMoveGoAroundParty(party, navigationType);
+</code></pre>
+<h3 id="setmovegotosettlement">SetMoveGoToSettlement</h3>
+<p><code>public void SetMoveGoToSettlement(Settlement settlement, MobileParty.NavigationType navigationType, bool isTargetingThePort)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to move go to settlement and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetMoveGoToSettlement(settlement, navigationType, false);
+</code></pre>
+<h3 id="setmovegotopoint">SetMoveGoToPoint</h3>
+<p><code>public void SetMoveGoToPoint(CampaignVec2 point, MobileParty.NavigationType navigationType)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to move go to point and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetMoveGoToPoint(point, navigationType);
+</code></pre>
+<h3 id="setmovetonearestland">SetMoveToNearestLand</h3>
+<p><code>public void SetMoveToNearestLand(Settlement settlement)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to move to nearest land and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetMoveToNearestLand(settlement);
+</code></pre>
+<h3 id="setmovegotointeractablepoint">SetMoveGoToInteractablePoint</h3>
+<p><code>public void SetMoveGoToInteractablePoint(IInteractablePoint point, MobileParty.NavigationType navigationType)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to move go to interactable point and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetMoveGoToInteractablePoint(point, navigationType);
+</code></pre>
+<h3 id="setmoveescortparty">SetMoveEscortParty</h3>
+<p><code>public void SetMoveEscortParty(MobileParty mobileParty, MobileParty.NavigationType navigationType, bool isTargetingPort)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to move escort party and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetMoveEscortParty(mobileParty, navigationType, false);
+</code></pre>
+<h3 id="setmovepatrolaroundpoint">SetMovePatrolAroundPoint</h3>
+<p><code>public void SetMovePatrolAroundPoint(CampaignVec2 point, MobileParty.NavigationType navigationType)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to move patrol around point and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetMovePatrolAroundPoint(point, navigationType);
+</code></pre>
+<h3 id="setmovepatrolaroundsettlement">SetMovePatrolAroundSettlement</h3>
+<p><code>public void SetMovePatrolAroundSettlement(Settlement settlement, MobileParty.NavigationType navigationType, bool isTargetingPort)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to move patrol around settlement and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetMovePatrolAroundSettlement(settlement, navigationType, false);
+</code></pre>
+<h3 id="setmoveraidsettlement">SetMoveRaidSettlement</h3>
+<p><code>public void SetMoveRaidSettlement(Settlement settlement, MobileParty.NavigationType navigationType)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to move raid settlement and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetMoveRaidSettlement(settlement, navigationType);
+</code></pre>
+<h3 id="setmovebesiegesettlement">SetMoveBesiegeSettlement</h3>
+<p><code>public void SetMoveBesiegeSettlement(Settlement settlement, MobileParty.NavigationType navigationType)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to move besiege settlement and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetMoveBesiegeSettlement(settlement, navigationType);
+</code></pre>
+<h3 id="setmovedefendsettlement">SetMoveDefendSettlement</h3>
+<p><code>public void SetMoveDefendSettlement(Settlement settlement, bool isTargetingPort, MobileParty.NavigationType navigationType)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to move defend settlement and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetMoveDefendSettlement(settlement, false, navigationType);
+</code></pre>
+<h3 id="startfindinglocatablesaroundposition">StartFindingLocatablesAroundPosition</h3>
+<p><code>public static LocatableSearchData&lt;MobileParty&gt; StartFindingLocatablesAroundPosition(Vec2 position, float radius)</code></p>
+<p><strong>Purpose:</strong> Starts the finding locatables around position flow or state machine.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MobileParty.StartFindingLocatablesAroundPosition(position, 0);
+</code></pre>
+<h3 id="findnextlocatable">FindNextLocatable</h3>
+<p><code>public static MobileParty FindNextLocatable(ref LocatableSearchData&lt;MobileParty&gt; data)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching next locatable in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MobileParty.FindNextLocatable(data);
+</code></pre>
+<h3 id="updatelocator">UpdateLocator</h3>
+<p><code>public static void UpdateLocator(MobileParty party)</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of locator.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MobileParty.UpdateLocator(party);
+</code></pre>
+<h3 id="computeiswaiting">ComputeIsWaiting</h3>
+<p><code>public bool ComputeIsWaiting()</code></p>
+<p><strong>Purpose:</strong> Executes the ComputeIsWaiting logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.ComputeIsWaiting();
+</code></pre>
+<h3 id="initializepartytrade">InitializePartyTrade</h3>
+<p><code>public void InitializePartyTrade(int initialGold)</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings required by party trade.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.InitializePartyTrade(0);
+</code></pre>
+<h3 id="addtaxgold">AddTaxGold</h3>
+<p><code>public void AddTaxGold(int amount)</code></p>
+<p><strong>Purpose:</strong> Adds tax gold to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.AddTaxGold(0);
+</code></pre>
+<h3 id="createparty">CreateParty</h3>
+<p><code>public static MobileParty CreateParty(string stringId, PartyComponent component)</code></p>
+<p><strong>Purpose:</strong> Constructs a new party entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MobileParty.CreateParty(&quot;example&quot;, component);
+</code></pre>
+<h3 id="setpartycomponent">SetPartyComponent</h3>
+<p><code>public void SetPartyComponent(PartyComponent partyComponent, bool firstTimePartyComponentCreation = true)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to party component and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.SetPartyComponent(partyComponent, false);
+</code></pre>
+<h3 id="updatepartycomponentflags">UpdatePartyComponentFlags</h3>
+<p><code>public void UpdatePartyComponentFlags()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of party component flags.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+mobileParty.UpdatePartyComponentFlags();
+</code></pre>
+<h3 id="tostring-1">ToString</h3>
+<p><code>public override string ToString()</code></p>
+<p><strong>Purpose:</strong> Returns a human-readable string representation of the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MobileParty from the subsystem API first
+MobileParty mobileParty = ...;
+var result = mobileParty.ToString();
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+MobileParty mobileParty = ...;
+mobileParty.SetLandNavigationAccess(false);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/campaign/">campaign index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/api/campaign/LordNeedsHorsesIssueQuest/">&larr; LordNeedsHorsesIssueQuest</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/campaign/DefaultBuildingTypes/">DefaultBuildingTypes &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

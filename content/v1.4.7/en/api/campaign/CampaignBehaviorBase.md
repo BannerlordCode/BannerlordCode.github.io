@@ -34,7 +34,7 @@ The common mistakes: treating `RegisterEvents` as an initialisation hook; callin
 - **Use**: for any logic that must hold for as long as the campaign exists — diplomacy rule changes, daily economic settlement, event reactions, custom UI state.
 - **Use**: for any campaign-level state that must survive a save (custom counters, toggles, player markers).
 - **Use**: as a host for static helper methods (the convenience `public static T GetCampaignBehavior<T>()`).
-- **Don't**: derive it for in-mission logic. The battle layer has [MissionBehavior](../../mission/MissionBehavior), whose lifecycle is completely different and which does not participate in saves.
+- **Don't**: derive it for in-mission logic. The battle layer has `MissionBehavior`, whose lifecycle is completely different and which does not participate in saves. It has no English page — the Chinese [zh `MissionBehavior`](../../../../zh/api/mission/MissionBehavior) is the only one on disk.
 - **Don't**: create a Behavior for a one-shot initialisation. [MBSubModuleBase](../../core/MBSubModuleBase) lifecycle callbacks (`OnCampaignStart` / `OnGameStart`) are enough.
 - **Don't**: do heavy rebuilds inside `SyncData` (regenerating map objects, bulk `AddGameMenu`). Loading is a half-initialised state and such work reliably produces NREs.
 
@@ -133,7 +133,7 @@ public class MySubModule : MBSubModuleBase
 - **`GetCampaignBehavior<T>()` returns null in three situations**: `Campaign.Current` is null, the Behavior was never registered, or it was removed with `RemoveBehaviors<T>()`. The static `CampaignBehaviorBase.GetCampaignBehavior<T>()` offers no additional safety.
 - **`StringId` collisions.** Two Behaviors with the same string ID corrupt `CampaignBehaviorManager`'s bookkeeping in a way that is very hard to debug. Always namespace the ID.
 - **Never cache a Behavior instance in a static across campaigns.** Instances are created and destroyed with the campaign; a static field points at a dead object on the next game.
-- **Never hold mission-scoped objects in a Behavior.** `Agent`, `MissionWeapon` and `MissionAgentHandler` all die when the mission ends, while the Behavior's lifetime spans many missions. In-mission logic belongs in [MissionBehavior](../../mission/MissionBehavior).
+- **Never hold mission-scoped objects in a Behavior.** `Agent`, `MissionWeapon` and `MissionAgentHandler` all die when the mission ends, while the Behavior's lifetime spans many missions. In-mission logic belongs in `MissionBehavior` ([zh `MissionBehavior`](../../../../zh/api/mission/MissionBehavior); no English page).
 - **Single-thread.** `RegisterEvents`, `SyncData` and every event callback run on the main game thread. Behavior logic triggered from a multiplayer sync callback must hop to the main thread first.
 - **Repeated campaign loads.** Loading two campaigns in one process calls `RegisterEvents` again. Anything "one-shot" inside it — an `AddGameMenu`, for example — produces duplicate entries the second time.
 
@@ -145,10 +145,10 @@ public class MySubModule : MBSubModuleBase
 - Peers / downstream:
   - [CampaignEvents](../CampaignEvents) is the main target of the subscriptions made in `RegisterEvents`.
   - [MBSubModuleBase](../../core/MBSubModuleBase)'s `OnGameStart` supplies the `IGameStarter` that is the registration moment.
-  - [SaveManager](../../save-system/SaveManager) → [SaveContext](../../save-system/SaveContext) / [LoadContext](../../save-system/LoadContext) invoke `SyncData` with the `IDataStore`.
-  - The battle-layer counterpart is [MissionBehavior](../../mission/MissionBehavior); do not mix the two.
+  - `SaveManager` → `SaveContext` / `LoadContext` invoke `SyncData` with the `IDataStore`. The save-system bucket has no English pages at all — all three are Chinese-only: [zh `SaveManager`](../../../../zh/api/save-system/SaveManager) · [zh `SaveContext`](../../../../zh/api/save-system/SaveContext) · [zh `LoadContext`](../../../../zh/api/save-system/LoadContext).
+  - The battle-layer counterpart is `MissionBehavior`; do not mix the two.
 
 ## See Also
 
 - ↑ Parent: [Campaign API index](../)
-- ↔ Related: [Campaign](../Campaign) · [CampaignEvents](../CampaignEvents) · [CampaignGameStarter](../CampaignGameStarter) · [MBSubModuleBase](../../core/MBSubModuleBase) · [SaveManager](../../save-system/SaveManager) · [MissionBehavior](../../mission/MissionBehavior)
+- ↔ Related: [Campaign](../Campaign) · [CampaignEvents](../CampaignEvents) · [CampaignGameStarter](../CampaignGameStarter) · [MBSubModuleBase](../../core/MBSubModuleBase) · zh [SaveManager](../../../../zh/api/save-system/SaveManager) · zh [MissionBehavior](../../../../zh/api/mission/MissionBehavior) (the two `zh` entries have no English pages; see [the gap list](../../../../GAPS))

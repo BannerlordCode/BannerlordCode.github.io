@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampaignUIHelper</title>
+  <meta name="description" content="CampaignUIHelper 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/viewmodel/CampaignUIHelper/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/viewmodel/CampaignUIHelper/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/viewmodel/CampaignUIHelper/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/viewmodel/CampaignUIHelper/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="active">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;">viewmodel 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CampaignUIHelper</span>
+    </nav>
+  
+  <h1>CampaignUIHelper</h1>
+  <h1 id="campaignuihelper">CampaignUIHelper</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.ViewModelCollection
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public static class CampaignUIHelper</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection/CampaignUIHelper.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>CampaignUIHelper</code> 是一个帮助类，通常提供不依赖实例状态的静态辅助逻辑。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>CampaignUIHelper</code> 当作一个 Helper 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。</p>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="compare">Compare</h3>
+<p><code>public int Compare(CharacterAttribute x, CharacterAttribute y)</code></p>
+<p><strong>用途 / Purpose:</strong> 将当前对象与另一实例比较大小/顺序。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CampaignUIHelper 实例
+CampaignUIHelper campaignUIHelper = ...;
+var result = campaignUIHelper.Compare(x, y);
+</code></pre>
+<h3 id="compare-1">Compare</h3>
+<p><code>public int Compare(SkillObject x, SkillObject y)</code></p>
+<p><strong>用途 / Purpose:</strong> 将当前对象与另一实例比较大小/顺序。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CampaignUIHelper 实例
+CampaignUIHelper campaignUIHelper = ...;
+var result = campaignUIHelper.Compare(x, y);
+</code></pre>
+<h3 id="compare-2">Compare</h3>
+<p><code>public int Compare(MobileParty x, MobileParty y)</code></p>
+<p><strong>用途 / Purpose:</strong> 将当前对象与另一实例比较大小/顺序。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CampaignUIHelper 实例
+CampaignUIHelper campaignUIHelper = ...;
+var result = campaignUIHelper.Compare(x, y);
+</code></pre>
+<h3 id="equals">Equals</h3>
+<p><code>public bool Equals((ItemCategory, int) x, (ItemCategory, int) y)</code></p>
+<p><strong>用途 / Purpose:</strong> 比较当前对象与传入实例是否相等。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CampaignUIHelper 实例
+CampaignUIHelper campaignUIHelper = ...;
+var result = campaignUIHelper.Equals((ItemCategory, 0, (ItemCategory, 0);
+</code></pre>
+<h3 id="gethashcode">GetHashCode</h3>
+<p><code>public int GetHashCode((ItemCategory, int) obj)</code></p>
+<p><strong>用途 / Purpose:</strong> 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CampaignUIHelper 实例
+CampaignUIHelper campaignUIHelper = ...;
+var result = campaignUIHelper.GetHashCode((ItemCategory, 0);
+</code></pre>
+<h3 id="gettooltipforaccumulatingproperty">GetTooltipForAccumulatingProperty</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTooltipForAccumulatingProperty(string propertyName, float currentValue, ExplainedNumber explainedNumber)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 tooltip for accumulating property 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTooltipForAccumulatingProperty(&quot;example&quot;, 0, explainedNumber);
+</code></pre>
+<h3 id="gettooltipforaccumulatingpropertywithresult">GetTooltipForAccumulatingPropertyWithResult</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTooltipForAccumulatingPropertyWithResult(string propertyName, float currentValue, ref ExplainedNumber explainedNumber)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 tooltip for accumulating property with result 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTooltipForAccumulatingPropertyWithResult(&quot;example&quot;, 0, explainedNumber);
+</code></pre>
+<h3 id="gettooltipforgproperty">GetTooltipForgProperty</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTooltipForgProperty(string propertyName, float currentValue, ExplainedNumber explainedNumber)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 tooltip forg property 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTooltipForgProperty(&quot;example&quot;, 0, explainedNumber);
+</code></pre>
+<h3 id="gettownwallstooltip">GetTownWallsTooltip</h3>
+<p><code>public static string GetTownWallsTooltip(Town town)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 town walls tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTownWallsTooltip(town);
+</code></pre>
+<h3 id="getvillagemilitiatooltip">GetVillageMilitiaTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetVillageMilitiaTooltip(Village village)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 village militia tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetVillageMilitiaTooltip(village);
+</code></pre>
+<h3 id="gettownmilitiatooltip">GetTownMilitiaTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTownMilitiaTooltip(Town town)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 town militia tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTownMilitiaTooltip(town);
+</code></pre>
+<h3 id="gettownfoodtooltip">GetTownFoodTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTownFoodTooltip(Town town)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 town food tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTownFoodTooltip(town);
+</code></pre>
+<h3 id="gettownloyaltytooltip">GetTownLoyaltyTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTownLoyaltyTooltip(Town town)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 town loyalty tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTownLoyaltyTooltip(town);
+</code></pre>
+<h3 id="gettownprosperitytooltip">GetTownProsperityTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTownProsperityTooltip(Town town)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 town prosperity tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTownProsperityTooltip(town);
+</code></pre>
+<h3 id="gettowndailyproductiontooltip">GetTownDailyProductionTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTownDailyProductionTooltip(Town town)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 town daily production tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTownDailyProductionTooltip(town);
+</code></pre>
+<h3 id="gettownsecuritytooltip">GetTownSecurityTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTownSecurityTooltip(Town town)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 town security tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTownSecurityTooltip(town);
+</code></pre>
+<h3 id="gettownpatroltooltip">GetTownPatrolTooltip</h3>
+<p><code>public static string GetTownPatrolTooltip(Town town)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 town patrol tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTownPatrolTooltip(town);
+</code></pre>
+<h3 id="getvillageprosperitytooltip">GetVillageProsperityTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetVillageProsperityTooltip(Village village)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 village prosperity tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetVillageProsperityTooltip(village);
+</code></pre>
+<h3 id="gettowngarrisontooltip">GetTownGarrisonTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTownGarrisonTooltip(Town town)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 town garrison tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTownGarrisonTooltip(town);
+</code></pre>
+<h3 id="getpartytroopsizelimittooltip">GetPartyTroopSizeLimitTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetPartyTroopSizeLimitTooltip(PartyBase party)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party troop size limit tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartyTroopSizeLimitTooltip(party);
+</code></pre>
+<h3 id="getpartyprisonersizelimittooltip">GetPartyPrisonerSizeLimitTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetPartyPrisonerSizeLimitTooltip(PartyBase party)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party prisoner size limit tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartyPrisonerSizeLimitTooltip(party);
+</code></pre>
+<h3 id="getusedhorsestooltip">GetUsedHorsesTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetUsedHorsesTooltip(List&lt;Tuple&lt;EquipmentElement, int&gt;&gt; usedUpgradeHorsesHistory)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 used horses tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetUsedHorsesTooltip(list&lt;Tuple&lt;EquipmentElement, 0);
+</code></pre>
+<h3 id="getarmycohesiontooltip">GetArmyCohesionTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetArmyCohesionTooltip(Army army)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 army cohesion tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetArmyCohesionTooltip(army);
+</code></pre>
+<h3 id="getarmymancounttooltip">GetArmyManCountTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetArmyManCountTooltip(Army army)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 army man count tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetArmyManCountTooltip(army);
+</code></pre>
+<h3 id="getdaysuntilnofood">GetDaysUntilNoFood</h3>
+<p><code>public static string GetDaysUntilNoFood(float totalFood, float foodChange)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 days until no food 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetDaysUntilNoFood(0, 0);
+</code></pre>
+<h3 id="getsettlementpropertytooltip">GetSettlementPropertyTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetSettlementPropertyTooltip(Settlement settlement, string valueName, float value, ExplainedNumber explainedNumber)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 settlement property tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetSettlementPropertyTooltip(settlement, &quot;example&quot;, 0, explainedNumber);
+</code></pre>
+<h3 id="getsettlementpropertytooltipwithresult">GetSettlementPropertyTooltipWithResult</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetSettlementPropertyTooltipWithResult(Settlement settlement, string valueName, float value, ref ExplainedNumber explainedNumber)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 settlement property tooltip with result 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetSettlementPropertyTooltipWithResult(settlement, &quot;example&quot;, 0, explainedNumber);
+</code></pre>
+<h3 id="getarmyfoodtooltip">GetArmyFoodTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetArmyFoodTooltip(Army army)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 army food tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetArmyFoodTooltip(army);
+</code></pre>
+<h3 id="getclanwealthstatustext">GetClanWealthStatusText</h3>
+<p><code>public static string GetClanWealthStatusText(Clan clan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 clan wealth status text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetClanWealthStatusText(clan);
+</code></pre>
+<h3 id="getclanprosperitytooltip">GetClanProsperityTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetClanProsperityTooltip(Clan clan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 clan prosperity tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetClanProsperityTooltip(clan);
+</code></pre>
+<h3 id="gettruceownedsettlementstooltip">GetTruceOwnedSettlementsTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTruceOwnedSettlementsTooltip(List&lt;Settlement&gt; settlements, TextObject factionName, bool isTown)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 truce owned settlements tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTruceOwnedSettlementsTooltip(settlements, factionName, false);
+</code></pre>
+<h3 id="getwarprisonerstooltip">GetWarPrisonersTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetWarPrisonersTooltip(List&lt;Hero&gt; capturedPrisoners, TextObject factionName)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 war prisoners tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetWarPrisonersTooltip(capturedPrisoners, factionName);
+</code></pre>
+<h3 id="getnormalizedwarprogresstooltip">GetNormalizedWarProgressTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetNormalizedWarProgressTooltip(ExplainedNumber warProgress, ExplainedNumber otherFactionWarProgress, float maxValue, TextObject faction1Name, TextObject faction2Name)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 normalized war progress tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetNormalizedWarProgressTooltip(warProgress, otherFactionWarProgress, 0, faction1Name, faction2Name);
+</code></pre>
+<h3 id="getclanstrengthtooltip">GetClanStrengthTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetClanStrengthTooltip(Clan clan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 clan strength tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetClanStrengthTooltip(clan);
+</code></pre>
+<h3 id="getcrimetooltip">GetCrimeTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetCrimeTooltip(Settlement settlement)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 crime tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCrimeTooltip(settlement);
+</code></pre>
+<h3 id="getinfluencetooltip">GetInfluenceTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetInfluenceTooltip(Clan clan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 influence tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetInfluenceTooltip(clan);
+</code></pre>
+<h3 id="getclanrenowntooltip">GetClanRenownTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetClanRenownTooltip(Clan clan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 clan renown tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetClanRenownTooltip(clan);
+</code></pre>
+<h3 id="getdenartooltip">GetDenarTooltip</h3>
+<p><code>public static TooltipTriggerVM GetDenarTooltip()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 denar tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetDenarTooltip();
+</code></pre>
+<h3 id="getpartymoraletooltip">GetPartyMoraleTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetPartyMoraleTooltip(MobileParty mainParty)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party morale tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartyMoraleTooltip(mainParty);
+</code></pre>
+<h3 id="getpartyhealthtooltip">GetPartyHealthTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetPartyHealthTooltip(PartyBase party)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party health tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartyHealthTooltip(party);
+</code></pre>
+<h3 id="getplayerhitpointstooltip">GetPlayerHitpointsTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetPlayerHitpointsTooltip()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 player hitpoints tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPlayerHitpointsTooltip();
+</code></pre>
+<h3 id="getpartyfoodtooltip">GetPartyFoodTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetPartyFoodTooltip(MobileParty mainParty)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party food tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartyFoodTooltip(mainParty);
+</code></pre>
+<h3 id="getpartyspeedtooltip">GetPartySpeedTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetPartySpeedTooltip(bool considerArmySpeed)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party speed tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartySpeedTooltip(false);
+</code></pre>
+<h3 id="getpartywagetooltip">GetPartyWageTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetPartyWageTooltip(MobileParty mobileParty)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party wage tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartyWageTooltip(mobileParty);
+</code></pre>
+<h3 id="getviewdistancetooltip">GetViewDistanceTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetViewDistanceTooltip()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 view distance tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetViewDistanceTooltip();
+</code></pre>
+<h3 id="getmainpartyhealthtooltip">GetMainPartyHealthTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetMainPartyHealthTooltip()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 main party health tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetMainPartyHealthTooltip();
+</code></pre>
+<h3 id="getpartyinventorycapacitytooltip">GetPartyInventoryCapacityTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetPartyInventoryCapacityTooltip(MobileParty party, bool forceLand = false, bool forceSea = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party inventory capacity tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartyInventoryCapacityTooltip(party, false, false);
+</code></pre>
+<h3 id="getpartyinventoryweighttooltip">GetPartyInventoryWeightTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetPartyInventoryWeightTooltip(MobileParty party, bool forceLand = false, bool forceSea = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party inventory weight tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartyInventoryWeightTooltip(party, false, false);
+</code></pre>
+<h3 id="getperkeffecttext">GetPerkEffectText</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetPerkEffectText(PerkObject perk, bool isActive)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 perk effect text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPerkEffectText(perk, false);
+</code></pre>
+<h3 id="getperkroletext">GetPerkRoleText</h3>
+<p><code>public static TextObject GetPerkRoleText(PerkObject perk, bool getSecondary)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 perk role text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPerkRoleText(perk, false);
+</code></pre>
+<h3 id="getcombinedperkroletext">GetCombinedPerkRoleText</h3>
+<p><code>public static TextObject GetCombinedPerkRoleText(PerkObject perk)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 combined perk role text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCombinedPerkRoleText(perk);
+</code></pre>
+<h3 id="getsiegemachinetooltip">GetSiegeMachineTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetSiegeMachineTooltip(SiegeEngineType engineType, bool showDescription = true, int hoursUntilCompletion = 0)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 siege machine tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetSiegeMachineTooltip(engineType, false, 0);
+</code></pre>
+<h3 id="getsiegemachinename">GetSiegeMachineName</h3>
+<p><code>public static string GetSiegeMachineName(SiegeEngineType engineType)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 siege machine name 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetSiegeMachineName(engineType);
+</code></pre>
+<h3 id="getsiegemachinenamewithdesctiption">GetSiegeMachineNameWithDesctiption</h3>
+<p><code>public static string GetSiegeMachineNameWithDesctiption(SiegeEngineType engineType)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 siege machine name with desctiption 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetSiegeMachineNameWithDesctiption(engineType);
+</code></pre>
+<h3 id="gettroopconformitytooltip">GetTroopConformityTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTroopConformityTooltip(TroopRosterElement troop)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 troop conformity tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTroopConformityTooltip(troop);
+</code></pre>
+<h3 id="getlearningratetooltip">GetLearningRateTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetLearningRateTooltip(IReadOnlyPropertyOwner&lt;CharacterAttribute&gt; characterAttributes, int focusValue, int skillValue, SkillObject skill)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 learning rate tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetLearningRateTooltip(characterAttributes, 0, 0, skill);
+</code></pre>
+<h3 id="gettroopxptooltip">GetTroopXPTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTroopXPTooltip(TroopRosterElement troop)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 troop x p tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTroopXPTooltip(troop);
+</code></pre>
+<h3 id="getlearninglimittooltip">GetLearningLimitTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetLearningLimitTooltip(IReadOnlyPropertyOwner&lt;CharacterAttribute&gt; characterAttributes, int focusValue, SkillObject skill)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 learning limit tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetLearningLimitTooltip(characterAttributes, 0, skill);
+</code></pre>
+<h3 id="getsettlementconsumptiontooltip">GetSettlementConsumptionTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetSettlementConsumptionTooltip(Settlement settlement)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 settlement consumption tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetSettlementConsumptionTooltip(settlement);
+</code></pre>
+<h3 id="getcharactertierdata">GetCharacterTierData</h3>
+<p><code>public static StringItemWithHintVM GetCharacterTierData(CharacterObject character, bool isBig = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 character tier data 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCharacterTierData(character, false);
+</code></pre>
+<h3 id="getsettlementproductiontooltip">GetSettlementProductionTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetSettlementProductionTooltip(Settlement settlement)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 settlement production tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetSettlementProductionTooltip(settlement);
+</code></pre>
+<h3 id="gethinttextfromreasons">GetHintTextFromReasons</h3>
+<p><code>public static string GetHintTextFromReasons(List&lt;TextObject&gt; reasons)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hint text from reasons 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetHintTextFromReasons(reasons);
+</code></pre>
+<h3 id="mergetextobjectswithnewline">MergeTextObjectsWithNewline</h3>
+<p><code>public static string MergeTextObjectsWithNewline(List&lt;TextObject&gt; textObjects)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MergeTextObjectsWithNewline 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.MergeTextObjectsWithNewline(textObjects);
+</code></pre>
+<h3 id="gethoursanddaystextfromhourvalue">GetHoursAndDaysTextFromHourValue</h3>
+<p><code>public static TextObject GetHoursAndDaysTextFromHourValue(int hours)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hours and days text from hour value 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetHoursAndDaysTextFromHourValue(0);
+</code></pre>
+<h3 id="getteleportationdelaytext">GetTeleportationDelayText</h3>
+<p><code>public static TextObject GetTeleportationDelayText(Hero hero, PartyBase target)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 teleportation delay text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTeleportationDelayText(hero, target);
+</code></pre>
+<h3 id="gettimeofdayandresetcameratooltip">GetTimeOfDayAndResetCameraTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTimeOfDayAndResetCameraTooltip()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 time of day and reset camera tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTimeOfDayAndResetCameraTooltip();
+</code></pre>
+<h3 id="gettournamentchampionrewardstooltip">GetTournamentChampionRewardsTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetTournamentChampionRewardsTooltip(Hero hero, Town town)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 tournament champion rewards tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTournamentChampionRewardsTooltip(hero, town);
+</code></pre>
+<h3 id="getcharactertypedata">GetCharacterTypeData</h3>
+<p><code>public static StringItemWithHintVM GetCharacterTypeData(CharacterObject character, bool isBig = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 character type data 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCharacterTypeData(character, false);
+</code></pre>
+<h3 id="getherohealthtooltip">GetHeroHealthTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetHeroHealthTooltip(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hero health tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetHeroHealthTooltip(hero);
+</code></pre>
+<h3 id="getsiegewalltooltip">GetSiegeWallTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetSiegeWallTooltip(int wallLevel, int wallHitpoints)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 siege wall tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetSiegeWallTooltip(0, 0);
+</code></pre>
+<h3 id="getgovernorperkstooltipforhero">GetGovernorPerksTooltipForHero</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetGovernorPerksTooltipForHero(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 governor perks tooltip for hero 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetGovernorPerksTooltipForHero(hero);
+</code></pre>
+<h3 id="getherogovernoreffectstooltip">GetHeroGovernorEffectsTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetHeroGovernorEffectsTooltip(Hero hero, Settlement settlement)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hero governor effects tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetHeroGovernorEffectsTooltip(hero, settlement);
+</code></pre>
+<h3 id="getencounterpartymoraletooltip">GetEncounterPartyMoraleTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetEncounterPartyMoraleTooltip(List&lt;MobileParty&gt; parties)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 encounter party morale tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetEncounterPartyMoraleTooltip(parties);
+</code></pre>
+<h3 id="getcraftingtemplatepieceunlockprogresshint">GetCraftingTemplatePieceUnlockProgressHint</h3>
+<p><code>public static TextObject GetCraftingTemplatePieceUnlockProgressHint(float progress)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 crafting template piece unlock progress hint 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCraftingTemplatePieceUnlockProgressHint(0);
+</code></pre>
+<h3 id="getitemflagdetails">GetItemFlagDetails</h3>
+<p><code>public static List&lt;Tuple&lt;string, TextObject&gt;&gt; GetItemFlagDetails(ItemFlags itemFlags)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 item flag details 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetItemFlagDetails(itemFlags);
+</code></pre>
+<h3 id="getformatteditempropertytext">GetFormattedItemPropertyText</h3>
+<p><code>public static string GetFormattedItemPropertyText(float propertyValue, bool typeRequiresInteger)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 formatted item property text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetFormattedItemPropertyText(0, false);
+</code></pre>
+<h3 id="getcraftingherotooltip">GetCraftingHeroTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetCraftingHeroTooltip(Hero hero, CraftingOrder order)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 crafting hero tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCraftingHeroTooltip(hero, order);
+</code></pre>
+<h3 id="getordercannotbecompletedreasontooltip">GetOrderCannotBeCompletedReasonTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetOrderCannotBeCompletedReasonTooltip(CraftingOrder order, ItemObject item)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 order cannot be completed reason tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetOrderCannotBeCompletedReasonTooltip(order, item);
+</code></pre>
+<h3 id="getcraftingorderdisabledreasontooltip">GetCraftingOrderDisabledReasonTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetCraftingOrderDisabledReasonTooltip(Hero heroToCheck, CraftingOrder order)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 crafting order disabled reason tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCraftingOrderDisabledReasonTooltip(heroToCheck, order);
+</code></pre>
+<h3 id="getordersdisabledreasontooltip">GetOrdersDisabledReasonTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetOrdersDisabledReasonTooltip(MBBindingList&lt;CraftingOrderItemVM&gt; craftingOrders, Hero heroToCheck)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 orders disabled reason tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetOrdersDisabledReasonTooltip(craftingOrders, heroToCheck);
+</code></pre>
+<h3 id="getcraftingordermissingpropertywarningtext">GetCraftingOrderMissingPropertyWarningText</h3>
+<p><code>public static string GetCraftingOrderMissingPropertyWarningText(CraftingOrder order, ItemObject craftedItem)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 crafting order missing property warning text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCraftingOrderMissingPropertyWarningText(order, craftedItem);
+</code></pre>
+<h3 id="getinventorycharactertooltip">GetInventoryCharacterTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetInventoryCharacterTooltip(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 inventory character tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetInventoryCharacterTooltip(hero);
+</code></pre>
+<h3 id="getherooccupationname">GetHeroOccupationName</h3>
+<p><code>public static string GetHeroOccupationName(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hero occupation name 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetHeroOccupationName(hero);
+</code></pre>
+<h3 id="getcommaseparatedtext">GetCommaSeparatedText</h3>
+<p><code>public static TextObject GetCommaSeparatedText(TextObject label, IEnumerable&lt;TextObject&gt; texts)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 comma separated text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCommaSeparatedText(label, texts);
+</code></pre>
+<h3 id="getcommanewlineseparatedtext">GetCommaNewlineSeparatedText</h3>
+<p><code>public static TextObject GetCommaNewlineSeparatedText(TextObject label, IEnumerable&lt;TextObject&gt; texts)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 comma newline separated text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCommaNewlineSeparatedText(label, texts);
+</code></pre>
+<h3 id="getherokingdomrank">GetHeroKingdomRank</h3>
+<p><code>public static string GetHeroKingdomRank(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hero kingdom rank 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetHeroKingdomRank(hero);
+</code></pre>
+<h3 id="getherorank">GetHeroRank</h3>
+<p><code>public static string GetHeroRank(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hero rank 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetHeroRank(hero);
+</code></pre>
+<h3 id="getsmithingdifficultytooltip">GetSmithingDifficultyTooltip</h3>
+<p><code>public static List&lt;TooltipProperty&gt; GetSmithingDifficultyTooltip()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 smithing difficulty tooltip 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetSmithingDifficultyTooltip();
+</code></pre>
+<h3 id="issettlementinformationhidden">IsSettlementInformationHidden</h3>
+<p><code>public static bool IsSettlementInformationHidden(Settlement settlement, out TextObject disableReason)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 settlement information hidden 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.IsSettlementInformationHidden(settlement, disableReason);
+</code></pre>
+<h3 id="isheroinformationhidden">IsHeroInformationHidden</h3>
+<p><code>public static bool IsHeroInformationHidden(Hero hero, out TextObject disableReason)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 hero information hidden 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.IsHeroInformationHidden(hero, disableReason);
+</code></pre>
+<h3 id="getpartynameplatetext">GetPartyNameplateText</h3>
+<p><code>public static string GetPartyNameplateText(MobileParty party, bool includeAttachedParties)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party nameplate text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartyNameplateText(party, false);
+</code></pre>
+<h3 id="getpartynameplatetext-1">GetPartyNameplateText</h3>
+<p><code>public static string GetPartyNameplateText(PartyBase party)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party nameplate text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartyNameplateText(party);
+</code></pre>
+<h3 id="getvaluechangetext">GetValueChangeText</h3>
+<p><code>public static string GetValueChangeText(float originalValue, float valueChange, string valueFormat = "F0")</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 value change text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetValueChangeText(0, 0, &quot;example&quot;);
+</code></pre>
+<h3 id="getupgradehint">GetUpgradeHint</h3>
+<p><code>public static string GetUpgradeHint(int index, int numOfItems, int availableUpgrades, int upgradeCoinCost, bool hasRequiredPerk, PerkObject requiredPerk, CharacterObject character, TroopRosterElement troop, int partyGoldChangeAmount, bool areUpgradesDisabled)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 upgrade hint 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetUpgradeHint(0, 0, 0, 0, false, requiredPerk, character, troop, 0, false);
+</code></pre>
+<h3 id="getstackmodifierstring">GetStackModifierString</h3>
+<p><code>public static string GetStackModifierString(TextObject allStackText, TextObject fiveStackText, bool canFiveStack)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 stack modifier string 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetStackModifierString(allStackText, fiveStackText, false);
+</code></pre>
+<h3 id="converttohexcolor">ConvertToHexColor</h3>
+<p><code>public static string ConvertToHexColor(uint color)</code></p>
+<p><strong>用途 / Purpose:</strong> 把to hex color转换为另一种表示或类型。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.ConvertToHexColor(0);
+</code></pre>
+<h3 id="getmapscreenactionisenabledwithreason">GetMapScreenActionIsEnabledWithReason</h3>
+<p><code>public static bool GetMapScreenActionIsEnabledWithReason(out TextObject disabledReason)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 map screen action is enabled with reason 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetMapScreenActionIsEnabledWithReason(disabledReason);
+</code></pre>
+<h3 id="getcanmanagecurrentarmywithreason">GetCanManageCurrentArmyWithReason</h3>
+<p><code>public static bool GetCanManageCurrentArmyWithReason(out TextObject disabledReason)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 can manage current army with reason 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCanManageCurrentArmyWithReason(disabledReason);
+</code></pre>
+<h3 id="getclansupportdisablereasonstring">GetClanSupportDisableReasonString</h3>
+<p><code>public static string GetClanSupportDisableReasonString(bool hasEnoughInfluence, bool isTargetMainClan, bool isMainClanMercenary)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 clan support disable reason string 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetClanSupportDisableReasonString(false, false, false);
+</code></pre>
+<h3 id="getclanexpeldisablereasonstring">GetClanExpelDisableReasonString</h3>
+<p><code>public static string GetClanExpelDisableReasonString(bool hasEnoughInfluence, bool isTargetMainClan, bool isTargetRulingClan, bool isMainClanMercenary)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 clan expel disable reason string 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetClanExpelDisableReasonString(false, false, false, false);
+</code></pre>
+<h3 id="getarmydisbanddisablereasonstring">GetArmyDisbandDisableReasonString</h3>
+<p><code>public static string GetArmyDisbandDisableReasonString(bool hasEnoughInfluence, bool isArmyInAnyEvent, bool isPlayerClanMercenary, bool isPlayerInThisArmy)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 army disband disable reason string 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetArmyDisbandDisableReasonString(false, false, false, false);
+</code></pre>
+<h3 id="getcreatenewpartyreasonstring">GetCreateNewPartyReasonString</h3>
+<p><code>public static TextObject GetCreateNewPartyReasonString(bool haveEmptyPartySlots, bool haveAvailableHero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 create new party reason string 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCreateNewPartyReasonString(false, false);
+</code></pre>
+<h3 id="getcraftingdisablereasonstring">GetCraftingDisableReasonString</h3>
+<p><code>public static string GetCraftingDisableReasonString(bool playerHasEnoughMaterials)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 crafting disable reason string 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCraftingDisableReasonString(false);
+</code></pre>
+<h3 id="getaddfocushintstring">GetAddFocusHintString</h3>
+<p><code>public static string GetAddFocusHintString(bool playerHasEnoughPoints, bool isMaxedSkill, int currentFocusAmount)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 add focus hint string 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetAddFocusHintString(false, false, 0);
+</code></pre>
+<h3 id="getskilleffecttext">GetSkillEffectText</h3>
+<p><code>public static string GetSkillEffectText(SkillEffect effect, int skillLevel)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 skill effect text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetSkillEffectText(effect, 0);
+</code></pre>
+<h3 id="getmobilepartybehaviortext">GetMobilePartyBehaviorText</h3>
+<p><code>public static string GetMobilePartyBehaviorText(MobileParty party)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 mobile party behavior text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetMobilePartyBehaviorText(party);
+</code></pre>
+<h3 id="getherobehaviortext">GetHeroBehaviorText</h3>
+<p><code>public static string GetHeroBehaviorText(Hero hero, ITeleportationCampaignBehavior teleportationBehavior = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hero behavior text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetHeroBehaviorText(hero, null);
+</code></pre>
+<h3 id="getpartylocationtext">GetPartyLocationText</h3>
+<p><code>public static string GetPartyLocationText(MobileParty mobileParty)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party location text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartyLocationText(mobileParty);
+</code></pre>
+<h3 id="getteleportingleaderhero">GetTeleportingLeaderHero</h3>
+<p><code>public static Hero GetTeleportingLeaderHero(MobileParty party, ITeleportationCampaignBehavior teleportationBehavior)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 teleporting leader hero 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTeleportingLeaderHero(party, teleportationBehavior);
+</code></pre>
+<h3 id="getteleportinggovernor">GetTeleportingGovernor</h3>
+<p><code>public static Hero GetTeleportingGovernor(Settlement settlement, ITeleportationCampaignBehavior teleportationBehavior)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 teleporting governor 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTeleportingGovernor(settlement, teleportationBehavior);
+</code></pre>
+<h3 id="getherorelationtoherotext">GetHeroRelationToHeroText</h3>
+<p><code>public static TextObject GetHeroRelationToHeroText(Hero queriedHero, Hero baseHero, bool uppercaseFirst)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hero relation to hero text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetHeroRelationToHeroText(queriedHero, baseHero, false);
+</code></pre>
+<h3 id="getabbreviatedvaluetextfromvalue">GetAbbreviatedValueTextFromValue</h3>
+<p><code>public static string GetAbbreviatedValueTextFromValue(int valueAmount)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 abbreviated value text from value 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetAbbreviatedValueTextFromValue(0);
+</code></pre>
+<h3 id="getpartydistancebytimetext">GetPartyDistanceByTimeText</h3>
+<p><code>public static string GetPartyDistanceByTimeText(float distance, float speed)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party distance by time text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartyDistanceByTimeText(0, 0);
+</code></pre>
+<h3 id="getpartydistancebytimetextabbreviated">GetPartyDistanceByTimeTextAbbreviated</h3>
+<p><code>public static string GetPartyDistanceByTimeTextAbbreviated(float distance, float speed)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 party distance by time text abbreviated 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetPartyDistanceByTimeTextAbbreviated(0, 0);
+</code></pre>
+<h3 id="getcharactercode">GetCharacterCode</h3>
+<p><code>public static CharacterCode GetCharacterCode(CharacterObject character, bool useCivilian = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 character code 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetCharacterCode(character, false);
+</code></pre>
+<h3 id="gettraitnametext">GetTraitNameText</h3>
+<p><code>public static string GetTraitNameText(TraitObject traitObject, Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 trait name text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTraitNameText(traitObject, hero);
+</code></pre>
+<h3 id="gettraittooltiptext">GetTraitTooltipText</h3>
+<p><code>public static string GetTraitTooltipText(TraitObject traitObject, int traitValue)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 trait tooltip text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTraitTooltipText(traitObject, 0);
+</code></pre>
+<h3 id="gettextforrole">GetTextForRole</h3>
+<p><code>public static string GetTextForRole(PartyRole role)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 text for role 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTextForRole(role);
+</code></pre>
+<h3 id="getattributetypesortindex">GetAttributeTypeSortIndex</h3>
+<p><code>public static int GetAttributeTypeSortIndex(CharacterAttribute attribute)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 attribute type sort index 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetAttributeTypeSortIndex(attribute);
+</code></pre>
+<h3 id="getskillobjecttypesortindex">GetSkillObjectTypeSortIndex</h3>
+<p><code>public static int GetSkillObjectTypeSortIndex(SkillObject skill)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 skill object type sort index 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetSkillObjectTypeSortIndex(skill);
+</code></pre>
+<h3 id="getskillmeshid">GetSkillMeshId</h3>
+<p><code>public static string GetSkillMeshId(SkillObject skill, bool useSmallestVariation = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 skill mesh id 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetSkillMeshId(skill, false);
+</code></pre>
+<h3 id="getisnavalskill">GetIsNavalSkill</h3>
+<p><code>public static bool GetIsNavalSkill(SkillObject skill)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 is naval skill 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetIsNavalSkill(skill);
+</code></pre>
+<h3 id="getherocomparesortindex">GetHeroCompareSortIndex</h3>
+<p><code>public static int GetHeroCompareSortIndex(Hero x, Hero y)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hero compare sort index 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetHeroCompareSortIndex(x, y);
+</code></pre>
+<h3 id="getheroclanroletext">GetHeroClanRoleText</h3>
+<p><code>public static string GetHeroClanRoleText(Hero hero, Clan clan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hero clan role text 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetHeroClanRoleText(hero, clan);
+</code></pre>
+<h3 id="getitemobjecttypesortindex">GetItemObjectTypeSortIndex</h3>
+<p><code>public static int GetItemObjectTypeSortIndex(ItemObject item)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 item object type sort index 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetItemObjectTypeSortIndex(item);
+</code></pre>
+<h3 id="getitemlockstringid">GetItemLockStringID</h3>
+<p><code>public static string GetItemLockStringID(EquipmentElement equipmentElement)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 item lock string i d 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetItemLockStringID(equipmentElement);
+</code></pre>
+<h3 id="gettrooplockstringid">GetTroopLockStringID</h3>
+<p><code>public static string GetTroopLockStringID(TroopRosterElement rosterElement)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 troop lock string i d 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetTroopLockStringID(rosterElement);
+</code></pre>
+<h3 id="getquestexplanationofhero">GetQuestExplanationOfHero</h3>
+<p><code>public static string GetQuestExplanationOfHero(IssueQuestFlags questType)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 quest explanation of hero 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetQuestExplanationOfHero(questType);
+</code></pre>
+<h3 id="getquestsrelatedtohero">GetQuestsRelatedToHero</h3>
+<p><code>public static List&lt;QuestBase&gt; GetQuestsRelatedToHero(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 quests related to hero 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetQuestsRelatedToHero(hero);
+</code></pre>
+<h3 id="getquestsrelatedtoparty">GetQuestsRelatedToParty</h3>
+<p><code>public static List&lt;QuestBase&gt; GetQuestsRelatedToParty(MobileParty party)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 quests related to party 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetQuestsRelatedToParty(party);
+</code></pre>
+<h3 id="isquestrelatedtosettlement">IsQuestRelatedToSettlement</h3>
+<p><code>public static bool IsQuestRelatedToSettlement(QuestBase quest, Settlement settlement)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 quest related to settlement 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.IsQuestRelatedToSettlement(quest, settlement);
+</code></pre>
+<h3 id="getissuetype">GetIssueType</h3>
+<p><code>public static IssueQuestFlags GetIssueType(IssueBase issue)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 issue type 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetIssueType(issue);
+</code></pre>
+<h3 id="getquesttype">GetQuestType</h3>
+<p><code>public static IssueQuestFlags GetQuestType(QuestBase quest, Hero queriedQuestGiver)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 quest type 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetQuestType(quest, queriedQuestGiver);
+</code></pre>
+<h3 id="getherotraits">GetHeroTraits</h3>
+<p><code>public static IEnumerable&lt;TraitObject&gt; GetHeroTraits()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hero traits 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetHeroTraits();
+</code></pre>
+<h3 id="isitemusageapplicable">IsItemUsageApplicable</h3>
+<p><code>public static bool IsItemUsageApplicable(WeaponComponentData weapon)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 item usage applicable 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.IsItemUsageApplicable(weapon);
+</code></pre>
+<h3 id="floattostring">FloatToString</h3>
+<p><code>public static string FloatToString(float x)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 FloatToString 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.FloatToString(0);
+</code></pre>
+<h3 id="isstringapplicableforheroname">IsStringApplicableForHeroName</h3>
+<p><code>public static Tuple&lt;bool, string&gt; IsStringApplicableForHeroName(string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 string applicable for hero name 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.IsStringApplicableForHeroName(&quot;example&quot;);
+</code></pre>
+<h3 id="isstringapplicableforitemname">IsStringApplicableForItemName</h3>
+<p><code>public static Tuple&lt;bool, TextObject&gt; IsStringApplicableForItemName(string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 string applicable for item name 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.IsStringApplicableForItemName(&quot;example&quot;);
+</code></pre>
+<h3 id="getvisualpartyleader">GetVisualPartyLeader</h3>
+<p><code>public static CharacterObject GetVisualPartyLeader(PartyBase party)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 visual party leader 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetVisualPartyLeader(party);
+</code></pre>
+<h3 id="getchildrenandgrandchildrenofhero">GetChildrenAndGrandchildrenOfHero</h3>
+<p><code>public static List&lt;Hero&gt; GetChildrenAndGrandchildrenOfHero(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 children and grandchildren of hero 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignUIHelper.GetChildrenAndGrandchildrenOfHero(hero);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">CampaignUIHelper.Initialize();
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/zh/api/viewmodel/">viewmodel 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/zh/api/viewmodel/RecruitVolunteerVM/">&larr; RecruitVolunteerVM</a>
+          
+          
+            <a rel="next" href="/v1.4.5/zh/api/viewmodel/ClanRoleMemberItemVM/">ClanRoleMemberItemVM &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

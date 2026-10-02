@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GauntletLayer</title>
+  <meta name="description" content="The GauntletUI host layer: it instantiates a XAML movie (bound to a ViewModel) into an interactive UI and mounts it on the current ScreenBase&#x2F;ScreenManager so it participates in hit-testing, focus, and drawing — the primary way modders show custom panels and HUDs.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/engine/GauntletLayer/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/engine/GauntletLayer/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/engine/GauntletLayer/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/engine/GauntletLayer/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/engine/GauntletLayer/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/engine/GauntletLayer/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="active">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;engine&#x2F;">engine index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">GauntletLayer</span>
+    </nav>
+  
+  <h1>GauntletLayer</h1>
+  <h1 id="gauntletlayer">GauntletLayer</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Engine.GauntletUI
+<strong>Module:</strong> TaleWorlds.Engine
+<strong>Type:</strong> <code>public class GauntletLayer : ScreenLayer</code>
+<strong>Base:</strong> <code>ScreenLayer</code>
+<strong>Source:</strong> <code>TaleWorlds.Engine.GauntletUI/GauntletLayer.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>GauntletLayer</code> is a <code>ScreenLayer</code> subclass and the bridge that connects the entire <strong>GauntletUI</strong> system to the game. Internally it owns a <code>UIContext</code> that is responsible for:</p>
+<ul>
+<li>Using the <code>WidgetFactory</code> / <code>SpriteData</code> / <code>FontFactory</code> / <code>BrushFactory</code> provided by <code>UIResourceManager</code> to instantiate a <strong>movie</strong> (a XAML / widget template) into a real control tree (<code>Widget</code>).</li>
+<li>Binding that movie to a <strong>ViewModel</strong> (the XAML <code>DataContext</code>) so control properties update when the VM's properties change.</li>
+<li>Registering itself on a <code>ScreenBase</code>'s layer stack, where <code>ScreenManager</code> drives hit-testing, focus, input, and drawing every frame.</li>
+</ul>
+<p>In one sentence: <strong>without a <code>GauntletLayer</code>, there is no mod UI written with GauntletUI.</strong> The clan panel, quest HUD, settings window, inventory replacement — they all sit on this type.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of three stacked layers:</p>
+<pre><code>ScreenBase (the current screen, on top of the ScreenManager stack)
+   └── GauntletLayer  ← the layer you new and AddLayer onto a ScreenBase
+         └── UIContext (internal) drives each frame&#39;s Tick / Render
+               └── GauntletMovie (instantiated by LoadMovie)
+                     ├── RootWidget (control tree, from the XAML template)
+                     └── DataSource (the ViewModel, i.e. the DataContext)
+</code></pre>
+<ul>
+<li>A <strong>movie</strong> is a UI template (the name registered in a GUI prefab, e.g. <code>"Clan"</code>, <code>"Inventory"</code>), looked up by <code>UIResourceManager</code> by name. It only describes <em>what the interface looks like</em>.</li>
+<li>The <strong>ViewModel</strong> describes <em>what data the interface shows and what actions it can take</em>. <code>LoadMovie</code> binds the two together: the source for every <code>{Binding Path=...}</code> in the template is the <code>ViewModel</code> you pass in.</li>
+<li>The <strong>GauntletLayer</strong> puts the bound movie into a <code>UIContext</code> and, as a <code>ScreenLayer</code>, joins a <code>ScreenBase</code>. From then on the engine calls the layer's <code>Tick</code> / <code>RenderTick</code> / <code>ProcessEvents</code> each frame, so the control tree updates with the VM, responds to mouse and keyboard, and is drawn to the screen.</li>
+</ul>
+<h3 id="lifecycle">Lifecycle</h3>
+<ol>
+<li><code>new GauntletLayer(name, localOrder, shouldClear)</code> — constructing creates the internal <code>TwoDimensionView</code> and <code>UIContext</code>, but <strong>there is still no UI</strong>.</li>
+<li><code>LoadMovie(movieName, dataSource)</code> — instantiates the movie, builds the <code>DataSource → RootWidget</code> binding, adds the movie to the <code>_movieIdentifiers</code> list, and starts updating it with the layer.</li>
+<li><code>screenBase.AddLayer(layer)</code> — the layer enters the screen's layer stack and the engine starts driving it each frame (<code>OnActivate</code> → <code>Tick</code>/<code>RenderTick</code>/<code>ProcessEvents</code> → <code>LateUpdate</code>).</li>
+<li>Runtime: VM property changes push through <code>INotifyPropertyChanged</code>; player interaction with controls comes back to your code via the <code>DataSource</code>'s commands/events.</li>
+<li><code>ReleaseMovie(id)</code> — releases the movie, unbinds the <code>DataSource</code>, and destroys the control tree.</li>
+<li><code>screenBase.RemoveLayer(layer)</code> — the layer leaves the screen stack; when the screen closes, <code>OnFinalize</code> cleans up the <code>UIContext</code>.</li>
+</ol>
+<blockquote>
+<p>Note: <code>GauntletLayer</code> has <strong>no</strong> <code>layer.DataSource</code> property. The DataContext is bound together with the movie at <code>LoadMovie</code> time and is stored on the returned <code>GauntletMovieIdentifier.DataSource</code> (see <a href="../GauntletMovieIdentifier/">GauntletMovieIdentifier</a>). This also means "switching data" means either mutating the same VM's properties, or <code>ReleaseMovie</code> followed by a fresh <code>LoadMovie</code>.</p>
+</blockquote>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p><strong>Use <code>GauntletLayer</code> when:</strong></p>
+<ul>
+<li>You want to add any custom visual interface to the game: info panels, inventory/caravan enhancements, combat HUDs, settings pages, pop-up dialogs.</li>
+<li>You want to describe layout in XAML and drive data with a <code>ViewModel</code> (the officially recommended, maintainable UI approach).</li>
+</ul>
+<p><strong>Do NOT use <code>GauntletLayer</code> when:</strong></p>
+<ul>
+<li>You only want to draw a few lines of debug text or simple primitives on screen — inherit <code>ScreenLayer</code> directly and override <code>RenderTick</code>, or use <code>ScreenManager.EngineInterface</code>; you do not need the whole GauntletUI pipeline.</li>
+<li>You are <strong>not prepared to provide a ViewModel / DataContext</strong>: GauntletUI's data binding depends heavily on <code>ViewModel</code>. Without a VM you either use static XAML (no data) or skip the Gauntlet layer entirely.</li>
+<li>You use it "bare" outside a screen: a <code>GauntletLayer</code> must be mounted on a <strong><code>ScreenBase</code></strong> (directly or indirectly via <code>ScreenManager.TopScreen</code>). Without a host screen, <code>Tick</code>/<code>RenderTick</code> are never driven, the UI never appears, and the <code>UIContext</code> is never activated.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<pre><code>Upstream (creator / resource provider / host)   This layer                Downstream (driven by it)
+──────────────────────────────────────          ┌──────────────┐          ──────────────────────────────
+ScreenManager (TopScreen) ── current screen ──► │              │ ─ drives ─► Widget tree / property binding (GauntletUI)
+ScreenBase (AddLayer/RemoveLayer) ── host ────► │ GauntletLayer │          GauntletMovie (instantiated by LoadMovie)
+UIResourceManager ── WidgetFactory/Sprite ────► │              │ ─ holds ─► GauntletMovieIdentifier
+ViewModel (DataContext) ── via LoadMovie ─────► │              │          (Movie + DataSource)
+</code></pre>
+<ul>
+<li>Upstream: <a href="../../campaign-ext/ScreenBase/">ScreenBase</a> (layer host, <code>AddLayer</code>/<code>RemoveLayer</code>), <a href="../../gui/ScreenManager/">ScreenManager</a> (screen stack, <code>TopScreen</code> is "the current screen"), <a href="../UIResourceManager/">UIResourceManager</a> (registered movie templates and control factories), <a href="../../core-extra/ViewModel/">ViewModel</a> (the DataContext source).</li>
+<li>Downstream: <a href="../GauntletMovieIdentifier/">GauntletMovieIdentifier</a> (the <code>LoadMovie</code> return value, wrapping <code>Movie</code> and <code>DataSource</code>); the deeper <code>Widget</code> property binding belongs to the GauntletUI runtime and is driven directly by <code>UIContext</code>.</li>
+</ul>
+<h2 id="risks">Risks</h2>
+<blockquote>
+<p>This is the part where writing a <code>GauntletLayer</code> goes wrong most easily — <strong>always tear down UI in the strict order below.</strong></p>
+</blockquote>
+<ol>
+<li><strong>Release the movie before removing the layer, or you hit an assert/crash.</strong> The source <code>OnFinalize</code> contains <code>Debug.FailedAssert("Movie was not released before finalizing layer: ...")</code>: if the screen closes while a movie is still mounted on the layer, the game asserts. Fixed order: <strong><code>ReleaseMovie(id)</code> → <code>RemoveLayer(layer)</code> → null the reference.</strong></li>
+<li><strong>ViewModel event leaks = ghost UI / memory leak (the most common pitfall).</strong> The movie holds the <code>DataSource</code> (your VM). If your VM subscribes to game events (the daily <code>Campaign.Current</code> tick, <code>IMission.OnMissionTick</code>, the message system, etc.) but <strong>does not unsubscribe at <code>ReleaseMovie</code> time</strong>, the VM stays referenced by the movie/layer and can never be collected: the UI closes but events still fire, causing memory growth at best and <code>NullReferenceException</code> when touching destroyed controls at worst. <strong>Give the VM an <code>OnFinalize</code>/<code>UnSubscribeEvents</code> and call it before releasing the movie.</strong></li>
+<li><strong>Only touch the DataContext on the main (UI) thread.</strong> <code>Tick</code>/<code>RenderTick</code>/<code>ProcessEvents</code> are driven by the engine's main thread. Mutating VM properties and <code>RaisePropertyChanged</code> from an async/background thread is not thread-safe and can crash the binding update on the render thread. Cross-thread data changes must <code>Dispatch</code> back to the main thread first.</li>
+<li><strong>Focus swallows game input.</strong> After setting <code>GauntletLayer.IsFocusLayer = true</code>, the layer grabs input focus and the game underneath stops receiving keyboard/mouse — fine for modal dialogs, but <strong>never enable it for non-modal HUDs</strong>. Conversely, if a panel needs text input, make sure the editable control gets focus.</li>
+<li><strong><code>IsFocusedOnInput()</code> lets the game "yield" to an input box.</strong> It returns <code>true</code> when an <code>EditableTextWidget</code> has focus. Check it before handling keys in your behavior/control code, so the game does not also respond to the same key while the player is typing.</li>
+<li><strong>Resource refresh invalidates cached movie identifiers.</strong> On language switch / resource reload the engine calls <code>OnResourceRefreshBegin</code>/<code>OnResourceRefreshEnd</code>, during which all movies are released and rebuilt. If you cached a <code>GauntletMovieIdentifier</code> in a field, it becomes a dangling reference after refresh; either <code>LoadMovie</code> again for a fresh identifier, or re-query with <code>GetMovieIdentifier(name)</code>.</li>
+<li><strong>Do not keep a stale DataContext reference to "refresh the UI".</strong> After <code>ReleaseMovie</code>, <code>GauntletMovieIdentifier.DataSource</code> still exists but is no longer bound to any control tree; mutating it updates nothing. To update the UI, mutate the properties of the VM that is <strong>still in use</strong>.</li>
+</ol>
+<h2 id="key-members">Key Members</h2>
+<h3 id="movies-loading-and-releasing">Movies: loading and releasing</h3>
+<h4 id="public-gauntletlayer-string-name-int-localorder-bool-shouldclear-false"><code>public GauntletLayer(string name, int localOrder, bool shouldClear = false)</code></h4>
+<p>The constructor. <code>name</code> is the layer's name (also used as <code>UIContext.Name</code>, visible in debugging); <code>localOrder</code> decides stacking order among multiple layers on the same screen (higher = on top); <code>shouldClear</code> when <code>true</code> clears the screen each frame (for an exclusive full-screen interface, so lower layers don't show through). Construction immediately creates the internal <code>TwoDimensionView</code> and <code>UIContext</code> — <strong>but there is still no movie and the UI will not show</strong> until you also <code>LoadMovie</code>.</p>
+<h4 id="public-gauntletmovieidentifier-loadmovie-string-moviename-viewmodel-datasource"><code>public GauntletMovieIdentifier LoadMovie(string movieName, ViewModel dataSource)</code></h4>
+<p><strong>This is the one member you will actively call 99% of the time.</strong> It finds the movie template by name from <code>UIResourceManager</code>, instantiates it, and binds it to <code>dataSource</code> as the <code>DataContext</code>, adding it to the layer's movie list. Returns a <code>GauntletMovieIdentifier</code>; later <code>ReleaseMovie</code> / <code>GetMovieIdentifier</code> locate it via this or by name.</p>
+<ul>
+<li>Side effect: creates the control tree (<code>RootWidget</code>), builds the <code>DataSource → Widget</code> binding, and the movie starts updating each frame with the layer.</li>
+<li>When to call: after the layer is <code>AddLayer</code>-ed to a screen, or before — but <strong><code>dataSource</code> must stay valid until release.</strong></li>
+</ul>
+<pre><code data-lang="csharp">MyViewModel vm = new MyViewModel();
+GauntletMovieIdentifier movieId = _layer.LoadMovie(&quot;MyModPanel&quot;, vm);
+// later retrieve by id or name:
+//   _layer.GetMovieIdentifier(&quot;MyModPanel&quot;)
+</code></pre>
+<h4 id="public-void-releasemovie-gauntletmovieidentifier-identifier"><code>public void ReleaseMovie(GauntletMovieIdentifier identifier)</code></h4>
+<p>Releases the given movie: unbinds the <code>DataSource</code>, destroys the <code>RootWidget</code> control tree, and removes it from the layer list. Idempotent (releasing an already-released movie does nothing). <strong>Must be called before <code>RemoveLayer</code>, otherwise the <code>OnFinalize</code> assert fires.</strong></p>
+<h4 id="public-gauntletmovieidentifier-getmovieidentifier-string-moviename"><code>public GauntletMovieIdentifier GetMovieIdentifier(string movieName)</code></h4>
+<p>Looks up a loaded movie identifier by name within the current layer; returns <code>null</code> if none. Handy during teardown when you did not keep the <code>LoadMovie</code> return value, to re-fetch the identifier for <code>ReleaseMovie</code>.</p>
+<h3 id="data-binding-viewmodel-is-the-datacontext">Data binding: ViewModel is the DataContext</h3>
+<p><code>GauntletLayer</code> itself has <strong>no</strong> <code>DataSource</code> property; the binding happens at the <code>LoadMovie</code> step, and the binding relationship is stored on <code>GauntletMovieIdentifier.DataSource</code> (type <code>ViewModel</code>). At runtime:</p>
+<ul>
+<li>The VM implements <code>INotifyPropertyChanged</code>; after a property change <code>RaisePropertyChanged</code>, the binding automatically pushes the new value to the corresponding <code>Widget</code> property.</li>
+<li>Each frame, during layout refresh, <code>UpdateLayout()</code> is called, which for each movie runs <code>DataSource.RefreshValues()</code> (re-pushes all values) and then <code>Movie.RefreshBindingWithChildren()</code>. You <strong>usually do not need to call this manually</strong> — just <code>RaisePropertyChanged</code> on property changes; only consider it when you need a forced full refresh.</li>
+<li>To "switch data", mutate the current VM's properties; to fully swap a UI/data set, <code>ReleaseMovie</code> and then <code>LoadMovie</code> again.</li>
+</ul>
+<h3 id="input-and-focus">Input and focus</h3>
+<h4 id="public-override-bool-isfocusedoninput"><code>public override bool IsFocusedOnInput()</code></h4>
+<p>Returns <code>true</code> when the focused control is an <code>EditableTextWidget</code> (a text input box). <strong>Use:</strong> decide whether to forward a key press to the game in your behavior/control logic — when the player is typing, it returns <code>true</code> and you should skip the game's hotkey handling.</p>
+<h4 id="input-context-and-focus-from-base-screenlayer">Input context and focus (from base <code>ScreenLayer</code>)</h4>
+<ul>
+<li><code>GauntletLayer</code> feeds <code>base.Input</code> (<code>InputContext</code>) into the <code>UIContext</code> each frame via <code>ProcessEvents()</code>, landing mouse/keyboard on controls.</li>
+<li><code>IsFocusLayer</code> (<code>ScreenLayer</code> property): set <code>true</code> to let the layer grab focus (modal panels); keep <code>false</code> for non-modal HUDs, or it swallows game input.</li>
+<li>When a control inside the layer gains focus, the source calls <code>ScreenManager.TrySetFocus(this)</code>; on losing focus while not <code>IsFocusLayer</code>, it calls <code>ScreenManager.TryLoseFocus(this)</code> — that is the mechanism switching focus between the layer and the game.</li>
+<li><code>OnOnScreenKeyboardDone(string)</code> / <code>OnOnScreenKeyboardCanceled()</code>: mobile/console virtual-keyboard callbacks that feed text into the <code>UIContext</code>; normally no need to override.</li>
+</ul>
+<h3 id="layer-lifecycle-and-host-engine-driven-usually-not-for-you-to-call">Layer lifecycle and host (engine-driven, usually not for you to call)</h3>
+<ul>
+<li><code>OnActivate()</code> / <code>OnDeactivate()</code>: called by the engine when the layer is <code>AddLayer</code>-ed / <code>RemoveLayer</code>-ed, activating/deactivating the <code>UIContext</code> and toggling <code>TwoDimensionView</code> rendering.</li>
+<li><code>Tick(dt)</code> / <code>RenderTick(dt)</code> / <code>LateUpdate(dt)</code> / <code>Update(keys)</code>: drive <code>UIContext.Update</code>, movie <code>Update</code>, rendering, and input dispatch each frame. <strong>Do not call manually.</strong></li>
+<li><code>OnResourceRefreshBegin(out List&lt;GauntletMovieIdentifier&gt;)</code> / <code>OnResourceRefreshEnd(List&lt;...&gt;)</code>: called by the engine on resource reload, releasing all movies first then rebuilding from the saved identifiers. Mods generally don't call these directly; if you cached a movie identifier, re-fetch it with <code>GetMovieIdentifier</code> after reload.</li>
+<li><code>OnFinalize()</code>: called when the layer is destroyed by its screen; <code>ClearContext()</code> runs and asserts that all movies were released.</li>
+<li><code>DrawDebugInfo()</code>: for debugging — press <code>Shift+F</code> to grab a control-hierarchy snapshot; very useful when diagnosing layout during development.</li>
+</ul>
+<h2 id="example">Example</h2>
+<h3 id="example-1-host-a-panel-in-a-custom-screenbase-full-lifecycle">Example 1: Host a panel in a custom <code>ScreenBase</code> (full lifecycle)</h3>
+<p>The most common pattern: inherit <code>ScreenBase</code>, build the layer and load the movie in <code>OnInitialize</code>, and tear down in <code>OnDeactivate</code> in the order "release movie → remove layer → null".</p>
+<pre><code data-lang="csharp">using TaleWorlds.Engine.GauntletUI;
+using TaleWorlds.ScreenSystem;
+using TaleWorlds.Library;
+
+public class MyModPanelScreen : ScreenBase
+{
+    private GauntletLayer _layer;
+    private MyModViewModel _vm;
+
+    protected override void OnInitialize()
+    {
+        base.OnInitialize();
+
+        _vm = new MyModViewModel();                 // your ViewModel (DataContext)
+        _layer = new GauntletLayer(&quot;MyModPanel&quot;, 100, false);
+        // LoadMovie does both: instantiate the movie + bind the DataSource
+        _layer.LoadMovie(&quot;MyModPanel&quot;, _vm);
+        this.AddLayer(_layer);                      // mount on this screen&#39;s layer stack
+    }
+
+    protected override void OnDeactivate()
+    {
+        base.OnDeactivate();
+
+        // Teardown order: ReleaseMovie first, then RemoveLayer, then null
+        GauntletMovieIdentifier id = _layer.GetMovieIdentifier(&quot;MyModPanel&quot;);
+        if (id != null)
+        {
+            _layer.ReleaseMovie(id);                // unbind VM, destroy control tree
+        }
+        this.RemoveLayer(_layer);                   // leave the screen&#39;s layer stack
+        _layer = null;
+        _vm = null;                                 // VM no longer referenced by the movie, can be collected
+    }
+}
+</code></pre>
+<h3 id="example-2-stack-a-hud-in-a-mission-and-release-it-correctly-on-behavior-teardown">Example 2: Stack a HUD in a mission and release it correctly on behavior teardown</h3>
+<p>Stack a HUD layer onto the "current screen" from a <code>MissionBehavior</code> (non-modal, keep <code>IsFocusLayer = false</code>). The teardown hook is <code>MissionBehavior.OnRemoveBehavior()</code> (NOT <code>OnMissionEnd</code>) — the movie must be released and the layer removed there.</p>
+<pre><code data-lang="csharp">using TaleWorlds.Engine.GauntletUI;
+using TaleWorlds.MountAndBlade;
+using TaleWorlds.ScreenSystem;
+
+public class MyHudBehavior : MissionBehavior
+{
+    private GauntletLayer _hudLayer;
+    private MyHudViewModel _vm;
+
+    public override void OnBehaviorInitialize()
+    {
+        base.OnBehaviorInitialize();
+
+        _vm = new MyHudViewModel();
+        _hudLayer = new GauntletLayer(&quot;MyHud&quot;, 1, false);
+        _hudLayer.LoadMovie(&quot;MyHud&quot;, _vm);          // bind data, movie starts updating
+        ScreenManager.TopScreen.AddLayer(_hudLayer); // mount on the topmost current screen
+    }
+
+    public override void OnRemoveBehavior()
+    {
+        // Critical: release movie → remove layer → null, to avoid the assert and ghost UI
+        GauntletMovieIdentifier id = _hudLayer.GetMovieIdentifier(&quot;MyHud&quot;);
+        if (id != null)
+        {
+            _hudLayer.ReleaseMovie(id);
+        }
+        ScreenManager.TopScreen.RemoveLayer(_hudLayer);
+        _hudLayer = null;
+        _vm = null;
+
+        base.OnRemoveBehavior();
+    }
+}
+</code></pre>
+<blockquote>
+<p>Tip: <code>ScreenManager.TopScreen</code> is "the screen currently being shown" (in 1.3.15 there is no <code>ScreenManager.CurrentScreen</code>, use <code>TopScreen</code>). If that screen is later closed, you must already have <code>RemoveLayer</code>-ed in the previous step, or <code>OnFinalize</code> will assert that the movie was not released.</p>
+</blockquote>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Parent (bucket index): <a href="https://bannerlordcode.github.io/v1.3.15/en/api/engine/GauntletLayer/./">engine directory</a></li>
+<li>↔ Sibling / upstream: <a href="../../campaign-ext/ScreenBase/">ScreenBase</a> (layer host), <a href="../../gui/ScreenManager/">ScreenManager</a> (<code>TopScreen</code> and the screen stack), <a href="../UIResourceManager/">UIResourceManager</a> (movie templates and control factories), <a href="../GauntletMovieIdentifier/">GauntletMovieIdentifier</a> (<code>LoadMovie</code> return value)</li>
+<li>Related types: <a href="../../core-extra/ViewModel/">ViewModel</a> (DataContext source), <a href="../../core/MBSubModuleBase/">MBSubModuleBase</a> (mod entry point, where behaviors and screens are usually wired up), <a href="../../core-extra/Game/">Game</a> (campaign/mission lifecycle that owns the screens)</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/engine/">engine index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/engine/MetaMesh/">&larr; MetaMesh</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/engine/NativeOptions/">NativeOptions &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

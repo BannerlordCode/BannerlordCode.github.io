@@ -1,38 +1,41 @@
 ---
-title: "Engine — Engine boundary: diagnostics, 2D render context and Diamond"
-description: "`TaleWorlds.Engine` and its sub-namespaces, plus the `TaleWorlds.Diamond` access providers. Includes `MBDebug`, vector a"
+title: "Engine — diagnostics, the 2D render context and Diamond"
+description: "TaleWorlds.Engine plus its input layer and the Diamond platform layer. 0 pages in this tree; the 2 pages are Chinese-tree-only."
 ---
-# Engine — Engine boundary: diagnostics, 2D render context and Diamond
+# Engine — diagnostics, the 2D render context and Diamond
 
-`TaleWorlds.Engine` and its sub-namespaces, plus the `TaleWorlds.Diamond` access providers. Includes `MBDebug`, vector and matrix types, and `TaleWorlds.Engine.GauntletUI`.
+Three things live here: `TaleWorlds.Engine` (158 `.cs` files — the engine's own diagnostics, render context and resource loading), `TaleWorlds.Engine.InputSystem` (3), and `TaleWorlds.Diamond` (48 — the platform layer, with GDK / GOG / Steam / Test backends).
 
-**`GauntletLayer` is here** (namespace `TaleWorlds.Engine.GauntletUI`), not in [GUI](../gui/). These two similarly-named namespaces are deliberately in different buckets — see [SDK Overview](../../architecture/sdk-overview).
+For a mod author this is the "I should not be touching it but I have to know it exists" layer. Diamond is the access and network backend; most of `TaleWorlds.Engine` is rendering and resources. The one you touch daily is `MBDebug` — the engine-side debug and cheats surface, and the first thing to bring up when you are chasing a crash or verifying a behaviour.
 
-`MBDebug` was moved to [Core-Extra](../core-extra/) by the entry-class override, because mod authors reach for it in their first hour.
+`GauntletLayer` is the exception to "this layer is off limits": it resolves here rather than to [gui](../gui/) because its namespace is `TaleWorlds.Engine.GauntletUI`. Building a screen walks you out of `gui/` and into this bucket.
 
-## Pages in this area (41)
+## Pages in this area (0 in English)
 
-[AccessObject](AccessObject) · [AccessObjectJsonConverter](AccessObjectJsonConverter) · [AccessObjectResult](AccessObjectResult)
-[AesHelper](AesHelper) · [AliveMessage](AliveMessage) · [BoundingBox](BoundingBox)
-[CheatsHotKeyCategory](CheatsHotKeyCategory) · [Client](Client) · [ClientApplicationConfiguration](ClientApplicationConfiguration)
-[ClientMessageHandler](ClientMessageHandler) · [ClientRestSession](ClientRestSession) · [ClientRestSessionTask](ClientRestSessionTask)
-[ClientSocketSession](ClientSocketSession) · [ConnectMessage](ConnectMessage) · [CrashInformationCollector](CrashInformationCollector)
-[DebugHotKeyCategory](DebugHotKeyCategory) · [DiamondClientApplication](DiamondClientApplication) · [DiamondClientApplicationObject](DiamondClientApplicationObject)
-[DisconnectMessage](DisconnectMessage) · [EngineInputManager](EngineInputManager) · [EngineTexture](EngineTexture)
-[Extensions](Extensions) · [GauntletMovieIdentifier](GauntletMovieIdentifier) · [GenericRestSessionProvider](GenericRestSessionProvider)
-[GenericThreadedRestSessionProvider](GenericThreadedRestSessionProvider) · [IBooleanOptionData](IBooleanOptionData) · [INumericOptionData](INumericOptionData)
-[IOptionData](IOptionData) · [ISelectionOptionData](ISelectionOptionData) · [MeshBuilder](MeshBuilder)
-[MessageType](MessageType) · [NativeBooleanOptionData](NativeBooleanOptionData) · [NativeNumericOptionData](NativeNumericOptionData)
-[NativeParallelDriver](NativeParallelDriver) · [PerformanceAnalyzer](PerformanceAnalyzer) · [SceneLayer](SceneLayer)
-[SessionProviderType](SessionProviderType) · [SocketMessage](SocketMessage) · [TwoDimensionEnginePlatform](TwoDimensionEnginePlatform)
-[TwoDimensionEngineResourceContext](TwoDimensionEngineResourceContext) · [Utilities](Utilities)
+No pages in this bucket have been written in this tree. The two that exist are in the Chinese tree:
+
+| Page | What it covers |
+| --- | --- |
+| [zh/api/engine/MBDebug](../../../zh/api/engine/MBDebug) | the engine-side debug and cheats surface |
+| [zh/api/engine/GauntletLayer](../../../zh/api/engine/GauntletLayer) | loads a Gauntlet XML prefab and binds a ViewModel |
+
+Those two are exactly this bucket's two useful doors for a mod author: one for debugging, one for UI.
+
+## Not yet written
+
+In this tree, both. Across both trees, the rendering and resource side of `TaleWorlds.Engine` — `GraphicsContext`, `BoundingBox`, `CapsuleData`, `BillboardType`, `DecalAtlasGroup`, `EditDataPolicy`, `ClothSimulatorComponent`, `CompositeComponent`, `ApplicationHealthChecker`, `CrashInformationCollector`, `CheckForSceneProblemsDelegate` — plus almost the whole of `TaleWorlds.Diamond`: `AccessObject`, `Client`, `ClientMessageHandler`, `IClientSession`, `IClientSessionProvider`, `AesHelper`, `FunctionResult`, the `GDKAccessObject` / `GOGAccessObject` / `SteamAccessObject` backends, `IConnectionInformation`; plus `EngineInputManager`, `DebugHotKeyCategory` and `CheatsHotKeyCategory` from the input side.
+
+By size the bucket is about 41 documented types and two have pages. The Diamond half is effectively empty — if you are doing platform work, this bucket will not help you yet.
 
 ## Sibling areas
 
-[core](../core/) · [core-extra](../core-extra/) · [mission](../mission/) · [mission-ext](../mission-ext/) · [campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [gui](../gui/) · [save-system](../save-system/) · [viewmodel](../viewmodel/) · [localization](../localization/) · [system](../system/) · [custombattle](../custombattle/) · [modulemanager](../modulemanager/) · [network](../network/) · [sandbox](../sandbox/) · [storymode](../storymode/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
+[gui](../gui/) · [viewmodel](../viewmodel/) · [core](../core/) · [core-extra](../core-extra/) · [campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [mission](../mission/) · [mission-ext](../mission-ext/) · [sandbox](../sandbox/) · [custombattle](../custombattle/) · [system](../system/) · [network](../network/) · [modulemanager](../modulemanager/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
+
+There is no `save-system/` directory in this tree; its pages are Chinese-tree-only — [zh/api/save-system/SaveManager](../../../zh/api/save-system/SaveManager).
 
 ## See also
 
 - ↑ [Version home](../../)
 - ↑ [API reference](../)
 - ↔ [Architecture overview](../../architecture/)
+- ↘ [UI Stack](../../architecture/ui-stack)

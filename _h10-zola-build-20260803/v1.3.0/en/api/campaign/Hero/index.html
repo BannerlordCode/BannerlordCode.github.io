@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hero</title>
+  <meta name="description" content="Auto-generated class reference for Hero.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/Hero/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="active">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Hero</span>
+    </nav>
+  
+  <h1>Hero</h1>
+  <h1 id="hero">Hero</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public sealed class Hero : MBObjectBase, ITrackableCampaignObject, ITrackableBase, IRandomOwner</code>
+<strong>Base:</strong> <code>MBObjectBase</code>
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Hero.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Hero</code> lives in <code>TaleWorlds.CampaignSystem</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.CampaignSystem</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>StaticBodyProperties</code></td><td><code>public StaticBodyProperties StaticBodyProperties { get; set; }</code></td></tr>
+<tr><td><code>Weight</code></td><td><code>public float Weight { get; set; }</code></td></tr>
+<tr><td><code>Build</code></td><td><code>public float Build { get; set; }</code></td></tr>
+<tr><td><code>BodyProperties</code></td><td><code>public BodyProperties BodyProperties { get; }</code></td></tr>
+<tr><td><code>PassedTimeAtHomeSettlement</code></td><td><code>public float PassedTimeAtHomeSettlement { get; set; }</code></td></tr>
+<tr><td><code>CanHaveRecruits</code></td><td><code>public bool CanHaveRecruits { get; }</code></td></tr>
+<tr><td><code>CharacterObject</code></td><td><code>public CharacterObject CharacterObject { get; }</code></td></tr>
+<tr><td><code>FirstName</code></td><td><code>public TextObject FirstName { get; }</code></td></tr>
+<tr><td><code>Name</code></td><td><code>public TextObject Name { get; }</code></td></tr>
+<tr><td><code>EncyclopediaText</code></td><td><code>public TextObject EncyclopediaText { get; set; }</code></td></tr>
+<tr><td><code>EncyclopediaLink</code></td><td><code>public string EncyclopediaLink { get; }</code></td></tr>
+<tr><td><code>EncyclopediaLinkWithName</code></td><td><code>public TextObject EncyclopediaLinkWithName { get; set; }</code></td></tr>
+<tr><td><code>IsFemale</code></td><td><code>public bool IsFemale { get; set; }</code></td></tr>
+<tr><td><code>BattleEquipment</code></td><td><code>public Equipment BattleEquipment { get; }</code></td></tr>
+<tr><td><code>CivilianEquipment</code></td><td><code>public Equipment CivilianEquipment { get; }</code></td></tr>
+<tr><td><code>StealthEquipment</code></td><td><code>public Equipment StealthEquipment { get; set; }</code></td></tr>
+<tr><td><code>CaptivityStartTime</code></td><td><code>public CampaignTime CaptivityStartTime { get; }</code></td></tr>
+<tr><td><code>PreferredUpgradeFormation</code></td><td><code>public FormationClass PreferredUpgradeFormation { get; }</code></td></tr>
+<tr><td><code>HeroState</code></td><td><code>public Hero.CharacterStates HeroState { get; }</code></td></tr>
+<tr><td><code>CharacterAttributes</code></td><td><code>public IReadOnlyPropertyOwner&lt;CharacterAttribute&gt; CharacterAttributes { get; set; }</code></td></tr>
+<tr><td><code>IsMinorFactionHero</code></td><td><code>public bool IsMinorFactionHero { get; }</code></td></tr>
+<tr><td><code>Issue</code></td><td><code>public IssueBase Issue { get; }</code></td></tr>
+<tr><td><code>WoundedHealthLimit</code></td><td><code>public int WoundedHealthLimit { get; }</code></td></tr>
+<tr><td><code>IsNoncombatant</code></td><td><code>public bool IsNoncombatant { get; set; }</code></td></tr>
+<tr><td><code>CompanionOf</code></td><td><code>public Clan CompanionOf { get; set; }</code></td></tr>
+<tr><td><code>CompanionsInParty</code></td><td><code>public IEnumerable&lt;Hero&gt; CompanionsInParty { get; }</code></td></tr>
+<tr><td><code>Occupation</code></td><td><code>public Occupation Occupation { get; }</code></td></tr>
+<tr><td><code>Template</code></td><td><code>public CharacterObject Template { get; }</code></td></tr>
+<tr><td><code>IsDead</code></td><td><code>public bool IsDead { get; }</code></td></tr>
+<tr><td><code>IsFugitive</code></td><td><code>public bool IsFugitive { get; }</code></td></tr>
+<tr><td><code>IsPrisoner</code></td><td><code>public bool IsPrisoner { get; }</code></td></tr>
+<tr><td><code>IsReleased</code></td><td><code>public bool IsReleased { get; }</code></td></tr>
+<tr><td><code>IsActive</code></td><td><code>public bool IsActive { get; }</code></td></tr>
+<tr><td><code>IsNotSpawned</code></td><td><code>public bool IsNotSpawned { get; }</code></td></tr>
+<tr><td><code>IsDisabled</code></td><td><code>public bool IsDisabled { get; }</code></td></tr>
+<tr><td><code>IsTraveling</code></td><td><code>public bool IsTraveling { get; }</code></td></tr>
+<tr><td><code>IsAlive</code></td><td><code>public bool IsAlive { get; }</code></td></tr>
+<tr><td><code>DeathMark</code></td><td><code>public KillCharacterAction.KillCharacterActionDetail DeathMark { get; }</code></td></tr>
+<tr><td><code>DeathMarkKillerHero</code></td><td><code>public Hero DeathMarkKillerHero { get; }</code></td></tr>
+<tr><td><code>LastKnownClosestSettlement</code></td><td><code>public Settlement LastKnownClosestSettlement { get; }</code></td></tr>
+<tr><td><code>IsWanderer</code></td><td><code>public bool IsWanderer { get; }</code></td></tr>
+<tr><td><code>IsTemplate</code></td><td><code>public bool IsTemplate { get; }</code></td></tr>
+<tr><td><code>IsWounded</code></td><td><code>public bool IsWounded { get; }</code></td></tr>
+<tr><td><code>IsPlayerCompanion</code></td><td><code>public bool IsPlayerCompanion { get; }</code></td></tr>
+<tr><td><code>IsMerchant</code></td><td><code>public bool IsMerchant { get; }</code></td></tr>
+<tr><td><code>IsPreacher</code></td><td><code>public bool IsPreacher { get; }</code></td></tr>
+<tr><td><code>IsHeadman</code></td><td><code>public bool IsHeadman { get; }</code></td></tr>
+<tr><td><code>IsGangLeader</code></td><td><code>public bool IsGangLeader { get; }</code></td></tr>
+<tr><td><code>IsArtisan</code></td><td><code>public bool IsArtisan { get; }</code></td></tr>
+<tr><td><code>IsRuralNotable</code></td><td><code>public bool IsRuralNotable { get; }</code></td></tr>
+<tr><td><code>IsUrbanNotable</code></td><td><code>public bool IsUrbanNotable { get; }</code></td></tr>
+<tr><td><code>IsSpecial</code></td><td><code>public bool IsSpecial { get; }</code></td></tr>
+<tr><td><code>IsRebel</code></td><td><code>public bool IsRebel { get; }</code></td></tr>
+<tr><td><code>IsCommander</code></td><td><code>public bool IsCommander { get; }</code></td></tr>
+<tr><td><code>IsPartyLeader</code></td><td><code>public bool IsPartyLeader { get; }</code></td></tr>
+<tr><td><code>IsNotable</code></td><td><code>public bool IsNotable { get; }</code></td></tr>
+<tr><td><code>IsLord</code></td><td><code>public bool IsLord { get; }</code></td></tr>
+<tr><td><code>MaxHitPoints</code></td><td><code>public int MaxHitPoints { get; set; }</code></td></tr>
+<tr><td><code>HitPoints</code></td><td><code>public int HitPoints { get; set; }</code></td></tr>
+<tr><td><code>BirthDay</code></td><td><code>public CampaignTime BirthDay { get; }</code></td></tr>
+<tr><td><code>DeathDay</code></td><td><code>public CampaignTime DeathDay { get; }</code></td></tr>
+<tr><td><code>Age</code></td><td><code>public float Age { get; }</code></td></tr>
+<tr><td><code>IsChild</code></td><td><code>public bool IsChild { get; }</code></td></tr>
+<tr><td><code>Power</code></td><td><code>public float Power { get; }</code></td></tr>
+<tr><td><code>ClanBanner</code></td><td><code>public Banner ClanBanner { get; set; }</code></td></tr>
+<tr><td><code>LastExaminedLogEntryID</code></td><td><code>public long LastExaminedLogEntryID { get; set; }</code></td></tr>
+<tr><td><code>Clan</code></td><td><code>public Clan Clan { get; set; }</code></td></tr>
+<tr><td><code>SupporterOf</code></td><td><code>public Clan SupporterOf { get; set; }</code></td></tr>
+<tr><td><code>GovernorOf</code></td><td><code>public Town GovernorOf { get; set; }</code></td></tr>
+<tr><td><code>MapFaction</code></td><td><code>public IFaction MapFaction { get; }</code></td></tr>
+<tr><td><code>OwnedAlleys</code></td><td><code>public List&lt;Alley&gt; OwnedAlleys { get; }</code></td></tr>
+<tr><td><code>IsFactionLeader</code></td><td><code>public bool IsFactionLeader { get; }</code></td></tr>
+<tr><td><code>IsKingdomLeader</code></td><td><code>public bool IsKingdomLeader { get; }</code></td></tr>
+<tr><td><code>IsClanLeader</code></td><td><code>public bool IsClanLeader { get; }</code></td></tr>
+<tr><td><code>OwnedCaravans</code></td><td><code>public List&lt;CaravanPartyComponent&gt; OwnedCaravans { get; }</code></td></tr>
+<tr><td><code>PartyBelongedTo</code></td><td><code>public MobileParty PartyBelongedTo { get; }</code></td></tr>
+<tr><td><code>PartyBelongedToAsPrisoner</code></td><td><code>public PartyBase PartyBelongedToAsPrisoner { get; }</code></td></tr>
+<tr><td><code>StayingInSettlement</code></td><td><code>public Settlement StayingInSettlement { get; set; }</code></td></tr>
+<tr><td><code>IsHumanPlayerCharacter</code></td><td><code>public bool IsHumanPlayerCharacter { get; set; }</code></td></tr>
+<tr><td><code>IsKnownToPlayer</code></td><td><code>public bool IsKnownToPlayer { get; set; }</code></td></tr>
+<tr><td><code>HasMet</code></td><td><code>public bool HasMet { get; }</code></td></tr>
+<tr><td><code>LastMeetingTimeWithPlayer</code></td><td><code>public CampaignTime LastMeetingTimeWithPlayer { get; set; }</code></td></tr>
+<tr><td><code>BornSettlement</code></td><td><code>public Settlement BornSettlement { get; set; }</code></td></tr>
+<tr><td><code>HomeSettlement</code></td><td><code>public Settlement HomeSettlement { get; }</code></td></tr>
+<tr><td><code>PowerModifier</code></td><td><code>public float PowerModifier { get; }</code></td></tr>
+<tr><td><code>CurrentSettlement</code></td><td><code>public Settlement CurrentSettlement { get; }</code></td></tr>
+<tr><td><code>Gold</code></td><td><code>public int Gold { get; }</code></td></tr>
+<tr><td><code>RandomValue</code></td><td><code>public int RandomValue { get; }</code></td></tr>
+<tr><td><code>BannerItem</code></td><td><code>public EquipmentElement BannerItem { get; set; }</code></td></tr>
+<tr><td><code>ProbabilityOfDeath</code></td><td><code>public float ProbabilityOfDeath { get; }</code></td></tr>
+<tr><td><code>Father</code></td><td><code>public Hero Father { get; set; }</code></td></tr>
+<tr><td><code>Mother</code></td><td><code>public Hero Mother { get; set; }</code></td></tr>
+<tr><td><code>ExSpouses</code></td><td><code>public MBReadOnlyList&lt;Hero&gt; ExSpouses { get; set; }</code></td></tr>
+<tr><td><code>Spouse</code></td><td><code>public Hero Spouse { get; set; }</code></td></tr>
+<tr><td><code>Children</code></td><td><code>public MBList&lt;Hero&gt; Children { get; }</code></td></tr>
+<tr><td><code>Siblings</code></td><td><code>public IEnumerable&lt;Hero&gt; Siblings { get; }</code></td></tr>
+<tr><td><code>HeroDeveloper</code></td><td><code>public HeroDeveloper HeroDeveloper { get; }</code></td></tr>
+<tr><td><code>OwnedWorkshops</code></td><td><code>public MBReadOnlyList&lt;Workshop&gt; OwnedWorkshops { get; }</code></td></tr>
+<tr><td><code>AllAliveHeroes</code></td><td><code>public static MBReadOnlyList&lt;Hero&gt; AllAliveHeroes { get; }</code></td></tr>
+<tr><td><code>DeadOrDisabledHeroes</code></td><td><code>public static MBReadOnlyList&lt;Hero&gt; DeadOrDisabledHeroes { get; }</code></td></tr>
+<tr><td><code>MainHero</code></td><td><code>public static Hero MainHero { get; }</code></td></tr>
+<tr><td><code>OneToOneConversationHero</code></td><td><code>public static Hero OneToOneConversationHero { get; }</code></td></tr>
+<tr><td><code>IsMainHeroIll</code></td><td><code>public static bool IsMainHeroIll { get; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="getname">GetName</h3>
+<p><code>public override TextObject GetName()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.GetName();
+</code></pre>
+<h3 id="setname">SetName</h3>
+<p><code>public void SetName(TextObject fullName, TextObject firstName)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to name and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.SetName(fullName, firstName);
+</code></pre>
+<h3 id="onissuecreatedforhero">OnIssueCreatedForHero</h3>
+<p><code>public void OnIssueCreatedForHero(IssueBase issue)</code></p>
+<p><strong>Purpose:</strong> Invoked when the issue created for hero event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.OnIssueCreatedForHero(issue);
+</code></pre>
+<h3 id="onissuedeactivatedforhero">OnIssueDeactivatedForHero</h3>
+<p><code>public void OnIssueDeactivatedForHero()</code></p>
+<p><strong>Purpose:</strong> Invoked when the issue deactivated for hero event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.OnIssueDeactivatedForHero();
+</code></pre>
+<h3 id="tostring">ToString</h3>
+<p><code>public override string ToString()</code></p>
+<p><strong>Purpose:</strong> Returns a human-readable string representation of the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.ToString();
+</code></pre>
+<h3 id="updatelastknownclosestsettlement">UpdateLastKnownClosestSettlement</h3>
+<p><code>public void UpdateLastKnownClosestSettlement(Settlement settlement)</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of last known closest settlement.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.UpdateLastKnownClosestSettlement(settlement);
+</code></pre>
+<h3 id="setnewoccupation">SetNewOccupation</h3>
+<p><code>public void SetNewOccupation(Occupation occupation)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to new occupation and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.SetNewOccupation(occupation);
+</code></pre>
+<h3 id="setbirthday">SetBirthDay</h3>
+<p><code>public void SetBirthDay(CampaignTime birthday)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to birth day and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.SetBirthDay(birthday);
+</code></pre>
+<h3 id="setdeathday">SetDeathDay</h3>
+<p><code>public void SetDeathDay(CampaignTime deathDay)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to death day and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.SetDeathDay(deathDay);
+</code></pre>
+<h3 id="addpower">AddPower</h3>
+<p><code>public void AddPower(float value)</code></p>
+<p><strong>Purpose:</strong> Adds power to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.AddPower(0);
+</code></pre>
+<h3 id="sethasmet">SetHasMet</h3>
+<p><code>public void SetHasMet()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to has met and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.SetHasMet();
+</code></pre>
+<h3 id="updatepowermodifier">UpdatePowerModifier</h3>
+<p><code>public void UpdatePowerModifier()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of power modifier.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.UpdatePowerModifier();
+</code></pre>
+<h3 id="updatehomesettlement">UpdateHomeSettlement</h3>
+<p><code>public void UpdateHomeSettlement()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of home settlement.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.UpdateHomeSettlement();
+</code></pre>
+<h3 id="getskillvalue">GetSkillValue</h3>
+<p><code>public int GetSkillValue(SkillObject skill)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the skill value value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.GetSkillValue(skill);
+</code></pre>
+<h3 id="setskillvalue">SetSkillValue</h3>
+<p><code>public void SetSkillValue(SkillObject skill, int value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to skill value and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.SetSkillValue(skill, 0);
+</code></pre>
+<h3 id="clearskills">ClearSkills</h3>
+<p><code>public void ClearSkills()</code></p>
+<p><strong>Purpose:</strong> Removes all skills from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.ClearSkills();
+</code></pre>
+<h3 id="addskillxp">AddSkillXp</h3>
+<p><code>public void AddSkillXp(SkillObject skill, float xpAmount)</code></p>
+<p><strong>Purpose:</strong> Adds skill xp to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.AddSkillXp(skill, 0);
+</code></pre>
+<h3 id="getattributevalue">GetAttributeValue</h3>
+<p><code>public int GetAttributeValue(CharacterAttribute charAttribute)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the attribute value value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.GetAttributeValue(charAttribute);
+</code></pre>
+<h3 id="clearattributes">ClearAttributes</h3>
+<p><code>public void ClearAttributes()</code></p>
+<p><strong>Purpose:</strong> Removes all attributes from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.ClearAttributes();
+</code></pre>
+<h3 id="settraitlevel">SetTraitLevel</h3>
+<p><code>public void SetTraitLevel(TraitObject trait, int value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to trait level and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.SetTraitLevel(trait, 0);
+</code></pre>
+<h3 id="gettraitlevel">GetTraitLevel</h3>
+<p><code>public int GetTraitLevel(TraitObject trait)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the trait level value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.GetTraitLevel(trait);
+</code></pre>
+<h3 id="cleartraits">ClearTraits</h3>
+<p><code>public void ClearTraits()</code></p>
+<p><strong>Purpose:</strong> Removes all traits from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.ClearTraits();
+</code></pre>
+<h3 id="getperkvalue">GetPerkValue</h3>
+<p><code>public bool GetPerkValue(PerkObject perk)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the perk value value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.GetPerkValue(perk);
+</code></pre>
+<h3 id="clearperks">ClearPerks</h3>
+<p><code>public void ClearPerks()</code></p>
+<p><strong>Purpose:</strong> Removes all perks from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.ClearPerks();
+</code></pre>
+<h3 id="changestate">ChangeState</h3>
+<p><code>public void ChangeState(Hero.CharacterStates newState)</code></p>
+<p><strong>Purpose:</strong> Executes the ChangeState logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.ChangeState(newState);
+</code></pre>
+<h3 id="ishealthfull">IsHealthFull</h3>
+<p><code>public bool IsHealthFull()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the health full state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.IsHealthFull();
+</code></pre>
+<h3 id="heal">Heal</h3>
+<p><code>public void Heal(int healAmount, bool addXp = false)</code></p>
+<p><strong>Purpose:</strong> Executes the Heal logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.Heal(0, false);
+</code></pre>
+<h3 id="deserialize">Deserialize</h3>
+<p><code>public override void Deserialize(MBObjectManager objectManager, XmlNode node)</code></p>
+<p><strong>Purpose:</strong> Restores the this instance from serialized data.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.Deserialize(objectManager, node);
+</code></pre>
+<h3 id="canleadparty">CanLeadParty</h3>
+<p><code>public bool CanLeadParty()</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for lead party.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.CanLeadParty();
+</code></pre>
+<h3 id="setheroencyclopediatextandlinks">SetHeroEncyclopediaTextAndLinks</h3>
+<p><code>public static TextObject SetHeroEncyclopediaTextAndLinks(Hero o)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to hero encyclopedia text and links and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Hero.SetHeroEncyclopediaTextAndLinks(o);
+</code></pre>
+<h3 id="canheroequipmentbechanged">CanHeroEquipmentBeChanged</h3>
+<p><code>public bool CanHeroEquipmentBeChanged()</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for hero equipment be changed.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.CanHeroEquipmentBeChanged();
+</code></pre>
+<h3 id="canmarry">CanMarry</h3>
+<p><code>public bool CanMarry()</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for marry.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.CanMarry();
+</code></pre>
+<h3 id="canbegovernororhavepartyrole">CanBeGovernorOrHavePartyRole</h3>
+<p><code>public bool CanBeGovernorOrHavePartyRole()</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for be governor or have party role.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.CanBeGovernorOrHavePartyRole();
+</code></pre>
+<h3 id="candie">CanDie</h3>
+<p><code>public bool CanDie(KillCharacterAction.KillCharacterActionDetail causeOfDeath)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for die.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.CanDie(causeOfDeath);
+</code></pre>
+<h3 id="canbecomeprisoner">CanBecomePrisoner</h3>
+<p><code>public bool CanBecomePrisoner()</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for become prisoner.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.CanBecomePrisoner();
+</code></pre>
+<h3 id="canmovetosettlement">CanMoveToSettlement</h3>
+<p><code>public bool CanMoveToSettlement()</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for move to settlement.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.CanMoveToSettlement();
+</code></pre>
+<h3 id="canhavecampaignissues">CanHaveCampaignIssues</h3>
+<p><code>public bool CanHaveCampaignIssues()</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for have campaign issues.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.CanHaveCampaignIssues();
+</code></pre>
+<h3 id="addinfluencewithkingdom">AddInfluenceWithKingdom</h3>
+<p><code>public void AddInfluenceWithKingdom(float additionalInfluence)</code></p>
+<p><strong>Purpose:</strong> Adds influence with kingdom to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.AddInfluenceWithKingdom(0);
+</code></pre>
+<h3 id="getrelationwithplayer">GetRelationWithPlayer</h3>
+<p><code>public float GetRelationWithPlayer()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the relation with player value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.GetRelationWithPlayer();
+</code></pre>
+<h3 id="getunmodifiedclanleaderrelationshipwithplayer">GetUnmodifiedClanLeaderRelationshipWithPlayer</h3>
+<p><code>public float GetUnmodifiedClanLeaderRelationshipWithPlayer()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the unmodified clan leader relationship with player value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.GetUnmodifiedClanLeaderRelationshipWithPlayer();
+</code></pre>
+<h3 id="settextvariables">SetTextVariables</h3>
+<p><code>public void SetTextVariables()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to text variables and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.SetTextVariables();
+</code></pre>
+<h3 id="setpersonalrelation">SetPersonalRelation</h3>
+<p><code>public void SetPersonalRelation(Hero otherHero, int value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to personal relation and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.SetPersonalRelation(otherHero, 0);
+</code></pre>
+<h3 id="getrelation">GetRelation</h3>
+<p><code>public int GetRelation(Hero otherHero)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the relation value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.GetRelation(otherHero);
+</code></pre>
+<h3 id="getbaseherorelation">GetBaseHeroRelation</h3>
+<p><code>public int GetBaseHeroRelation(Hero otherHero)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the base hero relation value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.GetBaseHeroRelation(otherHero);
+</code></pre>
+<h3 id="isenemy">IsEnemy</h3>
+<p><code>public bool IsEnemy(Hero otherHero)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the enemy state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.IsEnemy(otherHero);
+</code></pre>
+<h3 id="isfriend">IsFriend</h3>
+<p><code>public bool IsFriend(Hero otherHero)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the friend state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.IsFriend(otherHero);
+</code></pre>
+<h3 id="isneutral">IsNeutral</h3>
+<p><code>public bool IsNeutral(Hero otherHero)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the neutral state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.IsNeutral(otherHero);
+</code></pre>
+<h3 id="modifyhair">ModifyHair</h3>
+<p><code>public void ModifyHair(int hair, int beard, int tattoo)</code></p>
+<p><strong>Purpose:</strong> Executes the ModifyHair logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.ModifyHair(0, 0, 0);
+</code></pre>
+<h3 id="addownedworkshop">AddOwnedWorkshop</h3>
+<p><code>public void AddOwnedWorkshop(Workshop workshop)</code></p>
+<p><strong>Purpose:</strong> Adds owned workshop to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.AddOwnedWorkshop(workshop);
+</code></pre>
+<h3 id="removeownedworkshop">RemoveOwnedWorkshop</h3>
+<p><code>public void RemoveOwnedWorkshop(Workshop workshop)</code></p>
+<p><strong>Purpose:</strong> Removes owned workshop from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.RemoveOwnedWorkshop(workshop);
+</code></pre>
+<h3 id="findfirst">FindFirst</h3>
+<p><code>public static Hero FindFirst(Func&lt;Hero, bool&gt; predicate)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching first in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Hero.FindFirst(func&lt;Hero, false);
+</code></pre>
+<h3 id="find">Find</h3>
+<p><code>public static Hero Find(string stringId)</code></p>
+<p><strong>Purpose:</strong> Finds the matching entry in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Hero.Find(&quot;example&quot;);
+</code></pre>
+<h3 id="findall">FindAll</h3>
+<p><code>public static IEnumerable&lt;Hero&gt; FindAll(Func&lt;Hero, bool&gt; predicate)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching all in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Hero.FindAll(func&lt;Hero, false);
+</code></pre>
+<h3 id="makewounded">MakeWounded</h3>
+<p><code>public void MakeWounded(Hero killerHero = null, KillCharacterAction.KillCharacterActionDetail deathMarkDetail = KillCharacterAction.KillCharacterActionDetail.None)</code></p>
+<p><strong>Purpose:</strong> Executes the MakeWounded logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.MakeWounded(null, killCharacterAction.KillCharacterActionDetail.None);
+</code></pre>
+<h3 id="adddeathmark">AddDeathMark</h3>
+<p><code>public void AddDeathMark(Hero killerHero = null, KillCharacterAction.KillCharacterActionDetail deathMarkDetail = KillCharacterAction.KillCharacterActionDetail.None)</code></p>
+<p><strong>Purpose:</strong> Adds death mark to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.AddDeathMark(null, killCharacterAction.KillCharacterActionDetail.None);
+</code></pre>
+<h3 id="getpositionasvec3">GetPositionAsVec3</h3>
+<p><code>public Vec3 GetPositionAsVec3()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the position as vec3 value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.GetPositionAsVec3();
+</code></pre>
+<h3 id="getcampaignposition">GetCampaignPosition</h3>
+<p><code>public CampaignVec2 GetCampaignPosition()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the campaign position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.GetCampaignPosition();
+</code></pre>
+<h3 id="getmappoint">GetMapPoint</h3>
+<p><code>public IMapPoint GetMapPoint()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the map point value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+var result = hero.GetMapPoint();
+</code></pre>
+<h3 id="resetequipments">ResetEquipments</h3>
+<p><code>public void ResetEquipments()</code></p>
+<p><strong>Purpose:</strong> Returns equipments to its default or initial condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.ResetEquipments();
+</code></pre>
+<h3 id="changeherogold">ChangeHeroGold</h3>
+<p><code>public void ChangeHeroGold(int changeAmount)</code></p>
+<p><strong>Purpose:</strong> Executes the ChangeHeroGold logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.ChangeHeroGold(0);
+</code></pre>
+<h3 id="checkinvalidequipmentsandreplaceifneeded">CheckInvalidEquipmentsAndReplaceIfNeeded</h3>
+<p><code>public void CheckInvalidEquipmentsAndReplaceIfNeeded()</code></p>
+<p><strong>Purpose:</strong> Verifies whether invalid equipments and replace if needed holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Hero from the subsystem API first
+Hero hero = ...;
+hero.CheckInvalidEquipmentsAndReplaceIfNeeded();
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+Hero hero = ...;
+hero.GetName();
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/campaign/">campaign index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/api/campaign/EducationState/">&larr; EducationState</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/campaign/MapNavigationItemType/">MapNavigationItemType &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

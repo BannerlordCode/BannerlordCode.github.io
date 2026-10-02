@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TroopRoster</title>
+  <meta name="description" content="Auto-generated class reference for TroopRoster.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/TroopRoster/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/TroopRoster/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">TroopRoster</span>
+    </nav>
+  
+  <h1>TroopRoster</h1>
+  <h1 id="trooproster">TroopRoster</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Roster
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class TroopRoster : ISerializableObject</code>
+<strong>Base:</strong> <code>ISerializableObject</code>
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Roster/TroopRoster.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>TroopRoster</code> lives in <code>TaleWorlds.CampaignSystem.Roster</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.CampaignSystem.Roster</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>Count</code></td><td><code>public int Count { get; }</code></td></tr>
+<tr><td><code>VersionNo</code></td><td><code>public int VersionNo { get; }</code></td></tr>
+<tr><td><code>TotalRegulars</code></td><td><code>public int TotalRegulars { get; }</code></td></tr>
+<tr><td><code>TotalWoundedRegulars</code></td><td><code>public int TotalWoundedRegulars { get; }</code></td></tr>
+<tr><td><code>TotalWoundedHeroes</code></td><td><code>public int TotalWoundedHeroes { get; }</code></td></tr>
+<tr><td><code>TotalHeroes</code></td><td><code>public int TotalHeroes { get; }</code></td></tr>
+<tr><td><code>TotalWounded</code></td><td><code>public int TotalWounded { get; }</code></td></tr>
+<tr><td><code>TotalManCount</code></td><td><code>public int TotalManCount { get; }</code></td></tr>
+<tr><td><code>TotalHealthyCount</code></td><td><code>public int TotalHealthyCount { get; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="createdummytrooproster">CreateDummyTroopRoster</h3>
+<p><code>public static TroopRoster CreateDummyTroopRoster()</code></p>
+<p><strong>Purpose:</strong> Constructs a new dummy troop roster entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+TroopRoster.CreateDummyTroopRoster();
+</code></pre>
+<h3 id="gethashcode">GetHashCode</h3>
+<p><code>public override int GetHashCode()</code></p>
+<p><strong>Purpose:</strong> Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.GetHashCode();
+</code></pre>
+<h3 id="calculatecachedstatsonload">CalculateCachedStatsOnLoad</h3>
+<p><code>public static void CalculateCachedStatsOnLoad()</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of cached stats on load.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+TroopRoster.CalculateCachedStatsOnLoad();
+</code></pre>
+<h3 id="toflattenedroster">ToFlattenedRoster</h3>
+<p><code>public FlattenedTroopRoster ToFlattenedRoster()</code></p>
+<p><strong>Purpose:</strong> Executes the ToFlattenedRoster logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.ToFlattenedRoster();
+</code></pre>
+<h3 id="add">Add</h3>
+<p><code>public void Add(TroopRoster troopRoster)</code></p>
+<p><strong>Purpose:</strong> Adds an item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.Add(troopRoster);
+</code></pre>
+<h3 id="add-1">Add</h3>
+<p><code>public void Add(TroopRosterElement troopRosterElement)</code></p>
+<p><strong>Purpose:</strong> Adds an item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.Add(troopRosterElement);
+</code></pre>
+<h3 id="removeif">RemoveIf</h3>
+<p><code>public ICollection&lt;TroopRosterElement&gt; RemoveIf(Predicate&lt;TroopRosterElement&gt; match)</code></p>
+<p><strong>Purpose:</strong> Removes if from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.RemoveIf(match);
+</code></pre>
+<h3 id="findindexoftroop">FindIndexOfTroop</h3>
+<p><code>public int FindIndexOfTroop(CharacterObject character)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching index of troop in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.FindIndexOfTroop(character);
+</code></pre>
+<h3 id="removenumberofnonherotroopsrandomly">RemoveNumberOfNonHeroTroopsRandomly</h3>
+<p><code>public TroopRoster RemoveNumberOfNonHeroTroopsRandomly(int numberOfMen)</code></p>
+<p><strong>Purpose:</strong> Removes number of non hero troops randomly from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.RemoveNumberOfNonHeroTroopsRandomly(0);
+</code></pre>
+<h3 id="woundnumberofnonherotroopsrandomly">WoundNumberOfNonHeroTroopsRandomly</h3>
+<p><code>public void WoundNumberOfNonHeroTroopsRandomly(int numberOfMen)</code></p>
+<p><strong>Purpose:</strong> Executes the WoundNumberOfNonHeroTroopsRandomly logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.WoundNumberOfNonHeroTroopsRandomly(0);
+</code></pre>
+<h3 id="swaptroopsatindices">SwapTroopsAtIndices</h3>
+<p><code>public void SwapTroopsAtIndices(int firstIndex, int secondIndex)</code></p>
+<p><strong>Purpose:</strong> Executes the SwapTroopsAtIndices logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.SwapTroopsAtIndices(0, 0);
+</code></pre>
+<h3 id="shifttrooptoindex">ShiftTroopToIndex</h3>
+<p><code>public void ShiftTroopToIndex(int troopIndex, int targetIndex)</code></p>
+<p><strong>Purpose:</strong> Executes the ShiftTroopToIndex logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.ShiftTroopToIndex(0, 0);
+</code></pre>
+<h3 id="addtocountsatindex">AddToCountsAtIndex</h3>
+<p><code>public int AddToCountsAtIndex(int index, int countChange, int woundedCountChange = 0, int xpChange = 0, bool removeDepleted = true)</code></p>
+<p><strong>Purpose:</strong> Adds to counts at index to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.AddToCountsAtIndex(0, 0, 0, 0, false);
+</code></pre>
+<h3 id="checkvalidity">CheckValidity</h3>
+<p><code>public void CheckValidity()</code></p>
+<p><strong>Purpose:</strong> Verifies whether validity holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.CheckValidity();
+</code></pre>
+<h3 id="addtocounts">AddToCounts</h3>
+<p><code>public int AddToCounts(CharacterObject character, int count, bool insertAtFront = false, int woundedCount = 0, int xpChange = 0, bool removeDepleted = true, int index = -1)</code></p>
+<p><strong>Purpose:</strong> Adds to counts to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.AddToCounts(character, 0, false, 0, 0, false, 0);
+</code></pre>
+<h3 id="gettroopcount">GetTroopCount</h3>
+<p><code>public int GetTroopCount(CharacterObject troop)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the troop count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.GetTroopCount(troop);
+</code></pre>
+<h3 id="removezerocounts">RemoveZeroCounts</h3>
+<p><code>public void RemoveZeroCounts()</code></p>
+<p><strong>Purpose:</strong> Removes zero counts from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.RemoveZeroCounts();
+</code></pre>
+<h3 id="getelementcopyatindex">GetElementCopyAtIndex</h3>
+<p><code>public TroopRosterElement GetElementCopyAtIndex(int index)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the element copy at index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.GetElementCopyAtIndex(0);
+</code></pre>
+<h3 id="setelementnumber">SetElementNumber</h3>
+<p><code>public void SetElementNumber(int index, int number)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to element number and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.SetElementNumber(0, 0);
+</code></pre>
+<h3 id="getelementnumber">GetElementNumber</h3>
+<p><code>public int GetElementNumber(int index)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the element number value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.GetElementNumber(0);
+</code></pre>
+<h3 id="getelementnumber-1">GetElementNumber</h3>
+<p><code>public int GetElementNumber(CharacterObject character)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the element number value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.GetElementNumber(character);
+</code></pre>
+<h3 id="setelementwoundednumber">SetElementWoundedNumber</h3>
+<p><code>public void SetElementWoundedNumber(int index, int number)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to element wounded number and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.SetElementWoundedNumber(0, 0);
+</code></pre>
+<h3 id="getelementwoundednumber">GetElementWoundedNumber</h3>
+<p><code>public int GetElementWoundedNumber(int index)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the element wounded number value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.GetElementWoundedNumber(0);
+</code></pre>
+<h3 id="setelementxp">SetElementXp</h3>
+<p><code>public void SetElementXp(int index, int number)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to element xp and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.SetElementXp(0, 0);
+</code></pre>
+<h3 id="getelementxp">GetElementXp</h3>
+<p><code>public int GetElementXp(int index)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the element xp value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.GetElementXp(0);
+</code></pre>
+<h3 id="getelementxp-1">GetElementXp</h3>
+<p><code>public int GetElementXp(CharacterObject character)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the element xp value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.GetElementXp(character);
+</code></pre>
+<h3 id="getcharacteratindex">GetCharacterAtIndex</h3>
+<p><code>public CharacterObject GetCharacterAtIndex(int index)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the character at index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.GetCharacterAtIndex(0);
+</code></pre>
+<h3 id="equals">Equals</h3>
+<p><code>public override bool Equals(object obj)</code></p>
+<p><strong>Purpose:</strong> Compares the this instance with the supplied instance for equality.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.Equals(obj);
+</code></pre>
+<h3 id="rostersareidentical">RostersAreIdentical</h3>
+<p><code>public static bool RostersAreIdentical(TroopRoster a, TroopRoster b)</code></p>
+<p><strong>Purpose:</strong> Executes the RostersAreIdentical logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+TroopRoster.RostersAreIdentical(a, b);
+</code></pre>
+<h3 id="contains">Contains</h3>
+<p><code>public bool Contains(CharacterObject character)</code></p>
+<p><strong>Purpose:</strong> Indicates whether the this instance contains the specified item.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.Contains(character);
+</code></pre>
+<h3 id="validatetrooplistcache">ValidateTroopListCache</h3>
+<p><code>public void ValidateTroopListCache()</code></p>
+<p><strong>Purpose:</strong> Checks whether troop list cache satisfies the required constraints, usually returning a boolean.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.ValidateTroopListCache();
+</code></pre>
+<h3 id="gettrooproster">GetTroopRoster</h3>
+<p><code>public MBList&lt;TroopRosterElement&gt; GetTroopRoster()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the troop roster value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.GetTroopRoster();
+</code></pre>
+<h3 id="clear">Clear</h3>
+<p><code>public void Clear()</code></p>
+<p><strong>Purpose:</strong> Removes all content from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.Clear();
+</code></pre>
+<h3 id="removetroop">RemoveTroop</h3>
+<p><code>public void RemoveTroop(CharacterObject troop, int numberToRemove = 1, UniqueTroopDescriptor troopSeed = default(UniqueTroopDescriptor), int xp = 0)</code></p>
+<p><strong>Purpose:</strong> Removes troop from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.RemoveTroop(troop, 0, default(UniqueTroopDescriptor), 0);
+</code></pre>
+<h3 id="woundtroop">WoundTroop</h3>
+<p><code>public void WoundTroop(CharacterObject troop, int numberToWound = 1, UniqueTroopDescriptor troopSeed = default(UniqueTroopDescriptor))</code></p>
+<p><strong>Purpose:</strong> Executes the WoundTroop logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.WoundTroop(troop, 0, default(UniqueTroopDescriptor));
+</code></pre>
+<h3 id="sum">Sum</h3>
+<p><code>public int Sum(Func&lt;TroopRosterElement, int&gt; selector)</code></p>
+<p><strong>Purpose:</strong> Executes the Sum logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.Sum(func&lt;TroopRosterElement, 0);
+</code></pre>
+<h3 id="onherohealthstatuschanged">OnHeroHealthStatusChanged</h3>
+<p><code>public void OnHeroHealthStatusChanged(Hero hero)</code></p>
+<p><strong>Purpose:</strong> Invoked when the hero health status changed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.OnHeroHealthStatusChanged(hero);
+</code></pre>
+<h3 id="updateversion">UpdateVersion</h3>
+<p><code>public void UpdateVersion()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of version.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.UpdateVersion();
+</code></pre>
+<h3 id="clonerosterdata">CloneRosterData</h3>
+<p><code>public TroopRoster CloneRosterData()</code></p>
+<p><strong>Purpose:</strong> Duplicates the this instance's state and returns a new roster data instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+var result = troopRoster.CloneRosterData();
+</code></pre>
+<h3 id="addxptotroop">AddXpToTroop</h3>
+<p><code>public void AddXpToTroop(CharacterObject troop, int xpAmount)</code></p>
+<p><strong>Purpose:</strong> Adds xp to troop to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.AddXpToTroop(troop, 0);
+</code></pre>
+<h3 id="addxptotroopatindex">AddXpToTroopAtIndex</h3>
+<p><code>public void AddXpToTroopAtIndex(int index, int xpAmount)</code></p>
+<p><strong>Purpose:</strong> Adds xp to troop at index to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TroopRoster from the subsystem API first
+TroopRoster troopRoster = ...;
+troopRoster.AddXpToTroopAtIndex(0, 0);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">TroopRoster.CreateDummyTroopRoster();
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/MobilePartyTrainingBehavior/">&larr; MobilePartyTrainingBehavior</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/QuestSettlement/">QuestSettlement &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,2081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>core-extra index</title>
+  <meta name="description" content="Core &#x2F; Library extension class reference index">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core-extra/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core-extra/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/core-extra/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/core-extra/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/core-extra/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/core-extra/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="active">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">core-extra index</span>
+    </nav>
+  
+  <h1>core-extra index</h1>
+  <!-- BEGIN SECTION INDEX -->
+<h2 id="parent-navigation">Parent Navigation</h2>
+<ul>
+<li><a href="../">API Reference</a></li>
+<li><a href="../../">Version Home</a></li>
+</ul>
+<h2 id="child-classes-alphabetical">Child Classes — Alphabetical</h2>
+<h3 id="a">A</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ActionSetCode">ActionSetCode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AgentAttackType">AgentAttackType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AgentControllerType">AgentControllerType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AgentData">AgentData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AgentFlag">AgentFlag</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AgentMovementMode">AgentMovementMode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AgentOriginUtilities">AgentOriginUtilities</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AgentSaveData">AgentSaveData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AgentState">AgentState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AmbientInformation">AmbientInformation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ApplicationPlatform">ApplicationPlatform</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ApplicationVersion">ApplicationVersion</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ApplicationVersionJsonConverter">ApplicationVersionJsonConverter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ApplicationVersionType">ApplicationVersionType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AreaInformation">AreaInformation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ArmorComponent">ArmorComponent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ArmorMaterialTypes">ArmorMaterialTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AssemblyLoader">AssemblyLoader</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AsyncRunner">AsyncRunner</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AtmosphereInfo">AtmosphereInfo</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AtmosphereState">AtmosphereState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AwaitableAsyncRunner">AwaitableAsyncRunner</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./AzureDiscovery">AzureDiscovery</a></li>
+</ul>
+<h3 id="b">B</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Banner">Banner</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BannerColor">BannerColor</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BannerColorVM">BannerColorVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BannerComponent">BannerComponent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BannerData">BannerData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BannerEffect">BannerEffect</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BannerExtensions">BannerExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BannerIconData">BannerIconData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BannerIconGroup">BannerIconGroup</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BannerIconVM">BannerIconVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BannerImageIdentifier">BannerImageIdentifier</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BannerImageIdentifierVM">BannerImageIdentifierVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BannerManager">BannerManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BannerViewModel">BannerViewModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BasePath">BasePath</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BasicCharacterObject">BasicCharacterObject</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BasicCultureObject">BasicCultureObject</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BasicGameModels">BasicGameModels</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BasicTooltipViewModel">BasicTooltipViewModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BattleResultVM">BattleResultVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BattleSideEnum">BattleSideEnum</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BattleSideEnumExtensions">BattleSideEnumExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BattleState">BattleState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BeardCoverTypes">BeardCoverTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./bin">bin</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BinaryReader">BinaryReader</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BinaryWriter">BinaryWriter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BindingListFloatItem">BindingListFloatItem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BindingListStringItem">BindingListStringItem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BindingPath">BindingPath</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BladeData">BladeData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BodyDeformTypes">BodyDeformTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BodyMeshMaturityType">BodyMeshMaturityType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BodyMeshTypes">BodyMeshTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BodyProperties">BodyProperties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BodyPropertiesJsonConverter">BodyPropertiesJsonConverter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./BoolItemWithActionVM">BoolItemWithActionVM</a></li>
+</ul>
+<h3 id="c">C</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CachedDataAttribute">CachedDataAttribute</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CampaignSaveMetaDataArgs">CampaignSaveMetaDataArgs</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CharacterAttribute">CharacterAttribute</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CharacterCode">CharacterCode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CharacterEquipmentItemVM">CharacterEquipmentItemVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CharacterImageIdentifier">CharacterImageIdentifier</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CharacterImageIdentifierVM">CharacterImageIdentifierVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CharacterSkillsResolver">CharacterSkillsResolver</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CharacterWithActionViewModel">CharacterWithActionViewModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ChoiceTag">ChoiceTag</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ClassCode">ClassCode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ClassCodeAccessModifier">ClassCodeAccessModifier</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ClientProfiles">ClientProfiles</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CodeBlock">CodeBlock</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CodeGenerationContext">CodeGenerationContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CodeGenerationFile">CodeGenerationFile</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Color">Color</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ColorExtensions">ColorExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Colors">Colors</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CombatStatCalculator">CombatStatCalculator</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CommandLineArgumentFunction">CommandLineArgumentFunction</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CommandLineFunctionality">CommandLineFunctionality</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CommentSection">CommentSection</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Common">Common</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ComparerType">ComparerType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ConfigurationManager">ConfigurationManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ConstructorCode">ConstructorCode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Corners">Corners</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Crafting">Crafting</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CraftingItemViewModel">CraftingItemViewModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CraftingMaterials">CraftingMaterials</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CraftingPiece">CraftingPiece</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CraftingPieceImageIdentifier">CraftingPieceImageIdentifier</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CraftingPieceImageIdentifierVM">CraftingPieceImageIdentifierVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CraftingStatData">CraftingStatData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CraftingStatTypes">CraftingStatTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CraftingTemplate">CraftingTemplate</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./CubicBezier">CubicBezier</a></li>
+</ul>
+<h3 id="d">D</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DamageTypes">DamageTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DataSourceProperty">DataSourceProperty</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Debug">Debug</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DebugColor">DebugColor</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DebugSystemFilter">DebugSystemFilter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DebugUserFilter">DebugUserFilter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DefaultBannerEffects">DefaultBannerEffects</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DefaultCharacterAttributes">DefaultCharacterAttributes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DefaultItemCategories">DefaultItemCategories</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DefaultItemCategorySelector">DefaultItemCategorySelector</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DefaultItemValueModel">DefaultItemValueModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DefaultParallelDriver">DefaultParallelDriver</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DefaultRidingModel">DefaultRidingModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DefaultSiegeEngineTypes">DefaultSiegeEngineTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DefaultSkills">DefaultSkills</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DeploymentFormationClass">DeploymentFormationClass</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DialogNotificationHandle">DialogNotificationHandle</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DiamondDebugCategory">DiamondDebugCategory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DiamondDebugManager">DiamondDebugManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DictionaryByType">DictionaryByType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DotNetHttpDriver">DotNetHttpDriver</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DrivenProperty">DrivenProperty</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DummyCommunicator">DummyCommunicator</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./DynamicBodyProperties">DynamicBodyProperties</a></li>
+</ul>
+<h3 id="e">E</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./EffectIncrementType">EffectIncrementType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ElementNotificationVM">ElementNotificationVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./EmptyImageIdentifier">EmptyImageIdentifier</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./EngineMethod">EngineMethod</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./EngineType">EngineType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./EntitySystem">EntitySystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./EnumHelper">EnumHelper</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Equipment">Equipment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./EquipmentElement">EquipmentElement</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./EquipmentFlags">EquipmentFlags</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./EquipmentIndex">EquipmentIndex</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./EquipmentType">EquipmentType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./EventBase">EventBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./EventManager">EventManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Extensions">Extensions</a></li>
+</ul>
+<h3 id="f">F</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./FaceGen">FaceGen</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./FaceGeneratorStage">FaceGeneratorStage</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./FaceGenHistory">FaceGenHistory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./FileHelper">FileHelper</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./FileHelperExtensions">FileHelperExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./FilePaths">FilePaths</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./FogInformation">FogInformation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ForestDensity">ForestDensity</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./FormationClass">FormationClass</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./FormationClassExtensions">FormationClassExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./FormationFilterType">FormationFilterType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./FormationPositionPreference">FormationPositionPreference</a></li>
+</ul>
+<h3 id="g">G</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Game">Game</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameHandler">GameHandler</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameManagerBase">GameManagerBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameManagerComponent">GameManagerComponent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameManagerLoadingSteps">GameManagerLoadingSteps</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameModel">GameModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameModelsManager">GameModelsManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameNotificationItemVM">GameNotificationItemVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameNotificationVM">GameNotificationVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameState">GameState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameStateManager">GameStateManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameStateManagerType">GameStateManagerType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameText">GameText</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameTextHelper">GameTextHelper</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameTextManager">GameTextManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameTexts">GameTexts</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameTextVariation">GameTextVariation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameType">GameType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GameTypeLoadingStates">GameTypeLoadingStates</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GCHandleFactory">GCHandleFactory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GenericComparer">GenericComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GenericImageIdentifierVM">GenericImageIdentifierVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GraphLinePointVM">GraphLinePointVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GraphLineVM">GraphLineVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./GraphVM">GraphVM</a></li>
+</ul>
+<h3 id="h">H</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HairCoverTypes">HairCoverTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HintVM">HintVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HorseComponent">HorseComponent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HorseHarnessCoverTypes">HorseHarnessCoverTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HorseTailCoverTypes">HorseTailCoverTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HTMLDebugCategory">HTMLDebugCategory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HTMLDebugData">HTMLDebugData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HttpDriverManager">HttpDriverManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HttpGetRequest">HttpGetRequest</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HttpHelper">HttpHelper</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HttpPostRequest">HttpPostRequest</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HttpRequestTaskState">HttpRequestTaskState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HumanBone">HumanBone</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./HyperlinkTexts">HyperlinkTexts</a></li>
+</ul>
+<h3 id="i">I</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IAgent">IAgent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IAgentOriginBase">IAgentOriginBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IBannerVisual">IBannerVisual</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IBannerVisualCreator">IBannerVisualCreator</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IBattleCombatant">IBattleCombatant</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IBattleObserver">IBattleObserver</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ICache">ICache</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ICameraModeLogic">ICameraModeLogic</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ICharacterData">ICharacterData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ICommunicator">ICommunicator</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IConfigurationManager">IConfigurationManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IDebugManager">IDebugManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IEntityComponent">IEntityComponent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IFaceGen">IFaceGen</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IFaceGeneratorCustomFilter">IFaceGeneratorCustomFilter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IGameStarter">IGameStarter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IGameStateListener">IGameStateListener</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IGameStateManagerListener">IGameStateManagerListener</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IGameStateManagerOwner">IGameStateManagerOwner</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IHttpDriver">IHttpDriver</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IHttpRequestTask">IHttpRequestTask</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IInformationDataHolder">IInformationDataHolder</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ImageIdentifier">ImageIdentifier</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ImageIdentifierVM">ImageIdentifierVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IManagedParametersInitializer">IManagedParametersInitializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IMBBindingList">IMBBindingList</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IMBCollection">IMBCollection</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IMission">IMission</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IMissionSiegeWeapon">IMissionSiegeWeapon</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IMissionTeam">IMissionTeam</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IMissionTroopSupplier">IMissionTroopSupplier</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IMonsterMissionData">IMonsterMissionData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IMonsterMissionDataCreator">IMonsterMissionDataCreator</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IndexEntry">IndexEntry</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./INetworkCommunication">INetworkCommunication</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./InformationData">InformationData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./InformationManager">InformationManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./InformationMessage">InformationMessage</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./InitialWeaponEquipPreference">InitialWeaponEquipPreference</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./InputContext">InputContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./InputType">InputType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./InputUsageMask">InputUsageMask</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./InquiryData">InquiryData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./InquiryElement">InquiryElement</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./InquiryElementVM">InquiryElementVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IParallelDriver">IParallelDriver</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IPlatformFileHelper">IPlatformFileHelper</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IReader">IReader</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IReadOnlyPropertyOwner">IReadOnlyPropertyOwner</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IReadOnlyPropertyOwnerF">IReadOnlyPropertyOwnerF</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ISceneNotificationContextProvider">ISceneNotificationContextProvider</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ISerializableObject">ISerializableObject</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IShipOrigin">IShipOrigin</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ITask">ITask</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ITelemetryManager">ITelemetryManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemCategory">ItemCategory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemCategorySelector">ItemCategorySelector</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemCollectionElementViewModel">ItemCollectionElementViewModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemComponent">ItemComponent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemFlags">ItemFlags</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemImageIdentifier">ItemImageIdentifier</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemImageIdentifierVM">ItemImageIdentifierVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemModifier">ItemModifier</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemModifierGroup">ItemModifierGroup</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemObject">ItemObject</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemQuality">ItemQuality</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemRosterElement">ItemRosterElement</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemTiers">ItemTiers</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemTypeEnum">ItemTypeEnum</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemUsageSetFlags">ItemUsageSetFlags</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemValueModel">ItemValueModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ItemVM">ItemVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ITrackableBase">ITrackableBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IViewModel">IViewModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IViewModelGetterInterface">IViewModelGetterInterface</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IViewModelSetterInterface">IViewModelSetterInterface</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./IWriter">IWriter</a></li>
+</ul>
+<h3 id="j">J</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./JobType">JobType</a></li>
+</ul>
+<h3 id="l">L</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./LinearFrictionTerm">LinearFrictionTerm</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./LineSegment2D">LineSegment2D</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ListChangedEventArgs">ListChangedEventArgs</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ListChangedType">ListChangedType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Logger">Logger</a></li>
+</ul>
+<h3 id="m">M</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MachineId">MachineId</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ManagedArray">ManagedArray</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ManagedDllFolder">ManagedDllFolder</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ManagedParameters__TaleWorlds_Core">ManagedParameters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ManagedParametersEnum__TaleWorlds_Core">ManagedParametersEnum</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Mat2">Mat2</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Mat3">Mat3</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MaterialProperty">MaterialProperty</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MathF">MathF</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MatrixFrame">MatrixFrame</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBArrayList">MBArrayList</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBBindingList">MBBindingList</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBBodyProperty">MBBodyProperty</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBCharacterSkills">MBCharacterSkills</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBCommon">MBCommon</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBEquipmentRoster">MBEquipmentRoster</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBException">MBException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBFastRandom">MBFastRandom</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBFastRandomSelector">MBFastRandomSelector</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBGameModel">MBGameModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBHaltonColorGenerator">MBHaltonColorGenerator</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBIllegalValueException">MBIllegalValueException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBInformationManager">MBInformationManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBInvalidParameterException">MBInvalidParameterException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBList">MBList</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBList2D">MBList2D</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBMath">MBMath</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBMethodNameNotFoundException">MBMethodNameNotFoundException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBMisuseException">MBMisuseException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBNetwork">MBNetwork</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBNetworkBitException">MBNetworkBitException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBNotFoundException">MBNotFoundException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBNotNullParameterException">MBNotNullParameterException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBNullParameterException">MBNullParameterException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBObjectManagerExtensions">MBObjectManagerExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBOutOfRangeException">MBOutOfRangeException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBPerlin">MBPerlin</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBQueue">MBQueue</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBRandom">MBRandom</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBReadOnlyDictionary">MBReadOnlyDictionary</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBReadOnlyList">MBReadOnlyList</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBReadOnlyQueue">MBReadOnlyQueue</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBSaveLoad">MBSaveLoad</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBSortedMultiList">MBSortedMultiList</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBStringBuilder">MBStringBuilder</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBTypeMismatchException">MBTypeMismatchException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBUnderFlowException">MBUnderFlowException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBUnknownTypeException">MBUnknownTypeException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBUtil">MBUtil</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MBWorkspace">MBWorkspace</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MetaDataExtensions__TaleWorlds_Core">MetaDataExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MethodCode">MethodCode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MethodCodeAccessModifier">MethodCodeAccessModifier</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MethodCodePolymorphismInfo">MethodCodePolymorphismInfo</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MissionInitializerRecord">MissionInitializerRecord</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MissionMode">MissionMode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MissionResult">MissionResult</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MissionShipObject">MissionShipObject</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MissionSiegeWeapon">MissionSiegeWeapon</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ModuleCheckResultType">ModuleCheckResultType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Monster">Monster</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MountCreationKey">MountCreationKey</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./MultiSelectionInquiryData">MultiSelectionInquiryData</a></li>
+</ul>
+<h3 id="n">N</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./NamespaceCode">NamespaceCode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./NauticalInformation">NauticalInformation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./NavigationPath">NavigationPath</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./NewsItem">NewsItem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./NewsManager">NewsManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./NewsType">NewsType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./NewsTypes">NewsTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./NotificationPriority">NotificationPriority</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./NotificationSceneProperties">NotificationSceneProperties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./NotificationStatus">NotificationStatus</a></li>
+</ul>
+<h3 id="o">O</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ObjectInstanceTracker">ObjectInstanceTracker</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Oriented2DArea">Oriented2DArea</a></li>
+</ul>
+<h3 id="p">P</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ParameterContainer">ParameterContainer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ParameterFile">ParameterFile</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ParameterLoader">ParameterLoader</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Parameters">Parameters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PathFaceRecord">PathFaceRecord</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PathFinder">PathFinder</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PeerComponent">PeerComponent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PerformanceTestBlock">PerformanceTestBlock</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PieceData">PieceData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PieceTypes">PieceTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PinnedArrayData">PinnedArrayData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Platform">Platform</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PlatformDirectoryPath">PlatformDirectoryPath</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PlatformFileHelperPC">PlatformFileHelperPC</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PlatformFilePath">PlatformFilePath</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PlatformFileType">PlatformFileType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PlatformInitParams">PlatformInitParams</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PlayerAvatarImageIdentifier">PlayerAvatarImageIdentifier</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PlayerAvatarImageIdentifierVM">PlayerAvatarImageIdentifierVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PlayerGameState">PlayerGameState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PostProcessInformation">PostProcessInformation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PowerLevelComparer">PowerLevelComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PriorityQueue">PriorityQueue</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ProfanityChechkerType">ProfanityChechkerType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ProfanityChecker">ProfanityChecker</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Property">Property</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PropertyBasedTooltipVM">PropertyBasedTooltipVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PropertyChangedWithBoolValueEventArgs">PropertyChangedWithBoolValueEventArgs</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PropertyChangedWithColorValueEventArgs">PropertyChangedWithColorValueEventArgs</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PropertyChangedWithDoubleValueEventArgs">PropertyChangedWithDoubleValueEventArgs</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PropertyChangedWithFloatValueEventArgs">PropertyChangedWithFloatValueEventArgs</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PropertyChangedWithIntValueEventArgs">PropertyChangedWithIntValueEventArgs</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PropertyChangedWithUIntValueEventArgs">PropertyChangedWithUIntValueEventArgs</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PropertyChangedWithValueEventArgs">PropertyChangedWithValueEventArgs</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PropertyChangedWithVec2ValueEventArgs">PropertyChangedWithVec2ValueEventArgs</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PropertyObject">PropertyObject</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PropertyOwner">PropertyOwner</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./PropertyOwnerF">PropertyOwnerF</a></li>
+</ul>
+<h3 id="q">Q</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Quaternion">Quaternion</a></li>
+</ul>
+<h3 id="r">R</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./RainInformation">RainInformation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Ray">Ray</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./RefiningFormula">RefiningFormula</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./RelevantContextType">RelevantContextType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ResetAllTutorialsEvent">ResetAllTutorialsEvent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ResourceDepot">ResourceDepot</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ResourceDepotFile">ResourceDepotFile</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ResourceDepotLocation">ResourceDepotLocation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./RidingModel">RidingModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./RundownLineVM">RundownLineVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./RundownTooltipVM">RundownTooltipVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Runtime">Runtime</a></li>
+</ul>
+<h3 id="s">S</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SaddleComponent">SaddleComponent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SailType">SailType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SaveableCoreTypeDefiner">SaveableCoreTypeDefiner</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SaveResult">SaveResult</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SaveResultWithMessage">SaveResultWithMessage</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SceneNotificationCharacter">SceneNotificationCharacter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SceneNotificationData">SceneNotificationData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SceneNotificationShip">SceneNotificationShip</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SceneNotificationVM">SceneNotificationVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ScopedTimer">ScopedTimer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SelectorItemVM">SelectorItemVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SelectorVM">SelectorVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SerialTask">SerialTask</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ShipHull">ShipHull</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ShipPhysicsReference">ShipPhysicsReference</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ShipSail">ShipSail</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ShipSlot">ShipSlot</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ShipSlotAndPieceName">ShipSlotAndPieceName</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ShipType">ShipType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ShipUpgradePiece">ShipUpgradePiece</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ShipVisualSlotInfo">ShipVisualSlotInfo</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SiegeEngineType">SiegeEngineType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SingleThreadedSynchronizationContext">SingleThreadedSynchronizationContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SingleThreadedSynchronizationContextManager">SingleThreadedSynchronizationContextManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SkeletonScale">SkeletonScale</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SkillObject">SkillObject</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SkillType">SkillType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SkinMask">SkinMask</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SkyInformation">SkyInformation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SnowInformation">SnowInformation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SpectatorCameraTypes">SpectatorCameraTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SRTHelper">SRTHelper</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SrtParser">SrtParser</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray">StackArray</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray10FloatFloatTuple">StackArray10FloatFloatTuple</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray2Bool">StackArray2Bool</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray32Bool">StackArray32Bool</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray3Bool">StackArray3Bool</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray3Float">StackArray3Float</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray3Int">StackArray3Int</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray4Bool">StackArray4Bool</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray4Int">StackArray4Int</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray5Bool">StackArray5Bool</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray5Float">StackArray5Float</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray6Bool">StackArray6Bool</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray7Bool">StackArray7Bool</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray8Bool">StackArray8Bool</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray8Int">StackArray8Int</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StackArray8Vec3">StackArray8Vec3</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StanceTypes">StanceTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./State">State</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StaticBodyProperties">StaticBodyProperties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StreamHelpers">StreamHelpers</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StrikeType">StrikeType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StringItemWithActionVM">StringItemWithActionVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StringItemWithEnabledAndHintVM">StringItemWithEnabledAndHintVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StringItemWithHintVM">StringItemWithHintVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StringPairItemVM">StringPairItemVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StringPairItemWithActionVM">StringPairItemWithActionVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StringReader">StringReader</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./StringWriter">StringWriter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SubtitleItem">SubtitleItem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./SunInformation">SunInformation</a></li>
+</ul>
+<h3 id="t">T</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TauntUsage">TauntUsage</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TauntUsageFlag">TauntUsageFlag</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TauntUsageManager">TauntUsageManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TauntUsageSet">TauntUsageSet</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TeamSideEnum">TeamSideEnum</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TeamSideEnumExtensions">TeamSideEnumExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TelemetryLevelMask">TelemetryLevelMask</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TerrainType">TerrainType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TestCommonBase">TestCommonBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TestContext">TestContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TextInquiryData">TextInquiryData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TimedDictionaryCache">TimedDictionaryCache</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TimeInformation">TimeInformation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Timer">Timer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TooltipBaseVM">TooltipBaseVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TooltipMode">TooltipMode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TooltipProperty">TooltipProperty</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TooltipPropertyFlags">TooltipPropertyFlags</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TooltipRegistry">TooltipRegistry</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TooltipTriggerVM">TooltipTriggerVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TradeItemComponent">TradeItemComponent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Transformation">Transformation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TroopClassExtensions">TroopClassExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TroopTraitsMask">TroopTraitsMask</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TroopTraitsMaskExtensions">TroopTraitsMaskExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TroopType">TroopType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TroopUsageFlags">TroopUsageFlags</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TutorialContextChangedEvent">TutorialContextChangedEvent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TutorialContexts">TutorialContexts</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TutorialNotificationElementChangeEvent">TutorialNotificationElementChangeEvent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TWException">TWException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TWParallel">TWParallel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TWSharedMutex">TWSharedMutex</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TWSharedMutexReadLock">TWSharedMutexReadLock</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TWSharedMutexWriteLock">TWSharedMutexWriteLock</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./TWXmlLoadException">TWXmlLoadException</a></li>
+</ul>
+<h3 id="u">U</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./UiStringHelper">UiStringHelper</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./UnderwearTypes">UnderwearTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./UndoRedoKey">UndoRedoKey</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./UniqueSceneId">UniqueSceneId</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./UniqueTroopDescriptor">UniqueTroopDescriptor</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./UnitSpawnPrioritizations">UnitSpawnPrioritizations</a></li>
+</ul>
+<h3 id="v">V</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ValueCategorization">ValueCategorization</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./VariableCode">VariableCode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./VariableCodeAccessModifier">VariableCodeAccessModifier</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Vec2">Vec2</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Vec2i">Vec2i</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Vec3">Vec3</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Vec3i">Vec3i</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./ViewModel">ViewModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./VirtualDirectoryAttribute">VirtualDirectoryAttribute</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./VirtualFileAttribute">VirtualFileAttribute</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./VirtualFolders">VirtualFolders</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./VirtualPlayer">VirtualPlayer</a></li>
+</ul>
+<h3 id="w">W</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./WaitForGameState">WaitForGameState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Watchdog">Watchdog</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./WeaponClass">WeaponClass</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./WeaponComponent">WeaponComponent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./WeaponComponentData">WeaponComponentData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./WeaponComponentDataExtensions">WeaponComponentDataExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./WeaponDescription">WeaponDescription</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./WeaponDesign">WeaponDesign</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./WeaponDesignElement">WeaponDesignElement</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./WeaponFlags">WeaponFlags</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./WeaponTiers">WeaponTiers</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./Win64_Shipping_Client">Win64_Shipping_Client</a></li>
+</ul>
+<h3 id="x">X</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/./XmlHelper">XmlHelper</a></li>
+</ul>
+<!-- END SECTION INDEX -->
+
+</article>
+<hr>
+<ul>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;UiStringHelper&#x2F;">UiStringHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PlayerAvatarImageIdentifier&#x2F;">PlayerAvatarImageIdentifier</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TeamSideEnum&#x2F;">TeamSideEnum</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameType&#x2F;">GameType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;VirtualFolders&#x2F;">VirtualFolders</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;RelevantContextType&#x2F;">RelevantContextType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BannerComponent&#x2F;">BannerComponent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;NewsType&#x2F;">NewsType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Transformation&#x2F;">Transformation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Vec2i&#x2F;">Vec2i</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ScopedTimer&#x2F;">ScopedTimer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DebugColor&#x2F;">DebugColor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ClassCode&#x2F;">ClassCode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameHandler&#x2F;">GameHandler</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemTiers&#x2F;">ItemTiers</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ColorExtensions&#x2F;">ColorExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray5Float&#x2F;">StackArray5Float</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;EmptyImageIdentifier&#x2F;">EmptyImageIdentifier</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ShipType&#x2F;">ShipType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CraftingPieceImageIdentifierVM&#x2F;">CraftingPieceImageIdentifierVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;VirtualFileAttribute&#x2F;">VirtualFileAttribute</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SRTHelper&#x2F;">SRTHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemCategory&#x2F;">ItemCategory</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StringItemWithActionVM&#x2F;">StringItemWithActionVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemModifierGroup&#x2F;">ItemModifierGroup</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BasicTooltipViewModel&#x2F;">BasicTooltipViewModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MethodCodeAccessModifier&#x2F;">MethodCodeAccessModifier</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBUnknownTypeException&#x2F;">MBUnknownTypeException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PropertyOwnerF&#x2F;">PropertyOwnerF</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TooltipProperty&#x2F;">TooltipProperty</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;VirtualDirectoryAttribute&#x2F;">VirtualDirectoryAttribute</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TauntUsageSet&#x2F;">TauntUsageSet</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;RundownTooltipVM&#x2F;">RundownTooltipVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DotNetHttpDriver&#x2F;">DotNetHttpDriver</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;VirtualPlayer&#x2F;">VirtualPlayer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IBattleObserver&#x2F;">IBattleObserver</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IParallelDriver&#x2F;">IParallelDriver</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ShipSlot&#x2F;">ShipSlot</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray8Bool&#x2F;">StackArray8Bool</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ListChangedEventArgs&#x2F;">ListChangedEventArgs</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MethodCodePolymorphismInfo&#x2F;">MethodCodePolymorphismInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;NauticalInformation&#x2F;">NauticalInformation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ClassCodeAccessModifier&#x2F;">ClassCodeAccessModifier</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BannerEffect&#x2F;">BannerEffect</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TWParallel&#x2F;">TWParallel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;WeaponDesignElement&#x2F;">WeaponDesignElement</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ImageIdentifier&#x2F;">ImageIdentifier</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BladeData&#x2F;">BladeData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SceneNotificationCharacter&#x2F;">SceneNotificationCharacter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StanceTypes&#x2F;">StanceTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AzureDiscovery&#x2F;">AzureDiscovery</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PropertyChangedWithFloatValueEventArgs&#x2F;">PropertyChangedWithFloatValueEventArgs</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemObject&#x2F;">ItemObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;VariableCodeAccessModifier&#x2F;">VariableCodeAccessModifier</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CraftingPieceImageIdentifier&#x2F;">CraftingPieceImageIdentifier</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HintVM&#x2F;">HintVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IAgent&#x2F;">IAgent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;FileHelper&#x2F;">FileHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TerrainType&#x2F;">TerrainType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CommentSection&#x2F;">CommentSection</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;EnumHelper&#x2F;">EnumHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HumanBone&#x2F;">HumanBone</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;WeaponTiers&#x2F;">WeaponTiers</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CommandLineFunctionality&#x2F;">CommandLineFunctionality</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PathFinder&#x2F;">PathFinder</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IMBBindingList&#x2F;">IMBBindingList</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ViewModel&#x2F;">ViewModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BodyPropertiesJsonConverter&#x2F;">BodyPropertiesJsonConverter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Platform&#x2F;">Platform</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;NewsItem&#x2F;">NewsItem</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MathF&#x2F;">MathF</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DefaultItemValueModel&#x2F;">DefaultItemValueModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SnowInformation&#x2F;">SnowInformation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BeardCoverTypes&#x2F;">BeardCoverTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HttpPostRequest&#x2F;">HttpPostRequest</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MountCreationKey&#x2F;">MountCreationKey</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SingleThreadedSynchronizationContextManager&#x2F;">SingleThreadedSynchronizationContextManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MetaDataExtensions__TaleWorlds_Core&#x2F;">MetaDataExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray3Float&#x2F;">StackArray3Float</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PlatformDirectoryPath&#x2F;">PlatformDirectoryPath</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HairCoverTypes&#x2F;">HairCoverTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IPlatformFileHelper&#x2F;">IPlatformFileHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DynamicBodyProperties&#x2F;">DynamicBodyProperties</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DialogNotificationHandle&#x2F;">DialogNotificationHandle</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DefaultItemCategorySelector&#x2F;">DefaultItemCategorySelector</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBMethodNameNotFoundException&#x2F;">MBMethodNameNotFoundException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CampaignSaveMetaDataArgs&#x2F;">CampaignSaveMetaDataArgs</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray4Int&#x2F;">StackArray4Int</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;WeaponFlags&#x2F;">WeaponFlags</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;InitialWeaponEquipPreference&#x2F;">InitialWeaponEquipPreference</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TroopUsageFlags&#x2F;">TroopUsageFlags</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ObjectInstanceTracker&#x2F;">ObjectInstanceTracker</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CachedDataAttribute&#x2F;">CachedDataAttribute</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;RundownLineVM&#x2F;">RundownLineVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ModuleCheckResultType&#x2F;">ModuleCheckResultType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PlayerGameState&#x2F;">PlayerGameState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MachineId&#x2F;">MachineId</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TWSharedMutexWriteLock&#x2F;">TWSharedMutexWriteLock</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BodyMeshTypes&#x2F;">BodyMeshTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IHttpDriver&#x2F;">IHttpDriver</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ICharacterData&#x2F;">ICharacterData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TWException&#x2F;">TWException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;FaceGenHistory&#x2F;">FaceGenHistory</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StringItemWithHintVM&#x2F;">StringItemWithHintVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BannerData&#x2F;">BannerData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PlatformFileType&#x2F;">PlatformFileType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameManagerBase&#x2F;">GameManagerBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IFaceGeneratorCustomFilter&#x2F;">IFaceGeneratorCustomFilter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HorseTailCoverTypes&#x2F;">HorseTailCoverTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CharacterSkillsResolver&#x2F;">CharacterSkillsResolver</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DefaultBannerEffects&#x2F;">DefaultBannerEffects</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;EquipmentType&#x2F;">EquipmentType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MissionMode&#x2F;">MissionMode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;InquiryElementVM&#x2F;">InquiryElementVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CraftingStatTypes&#x2F;">CraftingStatTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameTextManager&#x2F;">GameTextManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DefaultRidingModel&#x2F;">DefaultRidingModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemModifier&#x2F;">ItemModifier</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TroopType&#x2F;">TroopType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AgentState&#x2F;">AgentState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;UnitSpawnPrioritizations&#x2F;">UnitSpawnPrioritizations</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Timer&#x2F;">Timer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;RidingModel&#x2F;">RidingModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SkeletonScale&#x2F;">SkeletonScale</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;EquipmentIndex&#x2F;">EquipmentIndex</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PieceTypes&#x2F;">PieceTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray5Bool&#x2F;">StackArray5Bool</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Win64_Shipping_Client&#x2F;">Win64_Shipping_Client</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray4Bool&#x2F;">StackArray4Bool</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameStateManager&#x2F;">GameStateManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BodyDeformTypes&#x2F;">BodyDeformTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemCollectionElementViewModel&#x2F;">ItemCollectionElementViewModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;WeaponComponentDataExtensions&#x2F;">WeaponComponentDataExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;NewsTypes&#x2F;">NewsTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CombatStatCalculator&#x2F;">CombatStatCalculator</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MissionShipObject&#x2F;">MissionShipObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DefaultSkills&#x2F;">DefaultSkills</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemQuality&#x2F;">ItemQuality</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameTextVariation&#x2F;">GameTextVariation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameModel&#x2F;">GameModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray2Bool&#x2F;">StackArray2Bool</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Monster&#x2F;">Monster</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;InformationMessage&#x2F;">InformationMessage</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBInvalidParameterException&#x2F;">MBInvalidParameterException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CharacterEquipmentItemVM&#x2F;">CharacterEquipmentItemVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;EquipmentFlags&#x2F;">EquipmentFlags</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HttpDriverManager&#x2F;">HttpDriverManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StringPairItemWithActionVM&#x2F;">StringPairItemWithActionVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ProfanityChecker&#x2F;">ProfanityChecker</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AgentAttackType&#x2F;">AgentAttackType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBReadOnlyDictionary&#x2F;">MBReadOnlyDictionary</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ForestDensity&#x2F;">ForestDensity</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ITask&#x2F;">ITask</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;InformationData&#x2F;">InformationData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ArmorMaterialTypes&#x2F;">ArmorMaterialTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AgentSaveData&#x2F;">AgentSaveData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBFastRandomSelector&#x2F;">MBFastRandomSelector</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SceneNotificationData&#x2F;">SceneNotificationData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ISceneNotificationContextProvider&#x2F;">ISceneNotificationContextProvider</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TroopClassExtensions&#x2F;">TroopClassExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AgentControllerType&#x2F;">AgentControllerType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;WeaponDescription&#x2F;">WeaponDescription</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ManagedParameters__TaleWorlds_Core&#x2F;">ManagedParameters</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CodeBlock&#x2F;">CodeBlock</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;InquiryElement&#x2F;">InquiryElement</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;InputType&#x2F;">InputType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TWXmlLoadException&#x2F;">TWXmlLoadException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PlatformFilePath&#x2F;">PlatformFilePath</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IGameStarter&#x2F;">IGameStarter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;FaceGen&#x2F;">FaceGen</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SingleThreadedSynchronizationContext&#x2F;">SingleThreadedSynchronizationContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray&#x2F;">StackArray</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBException&#x2F;">MBException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBQueue&#x2F;">MBQueue</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ConstructorCode&#x2F;">ConstructorCode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBTypeMismatchException&#x2F;">MBTypeMismatchException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;FormationClass&#x2F;">FormationClass</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SerialTask&#x2F;">SerialTask</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Extensions&#x2F;">Extensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;FilePaths&#x2F;">FilePaths</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DefaultItemCategories&#x2F;">DefaultItemCategories</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HttpHelper&#x2F;">HttpHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IConfigurationManager&#x2F;">IConfigurationManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;UniqueTroopDescriptor&#x2F;">UniqueTroopDescriptor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;bin&#x2F;">bin</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CharacterImageIdentifier&#x2F;">CharacterImageIdentifier</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Corners&#x2F;">Corners</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Mat2&#x2F;">Mat2</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SaveResult&#x2F;">SaveResult</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PerformanceTestBlock&#x2F;">PerformanceTestBlock</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray7Bool&#x2F;">StackArray7Bool</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BannerExtensions&#x2F;">BannerExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ManagedParametersEnum__TaleWorlds_Core&#x2F;">ManagedParametersEnum</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ShipUpgradePiece&#x2F;">ShipUpgradePiece</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AsyncRunner&#x2F;">AsyncRunner</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameManagerLoadingSteps&#x2F;">GameManagerLoadingSteps</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AssemblyLoader&#x2F;">AssemblyLoader</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DebugSystemFilter&#x2F;">DebugSystemFilter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IMonsterMissionData&#x2F;">IMonsterMissionData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBNetwork&#x2F;">MBNetwork</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TroopTraitsMask&#x2F;">TroopTraitsMask</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ICameraModeLogic&#x2F;">ICameraModeLogic</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IGameStateManagerOwner&#x2F;">IGameStateManagerOwner</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Logger&#x2F;">Logger</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ShipPhysicsReference&#x2F;">ShipPhysicsReference</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBReadOnlyQueue&#x2F;">MBReadOnlyQueue</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameTypeLoadingStates&#x2F;">GameTypeLoadingStates</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AgentData&#x2F;">AgentData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;FogInformation&#x2F;">FogInformation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BannerImageIdentifier&#x2F;">BannerImageIdentifier</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DefaultCharacterAttributes&#x2F;">DefaultCharacterAttributes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IDebugManager&#x2F;">IDebugManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BasicCharacterObject&#x2F;">BasicCharacterObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PropertyChangedWithVec2ValueEventArgs&#x2F;">PropertyChangedWithVec2ValueEventArgs</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;VariableCode&#x2F;">VariableCode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;EquipmentElement&#x2F;">EquipmentElement</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SkinMask&#x2F;">SkinMask</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TimeInformation&#x2F;">TimeInformation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DummyCommunicator&#x2F;">DummyCommunicator</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ParameterFile&#x2F;">ParameterFile</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PinnedArrayData&#x2F;">PinnedArrayData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BodyProperties&#x2F;">BodyProperties</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemRosterElement&#x2F;">ItemRosterElement</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBFastRandom&#x2F;">MBFastRandom</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ActionSetCode&#x2F;">ActionSetCode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ResourceDepot&#x2F;">ResourceDepot</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Vec2&#x2F;">Vec2</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;EngineType&#x2F;">EngineType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Oriented2DArea&#x2F;">Oriented2DArea</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Common&#x2F;">Common</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IAgentOriginBase&#x2F;">IAgentOriginBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;UndoRedoKey&#x2F;">UndoRedoKey</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBGameModel&#x2F;">MBGameModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemFlags&#x2F;">ItemFlags</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PlayerAvatarImageIdentifierVM&#x2F;">PlayerAvatarImageIdentifierVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBStringBuilder&#x2F;">MBStringBuilder</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray6Bool&#x2F;">StackArray6Bool</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IMission&#x2F;">IMission</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBSaveLoad&#x2F;">MBSaveLoad</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CodeGenerationContext&#x2F;">CodeGenerationContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PropertyObject&#x2F;">PropertyObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TradeItemComponent&#x2F;">TradeItemComponent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;NotificationStatus&#x2F;">NotificationStatus</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBWorkspace&#x2F;">MBWorkspace</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBRandom&#x2F;">MBRandom</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IFaceGen&#x2F;">IFaceGen</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBMath&#x2F;">MBMath</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AreaInformation&#x2F;">AreaInformation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBBodyProperty&#x2F;">MBBodyProperty</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;InquiryData&#x2F;">InquiryData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SailType&#x2F;">SailType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IInformationDataHolder&#x2F;">IInformationDataHolder</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TooltipMode&#x2F;">TooltipMode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Parameters&#x2F;">Parameters</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ChoiceTag&#x2F;">ChoiceTag</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBCommon&#x2F;">MBCommon</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BasePath&#x2F;">BasePath</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CommandLineArgumentFunction&#x2F;">CommandLineArgumentFunction</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;FormationFilterType&#x2F;">FormationFilterType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SkillType&#x2F;">SkillType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ManagedArray&#x2F;">ManagedArray</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IndexEntry&#x2F;">IndexEntry</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameTextHelper&#x2F;">GameTextHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Ray&#x2F;">Ray</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BannerImageIdentifierVM&#x2F;">BannerImageIdentifierVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DebugUserFilter&#x2F;">DebugUserFilter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;NotificationPriority&#x2F;">NotificationPriority</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray3Int&#x2F;">StackArray3Int</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Game&#x2F;">Game</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BattleSideEnumExtensions&#x2F;">BattleSideEnumExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IHttpRequestTask&#x2F;">IHttpRequestTask</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SiegeEngineType&#x2F;">SiegeEngineType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GenericImageIdentifierVM&#x2F;">GenericImageIdentifierVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CraftingItemViewModel&#x2F;">CraftingItemViewModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBNotNullParameterException&#x2F;">MBNotNullParameterException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PropertyChangedWithIntValueEventArgs&#x2F;">PropertyChangedWithIntValueEventArgs</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IReader&#x2F;">IReader</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBNetworkBitException&#x2F;">MBNetworkBitException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ISerializableObject&#x2F;">ISerializableObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ApplicationVersion&#x2F;">ApplicationVersion</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;InformationManager&#x2F;">InformationManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PropertyChangedWithColorValueEventArgs&#x2F;">PropertyChangedWithColorValueEventArgs</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CharacterAttribute&#x2F;">CharacterAttribute</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SkyInformation&#x2F;">SkyInformation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameState&#x2F;">GameState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IViewModelSetterInterface&#x2F;">IViewModelSetterInterface</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IReadOnlyPropertyOwner&#x2F;">IReadOnlyPropertyOwner</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TWSharedMutex&#x2F;">TWSharedMutex</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BannerColor&#x2F;">BannerColor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;NavigationPath&#x2F;">NavigationPath</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IMissionTroopSupplier&#x2F;">IMissionTroopSupplier</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DiamondDebugCategory&#x2F;">DiamondDebugCategory</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AtmosphereState&#x2F;">AtmosphereState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;FileHelperExtensions&#x2F;">FileHelperExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TutorialContexts&#x2F;">TutorialContexts</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StringReader&#x2F;">StringReader</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;INetworkCommunication&#x2F;">INetworkCommunication</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ResourceDepotFile&#x2F;">ResourceDepotFile</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CubicBezier&#x2F;">CubicBezier</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SaveableCoreTypeDefiner&#x2F;">SaveableCoreTypeDefiner</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GraphVM&#x2F;">GraphVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HorseComponent&#x2F;">HorseComponent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BinaryWriter&#x2F;">BinaryWriter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ArmorComponent&#x2F;">ArmorComponent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BannerColorVM&#x2F;">BannerColorVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TutorialNotificationElementChangeEvent&#x2F;">TutorialNotificationElementChangeEvent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PropertyChangedWithDoubleValueEventArgs&#x2F;">PropertyChangedWithDoubleValueEventArgs</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBArrayList&#x2F;">MBArrayList</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBNotFoundException&#x2F;">MBNotFoundException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BinaryReader&#x2F;">BinaryReader</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CodeGenerationFile&#x2F;">CodeGenerationFile</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Property&#x2F;">Property</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray3Bool&#x2F;">StackArray3Bool</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TroopTraitsMaskExtensions&#x2F;">TroopTraitsMaskExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SunInformation&#x2F;">SunInformation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ResetAllTutorialsEvent&#x2F;">ResetAllTutorialsEvent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StringWriter&#x2F;">StringWriter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HorseHarnessCoverTypes&#x2F;">HorseHarnessCoverTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BannerManager&#x2F;">BannerManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;FormationClassExtensions&#x2F;">FormationClassExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MissionSiegeWeapon&#x2F;">MissionSiegeWeapon</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemValueModel&#x2F;">ItemValueModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TutorialContextChangedEvent&#x2F;">TutorialContextChangedEvent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MultiSelectionInquiryData&#x2F;">MultiSelectionInquiryData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GCHandleFactory&#x2F;">GCHandleFactory</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DeploymentFormationClass&#x2F;">DeploymentFormationClass</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBUtil&#x2F;">MBUtil</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBEquipmentRoster&#x2F;">MBEquipmentRoster</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBObjectManagerExtensions&#x2F;">MBObjectManagerExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IReadOnlyPropertyOwnerF&#x2F;">IReadOnlyPropertyOwnerF</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TWSharedMutexReadLock&#x2F;">TWSharedMutexReadLock</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBBindingList&#x2F;">MBBindingList</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameText&#x2F;">GameText</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BoolItemWithActionVM&#x2F;">BoolItemWithActionVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BannerIconData&#x2F;">BannerIconData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DictionaryByType&#x2F;">DictionaryByType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ShipHull&#x2F;">ShipHull</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray32Bool&#x2F;">StackArray32Bool</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TooltipTriggerVM&#x2F;">TooltipTriggerVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MaterialProperty&#x2F;">MaterialProperty</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;NewsManager&#x2F;">NewsManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ManagedDllFolder&#x2F;">ManagedDllFolder</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;State&#x2F;">State</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SelectorVM&#x2F;">SelectorVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DrivenProperty&#x2F;">DrivenProperty</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemImageIdentifierVM&#x2F;">ItemImageIdentifierVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Equipment&#x2F;">Equipment</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PostProcessInformation&#x2F;">PostProcessInformation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TooltipPropertyFlags&#x2F;">TooltipPropertyFlags</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ComparerType&#x2F;">ComparerType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HttpGetRequest&#x2F;">HttpGetRequest</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BasicCultureObject&#x2F;">BasicCultureObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;RefiningFormula&#x2F;">RefiningFormula</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AgentOriginUtilities&#x2F;">AgentOriginUtilities</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SubtitleItem&#x2F;">SubtitleItem</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;WeaponComponentData&#x2F;">WeaponComponentData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemComponent&#x2F;">ItemComponent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ParameterContainer&#x2F;">ParameterContainer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PathFaceRecord&#x2F;">PathFaceRecord</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;InputUsageMask&#x2F;">InputUsageMask</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBMisuseException&#x2F;">MBMisuseException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TimedDictionaryCache&#x2F;">TimedDictionaryCache</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ClientProfiles&#x2F;">ClientProfiles</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SkillObject&#x2F;">SkillObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DefaultSiegeEngineTypes&#x2F;">DefaultSiegeEngineTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Debug&#x2F;">Debug</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HttpRequestTaskState&#x2F;">HttpRequestTaskState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Vec3i&#x2F;">Vec3i</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;XmlHelper&#x2F;">XmlHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;EntitySystem&#x2F;">EntitySystem</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IMonsterMissionDataCreator&#x2F;">IMonsterMissionDataCreator</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBHaltonColorGenerator&#x2F;">MBHaltonColorGenerator</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AgentFlag&#x2F;">AgentFlag</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TauntUsageManager&#x2F;">TauntUsageManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PropertyChangedWithUIntValueEventArgs&#x2F;">PropertyChangedWithUIntValueEventArgs</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SelectorItemVM&#x2F;">SelectorItemVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBCharacterSkills&#x2F;">MBCharacterSkills</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PropertyOwner&#x2F;">PropertyOwner</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;WaitForGameState&#x2F;">WaitForGameState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TooltipBaseVM&#x2F;">TooltipBaseVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CraftingTemplate&#x2F;">CraftingTemplate</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SceneNotificationVM&#x2F;">SceneNotificationVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameManagerComponent&#x2F;">GameManagerComponent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;LineSegment2D&#x2F;">LineSegment2D</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameNotificationItemVM&#x2F;">GameNotificationItemVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ParameterLoader&#x2F;">ParameterLoader</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StreamHelpers&#x2F;">StreamHelpers</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AwaitableAsyncRunner&#x2F;">AwaitableAsyncRunner</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IEntityComponent&#x2F;">IEntityComponent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TextInquiryData&#x2F;">TextInquiryData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemTypeEnum&#x2F;">ItemTypeEnum</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameModelsManager&#x2F;">GameModelsManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StringPairItemVM&#x2F;">StringPairItemVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CharacterImageIdentifierVM&#x2F;">CharacterImageIdentifierVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MethodCode&#x2F;">MethodCode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HTMLDebugCategory&#x2F;">HTMLDebugCategory</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GraphLinePointVM&#x2F;">GraphLinePointVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IGameStateManagerListener&#x2F;">IGameStateManagerListener</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IWriter&#x2F;">IWriter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PropertyChangedWithValueEventArgs&#x2F;">PropertyChangedWithValueEventArgs</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ProfanityChechkerType&#x2F;">ProfanityChechkerType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;LinearFrictionTerm&#x2F;">LinearFrictionTerm</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;EffectIncrementType&#x2F;">EffectIncrementType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemUsageSetFlags&#x2F;">ItemUsageSetFlags</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BannerViewModel&#x2F;">BannerViewModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBSortedMultiList&#x2F;">MBSortedMultiList</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ITelemetryManager&#x2F;">ITelemetryManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameNotificationVM&#x2F;">GameNotificationVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBReadOnlyList&#x2F;">MBReadOnlyList</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ShipSlotAndPieceName&#x2F;">ShipSlotAndPieceName</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TooltipRegistry&#x2F;">TooltipRegistry</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ICache&#x2F;">ICache</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BindingPath&#x2F;">BindingPath</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBInformationManager&#x2F;">MBInformationManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PropertyChangedWithBoolValueEventArgs&#x2F;">PropertyChangedWithBoolValueEventArgs</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ResourceDepotLocation&#x2F;">ResourceDepotLocation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BindingListStringItem&#x2F;">BindingListStringItem</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Banner&#x2F;">Banner</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;WeaponComponent&#x2F;">WeaponComponent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DefaultParallelDriver&#x2F;">DefaultParallelDriver</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StrikeType&#x2F;">StrikeType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;EventManager&#x2F;">EventManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BattleSideEnum&#x2F;">BattleSideEnum</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Quaternion&#x2F;">Quaternion</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray8Int&#x2F;">StackArray8Int</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBPerlin&#x2F;">MBPerlin</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StaticBodyProperties&#x2F;">StaticBodyProperties</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Colors&#x2F;">Colors</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MissionResult&#x2F;">MissionResult</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BannerIconGroup&#x2F;">BannerIconGroup</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBUnderFlowException&#x2F;">MBUnderFlowException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MissionInitializerRecord&#x2F;">MissionInitializerRecord</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SrtParser&#x2F;">SrtParser</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DataSourceProperty&#x2F;">DataSourceProperty</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameStateManagerType&#x2F;">GameStateManagerType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ApplicationPlatform&#x2F;">ApplicationPlatform</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ApplicationVersionType&#x2F;">ApplicationVersionType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GraphLineVM&#x2F;">GraphLineVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Color&#x2F;">Color</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;JobType&#x2F;">JobType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IBannerVisual&#x2F;">IBannerVisual</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GameTexts&#x2F;">GameTexts</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BasicGameModels&#x2F;">BasicGameModels</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SceneNotificationShip&#x2F;">SceneNotificationShip</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PlatformFileHelperPC&#x2F;">PlatformFileHelperPC</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HyperlinkTexts&#x2F;">HyperlinkTexts</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CharacterWithActionViewModel&#x2F;">CharacterWithActionViewModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBOutOfRangeException&#x2F;">MBOutOfRangeException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PriorityQueue&#x2F;">PriorityQueue</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StringItemWithEnabledAndHintVM&#x2F;">StringItemWithEnabledAndHintVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AgentMovementMode&#x2F;">AgentMovementMode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CharacterCode&#x2F;">CharacterCode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ListChangedType&#x2F;">ListChangedType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IBannerVisualCreator&#x2F;">IBannerVisualCreator</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CraftingMaterials&#x2F;">CraftingMaterials</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AmbientInformation&#x2F;">AmbientInformation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;AtmosphereInfo&#x2F;">AtmosphereInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IBattleCombatant&#x2F;">IBattleCombatant</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BannerIconVM&#x2F;">BannerIconVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IManagedParametersInitializer&#x2F;">IManagedParametersInitializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PieceData&#x2F;">PieceData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TeamSideEnumExtensions&#x2F;">TeamSideEnumExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;GenericComparer&#x2F;">GenericComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;WeaponDesign&#x2F;">WeaponDesign</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TauntUsageFlag&#x2F;">TauntUsageFlag</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;RainInformation&#x2F;">RainInformation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TauntUsage&#x2F;">TauntUsage</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;FaceGeneratorStage&#x2F;">FaceGeneratorStage</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray8Vec3&#x2F;">StackArray8Vec3</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;UniqueSceneId&#x2F;">UniqueSceneId</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;InputContext&#x2F;">InputContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;NamespaceCode&#x2F;">NamespaceCode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BattleResultVM&#x2F;">BattleResultVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBList2D&#x2F;">MBList2D</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PeerComponent&#x2F;">PeerComponent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;UnderwearTypes&#x2F;">UnderwearTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ApplicationVersionJsonConverter&#x2F;">ApplicationVersionJsonConverter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Runtime&#x2F;">Runtime</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IShipOrigin&#x2F;">IShipOrigin</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ValueCategorization&#x2F;">ValueCategorization</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ICommunicator&#x2F;">ICommunicator</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TestContext&#x2F;">TestContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;EngineMethod&#x2F;">EngineMethod</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TestCommonBase&#x2F;">TestCommonBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ElementNotificationVM&#x2F;">ElementNotificationVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Watchdog&#x2F;">Watchdog</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ConfigurationManager&#x2F;">ConfigurationManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BattleState&#x2F;">BattleState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;HTMLDebugData&#x2F;">HTMLDebugData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BindingListFloatItem&#x2F;">BindingListFloatItem</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ShipVisualSlotInfo&#x2F;">ShipVisualSlotInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SaddleComponent&#x2F;">SaddleComponent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DamageTypes&#x2F;">DamageTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IMissionTeam&#x2F;">IMissionTeam</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IViewModel&#x2F;">IViewModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ImageIdentifierVM&#x2F;">ImageIdentifierVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBNullParameterException&#x2F;">MBNullParameterException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;DiamondDebugManager&#x2F;">DiamondDebugManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SaveResultWithMessage&#x2F;">SaveResultWithMessage</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CraftingPiece&#x2F;">CraftingPiece</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IMissionSiegeWeapon&#x2F;">IMissionSiegeWeapon</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IGameStateListener&#x2F;">IGameStateListener</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;FormationPositionPreference&#x2F;">FormationPositionPreference</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IMBCollection&#x2F;">IMBCollection</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ShipSail&#x2F;">ShipSail</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Mat3&#x2F;">Mat3</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemImageIdentifier&#x2F;">ItemImageIdentifier</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;NotificationSceneProperties&#x2F;">NotificationSceneProperties</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemCategorySelector&#x2F;">ItemCategorySelector</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Vec3&#x2F;">Vec3</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBList&#x2F;">MBList</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PropertyBasedTooltipVM&#x2F;">PropertyBasedTooltipVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;SpectatorCameraTypes&#x2F;">SpectatorCameraTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;Crafting&#x2F;">Crafting</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PowerLevelComparer&#x2F;">PowerLevelComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;IViewModelGetterInterface&#x2F;">IViewModelGetterInterface</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;BodyMeshMaturityType&#x2F;">BodyMeshMaturityType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MBIllegalValueException&#x2F;">MBIllegalValueException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ItemVM&#x2F;">ItemVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;PlatformInitParams&#x2F;">PlatformInitParams</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;EventBase&#x2F;">EventBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;MatrixFrame&#x2F;">MatrixFrame</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;WeaponClass&#x2F;">WeaponClass</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;TelemetryLevelMask&#x2F;">TelemetryLevelMask</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;ITrackableBase&#x2F;">ITrackableBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;CraftingStatData&#x2F;">CraftingStatData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;StackArray10FloatFloatTuple&#x2F;">StackArray10FloatFloatTuple</a></li>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

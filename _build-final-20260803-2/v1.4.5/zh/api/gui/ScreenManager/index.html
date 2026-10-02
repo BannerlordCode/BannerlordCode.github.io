@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ScreenManager</title>
+  <meta name="description" content="ScreenManager 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/gui/ScreenManager/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/gui/ScreenManager/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/gui/ScreenManager/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/gui/ScreenManager/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="active">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;">gui 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">ScreenManager</span>
+    </nav>
+  
+  <h1>ScreenManager</h1>
+  <h1 id="screenmanager">ScreenManager</h1>
+<p><strong>Namespace:</strong> TaleWorlds.ScreenSystem
+<strong>Module:</strong> TaleWorlds.ScreenSystem
+<strong>Type:</strong> <code>public static class ScreenManager</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>bin/TaleWorlds.ScreenSystem/TaleWorlds.ScreenSystem/ScreenManager.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>ScreenManager</code> 是一个管理器：它拥有子系统的生命周期、查找入口和跨对象协调职责。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>ScreenManager</code> 当作一个 Manager 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>Scale</code></td><td><code>public static float Scale { get; }</code></td></tr>
+<tr><td><code>UsableArea</code></td><td><code>public static Vec2 UsableArea { get; }</code></td></tr>
+<tr><td><code>IsLateTickInProgress</code></td><td><code>public static bool IsLateTickInProgress { get; }</code></td></tr>
+<tr><td><code>SortedLayers</code></td><td><code>public static List&lt;ScreenLayer&gt; SortedLayers { get; }</code></td></tr>
+<tr><td><code>TopScreen</code></td><td><code>public static ScreenBase TopScreen { get; }</code></td></tr>
+<tr><td><code>FocusedLayer</code></td><td><code>public static ScreenLayer FocusedLayer { get; }</code></td></tr>
+<tr><td><code>FirstHitLayer</code></td><td><code>public static ScreenLayer FirstHitLayer { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="onpushscreenevent">OnPushScreenEvent</h3>
+<p><code>public delegate void OnPushScreenEvent(ScreenBase pushedScreen)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 push screen event 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ScreenManager 实例
+ScreenManager screenManager = ...;
+screenManager.OnPushScreenEvent(pushedScreen);
+</code></pre>
+<h3 id="onpopscreenevent">OnPopScreenEvent</h3>
+<p><code>public delegate void OnPopScreenEvent(ScreenBase poppedScreen)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 pop screen event 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ScreenManager 实例
+ScreenManager screenManager = ...;
+screenManager.OnPopScreenEvent(poppedScreen);
+</code></pre>
+<h3 id="oncontrollerdisconnectedevent">OnControllerDisconnectedEvent</h3>
+<p><code>public delegate void OnControllerDisconnectedEvent()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 controller disconnected event 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ScreenManager 实例
+ScreenManager screenManager = ...;
+screenManager.OnControllerDisconnectedEvent();
+</code></pre>
+<h3 id="onplatformtextrequesteddelegate">OnPlatformTextRequestedDelegate</h3>
+<p><code>public delegate bool OnPlatformTextRequestedDelegate(string initialText, string descriptionText, int maxLength, int keyboardTypeEnum)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 platform text requested delegate 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 ScreenManager 实例
+ScreenManager screenManager = ...;
+var result = screenManager.OnPlatformTextRequestedDelegate(&quot;example&quot;, &quot;example&quot;, 0, 0);
+</code></pre>
+<h3 id="initialize">Initialize</h3>
+<p><code>public static void Initialize(IScreenManagerEngineConnection engineInterface)</code></p>
+<p><strong>用途 / Purpose:</strong> 加载当前对象所需的初始资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.Initialize(engineInterface);
+</code></pre>
+<h3 id="removegloballayer">RemoveGlobalLayer</h3>
+<p><code>public static void RemoveGlobalLayer(GlobalLayer layer)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 global layer。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.RemoveGlobalLayer(layer);
+</code></pre>
+<h3 id="addgloballayer">AddGlobalLayer</h3>
+<p><code>public static void AddGlobalLayer(GlobalLayer layer, bool isFocusable)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 global layer 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.AddGlobalLayer(layer, false);
+</code></pre>
+<h3 id="onconstrainstatechanged">OnConstrainStateChanged</h3>
+<p><code>public static void OnConstrainStateChanged(bool isConstrained)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 constrain state changed 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.OnConstrainStateChanged(false);
+</code></pre>
+<h3 id="screentypeexistsatlist">ScreenTypeExistsAtList</h3>
+<p><code>public static bool ScreenTypeExistsAtList(ScreenBase screen)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ScreenTypeExistsAtList 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.ScreenTypeExistsAtList(screen);
+</code></pre>
+<h3 id="updatelayout">UpdateLayout</h3>
+<p><code>public static void UpdateLayout()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 layout 的最新表示。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.UpdateLayout();
+</code></pre>
+<h3 id="setsuspendlayer">SetSuspendLayer</h3>
+<p><code>public static void SetSuspendLayer(ScreenLayer layer, bool isSuspended)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 suspend layer 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.SetSuspendLayer(layer, false);
+</code></pre>
+<h3 id="onfinalize">OnFinalize</h3>
+<p><code>public static void OnFinalize()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 finalize 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.OnFinalize();
+</code></pre>
+<h3 id="tick">Tick</h3>
+<p><code>public static void Tick(float dt)</code></p>
+<p><strong>用途 / Purpose:</strong> 推进当前对象一帧/一个更新周期的状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.Tick(0);
+</code></pre>
+<h3 id="latetick">LateTick</h3>
+<p><code>public static void LateTick(float dt)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 LateTick 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.LateTick(0);
+</code></pre>
+<h3 id="onplatformscreenkeyboardrequested">OnPlatformScreenKeyboardRequested</h3>
+<p><code>public static bool OnPlatformScreenKeyboardRequested(string initialText, string descriptionText, int maxLength, int keyboardTypeEnum)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 platform screen keyboard requested 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.OnPlatformScreenKeyboardRequested(&quot;example&quot;, &quot;example&quot;, 0, 0);
+</code></pre>
+<h3 id="ononscreenkeyboarddone">OnOnscreenKeyboardDone</h3>
+<p><code>public static void OnOnscreenKeyboardDone(string inputText)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 onscreen keyboard done 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.OnOnscreenKeyboardDone(&quot;example&quot;);
+</code></pre>
+<h3 id="ononscreenkeyboardcanceled">OnOnscreenKeyboardCanceled</h3>
+<p><code>public static void OnOnscreenKeyboardCanceled()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 onscreen keyboard canceled 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.OnOnscreenKeyboardCanceled();
+</code></pre>
+<h3 id="ongamewindowfocuschange">OnGameWindowFocusChange</h3>
+<p><code>public static void OnGameWindowFocusChange(bool focusGained)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 game window focus change 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.OnGameWindowFocusChange(false);
+</code></pre>
+<h3 id="replacetopscreen">ReplaceTopScreen</h3>
+<p><code>public static void ReplaceTopScreen(ScreenBase screen)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ReplaceTopScreen 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.ReplaceTopScreen(screen);
+</code></pre>
+<h3 id="getpersistentinputrestrictions">GetPersistentInputRestrictions</h3>
+<p><code>public static List&lt;ScreenLayer&gt; GetPersistentInputRestrictions()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 persistent input restrictions 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.GetPersistentInputRestrictions();
+</code></pre>
+<h3 id="setandactivaterootscreen">SetAndActivateRootScreen</h3>
+<p><code>public static void SetAndActivateRootScreen(ScreenBase screen)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 and activate root screen 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.SetAndActivateRootScreen(screen);
+</code></pre>
+<h3 id="cleanandpushscreen">CleanAndPushScreen</h3>
+<p><code>public static void CleanAndPushScreen(ScreenBase screen)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CleanAndPushScreen 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.CleanAndPushScreen(screen);
+</code></pre>
+<h3 id="clearsiegemachineselection">ClearSiegeMachineSelection</h3>
+<p><code>public static string ClearSiegeMachineSelection(List&lt;string&gt; args)</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的siege machine selection。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.ClearSiegeMachineSelection(args);
+</code></pre>
+<h3 id="copycustombattle">CopyCustomBattle</h3>
+<p><code>public static string CopyCustomBattle(List&lt;string&gt; args)</code></p>
+<p><strong>用途 / Purpose:</strong> 把当前对象的custom battle状态复制到目标对象。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.CopyCustomBattle(args);
+</code></pre>
+<h3 id="applycustombattlelayout">ApplyCustomBattleLayout</h3>
+<p><code>public static string ApplyCustomBattleLayout(List&lt;string&gt; args)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 custom battle layout 的效果应用到当前对象。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.ApplyCustomBattleLayout(args);
+</code></pre>
+<h3 id="pushscreen">PushScreen</h3>
+<p><code>public static void PushScreen(ScreenBase screen)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PushScreen 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.PushScreen(screen);
+</code></pre>
+<h3 id="popscreen">PopScreen</h3>
+<p><code>public static void PopScreen()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PopScreen 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.PopScreen();
+</code></pre>
+<h3 id="cleanscreens">CleanScreens</h3>
+<p><code>public static void CleanScreens()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CleanScreens 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.CleanScreens();
+</code></pre>
+<h3 id="update">Update</h3>
+<p><code>public static void Update(IReadOnlyList&lt;int&gt; lastKeysPressed)</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新当前对象的最新表示。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.Update(lastKeysPressed);
+</code></pre>
+<h3 id="earlyupdate">EarlyUpdate</h3>
+<p><code>public static void EarlyUpdate(Vec2 usableArea)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EarlyUpdate 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.EarlyUpdate(usableArea);
+</code></pre>
+<h3 id="iscontrolleractive">IsControllerActive</h3>
+<p><code>public static bool IsControllerActive()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 controller active 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.IsControllerActive();
+</code></pre>
+<h3 id="ismousecursorhidden">IsMouseCursorHidden</h3>
+<p><code>public static bool IsMouseCursorHidden()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 mouse cursor hidden 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.IsMouseCursorHidden();
+</code></pre>
+<h3 id="ismousecursoractive">IsMouseCursorActive</h3>
+<p><code>public static bool IsMouseCursorActive()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 mouse cursor active 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.IsMouseCursorActive();
+</code></pre>
+<h3 id="islayerblockedatposition">IsLayerBlockedAtPosition</h3>
+<p><code>public static bool IsLayerBlockedAtPosition(ScreenLayer layer, Vector2 position)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 layer blocked at position 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.IsLayerBlockedAtPosition(layer, position);
+</code></pre>
+<h3 id="getmousevisibility">GetMouseVisibility</h3>
+<p><code>public static bool GetMouseVisibility()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 mouse visibility 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.GetMouseVisibility();
+</code></pre>
+<h3 id="trysetfocus">TrySetFocus</h3>
+<p><code>public static void TrySetFocus(ScreenLayer layer)</code></p>
+<p><strong>用途 / Purpose:</strong> 尝试获取 set focus 的值，通常通过 out 参数返回是否成功。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.TrySetFocus(layer);
+</code></pre>
+<h3 id="trylosefocus">TryLoseFocus</h3>
+<p><code>public static void TryLoseFocus(ScreenLayer layer)</code></p>
+<p><strong>用途 / Purpose:</strong> 尝试获取 lose focus 的值，通常通过 out 参数返回是否成功。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.TryLoseFocus(layer);
+</code></pre>
+<h3 id="onscalechange">OnScaleChange</h3>
+<p><code>public static void OnScaleChange(float newScale)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 scale change 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.OnScaleChange(0);
+</code></pre>
+<h3 id="oncontrollerdisconnect">OnControllerDisconnect</h3>
+<p><code>public static void OnControllerDisconnect()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 controller disconnect 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.OnControllerDisconnect();
+</code></pre>
+<h3 id="setscreendebuginformationenabled">SetScreenDebugInformationEnabled</h3>
+<p><code>public static string SetScreenDebugInformationEnabled(List&lt;string&gt; args)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 screen debug information enabled 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.SetScreenDebugInformationEnabled(args);
+</code></pre>
+<h3 id="setscreendebuginformationenabled-1">SetScreenDebugInformationEnabled</h3>
+<p><code>public static void SetScreenDebugInformationEnabled(bool isEnabled)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 screen debug information enabled 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+ScreenManager.SetScreenDebugInformationEnabled(false);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">var manager = ScreenManager.Current;
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/zh/api/gui/">gui 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/zh/api/gui/ValueType/">&larr; ValueType</a>
+          
+          
+            <a rel="next" href="/v1.4.5/zh/api/gui/Container/">Container &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

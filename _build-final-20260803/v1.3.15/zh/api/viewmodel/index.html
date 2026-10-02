@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>viewmodel 目录</title>
+  <meta name="description" content="ViewModel 视图模型类参考目录">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/viewmodel/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/viewmodel/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/viewmodel/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/viewmodel/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/viewmodel/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/viewmodel/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="active">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">viewmodel 目录</span>
+    </nav>
+  
+  <h1>viewmodel 目录</h1>
+  <h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p><code>viewmodel</code> 桶是 Bannerlord 的<strong>表现层数据模型（presentation model）</strong>——它只收录那些没有归到具体模块、跨战役/任务/核心散落分布的独立 ViewModel 与配套数据载体，是 Gauntlet UI 与游戏状态之间的「可绑定桥」。</p>
+<p>本桶的类型几乎都继承自 <code>TaleWorlds.Library</code> 的 <code>ViewModel</code> 基类：每个属性在 setter 中触发 <code>INotifyPropertyChanged</code> 的 <code>PropertyChanged</code> 通知，Gauntlet 的 Movie 据此刷新对应控件；以 <code>Execute*</code> 命名的方法则被 UI 按钮直接绑定为命令。因此你应当把这里每个类型都理解为「状态 + 命令」的暴露点，而非普通 DTO——谁创建它、谁持有它的 DataSource、谁调用它的 <code>Execute*</code>，决定了 mod 该继承、组合还是只读使用。</p>
+<p>注意本桶只是 ViewModel 层的「碎片集合」。命名空间 <code>TaleWorlds.Core.ViewModelCollection</code>、<code>TaleWorlds.CampaignSystem.ViewModelCollection.*</code>、<code>TaleWorlds.MountAndBlade.ViewModelCollection.*</code> 暗示着这些 VM 本应归属于各自的业务模块；大量更成体系的 VM（如王国管理、 inventory、兵种编队）实际沉淀在 <code>../core-extra/</code>。本桶里的 <code>*Comparer</code> 与 <code>*Info</code>/<code>*Data</code> 结构多是为列表排序与数据传递服务的配角，真正的核心入口是下面这些可直接绑定到 Movie 的 VM 与数据载体。</p>
+<h2 id="he-xin-ru-kou-lei-xing">核心入口类型</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./CharacterViewModel">CharacterViewModel</a> — 角色头像/装备/动画状态绑定，mod 最常拿来驱动自定义角色展示。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./HintViewModel">HintViewModel</a> — 提示气泡（tooltip）的显隐与文本绑定，配 <code>ExecuteBeginHint</code>/<code>ExecuteEndHint</code> 命令。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./InputKeyItemVM">InputKeyItemVM</a> — 键位设置界面里单个按键的绑定项，承载 <code>GameKey</code>/<code>HotKey</code> 与可见性。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./MissionHintInteractionItemVM">MissionHintInteractionItemVM</a> — 任务交互提示项，派生自 <code>MissionInteractionItemBaseVM</code>。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ClanCardSelectionInfo">ClanCardSelectionInfo</a> — 氏族管理卡片选择的数据载体（含 <code>ClanCardSelectionItemInfo</code>/<code>ItemPropertyInfo</code> 配套结构）。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./GameMenuItemCreationData">GameMenuItemCreationData</a> — 游戏菜单选项的创建参数结构体，<code>OptionID</code> 驱动菜单分支。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./JournalLogIndex">JournalLogIndex</a> — 任务日志排序索引枚举，配合日志 VM 的排序控制器。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./MenuOverlayContextList">MenuOverlayContextList</a> — 右键/叠加菜单的上下文条目列表。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./OrderOfBattleUIHelper">OrderOfBattleUIHelper</a> — 布阵（Order of Battle）UI 的静态辅助逻辑。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./VisualOrderExecutionParameters">VisualOrderExecutionParameters</a> — 编队指令的视觉执行参数结构体。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./MouseState">MouseState</a> — 记分板中鼠标悬停/选中状态的枚举。</li>
+</ul>
+<h2 id="yu-qi-ta-mo-kuai-de-guan-xi">与其他模块的关系</h2>
+<p>上方 Gauntlet 的层是消费端：Movie 通过 DataSource 持有这些 VM，XAML 控件绑定其属性与命令，基类 <code>ViewModel</code>（<code>TaleWorlds.Library</code>）与 Movie 生命周期机制见 <a href="../gui/">GUI 模块</a>。本桶与 <a href="../core-extra/">core-extra</a> 是「碎片 vs 主体」关系——更庞大的业务 VM 集合（王国、背包、锻造等）按命名空间落在 core-extra，跨桶查阅才能拼出完整 MVVM 图景。</p>
+<p>生命周期风险不可忽视：ViewModel 在场景切换或菜单关闭时必须正确 <code>OnFinalize</code> 注销订阅，否则悬空 <code>PropertyChanged</code> 回调会越界访问已释放状态。UI/ViewModel 生命周期崩溃的边界与兜底策略见 <a href="../../architecture/crash-boundaries/">崩溃边界</a>。</p>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.Core.ViewModelCollection</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./CharacterViewModel">CharacterViewModel</a></td><td>将角色外观和装备状态暴露给绑定的 Movie。</td><td>角色卡片或预览打开期间。</td></tr>
+<tr><td>TaleWorlds.Core.ViewModelCollection.Information</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./HintViewModel">HintViewModel</a></td><td>提供提示文本、显隐和提示命令。</td><td>悬停或焦点变化期间。</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.ViewModelCollection.Input</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./InputKeyItemVM">InputKeyItemVM</a></td><td>表示一条按键绑定及其显示状态。</td><td>输入设置绑定期间。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ClanCardSelectionInfo">ClanCardSelectionInfo</a></td><td>承载氏族管理界面的卡片选择数据。</td><td>构建氏族选择界面时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ViewModelCollection.GameMenu</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./GameMenuItemCreationData">GameMenuItemCreationData</a></td><td>描述游戏菜单选项创建所需的数据。</td><td>组装菜单选项时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ViewModelCollection</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./IssueQuestFlags">IssueQuestFlags</a></td><td>编码日志界面中 Issue/Quest 的显示标志。</td><td>投影日志条目到 UI 时。</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.ViewModelCollection.Scoreboard</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./BattleResultType">BattleResultType</a></td><td>标识任务记分板显示的战斗结果类别。</td><td>Mission 报告结果之后。</td></tr>
+</tbody></table>
+<!-- BEGIN SECTION INDEX -->
+<h2 id="shang-ji-dao-hang">↑ 上级导航</h2>
+<ul>
+<li><a href="../">API 参考</a></li>
+<li><a href="../../">版本首页</a></li>
+</ul>
+<h2 id="zi-lei-lie-biao-an-zi-mu-fen-zu">↓ 子类列表 — 按字母分组</h2>
+<h3 id="b">B</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./BattleResultType">BattleResultType</a></li>
+</ul>
+<h3 id="c">C</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./CharacterViewModel">CharacterViewModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ClanCardSelectionInfo">ClanCardSelectionInfo</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ClanCardSelectionItemInfo">ClanCardSelectionItemInfo</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ClanCardSelectionItemPropertyInfo">ClanCardSelectionItemPropertyInfo</a></li>
+</ul>
+<h3 id="d">D</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./DecisionTypes">DecisionTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./DescriptionType">DescriptionType</a></li>
+</ul>
+<h3 id="g">G</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./GameMenuItemCreationData">GameMenuItemCreationData</a></li>
+</ul>
+<h3 id="h">H</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./HintViewModel">HintViewModel</a></li>
+</ul>
+<h3 id="i">I</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./InputKeyItemVM">InputKeyItemVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./IssueQuestFlags">IssueQuestFlags</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemClanComparer">ItemClanComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemComparerBase">ItemComparerBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard">ItemComparerBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Armies">ItemComparerBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Clans">ItemComparerBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Diplomacy">ItemComparerBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements">ItemComparerBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_WeaponCrafting_Smelting">ItemComparerBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemCostComparer">ItemCostComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemDistanceComparer">ItemDistanceComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemNameComparer">ItemNameComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard">ItemNameComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_Inventory">ItemNameComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Armies">ItemNameComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Clans">ItemNameComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements">ItemNameComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_WeaponCrafting_Smelting">ItemNameComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemOwnerComparer">ItemOwnerComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemShipCountComparer">ItemShipCountComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemStrengthComparer">ItemStrengthComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemTypeComparer">ItemTypeComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_Inventory">ItemTypeComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements">ItemTypeComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_WeaponCrafting_Smelting">ItemTypeComparer</a></li>
+</ul>
+<h3 id="j">J</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./JournalLogIndex">JournalLogIndex</a></li>
+</ul>
+<h3 id="m">M</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./MenuOverlayContextList">MenuOverlayContextList</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./MissionHintInteractionItemVM">MissionHintInteractionItemVM</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./MouseState">MouseState</a></li>
+</ul>
+<h3 id="o">O</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./OrderOfBattleUIHelper">OrderOfBattleUIHelper</a></li>
+</ul>
+<h3 id="t">T</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./TroopItemFormationIndexComparer">TroopItemFormationIndexComparer</a></li>
+</ul>
+<h3 id="v">V</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/viewmodel/./VisualOrderExecutionParameters">VisualOrderExecutionParameters</a></li>
+</ul>
+<!-- END SECTION INDEX -->
+
+</article>
+<hr>
+<ul>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemNameComparer&#x2F;">ItemNameComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;BattleResultType&#x2F;">BattleResultType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements&#x2F;">ItemTypeComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_WeaponCrafting_Smelting&#x2F;">ItemComparerBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemTypeComparer&#x2F;">ItemTypeComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard&#x2F;">ItemNameComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemComparerBase&#x2F;">ItemComparerBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemCostComparer&#x2F;">ItemCostComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;VisualOrderExecutionParameters&#x2F;">VisualOrderExecutionParameters</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_Inventory&#x2F;">ItemTypeComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;HintViewModel&#x2F;">HintViewModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Clans&#x2F;">ItemComparerBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;IssueQuestFlags&#x2F;">IssueQuestFlags</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;GameMenuItemCreationData&#x2F;">GameMenuItemCreationData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;TroopItemFormationIndexComparer&#x2F;">TroopItemFormationIndexComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Diplomacy&#x2F;">ItemComparerBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ClanCardSelectionItemPropertyInfo&#x2F;">ClanCardSelectionItemPropertyInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Clans&#x2F;">ItemNameComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemDistanceComparer&#x2F;">ItemDistanceComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;DescriptionType&#x2F;">DescriptionType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ClanCardSelectionItemInfo&#x2F;">ClanCardSelectionItemInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ClanCardSelectionInfo&#x2F;">ClanCardSelectionInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;MissionHintInteractionItemVM&#x2F;">MissionHintInteractionItemVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_Inventory&#x2F;">ItemNameComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;DecisionTypes&#x2F;">DecisionTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemStrengthComparer&#x2F;">ItemStrengthComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Armies&#x2F;">ItemComparerBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;MenuOverlayContextList&#x2F;">MenuOverlayContextList</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;InputKeyItemVM&#x2F;">InputKeyItemVM</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;OrderOfBattleUIHelper&#x2F;">OrderOfBattleUIHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;JournalLogIndex&#x2F;">JournalLogIndex</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;CharacterViewModel&#x2F;">CharacterViewModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_WeaponCrafting_Smelting&#x2F;">ItemTypeComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemClanComparer&#x2F;">ItemClanComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemShipCountComparer&#x2F;">ItemShipCountComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Armies&#x2F;">ItemNameComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemOwnerComparer&#x2F;">ItemOwnerComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_GameMenu_TournamentLeaderboard&#x2F;">ItemComparerBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements&#x2F;">ItemComparerBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;MouseState&#x2F;">MouseState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_WeaponCrafting_Smelting&#x2F;">ItemNameComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;viewmodel&#x2F;ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements&#x2F;">ItemNameComparer</a></li>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

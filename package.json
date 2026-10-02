@@ -9,6 +9,7 @@
     "docs:preview": "zola serve --interface 127.0.0.1 --port 4173",
     "audit:coverage": "node tools/r1-coverage-report.mjs --version 1.3.15 --lang zh --out tools/data/r1-coverage-report.json --gap-out tools/data/r1-gap-full.json",
     "audit:quality": "node tools/audit-doc-quality.mjs",
+    "audit:quality:strict": "STRICT_GATE=1 node tools/audit-doc-quality.mjs",
     "audit:links": "node tools/audit-links.mjs",
     "audit:navigation": "node tools/audit-navigation.mjs",
     "audit:section-tree": "node tools/generate-section-tree.mjs --check",

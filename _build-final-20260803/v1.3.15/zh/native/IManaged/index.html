@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IManaged 接口</title>
+  <meta name="description" content="引用计数和对象生命周期管理接口 &#x2F; Reference counting and object lifecycle management">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="active">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/native/IManaged/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/native/IManaged/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="active">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;native&#x2F;">原生接口 &#x2F; Native Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">IManaged 接口</span>
+    </nav>
+  
+  <h1>IManaged 接口</h1>
+  <h1 id="imanaged">IManaged</h1>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先把 <code>IManaged</code> 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。</p>
+<p><strong>文件</strong>: <code>TaleWorlds.DotNet/IManaged.cs</code><br />
+<strong>命名空间</strong>: <code>TaleWorlds.DotNet</code><br />
+<strong>特性</strong>: <code>[LibraryInterfaceBase]</code></p>
+<p><code>IManaged</code> 接口负责原生对象的引用计数和生命周期管理。所有 <code>NativeObject</code> 的构造和销毁都通过此接口与原生代码交互。</p>
+<p><code>IManaged</code> interface manages reference counting and lifecycle of native objects. All <code>NativeObject</code> construction and destruction interact with native code through this interface.</p>
+<h2 id="jie-kou-ding-yi-interface-definition">接口定义 / Interface Definition</h2>
+<pre><code data-lang="csharp">[LibraryInterfaceBase]
+internal interface IManaged
+{
+    [EngineMethod(&quot;increase_reference_count&quot;, false, null, true)]
+    void IncreaseReferenceCount(UIntPtr ptr);
+
+    [EngineMethod(&quot;decrease_reference_count&quot;, false, null, true)]
+    void DecreaseReferenceCount(UIntPtr ptr);
+
+    [EngineMethod(&quot;get_class_type_definition_count&quot;, false, null, false)]
+    int GetClassTypeDefinitionCount();
+
+    [EngineMethod(&quot;get_class_type_definition&quot;, false, null, false)]
+    void GetClassTypeDefinition(int index, ref EngineClassTypeDefinition engineClassTypeDefinition);
+
+    [EngineMethod(&quot;release_managed_object&quot;, false, null, false)]
+    void ReleaseManagedObject(UIntPtr ptr);
+}
+</code></pre>
+<hr />
+<h2 id="fang-fa-lie-biao-methods">方法列表 / Methods</h2>
+<table><thead><tr><th>方法</th><th>签名</th><th>用途</th></tr></thead><tbody>
+<tr><td>IncreaseReferenceCount</td><td><code>void IncreaseReferenceCount(UIntPtr ptr)</code></td><td>增加引用计数</td></tr>
+<tr><td>DecreaseReferenceCount</td><td><code>void DecreaseReferenceCount(UIntPtr ptr)</code></td><td>减少引用计数</td></tr>
+<tr><td>GetClassTypeDefinitionCount</td><td><code>int GetClassTypeDefinitionCount()</code></td><td>获取类型定义数量</td></tr>
+<tr><td>GetClassTypeDefinition</td><td><code>void GetClassTypeDefinition(int, ref EngineClassTypeDefinition)</code></td><td>获取类型定义</td></tr>
+<tr><td>ReleaseManagedObject</td><td><code>void ReleaseManagedObject(UIntPtr ptr)</code></td><td>释放托管对象</td></tr>
+</tbody></table>
+<hr />
+<h2 id="yin-yong-ji-shu-ji-zhi-reference-counting-mechanism">引用计数机制 / Reference Counting Mechanism</h2>
+<h3 id="ji-shu-liu-cheng-counting-flow">计数流程 / Counting Flow</h3>
+<pre><code>应用代码
+    ↓
+new NativeObject(ptr) 构造
+    ↓
+Construct() → IManaged.IncreaseReferenceCount(ptr)
+    ↓
+原生引用计数 +1
+    ↓
+应用代码不再使用 → GC → Finalizer
+    ↓
+IManaged.DecreaseReferenceCount(ptr)
+    ↓
+原生引用计数 -1 → 如果为0 → 释放原生对象
+</code></pre>
+<h3 id="nativeobject-zhong-de-shi-yong-usage-in-nativeobject">NativeObject 中的使用 / Usage in NativeObject</h3>
+<pre><code data-lang="csharp">internal void Construct(UIntPtr pointer)
+{
+    this.Pointer = pointer;
+    LibraryApplicationInterface.IManaged.IncreaseReferenceCount(this.Pointer);
+    // ... 创建 GCHandle
+}
+
+~NativeObject()
+{
+    if (!this._manualInvalidated)
+    {
+        LibraryApplicationInterface.IManaged.DecreaseReferenceCount(this.Pointer);
+    }
+}
+
+public void ManualInvalidate()
+{
+    if (!this._manualInvalidated)
+    {
+        LibraryApplicationInterface.IManaged.DecreaseReferenceCount(this.Pointer);
+        this._manualInvalidated = true;
+    }
+}
+</code></pre>
+<hr />
+<h2 id="lei-xing-ding-yi-zhu-ce-type-definition-registration">类型定义注册 / Type Definition Registration</h2>
+<p><code>IManaged</code> 还负责在启动时注册所有 <code>[EngineClass]</code> 标记的类型：</p>
+<pre><code data-lang="csharp">static NativeObject()
+{
+    int classTypeDefinitionCount = LibraryApplicationInterface.IManaged.GetClassTypeDefinitionCount();
+    NativeObject._typeDefinitions = new List&lt;EngineClassTypeDefinition&gt;();
+    
+    for (int i = 0; i &lt; classTypeDefinitionCount; i++)
+    {
+        EngineClassTypeDefinition engineClassTypeDefinition = default(EngineClassTypeDefinition);
+        LibraryApplicationInterface.IManaged.GetClassTypeDefinition(i, ref engineClassTypeDefinition);
+        NativeObject._typeDefinitions.Add(engineClassTypeDefinition);
+    }
+    // ...
+}
+</code></pre>
+<h3 id="engineclasstypedefinition-jie-gou">EngineClassTypeDefinition 结构</h3>
+<pre><code data-lang="csharp">[EngineStruct(&quot;ftlObject_type_definition&quot;, false, null)]
+internal struct EngineClassTypeDefinition
+{
+    public int TypeId;           // 类型ID
+    public string TypeName;      // 类型名称 (128字符)
+}
+</code></pre>
+<hr />
+<h2 id="shi-yong-shi-li-usage-examples">使用示例 / Usage Examples</h2>
+<h3 id="zheng-chang-dui-xiang-shi-yong-normal-object-usage">正常对象使用 / Normal Object Usage</h3>
+<pre><code data-lang="csharp">// 正常创建 - 引用计数自动增加
+Mission mission = Mission.Current;
+
+// 当不再使用时，等待 GC 和 Finalizer
+// 或主动释放
+mission?.ManualInvalidate();
+</code></pre>
+<h3 id="dui-xiang-shu-zu-de-yin-yong-guan-li-reference-management-in-arrays">对象数组的引用管理 / Reference Management in Arrays</h3>
+<pre><code data-lang="csharp">NativeObjectArray array = NativeObjectArray.Create();
+
+Agent agent = mission.MainAgent;
+array.AddElement(agent);  // agent 引用计数 +1 (数组持有)
+
+// 数组清空时，元素引用计数 -1
+array.Clear();
+</code></pre>
+<h3 id="lei-xing-cha-xun-type-query">类型查询 / Type Query</h3>
+<pre><code data-lang="csharp">// 查询已注册的类型定义
+int count = LibraryApplicationInterface.IManaged.GetClassTypeDefinitionCount();
+
+for (int i = 0; i &lt; count; i++)
+{
+    EngineClassTypeDefinition def = default;
+    LibraryApplicationInterface.IManaged.GetClassTypeDefinition(i, ref def);
+    Console.WriteLine($&quot;ID: {def.TypeId}, Name: {def.TypeName}&quot;);
+}
+</code></pre>
+<hr />
+<h2 id="nei-cun-guan-li-zong-jie-memory-management-summary">内存管理总结 / Memory Management Summary</h2>
+<table><thead><tr><th>场景</th><th>调用</th></tr></thead><tbody>
+<tr><td>NativeObject 构造</td><td><code>IncreaseReferenceCount</code></td></tr>
+<tr><td>NativeObject 销毁 (GC)</td><td><code>DecreaseReferenceCount</code></td></tr>
+<tr><td>手动销毁</td><td><code>DecreaseReferenceCount</code> + <code>ManualInvalidate</code></td></tr>
+<tr><td>NativeObjectArray 添加</td><td>元素引用计数不变（数组持有指针）</td></tr>
+<tr><td>NativeObjectArray 清空</td><td>元素引用计数 -1</td></tr>
+</tbody></table>
+<hr />
+<h2 id="zhu-yi-shi-xiang-important-notes">注意事项 / Important Notes</h2>
+<ol>
+<li><strong>不要重复释放</strong> - 多次调用 <code>DecreaseReferenceCount</code> 导致计数错误</li>
+<li><strong>检查指针有效性</strong> - 使用 <code>ptr != UIntPtr.Zero</code> 检查</li>
+<li><strong>线程安全</strong> - 引用计数在原生端保证线程安全</li>
+<li><strong>GCHandle 延迟</strong> - 构造后10帧才释放强引用，防止过早 GC</li>
+</ol>
+<hr />
+<h2 id="xiang-guan-wen-jian-related-files">相关文件 / Related Files</h2>
+<table><thead><tr><th>文件</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>NativeObject.cs</code></td><td>基类，使用 IManaged</td></tr>
+<tr><td><code>EngineClassTypeDefinition.cs</code></td><td>类型定义结构体</td></tr>
+<tr><td><code>LibraryApplicationInterface.cs</code></td><td>接口注册表</td></tr>
+</tbody></table>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/native/">原生接口 &#x2F; Native Reference</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/native/LibraryApplicationInterface/">&larr; LibraryApplicationInterface 文档</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/native/EngineMethod/">EngineClass 与 EngineMethod 特性 &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampaignEvents</title>
+  <meta name="description" content="The Campaign layer&#x27;s central publish&#x2F;subscribe event hub: mods subscribe to static events to react safely to world changes — hero deaths, settlement captures, wars, clan defections — without polling or touching internal fields.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/CampaignEvents/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/CampaignEvents/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CampaignEvents</span>
+    </nav>
+  
+  <h1>CampaignEvents</h1>
+  <h1 id="campaignevents">CampaignEvents</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class CampaignEvents : CampaignEventReceiver</code>
+<strong>Base:</strong> <code>CampaignEventReceiver</code>
+<strong>Source:</strong> <code>TaleWorlds.CampaignSystem/CampaignEvents.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>CampaignEvents</code> is the Campaign layer's central notification hub. When a hero dies, a settlement changes hands, a war is declared, a clan switches kingdoms, or gold changes ownership, it broadcasts a payload-carrying event to every subscriber. This lets your mod react to world changes the instant they happen instead of scanning the whole world every tick. It holds roughly 200 <code>IMbEvent&lt;T&gt;</code> delegate containers and the forwarding logic that turns <code>*Action</code> calls into broadcasts — it is not a data store.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of <code>CampaignEvents</code> as the <strong>broadcast loudspeaker of the campaign map</strong>, not a box that holds data. It holds no business state like a hero list or a settlement list — it only holds the event containers and the code that translates a game-internal <code>*Action</code> into a broadcast.</p>
+<ul>
+<li><strong>Layer:</strong> Pure Campaign layer. It is unrelated to the Mission layer's <code>IMissionListener</code> system. Events that happen <em>inside a battle scene</em> go through the Mission system and are out of scope here.</li>
+<li><strong>Owner:</strong> Created by <code>Campaign</code> at campaign start and stored as <code>Campaign.Current.CampaignEvents</code>. One instance per save; lives and dies with the campaign.</li>
+<li><strong>Dual role:</strong> It is a <code>CampaignEventReceiver</code> (the dispatcher can call back into it) <em>and</em> it exposes the underlying <code>MbEvent&lt;T&gt;</code> containers to mods through <code>public static IMbEvent&lt;T&gt;</code> properties you subscribe to.</li>
+<li><strong>You never <code>new CampaignEvents()</code>:</strong> there is no public constructor. Just access the static properties directly, e.g. <code>CampaignEvents.HeroKilledEvent</code>.</li>
+</ul>
+<h3 id="the-publish-subscribe-pipeline">The publish/subscribe pipeline</h3>
+<p>A "hero killed" notification travels four steps from cause to your code:</p>
+<ol>
+<li><strong>Trigger:</strong> some <code>*Action</code> mutates world state, then calls <code>CampaignEventDispatcher.Instance.OnHeroKilled(victim, killer, detail, showNotification)</code> (<code>KillCharacterAction.cs</code>).</li>
+<li><strong>Dispatch:</strong> <code>CampaignEventDispatcher</code> fans the call out to every registered <code>CampaignEventReceiver</code> (the central <code>CampaignEvents</code> hub plus native SandBox receivers).</li>
+<li><strong>Deliver:</strong> the <code>CampaignEvents</code> override of <code>OnHeroKilled(...)</code> invokes the underlying event, firing every lambda registered via <code>AddNonSerializedListener</code>.</li>
+<li><strong>Subscribe:</strong> your mod calls <code>CampaignEvents.HeroKilledEvent.AddNonSerializedListener(this, OnHeroKilled)</code> inside <code>RegisterEvents()</code>, so your lambda runs.</li>
+</ol>
+<h3 id="two-subscription-styles">Two subscription styles</h3>
+<table><thead><tr><th>Style</th><th>How</th><th>Who uses it</th></tr></thead><tbody>
+<tr><td><strong>Lambda listener (recommended)</strong></td><td><code>CampaignEvents.XEvent.AddNonSerializedListener(this, handler)</code> inside <code>RegisterEvents()</code></td><td>virtually all mods</td></tr>
+<tr><td><strong>Receiver override</strong></td><td>your behavior extends <code>CampaignEventReceiver</code> and overrides <code>OnXxx</code></td><td>native SandBox behaviors; rarely needed by mods</td></tr>
+</tbody></table>
+<blockquote>
+<p><strong>Serialized vs. non-serialized:</strong> in this version <code>IMbEvent</code> only exposes <code>AddNonSerializedListener</code>, so the delegate closure itself is <strong>not written to the save</strong>. But the owning behavior (<code>CampaignBehaviorBase</code>) is part of the campaign object: <code>CampaignBehaviorManager</code> rebuilds behaviors after load and calls <code>RegisterEvents()</code> again, so the lambda is re-attached. What you must watch is the <strong>owner's lifetime</strong> — if the owner is a transient object (UI / menu), its lambda will neither restore nor auto-clear after load, risking leaks or duplicate registration (see Risks).</p>
+</blockquote>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p><strong>Use events</strong> when you need "do something when X happens": show a notification, log it, nudge a related value, unlock a feature, or fire custom logic.</p>
+<p><strong>Do NOT use events for:</strong></p>
+<ul>
+<li>Changing the world. An event is only a <em>notification</em>. To change the world, call the matching <code>*Action.Apply</code> (e.g. if you want to give the player gold after a lord dies, call <code>ChangeHeroGold</code> / <code>GoldGainAction</code> inside the <code>HeroKilledEvent</code> handler — don't mutate fields yourself).</li>
+<li>Faking a trigger. <code>CampaignEvents</code> has no public <code>Fire</code> / <code>Trigger</code> API for mods. To make the world change, call the <code>*Action</code>; it broadcasts the event itself.</li>
+<li>Heavy or blocking work in a handler. The handler runs <strong>synchronously inside the campaign tick that raised it</strong> — slowing it down or throwing stalls the whole tick (see Risks).</li>
+<li>Polling (e.g. "scan every <code>Hero</code> each hour to see who died") instead of subscribing.</li>
+</ul>
+<h2 id="high-frequency-events-categorized">High-Frequency Events (Categorized)</h2>
+<p>Only the most-subscribed events are listed here — there are ~200+ total (in <code>CampaignEvents.cs</code>). Each is a <code>public static IMbEvent&lt;T&gt;</code> property; the timing column tells you <em>when</em> it fires during the campaign lifecycle.</p>
+<h3 id="hero">Hero</h3>
+<table><thead><tr><th>Event</th><th>Purpose</th><th>Typical timing</th></tr></thead><tbody>
+<tr><td><code>HeroKilledEvent</code></td><td>A hero (including the main hero) died</td><td>After <code>KillCharacterAction</code> resolves</td></tr>
+<tr><td><code>BeforeHeroKilledEvent</code></td><td>Salvage loot / record last state before removal</td><td>Before the death is applied</td></tr>
+<tr><td><code>HeroPrisonerTaken</code></td><td>A hero became a prisoner</td><td>After <code>TakePrisonerAction</code></td></tr>
+<tr><td><code>OnHeroChangedClan</code></td><td>A hero switched clan (e.g. became a companion)</td><td>After the clan change applies</td></tr>
+</tbody></table>
+<h3 id="settlement">Settlement</h3>
+<table><thead><tr><th>Event</th><th>Purpose</th><th>Typical timing</th></tr></thead><tbody>
+<tr><td><code>OnSettlementOwnerChangedEvent</code></td><td>A town/castle changed owner</td><td>After <code>ChangeOwnerOfSettlementAction</code></td></tr>
+<tr><td><code>VillageStateChanged</code></td><td>Village state flipped (e.g. raided)</td><td>When the village state updates</td></tr>
+<tr><td><code>TownRebelliosStateChanged</code></td><td>A town entered/left rebellion</td><td>After a rebellion resolves</td></tr>
+</tbody></table>
+<h3 id="war-diplomacy">War &amp; Diplomacy</h3>
+<table><thead><tr><th>Event</th><th>Purpose</th><th>Typical timing</th></tr></thead><tbody>
+<tr><td><code>WarDeclared</code></td><td>Two factions declared war</td><td>After <code>DeclareWarAction</code></td></tr>
+<tr><td><code>MakePeace</code></td><td>Two factions signed peace</td><td>After <code>MakePeaceAction</code></td></tr>
+<tr><td><code>OnClanChangedKingdomEvent</code></td><td>A clan changed kingdoms</td><td>After <code>ChangeKingdomAction</code></td></tr>
+<tr><td><code>OnClanDestroyedEvent</code></td><td>A clan was wiped out</td><td>When the clan is removed</td></tr>
+</tbody></table>
+<h3 id="party-mobileparty">Party &amp; MobileParty</h3>
+<table><thead><tr><th>Event</th><th>Purpose</th><th>Typical timing</th></tr></thead><tbody>
+<tr><td><code>OnPartyRemovedEvent</code></td><td>A party left the map (disbanded/destroyed)</td><td>After a <code>MobileParty</code> is removed</td></tr>
+<tr><td><code>MobilePartyDestroyed</code></td><td>A mobile party was destroyed</td><td>On party destruction</td></tr>
+<tr><td><code>OnPartyLeaderChangedEvent</code></td><td>A party's leader changed</td><td>After leadership transfer</td></tr>
+</tbody></table>
+<h3 id="siege-map-battles">Siege &amp; Map Battles</h3>
+<table><thead><tr><th>Event</th><th>Purpose</th><th>Typical timing</th></tr></thead><tbody>
+<tr><td><code>OnSiegeEventStartedEvent</code> / <code>OnSiegeEventEndedEvent</code></td><td>A siege began / ended</td><td>At siege start / resolution</td></tr>
+<tr><td><code>MapEventStarted</code> / <code>MapEventEnded</code></td><td>A map battle/raid began / ended</td><td>At map-event start / cleanup</td></tr>
+<tr><td><code>BattleStarted</code></td><td>A map battle or raid started</td><td>When the battle component spawns</td></tr>
+</tbody></table>
+<h3 id="periodic-ticks-highest-frequency">Periodic Ticks (highest frequency)</h3>
+<p><code>DailyTickEvent</code> / <code>HourlyTickEvent</code> / <code>WeeklyTickEvent</code> (no payload) plus per-object <code>DailyTickPartyEvent</code> (<code>IMbEvent&lt;MobileParty&gt;</code>), <code>DailyTickTownEvent</code>, <code>DailyTickHeroEvent</code>, <code>DailyTickClanEvent</code> and their <code>HourlyTick*</code> siblings. These are the <strong>highest-frequency</strong> hooks — perfect for periodic logic, but keep them light.</p>
+<h3 id="lifecycle-save">Lifecycle / Save</h3>
+<p><code>OnNewGameCreatedEvent</code> (<code>IMbEvent&lt;CampaignGameStarter&gt;</code>) fires after a new campaign is built and <code>OnSessionLaunched</code> — the safe point to initialize per-playthrough state. <code>OnGameLoadedEvent</code> / <code>OnGameLoadFinishedEvent</code> fire after a save is read. <code>OnBeforeSaveEvent</code> / <code>OnSaveOverEvent</code> bracket the save.</p>
+<h2 id="dependencies">Dependencies</h2>
+<p><strong>Upstream (who triggers / owns it)</strong></p>
+<ul>
+<li><a href="../../campaign/Campaign/">Campaign</a> — owns the single <code>CampaignEvents</code> instance, created and destroyed with the campaign</li>
+<li><a href="../CampaignEventReceiver/">CampaignEventReceiver</a> — the abstract base defining every <code>OnXxx</code> virtual method</li>
+<li><code>*Action</code> types (<code>KillCharacterAction</code>, <code>ChangeOwnerOfSettlementAction</code>, <code>DeclareWarAction</code>, <code>ChangeKingdomAction</code>, …) raise the corresponding event after mutating state</li>
+</ul>
+<p><strong>Downstream (who consumes)</strong></p>
+<ul>
+<li><a href="../CampaignEventReceiver/">CampaignEventReceiver</a> — override it to receive events as a receiver</li>
+<li>Native <code>CampaignBehavior</code> classes (e.g. <code>DefaultLogsCampaignBehavior</code> listens to <code>BattleStarted</code>)</li>
+</ul>
+<p><strong>Related</strong></p>
+<ul>
+<li><a href="../../campaign/Hero/">Hero</a> · <a href="../../campaign/Settlement/">Settlement</a> · <a href="../../campaign/Clan/">Clan</a> · <a href="../../campaign/Kingdom/">Kingdom</a> · <a href="../../campaign/MobileParty/">MobileParty</a> — the payload types carried by most events</li>
+</ul>
+<h2 id="risks">Risks</h2>
+<ol>
+<li><strong>Raising an event in the wrong phase.</strong> There is no public trigger API for mods. Calling a low-level <code>MbEvent.Invoke</code> directly bypasses the consistency checks the rest of the system relies on. To notify the world, call the matching <code>*Action</code>.</li>
+<li><strong>Mission vs. Campaign timing.</strong> <code>CampaignEvents</code> is Campaign-layer only. Hits, agent deaths, and <code>Mission</code> start/end that happen <em>inside a battle scene</em> are delivered through the Mission / <code>IMissionListener</code> system, not here. Don't expect <code>CampaignEvents</code> to fire for in-scene combat.</li>
+<li><strong>Capturing dead <code>MBObject</code> references.</strong> If your lambda holds a <code>Hero</code> / <code>Settlement</code> and the save reloads such that instance is gone, the handler can still be called during a tick → <code>NullReferenceException</code> or a corrupted save. Fetch objects fresh inside the handler or null-check first.</li>
+<li><strong>Lifetime / serialization mismatch.</strong> The <code>AddNonSerializedListener</code> closure is not saved. If the owner is a transient object (one-shot UI, menu), the handler won't restore after load and won't be auto-cleared — possible leak or duplicate registration on the next <code>RegisterEvents()</code>.</li>
+<li><strong>Duplicate subscription.</strong> <code>RegisterEvents()</code> can be called more than once (e.g. runtime <code>CampaignBehaviorManager.AddBehavior</code>). De-dupe by calling <code>CampaignEvents.XEvent.ClearListeners(this)</code> at the top of <code>RegisterEvents()</code>, which routes through <code>CampaignEventDispatcher.RemoveListeners(obj)</code>.</li>
+<li><strong>Uncaught exception in a handler.</strong> It runs synchronously in the tick that raised it; an exception breaks the entire tick chain and can cascade into a bad save. Wrap critical paths in try/catch.</li>
+<li><strong>Adding/removing listeners of the same event inside its callback.</strong> <code>MbEvent</code> traverses a linked list while invoking; mutating it mid-invoke can skip or double-fire. Don't subscribe/unsubscribe yourself from within the callback.</li>
+</ol>
+<h2 id="example">Example</h2>
+<p>A complete, minimal behavior that logs lord deaths. The handler runs inside the campaign tick that raised the death, so it stays light and null-checks its payload.</p>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.Localization;
+
+public class LordDeathLogger : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        // Pass `this` as owner: when the behavior is removed,
+        // CampaignEventDispatcher.RemoveListeners(this) clears every
+        // listener this behavior registered, preventing leaks.
+        CampaignEvents.HeroKilledEvent.AddNonSerializedListener(this, OnHeroKilled);
+    }
+
+    private void OnHeroKilled(Hero victim, Hero killer,
+        KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)
+    {
+        if (victim == null || !victim.IsLord) return;
+        InformationManager.DisplayMessage(
+            new InformationMessage(
+                new TextObject(&quot;{=}Lord {VICTIM} was slain by {KILLER}&quot;)
+                    .SetTextVariable(&quot;VICTIM&quot;, victim.Name)
+                    .SetTextVariable(&quot;KILLER&quot;, killer?.Name ?? &quot;an unknown hand&quot;)));
+
+        // To change the world, call an *Action — e.g.:
+        // Hero.MainHero.ChangeHeroGold(100);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        // No persistent fields here; serialize state through this hook.
+    }
+}
+</code></pre>
+<p>Register the behavior from your <code>MBSubModuleBase</code> so <code>CampaignBehaviorManager</code> calls <code>RegisterEvents()</code> and the listener attaches:</p>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.MountAndBlade;
+
+public class MySubModule : MBSubModuleBase
+{
+    protected internal override void InitializeGameStarter(Game game, IGameStarter starterObject)
+    {
+        if (game.GameType is Campaign campaign)
+        {
+            ((CampaignGameStarter)starterObject).AddBehavior(new LordDeathLogger());
+        }
+    }
+}
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Parent: <a href="../">campaign-ext index</a></li>
+<li>↔ Sibling: <a href="../CampaignEventReceiver/">CampaignEventReceiver</a></li>
+<li>Related: <a href="../../campaign/Campaign/">Campaign</a> · <a href="../../campaign/Hero/">Hero</a> · <a href="../../campaign/Settlement/">Settlement</a> · <a href="../../campaign/Clan/">Clan</a> · <a href="../../campaign/Kingdom/">Kingdom</a> · <a href="../../campaign/MobileParty/">MobileParty</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/CampaignGameMode/">&larr; CampaignGameMode</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/Test_DeleteChatRoomMessage/">Test_DeleteChatRoomMessage &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

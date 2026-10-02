@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CustomAgentApplyDamageModel</title>
+  <meta name="description" content="Auto-generated class reference for CustomAgentApplyDamageModel.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="active">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/CustomAgentApplyDamageModel/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/CustomAgentApplyDamageModel/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/CustomAgentApplyDamageModel/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/CustomAgentApplyDamageModel/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/CustomAgentApplyDamageModel/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/CustomAgentApplyDamageModel/"
+               class="active">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/en/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/en/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>v1.4.5 Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/api/" class="">Index</a><a href="/v1.4.5/en/api/core/" class="">Core</a><a href="/v1.4.5/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/en/api/mission/" class="">Mission</a><a href="/v1.4.5/en/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.4.5/en/api/campaign/" class="">Campaign</a><a href="/v1.4.5/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/en/api/gui/" class="">GUI</a><a href="/v1.4.5/en/api/save-system/" class="">Save System</a><a href="/v1.4.5/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.4.5/en/api/localization/" class="">Localization</a><a href="/v1.4.5/en/api/engine/" class="">Engine</a><a href="/v1.4.5/en/api/gameplay/" class="">Gameplay</a><a href="/v1.4.5/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/en/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/en/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CustomAgentApplyDamageModel</span>
+    </nav>
+  
+  <h1>CustomAgentApplyDamageModel</h1>
+  <h1 id="customagentapplydamagemodel">CustomAgentApplyDamageModel</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public class CustomAgentApplyDamageModel : AgentApplyDamageModel</code>
+<strong>Base:</strong> <code>AgentApplyDamageModel</code>
+<strong>File:</strong> <code>bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/CustomAgentApplyDamageModel.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>CustomAgentApplyDamageModel</code> is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Treat <code>CustomAgentApplyDamageModel</code> as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.</p>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="isdamageignored">IsDamageIgnored</h3>
+<p><code>public override bool IsDamageIgnored(in AttackInformation attackInformation, in AttackCollisionData collisionData)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the damage ignored state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.IsDamageIgnored(attackInformation, collisionData);
+</code></pre>
+<h3 id="applydamageamplifications">ApplyDamageAmplifications</h3>
+<p><code>public override float ApplyDamageAmplifications(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of damage amplifications to the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.ApplyDamageAmplifications(attackInformation, collisionData, 0);
+</code></pre>
+<h3 id="applydamagescaling">ApplyDamageScaling</h3>
+<p><code>public override float ApplyDamageScaling(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of damage scaling to the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.ApplyDamageScaling(attackInformation, collisionData, 0);
+</code></pre>
+<h3 id="applydamagereductions">ApplyDamageReductions</h3>
+<p><code>public override float ApplyDamageReductions(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of damage reductions to the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.ApplyDamageReductions(attackInformation, collisionData, 0);
+</code></pre>
+<h3 id="applygeneraldamagemodifiers">ApplyGeneralDamageModifiers</h3>
+<p><code>public override float ApplyGeneralDamageModifiers(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of general damage modifiers to the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.ApplyGeneralDamageModifiers(attackInformation, collisionData, 0);
+</code></pre>
+<h3 id="decidemissileweaponflags">DecideMissileWeaponFlags</h3>
+<p><code>public override void DecideMissileWeaponFlags(Agent attackerAgent, in MissionWeapon missileWeapon, ref WeaponFlags missileWeaponFlags)</code></p>
+<p><strong>Purpose:</strong> Executes the DecideMissileWeaponFlags logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+customAgentApplyDamageModel.DecideMissileWeaponFlags(attackerAgent, missileWeapon, missileWeaponFlags);
+</code></pre>
+<h3 id="decidecrushedthrough">DecideCrushedThrough</h3>
+<p><code>public override bool DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsage)</code></p>
+<p><strong>Purpose:</strong> Executes the DecideCrushedThrough logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.DecideCrushedThrough(attackerAgent, defenderAgent, 0, attackDirection, strikeType, defendItem, false);
+</code></pre>
+<h3 id="canweapondealsneakattack">CanWeaponDealSneakAttack</h3>
+<p><code>public override bool CanWeaponDealSneakAttack(in AttackInformation attackInformation, WeaponComponentData weapon)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for weapon deal sneak attack.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.CanWeaponDealSneakAttack(attackInformation, weapon);
+</code></pre>
+<h3 id="canweapondismount">CanWeaponDismount</h3>
+<p><code>public override bool CanWeaponDismount(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for weapon dismount.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.CanWeaponDismount(attackerAgent, attackerWeapon, blow, collisionData);
+</code></pre>
+<h3 id="calculatedefendedblowstunmultipliers">CalculateDefendedBlowStunMultipliers</h3>
+<p><code>public override void CalculateDefendedBlowStunMultipliers(Agent attackerAgent, Agent defenderAgent, CombatCollisionResult collisionResult, WeaponComponentData attackerWeapon, WeaponComponentData defenderWeapon, ref float attackerStunPeriod, ref float defenderStunPeriod)</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of defended blow stun multipliers.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+customAgentApplyDamageModel.CalculateDefendedBlowStunMultipliers(attackerAgent, defenderAgent, collisionResult, attackerWeapon, defenderWeapon, attackerStunPeriod, defenderStunPeriod);
+</code></pre>
+<h3 id="canweaponknockback">CanWeaponKnockback</h3>
+<p><code>public override bool CanWeaponKnockback(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for weapon knockback.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.CanWeaponKnockback(attackerAgent, attackerWeapon, blow, collisionData);
+</code></pre>
+<h3 id="canweaponknockdown">CanWeaponKnockDown</h3>
+<p><code>public override bool CanWeaponKnockDown(Agent attackerAgent, Agent victimAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for weapon knock down.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.CanWeaponKnockDown(attackerAgent, victimAgent, attackerWeapon, blow, collisionData);
+</code></pre>
+<h3 id="getdismountpenetration">GetDismountPenetration</h3>
+<p><code>public override float GetDismountPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the dismount penetration value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.GetDismountPenetration(attackerAgent, attackerWeapon, blow, attackCollisionData);
+</code></pre>
+<h3 id="getknockbackpenetration">GetKnockBackPenetration</h3>
+<p><code>public override float GetKnockBackPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the knock back penetration value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.GetKnockBackPenetration(attackerAgent, attackerWeapon, blow, attackCollisionData);
+</code></pre>
+<h3 id="getknockdownpenetration">GetKnockDownPenetration</h3>
+<p><code>public override float GetKnockDownPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData attackCollisionData)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the knock down penetration value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.GetKnockDownPenetration(attackerAgent, attackerWeapon, blow, attackCollisionData);
+</code></pre>
+<h3 id="gethorsechargepenetration">GetHorseChargePenetration</h3>
+<p><code>public override float GetHorseChargePenetration()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the horse charge penetration value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.GetHorseChargePenetration();
+</code></pre>
+<h3 id="calculatestaggerthresholddamage">CalculateStaggerThresholdDamage</h3>
+<p><code>public override float CalculateStaggerThresholdDamage(Agent defenderAgent, in Blow blow)</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of stagger threshold damage.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.CalculateStaggerThresholdDamage(defenderAgent, blow);
+</code></pre>
+<h3 id="calculatealternativeattackdamage">CalculateAlternativeAttackDamage</h3>
+<p><code>public override float CalculateAlternativeAttackDamage(in AttackInformation attackInformation, in AttackCollisionData collisionData, WeaponComponentData weapon)</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of alternative attack damage.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.CalculateAlternativeAttackDamage(attackInformation, collisionData, weapon);
+</code></pre>
+<h3 id="calculatepassiveattackdamage">CalculatePassiveAttackDamage</h3>
+<p><code>public override float CalculatePassiveAttackDamage(BasicCharacterObject attackerCharacter, in AttackCollisionData collisionData, float baseDamage)</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of passive attack damage.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.CalculatePassiveAttackDamage(attackerCharacter, collisionData, 0);
+</code></pre>
+<h3 id="decidepassiveattackcollisionreaction">DecidePassiveAttackCollisionReaction</h3>
+<p><code>public override MeleeCollisionReaction DecidePassiveAttackCollisionReaction(Agent attacker, Agent defender, bool isFatalHit)</code></p>
+<p><strong>Purpose:</strong> Executes the DecidePassiveAttackCollisionReaction logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.DecidePassiveAttackCollisionReaction(attacker, defender, false);
+</code></pre>
+<h3 id="calculateshielddamage">CalculateShieldDamage</h3>
+<p><code>public override float CalculateShieldDamage(in AttackInformation attackInformation, float baseDamage)</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of shield damage.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.CalculateShieldDamage(attackInformation, 0);
+</code></pre>
+<h3 id="calculatesailfiredamage">CalculateSailFireDamage</h3>
+<p><code>public override float CalculateSailFireDamage(Agent attackerAgent, IShipOrigin shipOrigin, float baseDamage, bool damageFromShipMachine)</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of sail fire damage.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.CalculateSailFireDamage(attackerAgent, shipOrigin, 0, false);
+</code></pre>
+<h3 id="calculatehullfiredamage">CalculateHullFireDamage</h3>
+<p><code>public override float CalculateHullFireDamage(float baseFireDamage, IShipOrigin shipOrigin)</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of hull fire damage.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.CalculateHullFireDamage(0, shipOrigin);
+</code></pre>
+<h3 id="getdamagemultiplierforbodypart">GetDamageMultiplierForBodyPart</h3>
+<p><code>public override float GetDamageMultiplierForBodyPart(BoneBodyPartType bodyPart, DamageTypes type, bool isHuman, bool isMissile)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the damage multiplier for body part value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.GetDamageMultiplierForBodyPart(bodyPart, type, false, false);
+</code></pre>
+<h3 id="canweaponignorefriendlyfirechecks">CanWeaponIgnoreFriendlyFireChecks</h3>
+<p><code>public override bool CanWeaponIgnoreFriendlyFireChecks(WeaponComponentData weapon)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for weapon ignore friendly fire checks.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.CanWeaponIgnoreFriendlyFireChecks(weapon);
+</code></pre>
+<h3 id="decideagentshrugoffblow">DecideAgentShrugOffBlow</h3>
+<p><code>public override bool DecideAgentShrugOffBlow(Agent victimAgent, in AttackCollisionData collisionData, in Blow blow)</code></p>
+<p><strong>Purpose:</strong> Executes the DecideAgentShrugOffBlow logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.DecideAgentShrugOffBlow(victimAgent, collisionData, blow);
+</code></pre>
+<h3 id="decideagentdismountedbyblow">DecideAgentDismountedByBlow</h3>
+<p><code>public override bool DecideAgentDismountedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)</code></p>
+<p><strong>Purpose:</strong> Executes the DecideAgentDismountedByBlow logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.DecideAgentDismountedByBlow(attackerAgent, victimAgent, collisionData, attackerWeapon, blow);
+</code></pre>
+<h3 id="decideagentknockedbackbyblow">DecideAgentKnockedBackByBlow</h3>
+<p><code>public override bool DecideAgentKnockedBackByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)</code></p>
+<p><strong>Purpose:</strong> Executes the DecideAgentKnockedBackByBlow logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.DecideAgentKnockedBackByBlow(attackerAgent, victimAgent, collisionData, attackerWeapon, blow);
+</code></pre>
+<h3 id="decideagentknockeddownbyblow">DecideAgentKnockedDownByBlow</h3>
+<p><code>public override bool DecideAgentKnockedDownByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)</code></p>
+<p><strong>Purpose:</strong> Executes the DecideAgentKnockedDownByBlow logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.DecideAgentKnockedDownByBlow(attackerAgent, victimAgent, collisionData, attackerWeapon, blow);
+</code></pre>
+<h3 id="decidemountrearedbyblow">DecideMountRearedByBlow</h3>
+<p><code>public override bool DecideMountRearedByBlow(Agent attackerAgent, Agent victimAgent, in AttackCollisionData collisionData, WeaponComponentData attackerWeapon, in Blow blow)</code></p>
+<p><strong>Purpose:</strong> Executes the DecideMountRearedByBlow logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.DecideMountRearedByBlow(attackerAgent, victimAgent, collisionData, attackerWeapon, blow);
+</code></pre>
+<h3 id="decideweaponcollisionreaction">DecideWeaponCollisionReaction</h3>
+<p><code>public override void DecideWeaponCollisionReaction(in Blow registeredBlow, in AttackCollisionData collisionData, Agent attacker, Agent defender, in MissionWeapon attackerWeapon, bool isFatalHit, bool isShruggedOff, float momentumRemaining, out MeleeCollisionReaction colReaction)</code></p>
+<p><strong>Purpose:</strong> Executes the DecideWeaponCollisionReaction logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+customAgentApplyDamageModel.DecideWeaponCollisionReaction(registeredBlow, collisionData, attacker, defender, attackerWeapon, false, false, 0, colReaction);
+</code></pre>
+<h3 id="shouldmissilepassthroughaftershieldbreak">ShouldMissilePassThroughAfterShieldBreak</h3>
+<p><code>public override bool ShouldMissilePassThroughAfterShieldBreak(Agent attackerAgent, WeaponComponentData attackerWeapon)</code></p>
+<p><strong>Purpose:</strong> Executes the ShouldMissilePassThroughAfterShieldBreak logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.ShouldMissilePassThroughAfterShieldBreak(attackerAgent, attackerWeapon);
+</code></pre>
+<h3 id="calculateremainingmomentum">CalculateRemainingMomentum</h3>
+<p><code>public override float CalculateRemainingMomentum(float originalMomentum, in Blow b, in AttackCollisionData collisionData, Agent attacker, Agent victim, in MissionWeapon attackerWeapon, bool isCrushThrough)</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of remaining momentum.</p>
+<pre><code data-lang="csharp">// Obtain an instance of CustomAgentApplyDamageModel from the subsystem API first
+CustomAgentApplyDamageModel customAgentApplyDamageModel = ...;
+var result = customAgentApplyDamageModel.CalculateRemainingMomentum(0, b, collisionData, attacker, victim, attackerWeapon, false);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">Game.Current.ReplaceModel&lt;CustomAgentApplyDamageModel&gt;(new MyCustomAgentApplyDamageModel());
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/en/api/mission-ext/">mission-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/en/api/mission-ext/AITargetVisibilityState/">&larr; AITargetVisibilityState</a>
+          
+          
+            <a rel="next" href="/v1.4.5/en/api/mission-ext/LineFormation/">LineFormation &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

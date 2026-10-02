@@ -1,0 +1,3 @@
+ALL-FUNCTIONS-LIST moved here for build compatibility.
+
+See `COMPLETE-FUNCTIONS.md` for the maintained function index.

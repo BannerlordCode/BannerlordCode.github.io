@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IncidentEffect</title>
+  <meta name="description" content="IncidentEffect 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/IncidentEffect/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/IncidentEffect/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">IncidentEffect</span>
+    </nav>
+  
+  <h1>IncidentEffect</h1>
+  <h1 id="incidenteffect">IncidentEffect</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Incidents
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class IncidentEffect</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Incidents/IncidentEffect.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>IncidentEffect</code> 位于 <code>TaleWorlds.CampaignSystem.Incidents</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.CampaignSystem.Incidents</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="condition">Condition</h3>
+<p><code>public bool Condition()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Condition 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 IncidentEffect 实例
+IncidentEffect incidentEffect = ...;
+var result = incidentEffect.Condition();
+</code></pre>
+<h3 id="consequence">Consequence</h3>
+<p><code>public List&lt;TextObject&gt; Consequence()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Consequence 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 IncidentEffect 实例
+IncidentEffect incidentEffect = ...;
+var result = incidentEffect.Consequence();
+</code></pre>
+<h3 id="gethint">GetHint</h3>
+<p><code>public List&lt;TextObject&gt; GetHint()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hint 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 IncidentEffect 实例
+IncidentEffect incidentEffect = ...;
+var result = incidentEffect.GetHint();
+</code></pre>
+<h3 id="withchance">WithChance</h3>
+<p><code>public IncidentEffect WithChance(float chance)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 WithChance 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 IncidentEffect 实例
+IncidentEffect incidentEffect = ...;
+var result = incidentEffect.WithChance(0);
+</code></pre>
+<h3 id="withcustominformation">WithCustomInformation</h3>
+<p><code>public IncidentEffect WithCustomInformation(Func&lt;List&lt;TextObject&gt;&gt; customInformation)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 WithCustomInformation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 IncidentEffect 实例
+IncidentEffect incidentEffect = ...;
+var result = incidentEffect.WithCustomInformation(customInformation);
+</code></pre>
+<h3 id="withhint">WithHint</h3>
+<p><code>public IncidentEffect WithHint(Func&lt;IncidentEffect, List&lt;TextObject&gt;&gt; hint)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 WithHint 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 IncidentEffect 实例
+IncidentEffect incidentEffect = ...;
+var result = incidentEffect.WithHint(func&lt;IncidentEffect, hint);
+</code></pre>
+<h3 id="goldchange">GoldChange</h3>
+<p><code>public static IncidentEffect GoldChange(Func&lt;int&gt; amountGetter)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 GoldChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.GoldChange(amountGetter);
+</code></pre>
+<h3 id="traitchange">TraitChange</h3>
+<p><code>public static IncidentEffect TraitChange(TraitObject trait, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TraitChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.TraitChange(trait, 0);
+</code></pre>
+<h3 id="buildinglevelchange">BuildingLevelChange</h3>
+<p><code>public static IncidentEffect BuildingLevelChange(Func&lt;Building&gt; buildingGetter, Func&lt;int&gt; amountGetter)</code></p>
+<p><strong>用途 / Purpose:</strong> 组装并返回ing level change的构建结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.BuildingLevelChange(buildingGetter, amountGetter);
+</code></pre>
+<h3 id="siegeprogresschange">SiegeProgressChange</h3>
+<p><code>public static IncidentEffect SiegeProgressChange(Func&lt;float&gt; amountGetter)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SiegeProgressChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.SiegeProgressChange(amountGetter);
+</code></pre>
+<h3 id="workshopprofitabilitychange">WorkshopProfitabilityChange</h3>
+<p><code>public static IncidentEffect WorkshopProfitabilityChange(Func&lt;Workshop&gt; workshopGetter, float percentage)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 WorkshopProfitabilityChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.WorkshopProfitabilityChange(workshopGetter, 0);
+</code></pre>
+<h3 id="skillchange">SkillChange</h3>
+<p><code>public static IncidentEffect SkillChange(SkillObject skill, float amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SkillChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.SkillChange(skill, 0);
+</code></pre>
+<h3 id="moralechange">MoraleChange</h3>
+<p><code>public static IncidentEffect MoraleChange(float amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MoraleChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.MoraleChange(0);
+</code></pre>
+<h3 id="healthchance">HealthChance</h3>
+<p><code>public static IncidentEffect HealthChance(int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 HealthChance 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.HealthChance(0);
+</code></pre>
+<h3 id="renownchange">RenownChange</h3>
+<p><code>public static IncidentEffect RenownChange(float amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenownChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.RenownChange(0);
+</code></pre>
+<h3 id="crimeratingchange">CrimeRatingChange</h3>
+<p><code>public static IncidentEffect CrimeRatingChange(Func&lt;IFaction&gt; factionGetter, float amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CrimeRatingChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.CrimeRatingChange(factionGetter, 0);
+</code></pre>
+<h3 id="influencechange">InfluenceChange</h3>
+<p><code>public static IncidentEffect InfluenceChange(float amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 InfluenceChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.InfluenceChange(0);
+</code></pre>
+<h3 id="settlementrelationchange">SettlementRelationChange</h3>
+<p><code>public static IncidentEffect SettlementRelationChange(Func&lt;Settlement&gt; settlementGetter, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 tlement relation change 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.SettlementRelationChange(settlementGetter, 0);
+</code></pre>
+<h3 id="townboundvillagerelationchange">TownBoundVillageRelationChange</h3>
+<p><code>public static IncidentEffect TownBoundVillageRelationChange(Func&lt;Town&gt; townGetter, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TownBoundVillageRelationChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.TownBoundVillageRelationChange(townGetter, 0);
+</code></pre>
+<h3 id="townboundvillagehearthchange">TownBoundVillageHearthChange</h3>
+<p><code>public static IncidentEffect TownBoundVillageHearthChange(Func&lt;Town&gt; townGetter, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TownBoundVillageHearthChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.TownBoundVillageHearthChange(townGetter, 0);
+</code></pre>
+<h3 id="villagehearthchange">VillageHearthChange</h3>
+<p><code>public static IncidentEffect VillageHearthChange(Func&lt;Village&gt; villageGetter, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 VillageHearthChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.VillageHearthChange(villageGetter, 0);
+</code></pre>
+<h3 id="townsecuritychange">TownSecurityChange</h3>
+<p><code>public static IncidentEffect TownSecurityChange(Func&lt;Town&gt; townGetter, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TownSecurityChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.TownSecurityChange(townGetter, 0);
+</code></pre>
+<h3 id="herorelationchange">HeroRelationChange</h3>
+<p><code>public static IncidentEffect HeroRelationChange(Func&lt;Hero&gt; heroGetter, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 HeroRelationChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.HeroRelationChange(heroGetter, 0);
+</code></pre>
+<h3 id="townprosperitychange">TownProsperityChange</h3>
+<p><code>public static IncidentEffect TownProsperityChange(Func&lt;Town&gt; townGetter, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TownProsperityChange 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.TownProsperityChange(townGetter, 0);
+</code></pre>
+<h3 id="settlementmilitiachange">SettlementMilitiaChange</h3>
+<p><code>public static IncidentEffect SettlementMilitiaChange(Func&lt;Settlement&gt; settlementGetter, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 tlement militia change 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.SettlementMilitiaChange(settlementGetter, 0);
+</code></pre>
+<h3 id="infestnearbyhideout">InfestNearbyHideout</h3>
+<p><code>public static IncidentEffect InfestNearbyHideout(Func&lt;Settlement&gt; settlementGetter)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 InfestNearbyHideout 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.InfestNearbyHideout(settlementGetter);
+</code></pre>
+<h3 id="woundtroopsrandomly">WoundTroopsRandomly</h3>
+<p><code>public static IncidentEffect WoundTroopsRandomly(float percentage)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 WoundTroopsRandomly 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.WoundTroopsRandomly(0);
+</code></pre>
+<h3 id="woundtroopsrandomly-1">WoundTroopsRandomly</h3>
+<p><code>public static IncidentEffect WoundTroopsRandomly(Func&lt;TroopRosterElement, bool&gt; predicate, Func&lt;int&gt; amountGetter, bool specifyUnitTypeOnHint = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 WoundTroopsRandomly 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.WoundTroopsRandomly(func&lt;TroopRosterElement, false, amountGetter, false);
+</code></pre>
+<h3 id="woundtroopsrandomlywithchanceofdeath">WoundTroopsRandomlyWithChanceOfDeath</h3>
+<p><code>public static IncidentEffect WoundTroopsRandomlyWithChanceOfDeath(float percentage, float chanceOfDeathPerUnit)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 WoundTroopsRandomlyWithChanceOfDeath 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.WoundTroopsRandomlyWithChanceOfDeath(0, 0);
+</code></pre>
+<h3 id="breachsiegewall">BreachSiegeWall</h3>
+<p><code>public static IncidentEffect BreachSiegeWall(int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BreachSiegeWall 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.BreachSiegeWall(0);
+</code></pre>
+<h3 id="woundtroopsrandomly-2">WoundTroopsRandomly</h3>
+<p><code>public static IncidentEffect WoundTroopsRandomly(int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 WoundTroopsRandomly 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.WoundTroopsRandomly(0);
+</code></pre>
+<h3 id="woundtroopsrandomlywithchanceofdeath-1">WoundTroopsRandomlyWithChanceOfDeath</h3>
+<p><code>public static IncidentEffect WoundTroopsRandomlyWithChanceOfDeath(int amount, float chanceOfDeathPerUnit)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 WoundTroopsRandomlyWithChanceOfDeath 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.WoundTroopsRandomlyWithChanceOfDeath(0, 0);
+</code></pre>
+<h3 id="woundtroop">WoundTroop</h3>
+<p><code>public static IncidentEffect WoundTroop(Func&lt;CharacterObject&gt; characterGetter, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 WoundTroop 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.WoundTroop(characterGetter, 0);
+</code></pre>
+<h3 id="woundtroopsrandomlybychance">WoundTroopsRandomlyByChance</h3>
+<p><code>public static IncidentEffect WoundTroopsRandomlyByChance(float chancePerUnit)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 WoundTroopsRandomlyByChance 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.WoundTroopsRandomlyByChance(0);
+</code></pre>
+<h3 id="killtroopsrandomlyorderedbytier">KillTroopsRandomlyOrderedByTier</h3>
+<p><code>public static IncidentEffect KillTroopsRandomlyOrderedByTier(Func&lt;TroopRosterElement, bool&gt; predicate, Func&lt;int&gt; amountGetter)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 KillTroopsRandomlyOrderedByTier 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.KillTroopsRandomlyOrderedByTier(func&lt;TroopRosterElement, false, amountGetter);
+</code></pre>
+<h3 id="killtroopsrandomly">KillTroopsRandomly</h3>
+<p><code>public static IncidentEffect KillTroopsRandomly(Func&lt;TroopRosterElement, bool&gt; predicate, Func&lt;int&gt; amountGetter)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 KillTroopsRandomly 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.KillTroopsRandomly(func&lt;TroopRosterElement, false, amountGetter);
+</code></pre>
+<h3 id="killtroopsrandomlybychance">KillTroopsRandomlyByChance</h3>
+<p><code>public static IncidentEffect KillTroopsRandomlyByChance(float chancePerUnit)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 KillTroopsRandomlyByChance 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.KillTroopsRandomlyByChance(0);
+</code></pre>
+<h3 id="killtroop">KillTroop</h3>
+<p><code>public static IncidentEffect KillTroop(Func&lt;CharacterObject&gt; characterGetter, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 KillTroop 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.KillTroop(characterGetter, 0);
+</code></pre>
+<h3 id="changetroopamount">ChangeTroopAmount</h3>
+<p><code>public static IncidentEffect ChangeTroopAmount(Func&lt;CharacterObject&gt; characterGetter, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ChangeTroopAmount 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.ChangeTroopAmount(characterGetter, 0);
+</code></pre>
+<h3 id="upgradetroop">UpgradeTroop</h3>
+<p><code>public static IncidentEffect UpgradeTroop(Func&lt;CharacterObject&gt; characterGetter, Func&lt;CharacterObject, bool&gt; upgradePredicate, int amount, Func&lt;long&gt; incidentSeedGetter)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 UpgradeTroop 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.UpgradeTroop(characterGetter, func&lt;CharacterObject, false, 0, incidentSeedGetter);
+</code></pre>
+<h3 id="upgradetroop-1">UpgradeTroop</h3>
+<p><code>public static IncidentEffect UpgradeTroop(Func&lt;CharacterObject&gt; characterGetter, Func&lt;CharacterObject&gt; upgradedCharacterGetter, int amount, Func&lt;long&gt; incidentSeedGetter)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 UpgradeTroop 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.UpgradeTroop(characterGetter, upgradedCharacterGetter, 0, incidentSeedGetter);
+</code></pre>
+<h3 id="removeprisonersrandomlywithpredicate">RemovePrisonersRandomlyWithPredicate</h3>
+<p><code>public static IncidentEffect RemovePrisonersRandomlyWithPredicate(Func&lt;TroopRosterElement, bool&gt; predicate, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 prisoners randomly with predicate。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.RemovePrisonersRandomlyWithPredicate(func&lt;TroopRosterElement, false, 0);
+</code></pre>
+<h3 id="changeitemsamount">ChangeItemsAmount</h3>
+<p><code>public static IncidentEffect ChangeItemsAmount(Func&lt;List&lt;ItemObject&gt;&gt; itemsGetter, int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ChangeItemsAmount 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.ChangeItemsAmount(itemsGetter, 0);
+</code></pre>
+<h3 id="changeitemamount">ChangeItemAmount</h3>
+<p><code>public static IncidentEffect ChangeItemAmount(Func&lt;ItemObject&gt; itemGetter, Func&lt;int&gt; amountGetter)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ChangeItemAmount 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.ChangeItemAmount(itemGetter, amountGetter);
+</code></pre>
+<h3 id="partyexperiencechance">PartyExperienceChance</h3>
+<p><code>public static IncidentEffect PartyExperienceChance(int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PartyExperienceChance 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.PartyExperienceChance(0);
+</code></pre>
+<h3 id="disorganizeparty">DisorganizeParty</h3>
+<p><code>public static IncidentEffect DisorganizeParty()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DisorganizeParty 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.DisorganizeParty();
+</code></pre>
+<h3 id="healtroopsrandomly">HealTroopsRandomly</h3>
+<p><code>public static IncidentEffect HealTroopsRandomly(int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 HealTroopsRandomly 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.HealTroopsRandomly(0);
+</code></pre>
+<h3 id="demotetroopsrandomlywithpredicate">DemoteTroopsRandomlyWithPredicate</h3>
+<p><code>public static IncidentEffect DemoteTroopsRandomlyWithPredicate(Func&lt;TroopRosterElement, bool&gt; predicate, Func&lt;CharacterObject, bool&gt; demotionPredicate, int amount, bool specifyUnitTypeOnHint = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DemoteTroopsRandomlyWithPredicate 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.DemoteTroopsRandomlyWithPredicate(func&lt;TroopRosterElement, false, func&lt;CharacterObject, false, 0, false);
+</code></pre>
+<h3 id="group">Group</h3>
+<p><code>public static IncidentEffect Group(params IncidentEffect effects)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Group 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.Group(effects);
+</code></pre>
+<h3 id="select">Select</h3>
+<p><code>public static IncidentEffect Select(IncidentEffect effectOne, IncidentEffect effectTwo, float chanceOfFirstOne)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Select 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.Select(effectOne, effectTwo, 0);
+</code></pre>
+<h3 id="custom">Custom</h3>
+<p><code>public static IncidentEffect Custom(Func&lt;bool&gt; condition, Func&lt;List&lt;TextObject&gt;&gt; consequence, Func&lt;IncidentEffect, List&lt;TextObject&gt;&gt; hint)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Custom 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+IncidentEffect.Custom(condition, consequence, func&lt;IncidentEffect, hint);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+IncidentEffect incidentEffect = ...;
+incidentEffect.Condition();
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign-ext/">campaign-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign-ext/RansomOfferCampaignBehavior/">&larr; RansomOfferCampaignBehavior</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign-ext/DefaultSettlementPatrolModel/">DefaultSettlementPatrolModel &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

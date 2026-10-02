@@ -147,5 +147,5 @@ foreach (System.Type t in saveable)
 
 ## 参见
 
-- ↑ 父级：[save-system 索引](../)
+- ↑ 父级：save-system 目录下没有索引页；同目录的另外两个页面是 [SaveContext](../SaveContext) 与 [LoadContext](../LoadContext)，两者也都只有中文页（见 [缺口清单](../../../../GAPS)）。
 - ↔ 相关：[SaveContext](../SaveContext) · [LoadContext](../LoadContext) · [Game](../../core-extra/Game) · [Campaign](../../campaign/Campaign) · [MBObjectManager](../../campaign-ext/MBObjectManager)

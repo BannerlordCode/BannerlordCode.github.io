@@ -213,7 +213,7 @@ protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
 
 - Upstream / providers:
   - [MBSubModuleBase](../../core/MBSubModuleBase)'s `OnGameStart(Game, IGameStarter)` hands this class to mods.
-  - [Game](../../core-extra/Game) drives the whole startup assembly through `IGameStarter`.
+  - `Game` drives the whole startup assembly through `IGameStarter`. It has no English page — the Chinese [zh `Game`](../../../../zh/api/core-extra/Game) is the only one on disk.
 - Peers / downstream:
   - [CampaignBehaviorBase](../CampaignBehaviorBase) is the type `AddBehavior` accepts.
   - [Campaign](../Campaign) receives the registrations and exposes `GetCampaignBehavior<T>()`.
@@ -223,4 +223,4 @@ protected override void OnGameStart(Game game, IGameStarter gameStarterObject)
 ## See Also
 
 - ↑ Parent: [Campaign API index](../)
-- ↔ Related: [Campaign](../Campaign) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [CampaignEvents](../CampaignEvents) · [MBSubModuleBase](../../core/MBSubModuleBase) · [Game](../../core-extra/Game)
+- ↔ Related: [Campaign](../Campaign) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [CampaignEvents](../CampaignEvents) · [MBSubModuleBase](../../core/MBSubModuleBase) · zh [Game](../../../../zh/api/core-extra/Game) (no English page; see [the gap list](../../../../GAPS))

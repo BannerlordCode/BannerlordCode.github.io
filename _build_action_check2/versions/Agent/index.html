@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent 跨版本对比 &#x2F; Cross-Version Comparison</title>
+  <meta name="description" content="Bannerlord Modding SDK Documentation - 模块架构指南与 API 参考">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+      <summary>Site Navigation</summary>
+      <div class="group-items"><a href="/" class="">Home</a><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a><a href="/v1.4.5/en/" class="">Bannerlord v1.4.5</a><a href="/versions/" class="active">Cross-Version Class Comparison</a></div>
+    </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;versions&#x2F;">跨版本类对比 &#x2F; Cross-Version Class Comparison</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Agent 跨版本对比 &#x2F; Cross-Version Comparison</span>
+    </nav>
+  
+  <h1>Agent 跨版本对比 &#x2F; Cross-Version Comparison</h1>
+  <h1 id="agent">Agent</h1>
+<h2 id="mental-model">Mental Model</h2>
+<p>Treat <code>Agent</code> as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.</p>
+<p>本页比较 <code>Agent</code> 在 <strong>1.3.0 / 1.3.15 / 1.4.5</strong> 三个版本的可访问 API 变化（public/protected/internal，不含 private），数据由 <a rel="noopener external" target="_blank" href="https://github.com/BannerlordCode/BannerlordCode.github.io/tree/main/tools/class-version-diff.mjs"><code>tools/class-version-diff.mjs</code></a> 从源码自动提取。该模块属于“精选跨版本对比”集合，而不是全站所有类型的全量对比表。</p>
+<p>This page compares the accessible API of <code>Agent</code> across <strong>1.3.0 / 1.3.15 / 1.4.5</strong> (public/protected/internal, excluding private), extracted from source by <code>tools/class-version-diff.mjs</code>. It is part of a selected cross-version set, not a full matrix of every type in the site.</p>
+<blockquote>
+<p><strong>重新生成 / Regenerate</strong>
+源码更新后，在仓库根目录运行：<code>node BannerlordCode.github.io/tools/gen-version-pages.mjs</code>
+After source updates, run from repo root: <code>node BannerlordCode.github.io/tools/gen-version-pages.mjs</code></p>
+</blockquote>
+<h2 id="dui-modder-de-ying-xiang-impact-for-modders">对 modder 的影响 / Impact for modders</h2>
+<p><strong>中文：</strong> 1.4.5 新增多个战斗/队形相关成员：<code>CanPerformBraceCached</code>、<code>GetBaseFormationFrame</code>、<code>GetBoneEntitialFrame</code>、<code>UpdateDirectionChangeTendency</code>、<code>TrySetFormationFrame</code>、<code>OnConversationStarted</code> 等；移除 <code>GetRandomPairOfRealBloodBurstBoneIndices</code>。涉及 agent 战斗/队形/骨骼的 mod 获得 新钩子，部分旧血骨索引 API 被移除。</p>
+<p><strong>English:</strong> 1.4.5 adds several combat/formation members: <code>CanPerformBraceCached</code>, <code>GetBaseFormationFrame</code>, <code>GetBoneEntitialFrame</code>, <code>UpdateDirectionChangeTendency</code>, <code>TrySetFormationFrame</code>, <code>OnConversationStarted</code>, etc.; removes <code>GetRandomPairOfRealBloodBurstBoneIndices</code>. Combat/formation/skeleton mods gain new agent hooks; the old blood-burst bone-index API is gone.</p>
+<hr />
+<blockquote>
+<p>自动生成自源码 API 提取（<code>tools/class-version-diff.mjs</code>）。比较 1.3.0 / 1.3.15 / 1.4.5 的可访问成员签名（public/protected/internal，不含 private）。</p>
+</blockquote>
+<h2 id="yuan-wen-jian-yu-sheng-ming-source-files-declaration">源文件与声明 / Source files &amp; declaration</h2>
+<table><thead><tr><th>版本 Version</th><th>文件 File</th><th>行数 Lines</th></tr></thead><tbody>
+<tr><td>1.3.0</td><td><code>bannerlord-1.3.0/TaleWorlds.MountAndBlade/Agent.cs</code></td><td>6933</td></tr>
+<tr><td>1.3.15</td><td><code>bannerlord-1.3.15/TaleWorlds.MountAndBlade/Agent.cs</code></td><td>6986</td></tr>
+<tr><td>1.4.5</td><td><code>bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Agent.cs</code></td><td>5599</td></tr>
+</tbody></table>
+<p><strong>类声明 / Class declaration:</strong></p>
+<ul>
+<li><strong>1.3.0:</strong> <code>public sealed class Agent : DotNetObject, IAgent, IFocusable, IUsable, IFormationUnit, ITrackableBase</code></li>
+<li><strong>1.3.15:</strong> <code>public sealed class Agent : DotNetObject, IAgent, IFocusable, IUsable, IFormationUnit, ITrackableBase</code></li>
+<li><strong>1.4.5:</strong> <code>public sealed class Agent : DotNetObject, IAgent, IFocusable, IUsable, IFormationUnit, ITrackableBase</code></li>
+</ul>
+<h2 id="cheng-yuan-shu-liang-member-counts">成员数量 / Member counts</h2>
+<table><thead><tr><th>版本 Version</th><th>成员数 Members (excl. private)</th></tr></thead><tbody>
+<tr><td>1.3.0</td><td>502</td></tr>
+<tr><td>1.3.15</td><td>508</td></tr>
+<tr><td>1.4.5</td><td>514</td></tr>
+</tbody></table>
+<h2 id="1-3-0-1-3-15-bian-hua-changes">1.3.0 → 1.3.15 变化 / Changes</h2>
+<p><strong>新增 Added (9):</strong> <code>HasAnyRangedWeaponCached</code>, <code>IsFormationFrameEnabled</code>, <code>SetScriptedTargetEntity</code>, <code>GetGroundMaterialForCollisionEffect</code>, <code>GetTotalMass</code>, <code>GetBoneEntitialFrameAtAnimationProgress</code>, <code>TryAttachToFormation</code>, <code>TryRemoveAllDetachmentScores</code>, <code>SetIsPhysicsForceClosed</code></p>
+<p><strong>移除 Removed (3):</strong> <code>SetScriptedTargetEntityAndPosition</code>, <code>UndetachAndAttachToFormation</code>, <code>UndetachAndStopUsingObjects</code></p>
+<h2 id="1-3-15-1-4-5-bian-hua-changes">1.3.15 → 1.4.5 变化 / Changes</h2>
+<p><strong>新增 Added (7):</strong> <code>CanPerformBraceCached</code>, <code>GetBaseFormationFrame</code>, <code>OnConversationStarted</code>, <code>GetBoneEntitialFrame</code>, <code>UpdateDirectionChangeTendency</code>, <code>TrySetFormationFrame</code>, <code>CanPerformBrace</code></p>
+<p><strong>移除 Removed (1):</strong> <code>GetRandomPairOfRealBloodBurstBoneIndices</code></p>
+<h3 id="1-4-5-xin-zeng-cheng-yuan-qian-ming-added-in-1-4-5">1.4.5 新增成员签名 / Added in 1.4.5</h3>
+<table><thead><tr><th>成员 Member</th><th>类型 Kind</th><th>签名 Signature</th></tr></thead><tbody>
+<tr><td><code>CanPerformBraceCached</code></td><td>property</td><td><code>public bool CanPerformBraceCached =&gt;</code></td></tr>
+<tr><td><code>GetBaseFormationFrame</code></td><td>method</td><td><code>public bool GetBaseFormationFrame(out WorldPosition formationPosition, out Vec2 formationDirection)</code></td></tr>
+<tr><td><code>OnConversationStarted</code></td><td>method</td><td><code>public void OnConversationStarted()</code></td></tr>
+<tr><td><code>GetBoneEntitialFrame</code></td><td>method</td><td><code>public MatrixFrame GetBoneEntitialFrame(sbyte boneIndex, bool useBoneMapping)</code></td></tr>
+<tr><td><code>UpdateDirectionChangeTendency</code></td><td>method</td><td><code>public void UpdateDirectionChangeTendency()</code></td></tr>
+<tr><td><code>TrySetFormationFrame</code></td><td>method</td><td><code>public bool TrySetFormationFrame(in WorldPosition formationPosition, in Vec2 formationDirection)</code></td></tr>
+<tr><td><code>CanPerformBrace</code></td><td>method</td><td><code>public bool CanPerformBrace()</code></td></tr>
+</tbody></table>
+<h3 id="1-4-5-yi-chu-cheng-yuan-qian-ming-removed-in-1-4-5-cun-zai-yu-1-3-15">1.4.5 移除成员签名 / Removed in 1.4.5 (存在于 1.3.15)</h3>
+<table><thead><tr><th>成员 Member</th><th>类型 Kind</th><th>签名 Signature</th></tr></thead><tbody>
+<tr><td><code>GetRandomPairOfRealBloodBurstBoneIndices</code></td><td>method</td><td><code>public ValueTuple&lt;sbyte, sbyte&gt; GetRandomPairOfRealBloodBurstBoneIndices()</code></td></tr>
+</tbody></table>
+<!-- BEGIN CROSSVERSION-BACKLINK -->
+<h2 id="fan-hui-lei-can-kao-back-to-class-reference">返回类参考 / Back to Class Reference</h2>
+<table><thead><tr><th>版本 Version</th><th>语言 Lang</th><th>链接</th></tr></thead><tbody>
+<tr><td>v1.3.0</td><td>🇨🇳 中文</td><td><a href="/v1.3.0/zh/api/mission/Agent">v1.3.0 Agent</a></td></tr>
+<tr><td>v1.3.0</td><td>🇬🇧 English</td><td><a href="/v1.3.0/en/api/mission/Agent">v1.3.0 Agent</a></td></tr>
+<tr><td>v1.3.15</td><td>🇨🇳 中文</td><td><a href="/v1.3.15/zh/api/mission/Agent">v1.3.15 Agent</a></td></tr>
+<tr><td>v1.3.15</td><td>🇬🇧 English</td><td><a href="/v1.3.15/en/api/mission/Agent">v1.3.15 Agent</a></td></tr>
+<tr><td>v1.4.5</td><td>🇨🇳 中文</td><td><a href="/v1.4.5/zh/api/mission/Agent">v1.4.5 Agent</a></td></tr>
+<tr><td>v1.4.5</td><td>🇬🇧 English</td><td><a href="/v1.4.5/en/api/mission/Agent">v1.4.5 Agent</a></td></tr>
+</tbody></table>
+<!-- END CROSSVERSION-BACKLINK -->
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Compare class APIs across versions using the notes above.
+</code></pre>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/versions/">跨版本类对比 &#x2F; Cross-Version Class Comparison</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/versions/QuestBase/">&larr; QuestBase 跨版本对比 &#x2F; Cross-Version Comparison</a>
+          
+          
+            <a rel="next" href="/versions/Mission/">Mission 跨版本对比 &#x2F; Cross-Version Comparison &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

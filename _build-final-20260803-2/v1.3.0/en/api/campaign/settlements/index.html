@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settlements</title>
+  <meta name="description" content="Towns, villages, workshops and settlement data&#x2F;rules.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/settlements/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/settlements/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="active">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Settlements</span>
+    </nav>
+  
+  <h1>Settlements</h1>
+  <h2 id="up">Up</h2>
+<ul>
+<li><a href="../">Back to campaign index</a></li>
+<li><a href="../../">API Index</a></li>
+<li><a href="../../../">Version Home</a></li>
+</ul>
+<h2 id="subsystem-overview">Subsystem overview</h2>
+<p>This is the <strong>Settlements</strong> subsystem inside <strong>campaign index</strong>. Classes in the same namespace tackle related concerns; pick a type, then open its page for methods.</p>
+<p>Towns, villages, workshops and settlement data/rules.</p>
+<h2 id="classes">Classes</h2>
+<table><thead><tr><th>Class</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="../AccompanyingCharacter/"><code>AccompanyingCharacter</code></a></td><td>AccompanyingCharacter is a public type in TaleWorlds.CampaignSystem.Settlements.Locations.</td></tr>
+<tr><td><a href="../Alley/"><code>Alley</code></a></td><td>Alley is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../AreaState/"><code>AreaState</code></a></td><td>AreaState is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../Building/"><code>Building</code></a></td><td>Building is a public type in TaleWorlds.CampaignSystem.Settlements.Buildings.</td></tr>
+<tr><td><a href="../BuildingEffectEnum/"><code>BuildingEffectEnum</code></a></td><td>BuildingEffectEnum is a public type in TaleWorlds.CampaignSystem.Settlements.Buildings.</td></tr>
+<tr><td><a href="../BuildingEffectIncrementType/"><code>BuildingEffectIncrementType</code></a></td><td>BuildingEffectIncrementType is a public type in TaleWorlds.CampaignSystem.Settlements.Buildings.</td></tr>
+<tr><td><a href="../BuildingType/"><code>BuildingType</code></a></td><td>BuildingType is a public type in TaleWorlds.CampaignSystem.Settlements.Buildings.</td></tr>
+<tr><td><a href="../CharacterRelations/"><code>CharacterRelations</code></a></td><td>CharacterRelations is a public type in TaleWorlds.CampaignSystem.Settlements.Locations.</td></tr>
+<tr><td><a href="../DefaultBuildingTypes/"><code>DefaultBuildingTypes</code></a></td><td>DefaultBuildingTypes is a public type in TaleWorlds.CampaignSystem.Settlements.Buildings.</td></tr>
+<tr><td><a href="../DefaultVillageTypes/"><code>DefaultVillageTypes</code></a></td><td>DefaultVillageTypes is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../EffectInfo/"><code>EffectInfo</code></a></td><td>EffectInfo is a public type in TaleWorlds.CampaignSystem.Settlements.Buildings.</td></tr>
+<tr><td><a href="../FakeMarketData/"><code>FakeMarketData</code></a></td><td>FakeMarketData is a data carrier in TaleWorlds.CampaignSystem.Settlements that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../Fief/"><code>Fief</code></a></td><td>Fief is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../Hideout/"><code>Hideout</code></a></td><td>Hideout is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../IMarketData/"><code>IMarketData</code></a></td><td>IMarketData is a data carrier in TaleWorlds.CampaignSystem.Settlements that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../ISpottable/"><code>ISpottable</code></a></td><td>ISpottable is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../ItemData/"><code>ItemData</code></a></td><td>ItemData is a data carrier in TaleWorlds.CampaignSystem.Settlements that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../Location/"><code>Location</code></a></td><td>Location is a public type in TaleWorlds.CampaignSystem.Settlements.Locations.</td></tr>
+<tr><td><a href="../LocationCharacter/"><code>LocationCharacter</code></a></td><td>LocationCharacter is a public type in TaleWorlds.CampaignSystem.Settlements.Locations.</td></tr>
+<tr><td><a href="../LocationComplex/"><code>LocationComplex</code></a></td><td>LocationComplex is a public type in TaleWorlds.CampaignSystem.Settlements.Locations.</td></tr>
+<tr><td><a href="../LocationComplexTemplate/"><code>LocationComplexTemplate</code></a></td><td>LocationComplexTemplate is a public type in TaleWorlds.CampaignSystem.Settlements.Locations.</td></tr>
+<tr><td><a href="../Production/"><code>Production</code></a></td><td>Production is a public type in TaleWorlds.CampaignSystem.Settlements.Workshops.</td></tr>
+<tr><td><a href="../ProsperityLevel/"><code>ProsperityLevel</code></a></td><td>ProsperityLevel is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../RetirementSettlementComponent/"><code>RetirementSettlementComponent</code></a></td><td>RetirementSettlementComponent is a component-style object in TaleWorlds.CampaignSystem.Settlements, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../SellLog/"><code>SellLog</code></a></td><td>SellLog is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../Settlement/"><code>Settlement</code></a></td><td>Settlement is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../SettlementArea/"><code>SettlementArea</code></a></td><td>SettlementArea is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../SettlementBusynessPriority/"><code>SettlementBusynessPriority</code></a></td><td>SettlementBusynessPriority is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../SettlementComponent/"><code>SettlementComponent</code></a></td><td>SettlementComponent is a component-style object in TaleWorlds.CampaignSystem.Settlements, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../SiegeState/"><code>SiegeState</code></a></td><td>SiegeState is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../Town/"><code>Town</code></a></td><td>Town is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../TownMarketData/"><code>TownMarketData</code></a></td><td>TownMarketData is a data carrier in TaleWorlds.CampaignSystem.Settlements that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../Village/"><code>Village</code></a></td><td>Village is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../VillageMarketData/"><code>VillageMarketData</code></a></td><td>VillageMarketData is a data carrier in TaleWorlds.CampaignSystem.Settlements that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../VillageStates/"><code>VillageStates</code></a></td><td>VillageStates is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../VillageType/"><code>VillageType</code></a></td><td>VillageType is a public type in TaleWorlds.CampaignSystem.Settlements.</td></tr>
+<tr><td><a href="../Workshop/"><code>Workshop</code></a></td><td>Workshop is a public type in TaleWorlds.CampaignSystem.Settlements.Workshops.</td></tr>
+<tr><td><a href="../WorkshopType/"><code>WorkshopType</code></a></td><td>WorkshopType is a public type in TaleWorlds.CampaignSystem.Settlements.Workshops.</td></tr>
+</tbody></table>
+<h2 id="other-subsystems-in-this-area">Other subsystems in this area</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../agentorigins/">AgentOrigins</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../bartersystem/">BarterSystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../campaignbehaviors/">CampaignBehaviors</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../charactercreationcontent/">CharacterCreationContent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../characterdevelopment/">CharacterDevelopment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../characters/">Characters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../componentinterfaces/">ComponentInterfaces</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../conversation/">Conversation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../election/">Election</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../encounters/">Encounters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../encyclopedia/">Encyclopedia</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../extensions/">Extensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../gamecomponents/">GameComponents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../gamemenus/">GameMenus</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../gamestate/">GameState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../heroes/">Heroes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../inventory/">Inventory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../issues/">Issues</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../logentries/">LogEntries</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../map/">Map</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../mapevents/">MapEvents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../mapnotificationtypes/">MapNotificationTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../naval/">Naval</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../parties/">Parties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../party/">Party</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../quests/">Quests</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../roster/">Roster</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../savecompability/">SaveCompability</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../sceneinformationpopuptypes/">SceneInformationPopupTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../siege/">Siege</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/settlements/./../tournamentgames/">TournamentGames</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

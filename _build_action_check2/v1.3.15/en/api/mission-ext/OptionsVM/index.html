@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OptionsVM</title>
+  <meta name="description" content="Auto-generated class reference for OptionsVM.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/OptionsVM/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/OptionsVM/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">OptionsVM</span>
+    </nav>
+  
+  <h1>OptionsVM</h1>
+  <h1 id="optionsvm">OptionsVM</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public class OptionsVM : ViewModel</code>
+<strong>Base:</strong> <code>ViewModel</code>
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade.ViewModelCollection/GameOptions/OptionsVM.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>OptionsVM</code> lives in <code>TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.MountAndBlade.ViewModelCollection.GameOptions</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>CurrentOptionsMode</code></td><td><code>public OptionsVM.OptionsMode CurrentOptionsMode { get; }</code></td></tr>
+<tr><td><code>CategoryIndex</code></td><td><code>public int CategoryIndex { get; set; }</code></td></tr>
+<tr><td><code>OptionsLbl</code></td><td><code>public string OptionsLbl { get; set; }</code></td></tr>
+<tr><td><code>CancelLbl</code></td><td><code>public string CancelLbl { get; set; }</code></td></tr>
+<tr><td><code>DoneLbl</code></td><td><code>public string DoneLbl { get; set; }</code></td></tr>
+<tr><td><code>ResetLbl</code></td><td><code>public string ResetLbl { get; set; }</code></td></tr>
+<tr><td><code>IsConsole</code></td><td><code>public bool IsConsole { get; set; }</code></td></tr>
+<tr><td><code>IsDevelopmentMode</code></td><td><code>public bool IsDevelopmentMode { get; set; }</code></td></tr>
+<tr><td><code>VideoMemoryUsageName</code></td><td><code>public string VideoMemoryUsageName { get; set; }</code></td></tr>
+<tr><td><code>VideoMemoryUsageText</code></td><td><code>public string VideoMemoryUsageText { get; set; }</code></td></tr>
+<tr><td><code>VideoMemoryUsageNormalized</code></td><td><code>public float VideoMemoryUsageNormalized { get; set; }</code></td></tr>
+<tr><td><code>GameKeyOptionGroups</code></td><td><code>public GameKeyOptionCategoryVM GameKeyOptionGroups { get; }</code></td></tr>
+<tr><td><code>GamepadOptions</code></td><td><code>public GamepadOptionCategoryVM GamepadOptions { get; }</code></td></tr>
+<tr><td><code>PerformanceOptions</code></td><td><code>public GroupedOptionCategoryVM PerformanceOptions { get; }</code></td></tr>
+<tr><td><code>AudioOptions</code></td><td><code>public GroupedOptionCategoryVM AudioOptions { get; }</code></td></tr>
+<tr><td><code>GameplayOptions</code></td><td><code>public GroupedOptionCategoryVM GameplayOptions { get; }</code></td></tr>
+<tr><td><code>VideoOptions</code></td><td><code>public GroupedOptionCategoryVM VideoOptions { get; set; }</code></td></tr>
+<tr><td><code>BrightnessPopUp</code></td><td><code>public BrightnessOptionVM BrightnessPopUp { get; set; }</code></td></tr>
+<tr><td><code>ExposurePopUp</code></td><td><code>public ExposureOptionVM ExposurePopUp { get; set; }</code></td></tr>
+<tr><td><code>DoneInputKey</code></td><td><code>public InputKeyItemVM DoneInputKey { get; set; }</code></td></tr>
+<tr><td><code>CancelInputKey</code></td><td><code>public InputKeyItemVM CancelInputKey { get; set; }</code></td></tr>
+<tr><td><code>PreviousTabInputKey</code></td><td><code>public InputKeyItemVM PreviousTabInputKey { get; set; }</code></td></tr>
+<tr><td><code>NextTabInputKey</code></td><td><code>public InputKeyItemVM NextTabInputKey { get; set; }</code></td></tr>
+<tr><td><code>ResetInputKey</code></td><td><code>public InputKeyItemVM ResetInputKey { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="refreshvalues">RefreshValues</h3>
+<p><code>public override void RefreshValues()</code></p>
+<p><strong>Purpose:</strong> Keeps the display or cache of values in sync with the underlying state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.RefreshValues();
+</code></pre>
+<h3 id="executecloseoptions">ExecuteCloseOptions</h3>
+<p><code>public void ExecuteCloseOptions()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with close options.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.ExecuteCloseOptions();
+</code></pre>
+<h3 id="getactivecategory">GetActiveCategory</h3>
+<p><code>public ViewModel GetActiveCategory()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the active category value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+var result = optionsVM.GetActiveCategory();
+</code></pre>
+<h3 id="getindexofcategory">GetIndexOfCategory</h3>
+<p><code>public int GetIndexOfCategory(ViewModel categoryVM)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the index of category value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+var result = optionsVM.GetIndexOfCategory(categoryVM);
+</code></pre>
+<h3 id="getconfig">GetConfig</h3>
+<p><code>public float GetConfig(IOptionData data)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the config value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+var result = optionsVM.GetConfig(data);
+</code></pre>
+<h3 id="setconfig">SetConfig</h3>
+<p><code>public void SetConfig(IOptionData data, float val)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to config and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SetConfig(data, 0);
+</code></pre>
+<h3 id="selectpreviouscategory">SelectPreviousCategory</h3>
+<p><code>public void SelectPreviousCategory()</code></p>
+<p><strong>Purpose:</strong> Executes the SelectPreviousCategory logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SelectPreviousCategory();
+</code></pre>
+<h3 id="selectnextcategory">SelectNextCategory</h3>
+<p><code>public void SelectNextCategory()</code></p>
+<p><strong>Purpose:</strong> Executes the SelectNextCategory logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SelectNextCategory();
+</code></pre>
+<h3 id="onfinalize">OnFinalize</h3>
+<p><code>public override void OnFinalize()</code></p>
+<p><strong>Purpose:</strong> Invoked when the finalize event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.OnFinalize();
+</code></pre>
+<h3 id="executecancel">ExecuteCancel</h3>
+<p><code>public void ExecuteCancel()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with cancel.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.ExecuteCancel();
+</code></pre>
+<h3 id="executedone">ExecuteDone</h3>
+<p><code>public void ExecuteDone()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with done.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.ExecuteDone();
+</code></pre>
+<h3 id="isoptionschanged">IsOptionsChanged</h3>
+<p><code>public bool IsOptionsChanged()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the options changed state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+var result = optionsVM.IsOptionsChanged();
+</code></pre>
+<h3 id="setdoneinputkey">SetDoneInputKey</h3>
+<p><code>public void SetDoneInputKey(HotKey hotkey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to done input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SetDoneInputKey(hotkey);
+</code></pre>
+<h3 id="setcancelinputkey">SetCancelInputKey</h3>
+<p><code>public void SetCancelInputKey(HotKey hotkey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to cancel input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SetCancelInputKey(hotkey);
+</code></pre>
+<h3 id="setprevioustabinputkey">SetPreviousTabInputKey</h3>
+<p><code>public void SetPreviousTabInputKey(HotKey hotkey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to previous tab input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SetPreviousTabInputKey(hotkey);
+</code></pre>
+<h3 id="setnexttabinputkey">SetNextTabInputKey</h3>
+<p><code>public void SetNextTabInputKey(HotKey hotkey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to next tab input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SetNextTabInputKey(hotkey);
+</code></pre>
+<h3 id="setresetinputkey">SetResetInputKey</h3>
+<p><code>public void SetResetInputKey(HotKey hotkey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to reset input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of OptionsVM from the subsystem API first
+OptionsVM optionsVM = ...;
+optionsVM.SetResetInputKey(hotkey);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+OptionsVM optionsVM = ...;
+optionsVM.RefreshValues();
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/mission-ext/">mission-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/mission-ext/ClassLoadoutTroopTupleCultureColorBrushWidget/">&larr; ClassLoadoutTroopTupleCultureColorBrushWidget</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/mission-ext/OrderOfBattleVM/">OrderOfBattleVM &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

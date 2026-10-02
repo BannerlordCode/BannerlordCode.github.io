@@ -186,4 +186,4 @@ ScreenManager.PopScreen();
 - 可视层基类：[GauntletLayer](../../engine/GauntletLayer) — 最常见的 `ScreenLayer` 实现，`TaleWorlds.Engine.GauntletUI` 命名空间。
 - 组件类型：`ScreenComponent` 与本类同命名空间，是 `AddComponent` / `FindComponent<T>` 的约束类型。
 - 战役侧：被 `SandBox` 与 `StoryMode` 的大量界面继承，用到 `Campaign.Current` 的钩子里需要参考 [Campaign](../../campaign/Campaign)。
-- 父级：gui API 目录导览位于版本根 `../../../`。
+- 父级：[gui API 目录导览](../)

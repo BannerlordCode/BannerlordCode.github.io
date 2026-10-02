@@ -211,4 +211,4 @@ ScreenManager.ReplaceTopScreen(new MyLedgerScreen());
 - 渲染层实现：[GauntletLayer](../../engine/GauntletLayer) — 最常见的 layer 实现，通常经 `ScreenBase.AddLayer` 挂上去。
 - 输入：`InputRestrictions`、`CursorType` 与本类同命名空间；底层按键来自 `TaleWorlds.InputSystem`。
 - 界面里用到战役数据时参见 [Campaign](../../campaign/Campaign)。
-- 父级：gui API 目录导览位于版本根 `../../../`。
+- 父级：[gui API 目录导览](../)

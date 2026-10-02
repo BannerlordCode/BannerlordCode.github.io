@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IDataStore</title>
+  <meta name="description" content="The per-Behavior, key&#x2F;value pouch used by the save&#x2F;load system — it exists only inside CampaignBehaviorBase.SyncData and is the single correct way to persist a behavior&#x27;s private state across saves.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/IDataStore/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/IDataStore/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">IDataStore</span>
+    </nav>
+  
+  <h1>IDataStore</h1>
+  <h1 id="idatastore">IDataStore</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public interface IDataStore</code><br />
+<strong>Base:</strong> none (interface, no base type)<br />
+<strong>Source:</strong> <code>TaleWorlds.CampaignSystem/IDataStore.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>IDataStore</code> is the minimal contract at the heart of Bannerlord's <strong>campaign save/load</strong> mechanism: a "store or fetch a value by key" container. It lives only for the duration of <strong>one save or load pass, scoped to one behavior</strong> — the engine constructs it and hands it to your <code>CampaignBehaviorBase.SyncData(IDataStore dataStore)</code> override. Whatever you <code>SyncData</code> into it gets written to the save; on load the engine feeds the same values back. It is <strong>not</strong> a cross-campaign global database and <strong>not</strong> a runtime channel for sharing state between systems.</p>
+<blockquote>
+<p>One-line responsibility: perform a keyed, two-way sync of a single behavior's private fields with the game save, once per save and once per load.</p>
+</blockquote>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of <code>IDataStore</code> as <strong>"the temporary tray the engine hands you during one save/load of your behavior"</strong>:</p>
+<ul>
+<li>Its lifetime is extremely short. Before writing a save, the engine fires <code>OnBeforeSaveEvent</code>; <code>CampaignBehaviorManager</code> builds a fresh <code>BehaviorSaveData</code> (the internal <code>IDataStore</code> implementation, with <code>IsSaving == true</code>), calls your <code>SyncData</code>, collects everything you registered through <code>SyncData(key, ref value)</code> into that tray, then drops the tray into the <code>CampaignBehaviorDataStore</code> it keeps as a <code>[SaveableField(1)]</code> and writes the whole <code>Campaign</code> to disk. Load is the reverse: the manager prepares a tray with <code>IsLoading == true</code>, calls <code>SyncData</code>, fills your <code>ref</code> variables back by key, and discards the tray.</li>
+<li>It is <strong>bucketed per behavior</strong>. The underlying store is a <code>Dictionary&lt;string, BehaviorSaveData&gt;</code> keyed by <code>CampaignBehaviorBase.StringId</code>. So two different behaviors may freely use the same key (e.g. both call it <code>"_counter"</code>) with no interference; but <strong>within one behavior</strong> the key is the identity, and collisions are fatal (see Risks).</li>
+<li>The <code>IDataStore</code> instance you receive is <strong>transient and valid only for that one call</strong>. It is backed by the <code>internal</code> <code>CampaignBehaviorDataStore.BehaviorSaveData</code>; a mod can neither <code>new</code> one nor "fetch" a long-lived one from <code>Campaign</code>. <code>Campaign</code> has <strong>no</strong> <code>GetDataStore</code> / <code>DataStore</code> public member (its only data-store-shaped field is <code>CampaignTickCacheDataStore _tickData</code>, an unrelated per-tick cache).</li>
+</ul>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p><strong>Use it (correct scenarios):</strong></p>
+<ul>
+<li>Override <code>SyncData(IDataStore dataStore)</code> in your <code>CampaignBehaviorBase</code> subclass and register every field that must survive a save with <code>SyncData("key", ref field)</code>. This is the <strong>standard and only</strong> entry point for persisting your mod's state.</li>
+<li>Use <code>IsSaving</code> / <code>IsLoading</code> to tell whether you are currently writing or reading, e.g. to rebuild in-memory references or recompute caches after a load.</li>
+</ul>
+<p><strong>Do NOT do this:</strong></p>
+<ul>
+<li>Do <strong>not</strong> implement <code>IDataStore</code> yourself or <code>new</code> one up as a "global data container" for your mod. The engine only ever calls the <code>BehaviorSaveData</code> it builds internally; your implementation would never be touched.</li>
+<li>Do <strong>not</strong> stash the <code>dataStore</code> reference you receive into a field for later use. It is valid only inside that <code>SyncData</code> call; afterwards the tray is discarded or cleared, so touching it later is meaningless (and may hit another behavior's tray).</li>
+<li>Do <strong>not</strong> use it as a runtime "shared bus". To share state between behaviors, or between a behavior and the UI, use <code>Campaign.Current</code>, the various managers, or your own static/instance fields. <code>IDataStore</code> only exists at the save/load moment.</li>
+<li><strong>Correct alternatives:</strong> mod persistence state → keep it as a field on your <code>CampaignBehaviorBase</code> subclass (or a <code>[SaveableField]</code> field) and register it in <code>SyncData</code>; runtime-shared state → a behavior instance field, a behavior fetched via <code>Campaign.Current.GetCampaignBehavior&lt;T&gt;()</code>, or the managers exposed by <code>Campaign</code>.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li>↑ Upstream:
+<ul>
+<li><a href="../../campaign/Campaign/">Campaign</a> — the host of the whole campaign; <code>CampaignBehaviorManager</code> is its saveable child object and the <code>CampaignBehaviorDataStore</code> is written to disk together with the campaign.</li>
+<li><a href="../CampaignBehaviorBase/">CampaignBehaviorBase</a> / <a href="../ICampaignBehavior/">ICampaignBehavior</a> — your behavior receives this tray through <code>SyncData(IDataStore)</code>.</li>
+<li>Save system: <a href="../../save-system/SaveManager/">SaveManager</a> — <code>OnBeforeSaveEvent</code> triggers the write, <code>LoadBehaviorData</code> refills your behavior after <code>OnGameLoaded</code>.</li>
+<li><a href="../../save-system/SaveableTypeDefiner/">SaveableTypeDefiner</a> — registers saveable types and the <code>LocalSaveId</code> metadata the object graph relies on.</li>
+</ul>
+</li>
+<li>↓ Downstream:
+<ul>
+<li>Every campaign behavior that overrides <code>SyncData</code> (vanilla <code>WorkshopsCampaignBehavior</code>, <code>VillagerCampaignBehavior</code>, <code>ViewDataTrackerCampaignBehavior</code>, etc. all use it).</li>
+<li>Internal holders: <code>CampaignBehaviorManager</code> (keeps <code>CampaignBehaviorDataStore</code> as <code>[SaveableField(1)]</code>), and the save definer that registers <code>CampaignBehaviorDataStore</code> / <code>BehaviorSaveData</code> with the save type table.</li>
+</ul>
+</li>
+</ul>
+<h2 id="risks">Risks</h2>
+<ul>
+<li><strong>Lifetime is only inside the SyncData call:</strong> the <code>dataStore</code> you get is the <code>BehaviorSaveData</code> built for this one save/load pass. Assigning it to a field and calling it later from a tick or event handler is undefined (usually an empty tray, or another behavior's tray). Persist via <code>SyncData</code>; access at runtime via your own behavior fields.</li>
+<li><strong>Duplicate keys abort the save:</strong> the store is a <code>Dictionary&lt;string, object&gt;</code>, and during saving it calls <code>_records.Add(key, data)</code>. Because <code>Add</code> throws on a duplicate key, registering the <strong>same key twice within one behavior during a save throws <code>ArgumentException</code> and aborts the save</strong> — it does <em>not</em> silently overwrite. Give each field a unique, prefixed key (e.g. <code>"_myMod_counter"</code>). (During loading the lookup uses <code>TryGetValue</code>, so a missing key simply returns <code>false</code> rather than throwing.)</li>
+<li><strong>Cross-campaign / cross-version references:</strong> the value you <code>SyncData</code> must be serializable and part of the save object graph (primitives, <code>MBObjectBase</code>-derived types that implement the save contract, standard containers, etc.). Storing a reference to something that only lives in this session's memory — or to a transient object outside the graph — makes save collection fail or returns <code>null</code> on load. On load, <code>SyncData</code> returning <code>false</code> means the key was absent from the save, so your <code>ref</code> variable keeps its default — always handle the "new save / old save missing a field" case.</li>
+<li><strong>Version evolution:</strong> the save records the field's current type. If you later change a field's type (e.g. <code>int</code> to <code>List&lt;int&gt;</code>), an old save may fail to deserialize or throw. The safe approach is to <strong>version the key</strong> (e.g. <code>"_myMod_counter_v2"</code>) or tolerate the default in <code>SyncData</code>.</li>
+<li><strong>StringId decides the bucket:</strong> the bucket key is <code>CampaignBehaviorBase.StringId</code> (by default the type name). On load, if no exact <code>StringId</code> match is found, the loader falls back to a "type name contains" match; so <strong>do not let two behavior type names contain one another</strong>, or loads may cross buckets. <code>Debug.FailedAssert</code> also fires if the same <code>StringId</code> is saved twice.</li>
+<li><strong><code>IsSaving</code> / <code>IsLoading</code> are phase flags only:</strong> do not branch game logic on them (e.g. "skip charging gold while saving"). They only tell you whether the current pass is writing or reading; the actual game state comes from the values you write into <code>ref</code>.</li>
+<li><strong><code>LocalSaveId</code> misuse corrupts silently (attribute route):</strong> when you persist members of a saveable type via <code>[SaveableField(short localSaveId)]</code> / <code>[SaveableProperty(short localSaveId)]</code> (registered through <a href="../../save-system/SaveableTypeDefiner/">SaveableTypeDefiner</a>), the save system identifies each member by a <code>MemberTypeId</code> combining the type's class level and that <code>short LocalSaveId</code>. Reusing the same <code>LocalSaveId</code> for two different members within one type makes the loader write into the wrong field → silent data corruption; changing a member's <code>LocalSaveId</code> without a compatibility resolver makes old saves deserialize into the wrong (or a new) member. Keep each <code>LocalSaveId</code> unique within its type and stable across versions. <code>IDataStore.SyncData</code> itself does <em>not</em> use <code>LocalSaveId</code> — it matches by string key — so the key-versioning discipline above is your equivalent safety net there.</li>
+</ul>
+<h2 id="members">Members</h2>
+<p><code>IDataStore</code> has exactly three members, all centered on a single save/load sync.</p>
+<h3 id="data-read-write">Data read/write</h3>
+<h4 id="bool-syncdata-t-string-key-ref-t-data"><code>bool SyncData&lt;T&gt;(string key, ref T data)</code></h4>
+<p>Performs the two-way sync of <code>data</code> with the save by <code>key</code> — the <strong>only</strong> method you use to talk to the save.</p>
+<ul>
+<li><strong>While saving (<code>IsSaving == true</code>):</strong> stores the current value of <code>data</code> under <code>key</code> and returns <code>true</code>. The engine then collects it into the current behavior's tray and writes it to disk.</li>
+<li><strong>While loading (<code>IsLoading == true</code>):</strong> if <code>key</code> exists in the save, writes the stored value back into <code>data</code> (via <code>ref</code>) and returns <code>true</code>; if absent, leaves <code>data</code> at its default and returns <code>false</code>.</li>
+<li><strong>Side effect:</strong> mutates <code>data</code> (on load). <code>T</code> must be serializable and belong to the save object graph.</li>
+<li><strong>When to call:</strong> only inside your <code>CampaignBehaviorBase.SyncData(IDataStore dataStore)</code> override; never anywhere else.</li>
+</ul>
+<pre><code data-lang="csharp">public override void SyncData(IDataStore dataStore)
+{
+    // Saving: writes _raidCount under &quot;_raidCount&quot;; Loading: restores it, or returns false if absent
+    dataStore.SyncData(&quot;_raidCount&quot;, ref _raidCount);
+    dataStore.SyncData(&quot;_trackedVillages&quot;, ref _trackedVillages);
+}
+</code></pre>
+<h3 id="lifecycle-phase-flags">Lifecycle / phase flags</h3>
+<h4 id="bool-issaving-get"><code>bool IsSaving { get; }</code></h4>
+<p>Whether this tray is in the <strong>saving</strong> phase (<code>true</code>) — "are we currently writing data into the save". Backed by <code>BehaviorSaveData._isSaving</code>.</p>
+<h4 id="bool-isloading-get"><code>bool IsLoading { get; }</code></h4>
+<p>Whether this tray is in the <strong>loading</strong> phase (<code>true</code>). Backed by <code>!_isSaving</code>, so on any given tray exactly one of <code>IsSaving</code> / <code>IsLoading</code> is true. Typical use: after load refills, rebuild in-memory references or recompute derived caches.</p>
+<pre><code data-lang="csharp">public override void SyncData(IDataStore dataStore)
+{
+    dataStore.SyncData(&quot;_cachedHero&quot;, ref _cachedHero);
+    if (dataStore.IsLoading)
+    {
+        // Load finished: rebuild non-saveable derived references
+        RebuildDerivedReferences();
+    }
+}
+</code></pre>
+<h2 id="example">Example</h2>
+<h3 id="example-1-persisting-a-behavior-s-private-state-the-correct-pattern">Example 1: Persisting a behavior's private state (the correct pattern)</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using System.Collections.Generic;
+
+public class MyTrackerBehavior : CampaignBehaviorBase
+{
+    private int _raidCount;                       // field that must survive saves
+    private List&lt;string&gt; _trackedVillageIds;
+
+    public override void RegisterEvents()
+    {
+        // subscribe to campaign events as usual...
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        // dataStore is the tray the engine hands you on save/load
+        dataStore.SyncData(&quot;_raidCount&quot;, ref _raidCount);
+        dataStore.SyncData(&quot;_trackedVillageIds&quot;, ref _trackedVillageIds);
+
+        // after a load refills the fields, rebuild in-memory derived state
+        if (dataStore.IsLoading)
+        {
+            _trackedVillageIds ??= new List&lt;string&gt;();
+        }
+    }
+}
+</code></pre>
+<p>Once <code>MyTrackerBehavior</code> is registered through <code>CampaignGameStarter</code>, the engine calls its <code>SyncData</code> before saving (with <code>IsSaving</code>) and again after <code>OnGameLoaded</code> (with <code>IsLoading</code>), so <code>_raidCount</code> and <code>_trackedVillageIds</code> survive across saves.</p>
+<h3 id="example-2-what-you-must-not-do">Example 2: What you must NOT do</h3>
+<pre><code data-lang="csharp">// ❌ Wrong 1: trying to &quot;fetch&quot; a long-lived IDataStore from Campaign — it does not exist
+// IDataStore store = Campaign.Current.GetDataStore();   // no such API; won&#39;t compile/run
+
+// ❌ Wrong 2: caching the SyncData argument into a field for use in a tick
+private IDataStore _cachedStore;
+public override void SyncData(IDataStore dataStore)
+{
+    _cachedStore = dataStore;   // this tray is discarded when the call ends; using it later is undefined
+}
+
+// ❌ Wrong 3: treating IDataStore as a runtime shared bus and reading/writing it in a daily tick
+// it only exists at the save/load moment; you cannot reach it at runtime.
+</code></pre>
+<p><strong>Correct alternative:</strong> for runtime sharing, keep the data on the behavior's own fields or on <code>Campaign.Current</code> / the managers; use <code>IDataStore</code> only inside <code>SyncData</code> to register persistence.</p>
+<h2 id="cross-version-notes">Cross-version notes</h2>
+<ul>
+<li>The <code>IDataStore</code> surface (<code>IsSaving</code> / <code>IsLoading</code> / <code>SyncData&lt;T&gt;</code>) is <strong>identical</strong> across <code>1.3.0</code>, <code>1.3.15</code>, and <code>1.4.5</code>; the <code>SyncData</code> semantics (write on save, refill on load, return hit/miss) are unchanged.</li>
+<li>The backing <code>CampaignBehaviorDataStore</code> and <code>CampaignBehaviorManager</code> (which holds the <code>[SaveableField(1)]</code> store and listens to <code>OnBeforeSaveEvent</code>) are stable across these versions — the standard "bucketed per behavior" save mechanism.</li>
+<li>When writing a cross-version mod, keep your <code>SyncData</code> values serializable, and add a version suffix to keys if you ever change a field's type, so old saves do not fail to deserialize.</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Parent: <a href="https://bannerlordcode.github.io/v1.3.15/en/api/campaign-ext/IDataStore/./">campaign-ext index</a></li>
+<li>↔ Sibling: <a href="../../campaign/Campaign/">Campaign</a> — the campaign hub; <a href="../CampaignBehaviorBase/">CampaignBehaviorBase</a> / <a href="../ICampaignBehavior/">ICampaignBehavior</a> — where your behavior receives the <code>IDataStore</code></li>
+<li>Related: <a href="../../save-system/SaveManager/">SaveManager</a> — how the save system triggers the write and refill; <a href="../../save-system/SaveableTypeDefiner/">SaveableTypeDefiner</a> — <code>LocalSaveId</code> and the saveable type table</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/DefaultBattleCaptainModel/">&larr; DefaultBattleCaptainModel</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/BrushWidget/">BrushWidget &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

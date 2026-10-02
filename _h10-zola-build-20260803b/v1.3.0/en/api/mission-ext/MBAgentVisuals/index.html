@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MBAgentVisuals</title>
+  <meta name="description" content="Auto-generated class reference for MBAgentVisuals.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/MBAgentVisuals/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/MBAgentVisuals/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/MBAgentVisuals/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/MBAgentVisuals/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/MBAgentVisuals/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/MBAgentVisuals/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MBAgentVisuals</span>
+    </nav>
+  
+  <h1>MBAgentVisuals</h1>
+  <h1 id="mbagentvisuals">MBAgentVisuals</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public sealed class MBAgentVisuals : NativeObject</code>
+<strong>Base:</strong> <code>NativeObject</code>
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/MBAgentVisuals.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>MBAgentVisuals</code> lives in <code>TaleWorlds.MountAndBlade</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.MountAndBlade</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="createagentvisuals">CreateAgentVisuals</h3>
+<p><code>public static MBAgentVisuals CreateAgentVisuals(Scene scene, string ownerName, Vec3 eyeOffset)</code></p>
+<p><strong>Purpose:</strong> Constructs a new agent visuals entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MBAgentVisuals.CreateAgentVisuals(scene, &quot;example&quot;, eyeOffset);
+</code></pre>
+<h3 id="tick">Tick</h3>
+<p><code>public void Tick(MBAgentVisuals parentAgentVisuals, float dt, bool entityMoving, float speed)</code></p>
+<p><strong>Purpose:</strong> Advances the this instance's state by one frame or update cycle.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.Tick(parentAgentVisuals, 0, false, 0);
+</code></pre>
+<h3 id="getglobalframe">GetGlobalFrame</h3>
+<p><code>public MatrixFrame GetGlobalFrame()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the global frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetGlobalFrame();
+</code></pre>
+<h3 id="getframe">GetFrame</h3>
+<p><code>public MatrixFrame GetFrame()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetFrame();
+</code></pre>
+<h3 id="getentity">GetEntity</h3>
+<p><code>public GameEntity GetEntity()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the entity value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetEntity();
+</code></pre>
+<h3 id="isvalid">IsValid</h3>
+<p><code>public bool IsValid()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the valid state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.IsValid();
+</code></pre>
+<h3 id="getglobalstableeyepoint">GetGlobalStableEyePoint</h3>
+<p><code>public Vec3 GetGlobalStableEyePoint(bool isHumanoid)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the global stable eye point value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetGlobalStableEyePoint(false);
+</code></pre>
+<h3 id="getglobalstableneckpoint">GetGlobalStableNeckPoint</h3>
+<p><code>public Vec3 GetGlobalStableNeckPoint(bool isHumanoid)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the global stable neck point value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetGlobalStableNeckPoint(false);
+</code></pre>
+<h3 id="getboneentitialframe">GetBoneEntitialFrame</h3>
+<p><code>public MatrixFrame GetBoneEntitialFrame(sbyte bone, bool useBoneMapping)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bone entitial frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetBoneEntitialFrame(0, false);
+</code></pre>
+<h3 id="setattachedpositionformeshafteranimationpostintegrate">SetAttachedPositionForMeshAfterAnimationPostIntegrate</h3>
+<p><code>public void SetAttachedPositionForMeshAfterAnimationPostIntegrate(WeakGameEntity ropeEntity, sbyte bone)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to attached position for mesh after animation post integrate and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetAttachedPositionForMeshAfterAnimationPostIntegrate(ropeEntity, 0);
+</code></pre>
+<h3 id="getcurrentheadlookdirection">GetCurrentHeadLookDirection</h3>
+<p><code>public Vec3 GetCurrentHeadLookDirection()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the current head look direction value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetCurrentHeadLookDirection();
+</code></pre>
+<h3 id="getmovementmode">GetMovementMode</h3>
+<p><code>public HumanWalkingMovementMode GetMovementMode()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the movement mode value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetMovementMode();
+</code></pre>
+<h3 id="getvisualstrengthofagentvisual">GetVisualStrengthOfAgentVisual</h3>
+<p><code>public float GetVisualStrengthOfAgentVisual(MBAgentVisuals targetAgentVisual, Mission mission, float ambientLightStrength, float sunMoonLightStrength, int agentIndexToIgnore)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the visual strength of agent visual value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetVisualStrengthOfAgentVisual(targetAgentVisual, mission, 0, 0, 0);
+</code></pre>
+<h3 id="getcurrentragdollstate">GetCurrentRagdollState</h3>
+<p><code>public RagdollState GetCurrentRagdollState()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the current ragdoll state value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetCurrentRagdollState();
+</code></pre>
+<h3 id="getrealboneindex">GetRealBoneIndex</h3>
+<p><code>public sbyte GetRealBoneIndex(HumanBone boneType)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the real bone index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetRealBoneIndex(boneType);
+</code></pre>
+<h3 id="addprefabtoagentvisualbonebybonetype">AddPrefabToAgentVisualBoneByBoneType</h3>
+<p><code>public CompositeComponent AddPrefabToAgentVisualBoneByBoneType(string prefabName, HumanBone boneType)</code></p>
+<p><strong>Purpose:</strong> Adds prefab to agent visual bone by bone type to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.AddPrefabToAgentVisualBoneByBoneType(&quot;example&quot;, boneType);
+</code></pre>
+<h3 id="addprefabtoagentvisualbonebyrealboneindex">AddPrefabToAgentVisualBoneByRealBoneIndex</h3>
+<p><code>public CompositeComponent AddPrefabToAgentVisualBoneByRealBoneIndex(string prefabName, sbyte realBoneIndex)</code></p>
+<p><strong>Purpose:</strong> Adds prefab to agent visual bone by real bone index to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.AddPrefabToAgentVisualBoneByRealBoneIndex(&quot;example&quot;, 0);
+</code></pre>
+<h3 id="getattachedweaponentity">GetAttachedWeaponEntity</h3>
+<p><code>public GameEntity GetAttachedWeaponEntity(int attachedWeaponIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the attached weapon entity value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetAttachedWeaponEntity(0);
+</code></pre>
+<h3 id="setframe">SetFrame</h3>
+<p><code>public void SetFrame(ref MatrixFrame frame)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to frame and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetFrame(frame);
+</code></pre>
+<h3 id="setentity">SetEntity</h3>
+<p><code>public void SetEntity(GameEntity value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to entity and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetEntity(value);
+</code></pre>
+<h3 id="fillentitywithbodymesheswithoutagentvisuals">FillEntityWithBodyMeshesWithoutAgentVisuals</h3>
+<p><code>public static void FillEntityWithBodyMeshesWithoutAgentVisuals(GameEntity entity, SkinGenerationParams skinParams, BodyProperties bodyProperties, MetaMesh glovesMesh)</code></p>
+<p><strong>Purpose:</strong> Executes the FillEntityWithBodyMeshesWithoutAgentVisuals logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MBAgentVisuals.FillEntityWithBodyMeshesWithoutAgentVisuals(entity, skinParams, bodyProperties, glovesMesh);
+</code></pre>
+<h3 id="getbonetypedata">GetBoneTypeData</h3>
+<p><code>public BoneBodyTypeData GetBoneTypeData(sbyte boneIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bone type data value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetBoneTypeData(0);
+</code></pre>
+<h3 id="getskeleton">GetSkeleton</h3>
+<p><code>public Skeleton GetSkeleton()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the skeleton value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetSkeleton();
+</code></pre>
+<h3 id="setskeleton">SetSkeleton</h3>
+<p><code>public void SetSkeleton(Skeleton newSkeleton)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to skeleton and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetSkeleton(newSkeleton);
+</code></pre>
+<h3 id="createparticlesystemattachedtobone">CreateParticleSystemAttachedToBone</h3>
+<p><code>public void CreateParticleSystemAttachedToBone(string particleName, sbyte boneIndex, ref MatrixFrame boneLocalParticleFrame)</code></p>
+<p><strong>Purpose:</strong> Constructs a new particle system attached to bone entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.CreateParticleSystemAttachedToBone(&quot;example&quot;, 0, boneLocalParticleFrame);
+</code></pre>
+<h3 id="createparticlesystemattachedtobone-1">CreateParticleSystemAttachedToBone</h3>
+<p><code>public void CreateParticleSystemAttachedToBone(int runtimeParticleindex, sbyte boneIndex, ref MatrixFrame boneLocalParticleFrame)</code></p>
+<p><strong>Purpose:</strong> Constructs a new particle system attached to bone entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.CreateParticleSystemAttachedToBone(0, 0, boneLocalParticleFrame);
+</code></pre>
+<h3 id="setvisible">SetVisible</h3>
+<p><code>public void SetVisible(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to visible and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetVisible(false);
+</code></pre>
+<h3 id="getvisible">GetVisible</h3>
+<p><code>public bool GetVisible()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the visible value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetVisible();
+</code></pre>
+<h3 id="addchildentity">AddChildEntity</h3>
+<p><code>public void AddChildEntity(GameEntity entity)</code></p>
+<p><strong>Purpose:</strong> Adds child entity to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.AddChildEntity(entity);
+</code></pre>
+<h3 id="setclothwindtoweaponatindex">SetClothWindToWeaponAtIndex</h3>
+<p><code>public void SetClothWindToWeaponAtIndex(Vec3 windVector, bool isLocal, EquipmentIndex weaponIndex)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to cloth wind to weapon at index and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetClothWindToWeaponAtIndex(windVector, false, weaponIndex);
+</code></pre>
+<h3 id="removechildentity">RemoveChildEntity</h3>
+<p><code>public void RemoveChildEntity(GameEntity entity, int removeReason)</code></p>
+<p><strong>Purpose:</strong> Removes child entity from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.RemoveChildEntity(entity, 0);
+</code></pre>
+<h3 id="checkresources">CheckResources</h3>
+<p><code>public bool CheckResources(bool addToQueue)</code></p>
+<p><strong>Purpose:</strong> Verifies whether resources holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.CheckResources(false);
+</code></pre>
+<h3 id="addskinmeshes">AddSkinMeshes</h3>
+<p><code>public void AddSkinMeshes(SkinGenerationParams skinParams, BodyProperties bodyProperties, bool useGPUMorph, bool useFaceCache)</code></p>
+<p><strong>Purpose:</strong> Adds skin meshes to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.AddSkinMeshes(skinParams, bodyProperties, false, false);
+</code></pre>
+<h3 id="setfacegenerationparams">SetFaceGenerationParams</h3>
+<p><code>public void SetFaceGenerationParams(FaceGenerationParams faceGenerationParams)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to face generation params and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetFaceGenerationParams(faceGenerationParams);
+</code></pre>
+<h3 id="setlodatlasshadingindex">SetLodAtlasShadingIndex</h3>
+<p><code>public void SetLodAtlasShadingIndex(int index, bool useTeamColor, uint teamColor1, uint teamColor2)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to lod atlas shading index and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetLodAtlasShadingIndex(0, false, 0, 0);
+</code></pre>
+<h3 id="clearvisualcomponents">ClearVisualComponents</h3>
+<p><code>public void ClearVisualComponents(bool removeSkeleton)</code></p>
+<p><strong>Purpose:</strong> Removes all visual components from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.ClearVisualComponents(false);
+</code></pre>
+<h3 id="lazyupdateagentrendererdata">LazyUpdateAgentRendererData</h3>
+<p><code>public void LazyUpdateAgentRendererData()</code></p>
+<p><strong>Purpose:</strong> Executes the LazyUpdateAgentRendererData logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.LazyUpdateAgentRendererData();
+</code></pre>
+<h3 id="addmultimesh">AddMultiMesh</h3>
+<p><code>public void AddMultiMesh(MetaMesh metaMesh, BodyMeshTypes bodyMeshIndex)</code></p>
+<p><strong>Purpose:</strong> Adds multi mesh to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.AddMultiMesh(metaMesh, bodyMeshIndex);
+</code></pre>
+<h3 id="applyskeletonscale">ApplySkeletonScale</h3>
+<p><code>public void ApplySkeletonScale(Vec3 mountSitBoneScale, float mountRadiusAdder, sbyte boneIndices, Vec3 boneScales)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of skeleton scale to the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.ApplySkeletonScale(mountSitBoneScale, 0, 0, boneScales);
+</code></pre>
+<h3 id="updateskeletonscale">UpdateSkeletonScale</h3>
+<p><code>public void UpdateSkeletonScale(int bodyDeformType)</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of skeleton scale.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.UpdateSkeletonScale(0);
+</code></pre>
+<h3 id="addhorsereinsclothmesh">AddHorseReinsClothMesh</h3>
+<p><code>public void AddHorseReinsClothMesh(MetaMesh reinMesh, MetaMesh ropeMesh)</code></p>
+<p><strong>Purpose:</strong> Adds horse reins cloth mesh to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.AddHorseReinsClothMesh(reinMesh, ropeMesh);
+</code></pre>
+<h3 id="batchlastlodmeshes">BatchLastLodMeshes</h3>
+<p><code>public void BatchLastLodMeshes()</code></p>
+<p><strong>Purpose:</strong> Executes the BatchLastLodMeshes logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.BatchLastLodMeshes();
+</code></pre>
+<h3 id="addweapontoagententity">AddWeaponToAgentEntity</h3>
+<p><code>public void AddWeaponToAgentEntity(int slotIndex, in WeaponData weaponData, WeaponStatsData weaponStatsData, in WeaponData ammoWeaponData, WeaponStatsData ammoWeaponStatsData, GameEntity cachedEntity)</code></p>
+<p><strong>Purpose:</strong> Adds weapon to agent entity to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.AddWeaponToAgentEntity(0, weaponData, weaponStatsData, ammoWeaponData, ammoWeaponStatsData, cachedEntity);
+</code></pre>
+<h3 id="updatequivermesheswithoutagent">UpdateQuiverMeshesWithoutAgent</h3>
+<p><code>public void UpdateQuiverMeshesWithoutAgent(int weaponIndex, int ammoCount)</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of quiver meshes without agent.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.UpdateQuiverMeshesWithoutAgent(0, 0);
+</code></pre>
+<h3 id="setwieldedweaponindices">SetWieldedWeaponIndices</h3>
+<p><code>public void SetWieldedWeaponIndices(int slotIndexRightHand, int slotIndexLeftHand)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to wielded weapon indices and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetWieldedWeaponIndices(0, 0);
+</code></pre>
+<h3 id="clearallweaponmeshes">ClearAllWeaponMeshes</h3>
+<p><code>public void ClearAllWeaponMeshes()</code></p>
+<p><strong>Purpose:</strong> Removes all all weapon meshes from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.ClearAllWeaponMeshes();
+</code></pre>
+<h3 id="clearweaponmeshes">ClearWeaponMeshes</h3>
+<p><code>public void ClearWeaponMeshes(EquipmentIndex index)</code></p>
+<p><strong>Purpose:</strong> Removes all weapon meshes from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.ClearWeaponMeshes(index);
+</code></pre>
+<h3 id="makevoice">MakeVoice</h3>
+<p><code>public void MakeVoice(int voiceId, Vec3 position)</code></p>
+<p><strong>Purpose:</strong> Executes the MakeVoice logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.MakeVoice(0, position);
+</code></pre>
+<h3 id="setsetupmorphnode">SetSetupMorphNode</h3>
+<p><code>public void SetSetupMorphNode(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to setup morph node and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetSetupMorphNode(false);
+</code></pre>
+<h3 id="usescaledweapons">UseScaledWeapons</h3>
+<p><code>public void UseScaledWeapons(bool value)</code></p>
+<p><strong>Purpose:</strong> Executes the UseScaledWeapons logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.UseScaledWeapons(false);
+</code></pre>
+<h3 id="setclothcomponentkeepstateofallmeshes">SetClothComponentKeepStateOfAllMeshes</h3>
+<p><code>public void SetClothComponentKeepStateOfAllMeshes(bool keepState)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to cloth component keep state of all meshes and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetClothComponentKeepStateOfAllMeshes(false);
+</code></pre>
+<h3 id="getfacegenscalingmatrix">GetFacegenScalingMatrix</h3>
+<p><code>public MatrixFrame GetFacegenScalingMatrix()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the facegen scaling matrix value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetFacegenScalingMatrix();
+</code></pre>
+<h3 id="replacemeshwithmesh">ReplaceMeshWithMesh</h3>
+<p><code>public void ReplaceMeshWithMesh(MetaMesh oldMetaMesh, MetaMesh newMetaMesh, BodyMeshTypes bodyMeshIndex)</code></p>
+<p><strong>Purpose:</strong> Executes the ReplaceMeshWithMesh logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.ReplaceMeshWithMesh(oldMetaMesh, newMetaMesh, bodyMeshIndex);
+</code></pre>
+<h3 id="setagentactionchannel">SetAgentActionChannel</h3>
+<p><code>public void SetAgentActionChannel(int actionChannelNo, int actionIndex, float channelParameter = 0f, float blendPeriodOverride = -0.2f, bool forceFaceMorphRestart = true, float blendWithNextActionFactor = 0f)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to agent action channel and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetAgentActionChannel(0, 0, 0, 0, false, 0);
+</code></pre>
+<h3 id="setvoicedefinitionindex">SetVoiceDefinitionIndex</h3>
+<p><code>public void SetVoiceDefinitionIndex(int voiceDefinitionIndex, float voicePitch)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to voice definition index and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetVoiceDefinitionIndex(0, 0);
+</code></pre>
+<h3 id="startrhubarbrecord">StartRhubarbRecord</h3>
+<p><code>public void StartRhubarbRecord(string path, int soundId)</code></p>
+<p><strong>Purpose:</strong> Starts the rhubarb record flow or state machine.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.StartRhubarbRecord(&quot;example&quot;, 0);
+</code></pre>
+<h3 id="setcontourcolor">SetContourColor</h3>
+<p><code>public void SetContourColor(uint? color, bool alwaysVisible = true)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to contour color and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetContourColor(0, false);
+</code></pre>
+<h3 id="setenableocclusionculling">SetEnableOcclusionCulling</h3>
+<p><code>public void SetEnableOcclusionCulling(bool enable)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to enable occlusion culling and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetEnableOcclusionCulling(false);
+</code></pre>
+<h3 id="setagentlodzeroormax">SetAgentLodZeroOrMax</h3>
+<p><code>public void SetAgentLodZeroOrMax(bool makeZero)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to agent lod zero or max and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetAgentLodZeroOrMax(false);
+</code></pre>
+<h3 id="setagentlocalspeed">SetAgentLocalSpeed</h3>
+<p><code>public void SetAgentLocalSpeed(Vec2 speed)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to agent local speed and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetAgentLocalSpeed(speed);
+</code></pre>
+<h3 id="setlookdirection">SetLookDirection</h3>
+<p><code>public void SetLookDirection(Vec3 direction)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to look direction and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.SetLookDirection(direction);
+</code></pre>
+<h3 id="getbodymeshindex">GetBodyMeshIndex</h3>
+<p><code>public static BodyMeshTypes GetBodyMeshIndex(EquipmentIndex equipmentIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the body mesh index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MBAgentVisuals.GetBodyMeshIndex(equipmentIndex);
+</code></pre>
+<h3 id="getboneentitialframeatanimationprogress">GetBoneEntitialFrameAtAnimationProgress</h3>
+<p><code>public MatrixFrame GetBoneEntitialFrameAtAnimationProgress(sbyte boneIndex, int animationIndex, float progress)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bone entitial frame at animation progress value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+var result = mBAgentVisuals.GetBoneEntitialFrameAtAnimationProgress(0, 0, 0);
+</code></pre>
+<h3 id="reset">Reset</h3>
+<p><code>public void Reset()</code></p>
+<p><strong>Purpose:</strong> Returns the this instance to its default or initial condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.Reset();
+</code></pre>
+<h3 id="resetnextframe">ResetNextFrame</h3>
+<p><code>public void ResetNextFrame()</code></p>
+<p><strong>Purpose:</strong> Returns next frame to its default or initial condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MBAgentVisuals from the subsystem API first
+MBAgentVisuals mBAgentVisuals = ...;
+mBAgentVisuals.ResetNextFrame();
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">MBAgentVisuals.CreateAgentVisuals(scene, &quot;example&quot;, eyeOffset);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/mission-ext/">mission-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/api/mission-ext/AnimatedFlag/">&larr; AnimatedFlag</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/mission-ext/MBSoundEvent/">MBSoundEvent &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

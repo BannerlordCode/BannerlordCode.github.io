@@ -44,7 +44,7 @@ The common mistakes: treating `Campaign.Current` as a constructor argument evalu
 | --- | --- |
 | `static Campaign Current` | The live campaign root, assigned by the engine when loading finishes and cleared in `OnDestroy`. The **only** way in; null in every non-campaign context (main menu, module loading, lobby, mid-load). |
 | `Campaign(CampaignGameMode gameMode)` | Constructor, engine-only. `gameMode` decides which Manager and Behavior set gets assembled afterwards. |
-| `GameType` (inherited) | `Campaign` *is* a game type; [Game](../../core-extra/Game)'s `Game.GameType` points at this instance in campaign mode. This is how you test "am I in a campaign". |
+| `GameType` (inherited) | `Campaign` *is* a game type; `Game.GameType` points at this instance in campaign mode. `Game` has no English page — the Chinese [zh `Game`](../../../../zh/api/core-extra/Game) is the only one on disk. This is how you test "am I in a campaign". |
 | `static float MapDiagonal` / `MapDiagonalSquared` | Map diagonal and its square, used to convert normalised coordinates into distances. Any mod doing distance comparisons must use this pair rather than a hardcoded map size. |
 | `static Vec2 MapMinimumPosition` / `MapMaximumPosition` / `static float MapMaximumHeight` | The map bounding box. Use it to test whether a coordinate is off-map or to clamp world positions back inside. |
 | `AverageWage`, `EstimatedMaximumLordPartySpeedExceptPlayer`, `EstimatedAverageLordPartySpeed`, `EstimatedAverageCaravanPartySpeed`, `EstimatedAverageVillagerPartySpeed`, `EstimatedAverageBanditPartySpeed`, `EstimatedAverageLordPartyNavalSpeed`, `EstimatedAverageCaravanPartyNavalSpeed`, `EstimatedAverageVillagerPartyNavalSpeed`, `EstimatedAverageBanditPartyNavalSpeed` | Economic and AI speed estimates. `AverageWage` is derived from lord wage models and drives economy UI; `Estimated*PartySpeed` are back-computed from party components and are what AI and distance prediction depend on. All are **writable** — slots the engine fills for internal modules. Generally leave them alone. |
@@ -220,16 +220,16 @@ Campaign.Current.RemoveEntityComponent<MyProgressionTracker>();
 ## Dependencies
 
 - Upstream / providers:
-  - [Game](../../core-extra/Game) holds `Game.GameTypeManager`, which is this `Campaign` instance in campaign mode, and drives its `OnDestroy` / `OnStateChanged`.
+  - `Game` holds `Game.GameTypeManager`, which is this `Campaign` instance in campaign mode, and drives its `OnDestroy` / `OnStateChanged`. ([zh `Game`](../../../../zh/api/core-extra/Game) — no English page.)
   - [MBSubModuleBase](../../core/MBSubModuleBase) hands the `IGameStarter` (concretely a [CampaignGameStarter](../CampaignGameStarter)) to mods via `OnGameStart(game, gameStarterObject)` so they can register Behaviors and menus.
   - [MBObjectManager](../../campaign-ext/MBObjectManager) receives the type registrations requested by `Campaign.OnRegisterTypes`.
 - Peers / downstream:
   - [CampaignBehaviorBase](../CampaignBehaviorBase) is the extension base that hangs off `Campaign`; [CampaignEvents](../CampaignEvents) is the only broadcast channel for campaign-layer events; [CampaignGameStarter](../CampaignGameStarter) is the official builder used to feed Behaviors, models and menus into `Campaign`.
   - [IFaction](../IFaction) is the uniform read-only view of factions (Clan / Kingdom) held by `FactionManager`.
-  - [MissionState](../../mission/MissionState) and [Mission](../../mission/Mission) are the battle layer, scheduled into by `CampaignMissionManager` when you leave the map.
-  - [SaveManager](../../save-system/SaveManager) is the static save façade; it ultimately lands campaign data through `Campaign.SaveHandler`.
+  - `MissionState` and `Mission` are the battle layer, scheduled into by `CampaignMissionManager` when you leave the map. Neither has an English page; [zh `MissionState`](../../../../zh/api/mission/MissionState) and [zh `Mission`](../../../../zh/api/mission/Mission) are the only ones on disk.
+  - `SaveManager` is the static save façade; it ultimately lands campaign data through `Campaign.SaveHandler`. ([zh `SaveManager`](../../../../zh/api/save-system/SaveManager) — no English page.)
 
 ## See Also
 
 - ↑ Parent: [Campaign API index](../)
-- ↔ Related: [CampaignBehaviorBase](../CampaignBehaviorBase) · [CampaignEvents](../CampaignEvents) · [CampaignGameStarter](../CampaignGameStarter) · [IFaction](../IFaction) · [Game](../../core-extra/Game) · [MBSubModuleBase](../../core/MBSubModuleBase) · [MissionState](../../mission/MissionState) · [SaveManager](../../save-system/SaveManager)
+- ↔ Related: [CampaignBehaviorBase](../CampaignBehaviorBase) · [CampaignEvents](../CampaignEvents) · [CampaignGameStarter](../CampaignGameStarter) · [IFaction](../IFaction) · [MBSubModuleBase](../../core/MBSubModuleBase) · zh [Game](../../../../zh/api/core-extra/Game) · zh [MissionState](../../../../zh/api/mission/MissionState) · zh [SaveManager](../../../../zh/api/save-system/SaveManager) (the three `zh` entries have no English pages; see [the gap list](../../../../GAPS))

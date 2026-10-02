@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hero</title>
+  <meta name="description" content="Bannerlord 战役世界的核心角色对象：玩家、领主、同伴、家族成员的数据与行为入口。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/Hero/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/Hero/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Hero</span>
+    </nav>
+  
+  <h1>Hero</h1>
+  <h1 id="hero">Hero</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public sealed class Hero : MBObjectBase, ITrackableCampaignObject, ITrackableBase, IRandomOwner</code><br />
+<strong>Base:</strong> <code>MBObjectBase</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Hero.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>Hero</code> 代表 Bannerlord 战役地图上的<strong>一个具体角色</strong>：玩家自己、各王国领主、流浪者/同伴、家族成员、商队首领等。它连接了三块最重要的战役数据：</p>
+<ul>
+<li><strong>外观与基础属性</strong>（<code>CharacterObject</code>、<code>BodyProperties</code>、<code>Equipment</code>）</li>
+<li><strong>社会身份</strong>（<code>Clan</code>、<code>Kingdom</code>、<code>Occupation</code>、<code>IsClanLeader</code>）</li>
+<li><strong>当前状态</strong>（<code>PartyBelongedTo</code>、<code>CurrentSettlement</code>、<code>Gold</code>、<code>HeroState</code>）</li>
+</ul>
+<p>几乎所有战役 mod 都会与 <code>Hero</code> 打交道：给玩家加钱、修改关系、让某个领主加入王国、让英雄怀孕或负伤等。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>Hero</code> 当作**“战役世界里的角色卡片”**，而不是可渲染的 3D 模型：</p>
+<ul>
+<li><code>Hero</code> 本身不处理战斗场景里的动作；进入战斗后，它会生成一个 <code>Agent</code> 作为战场化身。</li>
+<li>角色卡片是<strong>全局唯一</strong>的：每个 <code>Hero</code> 对应一个 <code>stringId</code>，可以通过 <code>Hero.Find(stringId)</code> 拿到同一实例。</li>
+<li>不要自己 <code>new Hero()</code>；创建新英雄走 <code>HeroCreator.CreateHero(...)</code> 或 <code>Hero.FindFirst</code>/<code>Hero.FindAll</code> 查询现有英雄。</li>
+<li>修改英雄状态通常直接写属性（<code>Gold</code>、<code>Clan</code> 等）；影响生命值、技能、特性有专门方法（<code>ChangeHeroGold</code>、<code>AddSkillXp</code>、<code>SetTraitLevel</code>）。</li>
+</ul>
+<h2 id="ru-he-huo-qu-hero">如何获取 Hero</h2>
+<pre><code data-lang="csharp">// 玩家英雄
+Hero main = Hero.MainHero;
+
+// 当前对话对象（酒馆、领主大厅等一对一对话）
+Hero talkTo = Hero.OneToOneConversationHero;
+
+// 按 ID 精确查找
+Hero arwa = Hero.Find(&quot;hero_arwa&quot;);
+
+// 按条件查找第一个匹配的英雄
+Hero woundedHero = Hero.FindFirst(h =&gt; h.IsWounded);
+
+// 遍历所有存活英雄
+foreach (Hero hero in Hero.AllAliveHeroes)
+{
+    if (hero.IsPlayerCompanion)
+    {
+        // ...
+    }
+}
+
+// 从其他对象自然拿到 Hero
+Hero leader = MobileParty.MainParty.LeaderHero;
+Hero governor = Settlement.CurrentSettlement.Governor;
+</code></pre>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>属性</th><th>类型</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>Name</code></td><td><code>TextObject</code></td><td>完整名称（含称号）。</td></tr>
+<tr><td><code>FirstName</code></td><td><code>TextObject</code></td><td>名。</td></tr>
+<tr><td><code>CharacterObject</code></td><td><code>CharacterObject</code></td><td>与该英雄绑定的人物模板；持有技能、装备槽、身体属性等。</td></tr>
+<tr><td><code>Clan</code></td><td><code>Clan</code></td><td>所属家族；玩家家族是 <code>Clan.PlayerClan</code>。</td></tr>
+<tr><td><code>Kingdom</code></td><td><code>Kingdom</code></td><td>所属王国（如果有）。</td></tr>
+<tr><td><code>Occupation</code></td><td><code>Occupation</code></td><td>职业身份：领主、商贩、流浪者、强盗等。</td></tr>
+<tr><td><code>Gold</code></td><td><code>int</code></td><td>当前携带金钱。</td></tr>
+<tr><td><code>PartyBelongedTo</code></td><td><code>MobileParty</code></td><td>该英雄所在部队；玩家部队是 <code>MobileParty.MainParty</code>。</td></tr>
+<tr><td><code>CurrentSettlement</code></td><td><code>Settlement</code></td><td>当前停留的据点（城镇/城堡/村庄），可为 <code>null</code>。</td></tr>
+<tr><td><code>HomeSettlement</code></td><td><code>Settlement</code></td><td>家乡据点。</td></tr>
+<tr><td><code>Spouse</code></td><td><code>Hero</code></td><td>配偶。</td></tr>
+<tr><td><code>ExSpouses</code></td><td><code>List&lt;Hero&gt;</code></td><td>前配偶列表。</td></tr>
+<tr><td><code>IsDead</code> / <code>IsWounded</code> / <code>IsPrisoner</code> / <code>IsFugitive</code></td><td><code>bool</code></td><td>生命状态标志。</td></tr>
+<tr><td><code>IsClanLeader</code></td><td><code>bool</code></td><td>是否家族首领。</td></tr>
+<tr><td><code>IsNoncombatant</code></td><td><code>bool</code></td><td>是否不能参战（如儿童、部分 NPC）。</td></tr>
+<tr><td><code>CanLeadParty</code></td><td><code>bool</code></td><td>是否能统领军团。</td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="cha-xun-yu-bian-li">查询与遍历</h3>
+<h4 id="public-static-hero-find-string-stringid"><code>public static Hero Find(string stringId)</code></h4>
+<p>按 <code>stringId</code> 获取唯一英雄实例；若不存在返回 <code>null</code>。</p>
+<pre><code data-lang="csharp">Hero derthert = Hero.Find(&quot;lord_derthert&quot;);
+if (derthert != null &amp;&amp; !derthert.IsDead)
+{
+    InformationManager.DisplayMessage(new InformationMessage($&quot;Found {derthert.Name}&quot;));
+}
+</code></pre>
+<h4 id="public-static-hero-findfirst-func-hero-bool-predicate"><code>public static Hero FindFirst(Func&lt;Hero, bool&gt; predicate)</code></h4>
+<p>返回满足条件的第一个英雄。适合写简单查询。</p>
+<pre><code data-lang="csharp">Hero richLord = Hero.FindFirst(h =&gt; h.IsLord &amp;&amp; h.Gold &gt; 100000);
+</code></pre>
+<h4 id="public-static-ienumerable-hero-findall-func-hero-bool-predicate"><code>public static IEnumerable&lt;Hero&gt; FindAll(Func&lt;Hero, bool&gt; predicate)</code></h4>
+<p>返回所有满足条件的英雄。</p>
+<pre><code data-lang="csharp">var playerFactionHeroes = Hero.FindAll(h =&gt; h.MapFaction == Hero.MainHero.MapFaction &amp;&amp; h.IsAlive);
+</code></pre>
+<h3 id="zhuang-tai-yu-guan-xi">状态与关系</h3>
+<h4 id="public-float-getrelation-hero-otherhero"><code>public float GetRelation(Hero otherHero)</code></h4>
+<p>返回与另一英雄的<strong>个人关系</strong>（-100 ~ 100）。</p>
+<pre><code data-lang="csharp">int relation = Hero.MainHero.GetRelation(Hero.OneToOneConversationHero);
+if (relation &lt; -20)
+{
+    // 关系很差，可能需要贿赂或恐吓
+}
+</code></pre>
+<h4 id="public-void-setpersonalrelation-hero-otherhero-int-value"><code>public void SetPersonalRelation(Hero otherHero, int value)</code></h4>
+<p>直接设定两人关系值。会影响后续对话、任务、军团加入等判定。</p>
+<pre><code data-lang="csharp">Hero.MainHero.SetPersonalRelation(someLord, 50); // 设为友好
+</code></pre>
+<h4 id="public-bool-canleadparty"><code>public bool CanLeadParty()</code></h4>
+<p>判断该英雄是否能作为部队领袖（年龄、状态、职业等综合考虑）。</p>
+<pre><code data-lang="csharp">Hero companion = Hero.FindFirst(h =&gt; h.IsPlayerCompanion &amp;&amp; h.CanLeadParty());
+if (companion != null)
+{
+    // 让他带一支新部队或商队
+}
+</code></pre>
+<h3 id="jing-ji-yu-ying-xiang-li">经济与影响力</h3>
+<h4 id="public-void-changeherogold-int-changeamount"><code>public void ChangeHeroGold(int changeAmount)</code></h4>
+<p>为该英雄增减金钱；可传入负数以扣钱。</p>
+<pre><code data-lang="csharp">Hero.MainHero.ChangeHeroGold(5000);   // 玩家加 5000
+someLord.ChangeHeroGold(-1000);       // 扣该领主 1000
+</code></pre>
+<h4 id="public-void-addinfluencewithkingdom-float-additionalinfluence"><code>public void AddInfluenceWithKingdom(float additionalInfluence)</code></h4>
+<p>如果英雄有王国，为其增加影响力（ influence ）。</p>
+<pre><code data-lang="csharp">Hero.MainHero.AddInfluenceWithKingdom(25f);
+</code></pre>
+<h3 id="ji-neng-yu-te-xing">技能与特性</h3>
+<h4 id="public-int-getskillvalue-skillobject-skill"><code>public int GetSkillValue(SkillObject skill)</code></h4>
+<p>查询某技能等级。</p>
+<pre><code data-lang="csharp">int oneHanded = Hero.MainHero.GetSkillValue(DefaultSkills.OneHanded);
+</code></pre>
+<h4 id="public-void-addskillxp-skillobject-skill-float-xpamount"><code>public void AddSkillXp(SkillObject skill, float xpAmount)</code></h4>
+<p>为某技能增加经验。</p>
+<pre><code data-lang="csharp">Hero.MainHero.AddSkillXp(DefaultSkills.Riding, 1000f);
+</code></pre>
+<h4 id="public-void-setskillvalue-skillobject-skill-int-value"><code>public void SetSkillValue(SkillObject skill, int value)</code></h4>
+<p>直接设置技能等级。</p>
+<pre><code data-lang="csharp">Hero.MainHero.SetSkillValue(DefaultSkills.Leadership, 200);
+</code></pre>
+<h4 id="public-int-gettraitlevel-traitobject-trait"><code>public int GetTraitLevel(TraitObject trait)</code></h4>
+<p>获取某特性等级（如“仁慈”、“狡诈”）。</p>
+<pre><code data-lang="csharp">int honor = Hero.MainHero.GetTraitLevel(DefaultTraits.Honor);
+</code></pre>
+<h4 id="public-void-settraitlevel-traitobject-trait-int-value"><code>public void SetTraitLevel(TraitObject trait, int value)</code></h4>
+<p>设置特性等级。</p>
+<pre><code data-lang="csharp">Hero.MainHero.SetTraitLevel(DefaultTraits.Mercy, 1);
+</code></pre>
+<h3 id="sheng-ming-zhou-qi">生命周期</h3>
+<h4 id="public-void-makewounded-hero-killerhero-null"><code>public void MakeWounded(Hero killerHero = null, ...)</code></h4>
+<p>使英雄负伤（不会死亡）。常用于事件、任务。</p>
+<pre><code data-lang="csharp">Hero enemyLord = Hero.FindFirst(h =&gt; h.MapFaction.IsAtWarWith(Hero.MainHero.MapFaction));
+enemyLord?.MakeWounded();
+</code></pre>
+<blockquote>
+<p>注意：彻底杀死英雄应使用 <code>KillCharacterAction.ApplyByOldAge(...)</code> 等专门 Action，而不是 <code>MakeWounded</code>。</p>
+</blockquote>
+<h4 id="public-void-setimmunetowound-bool-value"><code>public void SetImmuneToWound(bool value)</code></h4>
+<p>设置该英雄是否免疫负伤。</p>
+<pre><code data-lang="csharp">Hero.MainHero.SetImmuneToWound(true); // 主角不会被打伤
+</code></pre>
+<h2 id="dian-xing-yong-fa-shi-li">典型用法示例</h2>
+<h3 id="shi-li-1-gei-suo-you-wan-jia-jia-zu-cheng-yuan-jia-qian">示例 1：给所有玩家家族成员加钱</h3>
+<pre><code data-lang="csharp">foreach (Hero hero in Clan.PlayerClan.Heroes)
+{
+    if (hero.IsAlive)
+    {
+        hero.ChangeHeroGold(1000);
+    }
+}
+</code></pre>
+<h3 id="shi-li-2-rang-dang-qian-dui-hua-de-ling-zhu-yu-wan-jia-guan-xi-bian-wei-50">示例 2：让当前对话的领主与玩家关系变为 50</h3>
+<pre><code data-lang="csharp">Hero target = Hero.OneToOneConversationHero;
+if (target != null &amp;&amp; target.IsLord)
+{
+    Hero.MainHero.SetPersonalRelation(target, 50);
+}
+</code></pre>
+<h3 id="shi-li-3-ti-sheng-zhu-jiao-mou-xiang-ji-neng-yi-ji-dui-ying-de-jing-yan">示例 3：提升主角某项技能一级对应的经验</h3>
+<pre><code data-lang="csharp">SkillObject skill = DefaultSkills.Trade;
+int current = Hero.MainHero.GetSkillValue(skill);
+int nextLevelXp = Campaign.Current.Models.CharacterDevelopmentModel.GetXpRequiredForLevel(current + 1);
+int currentXp = Hero.MainHero.HeroDeveloper.GetSkillXpProgress(skill);
+Hero.MainHero.AddSkillXp(skill, Math.Max(0, nextLevelXp - currentXp));
+</code></pre>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li>v1.3.0：基础 API 相同，但 <code>Hero.MainHero</code> 之前可能写作 <code>CharacterObject.PlayerCharacter.HeroObject</code>。</li>
+<li>v1.4.5：新增/拆分了部分 <code>HeroDeveloper</code> 与 <code>Hero.Skills</code> 相关访问；写跨版本 mod 时建议优先使用 <code>Hero.MainHero.HeroDeveloper</code>。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../CharacterObject/">CharacterObject</a> — 英雄背后的模板数据</li>
+<li><a href="../Clan/">Clan</a> — 家族与英雄归属</li>
+<li><a href="../Kingdom/">Kingdom</a> — 王国与阵营</li>
+<li><a href="../Settlement/">Settlement</a> — 据点与城市</li>
+<li><a href="../MobileParty/">MobileParty</a> — 英雄所在部队</li>
+<li><a href="../../campaign-ext/CampaignBehaviorBase/">CampaignBehaviorBase</a> — 每日 tick 里批量操作 Hero</li>
+<li><a href="../Campaign/">Campaign</a> — 访问 <code>Campaign.Current</code> 拿到整个世界</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign/BehaviorSaveData/">&larr; BehaviorSaveData</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign/Alliance/">Alliance &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

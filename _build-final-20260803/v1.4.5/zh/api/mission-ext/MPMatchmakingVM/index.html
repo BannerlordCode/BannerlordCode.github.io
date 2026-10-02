@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MPMatchmakingVM</title>
+  <meta name="description" content="MPMatchmakingVM 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/MPMatchmakingVM/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/MPMatchmakingVM/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MPMatchmakingVM</span>
+    </nav>
+  
+  <h1>MPMatchmakingVM</h1>
+  <h1 id="mpmatchmakingvm">MPMatchmakingVM</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public class MPMatchmakingVM : ViewModel</code>
+<strong>Base:</strong> <code>ViewModel</code>
+<strong>File:</strong> <code>Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPMatchmakingVM.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>MPMatchmakingVM</code> 位于 <code>TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>IsEnabled</code></td><td><code>public bool IsEnabled { get; set; }</code></td></tr>
+<tr><td><code>HasUnofficialModulesLoaded</code></td><td><code>public bool HasUnofficialModulesLoaded { get; set; }</code></td></tr>
+<tr><td><code>IsCustomGameStageFindEnabled</code></td><td><code>public bool IsCustomGameStageFindEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsRankedGamesEnabled</code></td><td><code>public bool IsRankedGamesEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsCustomGamesEnabled</code></td><td><code>public bool IsCustomGamesEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsQuickplayGamesEnabled</code></td><td><code>public bool IsQuickplayGamesEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsCustomServerListEnabled</code></td><td><code>public bool IsCustomServerListEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsPremadeGamesEnabled</code></td><td><code>public bool IsPremadeGamesEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsCustomServerFeatureSupported</code></td><td><code>public bool IsCustomServerFeatureSupported { get; set; }</code></td></tr>
+<tr><td><code>IsClansFeatureSupported</code></td><td><code>public bool IsClansFeatureSupported { get; set; }</code></td></tr>
+<tr><td><code>CustomServer</code></td><td><code>public MPCustomGameVM CustomServer { get; set; }</code></td></tr>
+<tr><td><code>PremadeMatches</code></td><td><code>public MPCustomGameVM PremadeMatches { get; set; }</code></td></tr>
+<tr><td><code>IsRanked</code></td><td><code>public bool IsRanked { get; set; }</code></td></tr>
+<tr><td><code>RankedGameTypes</code></td><td><code>public MBBindingList&lt;MPMatchmakingItemVM&gt; RankedGameTypes { get; set; }</code></td></tr>
+<tr><td><code>QuickplayGameTypes</code></td><td><code>public MBBindingList&lt;MPMatchmakingItemVM&gt; QuickplayGameTypes { get; set; }</code></td></tr>
+<tr><td><code>CustomGameTypes</code></td><td><code>public MBBindingList&lt;MPMatchmakingItemVM&gt; CustomGameTypes { get; set; }</code></td></tr>
+<tr><td><code>Regions</code></td><td><code>public SelectorVM&lt;MPMatchmakingRegionSelectorItemVM&gt; Regions { get; set; }</code></td></tr>
+<tr><td><code>SelectionInfo</code></td><td><code>public MPMatchmakingSelectionInfoVM SelectionInfo { get; set; }</code></td></tr>
+<tr><td><code>IsMatchFindPossible</code></td><td><code>public bool IsMatchFindPossible { get; set; }</code></td></tr>
+<tr><td><code>IsFindingMatch</code></td><td><code>public bool IsFindingMatch { get; set; }</code></td></tr>
+<tr><td><code>PlayText</code></td><td><code>public string PlayText { get; set; }</code></td></tr>
+<tr><td><code>QuickPlayText</code></td><td><code>public string QuickPlayText { get; set; }</code></td></tr>
+<tr><td><code>CustomGameText</code></td><td><code>public string CustomGameText { get; set; }</code></td></tr>
+<tr><td><code>CommunityGameText</code></td><td><code>public string CommunityGameText { get; set; }</code></td></tr>
+<tr><td><code>CustomServerListText</code></td><td><code>public string CustomServerListText { get; set; }</code></td></tr>
+<tr><td><code>AutoFindText</code></td><td><code>public string AutoFindText { get; set; }</code></td></tr>
+<tr><td><code>MatchFindNotPossibleText</code></td><td><code>public string MatchFindNotPossibleText { get; set; }</code></td></tr>
+<tr><td><code>RankedText</code></td><td><code>public string RankedText { get; set; }</code></td></tr>
+<tr><td><code>CasualText</code></td><td><code>public string CasualText { get; set; }</code></td></tr>
+<tr><td><code>SelectionInfoText</code></td><td><code>public string SelectionInfoText { get; set; }</code></td></tr>
+<tr><td><code>SelectedSubPageIndex</code></td><td><code>public int SelectedSubPageIndex { get; set; }</code></td></tr>
+<tr><td><code>TeamMatchesText</code></td><td><code>public string TeamMatchesText { get; set; }</code></td></tr>
+<tr><td><code>RegionsHint</code></td><td><code>public HintViewModel RegionsHint { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="refreshvalues">RefreshValues</h3>
+<p><code>public override void RefreshValues()</code></p>
+<p><strong>用途 / Purpose:</strong> 使 values 的显示或缓存与底层状态保持一致。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshValues();
+</code></pre>
+<h3 id="trysetmatchmakingsubpage">TrySetMatchmakingSubPage</h3>
+<p><code>public void TrySetMatchmakingSubPage(MatchmakingSubPages newPage)</code></p>
+<p><strong>用途 / Purpose:</strong> 尝试获取 set matchmaking sub page 的值，通常通过 out 参数返回是否成功。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.TrySetMatchmakingSubPage(newPage);
+</code></pre>
+<h3 id="refreshplayerdata">RefreshPlayerData</h3>
+<p><code>public void RefreshPlayerData(PlayerData playerData)</code></p>
+<p><strong>用途 / Purpose:</strong> 使 player data 的显示或缓存与底层状态保持一致。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshPlayerData(playerData);
+</code></pre>
+<h3 id="onfindinggame">OnFindingGame</h3>
+<p><code>public void OnFindingGame()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 finding game 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnFindingGame();
+</code></pre>
+<h3 id="oncancelfindinggame">OnCancelFindingGame</h3>
+<p><code>public void OnCancelFindingGame()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 cancel finding game 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnCancelFindingGame();
+</code></pre>
+<h3 id="onfinalize">OnFinalize</h3>
+<p><code>public override void OnFinalize()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 finalize 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnFinalize();
+</code></pre>
+<h3 id="getselectedgametypesinfo">GetSelectedGameTypesInfo</h3>
+<p><code>public bool GetSelectedGameTypesInfo(out string gameTypes)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 selected game types info 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+var result = mPMatchmakingVM.GetSelectedGameTypesInfo(gameTypes);
+</code></pre>
+<h3 id="refreshwaitingtime">RefreshWaitingTime</h3>
+<p><code>public void RefreshWaitingTime()</code></p>
+<p><strong>用途 / Purpose:</strong> 使 waiting time 的显示或缓存与底层状态保持一致。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshWaitingTime();
+</code></pre>
+<h3 id="executeautofindgame">ExecuteAutoFindGame</h3>
+<p><code>public void ExecuteAutoFindGame()</code></p>
+<p><strong>用途 / Purpose:</strong> 执行 auto find game 对应的操作或工作流。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.ExecuteAutoFindGame();
+</code></pre>
+<h3 id="refreshsubpagestates">RefreshSubPageStates</h3>
+<p><code>public void RefreshSubPageStates()</code></p>
+<p><strong>用途 / Purpose:</strong> 使 sub page states 的显示或缓存与底层状态保持一致。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshSubPageStates();
+</code></pre>
+<h3 id="onpremadegameeligibilitystatusreceived">OnPremadeGameEligibilityStatusReceived</h3>
+<p><code>public void OnPremadeGameEligibilityStatusReceived(bool isEligible)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 premade game eligibility status received 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnPremadeGameEligibilityStatusReceived(false);
+</code></pre>
+<h3 id="onsupportedfeaturesrefreshed">OnSupportedFeaturesRefreshed</h3>
+<p><code>public void OnSupportedFeaturesRefreshed(SupportedFeatures supportedFeatures)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 supported features refreshed 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MPMatchmakingVM 实例
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.OnSupportedFeaturesRefreshed(supportedFeatures);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+MPMatchmakingVM mPMatchmakingVM = ...;
+mPMatchmakingVM.RefreshValues();
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/zh/api/mission-ext/">mission-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/zh/api/mission-ext/TrebuchetSpawner/">&larr; TrebuchetSpawner</a>
+          
+          
+            <a rel="next" href="/v1.4.5/zh/api/mission-ext/MapCheckHelpers/">MapCheckHelpers &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

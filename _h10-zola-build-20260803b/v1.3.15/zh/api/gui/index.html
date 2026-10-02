@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gui 目录</title>
+  <meta name="description" content="Gauntlet UI 系统类参考目录">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/gui/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/gui/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/gui/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/gui/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/gui/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/gui/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="active">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">gui 目录</span>
+    </nav>
+  
+  <h1>gui 目录</h1>
+  <h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>一句话洞察：<code>gui</code> 桶不是某一个类，而是 Bannerlord Gauntlet UI 运行时的<strong>整套地基</strong>——从屏幕栈门面（ScreenManager）到一次加载出来的 XAML 实例（GauntletMovie），再到控件树、布局测量、文本光栅化、手柄导航，以及最底层的原生 2D 绘制（Shader / Material / Texture / OpenGL / Dwmapi）被粘合在一起，共同构成「界面内容该怎么渲染、怎么跑」这一层。</p>
+<p>这个桶把分散在 <code>TaleWorlds.ScreenSystem</code>、<code>TaleWorlds.GauntletUI(.Data/.Layout/.GamepadNavigation)</code>、<code>TaleWorlds.TwoDimension</code> 以及原生图形互操作（Gdi32 / Opengl32 / Dwmapi）中的 UI 相关类型汇到了一处。最高层是 <code>ScreenManager</code>——静态门面，持有屏幕栈、选出 <code>TopScreen</code>、并把引擎每帧的 <code>Tick</code> / <code>Update</code> / <code>LateTick</code> 派发给活动屏及其 <code>ScreenLayer</code>。再往下，<code>GauntletMovie</code> 是一次 <code>LoadMovie</code> 加载出来的 XAML 实例，内部持有 <code>RootWidget</code>（控件树根）、<code>WidgetFactory</code>、<code>BrushFactory</code> 和绑定的 <code>ViewModel</code>。</p>
+<p>控件树之下是真正的 UI 机械：<code>WidgetContainer</code> 按 <code>Update</code> / <code>LateUpdate</code> / <code>VisualDefinition</code> / <code>UpdateBrushes</code> 等阶段收集并刷新 <code>Widget</code>；<code>LayoutBox</code> 用 <code>Left/Right/Top/Bottom</code> 做布局矩形测量；<code>TextHelper</code> / <code>TextMeshGenerator</code> 做位图字体文本的光栅化与网格生成；<code>GamepadNavigationHelper</code> 计算手柄导航的几何与候选控件。最底层则是 <code>Shader</code> / <code>Material</code> / <code>Texture</code> 与 OpenGL / Dwmapi / Gdi32 互操作，把 2D 绘制真正画到屏上。</p>
+<p>它站在引擎的 <code>GauntletLayer</code> 之上：<code>ScreenManager</code> 通过屏幕栈决定哪些层当前活动，而 <code>GauntletLayer</code>（见 <code>../engine/</code>）正是承载 Gauntlet UI 的 <code>ScreenLayer</code> 宿主——你把 <code>GauntletMovie</code> 挂到它上面，gui 桶的运行时才真正跑起来。换句话说，gui 桶在 engine 的 <code>GauntletLayer</code> 之上提供「界面内容与运行逻辑」，在 <code>viewmodel</code> 桶（见 <code>../viewmodel/</code>）之下消费它提供的绑定数据。</p>
+<h2 id="he-xin-ru-kou-lei-xing">核心入口类型</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./ScreenManager">ScreenManager</a>：静态门面，屏幕栈 + <code>TopScreen</code> + 每帧层派发，是 GUI 层唯一公开入口。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./GauntletMovie">GauntletMovie</a>：一次 <code>LoadMovie</code> 的 XAML 实例，含 <code>RootWidget</code> / <code>WidgetFactory</code> / <code>BrushFactory</code> 与绑定 <code>ViewModel</code>。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./WidgetContainer">WidgetContainer</a>：按阶段（<code>Update</code> / <code>LateUpdate</code> / <code>VisualDefinition</code> …）收集维护控件树的容器。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./LayoutBox">LayoutBox</a>：布局矩形（<code>Left</code> / <code>Right</code> / <code>Top</code> / <code>Bottom</code>），布局测量的基础结构。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TextHelper">TextHelper</a>：位图字体文本光栅化，文本排版入口。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TextMeshGenerator">TextMeshGenerator</a>：由文本生成可渲染网格。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./GamepadNavigationHelper">GamepadNavigationHelper</a>：手柄导航的几何与候选控件计算。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TwoDimensionDrawData">TwoDimensionDrawData</a>：2D 绘制数据载体。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./EmptyWidget">EmptyWidget</a>：无外观的空控件基元，常用于布局占位。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./ViewBindCommandInfo">ViewBindCommandInfo</a>：XAML 视图绑定命令的元信息。</li>
+</ul>
+<h2 id="yu-qi-ta-mo-kuai-de-guan-xi">与其他模块的关系</h2>
+<p>与 <strong>engine 桶</strong>（见 <code>../engine/</code>）的关系：gui 桶本身不负责把 UI 接入游戏循环，那是 <code>GauntletLayer</code> 的工作。<code>GauntletLayer</code> 是 engine 桶里承载 Gauntlet UI 的 <code>ScreenLayer</code>，<code>ScreenManager</code> 管理的屏幕栈决定哪个 <code>GauntletLayer</code> 当前活动；gui 桶的 <code>GauntletMovie</code> 与控件树就运行在它里面。</p>
+<p>与 <strong>viewmodel 桶</strong>（见 <code>../viewmodel/</code>）的关系：<code>GauntletMovie</code> 绑定的正是 viewmodel 桶的 ViewModel 家族（<code>IViewModel</code> / <code>ViewModel</code>）。没有 viewmodel 提供数据，gui 桶的控件树只是空壳；数据变化经 <code>RefreshDataSource</code> / <code>RefreshBindingWithChildren</code> 回流到控件。此外，UI 运行时任何异常（绑定失败、控件树崩溃）都可能经由架构层的<a href="../../architecture/crash-boundaries/">崩溃边界</a>策略被隔离，避免拖垮整个游戏循环。</p>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.ScreenSystem</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./ScreenManager">ScreenManager</a></td><td>持有屏幕栈并向活动层派发每帧工作。</td><td>应用和屏幕切换期间。</td></tr>
+<tr><td>TaleWorlds.GauntletUI.Data</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./GauntletMovie">GauntletMovie</a></td><td>表示一个加载的 XAML Movie、根控件和数据上下文。</td><td>从 <code>LoadMovie</code> 到卸载期间。</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./WidgetContainer">WidgetContainer</a></td><td>在更新和布局阶段维护控件子树。</td><td>控件树活动期间。</td></tr>
+<tr><td>TaleWorlds.GauntletUI.Layout</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./LayoutBox">LayoutBox</a></td><td>承载布局测量所使用的矩形。</td><td>measure/arrange 阶段。</td></tr>
+<tr><td>TaleWorlds.TwoDimension.BitmapFont</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TextHelper">TextHelper</a></td><td>将本地化文本转换为位图字体布局数据。</td><td>文本控件刷新时。</td></tr>
+<tr><td>TaleWorlds.GauntletUI.GamepadNavigation</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./GamepadNavigationHelper">GamepadNavigationHelper</a></td><td>根据控件几何位置选择手柄导航候选项。</td><td>焦点移动期间。</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./EmptyWidget">EmptyWidget</a></td><td>提供无外观控件，用于间距或条件布局。</td><td>构建父级控件树时。</td></tr>
+<tr><td>TaleWorlds.GauntletUI.Data</td><td><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./ViewBindCommandInfo">ViewBindCommandInfo</a></td><td>描述 Movie 数据层发现的命令绑定。</td><td>ViewModel 绑定期间。</td></tr>
+</tbody></table>
+<!-- BEGIN SECTION INDEX -->
+<h2 id="shang-ji-dao-hang">↑ 上级导航</h2>
+<ul>
+<li><a href="../">API 参考</a></li>
+<li><a href="../../">版本首页</a></li>
+</ul>
+<h2 id="zi-lei-lie-biao-an-zi-mu-fen-zu">↓ 子类列表 — 按字母分组</h2>
+<h3 id="a">A</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./ArrayType">ArrayType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./AttribueMask">AttribueMask</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./AutoPinner">AutoPinner</a></li>
+</ul>
+<h3 id="b">B</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./BeginMode">BeginMode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./BlendingDestinationFactor">BlendingDestinationFactor</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./BlendingSourceFactor">BlendingSourceFactor</a></li>
+</ul>
+<h3 id="c">C</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./CursorMovementDirection">CursorMovementDirection</a></li>
+</ul>
+<h3 id="d">D</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./DataType">DataType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./Dwmapi">Dwmapi</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./DwmBlurBehind">DwmBlurBehind</a></li>
+</ul>
+<h3 id="e">E</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./EmptyWidget">EmptyWidget</a></li>
+</ul>
+<h3 id="g">G</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./GamepadNavigationHelper">GamepadNavigationHelper</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./GamepadNavigationScopeCollection">GamepadNavigationScopeCollection</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./GauntletEvent">GauntletEvent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./GauntletMovie">GauntletMovie</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./Gdi32">Gdi32</a></li>
+</ul>
+<h3 id="h">H</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./HintMode">HintMode</a></li>
+</ul>
+<h3 id="i">I</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./ImageFitResult">ImageFitResult</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./ITexture">ITexture</a></li>
+</ul>
+<h3 id="k">K</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./KeyboardAction">KeyboardAction</a></li>
+</ul>
+<h3 id="l">L</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./LayoutBox">LayoutBox</a></li>
+</ul>
+<h3 id="m">M</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./Material">Material</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./MatrixMode">MatrixMode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./MouseState">MouseState</a></li>
+</ul>
+<h3 id="o">O</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./Opengl32">Opengl32</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./Opengl32ARB">Opengl32ARB</a></li>
+</ul>
+<h3 id="p">P</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./PixelFormat">PixelFormat</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./PixelFormatDescriptor">PixelFormatDescriptor</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./PixelFormatDescriptorFlags">PixelFormatDescriptorFlags</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./PixelFormatDescriptorLayerTypes">PixelFormatDescriptorLayerTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./PixelFormatDescriptorPixelTypes">PixelFormatDescriptorPixelTypes</a></li>
+</ul>
+<h3 id="s">S</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./ScreenManager">ScreenManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./ScrollbarInterpolationController">ScrollbarInterpolationController</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./Shader">Shader</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./ShadingModel">ShadingModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./SpriteFromTexture">SpriteFromTexture</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./SpriteSizeComparer">SpriteSizeComparer</a></li>
+</ul>
+<h3 id="t">T</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./Target">Target</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TextHelper">TextHelper</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TextLineOutput">TextLineOutput</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TextMeshGenerator">TextMeshGenerator</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TextOutput">TextOutput</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TextTokenOutput">TextTokenOutput</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./Texture">Texture</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TextureInternalFormat">TextureInternalFormat</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TextureMagFilter">TextureMagFilter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TextureParameterName">TextureParameterName</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TextureWrapParameter">TextureWrapParameter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TokenType">TokenType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./TwoDimensionDrawData">TwoDimensionDrawData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./Type">Type</a></li>
+</ul>
+<h3 id="u">U</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./UpdateAction">UpdateAction</a></li>
+</ul>
+<h3 id="v">V</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./ViewBindCommandInfo">ViewBindCommandInfo</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./ViewBindDataInfo">ViewBindDataInfo</a></li>
+</ul>
+<h3 id="w">W</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./WidgetContainer">WidgetContainer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/gui/./WidgetInstantiationResultExtensionData">WidgetInstantiationResultExtensionData</a></li>
+</ul>
+<!-- END SECTION INDEX -->
+
+</article>
+<hr>
+<ul>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextHelper&#x2F;">TextHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ViewBindDataInfo&#x2F;">ViewBindDataInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextureWrapParameter&#x2F;">TextureWrapParameter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PixelFormatDescriptorFlags&#x2F;">PixelFormatDescriptorFlags</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;AutoPinner&#x2F;">AutoPinner</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Type&#x2F;">Type</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SpriteFromTexture&#x2F;">SpriteFromTexture</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PixelFormat&#x2F;">PixelFormat</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextureParameterName&#x2F;">TextureParameterName</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextLineOutput&#x2F;">TextLineOutput</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PixelFormatDescriptorLayerTypes&#x2F;">PixelFormatDescriptorLayerTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Dwmapi&#x2F;">Dwmapi</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;AttribueMask&#x2F;">AttribueMask</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextureInternalFormat&#x2F;">TextureInternalFormat</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextureMagFilter&#x2F;">TextureMagFilter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PixelFormatDescriptor&#x2F;">PixelFormatDescriptor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Opengl32&#x2F;">Opengl32</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;MatrixMode&#x2F;">MatrixMode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Target&#x2F;">Target</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Material&#x2F;">Material</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Opengl32ARB&#x2F;">Opengl32ARB</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextTokenOutput&#x2F;">TextTokenOutput</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TokenType&#x2F;">TokenType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Gdi32&#x2F;">Gdi32</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GamepadNavigationScopeCollection&#x2F;">GamepadNavigationScopeCollection</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DataType&#x2F;">DataType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ITexture&#x2F;">ITexture</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ShadingModel&#x2F;">ShadingModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GamepadNavigationHelper&#x2F;">GamepadNavigationHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;LayoutBox&#x2F;">LayoutBox</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;KeyboardAction&#x2F;">KeyboardAction</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TwoDimensionDrawData&#x2F;">TwoDimensionDrawData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BlendingDestinationFactor&#x2F;">BlendingDestinationFactor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BlendingSourceFactor&#x2F;">BlendingSourceFactor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;UpdateAction&#x2F;">UpdateAction</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetInstantiationResultExtensionData&#x2F;">WidgetInstantiationResultExtensionData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GauntletEvent&#x2F;">GauntletEvent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ScrollbarInterpolationController&#x2F;">ScrollbarInterpolationController</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ArrayType&#x2F;">ArrayType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;HintMode&#x2F;">HintMode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ViewBindCommandInfo&#x2F;">ViewBindCommandInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Texture&#x2F;">Texture</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;CursorMovementDirection&#x2F;">CursorMovementDirection</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Shader&#x2F;">Shader</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;MouseState&#x2F;">MouseState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GauntletMovie&#x2F;">GauntletMovie</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetContainer&#x2F;">WidgetContainer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ImageFitResult&#x2F;">ImageFitResult</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PixelFormatDescriptorPixelTypes&#x2F;">PixelFormatDescriptorPixelTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextOutput&#x2F;">TextOutput</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SpriteSizeComparer&#x2F;">SpriteSizeComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BeginMode&#x2F;">BeginMode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DwmBlurBehind&#x2F;">DwmBlurBehind</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ScreenManager&#x2F;">ScreenManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextMeshGenerator&#x2F;">TextMeshGenerator</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;EmptyWidget&#x2F;">EmptyWidget</a></li>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

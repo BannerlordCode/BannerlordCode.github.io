@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PartyBase</title>
+  <meta name="description" content="Shared campaign party identity and rosters: MobileParty and settlement garrisons share Member&#x2F;Prison&#x2F;Item Roster. Not a Mission Team.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/PartyBase/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/PartyBase/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/PartyBase/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/PartyBase/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/PartyBase/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/PartyBase/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">PartyBase</span>
+    </nav>
+  
+  <h1>PartyBase</h1>
+  <h1 id="partybase">PartyBase</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Party<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint</code><br />
+<strong>Base:</strong> <code>IBattleCombatant</code> (plus <code>IRandomOwner</code>, <code>IInteractablePoint</code>)<br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Party/PartyBase.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>PartyBase</code> is the campaign layer's <strong>sealed data core for one party identity</strong>: troop rosters, prisoners, inventory, map-event side, food, and strength estimates all hang here.</p>
+<p>It has exactly two host shapes (chosen at construction):</p>
+<table><thead><tr><th>Shape</th><th>Construction</th><th>Flag</th><th>Position / name source</th></tr></thead><tbody>
+<tr><td>Mobile party</td><td><code>new PartyBase(MobileParty)</code></td><td><code>IsMobile</code></td><td><code>MobileParty.Position</code> / <code>Name</code></td></tr>
+<tr><td>Settlement garrison, etc.</td><td><code>new PartyBase(Settlement)</code></td><td><code>IsSettlement</code></td><td><code>Settlement.Position</code> / <code>Name</code></td></tr>
+</tbody></table>
+<p><strong><code>MobileParty</code> is not a subclass of <code>PartyBase</code>.</strong> In source, <code>MobileParty</code> holds a <code>Party</code> property: <code>Party = new PartyBase(this)</code>. <code>Settlement</code> likewise holds its own <code>Party</code>. When APIs say "party" they often mean <code>PartyBase</code>, the shared handle for "a map-side combatant blob of people".</p>
+<h2 id="mental-model">Mental Model</h2>
+<pre><code>Hero ──PartyBelongedTo──► MobileParty ──.Party──► PartyBase (IsMobile)
+                                              │
+Settlement ──────────────────────────.Party──► PartyBase (IsSettlement)
+                                              │
+                                    MemberRoster / PrisonRoster / ItemRoster
+                                    MapEventSide / EstimatedStrength / Owner
+</code></pre>
+<table><thead><tr><th>Dimension</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Lifetime</td><td>Created with <code>MobileParty</code> / <code>Settlement</code>; saveable (many <code>[SaveableProperty]</code> / <code>[SaveableField]</code>)</td></tr>
+<tr><td>Who creates</td><td>Host ctor does <code>new PartyBase(this)</code>; <code>Index</code> from <code>Campaign.Current.GeneratePartyId</code></td></tr>
+<tr><td>Layer</td><td>Campaign (map), <strong>not</strong> Mission <code>Team</code></td></tr>
+<tr><td>Player entry</td><td><code>PartyBase.MainParty</code> → <code>Campaign.Current.MainParty.Party</code></td></tr>
+</tbody></table>
+<h3 id="when-to-use">When to use</h3>
+<ul>
+<li>Change troops / prisoners / goods: <code>MemberRoster</code>, <code>PrisonRoster</code>, <code>ItemRoster</code>, or <code>AddMember</code> / <code>AddPrisoner</code></li>
+<li>Uniform handling of "mobile party + garrison": take <code>PartyBase</code>, then branch on <code>IsMobile</code> / <code>IsSettlement</code></li>
+<li>Read strength, size limits, starvation, map-event side: <code>EstimatedStrength</code>, <code>PartySizeLimit</code>, <code>MapEvent</code></li>
+<li>From a <code>Hero</code> to rosters: <code>hero.PartyBelongedTo.Party</code> or <code>PartyBase.MainParty</code></li>
+</ul>
+<h3 id="when-not-to-use">When not to use</h3>
+<table><thead><tr><th>Don't</th><th>Do instead</th></tr></thead><tbody>
+<tr><td>Treat <code>PartyBase</code> as a Mission <code>Team</code></td><td>In battle use <a href="../../mission/Team">Team</a> / <a href="../../mission/Agent">Agent</a></td></tr>
+<tr><td>Assume <code>MobileParty : PartyBase</code></td><td>Use <code>mobileParty.Party</code> for the <code>PartyBase</code></td></tr>
+<tr><td>Touch <code>MainParty</code> with no campaign context</td><td>Guard <code>Campaign.Current != null</code> first</td></tr>
+<tr><td>Hard-edit rosters when full side effects matter, bypassing official Actions</td><td>Capture / free / kill heroes via <code>TakePrisonerAction</code> and related Actions</td></tr>
+<tr><td>Bulk-edit many Parties inside Mission callbacks and expect instant consistency</td><td>Change during battle settlement write-back; see <a href="../../../architecture/crash-boundaries">crash boundaries</a></td></tr>
+<tr><td>Free-standing <code>new PartyBase</code></td><td>Must hang on a real <code>MobileParty</code> / <code>Settlement</code></td></tr>
+</tbody></table>
+<h2 id="dependencies">Dependencies</h2>
+<table><thead><tr><th>Direction</th><th>Type</th><th>Relationship</th></tr></thead><tbody>
+<tr><td>Upstream host</td><td><a href="../MobileParty">MobileParty</a></td><td><code>MobileParty</code> property; <code>IsMobile</code></td></tr>
+<tr><td>Upstream host</td><td><a href="../Settlement">Settlement</a></td><td><code>Settlement</code> property; <code>IsSettlement</code></td></tr>
+<tr><td>Characters</td><td><a href="../Hero">Hero</a></td><td><code>Owner</code>, <code>LeaderHero</code>; <code>Hero.PartyBelongedTo.Party</code></td></tr>
+<tr><td>Rosters</td><td>TroopRoster / ItemRoster</td><td>Members, prisoners, items (same-module Roster types)</td></tr>
+<tr><td>Map events</td><td>MapEvent / MapEventSide</td><td><code>MapEvent</code>, <code>MapEventSide</code>, <code>Side</code></td></tr>
+<tr><td>Models</td><td>PartySizeLimitModel, PartyHealingModel, MilitaryPowerModel</td><td>Size caps, healing, strength</td></tr>
+<tr><td>Events</td><td><code>CampaignEventDispatcher.OnPartyVisibilityChanged</code></td><td>Visibility changes</td></tr>
+<tr><td>Contrast</td><td><a href="../../mission/Team">Team</a></td><td>Mission-only combat side; not saved</td></tr>
+</tbody></table>
+<h2 id="risks-and-crash-boundaries">Risks and crash boundaries</h2>
+<ol>
+<li><strong><code>MainParty</code> can be null:</strong> when <code>Campaign.Current == null</code> (main menu / loading) it returns <code>null</code>.</li>
+<li><strong><code>LeaderHero</code>:</strong> implemented as <code>MobileParty?.LeaderHero</code>. <strong>Settlement parties are often null</strong>; garrison logic must not assume a leader hero.</li>
+<li><strong><code>MapEventSide</code> setter:</strong> removes from old side, joins new side, and syncs <code>AttachedParties</code>. Careless sets can trip "Double MapEvent" asserts.</li>
+<li><strong>Save fields:</strong> Rosters, food, ships, custom owner, etc. are serializable. Changing SaveIds or hand-tearing Roster structure risks bad saves. See <a href="../../../architecture/crash-boundaries">crash boundaries §1</a>.</li>
+<li><strong>Cached fields:</strong> <code>PartySizeLimit</code>, <code>EstimatedStrength</code>, and similar depend on <code>VersionNo</code>. Reading after roster edits refreshes; custom caches must invalidate themselves.</li>
+<li><strong>Hero prisoner consistency:</strong> source <code>AfterLoad</code> has heavy fixups for "PrisonRoster vs <code>PartyBelongedToAsPrisoner</code> mismatch". Hard-editing prisoners easily corrupts saves; prefer Actions.</li>
+<li><strong>Do not mix with <code>Team</code> storage:</strong> <code>PartyBase</code> spans saves; <code>Team</code>/<code>Agent</code> live for one Mission only.</li>
+</ol>
+<h2 id="how-to-acquire">How to acquire</h2>
+<pre><code data-lang="csharp">// Player
+PartyBase main = PartyBase.MainParty;
+// Equivalent:
+// PartyBase main = Campaign.Current?.MainParty?.Party;
+
+// From a mobile party
+MobileParty party = MobileParty.MainParty;
+PartyBase pb = party.Party;
+
+// From a hero
+Hero hero = Hero.MainHero;
+PartyBase heroParty = hero.PartyBelongedTo?.Party;
+
+// From settlement garrison
+Settlement town = Settlement.CurrentSettlement;
+PartyBase garrison = town?.Party;
+
+// Uniform handling
+void Inspect(PartyBase p)
+{
+    if (p == null || !p.IsValid)
+    {
+        return;
+    }
+
+    if (p.IsMobile)
+    {
+        MobileParty mp = p.MobileParty;
+        InformationManager.DisplayMessage(new InformationMessage($&quot;Mobile: {mp.Name}&quot;));
+    }
+    else if (p.IsSettlement)
+    {
+        Settlement s = p.Settlement;
+        InformationManager.DisplayMessage(new InformationMessage($&quot;Settlement: {s.Name}&quot;));
+    }
+}
+</code></pre>
+<h2 id="key-members">Key members</h2>
+<h3 id="identity-and-host">Identity and host</h3>
+<table><thead><tr><th>Member</th><th>Purpose and timing</th></tr></thead><tbody>
+<tr><td><code>IsMobile</code> / <code>IsSettlement</code></td><td>Host shape; mutually exclusive (one side null at construction)</td></tr>
+<tr><td><code>MobileParty</code> / <code>Settlement</code></td><td>Host references</td></tr>
+<tr><td><code>Id</code></td><td><code>MobileParty.StringId</code> or <code>Settlement.StringId</code></td></tr>
+<tr><td><code>Index</code> / <code>IsValid</code></td><td>In-campaign party number; valid when <code>Index &gt;= 0</code></td></tr>
+<tr><td><code>Name</code></td><td>Forwards host name</td></tr>
+<tr><td><code>MainParty</code></td><td>Static; player <code>PartyBase</code></td></tr>
+<tr><td><code>MapFaction</code> / <code>Culture</code> / <code>Banner</code></td><td>Faction look and culture (null-safe where needed)</td></tr>
+<tr><td><code>Owner</code></td><td><code>_customOwner</code> first, else <code>MobileParty.Owner</code> or <code>Settlement.Owner</code></td></tr>
+<tr><td><code>LeaderHero</code></td><td>Mobile parties only</td></tr>
+<tr><td><code>SetCustomOwner</code> / <code>SetCustomName</code> / <code>SetCustomBanner</code></td><td>Override display and owner (caravans, etc.)</td></tr>
+</tbody></table>
+<h3 id="rosters-and-counts">Rosters and counts</h3>
+<table><thead><tr><th>Member</th><th>Purpose and timing</th></tr></thead><tbody>
+<tr><td><code>MemberRoster</code></td><td>Soldiers and accompanying heroes</td></tr>
+<tr><td><code>PrisonRoster</code></td><td>Prisoners</td></tr>
+<tr><td><code>ItemRoster</code></td><td>Goods, horses, food items, etc.</td></tr>
+<tr><td><code>AddMember</code> / <code>AddMembers</code></td><td>Add troops; underlying <code>TroopRoster.AddToCounts</code></td></tr>
+<tr><td><code>AddPrisoner</code> / <code>AddPrisoners</code></td><td>Add prisoners</td></tr>
+<tr><td><code>WoundMemberRosterElements</code></td><td>Raise wounded counts</td></tr>
+<tr><td><code>NumberOfHealthyMembers</code> / <code>NumberOfAllMembers</code> / <code>NumberOfPrisoners</code></td><td>Fast stats</td></tr>
+<tr><td><code>PartySizeLimit</code> / <code>PrisonerSizeLimit</code></td><td>Cached via <code>PartySizeLimitModel</code></td></tr>
+<tr><td><code>NumberOfMenWithHorse</code></td><td>Mounted count, recomputed on roster version</td></tr>
+<tr><td><code>GetNumberOfHealthyMenOfTier</code></td><td>Healthy men by troop tier</td></tr>
+</tbody></table>
+<h3 id="map-events-and-strength">Map, events, and strength</h3>
+<table><thead><tr><th>Member</th><th>Purpose and timing</th></tr></thead><tbody>
+<tr><td><code>Position</code> / <code>IsVisible</code> / <code>IsActive</code></td><td>Forward host</td></tr>
+<tr><td><code>MapEvent</code> / <code>MapEventSide</code> / <code>Side</code> / <code>OpponentSide</code></td><td>Current map battle affiliation</td></tr>
+<tr><td><code>SiegeEvent</code></td><td>Siege event forward</td></tr>
+<tr><td><code>EstimatedStrength</code> / <code>CalculateCurrentStrength</code> / <code>GetCustomStrength</code></td><td>Military power (Models)</td></tr>
+<tr><td><code>IsStarving</code> / <code>RemainingFoodPercentage</code> / <code>DaysStarving</code></td><td>Food state</td></tr>
+<tr><td><code>HealingRateForMemberRegulars</code> / <code>...Heroes</code></td><td>Healing models</td></tr>
+<tr><td><code>IsPartyUnderPlayerCommand</code></td><td>Via <code>EncounterModel</code>, whether player commands</td></tr>
+<tr><td><code>UpdateVisibilityAndInspected</code></td><td>Fog of war / inspected state</td></tr>
+<tr><td><code>SetVisualAsDirty</code> / <code>IsVisualDirty</code></td><td>Map icon refresh</td></tr>
+</tbody></table>
+<h2 id="real-examples">Real examples</h2>
+<h3 id="example-1-add-recruits-to-the-player-party">Example 1: Add recruits to the player party</h3>
+<pre><code data-lang="csharp">if (Campaign.Current == null)
+{
+    return;
+}
+
+PartyBase main = PartyBase.MainParty;
+if (main == null)
+{
+    return;
+}
+
+CharacterObject recruit = MBObjectManager.Instance.GetObject&lt;CharacterObject&gt;(&quot;imperial_recruit&quot;);
+if (recruit == null)
+{
+    return;
+}
+
+int before = main.NumberOfAllMembers;
+main.AddMember(recruit, 5);
+int after = main.NumberOfAllMembers;
+
+InformationManager.DisplayMessage(
+    new InformationMessage($&quot;Troops {before} → {after} (cap {main.PartySizeLimit})&quot;));
+</code></pre>
+<h3 id="example-2-from-hero-to-partybase-leader-and-strength">Example 2: From Hero to PartyBase, leader and strength</h3>
+<pre><code data-lang="csharp">Hero lord = Hero.FindFirst(h =&gt; h.IsLord &amp;&amp; h.IsAlive &amp;&amp; h.PartyBelongedTo != null);
+if (lord == null)
+{
+    return;
+}
+
+PartyBase party = lord.PartyBelongedTo.Party;
+Hero leader = party.LeaderHero; // usually the party leader
+float strength = party.EstimatedStrength;
+
+InformationManager.DisplayMessage(
+    new InformationMessage($&quot;{party.Name}: leader {leader?.Name}, estimated strength {strength:0}&quot;));
+</code></pre>
+<h3 id="example-3-walk-parties-the-player-can-command">Example 3: Walk parties the player can command</h3>
+<pre><code data-lang="csharp">if (Campaign.Current == null)
+{
+    return;
+}
+
+foreach (MobileParty mp in MobileParty.All)
+{
+    if (!mp.IsActive)
+    {
+        continue;
+    }
+
+    PartyBase pb = mp.Party;
+    if (PartyBase.IsPartyUnderPlayerCommand(pb))
+    {
+        int men = pb.NumberOfHealthyMembers;
+        // supply logic against pb.ItemRoster / MemberRoster here
+        _ = men;
+    }
+}
+</code></pre>
+<h3 id="example-4-settlement-party-garrison-vs-mobile-party">Example 4: Settlement party (garrison) vs mobile party</h3>
+<pre><code data-lang="csharp">void LogPartyHost(PartyBase party)
+{
+    if (party.IsMobile)
+    {
+        InformationManager.DisplayMessage(
+            new InformationMessage($&quot;Mobile {party.MobileParty.StringId}, members {party.NumberOfAllMembers}&quot;));
+    }
+    else if (party.IsSettlement)
+    {
+        InformationManager.DisplayMessage(
+            new InformationMessage($&quot;Settlement {party.Settlement.Name}, garrison roster {party.NumberOfAllMembers}&quot;));
+    }
+}
+</code></pre>
+<h2 id="cross-version-notes">Cross-version notes</h2>
+<ul>
+<li><code>PartyBase</code> as the shared Mobile/Settlement core is stable across 1.3.x–1.4.5.</li>
+<li>1.4.x adds/strengthens navy: <code>Ships</code>, <code>FlagShip</code>, <code>GetShipsVersion</code>; old saves get empty ship lists on <code>OnLoad</code>.</li>
+<li><code>AfterLoad</code> includes multi-version prisoner and caravan-owner fixups. Prefer official paths when upgrading saves; do not parallel a hand-rolled prisoner state machine.</li>
+</ul>
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/campaign/PartyBase/./">Campaign API index</a></li>
+<li><a href="../">API root</a></li>
+<li><a href="../../../architecture/crash-boundaries">Crash and save boundaries</a></li>
+</ul>
+<h2 id="twisted-rightwards-arrows-sibling-navigation">🔀 Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>Relationship</th></tr></thead><tbody>
+<tr><td><a href="../MobileParty">MobileParty</a></td><td>Mobile host; <code>.Party</code> → this type</td></tr>
+<tr><td><a href="../Settlement">Settlement</a></td><td>Settlement host; garrison Party</td></tr>
+<tr><td><a href="../Hero">Hero</a></td><td><code>PartyBelongedTo</code> / Owner / Leader</td></tr>
+<tr><td><a href="../Clan">Clan</a></td><td>Clan and party affiliation (campaign)</td></tr>
+<tr><td><a href="../Campaign">Campaign</a></td><td><code>MainParty</code>, GeneratePartyId</td></tr>
+</tbody></table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../../mission/Team">Team</a> — Mission combat side (do not confuse)</li>
+<li><a href="../../../architecture/save-system">Save system</a> — Saveable field discipline</li>
+<li><a href="../../../guide/campaign-system">Campaign guide</a></li>
+<li><a href="../../../architecture/sdk-overview">SDK overview</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign/">campaign index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign/TradeAgreement/">&larr; TradeAgreement</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign/PreconditionFlags/">PreconditionFlags &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

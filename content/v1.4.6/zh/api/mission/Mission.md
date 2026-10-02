@@ -501,4 +501,4 @@ if (behavior != null)
 - 单位：[Agent](../Agent) · 阵型：[Formation](../Formation)。
 - 战役侧入口：[Campaign](../../campaign/Campaign) · [CampaignEvents](../../campaign/CampaignEvents) — `OnMissionStartedEvent` / `OnMissionEndedEvent` 是把战役与任务接起来的事件。
 - 界面：[ScreenManager](../../gui/ScreenManager) — 任务内弹出的结算界面从那里推入。
-- 父级：mission API 目录导览位于版本根 `../../../`。
+- 父级：[mission API 目录导览](../)

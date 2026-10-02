@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PartyVM</title>
+  <meta name="description" content="Auto-generated class reference for PartyVM.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="active">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/viewmodel/PartyVM/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/viewmodel/PartyVM/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/viewmodel/PartyVM/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/viewmodel/PartyVM/"
+               class="active">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/en/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/en/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>v1.4.5 Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/api/" class="">Index</a><a href="/v1.4.5/en/api/core/" class="">Core</a><a href="/v1.4.5/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/en/api/mission/" class="">Mission</a><a href="/v1.4.5/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/en/api/campaign/" class="">Campaign</a><a href="/v1.4.5/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/en/api/gui/" class="">GUI</a><a href="/v1.4.5/en/api/save-system/" class="">Save System</a><a href="/v1.4.5/en/api/viewmodel/" class="active">ViewModel</a><a href="/v1.4.5/en/api/localization/" class="">Localization</a><a href="/v1.4.5/en/api/engine/" class="">Engine</a><a href="/v1.4.5/en/api/gameplay/" class="">Gameplay</a><a href="/v1.4.5/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/en/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/en/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;viewmodel&#x2F;">viewmodel index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">PartyVM</span>
+    </nav>
+  
+  <h1>PartyVM</h1>
+  <h1 id="partyvm">PartyVM</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.ViewModelCollection.Party
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class PartyVM : ViewModel</code>
+<strong>Base:</strong> <code>ViewModel</code>
+<strong>File:</strong> <code>bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Party/PartyVM.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>PartyVM</code> lives in <code>TaleWorlds.CampaignSystem.ViewModelCollection.Party</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.CampaignSystem.ViewModelCollection.Party</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>PartyScreenLogic</code></td><td><code>public PartyScreenLogic PartyScreenLogic { get; }</code></td></tr>
+<tr><td><code>CurrentCharacter</code></td><td><code>public PartyCharacterVM CurrentCharacter { get; set; }</code></td></tr>
+<tr><td><code>OtherPartySortController</code></td><td><code>public PartySortControllerVM OtherPartySortController { get; set; }</code></td></tr>
+<tr><td><code>MainPartySortController</code></td><td><code>public PartySortControllerVM MainPartySortController { get; set; }</code></td></tr>
+<tr><td><code>OtherPartyComposition</code></td><td><code>public PartyCompositionVM OtherPartyComposition { get; set; }</code></td></tr>
+<tr><td><code>MainPartyComposition</code></td><td><code>public PartyCompositionVM MainPartyComposition { get; set; }</code></td></tr>
+<tr><td><code>CurrentFocusedCharacter</code></td><td><code>public PartyCharacterVM CurrentFocusedCharacter { get; set; }</code></td></tr>
+<tr><td><code>CurrentFocusedUpgrade</code></td><td><code>public UpgradeTargetVM CurrentFocusedUpgrade { get; set; }</code></td></tr>
+<tr><td><code>HeaderLbl</code></td><td><code>public string HeaderLbl { get; set; }</code></td></tr>
+<tr><td><code>OtherPartyNameLbl</code></td><td><code>public string OtherPartyNameLbl { get; set; }</code></td></tr>
+<tr><td><code>OtherPartyTroops</code></td><td><code>public MBBindingList&lt;PartyCharacterVM&gt; OtherPartyTroops { get; set; }</code></td></tr>
+<tr><td><code>OtherPartyPrisoners</code></td><td><code>public MBBindingList&lt;PartyCharacterVM&gt; OtherPartyPrisoners { get; set; }</code></td></tr>
+<tr><td><code>MainPartyTroops</code></td><td><code>public MBBindingList&lt;PartyCharacterVM&gt; MainPartyTroops { get; set; }</code></td></tr>
+<tr><td><code>MainPartyPrisoners</code></td><td><code>public MBBindingList&lt;PartyCharacterVM&gt; MainPartyPrisoners { get; set; }</code></td></tr>
+<tr><td><code>UpgradePopUp</code></td><td><code>public PartyUpgradeTroopVM UpgradePopUp { get; set; }</code></td></tr>
+<tr><td><code>RecruitPopUp</code></td><td><code>public PartyRecruitTroopVM RecruitPopUp { get; set; }</code></td></tr>
+<tr><td><code>SelectedCharacter</code></td><td><code>public HeroViewModel SelectedCharacter { get; set; }</code></td></tr>
+<tr><td><code>CurrentCharacterLevelLbl</code></td><td><code>public string CurrentCharacterLevelLbl { get; set; }</code></td></tr>
+<tr><td><code>CurrentCharacterWageLbl</code></td><td><code>public string CurrentCharacterWageLbl { get; set; }</code></td></tr>
+<tr><td><code>TransferAllOtherTroopsHint</code></td><td><code>public BasicTooltipViewModel TransferAllOtherTroopsHint { get; set; }</code></td></tr>
+<tr><td><code>TransferAllOtherPrisonersHint</code></td><td><code>public BasicTooltipViewModel TransferAllOtherPrisonersHint { get; set; }</code></td></tr>
+<tr><td><code>TransferAllMainTroopsHint</code></td><td><code>public BasicTooltipViewModel TransferAllMainTroopsHint { get; set; }</code></td></tr>
+<tr><td><code>TransferAllMainPrisonersHint</code></td><td><code>public BasicTooltipViewModel TransferAllMainPrisonersHint { get; set; }</code></td></tr>
+<tr><td><code>CurrentCharacterTier</code></td><td><code>public StringItemWithHintVM CurrentCharacterTier { get; set; }</code></td></tr>
+<tr><td><code>ResetHint</code></td><td><code>public HintViewModel ResetHint { get; set; }</code></td></tr>
+<tr><td><code>DoneHint</code></td><td><code>public HintViewModel DoneHint { get; set; }</code></td></tr>
+<tr><td><code>OtherPartyAccompanyingLbl</code></td><td><code>public string OtherPartyAccompanyingLbl { get; set; }</code></td></tr>
+<tr><td><code>MoraleHint</code></td><td><code>public HintViewModel MoraleHint { get; set; }</code></td></tr>
+<tr><td><code>TotalWageHint</code></td><td><code>public HintViewModel TotalWageHint { get; set; }</code></td></tr>
+<tr><td><code>SpeedHint</code></td><td><code>public BasicTooltipViewModel SpeedHint { get; set; }</code></td></tr>
+<tr><td><code>MainPartyTroopSizeLimitHint</code></td><td><code>public BasicTooltipViewModel MainPartyTroopSizeLimitHint { get; set; }</code></td></tr>
+<tr><td><code>MainPartyPrisonerSizeLimitHint</code></td><td><code>public BasicTooltipViewModel MainPartyPrisonerSizeLimitHint { get; set; }</code></td></tr>
+<tr><td><code>OtherPartyTroopSizeLimitHint</code></td><td><code>public BasicTooltipViewModel OtherPartyTroopSizeLimitHint { get; set; }</code></td></tr>
+<tr><td><code>OtherPartyPrisonerSizeLimitHint</code></td><td><code>public BasicTooltipViewModel OtherPartyPrisonerSizeLimitHint { get; set; }</code></td></tr>
+<tr><td><code>UsedHorsesHint</code></td><td><code>public BasicTooltipViewModel UsedHorsesHint { get; set; }</code></td></tr>
+<tr><td><code>DenarHint</code></td><td><code>public HintViewModel DenarHint { get; set; }</code></td></tr>
+<tr><td><code>LevelHint</code></td><td><code>public HintViewModel LevelHint { get; set; }</code></td></tr>
+<tr><td><code>WageHint</code></td><td><code>public HintViewModel WageHint { get; set; }</code></td></tr>
+<tr><td><code>TitleLbl</code></td><td><code>public string TitleLbl { get; set; }</code></td></tr>
+<tr><td><code>MainPartyNameLbl</code></td><td><code>public string MainPartyNameLbl { get; set; }</code></td></tr>
+<tr><td><code>FormationHint</code></td><td><code>public HintViewModel FormationHint { get; set; }</code></td></tr>
+<tr><td><code>TalkLbl</code></td><td><code>public string TalkLbl { get; set; }</code></td></tr>
+<tr><td><code>InfoLbl</code></td><td><code>public string InfoLbl { get; set; }</code></td></tr>
+<tr><td><code>CancelLbl</code></td><td><code>public string CancelLbl { get; set; }</code></td></tr>
+<tr><td><code>DoneLbl</code></td><td><code>public string DoneLbl { get; set; }</code></td></tr>
+<tr><td><code>TroopsLabel</code></td><td><code>public string TroopsLabel { get; set; }</code></td></tr>
+<tr><td><code>PrisonersLabel</code></td><td><code>public string PrisonersLabel { get; set; }</code></td></tr>
+<tr><td><code>MainPartyTotalGoldLbl</code></td><td><code>public string MainPartyTotalGoldLbl { get; set; }</code></td></tr>
+<tr><td><code>MainPartyTotalMoraleLbl</code></td><td><code>public string MainPartyTotalMoraleLbl { get; set; }</code></td></tr>
+<tr><td><code>MainPartyTotalSpeedLbl</code></td><td><code>public string MainPartyTotalSpeedLbl { get; set; }</code></td></tr>
+<tr><td><code>MainPartyTotalWeeklyCostLbl</code></td><td><code>public string MainPartyTotalWeeklyCostLbl { get; set; }</code></td></tr>
+<tr><td><code>IsCurrentCharacterFormationEnabled</code></td><td><code>public bool IsCurrentCharacterFormationEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsCurrentCharacterWageEnabled</code></td><td><code>public bool IsCurrentCharacterWageEnabled { get; set; }</code></td></tr>
+<tr><td><code>CanChooseRoles</code></td><td><code>public bool CanChooseRoles { get; set; }</code></td></tr>
+<tr><td><code>OtherPartyTroopsLbl</code></td><td><code>public string OtherPartyTroopsLbl { get; set; }</code></td></tr>
+<tr><td><code>OtherPartyPrisonersLbl</code></td><td><code>public string OtherPartyPrisonersLbl { get; set; }</code></td></tr>
+<tr><td><code>MainPartyTroopsLbl</code></td><td><code>public string MainPartyTroopsLbl { get; set; }</code></td></tr>
+<tr><td><code>MainPartyPrisonersLbl</code></td><td><code>public string MainPartyPrisonersLbl { get; set; }</code></td></tr>
+<tr><td><code>ShowQuestProgress</code></td><td><code>public bool ShowQuestProgress { get; set; }</code></td></tr>
+<tr><td><code>QuestProgressRequiredCount</code></td><td><code>public int QuestProgressRequiredCount { get; set; }</code></td></tr>
+<tr><td><code>QuestProgressCurrentCount</code></td><td><code>public int QuestProgressCurrentCount { get; set; }</code></td></tr>
+<tr><td><code>UpgradableTroopCount</code></td><td><code>public int UpgradableTroopCount { get; set; }</code></td></tr>
+<tr><td><code>RecruitableTroopCount</code></td><td><code>public int RecruitableTroopCount { get; set; }</code></td></tr>
+<tr><td><code>IsDoneDisabled</code></td><td><code>public bool IsDoneDisabled { get; set; }</code></td></tr>
+<tr><td><code>IsUpgradePopUpDisabled</code></td><td><code>public bool IsUpgradePopUpDisabled { get; set; }</code></td></tr>
+<tr><td><code>IsRecruitPopUpDisabled</code></td><td><code>public bool IsRecruitPopUpDisabled { get; set; }</code></td></tr>
+<tr><td><code>IsMainPrisonersLimitWarningEnabled</code></td><td><code>public bool IsMainPrisonersLimitWarningEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsMainTroopsLimitWarningEnabled</code></td><td><code>public bool IsMainTroopsLimitWarningEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsOtherPrisonersLimitWarningEnabled</code></td><td><code>public bool IsOtherPrisonersLimitWarningEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsUpgradePopupButtonHighlightEnabled</code></td><td><code>public bool IsUpgradePopupButtonHighlightEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsOtherTroopsLimitWarningEnabled</code></td><td><code>public bool IsOtherTroopsLimitWarningEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsMainTroopsHaveTransferableTroops</code></td><td><code>public bool IsMainTroopsHaveTransferableTroops { get; set; }</code></td></tr>
+<tr><td><code>IsMainPrisonersHaveTransferableTroops</code></td><td><code>public bool IsMainPrisonersHaveTransferableTroops { get; set; }</code></td></tr>
+<tr><td><code>IsOtherTroopsHaveTransferableTroops</code></td><td><code>public bool IsOtherTroopsHaveTransferableTroops { get; set; }</code></td></tr>
+<tr><td><code>IsOtherPrisonersHaveTransferableTroops</code></td><td><code>public bool IsOtherPrisonersHaveTransferableTroops { get; set; }</code></td></tr>
+<tr><td><code>IsCancelDisabled</code></td><td><code>public bool IsCancelDisabled { get; set; }</code></td></tr>
+<tr><td><code>AreMembersRelevantOnCurrentMode</code></td><td><code>public bool AreMembersRelevantOnCurrentMode { get; set; }</code></td></tr>
+<tr><td><code>ArePrisonersRelevantOnCurrentMode</code></td><td><code>public bool ArePrisonersRelevantOnCurrentMode { get; set; }</code></td></tr>
+<tr><td><code>GoldChangeText</code></td><td><code>public string GoldChangeText { get; set; }</code></td></tr>
+<tr><td><code>MoraleChangeText</code></td><td><code>public string MoraleChangeText { get; set; }</code></td></tr>
+<tr><td><code>HorseChangeText</code></td><td><code>public string HorseChangeText { get; set; }</code></td></tr>
+<tr><td><code>InfluenceChangeText</code></td><td><code>public string InfluenceChangeText { get; set; }</code></td></tr>
+<tr><td><code>IsAnyPopUpOpen</code></td><td><code>public bool IsAnyPopUpOpen { get; set; }</code></td></tr>
+<tr><td><code>ScrollToCharacter</code></td><td><code>public bool ScrollToCharacter { get; set; }</code></td></tr>
+<tr><td><code>IsScrollTargetPrisoner</code></td><td><code>public bool IsScrollTargetPrisoner { get; set; }</code></td></tr>
+<tr><td><code>ScrollCharacterId</code></td><td><code>public string ScrollCharacterId { get; set; }</code></td></tr>
+<tr><td><code>ResetInputKey</code></td><td><code>public InputKeyItemVM ResetInputKey { get; set; }</code></td></tr>
+<tr><td><code>CancelInputKey</code></td><td><code>public InputKeyItemVM CancelInputKey { get; set; }</code></td></tr>
+<tr><td><code>DoneInputKey</code></td><td><code>public InputKeyItemVM DoneInputKey { get; set; }</code></td></tr>
+<tr><td><code>TakeAllTroopsInputKey</code></td><td><code>public InputKeyItemVM TakeAllTroopsInputKey { get; set; }</code></td></tr>
+<tr><td><code>DismissAllTroopsInputKey</code></td><td><code>public InputKeyItemVM DismissAllTroopsInputKey { get; set; }</code></td></tr>
+<tr><td><code>TakeAllPrisonersInputKey</code></td><td><code>public InputKeyItemVM TakeAllPrisonersInputKey { get; set; }</code></td></tr>
+<tr><td><code>DismissAllPrisonersInputKey</code></td><td><code>public InputKeyItemVM DismissAllPrisonersInputKey { get; set; }</code></td></tr>
+<tr><td><code>OpenUpgradePanelInputKey</code></td><td><code>public InputKeyItemVM OpenUpgradePanelInputKey { get; set; }</code></td></tr>
+<tr><td><code>OpenRecruitPanelInputKey</code></td><td><code>public InputKeyItemVM OpenRecruitPanelInputKey { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="compare">Compare</h3>
+<p><code>public int Compare(PartyCharacterVM x, PartyCharacterVM y)</code></p>
+<p><strong>Purpose:</strong> Compares the this instance with another instance for ordering.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+var result = partyVM.Compare(x, y);
+</code></pre>
+<h3 id="refreshvalues">RefreshValues</h3>
+<p><code>public override void RefreshValues()</code></p>
+<p><strong>Purpose:</strong> Keeps the display or cache of values in sync with the underlying state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.RefreshValues();
+</code></pre>
+<h3 id="setselectedcharacter">SetSelectedCharacter</h3>
+<p><code>public void SetSelectedCharacter(PartyCharacterVM troop)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to selected character and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetSelectedCharacter(troop);
+</code></pre>
+<h3 id="executeselectcharactertuple">ExecuteSelectCharacterTuple</h3>
+<p><code>public void ExecuteSelectCharacterTuple(PartyCharacterVM troop)</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with select character tuple.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteSelectCharacterTuple(troop);
+</code></pre>
+<h3 id="executeclearselectedcharactertuple">ExecuteClearSelectedCharacterTuple</h3>
+<p><code>public void ExecuteClearSelectedCharacterTuple()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with clear selected character tuple.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteClearSelectedCharacterTuple();
+</code></pre>
+<h3 id="executetransferwithparameters">ExecuteTransferWithParameters</h3>
+<p><code>public void ExecuteTransferWithParameters(PartyCharacterVM party, int index, string targetTag)</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with transfer with parameters.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteTransferWithParameters(party, 0, &quot;example&quot;);
+</code></pre>
+<h3 id="onupgradepopupclosed">OnUpgradePopUpClosed</h3>
+<p><code>public void OnUpgradePopUpClosed(bool isCancelled)</code></p>
+<p><strong>Purpose:</strong> Invoked when the upgrade pop up closed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.OnUpgradePopUpClosed(false);
+</code></pre>
+<h3 id="onrecruitpopupclosed">OnRecruitPopUpClosed</h3>
+<p><code>public void OnRecruitPopUpClosed(bool isCancelled)</code></p>
+<p><strong>Purpose:</strong> Invoked when the recruit pop up closed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.OnRecruitPopUpClosed(false);
+</code></pre>
+<h3 id="executetransferallmaintroops">ExecuteTransferAllMainTroops</h3>
+<p><code>public void ExecuteTransferAllMainTroops()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with transfer all main troops.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteTransferAllMainTroops();
+</code></pre>
+<h3 id="executetransferallothertroops">ExecuteTransferAllOtherTroops</h3>
+<p><code>public void ExecuteTransferAllOtherTroops()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with transfer all other troops.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteTransferAllOtherTroops();
+</code></pre>
+<h3 id="executetransferallmainprisoners">ExecuteTransferAllMainPrisoners</h3>
+<p><code>public void ExecuteTransferAllMainPrisoners()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with transfer all main prisoners.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteTransferAllMainPrisoners();
+</code></pre>
+<h3 id="executetransferallotherprisoners">ExecuteTransferAllOtherPrisoners</h3>
+<p><code>public void ExecuteTransferAllOtherPrisoners()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with transfer all other prisoners.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteTransferAllOtherPrisoners();
+</code></pre>
+<h3 id="executeopenupgradepopup">ExecuteOpenUpgradePopUp</h3>
+<p><code>public void ExecuteOpenUpgradePopUp()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with open upgrade pop up.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteOpenUpgradePopUp();
+</code></pre>
+<h3 id="executeopenrecruitpopup">ExecuteOpenRecruitPopUp</h3>
+<p><code>public void ExecuteOpenRecruitPopUp()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with open recruit pop up.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteOpenRecruitPopUp();
+</code></pre>
+<h3 id="executeupgrade">ExecuteUpgrade</h3>
+<p><code>public void ExecuteUpgrade(PartyCharacterVM troop, int upgradeTargetType, int maxUpgradeCount)</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with upgrade.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteUpgrade(troop, 0, 0);
+</code></pre>
+<h3 id="executerecruit">ExecuteRecruit</h3>
+<p><code>public void ExecuteRecruit(PartyCharacterVM character, bool recruitAll = false)</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with recruit.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteRecruit(character, false);
+</code></pre>
+<h3 id="executeexecution">ExecuteExecution</h3>
+<p><code>public void ExecuteExecution()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with execution.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteExecution();
+</code></pre>
+<h3 id="executeremovezerocounts">ExecuteRemoveZeroCounts</h3>
+<p><code>public void ExecuteRemoveZeroCounts()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with remove zero counts.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteRemoveZeroCounts();
+</code></pre>
+<h3 id="executetalk">ExecuteTalk</h3>
+<p><code>public void ExecuteTalk()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with talk.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteTalk();
+</code></pre>
+<h3 id="executedone">ExecuteDone</h3>
+<p><code>public void ExecuteDone()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with done.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteDone();
+</code></pre>
+<h3 id="executereset">ExecuteReset</h3>
+<p><code>public void ExecuteReset()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with reset.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteReset();
+</code></pre>
+<h3 id="executecancelwithoutinquiry">ExecuteCancelWithoutInquiry</h3>
+<p><code>public void ExecuteCancelWithoutInquiry()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with cancel without inquiry.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteCancelWithoutInquiry();
+</code></pre>
+<h3 id="executecancel">ExecuteCancel</h3>
+<p><code>public void ExecuteCancel(bool showCancelInquiry = false)</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with cancel.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.ExecuteCancel(false);
+</code></pre>
+<h3 id="onfinalize">OnFinalize</h3>
+<p><code>public override void OnFinalize()</code></p>
+<p><strong>Purpose:</strong> Invoked when the finalize event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.OnFinalize();
+</code></pre>
+<h3 id="setresetinputkey">SetResetInputKey</h3>
+<p><code>public void SetResetInputKey(HotKey hotkey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to reset input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetResetInputKey(hotkey);
+</code></pre>
+<h3 id="setcancelinputkey">SetCancelInputKey</h3>
+<p><code>public void SetCancelInputKey(HotKey hotKey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to cancel input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetCancelInputKey(hotKey);
+</code></pre>
+<h3 id="setdoneinputkey">SetDoneInputKey</h3>
+<p><code>public void SetDoneInputKey(HotKey hotKey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to done input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetDoneInputKey(hotKey);
+</code></pre>
+<h3 id="settakealltroopsinputkey">SetTakeAllTroopsInputKey</h3>
+<p><code>public void SetTakeAllTroopsInputKey(HotKey hotKey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to take all troops input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetTakeAllTroopsInputKey(hotKey);
+</code></pre>
+<h3 id="setdismissalltroopsinputkey">SetDismissAllTroopsInputKey</h3>
+<p><code>public void SetDismissAllTroopsInputKey(HotKey hotKey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to dismiss all troops input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetDismissAllTroopsInputKey(hotKey);
+</code></pre>
+<h3 id="settakeallprisonersinputkey">SetTakeAllPrisonersInputKey</h3>
+<p><code>public void SetTakeAllPrisonersInputKey(HotKey hotKey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to take all prisoners input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetTakeAllPrisonersInputKey(hotKey);
+</code></pre>
+<h3 id="setdismissallprisonersinputkey">SetDismissAllPrisonersInputKey</h3>
+<p><code>public void SetDismissAllPrisonersInputKey(HotKey hotKey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to dismiss all prisoners input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetDismissAllPrisonersInputKey(hotKey);
+</code></pre>
+<h3 id="setopenupgradepanelinputkey">SetOpenUpgradePanelInputKey</h3>
+<p><code>public void SetOpenUpgradePanelInputKey(HotKey hotKey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to open upgrade panel input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetOpenUpgradePanelInputKey(hotKey);
+</code></pre>
+<h3 id="setopenrecruitpanelinputkey">SetOpenRecruitPanelInputKey</h3>
+<p><code>public void SetOpenRecruitPanelInputKey(HotKey hotKey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to open recruit panel input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetOpenRecruitPanelInputKey(hotKey);
+</code></pre>
+<h3 id="setgetkeytextfromkeyidfunc">SetGetKeyTextFromKeyIDFunc</h3>
+<p><code>public void SetGetKeyTextFromKeyIDFunc(Func&lt;string, TextObject&gt; getKeyTextFromKeyId)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to get key text from key i d func and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of PartyVM from the subsystem API first
+PartyVM partyVM = ...;
+partyVM.SetGetKeyTextFromKeyIDFunc(func&lt;string, getKeyTextFromKeyId);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+PartyVM partyVM = ...;
+partyVM.Compare(x, y);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/en/api/viewmodel/">viewmodel index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/en/api/viewmodel/ClanCardSelectionPopupItemVM/">&larr; ClanCardSelectionPopupItemVM</a>
+          
+          
+            <a rel="next" href="/v1.4.5/en/api/viewmodel/EncyclopediaFactionVM/">EncyclopediaFactionVM &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

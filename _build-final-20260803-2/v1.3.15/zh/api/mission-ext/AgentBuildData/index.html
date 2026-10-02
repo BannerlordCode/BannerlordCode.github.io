@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentBuildData</title>
+  <meta name="description" content="AgentBuildData 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/AgentBuildData/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/AgentBuildData/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/AgentBuildData/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/AgentBuildData/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/AgentBuildData/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/AgentBuildData/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">AgentBuildData</span>
+    </nav>
+  
+  <h1>AgentBuildData</h1>
+  <h1 id="agentbuilddata">AgentBuildData</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public class AgentBuildData</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/AgentBuildData.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>AgentBuildData</code> 更像一个数据载体：它封装一组字段，让系统之间以结构化方式交换状态。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>AgentBuildData</code> 当作一个 Data 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>AgentData</code></td><td><code>public AgentData AgentData { get; }</code></td></tr>
+<tr><td><code>AgentCharacter</code></td><td><code>public BasicCharacterObject AgentCharacter { get; }</code></td></tr>
+<tr><td><code>AgentMonster</code></td><td><code>public Monster AgentMonster { get; }</code></td></tr>
+<tr><td><code>AgentOverridenSpawnEquipment</code></td><td><code>public Equipment AgentOverridenSpawnEquipment { get; }</code></td></tr>
+<tr><td><code>AgentOverridenSpawnMissionEquipment</code></td><td><code>public MissionEquipment AgentOverridenSpawnMissionEquipment { get; }</code></td></tr>
+<tr><td><code>AgentEquipmentSeed</code></td><td><code>public int AgentEquipmentSeed { get; }</code></td></tr>
+<tr><td><code>AgentNoHorses</code></td><td><code>public bool AgentNoHorses { get; }</code></td></tr>
+<tr><td><code>AgentMountKey</code></td><td><code>public string AgentMountKey { get; }</code></td></tr>
+<tr><td><code>AgentNoWeapons</code></td><td><code>public bool AgentNoWeapons { get; }</code></td></tr>
+<tr><td><code>AgentNoArmor</code></td><td><code>public bool AgentNoArmor { get; }</code></td></tr>
+<tr><td><code>AgentFixedEquipment</code></td><td><code>public bool AgentFixedEquipment { get; }</code></td></tr>
+<tr><td><code>AgentCivilianEquipment</code></td><td><code>public bool AgentCivilianEquipment { get; }</code></td></tr>
+<tr><td><code>AgentClothingColor1</code></td><td><code>public uint AgentClothingColor1 { get; }</code></td></tr>
+<tr><td><code>AgentClothingColor2</code></td><td><code>public uint AgentClothingColor2 { get; }</code></td></tr>
+<tr><td><code>BodyPropertiesOverriden</code></td><td><code>public bool BodyPropertiesOverriden { get; }</code></td></tr>
+<tr><td><code>AgentBodyProperties</code></td><td><code>public BodyProperties AgentBodyProperties { get; }</code></td></tr>
+<tr><td><code>AgeOverriden</code></td><td><code>public bool AgeOverriden { get; }</code></td></tr>
+<tr><td><code>AgentAge</code></td><td><code>public int AgentAge { get; }</code></td></tr>
+<tr><td><code>PrepareImmediately</code></td><td><code>public bool PrepareImmediately { get; }</code></td></tr>
+<tr><td><code>GenderOverriden</code></td><td><code>public bool GenderOverriden { get; }</code></td></tr>
+<tr><td><code>AgentIsFemale</code></td><td><code>public bool AgentIsFemale { get; }</code></td></tr>
+<tr><td><code>AgentRace</code></td><td><code>public int AgentRace { get; }</code></td></tr>
+<tr><td><code>AgentOrigin</code></td><td><code>public IAgentOriginBase AgentOrigin { get; }</code></td></tr>
+<tr><td><code>AgentController</code></td><td><code>public AgentControllerType AgentController { get; }</code></td></tr>
+<tr><td><code>AgentTeam</code></td><td><code>public Team AgentTeam { get; }</code></td></tr>
+<tr><td><code>AgentIsReinforcement</code></td><td><code>public bool AgentIsReinforcement { get; }</code></td></tr>
+<tr><td><code>AgentSpawnsIntoOwnFormation</code></td><td><code>public bool AgentSpawnsIntoOwnFormation { get; }</code></td></tr>
+<tr><td><code>AgentSpawnsUsingOwnTroopClass</code></td><td><code>public bool AgentSpawnsUsingOwnTroopClass { get; }</code></td></tr>
+<tr><td><code>MakeUnitStandOutDistance</code></td><td><code>public float MakeUnitStandOutDistance { get; }</code></td></tr>
+<tr><td><code>AgentInitialPosition</code></td><td><code>public Vec3? AgentInitialPosition { get; }</code></td></tr>
+<tr><td><code>AgentInitialDirection</code></td><td><code>public Vec2? AgentInitialDirection { get; }</code></td></tr>
+<tr><td><code>AgentFormation</code></td><td><code>public Formation AgentFormation { get; }</code></td></tr>
+<tr><td><code>AgentFormationTroopSpawnCount</code></td><td><code>public int AgentFormationTroopSpawnCount { get; }</code></td></tr>
+<tr><td><code>AgentFormationTroopSpawnIndex</code></td><td><code>public int AgentFormationTroopSpawnIndex { get; }</code></td></tr>
+<tr><td><code>AgentMissionPeer</code></td><td><code>public MissionPeer AgentMissionPeer { get; }</code></td></tr>
+<tr><td><code>OwningAgentMissionPeer</code></td><td><code>public MissionPeer OwningAgentMissionPeer { get; }</code></td></tr>
+<tr><td><code>AgentIndexOverriden</code></td><td><code>public bool AgentIndexOverriden { get; }</code></td></tr>
+<tr><td><code>AgentIndex</code></td><td><code>public int AgentIndex { get; }</code></td></tr>
+<tr><td><code>AgentMountIndexOverriden</code></td><td><code>public bool AgentMountIndexOverriden { get; }</code></td></tr>
+<tr><td><code>AgentMountIndex</code></td><td><code>public int AgentMountIndex { get; }</code></td></tr>
+<tr><td><code>AgentVisualsIndex</code></td><td><code>public int AgentVisualsIndex { get; }</code></td></tr>
+<tr><td><code>AgentBanner</code></td><td><code>public Banner AgentBanner { get; }</code></td></tr>
+<tr><td><code>AgentBannerItem</code></td><td><code>public ItemObject AgentBannerItem { get; }</code></td></tr>
+<tr><td><code>AgentBannerReplacementWeaponItem</code></td><td><code>public ItemObject AgentBannerReplacementWeaponItem { get; }</code></td></tr>
+<tr><td><code>AgentCanSpawnOutsideOfMissionBoundary</code></td><td><code>public bool AgentCanSpawnOutsideOfMissionBoundary { get; }</code></td></tr>
+<tr><td><code>RandomizeColors</code></td><td><code>public bool RandomizeColors { get; set; }</code></td></tr>
+<tr><td><code>UseFaceCache</code></td><td><code>public bool UseFaceCache { get; set; }</code></td></tr>
+<tr><td><code>FaceCacheId</code></td><td><code>public int FaceCacheId { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="character">Character</h3>
+<p><code>public AgentBuildData Character(BasicCharacterObject characterObject)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Character 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Character(characterObject);
+</code></pre>
+<h3 id="controller">Controller</h3>
+<p><code>public AgentBuildData Controller(AgentControllerType controller)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Controller 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Controller(controller);
+</code></pre>
+<h3 id="team">Team</h3>
+<p><code>public AgentBuildData Team(Team team)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Team 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Team(team);
+</code></pre>
+<h3 id="isreinforcement">IsReinforcement</h3>
+<p><code>public AgentBuildData IsReinforcement(bool isReinforcement)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 reinforcement 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.IsReinforcement(false);
+</code></pre>
+<h3 id="spawnsintoownformation">SpawnsIntoOwnFormation</h3>
+<p><code>public AgentBuildData SpawnsIntoOwnFormation(bool spawnIntoOwnFormation)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SpawnsIntoOwnFormation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.SpawnsIntoOwnFormation(false);
+</code></pre>
+<h3 id="spawnsusingowntroopclass">SpawnsUsingOwnTroopClass</h3>
+<p><code>public AgentBuildData SpawnsUsingOwnTroopClass(bool spawnUsingOwnTroopClass)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SpawnsUsingOwnTroopClass 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.SpawnsUsingOwnTroopClass(false);
+</code></pre>
+<h3 id="makeunitstandoutofformationdistance">MakeUnitStandOutOfFormationDistance</h3>
+<p><code>public AgentBuildData MakeUnitStandOutOfFormationDistance(float makeUnitStandOutDistance)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MakeUnitStandOutOfFormationDistance 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.MakeUnitStandOutOfFormationDistance(0);
+</code></pre>
+<h3 id="initialposition">InitialPosition</h3>
+<p><code>public AgentBuildData InitialPosition(in Vec3 position)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 ial position 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.InitialPosition(position);
+</code></pre>
+<h3 id="initialdirection">InitialDirection</h3>
+<p><code>public AgentBuildData InitialDirection(in Vec2 direction)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 ial direction 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.InitialDirection(direction);
+</code></pre>
+<h3 id="initialframefromspawnpointentity">InitialFrameFromSpawnPointEntity</h3>
+<p><code>public AgentBuildData InitialFrameFromSpawnPointEntity(GameEntity entity)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 ial frame from spawn point entity 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.InitialFrameFromSpawnPointEntity(entity);
+</code></pre>
+<h3 id="initialframefromspawnpointentity-1">InitialFrameFromSpawnPointEntity</h3>
+<p><code>public AgentBuildData InitialFrameFromSpawnPointEntity(WeakGameEntity entity)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 ial frame from spawn point entity 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.InitialFrameFromSpawnPointEntity(entity);
+</code></pre>
+<h3 id="formation">Formation</h3>
+<p><code>public AgentBuildData Formation(Formation formation)</code></p>
+<p><strong>用途 / Purpose:</strong> 将ion格式化为适合显示或存储的字符串。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Formation(formation);
+</code></pre>
+<h3 id="monster">Monster</h3>
+<p><code>public AgentBuildData Monster(Monster monster)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Monster 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Monster(monster);
+</code></pre>
+<h3 id="visualsindex">VisualsIndex</h3>
+<p><code>public AgentBuildData VisualsIndex(int index)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 VisualsIndex 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.VisualsIndex(0);
+</code></pre>
+<h3 id="equipment">Equipment</h3>
+<p><code>public AgentBuildData Equipment(Equipment equipment)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Equipment 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Equipment(equipment);
+</code></pre>
+<h3 id="missionequipment">MissionEquipment</h3>
+<p><code>public AgentBuildData MissionEquipment(MissionEquipment missionEquipment)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MissionEquipment 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.MissionEquipment(missionEquipment);
+</code></pre>
+<h3 id="equipmentseed">EquipmentSeed</h3>
+<p><code>public AgentBuildData EquipmentSeed(int seed)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EquipmentSeed 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.EquipmentSeed(0);
+</code></pre>
+<h3 id="nohorses">NoHorses</h3>
+<p><code>public AgentBuildData NoHorses(bool noHorses)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 NoHorses 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.NoHorses(false);
+</code></pre>
+<h3 id="noweapons">NoWeapons</h3>
+<p><code>public AgentBuildData NoWeapons(bool noWeapons)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 NoWeapons 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.NoWeapons(false);
+</code></pre>
+<h3 id="noarmor">NoArmor</h3>
+<p><code>public AgentBuildData NoArmor(bool noArmor)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 NoArmor 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.NoArmor(false);
+</code></pre>
+<h3 id="fixedequipment">FixedEquipment</h3>
+<p><code>public AgentBuildData FixedEquipment(bool fixedEquipment)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 FixedEquipment 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.FixedEquipment(false);
+</code></pre>
+<h3 id="civilianequipment">CivilianEquipment</h3>
+<p><code>public AgentBuildData CivilianEquipment(bool civilianEquipment)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CivilianEquipment 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.CivilianEquipment(false);
+</code></pre>
+<h3 id="setprepareimmediately">SetPrepareImmediately</h3>
+<p><code>public AgentBuildData SetPrepareImmediately()</code></p>
+<p><strong>用途 / Purpose:</strong> 为 prepare immediately 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.SetPrepareImmediately();
+</code></pre>
+<h3 id="clothingcolor1">ClothingColor1</h3>
+<p><code>public AgentBuildData ClothingColor1(uint color)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ClothingColor1 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.ClothingColor1(0);
+</code></pre>
+<h3 id="clothingcolor2">ClothingColor2</h3>
+<p><code>public AgentBuildData ClothingColor2(uint color)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ClothingColor2 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.ClothingColor2(0);
+</code></pre>
+<h3 id="missionpeer">MissionPeer</h3>
+<p><code>public AgentBuildData MissionPeer(MissionPeer missionPeer)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MissionPeer 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.MissionPeer(missionPeer);
+</code></pre>
+<h3 id="owningmissionpeer">OwningMissionPeer</h3>
+<p><code>public AgentBuildData OwningMissionPeer(MissionPeer missionPeer)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 OwningMissionPeer 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.OwningMissionPeer(missionPeer);
+</code></pre>
+<h3 id="bodyproperties">BodyProperties</h3>
+<p><code>public AgentBuildData BodyProperties(BodyProperties bodyProperties)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BodyProperties 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.BodyProperties(bodyProperties);
+</code></pre>
+<h3 id="age">Age</h3>
+<p><code>public AgentBuildData Age(int age)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Age 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Age(0);
+</code></pre>
+<h3 id="trooporigin">TroopOrigin</h3>
+<p><code>public AgentBuildData TroopOrigin(IAgentOriginBase troopOrigin)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TroopOrigin 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.TroopOrigin(troopOrigin);
+</code></pre>
+<h3 id="isfemale">IsFemale</h3>
+<p><code>public AgentBuildData IsFemale(bool isFemale)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 female 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.IsFemale(false);
+</code></pre>
+<h3 id="race">Race</h3>
+<p><code>public AgentBuildData Race(int race)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Race 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Race(0);
+</code></pre>
+<h3 id="mountkey">MountKey</h3>
+<p><code>public AgentBuildData MountKey(string mountKey)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MountKey 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.MountKey(&quot;example&quot;);
+</code></pre>
+<h3 id="index">Index</h3>
+<p><code>public AgentBuildData Index(int index)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Index 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Index(0);
+</code></pre>
+<h3 id="mountindex">MountIndex</h3>
+<p><code>public AgentBuildData MountIndex(int mountIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MountIndex 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.MountIndex(0);
+</code></pre>
+<h3 id="banner">Banner</h3>
+<p><code>public AgentBuildData Banner(Banner banner)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Banner 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.Banner(banner);
+</code></pre>
+<h3 id="banneritem">BannerItem</h3>
+<p><code>public AgentBuildData BannerItem(ItemObject bannerItem)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BannerItem 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.BannerItem(bannerItem);
+</code></pre>
+<h3 id="bannerreplacementweaponitem">BannerReplacementWeaponItem</h3>
+<p><code>public AgentBuildData BannerReplacementWeaponItem(ItemObject weaponItem)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BannerReplacementWeaponItem 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.BannerReplacementWeaponItem(weaponItem);
+</code></pre>
+<h3 id="formationtroopspawncount">FormationTroopSpawnCount</h3>
+<p><code>public AgentBuildData FormationTroopSpawnCount(int formationTroopCount)</code></p>
+<p><strong>用途 / Purpose:</strong> 将ion troop spawn count格式化为适合显示或存储的字符串。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.FormationTroopSpawnCount(0);
+</code></pre>
+<h3 id="formationtroopspawnindex">FormationTroopSpawnIndex</h3>
+<p><code>public AgentBuildData FormationTroopSpawnIndex(int formationTroopIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 将ion troop spawn index格式化为适合显示或存储的字符串。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.FormationTroopSpawnIndex(0);
+</code></pre>
+<h3 id="canspawnoutsideofmissionboundary">CanSpawnOutsideOfMissionBoundary</h3>
+<p><code>public AgentBuildData CanSpawnOutsideOfMissionBoundary(bool canSpawn)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否满足 spawn outside of mission boundary 的前置条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentBuildData 实例
+AgentBuildData agentBuildData = ...;
+var result = agentBuildData.CanSpawnOutsideOfMissionBoundary(false);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 该数据对象通常由战役/任务 API 返回
+AgentBuildData entry = ...;
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/mission-ext/">mission-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/mission-ext/OptionGroupVM/">&larr; OptionGroupVM</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/mission-ext/RecentPlayerInfo/">RecentPlayerInfo &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

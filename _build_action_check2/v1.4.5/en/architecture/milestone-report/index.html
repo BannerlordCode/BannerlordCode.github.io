@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Milestone Report M0–M2 (Handwritten Docs Rebuild · Cycle 1)</title>
+  <meta name="description" content="Deliverables and acceptance evidence package for Cycle 1 of the BannerlordCode handwritten developer manual rebuild: M0 contract &amp; generator retirement, M1 architecture&#x2F;nav&#x2F;crash-boundary, M2 seed deep pages. Covers waves H0–H4.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="active">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/architecture/milestone-report/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/architecture/milestone-report/"
+               class="active">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/en/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/en/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>v1.4.5 Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/architecture/" class="active">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/api/" class="">Index</a><a href="/v1.4.5/en/api/core/" class="">Core</a><a href="/v1.4.5/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/en/api/mission/" class="">Mission</a><a href="/v1.4.5/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/en/api/campaign/" class="">Campaign</a><a href="/v1.4.5/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/en/api/gui/" class="">GUI</a><a href="/v1.4.5/en/api/save-system/" class="">Save System</a><a href="/v1.4.5/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.4.5/en/api/localization/" class="">Localization</a><a href="/v1.4.5/en/api/engine/" class="">Engine</a><a href="/v1.4.5/en/api/gameplay/" class="">Gameplay</a><a href="/v1.4.5/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/en/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/en/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;architecture&#x2F;">Architecture — v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Milestone Report M0–M2 (Handwritten Docs Rebuild · Cycle 1)</span>
+    </nav>
+  
+  <h1>Milestone Report M0–M2 (Handwritten Docs Rebuild · Cycle 1)</h1>
+  <h1 id="milestone-report-m0-m2-cycle-1">Milestone Report M0–M2 (Cycle 1)</h1>
+<blockquote>
+<p>Scope: BannerlordCode.github.io (Zola static site) v1.4.5 handwritten developer manual rebuild.
+This cycle delivers: an un-bypassable contract + quality gate, the navigation skeleton, and 5 seed deep pages that pass the <code>deep_pass</code> coverage gate — the canonical pattern for every later wave.
+This is <strong>cycle 1 of a multi-cycle loop</strong>. Remaining waves H5–H10 (M3–M5) are future cycles.</p>
+</blockquote>
+<h2 id="1-milestone-overview">1. Milestone overview</h2>
+<table><thead><tr><th>Milestone</th><th>Goal</th><th>Status</th><th>Key deliverables</th></tr></thead><tbody>
+<tr><td><strong>M0</strong></td><td>Contract + retire generators + inventory &amp; coverage tooling</td><td>✅ done</td><td><code>doc-contract.md</code> (zh/en), <code>RETIRED_BODY_GENERATORS.md</code>, coverage gate, type inventory</td></tr>
+<tr><td><strong>M1</strong></td><td>Nav tree + module mental maps + roadmap + crash boundary</td><td>✅ done</td><td><code>architecture/_index</code>, <code>roadmap</code>, <code>crash-boundary</code> (zh/en), core/campaign/mission module <code>_index</code></td></tr>
+<tr><td><strong>M2</strong></td><td>Seed deep pages (L0–L1 real handwritten pattern)</td><td>✅ done</td><td>5 <code>deep_pass</code> seed pages (zh+en, 10 files)</td></tr>
+<tr><td><strong>M3</strong></td><td>High-frequency type bulk handwriting (module waves)</td><td>⏳ future</td><td>—</td></tr>
+<tr><td><strong>M4</strong></td><td>Family/module hub pages completion</td><td>⏳ future</td><td>—</td></tr>
+<tr><td><strong>M5</strong></td><td>Full acceptance + publish</td><td>⏳ future</td><td>—</td></tr>
+</tbody></table>
+<h2 id="2-wave-progress-h0-h10">2. Wave progress (H0–H10)</h2>
+<table><thead><tr><th>Wave</th><th>Content</th><th>Status</th></tr></thead><tbody>
+<tr><td>H0</td><td>Retire signature→prose generators, cut product path</td><td>✅ done (hard-fail guard in 10 CLIs)</td></tr>
+<tr><td>H1</td><td>Port &amp; freeze doc contract (H1–H9) to v1.4.5</td><td>✅ done</td></tr>
+<tr><td>H2</td><td>Discovery/inventory: type list + coverage baseline &amp; gap</td><td>✅ done (7,144 types, 0 missing pages)</td></tr>
+<tr><td>H3</td><td>Coverage gate <code>handwritten-coverage.mjs</code></td><td>✅ done (strong <code>deep_pass</code> criteria)</td></tr>
+<tr><td>H4</td><td>Seed L0–L1 deep pages (5/5 <code>deep_pass</code>)</td><td>✅ done</td></tr>
+<tr><td>H5</td><td>High-frequency API type bulk handwriting</td><td>⏳ future</td></tr>
+<tr><td>H6</td><td>Behavior/model family pages</td><td>⏳ future</td></tr>
+<tr><td>H7</td><td>Module hubs &amp; cross-module dependency graphs</td><td>🟡 partial (3 module <code>_index</code> built; rest pending)</td></tr>
+<tr><td>H8</td><td>Real usage &amp; acquisition-path completion</td><td>⏳ future</td></tr>
+<tr><td>H9</td><td>Bidirectional nav tree + link audit</td><td>🟡 partial (0 broken links on 24 authored files; full-site audit pending)</td></tr>
+<tr><td>H10</td><td>Pre-publish full acceptance</td><td>⏳ future</td></tr>
+</tbody></table>
+<h2 id="3-acceptance-evidence-package">3. Acceptance evidence package</h2>
+<h3 id="3-1-coverage-gate-result-tools-data-handwritten-coverage-json">3.1 Coverage gate result (<code>tools/data/handwritten-coverage.json</code>)</h3>
+<p>Scan root: <code>content/v1.4.5/zh/api</code> (7,123 md files)</p>
+<table><thead><tr><th>Status</th><th>Count</th></tr></thead><tbody>
+<tr><td><code>deep_pass</code></td><td><strong>5</strong></td></tr>
+<tr><td><code>family_entry_pass</code></td><td>13</td></tr>
+<tr><td><code>stub</code></td><td>7,091</td></tr>
+<tr><td><code>noise</code></td><td>14</td></tr>
+<tr><td><code>missing</code></td><td>0</td></tr>
+</tbody></table>
+<p><code>deep_pass</code> strong criteria (all required): real mental model (&gt;80 chars, non-boilerplate), <code>依赖/参见</code> (dependency/see-also) section with ≥2 links, a real <code>csharp</code> example, non-boilerplate overview.</p>
+<h3 id="3-2-seed-deep-pages-5-5-deep-pass-zh-en">3.2 Seed deep pages (5/5 <code>deep_pass</code>, zh+en)</h3>
+<table><thead><tr><th>Page</th><th>Path (zh)</th><th>Layer</th></tr></thead><tbody>
+<tr><td><code>MBSubModuleBase</code></td><td><code>content/v1.4.5/zh/api/core/MBSubModuleBase.md</code></td><td>lifecycle root</td></tr>
+<tr><td><code>Game</code></td><td><code>content/v1.4.5/zh/api/core/Game.md</code></td><td>runtime root container</td></tr>
+<tr><td><code>MBObjectBase</code></td><td><code>content/v1.4.5/zh/api/core/MBObjectBase.md</code></td><td>object base class</td></tr>
+<tr><td><code>Campaign</code></td><td><code>content/v1.4.5/zh/api/campaign/Campaign.md</code></td><td>campaign layer</td></tr>
+<tr><td><code>Mission</code></td><td><code>content/v1.4.5/zh/api/mission/Mission.md</code></td><td>battle layer</td></tr>
+</tbody></table>
+<p>Each page has: real mental model, dependency/risk list, purpose-grouped member notes (not a signature wall), real <code>csharp</code> example, bidirectional nav (parent/sibling/child/related). en versions under <code>en/</code>.</p>
+<h3 id="3-3-type-inventory-tools-data-type-inventory-json">3.3 Type inventory (<code>tools/data/type-inventory.json</code>)</h3>
+<ul>
+<li>v1.4.5 public types total: <strong>7,144</strong> (zh and en)</li>
+<li>Types with a corresponding page: <strong>7,144</strong> (hasDoc=true)</li>
+<li><strong>Missing pages: 0</strong></li>
+</ul>
+<p>Conclusion: the gap is not missing pages — it is <strong>7,091 stubs that must be hand-deepened</strong> (stub→handwritten conversion).</p>
+<h3 id="3-4-generator-retirement-tools-retired-body-generators-md">3.4 Generator retirement (<code>tools/RETIRED_BODY_GENERATORS.md</code>)</h3>
+<ul>
+<li>Policy: product docs under <code>content/**</code> are handwritten only; automation must not invent or bulk-rewrite page prose.</li>
+<li>Emergency override <code>BANNERLORD_ALLOW_RETIRED_BODY_GEN=1</code> is <strong>forbidden for product builds / CI / any commit touching <code>content/**</code></strong>.</li>
+<li>Hard-fail guard (top of each retired CLI): exits <code>process.exit(1)</code> unless the env var equals <code>1</code>. Wired into 10 CLIs; the other 12 named scripts do not exist on disk (product path already cut).</li>
+<li>Retired scripts listed: <code>generate-class-docs.mjs</code>, <code>gen-class-ref.mjs</code>, <code>batch-gen-stubs.mjs</code>, <code>enhance-stubs.mjs</code>, <code>regenerate-method-purposes.mjs</code>, <code>normalize-method-purposes.mjs</code>, <code>doc-fragments.mjs</code> (body path), <code>populate-curated-content.mjs</code>, <code>bulk-fix-mental-models.mjs</code>, etc.</li>
+</ul>
+<h3 id="3-5-link-audit-t7">3.5 Link audit (T7)</h3>
+<ul>
+<li>Scope: 24 handwritten files authored this cycle (architecture pages + module <code>_index</code> + 5 seed pages, zh+en).</li>
+<li>Internal links checked: <strong>335</strong></li>
+<li><strong>Broken links: 0</strong></li>
+</ul>
+<p>Fix note: <code>Campaign.md</code> (zh/en) originally linked <code>../../save-system/SaveManager</code> with wrong depth; corrected to <code>../save-system/SaveManager</code> (SaveManager actually lives under <code>api/save-system/</code>).</p>
+<h3 id="3-6-crash-boundary-content-v1-4-5-zh-en-architecture-crash-boundary-md">3.6 Crash boundary (<code>content/v1.4.5/{zh,en}/architecture/crash-boundary.md</code>)</h3>
+<p>Documents 8 crash/save failure modes with correct patterns: world-state mutation must go through <code>*Action.Apply</code>, SubModule load-phase constraints, Agent lifecycle, MBObjectManager registration, SaveId/SaveableField consistency, etc. This page is the source of truth for the "Risks" section of every type page in waves H4/H8.</p>
+<h3 id="3-7-bidirectional-navigation-skeleton">3.7 Bidirectional navigation skeleton</h3>
+<ul>
+<li>Architecture layering: Foundation (<code>api/core</code>, <code>api/engine</code>) → Campaign (<code>api/campaign</code>) → Mission (<code>api/mission</code>) → UI (<code>api/viewmodel</code>, <code>api/gui</code>) → Save (<code>api/save-system</code>).</li>
+<li>Module <code>_index</code>: core / campaign / mission mental maps built (hub entry tables + dependency graphs + reading order).</li>
+<li>Seed pages each carry a <code>## Navigation</code> section: parent / siblings / child types / related — satisfying the H5 bidirectional tree requirement.</li>
+</ul>
+<h2 id="4-known-risks-next-cycles">4. Known risks &amp; next cycles</h2>
+<ol>
+<li><strong>Scale</strong>: 7,091 stubs to hand-deepen; one cycle cannot finish — must proceed by module waves (H5–H8).</li>
+<li><strong>Full-site link audit</strong>: this cycle audited only the 24 authored files. The site's 36k+ pages carry historical broken links; a full <code>audit-links.mjs</code> (scans all <code>content/</code>) is costly and should be batched per module in H9.</li>
+<li><strong>en seed consistency</strong>: en pages written in sync with zh, but the coverage gate currently runs only on <code>zh/api</code>; H3 should extend it to bilingual dual-run.</li>
+<li><strong>Module hub completion</strong>: beyond core/campaign/mission, the <code>engine</code>/<code>viewmodel</code>/<code>gui</code>/<code>save-system</code> module <code>_index</code> pages are not yet built (H7).</li>
+</ol>
+<h2 id="5-how-to-re-run-acceptance">5. How to re-run acceptance</h2>
+<pre><code data-lang="bash"># Coverage gate (zh/api)
+node tools/handwritten-coverage.mjs --root content/v1.4.5/zh/api
+
+# Type inventory build
+node tools/generate-inventory.mjs
+
+# Full-site link audit (scans all content/ by default)
+node tools/audit-links.mjs
+</code></pre>
+<p>Evidence file locations:</p>
+<ul>
+<li>Coverage: <code>tools/data/handwritten-coverage.json</code></li>
+<li>Type inventory: <code>tools/data/type-inventory.json</code></li>
+<li>Generator retirement policy: <code>tools/RETIRED_BODY_GENERATORS.md</code></li>
+<li>Contract &amp; roadmap: <code>content/v1.4.5/{zh,en}/architecture/</code></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/en/architecture/">Architecture — v1.4.5</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/en/architecture/crash-boundary/">&larr; Crash &amp; Save Boundaries — v1.4.5</a>
+          
+          
+            <a rel="next" href="/v1.4.5/en/architecture/doc-contract/">Doc Contract — Handwritten-Only Policy and Acceptance (v1.4.5) &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

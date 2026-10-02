@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brush</title>
+  <meta name="description" content="Brush 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/gui/Brush/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/gui/Brush/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/gui/Brush/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/gui/Brush/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="active">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;gui&#x2F;">gui 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Brush</span>
+    </nav>
+  
+  <h1>Brush</h1>
+  <h1 id="brush">Brush</h1>
+<p><strong>Namespace:</strong> TaleWorlds.GauntletUI
+<strong>Module:</strong> TaleWorlds.GauntletUI
+<strong>Type:</strong> <code>public class Brush</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/Brush.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>Brush</code> 位于 <code>TaleWorlds.GauntletUI</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.GauntletUI</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>ClonedFrom</code></td><td><code>public Brush ClonedFrom { get; }</code></td></tr>
+<tr><td><code>OverriddenBrush</code></td><td><code>public Brush OverriddenBrush { get; }</code></td></tr>
+<tr><td><code>Name</code></td><td><code>public string Name { get; }</code></td></tr>
+<tr><td><code>TransitionDuration</code></td><td><code>public float TransitionDuration { get; }</code></td></tr>
+<tr><td><code>DefaultStyle</code></td><td><code>public Style DefaultStyle { get; }</code></td></tr>
+<tr><td><code>Font</code></td><td><code>public Font Font { get; set; }</code></td></tr>
+<tr><td><code>FontStyle</code></td><td><code>public FontStyle FontStyle { get; set; }</code></td></tr>
+<tr><td><code>FontSize</code></td><td><code>public int FontSize { get; set; }</code></td></tr>
+<tr><td><code>TextHorizontalAlignment</code></td><td><code>public TextHorizontalAlignment TextHorizontalAlignment { get; set; }</code></td></tr>
+<tr><td><code>TextVerticalAlignment</code></td><td><code>public TextVerticalAlignment TextVerticalAlignment { get; set; }</code></td></tr>
+<tr><td><code>GlobalColorFactor</code></td><td><code>public float GlobalColorFactor { get; set; }</code></td></tr>
+<tr><td><code>GlobalAlphaFactor</code></td><td><code>public float GlobalAlphaFactor { get; set; }</code></td></tr>
+<tr><td><code>GlobalColor</code></td><td><code>public Color GlobalColor { get; set; }</code></td></tr>
+<tr><td><code>SoundProperties</code></td><td><code>public SoundProperties SoundProperties { get; set; }</code></td></tr>
+<tr><td><code>Sprite</code></td><td><code>public Sprite Sprite { get; set; }</code></td></tr>
+<tr><td><code>VerticalFlip</code></td><td><code>public bool VerticalFlip { get; set; }</code></td></tr>
+<tr><td><code>HorizontalFlip</code></td><td><code>public bool HorizontalFlip { get; set; }</code></td></tr>
+<tr><td><code>Color</code></td><td><code>public Color Color { get; set; }</code></td></tr>
+<tr><td><code>ColorFactor</code></td><td><code>public float ColorFactor { get; set; }</code></td></tr>
+<tr><td><code>AlphaFactor</code></td><td><code>public float AlphaFactor { get; set; }</code></td></tr>
+<tr><td><code>HueFactor</code></td><td><code>public float HueFactor { get; set; }</code></td></tr>
+<tr><td><code>SaturationFactor</code></td><td><code>public float SaturationFactor { get; set; }</code></td></tr>
+<tr><td><code>ValueFactor</code></td><td><code>public float ValueFactor { get; set; }</code></td></tr>
+<tr><td><code>FontColor</code></td><td><code>public Color FontColor { get; set; }</code></td></tr>
+<tr><td><code>TextColorFactor</code></td><td><code>public float TextColorFactor { get; set; }</code></td></tr>
+<tr><td><code>TextAlphaFactor</code></td><td><code>public float TextAlphaFactor { get; set; }</code></td></tr>
+<tr><td><code>TextHueFactor</code></td><td><code>public float TextHueFactor { get; set; }</code></td></tr>
+<tr><td><code>TextSaturationFactor</code></td><td><code>public float TextSaturationFactor { get; set; }</code></td></tr>
+<tr><td><code>TextValueFactor</code></td><td><code>public float TextValueFactor { get; set; }</code></td></tr>
+<tr><td><code>Layers</code></td><td><code>public Dictionary&lt;string, BrushLayer&gt;.ValueCollection Layers { get; }</code></td></tr>
+<tr><td><code>DefaultStyleLayer</code></td><td><code>public StyleLayer DefaultStyleLayer { get; }</code></td></tr>
+<tr><td><code>DefaultLayer</code></td><td><code>public BrushLayer DefaultLayer { get; }</code></td></tr>
+<tr><td><code>Styles</code></td><td><code>public Dictionary&lt;string, Style&gt;.ValueCollection Styles { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="getstyle">GetStyle</h3>
+<p><code>public Style GetStyle(string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 style 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+var result = brush.GetStyle(&quot;example&quot;);
+</code></pre>
+<h3 id="getstyleordefault">GetStyleOrDefault</h3>
+<p><code>public Style GetStyleOrDefault(string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 style or default 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+var result = brush.GetStyleOrDefault(&quot;example&quot;);
+</code></pre>
+<h3 id="addstyle">AddStyle</h3>
+<p><code>public void AddStyle(Style style)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 style 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+brush.AddStyle(style);
+</code></pre>
+<h3 id="removestyle">RemoveStyle</h3>
+<p><code>public void RemoveStyle(string styleName)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 style。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+brush.RemoveStyle(&quot;example&quot;);
+</code></pre>
+<h3 id="addlayer">AddLayer</h3>
+<p><code>public void AddLayer(BrushLayer layer)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 layer 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+brush.AddLayer(layer);
+</code></pre>
+<h3 id="removelayer">RemoveLayer</h3>
+<p><code>public void RemoveLayer(string layerName)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 layer。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+brush.RemoveLayer(&quot;example&quot;);
+</code></pre>
+<h3 id="getlayer">GetLayer</h3>
+<p><code>public BrushLayer GetLayer(string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 layer 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+var result = brush.GetLayer(&quot;example&quot;);
+</code></pre>
+<h3 id="fillfrom">FillFrom</h3>
+<p><code>public void FillFrom(Brush brush)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 FillFrom 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+brush.FillFrom(brush);
+</code></pre>
+<h3 id="clone">Clone</h3>
+<p><code>public Brush Clone()</code></p>
+<p><strong>用途 / Purpose:</strong> 复制当前对象的状态并返回一个新实例。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+var result = brush.Clone();
+</code></pre>
+<h3 id="addanimation">AddAnimation</h3>
+<p><code>public void AddAnimation(BrushAnimation animation)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 animation 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+brush.AddAnimation(animation);
+</code></pre>
+<h3 id="getanimation">GetAnimation</h3>
+<p><code>public BrushAnimation GetAnimation(string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 animation 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+var result = brush.GetAnimation(&quot;example&quot;);
+</code></pre>
+<h3 id="getanimations">GetAnimations</h3>
+<p><code>public IEnumerable&lt;BrushAnimation&gt; GetAnimations()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 animations 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+var result = brush.GetAnimations();
+</code></pre>
+<h3 id="tostring">ToString</h3>
+<p><code>public override string ToString()</code></p>
+<p><strong>用途 / Purpose:</strong> 返回当前对象的人类可读字符串表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+var result = brush.ToString();
+</code></pre>
+<h3 id="isclonerelated">IsCloneRelated</h3>
+<p><code>public bool IsCloneRelated(Brush brush)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 clone related 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Brush 实例
+Brush brush = ...;
+var result = brush.IsCloneRelated(brush);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+Brush brush = ...;
+brush.GetStyle(&quot;example&quot;);
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/api/gui/">gui 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/api/gui/OnlineImageTextureWidget/">&larr; OnlineImageTextureWidget</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/api/gui/WidgetAttributeValueTypeParameter/">WidgetAttributeValueTypeParameter &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formation</title>
+  <meta name="description" content="A Mission Team&#x27;s troop grouping by class (Infantry&#x2F;Cavalry&#x2F;Ranged&#x2F;Skirmisher&#x2F;HorseArcher...): the control surface that issues movement, charge, arrangement, riding, firing and facing orders to every Agent it holds.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission/Formation/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission/Formation/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission/Formation/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission/Formation/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission/Formation/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission/Formation/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="active">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;mission&#x2F;">mission index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Formation</span>
+    </nav>
+  
+  <h1>Formation</h1>
+  <h1 id="formation">Formation</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public sealed class Formation : IFormation</code>
+<strong>Source:</strong> <code>TaleWorlds.MountAndBlade/Formation.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Formation</code> is the <strong>tactical group</strong> a <code>Team</code> splits its troops into during a <code>Mission</code>, one group per class (infantry, archers, cavalry, horse archers, skirmishers, …). It is not an entity on the battlefield — it is the <em>control surface</em> that gathers a set of <code>Agent</code>s into one unit and lets you issue a single move / charge / arrangement / mount / fire / face command that is then fanned out to every member. Think of <code>Agent</code> as the individual soldier being commanded and <code>Formation</code> as the command board that drives the whole squad at once. At any moment an <code>Agent</code> belongs to exactly one <code>Formation</code>, and a <code>Team</code> owns one <code>Formation</code> per <code>FormationClass</code> plus a few special formations. You almost never <code>new</code> a <code>Formation</code> yourself — the <code>Team</code> creates and owns them when it initializes.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Picture <code>Formation</code> as <strong>the per-class, centrally-commandable squad inside a Team</strong>:</p>
+<ul>
+<li><strong>Lifecycle:</strong> born with the <code>Mission</code>. A <code>Team</code> constructs one <code>Formation</code> per class (<code>new Formation(team, index)</code>, <code>Formation.cs:605</code>) and disposes them together with the <code>Team</code> when the <code>Mission</code> ends.</li>
+<li><strong>Who creates / owns it:</strong> the <code>Team</code> (<code>Team.FormationsIncludingSpecialAndEmpty</code> / <code>Team.FormationsIncludingEmpty</code>, both <code>MBList&lt;Formation&gt;</code>). The formation itself does not spawn units; the spawn system routes troops in via <code>Team.AddAgentToTeam</code> → <code>Formation.AddUnit</code>.</li>
+<li><strong>What layer it lives in:</strong> the pure runtime combat layer (<code>TaleWorlds.MountAndBlade</code>). It takes no part in the campaign save. It reads live state such as <code>Mission.Current</code>, <code>Mission.Current.Mode</code>, <code>Mission.Current.IsFormationUnitPositionAvailableMT</code> — outside a <code>Mission</code> context a <code>Formation</code> is meaningless.</li>
+<li><strong>How it is driven:</strong> orders are written as small <em>Order</em> objects (<code>MovementOrder</code>, <code>ArrangementOrder</code>, <code>FormOrder</code>, <code>RidingOrder</code>, <code>FiringOrder</code>, <code>FacingOrder</code>); each frame <code>Formation.Tick</code> translates those orders into per-<code>Agent</code> settings (<code>agent.SetRidingOrder</code> / <code>agent.SetFiringOrder</code> / <code>agent.SetTargetFormationIndex</code>, …).</li>
+</ul>
+<p>The <code>OrderOfBattle</code> is the broader system this plugs into: the pre-battle deployment / order screen (the <code>OrderOfBattle*</code> view-models and the <code>OrderController</code> that executes player and AI orders) is where a human player picks classes, heroes and initial orders. At runtime, modders mostly read and set those same orders through <code>Formation</code> and the <code>OrderController</code> rather than through the UI layer (see <a href="../../mission-ext/">the mission-ext bucket</a>).</p>
+<h2 id="how-to-obtain-a-formation">How to Obtain a Formation</h2>
+<p>You always take a <code>Formation</code> <em>from a <code>Team</code></em> — you never construct one. There are two equivalent ways:</p>
+<pre><code data-lang="csharp">// Option 1 (recommended): take it directly by class. Internally this is just
+// FormationsIncludingSpecialAndEmpty[(int)cls].
+Team playerTeam = Mission.Current.PlayerTeam;
+Formation infantry = playerTeam.GetFormation(FormationClass.Infantry);
+Formation archers  = playerTeam.GetFormation(FormationClass.Ranged);
+
+// Option 2: iterate the list the Team holds.
+foreach (Formation f in playerTeam.FormationsIncludingSpecialAndEmpty)
+{
+    if (f.CountOfUnits &gt; 0)
+    {
+        // this formation has troops in it
+    }
+}
+
+// Use FormationsIncludingEmpty when you only want non-empty regular formations.
+foreach (Formation f in playerTeam.FormationsIncludingEmpty) { /* ... */ }
+</code></pre>
+<blockquote>
+<p>Note: the argument to <code>GetFormation</code> is a <code>FormationClass</code> value (see below); its integer value <em>is</em> the formation's index in the list. There is <strong>no</strong> <code>Team.Formations</code> property and no <code>Formations.GetFormation(...)</code> — call <code>team.GetFormation(...)</code> directly.</p>
+</blockquote>
+<h2 id="formation-classes-formationclass">Formation Classes (FormationClass)</h2>
+<p><code>FormationClass</code> (<code>TaleWorlds.Core</code>) is both the "class slot" of a formation and the index into the team's formation array:</p>
+<table><thead><tr><th>Value</th><th>Meaning</th></tr></thead><tbody>
+<tr><td><code>Infantry = 0</code></td><td>Infantry</td></tr>
+<tr><td><code>Ranged = 1</code></td><td>Archer / crossbowman</td></tr>
+<tr><td><code>Cavalry = 2</code></td><td>Cavalry</td></tr>
+<tr><td><code>HorseArcher = 3</code></td><td>Horse archer</td></tr>
+<tr><td><code>Skirmisher = 4</code></td><td>Skirmisher (javelins, etc.)</td></tr>
+<tr><td><code>HeavyInfantry = 5</code></td><td>Heavy infantry</td></tr>
+<tr><td><code>LightCavalry = 6</code></td><td>Light cavalry</td></tr>
+<tr><td><code>HeavyCavalry = 7</code></td><td>Heavy cavalry</td></tr>
+<tr><td><code>NumberOfAllFormations = 10</code> / <code>Unset = 10</code></td><td>sentinel meaning "none / unassigned"</td></tr>
+</tbody></table>
+<p>A formation carries a <code>LogicalClass</code> (what it <em>should</em> be, inferred from current members) and a <code>PhysicalClass</code> (the dominant real class, <code>QuerySystem.MainClass</code>). <code>RepresentativeClass</code> / <code>SecondaryLogicalClasses</code> / <code>SecondaryPhysicalClasses</code> let you know at a glance what is mixed into the squad without iterating units.</p>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p><strong>Use <code>Formation</code> when:</strong></p>
+<ul>
+<li>You want to issue a <strong>squad-level tactical command</strong>: move a group to a point, charge, change arrangement, mount/dismount, hold/fire.</li>
+<li>You want to <strong>query or operate on a whole squad</strong>: count troops, filter by condition, run one action on every <code>Agent</code> (<code>ApplyActionOnEachUnit</code>).</li>
+<li>You want to <strong>read squad posture</strong>: average position, nearest enemy formation, formation width, unit count, whether it is all cavalry (<code>QuerySystem</code> + the <code>CountOf*</code> properties).</li>
+</ul>
+<p><strong>Do NOT use <code>Formation</code> when:</strong></p>
+<ul>
+<li>You want to change the <strong>instantaneous state of a single soldier</strong> — operate on that <code>Agent</code> directly; do not touch the formation's orders for one unit.</li>
+<li>You are on the <strong>campaign (Campaign) layer</strong> where no <code>Mission</code> exists. Store your decision as a <code>FormationClass</code> + in-team index or an <code>OrderType</code>, then push it through a <code>MissionBehavior</code> once the <code>Mission</code> starts (see <a href="../MissionBehavior/">MissionBehavior</a>).</li>
+<li>You want to <strong>serialize / save a <code>Formation</code> reference</strong>. It is a pure runtime object that goes stale when the <code>Mission</code> ends; save a <em>rebuildable</em> key like class + team, not an object reference.</li>
+<li>You assume the <strong>same <code>Formation</code> instance survives across <code>Mission</code>es</strong> — every battle creates brand-new instances.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><strong>Upstream (creates / owns / drives)</strong>
+<ul>
+<li><a href="../Team/">Team</a> — creates and owns all formations; exposes <code>GetFormation</code>, <code>FormationsIncludingSpecialAndEmpty</code>.</li>
+<li><a href="../Mission/">Mission</a> — provides <code>Mission.Current</code>, runs <code>Formation.Tick</code>, and decides <code>Mode</code> (deployment / battle).</li>
+<li><a href="../../mission-ext/OrderController/">OrderController</a> — <code>Team.MasterOrderController</code> / <code>PlayerOrderController</code> actually performs <code>Split</code> / <code>TransferUnits</code> / player orders.</li>
+</ul>
+</li>
+<li><strong>Downstream (commanded / queried)</strong>
+<ul>
+<li><a href="../Agent/">Agent</a> — the units inside a formation; added via <code>AddUnit</code> and driven via <code>agent.SetTargetFormationIndex</code> / <code>SetRidingOrder</code> / <code>SetFiringOrder</code>.</li>
+<li><code>FormationQuerySystem</code> (<code>QuerySystem</code>) — per-formation posture cache (enemy distance, class ratio, average position).</li>
+<li><code>FormationAI</code> (<code>AI</code>) — the formation's AI behavior, driven by <code>Team.TeamAI</code>.</li>
+</ul>
+</li>
+<li><strong>Order vocabulary (existing EN pages)</strong>
+<ul>
+<li><a href="../../mission-ext/MovementOrder/">MovementOrder</a> — move / charge / follow / attack factories.</li>
+<li><a href="../../mission-ext/ArrangementOrder/">ArrangementOrder</a> — line / column / circle / square / shield-wall / scatter / loose / wedge.</li>
+<li><a href="../../mission-ext/OrderType/">OrderType</a>, <a href="../../mission-ext/FiringOrder/">FiringOrder</a>, <a href="../../mission-ext/RidingOrder/">RidingOrder</a>, <a href="../../mission-ext/FacingOrder/">FacingOrder</a>, <a href="../../mission-ext/FormOrder/">FormOrder</a>.</li>
+</ul>
+</li>
+<li><strong>Related behaviors / entry points</strong>
+<ul>
+<li><a href="../MissionBehavior/">MissionBehavior</a> — the callback entry point for reading/issuing formation orders in battle.</li>
+<li><a href="../../mission-ext/MBGameManager/">MBGameManager</a> / <a href="../../mission-ext/MissionLogic/">MissionLogic</a> — where modders hook into the mission loop.</li>
+<li><a href="../FormationSpawnData/">FormationSpawnData</a> — how troops are routed into formations.</li>
+</ul>
+</li>
+</ul>
+<h2 id="risks">Risks</h2>
+<p><code>Formation</code> is one of the easiest types to crash with if you hold or call it outside its live <code>Mission</code>:</p>
+<ol>
+<li>
+<p><strong>Calling it outside a <code>Mission</code> throws <code>NullReferenceException</code>.</strong> Many members read <code>Mission.Current</code> — <code>Reset()</code>, <code>Tick()</code>, <code>IsDeployment =&gt; Mission.Current.Mode</code>, <code>IsConvenientForTransfer =&gt; Mission.Current.MissionTeamAIType</code>, <code>CreateNewOrderWorldPosition</code>, and more. In any scope where <code>Mission == null</code> (campaign map tick, menus, early save-load) calling <code>formation.Xxx</code> dereferences null. Only touch a formation while <code>Mission.Current != null</code> and the mission is active.</p>
+</li>
+<li>
+<p><strong>Holding a <code>Formation</code> reference after the <code>Mission</code> ends = dangling reference.</strong> When the <code>Mission</code> ends the <code>Team</code> and its formations are torn down; a cached field now points at a dead object. Re-calling it reads a null or wrong <code>Mission.Current</code>. Prefer events and local variables; do not store formations long-term.</p>
+</li>
+<li>
+<p><strong>Holding an <code>Agent</code> taken from a formation after that <code>Agent</code> is dead.</strong> <code>GetFirstUnit()</code>, <code>GetUnitWithIndex(...)</code>, <code>ApplyActionOnEachUnit(...)</code> and the <code>DetachedUnits</code> / <code>LooseDetachedUnits</code> lists hand back <code>Agent</code> references that may have died between frames. Before acting on one, check <code>agent.IsActive()</code> / <code>agent.State == AgentState.Active</code> (and that you are still inside the <code>Mission</code>). Treating a stale <code>Agent</code> as live leads to the same null/dead-reference crashes as risk 1–2.</p>
+</li>
+<li>
+<p><strong>Wrong-phase orders are silently replaced or ignored.</strong> <code>SetMovementOrder</code> contains an auto-replace loop <code>while (!_movementOrder.IsApplicable(this))</code> inside <code>Tick</code>: during deployment, an order that does not apply then (e.g. <code>Charge</code> without a valid target position) is quietly swapped for <code>Move</code> or <code>Stop</code>. For deployment positioning use <code>MovementOrder.MovementOrderMove(pos)</code>; issue the real "charge" after <code>OnDeploymentFinished</code> or from battle logic.</p>
+</li>
+<li>
+<p><strong><code>Split</code> / <code>TransferUnits</code> rearrange units and raise <code>OnFormationsChanged</code>.</strong> Calling them mid-<code>foreach</code> over <code>FormationsIncludingSpecialAndEmpty</code> mutates the list you are iterating, risking skipped/duplicated entries. Collect targets first, or do it inside a suitable <code>MissionLogic</code> callback.</p>
+</li>
+<li>
+<p><strong><code>SetControlledByAI(false)</code> hands the formation to the player and can re-trigger AI activation.</strong> Switching an AI-controlled formation to manual while <code>TeamAI</code> also drives it makes orders "fight". Before mixing control, be clear on <code>PlayerOwner</code> vs <code>IsAIOwned</code> (<code>SetControlledByAI</code> internally calls <code>AI.ActiveBehavior.OnLostAIControl()</code> / re-<code>OnBehaviorActivated()</code>).</p>
+</li>
+<li>
+<p><strong>Do not write a <code>Formation</code> / <code>Team</code> into a serializable field (save corruption).</strong> These are transient runtime objects; loading a save would yield a wrong/empty reference and can break <code>Mission</code> init. Use a rebuildable key (<code>FormationClass</code> + in-team enum).</p>
+</li>
+<li>
+<p><strong>Setting <code>BannerCode</code> broadcasts a network message in multiplayer.</strong> Assigning <code>formation.BannerCode</code> on the server does <code>GameNetwork.BeginBroadcastModuleEvent</code> with <code>InitializeFormation</code>; a client-only assignment will not sync. Change banners through the server-authoritative path.</p>
+</li>
+</ol>
+<h2 id="key-members">Key Members</h2>
+<h3 id="core-properties">Core properties</h3>
+<table><thead><tr><th>Property</th><th>Type</th><th>Meaning / notes</th></tr></thead><tbody>
+<tr><td><code>Team</code></td><td><code>Team</code> (<code>readonly</code>)</td><td>The owning team.</td></tr>
+<tr><td><code>Index</code></td><td><code>int</code> (<code>readonly</code>)</td><td>Index of the formation in the team (equals <code>(int)FormationIndex</code>).</td></tr>
+<tr><td><code>FormationIndex</code></td><td><code>FormationClass</code> (<code>readonly</code>)</td><td>The class slot this formation represents.</td></tr>
+<tr><td><code>CountOfUnits</code></td><td><code>int</code></td><td>Troops in formation + detached ones.</td></tr>
+<tr><td><code>CountOfUnitsWithoutDetachedOnes</code></td><td><code>int</code></td><td>Only arranged (non-detached) troops.</td></tr>
+<tr><td><code>DetachedUnits</code> / <code>LooseDetachedUnits</code></td><td><code>MBReadOnlyList&lt;Agent&gt;</code></td><td>Units pulled out of the arrangement via <code>DetachUnit</code>.</td></tr>
+<tr><td><code>QuerySystem</code></td><td><code>FormationQuerySystem</code></td><td>Posture cache: class ratio, nearest enemy, average/median position, speed.</td></tr>
+<tr><td><code>AI</code></td><td><code>FormationAI</code></td><td>The formation's AI controller.</td></tr>
+<tr><td><code>OrderPosition</code> / <code>OrderGroundPosition</code> / <code>OrderPositionIsValid</code></td><td><code>Vec2</code> / <code>Vec3</code> / <code>bool</code></td><td>Current order target point; invalid → <code>CreateNewOrderWorldPosition</code> prints a yellow warning.</td></tr>
+<tr><td><code>CurrentPosition</code></td><td><code>Vec2</code></td><td>The formation's actual center (average position + facing).</td></tr>
+<tr><td><code>Direction</code> / <code>CurrentDirection</code></td><td><code>Vec2</code></td><td>The formation's facing.</td></tr>
+<tr><td><code>LogicalClass</code> / <code>PhysicalClass</code></td><td><code>FormationClass</code></td><td>Logical class / dominant physical class.</td></tr>
+<tr><td><code>ArrangementOrder</code> / <code>FormOrder</code> / <code>RidingOrder</code> / <code>FiringOrder</code> / <code>FacingOrder</code></td><td>order type</td><td>Current order (read-only; change them via the <code>Set*</code> methods).</td></tr>
+<tr><td><code>IsDeployment</code></td><td><code>bool</code></td><td><code>Mission.Current.Mode == MissionMode.Deployment</code>.</td></tr>
+<tr><td><code>IsAIControlled</code></td><td><code>bool</code></td><td>Whether AI owns the formation.</td></tr>
+<tr><td><code>Captain</code></td><td><code>Agent</code></td><td>Formation captain; assignment raises <code>OnCaptainChanged</code>.</td></tr>
+<tr><td><code>PlayerOwner</code></td><td><code>Agent</code></td><td>Player commander; assigning it <strong>auto-calls</strong> <code>SetControlledByAI(value == null)</code>.</td></tr>
+<tr><td><code>IsSpawning</code></td><td><code>bool</code></td><td>True between <code>BeginSpawn</code> / <code>EndSpawn</code>.</td></tr>
+<tr><td><code>TargetFormation</code></td><td><code>Formation</code></td><td>Locked enemy/friendly target; assigning fans <code>agent.SetTargetFormationIndex</code> to the whole squad.</td></tr>
+</tbody></table>
+<h3 id="order-system-issuing-commands">Order system (issuing commands)</h3>
+<p>Every command is built as an Order object first, then handed to a <code>Set*</code> method; the order is realized on the units during <code>Tick</code>.</p>
+<h4 id="public-void-setmovementorder-movementorder-input"><code>public void SetMovementOrder(MovementOrder input)</code></h4>
+<p>Sets the move / charge order. <strong>Side effects:</strong> raises <code>OnBeforeMovementOrderApplied</code>; if the new order differs in "aggression" it refreshes the squad's <code>DrivenProperty</code>; finally <code>SetTargetFormation(null)</code> clears any lock; if the order is not currently applicable it is auto-replaced during <code>Tick</code>. <strong>When to call:</strong> as the unified command entry during battle or deployment positioning.</p>
+<pre><code data-lang="csharp">// Move to a world position
+WorldPosition pos = new WorldPosition(Mission.Current.Scene, new Vec3(120f, 40f, 0f));
+formation.SetMovementOrder(MovementOrder.MovementOrderMove(pos));
+
+// Charge immediately (parameterless static read-only instance)
+formation.SetMovementOrder(MovementOrder.MovementOrderCharge);
+
+// Charge a specific enemy formation
+formation.SetMovementOrder(MovementOrder.MovementOrderChargeToTarget(enemyFormation));
+
+// Follow an Agent / a scene entity / attack an entity
+formation.SetMovementOrder(MovementOrder.MovementOrderFollow(someAgent));
+formation.SetMovementOrder(MovementOrder.MovementOrderFollowEntity(someGameEntity));
+formation.SetMovementOrder(MovementOrder.MovementOrderAttackEntity(someGameEntity, surroundEntity: true));
+</code></pre>
+<p>Available static factories / read-only instances (see <a href="../../mission-ext/MovementOrder/">MovementOrder</a>): <code>MovementOrderCharge</code>, <code>MovementOrderStop</code>, <code>MovementOrderRetreat</code>, <code>MovementOrderAdvance</code>, <code>MovementOrderFallBack</code> (all read-only), plus <code>MovementOrderMove(WorldPosition)</code>, <code>MovementOrderChargeToTarget(Formation)</code>, <code>MovementOrderFollow(Agent)</code>, <code>MovementOrderFollowEntity(GameEntity)</code>, <code>MovementOrderAttackEntity(GameEntity, bool)</code>.</p>
+<blockquote>
+<p>There is no <code>Formation.MoveTo(...)</code> / <code>Formation.Charge()</code> shortcut — you must go through <code>MovementOrder</code> + <code>SetMovementOrder</code>.</p>
+</blockquote>
+<h4 id="public-void-setarrangementorder-arrangementorder-order"><code>public void SetArrangementOrder(ArrangementOrder order)</code></h4>
+<p>Sets the arrangement: line <code>ArrangementOrderLine</code>, column <code>ArrangementOrderColumn</code>, circle <code>ArrangementOrderCircle</code>, square <code>ArrangementOrderSquare</code>, shield wall <code>ArrangementOrderShieldWall</code>, scatter <code>ArrangementOrderScatter</code>, loose <code>ArrangementOrderLoose</code>, wedge <code>ArrangementOrderSkein</code>. <strong>Side effects:</strong> recomputes <code>Width</code> / defense factor, invalidates <code>QuerySystem</code> and forces a cache recalculation (see <a href="../../mission-ext/ArrangementOrder/">ArrangementOrder</a>).</p>
+<pre><code data-lang="csharp">formation.SetArrangementOrder(ArrangementOrder.ArrangementOrderLine);
+formation.SetArrangementOrder(ArrangementOrder.ArrangementOrderShieldWall);
+</code></pre>
+<h4 id="public-void-setformorder-formorder-order-bool-updatedesiredfilecount-true"><code>public void SetFormOrder(FormOrder order, bool updateDesiredFileCount = true)</code></h4>
+<p>Sets how the formation <em>forms up</em> (e.g. <code>FormOrder.FormOrderCustom(width)</code>). <strong>Side effects:</strong> raises <code>FormOrder.OnApply</code> and invalidates <code>QuerySystem</code>.</p>
+<h4 id="public-void-setridingorder-ridingorder-order"><code>public void SetRidingOrder(RidingOrder order)</code></h4>
+<p>Mount / dismount. <strong>Side effects:</strong> iterates the squad calling <code>agent.SetRidingOrder(order.OrderEnum)</code> and reshapes the formation.</p>
+<h4 id="public-void-setfiringorder-firingorder-order"><code>public void SetFiringOrder(FiringOrder order)</code></h4>
+<p>Open / hold fire. <strong>Side effects:</strong> iterates the squad calling <code>agent.SetFiringOrder(order.OrderEnum)</code>.</p>
+<h4 id="public-void-setfacingorder-facingorder-order"><code>public void SetFacingOrder(FacingOrder order)</code></h4>
+<p>Sets the facing instruction (e.g. <code>FacingOrderLookAtEnemy</code>, <code>FacingOrderLookAtDirection</code>).</p>
+<h4 id="public-void-settargetformation-formation-targetformation"><code>public void SetTargetFormation(Formation targetFormation)</code></h4>
+<p>Locks a target formation (for charge / engagement). <strong>Side effects:</strong> writes <code>TargetFormation</code>, which fans <code>agent.SetTargetFormationIndex</code> to the whole squad; pass <code>null</code> to clear.</p>
+<h4 id="public-void-setcontrolledbyai-bool-iscontrolledbyai-bool-enforcenotsplittablebyai-false"><code>public void SetControlledByAI(bool isControlledByAI, bool enforceNotSplittableByAI = false)</code></h4>
+<p>Toggles AI control. <strong>Side effects:</strong> when AI takes over and the formation has units, it immediately <code>AI.Tick()</code>s and issues <code>AI.ActiveBehavior.CurrentOrder</code> as the movement order; handing back to the player calls <code>AI.ActiveBehavior.OnLostAIControl()</code>. Interacts with <code>PlayerOwner</code> assignment.</p>
+<h3 id="query-batch-operations">Query &amp; batch operations</h3>
+<h4 id="public-int-countofunits-countofunitswithoutdetachedones-countofdetachedunits"><code>public int CountOfUnits</code> / <code>CountOfUnitsWithoutDetachedOnes</code> / <code>CountOfDetachedUnits</code></h4>
+<p>Current squad size, split by whether detached units are counted.</p>
+<h4 id="public-int-getcountofunitswithcondition-func-agent-bool-function"><code>public int GetCountOfUnitsWithCondition(Func&lt;Agent, bool&gt; function)</code></h4>
+<p>Counts units (arranged + detached) matching a predicate.</p>
+<pre><code data-lang="csharp">int mounted = formation.GetCountOfUnitsWithCondition(a =&gt; a.HasMount);
+</code></pre>
+<h4 id="public-bool-hasunitswithcondition-func-agent-bool-function-out-agent-result"><code>public bool HasUnitsWithCondition(Func&lt;Agent, bool&gt; function, out Agent result)</code></h4>
+<p>Whether any unit matches; returns one via <code>out</code> if so.</p>
+<h4 id="public-void-applyactiononeachunit-action-agent-action-agent-ignoreagent-null"><code>public void ApplyActionOnEachUnit(Action&lt;Agent&gt; action, Agent ignoreAgent = null)</code></h4>
+<p>Runs one action on every <code>Agent</code> in the formation (excluding detached). Variants <code>ApplyActionOnEachAttachedUnit</code>, <code>ApplyActionOnEachDetachedUnit</code>, <code>ApplyActionOnEachUnitViaBackupList</code> cover attached / detached / "use a backup list to survive mutation during iteration".</p>
+<pre><code data-lang="csharp">formation.ApplyActionOnEachUnit(a =&gt;
+{
+    if (a.Health &lt; a.HealthLimit)
+        a.Health = Math.Min(a.Health + 10f, a.HealthLimit);
+});
+</code></pre>
+<h4 id="public-agent-getfirstunit-public-agent-getunitwithindex-int-unitindex"><code>public Agent GetFirstUnit()</code> / <code>public Agent GetUnitWithIndex(int unitIndex)</code></h4>
+<p>Takes a unit by index (arranged first, then detached). Indices are <strong>not</strong> stable across <code>Mission</code>es.</p>
+<h4 id="public-formationquerysystem-querysystem"><code>public FormationQuerySystem QuerySystem</code></h4>
+<p>Posture query entry: class ratio (<code>CavalryUnitRatioReadOnly</code>, …), nearest enemy, average/median position, speed, units inside/outside a castle, etc. If the data may be stale, call <code>QuerySystem.Expire()</code> to force a recompute.</p>
+<h3 id="unit-management-inside-a-formation">Unit management inside a formation</h3>
+<h4 id="public-void-transferunits-formation-target-int-unitcount"><code>public void TransferUnits(Formation target, int unitCount)</code></h4>
+<p>Moves <code>unitCount</code> units from this formation to another. <strong>Side effects:</strong> routed through <code>Team.MasterOrderController.TransferUnits</code>; both sides <code>CalculateLogicalClass</code>, their <code>QuerySystem</code> is invalidated, and <code>Team.QuerySystem.ExpireAfterUnitAddRemove</code> fires. Transferred units keep their old orders/positioning when the target was empty. Guarded by <code>IsSplittableByAI</code> in <code>TransferUnitsAux</code>.</p>
+<h4 id="public-ienumerable-formation-split-int-count-2"><code>public IEnumerable&lt;Formation&gt; Split(int count = 2)</code></h4>
+<p>Splits this formation into <code>count</code> formations (via <code>Team.MasterOrderController.SplitFormation</code>). <strong>Side effects:</strong> <code>PostponeCostlyOperations = true</code> during the split; afterwards each new formation <code>QuerySystem.Expire()</code>s and recomputes <code>LogicalClass</code>. Returns the split-off formations.</p>
+<h4 id="public-void-detachunit-agent-unit-bool-isloose-public-void-attachunit-agent-unit"><code>public void DetachUnit(Agent unit, bool isLoose)</code> / <code>public void AttachUnit(Agent unit)</code></h4>
+<p>Temporarily pulls a single unit out of / back into the arrangement. A detached unit still belongs to the <code>Team</code> but no longer takes part in the formation layout and can be commanded individually.</p>
+<h4 id="public-void-beginspawn-int-unitcount-bool-ismounted-public-void-endspawn"><code>public void BeginSpawn(int unitCount, bool isMounted)</code> / <code>public void EndSpawn()</code></h4>
+<p>Marks spawn start/end; <code>IsSpawning</code> is true between them. Units stream in via <code>AddUnit</code> during this window; after <code>EndSpawn</code> the formation is considered complete.</p>
+<h4 id="public-void-addunit-agent-unit-public-void-removeunit-agent-unit"><code>public void AddUnit(Agent unit)</code> / <code>public void RemoveUnit(Agent unit)</code></h4>
+<p>Adds / removes a unit, raising <code>OnUnitAdded</code> / <code>OnUnitRemoved</code> and <code>OnUnitCountChanged</code>.</p>
+<h3 id="lifecycle-per-frame">Lifecycle &amp; per-frame</h3>
+<h4 id="public-void-tick-float-dt"><code>public void Tick(float dt)</code></h4>
+<p>Called every frame by the <code>Mission</code> to drive the whole formation: refreshes average/median position and speed caches, advances <code>AI.Tick()</code> (if <code>Team.HasTeamAi</code> and the formation is AI- or player-sergeant-controlled), realizes the current <code>MovementOrder</code> into positioning (<code>SetPositioning</code>), clears empty target formations, and raises <code>OnTick</code>. <strong>Do not call it manually</strong> — the engine calls it in the battle loop; you normally only read state or issue orders from a custom <code>MissionBehavior</code>'s <code>OnMissionTick</code>.</p>
+<h4 id="public-void-reset"><code>public void Reset()</code></h4>
+<p>Resets to the initial state (line formation, default <code>FacingOrderLookAtEnemy</code>, cleared player ownership). Called once at construction; mods rarely call it again.</p>
+<h4 id="public-void-ondeploymentfinished"><code>public void OnDeploymentFinished()</code></h4>
+<p>Deployment-phase end hook. <strong>Side effects:</strong> <code>AI.OnDeploymentFinished()</code> and <code>OrderController.TryCancelStopOrder(this)</code> cancels the deployment stop order. Called by the deployment controller when switching to battle.</p>
+<h4 id="public-void-setpositioning-worldposition-position-null-vec2-direction-null-int-unitspacing-null"><code>public void SetPositioning(WorldPosition? position = null, Vec2? direction = null, int? unitSpacing = null)</code></h4>
+<p>Sets the formation's order point, facing and spacing. <strong>Side effects:</strong> clamps out-of-bounds to <code>Mission.Current.GetClosestBoundaryPosition</code>; large moves trigger <code>Arrangement.UpdateLocalPositionErrors</code>; writes <code>OrderPosition</code> / <code>Direction</code> / <code>UnitSpacing</code> and flips the arrangement if needed. Mostly called internally by <code>MovementOrder.Tick</code>, but mods may call it directly to place a formation.</p>
+<h4 id="public-void-rearrange-iformationarrangement-arrangement"><code>public void Rearrange(IFormationArrangement arrangement)</code></h4>
+<p>Replaces the underlying arrangement algorithm (e.g. <code>LineFormation</code> / <code>ColumnFormation</code>); switching re-subscribes <code>OnWidthChanged</code> / <code>OnShapeChanged</code>.</p>
+<h2 id="example">Example</h2>
+<h3 id="example-1-move-the-player-s-infantry-formation-to-a-point-real-acquisition-path">Example 1: move the player's infantry formation to a point (real acquisition path)</h3>
+<pre><code data-lang="csharp">// Inside a custom MissionBehavior / MissionLogic, while the Mission is active
+if (Mission.Current?.PlayerTeam == null) return;
+
+// Take the formation by class from the Team (do not new it yourself)
+Formation infantry = Mission.Current.PlayerTeam.GetFormation(FormationClass.Infantry);
+if (infantry == null || infantry.CountOfUnits == 0) return;
+
+// Build a world position as the move target
+WorldPosition target = new WorldPosition(Mission.Current.Scene, new Vec3(120f, 40f, 0f));
+infantry.SetMovementOrder(MovementOrder.MovementOrderMove(target));
+</code></pre>
+<h3 id="example-2-shield-wall-the-infantry-and-charge-everyone-at-deployment-end-battle-start">Example 2: shield-wall the infantry and charge everyone (at deployment end / battle start)</h3>
+<pre><code data-lang="csharp">public override void OnMissionTick(float dt)
+{
+    Mission mission = Mission.Current;
+    if (mission == null || mission.PlayerTeam == null) return;
+
+    foreach (Formation f in mission.PlayerTeam.FormationsIncludingSpecialAndEmpty)
+    {
+        if (f.CountOfUnits == 0) continue;
+
+        // Shield-wall the infantry / heavy infantry, charge the rest
+        if (f.LogicalClass == FormationClass.Infantry || f.LogicalClass == FormationClass.HeavyInfantry)
+        {
+            f.SetArrangementOrder(ArrangementOrder.ArrangementOrderShieldWall);
+        }
+        f.SetMovementOrder(MovementOrder.MovementOrderCharge);
+    }
+}
+</code></pre>
+<blockquote>
+<p>Key point: both examples go through <code>Mission.Current.PlayerTeam.GetFormation(...)</code> + the <code>MovementOrder</code> factories, with no ellipsis placeholders or dummy value names.</p>
+</blockquote>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../Mission/">↑ Mission</a> — the scene and driver that owns the formation</li>
+<li><a href="../Team/">↔ Team</a> — creates and owns all formations</li>
+<li><a href="../Agent/">↔ Agent</a> — the units inside a formation</li>
+<li><a href="../MissionBehavior/">↔ MissionBehavior</a> — callback entry point for reading/issuing formation orders in battle</li>
+<li><a href="../FormationSpawnData/">↔ FormationSpawnData</a> — how troops are routed into formations</li>
+<li><a href="../../mission-ext/OrderController/">Related OrderController</a> — actually performs Split / Transfer / player orders</li>
+<li><a href="../../mission-ext/MovementOrder/">Related MovementOrder</a> — move / charge factories</li>
+<li><a href="../../mission-ext/ArrangementOrder/">Related ArrangementOrder</a> — arrangement orders</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/mission/">mission index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/mission/TacticOption/">&larr; TacticOption</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/mission/IMBGame/">IMBGame &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

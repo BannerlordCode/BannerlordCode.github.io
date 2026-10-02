@@ -1,143 +1,40 @@
 ---
-title: "Viewmodel — ViewModelCollection: UI data sources"
-description: "Every namespace with a `ViewModelCollection` segment (`TaleWorlds.CampaignSystem.ViewModelCollection` with 352 files, `T"
+title: "Viewmodel — ViewModelCollection: the data behind the UI"
+description: "Where the three *.ViewModelCollection namespaces live. The second largest bucket, with no pages at all."
 ---
-# Viewmodel — ViewModelCollection: UI data sources
+# Viewmodel — ViewModelCollection: the data behind the UI
 
-Every namespace with a `ViewModelCollection` segment (`TaleWorlds.CampaignSystem.ViewModelCollection` with 352 files, `TaleWorlds.Core.ViewModelCollection`, `TaleWorlds.MountAndBlade.ViewModelCollection`, the multiplayer view models): 92 namespaces, 538 pages.
+Three namespaces land in this bucket: `TaleWorlds.CampaignSystem.ViewModelCollection`, `TaleWorlds.MountAndBlade.ViewModelCollection` (8 `.cs` files) and `TaleWorlds.Core.ViewModelCollection` (12). By the taxonomy that comes to roughly 357 types — the second largest bucket in the tree.
 
-**The `ViewModel` base class is not here** — it is in `TaleWorlds.Library`, under [Core-Extra](../core-extra/). This directory holds the concrete per-screen view models.
+This is the **data source** side of the interface. The Gauntlet XML declares widgets; those widgets bind to the property-notification models in here; when the model raises a property change, the screen updates. The widgets themselves are in [gui](../gui/), and the two have to be read together.
 
-How to read it: find your screen in [GUI](../gui/), then find its bound data-source class here.
+One thing worth knowing before you start looking: the `ViewModel` base class is in [core-extra](../core-extra/), not here. It belongs to `TaleWorlds.Core`, whereas this bucket collects the `TaleWorlds.Core.ViewModelCollection` sub-namespace. The base class and its Collection sub-namespace sit in different directories as a direct result of the prefix rule.
 
-## Pages in this area (357)
+Namespaces decide buckets, and that has a practical consequence for UI work: the campaign ViewModels are in this bucket while the campaign entities they display are in [campaign](../campaign/). You cross a directory boundary every time you go from "what the model holds" to "what the model is a view of".
 
-[AcceptCallToWarOfferNotificationItemVM](AcceptCallToWarOfferNotificationItemVM) · [AcceptingCallToWarAgreementDecisionItemVM](AcceptingCallToWarAgreementDecisionItemVM) · [ActionCampaignOptionData](ActionCampaignOptionData)
-[ActionOptionDataVM](ActionOptionDataVM) · [ActionVisualOrder](ActionVisualOrder) · [AdvanceVisualOrder](AdvanceVisualOrder)
-[AgentInteractionInterfaceVM](AgentInteractionInterfaceVM) · [AlleyLeaderDiedMapNotificationItemVM](AlleyLeaderDiedMapNotificationItemVM) · [AlleyUnderAttackMapNotificationItemVM](AlleyUnderAttackMapNotificationItemVM)
-[AllianceOfferNotificationItemVM](AllianceOfferNotificationItemVM) · [ArmyCohesionBoostedByPlayerEvent](ArmyCohesionBoostedByPlayerEvent) · [ArmyCreationNotificationItemVM](ArmyCreationNotificationItemVM)
-[ArmyDispersionItemVM](ArmyDispersionItemVM) · [ArmyManagementBoostEventVM](ArmyManagementBoostEventVM) · [ArmyManagementItemVM](ArmyManagementItemVM)
-[ArmyManagementSortControllerVM](ArmyManagementSortControllerVM) · [ArmyManagementVM](ArmyManagementVM) · [ArmyMenuOverlayVM](ArmyMenuOverlayVM)
-[ArrangementVisualOrder](ArrangementVisualOrder) · [AttributeBoundSkillItemVM](AttributeBoundSkillItemVM) · [AuxiliaryKeyGroupVM](AuxiliaryKeyGroupVM)
-[AuxiliaryKeyOptionVM](AuxiliaryKeyOptionVM) · [BannerBuilderCategoryVM](BannerBuilderCategoryVM) · [BannerBuilderColorItemVM](BannerBuilderColorItemVM)
-[BannerBuilderColorSelectionVM](BannerBuilderColorSelectionVM) · [BannerBuilderItemVM](BannerBuilderItemVM) · [BannerBuilderLayerVM](BannerBuilderLayerVM)
-[BannerBuilderVM](BannerBuilderVM) · [BannerColorVM](BannerColorVM) · [BannerEditorVM](BannerEditorVM)
-[BannerIconVM](BannerIconVM) · [BannerImageIdentifierVM](BannerImageIdentifierVM) · [BannerViewModel](BannerViewModel)
-[BarterItemVM](BarterItemVM) · [BarterVM](BarterVM) · [BasicTooltipViewModel](BasicTooltipViewModel)
-[BattleResultVM](BattleResultVM) · [BindingListFloatItem](BindingListFloatItem) · [BindingListStringItem](BindingListStringItem)
-[BirthAndDeathOptionsProvider](BirthAndDeathOptionsProvider) · [BirthAndDeathSubModule](BirthAndDeathSubModule) · [BoolItemWithActionVM](BoolItemWithActionVM)
-[BooleanCampaignOptionData](BooleanCampaignOptionData) · [BooleanOptionDataVM](BooleanOptionDataVM) · [BoundaryCrossingVM](BoundaryCrossingVM)
-[BrightnessOptionVM](BrightnessOptionVM) · [CampaignOptionData](CampaignOptionData) · [CampaignOptionsControllerVM](CampaignOptionsControllerVM)
-[CampaignUIHelper](CampaignUIHelper) · [CardSelectionItemSpriteType](CardSelectionItemSpriteType) · [CharacterAttributeItemVM](CharacterAttributeItemVM)
-[CharacterCreationClanNamingStageVM](CharacterCreationClanNamingStageVM) · [CharacterCreationCultureFeatVM](CharacterCreationCultureFeatVM) · [CharacterCreationCultureStageVM](CharacterCreationCultureStageVM)
-[CharacterCreationCultureVM](CharacterCreationCultureVM) · [CharacterCreationGainGroupItemVM](CharacterCreationGainGroupItemVM) · [CharacterCreationGainedAttributeItemVM](CharacterCreationGainedAttributeItemVM)
-[CharacterCreationOptionsStageVM](CharacterCreationOptionsStageVM) · [CharacterDeveloperHeroItemVM](CharacterDeveloperHeroItemVM) · [CharacterDeveloperVM](CharacterDeveloperVM)
-[CharacterEquipmentItemVM](CharacterEquipmentItemVM) · [CharacterImageIdentifierVM](CharacterImageIdentifierVM) · [CharacterViewModel](CharacterViewModel)
-[CharacterWithActionViewModel](CharacterWithActionViewModel) · [ChargeVisualOrder](ChargeVisualOrder) · [CheerBarkNodeItemVM](CheerBarkNodeItemVM)
-[ClanCardSelectionInfo](ClanCardSelectionInfo) · [ClanCardSelectionItemInfo](ClanCardSelectionItemInfo) · [ClanCardSelectionItemPropertyInfo](ClanCardSelectionItemPropertyInfo)
-[ClanCardSelectionPopupItemPropertyVM](ClanCardSelectionPopupItemPropertyVM) · [ClanFiefsSortControllerVM](ClanFiefsSortControllerVM) · [ClanFiefsVM](ClanFiefsVM)
-[ClanFinanceAlleyItemVM](ClanFinanceAlleyItemVM) · [ClanFinanceCommonAreaItemVM](ClanFinanceCommonAreaItemVM) · [ClanFinanceMercenaryItemVM](ClanFinanceMercenaryItemVM)
-[ClanFinanceTownItemVM](ClanFinanceTownItemVM) · [ClanFinanceWorkshopItemVM](ClanFinanceWorkshopItemVM) · [ClanIncomeSortControllerVM](ClanIncomeSortControllerVM)
-[ClanIncomeVM](ClanIncomeVM) · [ClanMembersSortControllerVM](ClanMembersSortControllerVM) · [ClanPartiesSortControllerVM](ClanPartiesSortControllerVM)
-[ClanRoleItemVM](ClanRoleItemVM) · [ClanSupporterGroupVM](ClanSupporterGroupVM) · [ClanSupporterItemVM](ClanSupporterItemVM)
-[CompassMarkerVM](CompassMarkerVM) · [CompassTargetVM](CompassTargetVM) · [ControlCharacterCreationStage](ControlCharacterCreationStage)
-[ControlCharacterCreationStageReturnInt](ControlCharacterCreationStageReturnInt) · [ControllerEquippedItemVM](ControllerEquippedItemVM) · [ConversationAggressivePartyItemVM](ConversationAggressivePartyItemVM)
-[ConversationItemVM](ConversationItemVM) · [CraftingAvailableHeroItemVM](CraftingAvailableHeroItemVM) · [CraftingHeroPopupVM](CraftingHeroPopupVM)
-[CraftingHistoryVM](CraftingHistoryVM) · [CraftingItemFlagVM](CraftingItemFlagVM) · [CraftingListPropertyItem](CraftingListPropertyItem)
-[CraftingOrderItemVM](CraftingOrderItemVM) · [CraftingOrderPopupVM](CraftingOrderPopupVM) · [CraftingOrderSelectionOpenedEvent](CraftingOrderSelectionOpenedEvent)
-[CraftingOrderTabOpenedEvent](CraftingOrderTabOpenedEvent) · [CraftingPerkVM](CraftingPerkVM) · [CraftingPieceImageIdentifierVM](CraftingPieceImageIdentifierVM)
-[CraftingPieceListVM](CraftingPieceListVM) · [CraftingResourceItemVM](CraftingResourceItemVM) · [CraftingSecondaryUsageItemVM](CraftingSecondaryUsageItemVM)
-[CreditsItemVM](CreditsItemVM) · [CreditsVM](CreditsVM) · [CrimeValueInspectedInSettlementOverlayEvent](CrimeValueInspectedInSettlementOverlayEvent)
-[CrosshairVM](CrosshairVM) · [CustomBattleScoreboardVM](CustomBattleScoreboardVM) · [DecisionItemBaseVM](DecisionItemBaseVM)
-[DecisionOptionVM](DecisionOptionVM) · [DecisionSupporterVM](DecisionSupporterVM) · [DeclareWarDecisionItemVM](DeclareWarDecisionItemVM)
-[DeploymentSiegeMachineVM](DeploymentSiegeMachineVM) · [EducationGainGroupItemVM](EducationGainGroupItemVM) · [EducationGainedAttributeItemVM](EducationGainedAttributeItemVM)
-[EducationGainedPropertiesVM](EducationGainedPropertiesVM) · [EducationGainedSkillItemVM](EducationGainedSkillItemVM) · [EducationOptionVM](EducationOptionVM)
-[EducationReviewItemVM](EducationReviewItemVM) · [ElementNotificationVM](ElementNotificationVM) · [EncounterMenuOverlayVM](EncounterMenuOverlayVM)
-[EncyclopediaClanPageVM](EncyclopediaClanPageVM) · [EncyclopediaConceptPageVM](EncyclopediaConceptPageVM) · [EncyclopediaContentPageVM](EncyclopediaContentPageVM)
-[EncyclopediaDwellingVM](EncyclopediaDwellingVM) · [EncyclopediaFactionPageVM](EncyclopediaFactionPageVM) · [EncyclopediaFactionVM](EncyclopediaFactionVM)
-[EncyclopediaFamilyMemberVM](EncyclopediaFamilyMemberVM) · [EncyclopediaFilterGroupVM](EncyclopediaFilterGroupVM) · [EncyclopediaHeroPageVM](EncyclopediaHeroPageVM)
-[EncyclopediaHistoryEventVM](EncyclopediaHistoryEventVM) · [EncyclopediaHomeVM](EncyclopediaHomeVM) · [EncyclopediaLinkVM](EncyclopediaLinkVM)
-[EncyclopediaListFilterVM](EncyclopediaListFilterVM) · [EncyclopediaListItemComparer](EncyclopediaListItemComparer) · [EncyclopediaListItemVM](EncyclopediaListItemVM)
-[EncyclopediaListSelectorItemVM](EncyclopediaListSelectorItemVM) · [EncyclopediaListSelectorVM](EncyclopediaListSelectorVM) · [EncyclopediaNavigatorVM](EncyclopediaNavigatorVM)
-[EncyclopediaPageArgs](EncyclopediaPageArgs) · [EncyclopediaPageChangedEvent](EncyclopediaPageChangedEvent) · [EncyclopediaPages](EncyclopediaPages)
-[EncyclopediaSearchResultVM](EncyclopediaSearchResultVM) · [EncyclopediaSettlementVM](EncyclopediaSettlementVM) · [EncyclopediaShipSlotVM](EncyclopediaShipSlotVM)
-[EquipmentActionItemVM](EquipmentActionItemVM) · [EscapeMenuItemVM](EscapeMenuItemVM) · [EscapeMenuVM](EscapeMenuVM)
-[ExpelClanDecisionItemVM](ExpelClanDecisionItemVM) · [ExposureOptionVM](ExposureOptionVM) · [FaceGenPropertyVM](FaceGenPropertyVM)
-[FaceGenVM](FaceGenVM) · [FacegenListItemVM](FacegenListItemVM) · [FallbackVisualOrder](FallbackVisualOrder)
-[FocusAddedByPlayerEvent](FocusAddedByPlayerEvent) · [FollowMeVisualOrder](FollowMeVisualOrder) · [FullScreenNoticeVM](FullScreenNoticeVM)
-[GameKeyGroupVM](GameKeyGroupVM) · [GameKeyOptionCategoryVM](GameKeyOptionCategoryVM) · [GameKeyOptionVM](GameKeyOptionVM)
-[GameMenuItemProgressVM](GameMenuItemProgressVM) · [GameMenuItemVM](GameMenuItemVM) · [GameMenuOverlay](GameMenuOverlay)
-[GameMenuOverlayActionVM](GameMenuOverlayActionVM) · [GameMenuPartyItemVM](GameMenuPartyItemVM) · [GameMenuPlunderItemVM](GameMenuPlunderItemVM)
-[GameMenuTroopSelectionVM](GameMenuTroopSelectionVM) · [GameMenuVM](GameMenuVM) · [GameNotificationItemVM](GameNotificationItemVM)
-[GameNotificationVM](GameNotificationVM) · [GameTipsVM](GameTipsVM) · [GameVersionVM](GameVersionVM)
-[GamepadOptionCategoryVM](GamepadOptionCategoryVM) · [GamepadOptionKeyItemVM](GamepadOptionKeyItemVM) · [GenericImageIdentifierVM](GenericImageIdentifierVM)
-[GenericOptionDataVM](GenericOptionDataVM) · [GenericToggleVisualOrder](GenericToggleVisualOrder) · [GroupedOptionCategoryVM](GroupedOptionCategoryVM)
-[HeirSelectionPopupHeroVM](HeirSelectionPopupHeroVM) · [HeirSelectionPopupVM](HeirSelectionPopupVM) · [HintVM](HintVM)
-[HintViewModel](HintViewModel) · [IInteractionInterfaceHandler](IInteractionInterfaceHandler) · [IMissionScreen](IMissionScreen)
-[ImageIdentifierVM](ImageIdentifierVM) · [InitialMenuAnnouncementVM](InitialMenuAnnouncementVM) · [InitialMenuOptionVM](InitialMenuOptionVM)
-[InitialMenuVM](InitialMenuVM) · [Input__InputKeyItemVM](Input__InputKeyItemVM) · [InquiryElementVM](InquiryElementVM)
-[InventoryCharacterSelectorItemVM](InventoryCharacterSelectorItemVM) · [InventoryEquipmentTypeChangedEvent](InventoryEquipmentTypeChangedEvent) · [InventoryFilterChangedEvent](InventoryFilterChangedEvent)
-[InventoryItemInspectedEvent](InventoryItemInspectedEvent) · [ItemImageIdentifierVM](ItemImageIdentifierVM) · [KingSelectionDecisionItemVM](KingSelectionDecisionItemVM)
-[KingdomArmyItemVM](KingdomArmyItemVM) · [KingdomArmyPartyItemVM](KingdomArmyPartyItemVM) · [KingdomArmySortControllerVM](KingdomArmySortControllerVM)
-[KingdomArmyVM](KingdomArmyVM) · [KingdomCategoryVM](KingdomCategoryVM) · [KingdomClanFiefItemVM](KingdomClanFiefItemVM)
-[KingdomClanItemVM](KingdomClanItemVM) · [KingdomClanSortControllerVM](KingdomClanSortControllerVM) · [KingdomClanVM](KingdomClanVM)
-[KingdomDecisionsVM](KingdomDecisionsVM) · [KingdomDiplomacyFactionItemVM](KingdomDiplomacyFactionItemVM) · [KingdomDiplomacyItemVM](KingdomDiplomacyItemVM)
-[KingdomDiplomacyProposalActionItemVM](KingdomDiplomacyProposalActionItemVM) · [KingdomDiplomacyVM](KingdomDiplomacyVM) · [KingdomGiftFiefPopupVM](KingdomGiftFiefPopupVM)
-[KingdomItemVM](KingdomItemVM) · [KingdomManagementVM](KingdomManagementVM) · [KingdomPoliciesVM](KingdomPoliciesVM)
-[KingdomPolicyDecisionItemVM](KingdomPolicyDecisionItemVM) · [KingdomPolicyItemVM](KingdomPolicyItemVM) · [KingdomSettlementItemVM](KingdomSettlementItemVM)
-[KingdomSettlementSortControllerVM](KingdomSettlementSortControllerVM) · [KingdomSettlementVM](KingdomSettlementVM) · [KingdomSettlementVillageItemVM](KingdomSettlementVillageItemVM)
-[KingdomTruceItemVM](KingdomTruceItemVM) · [KingdomWarSortControllerVM](KingdomWarSortControllerVM) · [LeaveKingdomPermissionEvent](LeaveKingdomPermissionEvent)
-[MPChatLineVM](MPChatLineVM) · [MPChatVM](MPChatVM) · [MapBarShortcuts](MapBarShortcuts)
-[MapBarVM](MapBarVM) · [MapConversationVM](MapConversationVM) · [MapInfoItemVM](MapInfoItemVM)
-[MapInfoVM](MapInfoVM) · [MapNavigationItemVM](MapNavigationItemVM) · [MapNavigationVM](MapNavigationVM)
-[MapNotificationVM](MapNotificationVM) · [MapParleyAnimationVM](MapParleyAnimationVM) · [MapTrackerItemVM](MapTrackerItemVM)
-[MarriageOfferPopupHeroAttributeVM](MarriageOfferPopupHeroAttributeVM) · [MarriageOfferPopupHeroVM](MarriageOfferPopupHeroVM) · [MarriageOfferPopupVM](MarriageOfferPopupVM)
-[MissionAgentDamageFeedItemVM](MissionAgentDamageFeedItemVM) · [MissionAgentDamageFeedVM](MissionAgentDamageFeedVM) · [MissionAgentLockItemVM](MissionAgentLockItemVM)
-[MissionAgentLockVisualizerVM](MissionAgentLockVisualizerVM) · [MissionAgentStatusVM](MissionAgentStatusVM) · [MissionConversationVM](MissionConversationVM)
-[MissionFormationMarkerTargetVM](MissionFormationMarkerTargetVM) · [MissionFormationMarkerVM](MissionFormationMarkerVM) · [MissionGenericInteractionItemVM](MissionGenericInteractionItemVM)
-[MissionHintInteractionItemVM](MissionHintInteractionItemVM) · [MissionInteractionItemBaseVM](MissionInteractionItemBaseVM) · [MissionLeaveVM](MissionLeaveVM)
-[MissionMainAgentWalkModeControllerVM](MissionMainAgentWalkModeControllerVM) · [MissionObjectiveMarkerVM](MissionObjectiveMarkerVM) · [MissionObjectiveMarkersVM](MissionObjectiveMarkersVM)
-[MissionObjectiveVM](MissionObjectiveVM) · [MissionOrderCallbacks](MissionOrderCallbacks) · [MissionOrderDeploymentControllerVM](MissionOrderDeploymentControllerVM)
-[MissionOrderTroopControllerVM](MissionOrderTroopControllerVM) · [MissionOrderVM](MissionOrderVM) · [MissionPrimaryInteractionItemVM](MissionPrimaryInteractionItemVM)
-[MissionSiegeEngineMarkerTargetVM](MissionSiegeEngineMarkerTargetVM) · [MissionSiegeEngineMarkerVM](MissionSiegeEngineMarkerVM) · [MoveVisualOrder](MoveVisualOrder)
-[MultiSelectionQueryPopUpVM](MultiSelectionQueryPopUpVM) · [OrderItemBaseVM](OrderItemBaseVM) · [OrderOfBattleFormationClassChangedEvent](OrderOfBattleFormationClassChangedEvent)
-[OrderOfBattleFormationClassSelectorItemVM](OrderOfBattleFormationClassSelectorItemVM) · [OrderOfBattleFormationClassVM](OrderOfBattleFormationClassVM) · [OrderOfBattleFormationFilterSelectorItemComparer](OrderOfBattleFormationFilterSelectorItemComparer)
-[OrderOfBattleFormationFilterSelectorItemVM](OrderOfBattleFormationFilterSelectorItemVM) · [OrderOfBattleFormationItemVM](OrderOfBattleFormationItemVM) · [OrderState](OrderState)
-[PartyAddedToArmyByPlayerEvent](PartyAddedToArmyByPlayerEvent) · [PartyCharacterVM](PartyCharacterVM) · [PartyCompositionVM](PartyCompositionVM)
-[PartyRecruitTroopVM](PartyRecruitTroopVM) · [PartyScreenCharacterTalkPermissionEvent](PartyScreenCharacterTalkPermissionEvent) · [PartySortControllerVM](PartySortControllerVM)
-[PartyTradeVM](PartyTradeVM) · [PartyTroopManagerItemVM](PartyTroopManagerItemVM) · [PartyTroopManagerVM](PartyTroopManagerVM)
-[PartyUpgradeTroopVM](PartyUpgradeTroopVM) · [PartyVM](PartyVM) · [PerkSelectedByPlayerEvent](PerkSelectedByPlayerEvent)
-[PerkSelectionItemVM](PerkSelectionItemVM) · [PerkSelectionToggleEvent](PerkSelectionToggleEvent) · [PerkSelectionVM](PerkSelectionVM)
-[PerkVM](PerkVM) · [PersuasionOptionVM](PersuasionOptionVM) · [PersuasionVM](PersuasionVM)
-[PlayerMoveTroopEvent](PlayerMoveTroopEvent) · [PlayerSelectedAKingdomDecisionOptionEvent](PlayerSelectedAKingdomDecisionOptionEvent) · [PopUpBaseVM](PopUpBaseVM)
-[ProfileSelectionVM](ProfileSelectionVM) · [QuestItemSortControllerVM](QuestItemSortControllerVM) · [QuestItemVM](QuestItemVM)
-[QuestMarkerVM](QuestMarkerVM) · [QuestStageTaskVM](QuestStageTaskVM) · [QuestStageVM](QuestStageVM)
-[QuestsVM](QuestsVM) · [RecruitVolunteerOwnerVM](RecruitVolunteerOwnerVM) · [RecruitVolunteerTroopVM](RecruitVolunteerTroopVM)
-[RecruitVolunteerVM](RecruitVolunteerVM) · [RecruitmentVM](RecruitmentVM) · [RefinementActionItemVM](RefinementActionItemVM)
-[RefinementVM](RefinementVM) · [RetreatVisualOrder](RetreatVisualOrder) · [ReturnVisualOrder](ReturnVisualOrder)
-[RundownLineVM](RundownLineVM) · [RundownTooltipVM](RundownTooltipVM) · [SPGeneralKillNotificationItemVM](SPGeneralKillNotificationItemVM)
-[SPGeneralKillNotificationVM](SPGeneralKillNotificationVM) · [SPInventorySortControllerVM](SPInventorySortControllerVM) · [SPInventoryVM](SPInventoryVM)
-[SPKillFeedVM](SPKillFeedVM) · [SPPersonalKillNotificationItemVM](SPPersonalKillNotificationItemVM) · [SPPersonalKillNotificationVM](SPPersonalKillNotificationVM)
-[SPScoreboardPartyVM](SPScoreboardPartyVM) · [SPScoreboardShipVM](SPScoreboardShipVM) · [SPScoreboardSideVM](SPScoreboardSideVM)
-[SPScoreboardSkillItemVM](SPScoreboardSkillItemVM) · [SPScoreboardSortControllerVM](SPScoreboardSortControllerVM) · [SelectorItemVM](SelectorItemVM)
-[SelectorVM](SelectorVM) · [SettlementBuildingProjectVM](SettlementBuildingProjectVM) · [SettlementDailyProjectVM](SettlementDailyProjectVM)
-[SettlementGovernorSelectionItemVM](SettlementGovernorSelectionItemVM) · [SettlementGovernorSelectionVM](SettlementGovernorSelectionVM) · [SettlementMenuOverlayVM](SettlementMenuOverlayVM)
-[SettlementOverlayLeaveCharacterPermissionEvent](SettlementOverlayLeaveCharacterPermissionEvent) · [SettlementOverlayTalkPermissionEvent](SettlementOverlayTalkPermissionEvent) · [SettlementOverylayQuickTalkPermissionEvent](SettlementOverylayQuickTalkPermissionEvent)
-[SettlementProjectSelectionVM](SettlementProjectSelectionVM) · [SettlementProjectVM](SettlementProjectVM) · [SingleQueryPopUpVM](SingleQueryPopUpVM)
-[SmeltingItemVM](SmeltingItemVM) · [SmeltingSortControllerVM](SmeltingSortControllerVM) · [SmeltingVM](SmeltingVM)
-[StringItemWithActionVM](StringItemWithActionVM) · [StringItemWithEnabledAndHintVM](StringItemWithEnabledAndHintVM) · [StringItemWithHintVM](StringItemWithHintVM)
-[TextQueryPopUpVM](TextQueryPopUpVM) · [TournamentLeaderboardEntryItemVM](TournamentLeaderboardEntryItemVM) · [TournamentLeaderboardSortControllerVM](TournamentLeaderboardSortControllerVM)
-[TournamentLeaderboardVM](TournamentLeaderboardVM) · [TransferTroopsVisualOrder](TransferTroopsVisualOrder) · [TroopItemComparer](TroopItemComparer)
-[TroopSelectionItemVM](TroopSelectionItemVM) · [TutorialNotificationElementChangeEvent](TutorialNotificationElementChangeEvent) · [VideoPlaybackVM](VideoPlaybackVM)
-[ViewModelCollection.Input__InputKeyItemVM](ViewModelCollection.Input__InputKeyItemVM) · [VisualOrder](VisualOrder) · [VisualOrderExecutionParameters](VisualOrderExecutionParameters)
-[WalkModeItemVM](WalkModeItemVM) · [WeaponDesignVM](WeaponDesignVM) · [WorkshopPercentageSelectorItemVM](WorkshopPercentageSelectorItemVM)
+## Pages in this area (0)
+
+There are no pages in this bucket. That is the current state.
+
+## Not yet written
+
+All of it, in three groups:
+
+- **Item and inventory rows**: the `ItemStackVM` / `ItemComponentVM` family, quantity and durability rows.
+- **Party, clan and map models**: `PartyVM`, `ClanVM`, `KingdomVM`, `SettlementVM`, the map marker and icon binding models.
+- **Per-screen models**: tournaments (the `TournamentBracketVM` family), inventory and crafting, trade, the diplomacy conversation, and the battle-side scoreboard and HUD models — which is most of the 8 types in `MountAndBlade.ViewModelCollection`.
+
+Roughly 357 types, which makes this the second largest gap in the documentation; only [mission-ext](../mission-ext/) is bigger. The `ViewModel` base itself is documented at [zh/api/core-extra/ViewModel](../../../zh/api/core-extra/ViewModel), so "how property notification works" is still answerable — the concrete screen models are not.
 
 ## Sibling areas
 
-[core](../core/) · [core-extra](../core-extra/) · [mission](../mission/) · [mission-ext](../mission-ext/) · [campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [gui](../gui/) · [save-system](../save-system/) · [localization](../localization/) · [engine](../engine/) · [system](../system/) · [custombattle](../custombattle/) · [modulemanager](../modulemanager/) · [network](../network/) · [sandbox](../sandbox/) · [storymode](../storymode/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
+[gui](../gui/) · [engine](../engine/) · [core](../core/) · [core-extra](../core-extra/) · [campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [mission](../mission/) · [mission-ext](../mission-ext/) · [sandbox](../sandbox/) · [custombattle](../custombattle/) · [system](../system/) · [network](../network/) · [modulemanager](../modulemanager/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
+
+There is no `save-system/` directory in this tree; its pages are Chinese-tree-only — [zh/api/save-system/SaveManager](../../../zh/api/save-system/SaveManager).
 
 ## See also
 
 - ↑ [Version home](../../)
 - ↑ [API reference](../)
 - ↔ [Architecture overview](../../architecture/)
+- ↘ [UI Stack](../../architecture/ui-stack)

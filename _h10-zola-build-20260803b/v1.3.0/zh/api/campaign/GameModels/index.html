@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameModels</title>
+  <meta name="description" content="GameModels 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/GameModels/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/GameModels/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/GameModels/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/GameModels/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="active">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">GameModels</span>
+    </nav>
+  
+  <h1>GameModels</h1>
+  <h1 id="gamemodels">GameModels</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public sealed class GameModels : GameModelsManager</code>
+<strong>Base:</strong> <code>GameModelsManager</code>
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/GameModels.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>GameModels</code> 位于 <code>TaleWorlds.CampaignSystem</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.CampaignSystem</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>MapVisibilityModel</code></td><td><code>public MapVisibilityModel MapVisibilityModel { get; }</code></td></tr>
+<tr><td><code>InformationRestrictionModel</code></td><td><code>public InformationRestrictionModel InformationRestrictionModel { get; }</code></td></tr>
+<tr><td><code>PartySpeedCalculatingModel</code></td><td><code>public PartySpeedModel PartySpeedCalculatingModel { get; }</code></td></tr>
+<tr><td><code>PartyHealingModel</code></td><td><code>public PartyHealingModel PartyHealingModel { get; }</code></td></tr>
+<tr><td><code>CaravanModel</code></td><td><code>public CaravanModel CaravanModel { get; }</code></td></tr>
+<tr><td><code>PartyTrainingModel</code></td><td><code>public PartyTrainingModel PartyTrainingModel { get; }</code></td></tr>
+<tr><td><code>BarterModel</code></td><td><code>public BarterModel BarterModel { get; }</code></td></tr>
+<tr><td><code>PersuasionModel</code></td><td><code>public PersuasionModel PersuasionModel { get; }</code></td></tr>
+<tr><td><code>DefectionModel</code></td><td><code>public DefectionModel DefectionModel { get; }</code></td></tr>
+<tr><td><code>CombatSimulationModel</code></td><td><code>public CombatSimulationModel CombatSimulationModel { get; }</code></td></tr>
+<tr><td><code>CombatXpModel</code></td><td><code>public CombatXpModel CombatXpModel { get; }</code></td></tr>
+<tr><td><code>GenericXpModel</code></td><td><code>public GenericXpModel GenericXpModel { get; }</code></td></tr>
+<tr><td><code>TradeAgreementModel</code></td><td><code>public TradeAgreementModel TradeAgreementModel { get; }</code></td></tr>
+<tr><td><code>SmithingModel</code></td><td><code>public SmithingModel SmithingModel { get; }</code></td></tr>
+<tr><td><code>PartyTradeModel</code></td><td><code>public PartyTradeModel PartyTradeModel { get; }</code></td></tr>
+<tr><td><code>RansomValueCalculationModel</code></td><td><code>public RansomValueCalculationModel RansomValueCalculationModel { get; }</code></td></tr>
+<tr><td><code>RaidModel</code></td><td><code>public RaidModel RaidModel { get; }</code></td></tr>
+<tr><td><code>MobilePartyFoodConsumptionModel</code></td><td><code>public MobilePartyFoodConsumptionModel MobilePartyFoodConsumptionModel { get; }</code></td></tr>
+<tr><td><code>PartyFoodBuyingModel</code></td><td><code>public PartyFoodBuyingModel PartyFoodBuyingModel { get; }</code></td></tr>
+<tr><td><code>PartyImpairmentModel</code></td><td><code>public PartyImpairmentModel PartyImpairmentModel { get; }</code></td></tr>
+<tr><td><code>PartyMoraleModel</code></td><td><code>public PartyMoraleModel PartyMoraleModel { get; }</code></td></tr>
+<tr><td><code>PartyDesertionModel</code></td><td><code>public PartyDesertionModel PartyDesertionModel { get; }</code></td></tr>
+<tr><td><code>PartyTransitionModel</code></td><td><code>public PartyTransitionModel PartyTransitionModel { get; }</code></td></tr>
+<tr><td><code>DiplomacyModel</code></td><td><code>public DiplomacyModel DiplomacyModel { get; }</code></td></tr>
+<tr><td><code>AllianceModel</code></td><td><code>public AllianceModel AllianceModel { get; }</code></td></tr>
+<tr><td><code>MinorFactionsModel</code></td><td><code>public MinorFactionsModel MinorFactionsModel { get; }</code></td></tr>
+<tr><td><code>HideoutModel</code></td><td><code>public HideoutModel HideoutModel { get; }</code></td></tr>
+<tr><td><code>KingdomCreationModel</code></td><td><code>public KingdomCreationModel KingdomCreationModel { get; }</code></td></tr>
+<tr><td><code>KingdomDecisionPermissionModel</code></td><td><code>public KingdomDecisionPermissionModel KingdomDecisionPermissionModel { get; }</code></td></tr>
+<tr><td><code>EmissaryModel</code></td><td><code>public EmissaryModel EmissaryModel { get; }</code></td></tr>
+<tr><td><code>CharacterDevelopmentModel</code></td><td><code>public CharacterDevelopmentModel CharacterDevelopmentModel { get; }</code></td></tr>
+<tr><td><code>CharacterStatsModel</code></td><td><code>public CharacterStatsModel CharacterStatsModel { get; }</code></td></tr>
+<tr><td><code>EncounterModel</code></td><td><code>public EncounterModel EncounterModel { get; }</code></td></tr>
+<tr><td><code>SettlementPatrolModel</code></td><td><code>public SettlementPatrolModel SettlementPatrolModel { get; }</code></td></tr>
+<tr><td><code>ItemDiscardModel</code></td><td><code>public ItemDiscardModel ItemDiscardModel { get; }</code></td></tr>
+<tr><td><code>ValuationModel</code></td><td><code>public ValuationModel ValuationModel { get; }</code></td></tr>
+<tr><td><code>PartySizeLimitModel</code></td><td><code>public PartySizeLimitModel PartySizeLimitModel { get; }</code></td></tr>
+<tr><td><code>PartyShipLimitModel</code></td><td><code>public PartyShipLimitModel PartyShipLimitModel { get; }</code></td></tr>
+<tr><td><code>InventoryCapacityModel</code></td><td><code>public InventoryCapacityModel InventoryCapacityModel { get; }</code></td></tr>
+<tr><td><code>PartyWageModel</code></td><td><code>public PartyWageModel PartyWageModel { get; }</code></td></tr>
+<tr><td><code>VillageProductionCalculatorModel</code></td><td><code>public VillageProductionCalculatorModel VillageProductionCalculatorModel { get; }</code></td></tr>
+<tr><td><code>VolunteerModel</code></td><td><code>public VolunteerModel VolunteerModel { get; }</code></td></tr>
+<tr><td><code>RomanceModel</code></td><td><code>public RomanceModel RomanceModel { get; }</code></td></tr>
+<tr><td><code>MobilePartyAIModel</code></td><td><code>public MobilePartyAIModel MobilePartyAIModel { get; }</code></td></tr>
+<tr><td><code>ArmyManagementCalculationModel</code></td><td><code>public ArmyManagementCalculationModel ArmyManagementCalculationModel { get; }</code></td></tr>
+<tr><td><code>BanditDensityModel</code></td><td><code>public BanditDensityModel BanditDensityModel { get; }</code></td></tr>
+<tr><td><code>EncounterGameMenuModel</code></td><td><code>public EncounterGameMenuModel EncounterGameMenuModel { get; }</code></td></tr>
+<tr><td><code>BattleRewardModel</code></td><td><code>public BattleRewardModel BattleRewardModel { get; }</code></td></tr>
+<tr><td><code>MapTrackModel</code></td><td><code>public MapTrackModel MapTrackModel { get; }</code></td></tr>
+<tr><td><code>MapDistanceModel</code></td><td><code>public MapDistanceModel MapDistanceModel { get; }</code></td></tr>
+<tr><td><code>PartyNavigationModel</code></td><td><code>public PartyNavigationModel PartyNavigationModel { get; }</code></td></tr>
+<tr><td><code>MapWeatherModel</code></td><td><code>public MapWeatherModel MapWeatherModel { get; }</code></td></tr>
+<tr><td><code>TargetScoreCalculatingModel</code></td><td><code>public TargetScoreCalculatingModel TargetScoreCalculatingModel { get; }</code></td></tr>
+<tr><td><code>TradeItemPriceFactorModel</code></td><td><code>public TradeItemPriceFactorModel TradeItemPriceFactorModel { get; }</code></td></tr>
+<tr><td><code>SettlementEconomyModel</code></td><td><code>public SettlementEconomyModel SettlementEconomyModel { get; }</code></td></tr>
+<tr><td><code>SettlementFoodModel</code></td><td><code>public SettlementFoodModel SettlementFoodModel { get; }</code></td></tr>
+<tr><td><code>SettlementValueModel</code></td><td><code>public SettlementValueModel SettlementValueModel { get; }</code></td></tr>
+<tr><td><code>SettlementMilitiaModel</code></td><td><code>public SettlementMilitiaModel SettlementMilitiaModel { get; }</code></td></tr>
+<tr><td><code>SettlementLoyaltyModel</code></td><td><code>public SettlementLoyaltyModel SettlementLoyaltyModel { get; }</code></td></tr>
+<tr><td><code>SettlementSecurityModel</code></td><td><code>public SettlementSecurityModel SettlementSecurityModel { get; }</code></td></tr>
+<tr><td><code>SettlementProsperityModel</code></td><td><code>public SettlementProsperityModel SettlementProsperityModel { get; }</code></td></tr>
+<tr><td><code>SettlementGarrisonModel</code></td><td><code>public SettlementGarrisonModel SettlementGarrisonModel { get; }</code></td></tr>
+<tr><td><code>ClanTierModel</code></td><td><code>public ClanTierModel ClanTierModel { get; }</code></td></tr>
+<tr><td><code>VassalRewardsModel</code></td><td><code>public VassalRewardsModel VassalRewardsModel { get; }</code></td></tr>
+<tr><td><code>ClanPoliticsModel</code></td><td><code>public ClanPoliticsModel ClanPoliticsModel { get; }</code></td></tr>
+<tr><td><code>ClanFinanceModel</code></td><td><code>public ClanFinanceModel ClanFinanceModel { get; }</code></td></tr>
+<tr><td><code>SettlementTaxModel</code></td><td><code>public SettlementTaxModel SettlementTaxModel { get; }</code></td></tr>
+<tr><td><code>HeroAgentLocationModel</code></td><td><code>public HeroAgentLocationModel HeroAgentLocationModel { get; }</code></td></tr>
+<tr><td><code>HeirSelectionCalculationModel</code></td><td><code>public HeirSelectionCalculationModel HeirSelectionCalculationModel { get; }</code></td></tr>
+<tr><td><code>HeroDeathProbabilityCalculationModel</code></td><td><code>public HeroDeathProbabilityCalculationModel HeroDeathProbabilityCalculationModel { get; }</code></td></tr>
+<tr><td><code>BuildingConstructionModel</code></td><td><code>public BuildingConstructionModel BuildingConstructionModel { get; }</code></td></tr>
+<tr><td><code>BuildingEffectModel</code></td><td><code>public BuildingEffectModel BuildingEffectModel { get; }</code></td></tr>
+<tr><td><code>WallHitPointCalculationModel</code></td><td><code>public WallHitPointCalculationModel WallHitPointCalculationModel { get; }</code></td></tr>
+<tr><td><code>MarriageModel</code></td><td><code>public MarriageModel MarriageModel { get; }</code></td></tr>
+<tr><td><code>AgeModel</code></td><td><code>public AgeModel AgeModel { get; }</code></td></tr>
+<tr><td><code>PlayerProgressionModel</code></td><td><code>public PlayerProgressionModel PlayerProgressionModel { get; }</code></td></tr>
+<tr><td><code>DailyTroopXpBonusModel</code></td><td><code>public DailyTroopXpBonusModel DailyTroopXpBonusModel { get; }</code></td></tr>
+<tr><td><code>PregnancyModel</code></td><td><code>public PregnancyModel PregnancyModel { get; }</code></td></tr>
+<tr><td><code>NotablePowerModel</code></td><td><code>public NotablePowerModel NotablePowerModel { get; }</code></td></tr>
+<tr><td><code>MilitaryPowerModel</code></td><td><code>public MilitaryPowerModel MilitaryPowerModel { get; }</code></td></tr>
+<tr><td><code>PrisonerDonationModel</code></td><td><code>public PrisonerDonationModel PrisonerDonationModel { get; }</code></td></tr>
+<tr><td><code>NotableSpawnModel</code></td><td><code>public NotableSpawnModel NotableSpawnModel { get; }</code></td></tr>
+<tr><td><code>TournamentModel</code></td><td><code>public TournamentModel TournamentModel { get; }</code></td></tr>
+<tr><td><code>CrimeModel</code></td><td><code>public CrimeModel CrimeModel { get; }</code></td></tr>
+<tr><td><code>DisguiseDetectionModel</code></td><td><code>public DisguiseDetectionModel DisguiseDetectionModel { get; }</code></td></tr>
+<tr><td><code>BribeCalculationModel</code></td><td><code>public BribeCalculationModel BribeCalculationModel { get; }</code></td></tr>
+<tr><td><code>TroopSacrificeModel</code></td><td><code>public TroopSacrificeModel TroopSacrificeModel { get; }</code></td></tr>
+<tr><td><code>SiegeStrategyActionModel</code></td><td><code>public SiegeStrategyActionModel SiegeStrategyActionModel { get; }</code></td></tr>
+<tr><td><code>SiegeEventModel</code></td><td><code>public SiegeEventModel SiegeEventModel { get; }</code></td></tr>
+<tr><td><code>SiegeAftermathModel</code></td><td><code>public SiegeAftermathModel SiegeAftermathModel { get; }</code></td></tr>
+<tr><td><code>SiegeLordsHallFightModel</code></td><td><code>public SiegeLordsHallFightModel SiegeLordsHallFightModel { get; }</code></td></tr>
+<tr><td><code>CompanionHiringPriceCalculationModel</code></td><td><code>public CompanionHiringPriceCalculationModel CompanionHiringPriceCalculationModel { get; }</code></td></tr>
+<tr><td><code>BuildingScoreCalculationModel</code></td><td><code>public BuildingScoreCalculationModel BuildingScoreCalculationModel { get; }</code></td></tr>
+<tr><td><code>SettlementAccessModel</code></td><td><code>public SettlementAccessModel SettlementAccessModel { get; }</code></td></tr>
+<tr><td><code>IssueModel</code></td><td><code>public IssueModel IssueModel { get; }</code></td></tr>
+<tr><td><code>PrisonerRecruitmentCalculationModel</code></td><td><code>public PrisonerRecruitmentCalculationModel PrisonerRecruitmentCalculationModel { get; }</code></td></tr>
+<tr><td><code>PartyTroopUpgradeModel</code></td><td><code>public PartyTroopUpgradeModel PartyTroopUpgradeModel { get; }</code></td></tr>
+<tr><td><code>TavernMercenaryTroopsModel</code></td><td><code>public TavernMercenaryTroopsModel TavernMercenaryTroopsModel { get; }</code></td></tr>
+<tr><td><code>WorkshopModel</code></td><td><code>public WorkshopModel WorkshopModel { get; }</code></td></tr>
+<tr><td><code>DifficultyModel</code></td><td><code>public DifficultyModel DifficultyModel { get; }</code></td></tr>
+<tr><td><code>LocationModel</code></td><td><code>public LocationModel LocationModel { get; }</code></td></tr>
+<tr><td><code>PrisonBreakModel</code></td><td><code>public PrisonBreakModel PrisonBreakModel { get; }</code></td></tr>
+<tr><td><code>BattleCaptainModel</code></td><td><code>public BattleCaptainModel BattleCaptainModel { get; }</code></td></tr>
+<tr><td><code>ExecutionRelationModel</code></td><td><code>public ExecutionRelationModel ExecutionRelationModel { get; }</code></td></tr>
+<tr><td><code>BannerItemModel</code></td><td><code>public BannerItemModel BannerItemModel { get; }</code></td></tr>
+<tr><td><code>DelayedTeleportationModel</code></td><td><code>public DelayedTeleportationModel DelayedTeleportationModel { get; }</code></td></tr>
+<tr><td><code>TroopSupplierProbabilityModel</code></td><td><code>public TroopSupplierProbabilityModel TroopSupplierProbabilityModel { get; }</code></td></tr>
+<tr><td><code>CutsceneSelectionModel</code></td><td><code>public CutsceneSelectionModel CutsceneSelectionModel { get; }</code></td></tr>
+<tr><td><code>EquipmentSelectionModel</code></td><td><code>public EquipmentSelectionModel EquipmentSelectionModel { get; }</code></td></tr>
+<tr><td><code>AlleyModel</code></td><td><code>public AlleyModel AlleyModel { get; }</code></td></tr>
+<tr><td><code>VoiceOverModel</code></td><td><code>public VoiceOverModel VoiceOverModel { get; }</code></td></tr>
+<tr><td><code>CampaignTimeModel</code></td><td><code>public CampaignTimeModel CampaignTimeModel { get; }</code></td></tr>
+<tr><td><code>VillageTradeModel</code></td><td><code>public VillageTradeModel VillageTradeModel { get; }</code></td></tr>
+<tr><td><code>HeroCreationModel</code></td><td><code>public HeroCreationModel HeroCreationModel { get; }</code></td></tr>
+<tr><td><code>CampaignShipDamageModel</code></td><td><code>public CampaignShipDamageModel CampaignShipDamageModel { get; }</code></td></tr>
+<tr><td><code>CampaignShipParametersModel</code></td><td><code>public CampaignShipParametersModel CampaignShipParametersModel { get; }</code></td></tr>
+<tr><td><code>BuildingModel</code></td><td><code>public BuildingModel BuildingModel { get; }</code></td></tr>
+<tr><td><code>ShipCostModel</code></td><td><code>public ShipCostModel ShipCostModel { get; }</code></td></tr>
+<tr><td><code>ShipStatModel</code></td><td><code>public ShipStatModel ShipStatModel { get; }</code></td></tr>
+<tr><td><code>SceneModel</code></td><td><code>public SceneModel SceneModel { get; }</code></td></tr>
+<tr><td><code>BodyPropertiesModel</code></td><td><code>public BodyPropertiesModel BodyPropertiesModel { get; }</code></td></tr>
+<tr><td><code>IncidentModel</code></td><td><code>public IncidentModel IncidentModel { get; }</code></td></tr>
+<tr><td><code>FleetManagementModel</code></td><td><code>public FleetManagementModel FleetManagementModel { get; }</code></td></tr>
+</tbody></table>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 从对应子系统 API 获取实例
+GameModels instance = ...;
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/api/campaign/RosterTroopState/">&larr; RosterTroopState</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/api/campaign/NoticeType/">NoticeType &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

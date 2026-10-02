@@ -157,4 +157,5 @@ do need to branch, read `Campaign.Current.GameMode` inside the behaviour, or ove
 - ↔ [SDK Overview](../sdk-overview) · [Architecture hub](../)
 - ↘ [Save System](../save-system) — when `SyncData` is not enough
 - ↘ [UI Stack](../ui-stack) — where a campaign-phase screen belongs
-- ↑ [Core](../../api/core/) · [Campaign-Ext](../../api/campaign-ext/) · [ModuleManager](../../api/modulemanager/)
+- ↑ [Core](../../api/core/) · [ModuleManager](../../api/modulemanager/)
+- `api/campaign-ext/` has no bucket index in this tree. It holds two hand-written pages, `MBObjectBase` and `MBObjectManager`.

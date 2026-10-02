@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DialogFlow</title>
+  <meta name="description" content="DialogFlow 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/DialogFlow/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/DialogFlow/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/DialogFlow/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/DialogFlow/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="active">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">DialogFlow</span>
+    </nav>
+  
+  <h1>DialogFlow</h1>
+  <h1 id="dialogflow">DialogFlow</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class DialogFlow</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/DialogFlow.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>DialogFlow</code> 位于 <code>TaleWorlds.CampaignSystem</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.CampaignSystem</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="variation">Variation</h3>
+<p><code>public DialogFlow Variation(string text, params object propertiesAndWeights)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Variation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.Variation(&quot;example&quot;, propertiesAndWeights);
+</code></pre>
+<h3 id="variation-1">Variation</h3>
+<p><code>public DialogFlow Variation(TextObject text, params object propertiesAndWeights)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Variation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.Variation(text, propertiesAndWeights);
+</code></pre>
+<h3 id="npcline">NpcLine</h3>
+<p><code>public DialogFlow NpcLine(string npcText, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 NpcLine 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcLine(&quot;example&quot;, null, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="npcline-1">NpcLine</h3>
+<p><code>public DialogFlow NpcLine(TextObject npcText, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 NpcLine 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcLine(npcText, null, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="npclinewithvariation">NpcLineWithVariation</h3>
+<p><code>public DialogFlow NpcLineWithVariation(string npcText, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 NpcLineWithVariation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcLineWithVariation(&quot;example&quot;, null, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="npclinewithvariation-1">NpcLineWithVariation</h3>
+<p><code>public DialogFlow NpcLineWithVariation(TextObject npcText, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 NpcLineWithVariation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcLineWithVariation(npcText, null, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="playerline">PlayerLine</h3>
+<p><code>public DialogFlow PlayerLine(string playerText, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PlayerLine 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerLine(&quot;example&quot;, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="playerline-1">PlayerLine</h3>
+<p><code>public DialogFlow PlayerLine(TextObject playerText, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PlayerLine 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerLine(playerText, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="beginplayeroptions">BeginPlayerOptions</h3>
+<p><code>public DialogFlow BeginPlayerOptions(string inputToken = null, bool optionUsedOnce = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BeginPlayerOptions 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.BeginPlayerOptions(&quot;example&quot;, false);
+</code></pre>
+<h3 id="beginnpcoptions">BeginNpcOptions</h3>
+<p><code>public DialogFlow BeginNpcOptions(string inputToken = null, bool optionUsedOnce = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BeginNpcOptions 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.BeginNpcOptions(&quot;example&quot;, false);
+</code></pre>
+<h3 id="playeroption">PlayerOption</h3>
+<p><code>public DialogFlow PlayerOption(string text, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PlayerOption 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerOption(&quot;example&quot;, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="playeroption-1">PlayerOption</h3>
+<p><code>public DialogFlow PlayerOption(TextObject text, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PlayerOption 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerOption(text, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="playerspecialoption">PlayerSpecialOption</h3>
+<p><code>public DialogFlow PlayerSpecialOption(TextObject text, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PlayerSpecialOption 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerSpecialOption(text, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="playerrepeatableoption">PlayerRepeatableOption</h3>
+<p><code>public DialogFlow PlayerRepeatableOption(TextObject text, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PlayerRepeatableOption 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.PlayerRepeatableOption(text, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="npcoption">NpcOption</h3>
+<p><code>public DialogFlow NpcOption(string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 NpcOption 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcOption(&quot;example&quot;, conditionDelegate, null, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="npcoption-1">NpcOption</h3>
+<p><code>public DialogFlow NpcOption(TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 NpcOption 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcOption(text, conditionDelegate, null, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="npcoptionwithvariation">NpcOptionWithVariation</h3>
+<p><code>public DialogFlow NpcOptionWithVariation(string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 NpcOptionWithVariation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcOptionWithVariation(&quot;example&quot;, conditionDelegate, null, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="npcoptionwithvariation-1">NpcOptionWithVariation</h3>
+<p><code>public DialogFlow NpcOptionWithVariation(TextObject text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null, string inputToken = null, string outputToken = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 NpcOptionWithVariation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcOptionWithVariation(text, conditionDelegate, null, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="endplayeroptions">EndPlayerOptions</h3>
+<p><code>public DialogFlow EndPlayerOptions()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndPlayerOptions 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.EndPlayerOptions();
+</code></pre>
+<h3 id="endnpcoptions">EndNpcOptions</h3>
+<p><code>public DialogFlow EndNpcOptions()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndNpcOptions 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.EndNpcOptions();
+</code></pre>
+<h3 id="condition">Condition</h3>
+<p><code>public DialogFlow Condition(ConversationSentence.OnConditionDelegate conditionDelegate)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Condition 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.Condition(conditionDelegate);
+</code></pre>
+<h3 id="clickablecondition">ClickableCondition</h3>
+<p><code>public DialogFlow ClickableCondition(ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ClickableCondition 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.ClickableCondition(clickableConditionDelegate);
+</code></pre>
+<h3 id="consequence">Consequence</h3>
+<p><code>public DialogFlow Consequence(ConversationSentence.OnConsequenceDelegate consequenceDelegate)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Consequence 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.Consequence(consequenceDelegate);
+</code></pre>
+<h3 id="createdialogflow">CreateDialogFlow</h3>
+<p><code>public static DialogFlow CreateDialogFlow(string inputToken = null, int priority = 100)</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 dialog flow 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+DialogFlow.CreateDialogFlow(&quot;example&quot;, 0);
+</code></pre>
+<h3 id="npcdefaultoption">NpcDefaultOption</h3>
+<p><code>public DialogFlow NpcDefaultOption(string text)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 NpcDefaultOption 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.NpcDefaultOption(&quot;example&quot;);
+</code></pre>
+<h3 id="generatetoken">GenerateToken</h3>
+<p><code>public DialogFlow GenerateToken(out string token)</code></p>
+<p><strong>用途 / Purpose:</strong> 生成token的实例、数据或表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GenerateToken(token);
+</code></pre>
+<h3 id="gotodialogstate">GotoDialogState</h3>
+<p><code>public DialogFlow GotoDialogState(string input)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 GotoDialogState 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GotoDialogState(&quot;example&quot;);
+</code></pre>
+<h3 id="gotodialogstatebranched">GotoDialogStateBranched</h3>
+<p><code>public DialogFlow GotoDialogStateBranched(string input, ConversationSentence.OnConditionDelegate conditionDelegate, string alternative)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 GotoDialogStateBranched 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GotoDialogStateBranched(&quot;example&quot;, conditionDelegate, &quot;example&quot;);
+</code></pre>
+<h3 id="getoutputtoken">GetOutputToken</h3>
+<p><code>public DialogFlow GetOutputToken(out string oState)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 output token 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GetOutputToken(oState);
+</code></pre>
+<h3 id="gobacktodialogstate">GoBackToDialogState</h3>
+<p><code>public DialogFlow GoBackToDialogState(string iState)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 GoBackToDialogState 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.GoBackToDialogState(&quot;example&quot;);
+</code></pre>
+<h3 id="closedialog">CloseDialog</h3>
+<p><code>public DialogFlow CloseDialog()</code></p>
+<p><strong>用途 / Purpose:</strong> 关闭dialog对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.CloseDialog();
+</code></pre>
+<h3 id="addplayerline">AddPlayerLine</h3>
+<p><code>public ConversationSentence AddPlayerLine(string id, string inputToken, string outputToken, string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, object relatedObject, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null, ConversationSentence.OnPersuasionOptionDelegate persuasionOptionDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 player line 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.AddPlayerLine(&quot;example&quot;, &quot;example&quot;, &quot;example&quot;, &quot;example&quot;, conditionDelegate, consequenceDelegate, relatedObject, 0, null, null, null, null);
+</code></pre>
+<h3 id="adddialogline">AddDialogLine</h3>
+<p><code>public ConversationSentence AddDialogLine(string id, string inputToken, string outputToken, string text, ConversationSentence.OnConditionDelegate conditionDelegate, ConversationSentence.OnConsequenceDelegate consequenceDelegate, object relatedObject, int priority = 100, ConversationSentence.OnClickableConditionDelegate clickableConditionDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate speakerDelegate = null, ConversationSentence.OnMultipleConversationConsequenceDelegate listenerDelegate = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 dialog line 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DialogFlow 实例
+DialogFlow dialogFlow = ...;
+var result = dialogFlow.AddDialogLine(&quot;example&quot;, &quot;example&quot;, &quot;example&quot;, &quot;example&quot;, conditionDelegate, consequenceDelegate, relatedObject, 0, null, null, null);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+DialogFlow dialogFlow = ...;
+dialogFlow.Variation(&quot;example&quot;, propertiesAndWeights);
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/api/campaign/BattleCaptainModel/">&larr; BattleCaptainModel</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/api/campaign/DefaultInformationRestrictionModel/">DefaultInformationRestrictionModel &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

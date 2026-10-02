@@ -363,4 +363,4 @@ Formation.GetUnitPositionWithIndexAccordingToNewOrder(
 - Behavior 基类：[MissionBehavior](../MissionBehavior) — 官方所有战斗逻辑都走这条扩展路径。
 - 单位类型：[Agent](../Agent) — `Formation` 里绝大多数查询返回的就是它。
 - 战役侧：[Campaign](../../campaign/Campaign) — 攻城布防参数通常取自 `Campaign.Current.Models.*Model`。
-- 父级：mission API 目录导览位于版本根 `../../../`。
+- 父级：[mission API 目录导览](../)

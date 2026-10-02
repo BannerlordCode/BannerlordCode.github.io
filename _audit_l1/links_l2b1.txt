@@ -1,0 +1,334 @@
+FILES=36187
+TOTAL_LINKS=86076
+AUDIT_MODE=url
+BROKEN_LINKS=550
+RESOLVE_OK_URL=85450
+RESOLVE_OK_FILE=83927
+RESOLVE_OK_EITHER=85946
+RESOLVE_OK_BOTH=83431
+RESOLVE_URL_ONLY=2019
+RESOLVE_FILE_ONLY=496
+RESOLVE_NEITHER=54
+FILES_WITH_BROKEN=28
+
+## v1.3.15/zh/api/campaign-ext/CampaignEventReceiver.md  (23)
+   -> ./CampaignEventDispatcher/
+   -> ../campaign/Campaign/
+   -> ./KillCharacterAction/
+   -> ./ChangeOwnerOfSettlementAction/
+   -> ./ChangeRelationAction/
+   -> ./CampaignEvents/
+   -> ./CampaignBehaviorBase/
+   -> ./ICampaignBehavior/
+   -> ./ChangeKingdomAction/
+   -> ./MakePeaceAction/
+   -> ./DeclareWarAction/
+   -> ./AddCompanionAction/
+   -> ./RemoveCompanionAction/
+   -> ./TeleportHeroAction/
+   -> ./SiegeAftermathAction/
+   -> ../campaign/Hero/
+   -> ../campaign/Settlement/
+   -> ../campaign/Clan/
+   -> ../campaign/Kingdom/
+   -> ../campaign/MobileParty/
+   -> ./IssueBase/
+   -> ../save-system/SaveManager/
+   -> ../core/MBSubModuleBase/
+
+## v1.3.15/zh/api/campaign-ext/CampaignEvents.md  (23)
+   -> ../campaign/Campaign/
+   -> ./CampaignEventDispatcher/
+   -> ./actions-index/
+   -> ./CampaignBehaviorBase/
+   -> ./CampaignEventReceiver/
+   -> ./MbEvent/
+   -> ./IMbEvent/
+   -> ./ReferenceMBEvent/
+   -> ./CampaignGameStarter/
+   -> ./CampaignBehaviorManager/
+   -> ../save-system/SaveManager/
+   -> ../mission/Mission/
+   -> ../campaign/Hero/
+   -> ../campaign/Settlement/
+   -> ../campaign/MobileParty/
+   -> ../campaign/Clan/
+   -> ../campaign/Kingdom/
+   -> ../campaign/PartyBase/
+   -> ./IssueBase/
+   -> ../campaign/CharacterObject/
+   -> ../campaign/Workshop/
+   -> ../campaign/Village/
+   -> ../core/MBSubModuleBase/
+
+## v1.3.15/zh/api/campaign-ext/ItemRoster.md  (16)
+   -> ../campaign/PartyBase/
+   -> ../campaign/MobileParty/
+   -> ../campaign/Settlement/
+   -> ../core/ItemObject/
+   -> ../core-extra/EquipmentElement/
+   -> ../core-extra/ItemModifier/
+   -> ./DefaultItems/
+   -> ./TroopRoster/
+   -> ./GiveItemAction/
+   -> ./SellItemsAction/
+   -> ./InventoryLogic/
+   -> ../campaign/Campaign/
+   -> ./CampaignEvents/
+   -> ./PartySizeLimitModel/
+   -> ./PartyWageModel/
+   -> ./SettlementFoodModel/
+
+## v1.3.15/zh/api/campaign-ext/TroopRoster.md  (16)
+   -> ../campaign/CharacterObject/
+   -> ../campaign/Hero/
+   -> ../campaign/PartyBase/
+   -> ./TroopRosterElement/
+   -> ../core-extra/UniqueTroopDescriptor/
+   -> ./PartyWageModel/
+   -> ./PartySizeLimitModel/
+   -> ./PartyHealingModel/
+   -> ./PartyTroopUpgradeModel/
+   -> ./PartyUpgraderCampaignBehavior/
+   -> ./AddHeroToPartyAction/
+   -> ./TakePrisonerAction/
+   -> ./RecruitPrisonersCampaignBehavior/
+   -> ./ItemRoster/
+   -> ./FlattenedTroopRoster/
+   -> ../campaign/MobileParty/
+
+## v1.3.15/zh/api/campaign/MapEvent.md  (11)
+   -> ../campaign-ext/MapEventSide/
+   -> ../core/
+   -> ../campaign-ext/PlayerEncounter/
+   -> ../campaign-ext/MBObjectManager/
+   -> ../campaign-ext/CampaignEvents/
+   -> ./MobileParty/
+   -> ./PartyBase/
+   -> ../campaign-ext/SiegeEvent/
+   -> ./Settlement/
+   -> ../campaign-ext/EncounterManager/
+   -> ./Hero/
+
+## v1.3.15/zh/api/campaign/PartyBase.md  (18)
+   -> ./MobileParty/
+   -> ./Settlement/
+   -> ../campaign-ext/PartyComponent/
+   -> ../campaign-ext/TroopRoster/
+   -> ../campaign-ext/ItemRoster/
+   -> ./Campaign/
+   -> ../campaign-ext/MapEvent/
+   -> ../campaign-ext/PartySizeLimitModel/
+   -> ../campaign-ext/PartyWageModel/
+   -> ../campaign-ext/PartyHealingModel/
+   -> ../campaign-ext/MilitaryPowerModel/
+   -> ../campaign-ext/EncounterModel/
+   -> ../campaign-ext/MapVisibilityModel/
+   -> ../campaign-ext/AddHeroToPartyAction/
+   -> ../campaign-ext/TakePrisonerAction/
+   -> ../campaign-ext/TransferPrisonerAction/
+   -> ./CharacterObject/
+   -> ../campaign-ext/MBObjectManager/
+
+## v1.3.15/zh/api/campaign/Town.md  (7)
+   -> ./Settlement/
+   -> ./Clan/
+   -> ./Hero/
+   -> ../campaign-ext/MBObjectManager/
+   -> ./Workshop/
+   -> ./Village/
+   -> ./Campaign/
+
+## v1.3.15/zh/api/campaign/Village.md  (12)
+   -> ./Settlement/
+   -> ../campaign-ext/Town/
+   -> ../campaign-ext/VillageType/
+   -> ../campaign-ext/MBObjectManager/
+   -> ../campaign-ext/SettlementProsperityModel/
+   -> ../campaign-ext/VillageProductionCalculatorModel/
+   -> ../campaign-ext/SettlementMilitiaModel/
+   -> ../campaign-ext/VillageMarketData/
+   -> ../campaign-ext/VillagerPartyComponent/
+   -> ../campaign-ext/ChangeVillageStateAction/
+   -> ./Clan/
+   -> ./Campaign/
+
+## v1.3.15/zh/api/engine/GauntletLayer.md  (6)
+   -> ./GauntletMovieIdentifier
+   -> ../campaign-ext/ScreenBase
+   -> ../gui/ScreenManager
+   -> ./UIResourceManager
+   -> ../core-extra/ViewModel
+   -> ../core/MBSubModuleBase
+
+## v1.3.15/zh/api/mission-ext/MissionLogic.md  (10)
+   -> ../mission/MissionBehavior/
+   -> ../campaign-ext/CampaignBehaviorBase/
+   -> ../mission/Mission/
+   -> ../core/MBSubModuleBase/
+   -> ../mission/Agent/
+   -> ../mission/Team/
+   -> ../mission/Formation/
+   -> ./MissionObject/
+   -> ../campaign/Campaign/
+   -> ./MissionObjective/
+
+## v1.3.15/zh/api/mission/Formation.md  (8)
+   -> ./FormationSpawnData/
+   -> ./Team/
+   -> ./Mission/
+   -> ../mission-ext/OrderController/
+   -> ./Agent/
+   -> ../mission-ext/MovementOrder/
+   -> ../mission-ext/ArrangementOrder/
+   -> ./MissionBehavior/
+
+## v1.3.15/zh/api/mission/Team.md  (18)
+   -> ./Mission/
+   -> ../mission-ext/TeamCollection/
+   -> ../mission-ext/MBTeam/
+   -> ./Agent/
+   -> ./Formation/
+   -> ../mission-ext/OrderController/
+   -> ../mission-ext/TeamAIComponent/
+   -> ../mission-ext/TeamQuerySystem/
+   -> ../core-extra/Banner/
+   -> ../core-extra/BattleSideEnum/
+   -> ../core-extra/TeamSideEnum/
+   -> ../core-extra/FormationClass/
+   -> ./MissionBehavior/
+   -> ../mission-ext/TacticComponent/
+   -> ../mission-ext/MissionObject/
+   -> ../mission-ext/MissionState/
+   -> ../mission-ext/MissionObjective/
+   -> ./TacticOption/
+
+## v1.4.5/en/api/campaign/Campaign.md  (9)
+   -> ../core/MBSubModuleBase.md
+   -> Hero.md
+   -> Settlement.md
+   -> MobileParty.md
+   -> Clan.md
+   -> ../save-system/SaveManager
+   -> ../mission/Mission.md
+   -> ../../architecture/doc-contract
+   -> ../../architecture/crash-boundary
+
+## v1.4.5/en/api/core/Game.md  (6)
+   -> ./MBSubModuleBase.md
+   -> ./MBObjectBase.md
+   -> ../campaign/Campaign.md
+   -> ../mission/Mission.md
+   -> ../../architecture/crash-boundary
+   -> ../../architecture/doc-contract
+
+## v1.4.5/en/api/core/MBObjectBase.md  (7)
+   -> ../campaign-ext/MBObjectManager
+   -> ../core-extra/ItemObject
+   -> ../core-extra/Game
+   -> ../campaign/Hero
+   -> MBSubModuleBase
+   -> ../../architecture/doc-contract
+   -> ../../architecture/
+
+## v1.4.5/en/api/core/MBSubModuleBase.md  (6)
+   -> ./Game
+   -> ../campaign/Campaign
+   -> ../mission/Mission
+   -> ../../architecture/crash-boundary
+   -> ../../architecture/doc-contract
+   -> ./MBObjectBase
+
+## v1.4.5/en/api/mission/Mission.md  (6)
+   -> ./MissionBehavior
+   -> ./Agent
+   -> ./Formation
+   -> ../campaign/Campaign
+   -> ../core/MBSubModuleBase
+   -> ../../architecture/doc-contract
+
+## v1.4.5/en/architecture/crash-boundary.md  (6)
+   -> ./roadmap
+   -> ./doc-contract
+   -> ../api/core/MBSubModuleBase
+   -> ../api/campaign/Campaign
+   -> ../api/mission/Mission
+   -> ../api/save-system/SaveManager
+
+## v1.4.5/en/architecture/doc-contract.md  (7)
+   -> ./roadmap
+   -> ./crash-boundary
+   -> ../api/core/MBSubModuleBase
+   -> ../api/save-system/SaveManager
+   -> ../api/campaign/Campaign
+   -> ../api/mission/Mission
+   -> ../api/campaign/Hero
+
+## v1.4.5/en/architecture/roadmap.md  (2)
+   -> ./crash-boundary
+   -> ./doc-contract
+
+## v1.4.5/zh/api/campaign/Campaign.md  (9)
+   -> ../core/MBSubModuleBase.md
+   -> Hero.md
+   -> Settlement.md
+   -> MobileParty.md
+   -> Clan.md
+   -> ../save-system/SaveManager
+   -> ../mission/Mission.md
+   -> ../../architecture/doc-contract
+   -> ../../architecture/crash-boundary
+
+## v1.4.5/zh/api/core/Game.md  (6)
+   -> ./MBSubModuleBase.md
+   -> ./MBObjectBase.md
+   -> ../campaign/Campaign.md
+   -> ../mission/Mission.md
+   -> ../../architecture/crash-boundary
+   -> ../../architecture/doc-contract
+
+## v1.4.5/zh/api/core/MBObjectBase.md  (7)
+   -> ../campaign-ext/MBObjectManager
+   -> ../core-extra/ItemObject
+   -> ../core-extra/Game
+   -> ../campaign/Hero
+   -> MBSubModuleBase
+   -> ../../architecture/doc-contract
+   -> ../../architecture/
+
+## v1.4.5/zh/api/core/MBSubModuleBase.md  (6)
+   -> ./Game
+   -> ../campaign/Campaign
+   -> ../mission/Mission
+   -> ../../architecture/crash-boundary
+   -> ../../architecture/doc-contract
+   -> ./MBObjectBase
+
+## v1.4.5/zh/api/mission/Mission.md  (6)
+   -> ./MissionBehavior
+   -> ./Agent
+   -> ./Formation
+   -> ../campaign/Campaign
+   -> ../core/MBSubModuleBase
+   -> ../../architecture/doc-contract
+
+## v1.4.5/zh/architecture/crash-boundary.md  (6)
+   -> ./roadmap
+   -> ./doc-contract
+   -> ../api/core/MBSubModuleBase
+   -> ../api/campaign/Campaign
+   -> ../api/mission/Mission
+   -> ../api/save-system/SaveManager
+
+## v1.4.5/zh/architecture/doc-contract.md  (7)
+   -> ./roadmap
+   -> ./crash-boundary
+   -> ../api/core/MBSubModuleBase
+   -> ../api/save-system/SaveManager
+   -> ../api/campaign/Campaign
+   -> ../api/mission/Mission
+   -> ../api/campaign/Hero
+
+## v1.4.5/zh/architecture/roadmap.md  (2)
+   -> ./crash-boundary
+   -> ./doc-contract

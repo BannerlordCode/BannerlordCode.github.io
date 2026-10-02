@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClanManagementVM</title>
+  <meta name="description" content="Auto-generated class reference for ClanManagementVM.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/viewmodel/ClanManagementVM/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/viewmodel/ClanManagementVM/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/viewmodel/ClanManagementVM/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/viewmodel/ClanManagementVM/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="active">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;viewmodel&#x2F;">viewmodel index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">ClanManagementVM</span>
+    </nav>
+  
+  <h1>ClanManagementVM</h1>
+  <h1 id="clanmanagementvm">ClanManagementVM</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class ClanManagementVM : ViewModel</code>
+<strong>Base:</strong> <code>ViewModel</code>
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds/CampaignSystem/ViewModelCollection/ClanManagement/ClanManagementVM.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>ClanManagementVM</code> lives in <code>TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>Leader</code></td><td><code>public HeroVM Leader { get; set; }</code></td></tr>
+<tr><td><code>ClanBanner</code></td><td><code>public BannerImageIdentifierVM ClanBanner { get; set; }</code></td></tr>
+<tr><td><code>CardSelectionPopup</code></td><td><code>public ClanCardSelectionPopupVM CardSelectionPopup { get; set; }</code></td></tr>
+<tr><td><code>Name</code></td><td><code>public string Name { get; set; }</code></td></tr>
+<tr><td><code>LeaderText</code></td><td><code>public string LeaderText { get; set; }</code></td></tr>
+<tr><td><code>ClanMembers</code></td><td><code>public ClanMembersVM ClanMembers { get; set; }</code></td></tr>
+<tr><td><code>ClanParties</code></td><td><code>public ClanPartiesVM ClanParties { get; set; }</code></td></tr>
+<tr><td><code>ClanFiefs</code></td><td><code>public ClanFiefsVM ClanFiefs { get; set; }</code></td></tr>
+<tr><td><code>ClanIncome</code></td><td><code>public ClanIncomeVM ClanIncome { get; set; }</code></td></tr>
+<tr><td><code>IsMembersSelected</code></td><td><code>public bool IsMembersSelected { get; set; }</code></td></tr>
+<tr><td><code>IsPartiesSelected</code></td><td><code>public bool IsPartiesSelected { get; set; }</code></td></tr>
+<tr><td><code>CanSwitchTabs</code></td><td><code>public bool CanSwitchTabs { get; set; }</code></td></tr>
+<tr><td><code>IsFiefsSelected</code></td><td><code>public bool IsFiefsSelected { get; set; }</code></td></tr>
+<tr><td><code>IsIncomeSelected</code></td><td><code>public bool IsIncomeSelected { get; set; }</code></td></tr>
+<tr><td><code>ClanIsInAKingdom</code></td><td><code>public bool ClanIsInAKingdom { get; set; }</code></td></tr>
+<tr><td><code>IsKingdomActionEnabled</code></td><td><code>public bool IsKingdomActionEnabled { get; set; }</code></td></tr>
+<tr><td><code>PlayerCanChangeClanName</code></td><td><code>public bool PlayerCanChangeClanName { get; set; }</code></td></tr>
+<tr><td><code>CanChooseBanner</code></td><td><code>public bool CanChooseBanner { get; set; }</code></td></tr>
+<tr><td><code>IsRenownProgressComplete</code></td><td><code>public bool IsRenownProgressComplete { get; set; }</code></td></tr>
+<tr><td><code>DoneLbl</code></td><td><code>public string DoneLbl { get; set; }</code></td></tr>
+<tr><td><code>CurrentRenownText</code></td><td><code>public string CurrentRenownText { get; set; }</code></td></tr>
+<tr><td><code>KingdomActionText</code></td><td><code>public string KingdomActionText { get; set; }</code></td></tr>
+<tr><td><code>NextTierRenown</code></td><td><code>public int NextTierRenown { get; set; }</code></td></tr>
+<tr><td><code>CurrentTier</code></td><td><code>public int CurrentTier { get; set; }</code></td></tr>
+<tr><td><code>MinRenownForCurrentTier</code></td><td><code>public int MinRenownForCurrentTier { get; set; }</code></td></tr>
+<tr><td><code>NextTier</code></td><td><code>public int NextTier { get; set; }</code></td></tr>
+<tr><td><code>CurrentRenown</code></td><td><code>public int CurrentRenown { get; set; }</code></td></tr>
+<tr><td><code>CurrentTierRenownRange</code></td><td><code>public int CurrentTierRenownRange { get; set; }</code></td></tr>
+<tr><td><code>CurrentRenownOverPreviousTier</code></td><td><code>public int CurrentRenownOverPreviousTier { get; set; }</code></td></tr>
+<tr><td><code>MembersText</code></td><td><code>public string MembersText { get; set; }</code></td></tr>
+<tr><td><code>PartiesText</code></td><td><code>public string PartiesText { get; set; }</code></td></tr>
+<tr><td><code>FiefsText</code></td><td><code>public string FiefsText { get; set; }</code></td></tr>
+<tr><td><code>IncomeText</code></td><td><code>public string IncomeText { get; set; }</code></td></tr>
+<tr><td><code>RenownHint</code></td><td><code>public BasicTooltipViewModel RenownHint { get; set; }</code></td></tr>
+<tr><td><code>ClanBannerHint</code></td><td><code>public HintViewModel ClanBannerHint { get; set; }</code></td></tr>
+<tr><td><code>ChangeClanNameHint</code></td><td><code>public HintViewModel ChangeClanNameHint { get; set; }</code></td></tr>
+<tr><td><code>KingdomActionDisabledReasonHint</code></td><td><code>public BasicTooltipViewModel KingdomActionDisabledReasonHint { get; set; }</code></td></tr>
+<tr><td><code>GoldChangeTooltip</code></td><td><code>public TooltipTriggerVM GoldChangeTooltip { get; set; }</code></td></tr>
+<tr><td><code>CurrentGoldText</code></td><td><code>public string CurrentGoldText { get; set; }</code></td></tr>
+<tr><td><code>CurrentGold</code></td><td><code>public int CurrentGold { get; set; }</code></td></tr>
+<tr><td><code>ExpenseText</code></td><td><code>public string ExpenseText { get; set; }</code></td></tr>
+<tr><td><code>TotalIncomeText</code></td><td><code>public string TotalIncomeText { get; set; }</code></td></tr>
+<tr><td><code>FinanceText</code></td><td><code>public string FinanceText { get; set; }</code></td></tr>
+<tr><td><code>TotalIncome</code></td><td><code>public int TotalIncome { get; set; }</code></td></tr>
+<tr><td><code>TotalExpensesText</code></td><td><code>public string TotalExpensesText { get; set; }</code></td></tr>
+<tr><td><code>TotalExpenses</code></td><td><code>public int TotalExpenses { get; set; }</code></td></tr>
+<tr><td><code>DailyChangeText</code></td><td><code>public string DailyChangeText { get; set; }</code></td></tr>
+<tr><td><code>DailyChange</code></td><td><code>public int DailyChange { get; set; }</code></td></tr>
+<tr><td><code>ExpectedGoldText</code></td><td><code>public string ExpectedGoldText { get; set; }</code></td></tr>
+<tr><td><code>ExpectedGold</code></td><td><code>public int ExpectedGold { get; set; }</code></td></tr>
+<tr><td><code>DailyChangeValueText</code></td><td><code>public string DailyChangeValueText { get; set; }</code></td></tr>
+<tr><td><code>TotalExpensesValueText</code></td><td><code>public string TotalExpensesValueText { get; set; }</code></td></tr>
+<tr><td><code>TotalIncomeValueText</code></td><td><code>public string TotalIncomeValueText { get; set; }</code></td></tr>
+<tr><td><code>DoneInputKey</code></td><td><code>public InputKeyItemVM DoneInputKey { get; set; }</code></td></tr>
+<tr><td><code>PreviousTabInputKey</code></td><td><code>public InputKeyItemVM PreviousTabInputKey { get; set; }</code></td></tr>
+<tr><td><code>NextTabInputKey</code></td><td><code>public InputKeyItemVM NextTabInputKey { get; set; }</code></td></tr>
+<tr><td><code>TutorialNotification</code></td><td><code>public ElementNotificationVM TutorialNotification { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="refreshvalues">RefreshValues</h3>
+<p><code>public override void RefreshValues()</code></p>
+<p><strong>Purpose:</strong> Keeps the display or cache of values in sync with the underlying state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.RefreshValues();
+</code></pre>
+<h3 id="selecthero">SelectHero</h3>
+<p><code>public void SelectHero(Hero hero)</code></p>
+<p><strong>Purpose:</strong> Executes the SelectHero logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectHero(hero);
+</code></pre>
+<h3 id="selectparty">SelectParty</h3>
+<p><code>public void SelectParty(PartyBase party)</code></p>
+<p><strong>Purpose:</strong> Executes the SelectParty logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectParty(party);
+</code></pre>
+<h3 id="selectsettlement">SelectSettlement</h3>
+<p><code>public void SelectSettlement(Settlement settlement)</code></p>
+<p><strong>Purpose:</strong> Executes the SelectSettlement logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectSettlement(settlement);
+</code></pre>
+<h3 id="selectworkshop">SelectWorkshop</h3>
+<p><code>public void SelectWorkshop(Workshop workshop)</code></p>
+<p><strong>Purpose:</strong> Executes the SelectWorkshop logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectWorkshop(workshop);
+</code></pre>
+<h3 id="selectalley">SelectAlley</h3>
+<p><code>public void SelectAlley(Alley alley)</code></p>
+<p><strong>Purpose:</strong> Executes the SelectAlley logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectAlley(alley);
+</code></pre>
+<h3 id="selectpreviouscategory">SelectPreviousCategory</h3>
+<p><code>public void SelectPreviousCategory()</code></p>
+<p><strong>Purpose:</strong> Executes the SelectPreviousCategory logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectPreviousCategory();
+</code></pre>
+<h3 id="selectnextcategory">SelectNextCategory</h3>
+<p><code>public void SelectNextCategory()</code></p>
+<p><strong>Purpose:</strong> Executes the SelectNextCategory logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SelectNextCategory();
+</code></pre>
+<h3 id="executeopenbannereditor">ExecuteOpenBannerEditor</h3>
+<p><code>public void ExecuteOpenBannerEditor()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with open banner editor.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.ExecuteOpenBannerEditor();
+</code></pre>
+<h3 id="updatebannervisuals">UpdateBannerVisuals</h3>
+<p><code>public void UpdateBannerVisuals()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of banner visuals.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.UpdateBannerVisuals();
+</code></pre>
+<h3 id="setselectedcategory">SetSelectedCategory</h3>
+<p><code>public void SetSelectedCategory(int index)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to selected category and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SetSelectedCategory(0);
+</code></pre>
+<h3 id="refreshdailyvalues">RefreshDailyValues</h3>
+<p><code>public void RefreshDailyValues()</code></p>
+<p><strong>Purpose:</strong> Keeps the display or cache of daily values in sync with the underlying state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.RefreshDailyValues();
+</code></pre>
+<h3 id="refreshcategoryvalues">RefreshCategoryValues</h3>
+<p><code>public void RefreshCategoryValues()</code></p>
+<p><strong>Purpose:</strong> Keeps the display or cache of category values in sync with the underlying state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.RefreshCategoryValues();
+</code></pre>
+<h3 id="executechangeclanname">ExecuteChangeClanName</h3>
+<p><code>public void ExecuteChangeClanName()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with change clan name.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.ExecuteChangeClanName();
+</code></pre>
+<h3 id="executeclose">ExecuteClose</h3>
+<p><code>public void ExecuteClose()</code></p>
+<p><strong>Purpose:</strong> Runs the operation or workflow associated with close.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.ExecuteClose();
+</code></pre>
+<h3 id="onfinalize">OnFinalize</h3>
+<p><code>public override void OnFinalize()</code></p>
+<p><strong>Purpose:</strong> Invoked when the finalize event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.OnFinalize();
+</code></pre>
+<h3 id="setdoneinputkey">SetDoneInputKey</h3>
+<p><code>public void SetDoneInputKey(HotKey hotkey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to done input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SetDoneInputKey(hotkey);
+</code></pre>
+<h3 id="setprevioustabinputkey">SetPreviousTabInputKey</h3>
+<p><code>public void SetPreviousTabInputKey(HotKey hotkey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to previous tab input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SetPreviousTabInputKey(hotkey);
+</code></pre>
+<h3 id="setnexttabinputkey">SetNextTabInputKey</h3>
+<p><code>public void SetNextTabInputKey(HotKey hotkey)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to next tab input key and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ClanManagementVM from the subsystem API first
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.SetNextTabInputKey(hotkey);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+ClanManagementVM clanManagementVM = ...;
+clanManagementVM.RefreshValues();
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/viewmodel/">viewmodel index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/api/viewmodel/MapNotificationItemBaseVM/">&larr; MapNotificationItemBaseVM</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/viewmodel/PartyCompositionVM/">PartyCompositionVM &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

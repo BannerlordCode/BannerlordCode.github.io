@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crash &amp; Save Boundaries — v1.4.5</title>
+  <meta name="description" content="The eight failure modes that corrupt saves or crash Bannerlord mods: save graph, world mutation, event timing, Agent lifecycle, ObjectManager, SubModule phases, Model replacement, UI lifetime. Each with the correct pattern.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="active">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/architecture/crash-boundary/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/architecture/crash-boundary/"
+               class="active">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/en/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/en/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>v1.4.5 Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/architecture/" class="active">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/api/" class="">Index</a><a href="/v1.4.5/en/api/core/" class="">Core</a><a href="/v1.4.5/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/en/api/mission/" class="">Mission</a><a href="/v1.4.5/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/en/api/campaign/" class="">Campaign</a><a href="/v1.4.5/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/en/api/gui/" class="">GUI</a><a href="/v1.4.5/en/api/save-system/" class="">Save System</a><a href="/v1.4.5/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.4.5/en/api/localization/" class="">Localization</a><a href="/v1.4.5/en/api/engine/" class="">Engine</a><a href="/v1.4.5/en/api/gameplay/" class="">Gameplay</a><a href="/v1.4.5/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/en/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/en/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;architecture&#x2F;">Architecture — v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Crash &amp; Save Boundaries — v1.4.5</span>
+    </nav>
+  
+  <h1>Crash &amp; Save Boundaries — v1.4.5</h1>
+  <h1 id="crash-save-boundaries-v1-4-5">Crash &amp; Save Boundaries (v1.4.5)</h1>
+<p>The single biggest source of "my mod corrupts saves / crashes randomly" bugs. Each section names the danger and the correct pattern. Read this before you ship.</p>
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/crash-boundary/./">Architecture index</a></li>
+<li><a href=".././roadmap">Roadmap</a></li>
+<li><a href=".././doc-contract">Doc contract</a></li>
+</ul>
+<h2 id="1-save-graph-saveid-syncdata-vs-saveablefield-load-order">1. Save graph: SaveId, SyncData vs SaveableField, load order</h2>
+<ul>
+<li><strong>Danger:</strong> registering a <code>[SaveableField]</code> on a type not known to a <code>SaveableTypeDefiner</code>, or changing field types between versions → deserialization throws or silently drops data → corrupted save.</li>
+<li><strong>Correct:</strong> every custom saveable type gets a <code>SaveableTypeDefiner</code> with a stable <code>SaveId</code>; new fields use <code>[SaveableField]</code> (auto-synced in <code>SyncData</code>), rarely-changing references use <code>[SaveableReference]</code>.</li>
+<li><strong>See:</strong> <code>SaveManager</code>, <code>SaveableTypeDefiner</code>, <code>CampaignBehaviorBase.SyncData</code>.</li>
+</ul>
+<h2 id="2-world-mutation-must-go-through-action-apply">2. World mutation must go through Action.Apply</h2>
+<ul>
+<li><strong>Danger:</strong> writing <code>hero.Gold += x</code> or <code>settlement.Owner = clan</code> directly from a tick/event handler → other systems (AI, quests, UI) never observe the change → inconsistent state, frozen diplomacy, broken saves.</li>
+<li><strong>Correct:</strong> call <code>GiveGoldAction.Apply(...)</code>, <code>ChangeOwnerOfSettlementAction.Apply(...)</code>, etc. Actions cascade events and keep the simulation consistent.</li>
+<li><strong>See:</strong> <code>*Action</code> family, <code>ChangeKingdomAction</code>, <code>GiveGoldAction</code>.</li>
+</ul>
+<h2 id="3-campaign-event-timing-vs-mission">3. Campaign event timing vs Mission</h2>
+<ul>
+<li><strong>Danger:</strong> mutating Campaign entities during a Mission tick, or reading <code>Campaign.Current</code> after the campaign ended → null refs / wrong-phase exceptions.</li>
+<li><strong>Correct:</strong> world changes during a battle go through the post-battle result (<code>MissionResult</code>) and are applied when control returns to Campaign; subscribe to <code>CampaignEvents</code> for lifecycle hooks.</li>
+<li><strong>See:</strong> <code>CampaignEvents</code>, <code>MissionResult</code>, <code>Mission</code>.</li>
+</ul>
+<h2 id="4-agent-mission-lifecycle">4. Agent / Mission lifecycle</h2>
+<ul>
+<li><strong>Danger:</strong> holding an <code>Agent</code> reference after it died/left the mission, or calling <code>Mission.Current</code> outside a mission → NullReferenceException / "mission already ended" errors.</li>
+<li><strong>Correct:</strong> listen to <code>OnAgentRemoved</code> / <code>OnMissionEnded</code>; never cache <code>Agent</code> across missions; guard <code>Mission.Current != null</code>.</li>
+<li><strong>See:</strong> <code>Mission</code>, <code>Agent</code>, <code>MissionBehavior</code>.</li>
+</ul>
+<h2 id="5-mbobjectmanager-registration">5. MBObjectManager registration</h2>
+<ul>
+<li><strong>Danger:</strong> <code>new ItemObject()</code> without registering in <code>MBObjectManager</code> → StringId collisions, missing from lookups, save/load identity loss.</li>
+<li><strong>Correct:</strong> create via the manager (<code>MBObjectManager.Instance.AddObject</code>) or load from existing data; resolve by StringId.</li>
+<li><strong>See:</strong> <code>MBObjectBase</code>, <code>MBObjectManager</code>.</li>
+</ul>
+<h2 id="6-submodule-load-phases">6. SubModule load phases</h2>
+<ul>
+<li><strong>Danger:</strong> doing heavy work or touching <code>Campaign.Current</code> in <code>OnSubModuleLoad</code> (before the game object exists) → NRE.</li>
+<li><strong>Correct:</strong> <code>OnSubModuleLoad</code> = register types/UI only; <code>OnGameInitializationFinished</code> / <code>OnGameStart</code> = touch game state; use <code>CampaignGameStarter</code> to add Behaviors.</li>
+<li><strong>See:</strong> <code>MBSubModuleBase</code>, <code>CampaignGameStarter</code>.</li>
+</ul>
+<h2 id="7-model-replacement">7. Model replacement</h2>
+<ul>
+<li><strong>Danger:</strong> replacing a <code>GameModels</code> entry with <code>null</code> or a wrong-type instance → every consumer NREs.</li>
+<li><strong>Correct:</strong> register a subclass of the exact Model type via <code>CampaignGameStarter</code>/<code>AddModel</code>; never null out.</li>
+<li><strong>See:</strong> <code>GameModels</code>, <code>CampaignGameStarter</code>.</li>
+</ul>
+<h2 id="8-ui-viewmodel-lifetime">8. UI / ViewModel lifetime</h2>
+<ul>
+<li><strong>Danger:</strong> updating a <code>ViewModel</code> after its <code>GauntletLayer</code> is removed, or touching Campaign state from the UI thread during a tick → cross-thread / disposed-object crashes.</li>
+<li><strong>Correct:</strong> bind/unbind in <code>OnMissionBehaviourInitialize</code>/<code>OnFinalize</code> symmetry; marshal state reads through the layer lifecycle.</li>
+<li><strong>See:</strong> <code>ViewModel</code>, <code>GauntletLayer</code>, <code>ScreenBase</code>.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/crash-boundary/./">Architecture index</a></li>
+<li><a href="../../api/core/MBSubModuleBase">MBSubModuleBase</a></li>
+<li><a href="../../api/campaign/Campaign">Campaign</a></li>
+<li><a href="../../api/mission/Mission">Mission</a></li>
+<li><a href="../../api/save-system/SaveManager">SaveManager</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/en/architecture/">Architecture — v1.4.5</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <span class="page-navigation-disabled" aria-disabled="true">&larr; First item</span>
+          
+          
+            <a rel="next" href="/v1.4.5/en/architecture/milestone-report/">Milestone Report M0–M2 (Handwritten Docs Rebuild · Cycle 1) &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

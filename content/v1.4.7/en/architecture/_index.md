@@ -1,13 +1,17 @@
 ---
 title: "Bannerlord v1.4.7 Architecture"
-description: "Architecture hub for the v1.4.7 docs: assembly layering, module loading, the save stack, the UI stack, and what changed from 1.4.5 and 1.3.15."
+description: "Architecture hub for the v1.4.7 docs: assembly layering, module loading, the save stack, the UI stack, and what changed from 1.4.5 and 1.3.15. Five pages, all written."
 ---
 # Bannerlord v1.4.7 Architecture
 
 This section answers the big-picture question: **how is v1.4.7 layered, which assembly do you
-reference for what, and which layers must not call each other.** If you just want a class, go to
-the [API reference](../api/); if you want to know what moved, read
-[Version Delta](./version-delta).
+reference for what, and which layers must not call each other.**
+
+There are **five pages** here and all five have content — the architectural knowledge did not go
+with the withdrawn generated class pages, so this is the one part of the tree you can read end to
+end. If you just want a class, go to the [API reference](../api/); if you want to know what moved,
+read [Version Delta](./version-delta). Which individual types have pages is answered per bucket by
+each bucket's own index page.
 
 ## Five pages, read in this order
 
@@ -22,7 +26,7 @@ the [API reference](../api/); if you want to know what moved, read
 ## Mental model: five layers, write downward only
 
 ```text
-┌─ storymode / sandbox ────── game content (swappable, can be disabled)
+┌─ sandbox ──────────────── game content (swappable, can be disabled)
 ├─ campaign / campaign-ext ── campaign world state and rules (persistent, saved)
 ├─ mission / mission-ext ──── battle scene state (transient, never saved)
 ├─ gui / viewmodel ────────── screens and binding (transient)
@@ -47,12 +51,14 @@ Three rules beat memorising any class table:
 | get my mod loaded | [Module System](./module-system) | [Core](../api/core/) |
 | hook campaign behaviour | [Module System](./module-system) | [Campaign-Ext](../api/campaign-ext/) |
 | build a screen | [UI Stack](./ui-stack) | [GUI](../api/gui/) |
-| store my own data | [Save System](./save-system) | [Save System](../api/save-system/) |
+| persist my own data | [Save System](./save-system) | the Chinese `zh/api/save-system/` bucket (no English equivalent) |
 | debug an upgrade break | [Version Delta](./version-delta) | [Cross-version compare](../../../versions/) |
+| check whether a type has a page | [GAPS](../../GAPS) | [API Reference](../api/) |
 
 ## See also
 
-- ↑ [Version home](../)
+- ↑ [Language home](../)
 - ↔ [API Reference](../api/)
+- ↘ [GAPS](../../GAPS)
 - ↗ [Cross-Version Class Comparison](../../../versions/)
-- ↘ [v1.4.5 docs](../../../v1.4.5/en/architecture/) · [v1.3.15 docs](../../../v1.3.15/en/architecture/)
+- ↘ [v1.4.5 architecture](../../../v1.4.5/en/architecture/) · [v1.3.15 architecture](../../../v1.3.15/en/architecture/)

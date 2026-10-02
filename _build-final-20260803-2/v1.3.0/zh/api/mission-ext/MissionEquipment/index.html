@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MissionEquipment</title>
+  <meta name="description" content="MissionEquipment 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/MissionEquipment/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/MissionEquipment/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/MissionEquipment/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/MissionEquipment/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/MissionEquipment/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/MissionEquipment/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MissionEquipment</span>
+    </nav>
+  
+  <h1>MissionEquipment</h1>
+  <h1 id="missionequipment">MissionEquipment</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public class MissionEquipment</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/MissionEquipment.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>MissionEquipment</code> 位于 <code>TaleWorlds.MountAndBlade</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.MountAndBlade</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>this</code></td><td><code>public MissionWeapon this { get; set; }</code></td></tr>
+<tr><td><code>this</code></td><td><code>public MissionWeapon this { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="fillfrom">FillFrom</h3>
+<p><code>public void FillFrom(MissionEquipment sourceEquipment)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 FillFrom 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.FillFrom(sourceEquipment);
+</code></pre>
+<h3 id="fillfrom-1">FillFrom</h3>
+<p><code>public void FillFrom(Equipment sourceEquipment, Banner banner)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 FillFrom 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.FillFrom(sourceEquipment, banner);
+</code></pre>
+<h3 id="gettotalweightofweapons">GetTotalWeightOfWeapons</h3>
+<p><code>public float GetTotalWeightOfWeapons()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 total weight of weapons 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetTotalWeightOfWeapons();
+</code></pre>
+<h3 id="selectweaponpickupslot">SelectWeaponPickUpSlot</h3>
+<p><code>public static EquipmentIndex SelectWeaponPickUpSlot(Agent agentPickingUp, MissionWeapon weaponBeingPickedUp, bool isStuckMissile)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SelectWeaponPickUpSlot 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MissionEquipment.SelectWeaponPickUpSlot(agentPickingUp, weaponBeingPickedUp, false);
+</code></pre>
+<h3 id="hasammo">HasAmmo</h3>
+<p><code>public bool HasAmmo(EquipmentIndex equipmentIndex, out int rangedUsageIndex, out bool hasLoadedAmmo, out bool noAmmoInThisSlot)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 ammo。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.HasAmmo(equipmentIndex, rangedUsageIndex, hasLoadedAmmo, noAmmoInThisSlot);
+</code></pre>
+<h3 id="getammoamount">GetAmmoAmount</h3>
+<p><code>public int GetAmmoAmount(EquipmentIndex weaponIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 ammo amount 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetAmmoAmount(weaponIndex);
+</code></pre>
+<h3 id="getmaxammo">GetMaxAmmo</h3>
+<p><code>public int GetMaxAmmo(EquipmentIndex weaponIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 max ammo 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetMaxAmmo(weaponIndex);
+</code></pre>
+<h3 id="getammocountandindexoftype">GetAmmoCountAndIndexOfType</h3>
+<p><code>public void GetAmmoCountAndIndexOfType(ItemObject.ItemTypeEnum itemType, out int ammoCount, out EquipmentIndex eIndex, EquipmentIndex equippedIndex = EquipmentIndex.None)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 ammo count and index of type 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.GetAmmoCountAndIndexOfType(itemType, ammoCount, eIndex, equipmentIndex.None);
+</code></pre>
+<h3 id="doesweaponfittoslot">DoesWeaponFitToSlot</h3>
+<p><code>public static bool DoesWeaponFitToSlot(EquipmentIndex slotIndex, MissionWeapon weapon)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断weapon fit to slot这一条件在当前对象上是否成立。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MissionEquipment.DoesWeaponFitToSlot(slotIndex, weapon);
+</code></pre>
+<h3 id="checkloadedammos">CheckLoadedAmmos</h3>
+<p><code>public void CheckLoadedAmmos()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查loaded ammos在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.CheckLoadedAmmos();
+</code></pre>
+<h3 id="setusageindexofslot">SetUsageIndexOfSlot</h3>
+<p><code>public void SetUsageIndexOfSlot(EquipmentIndex slotIndex, int usageIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 usage index of slot 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetUsageIndexOfSlot(slotIndex, 0);
+</code></pre>
+<h3 id="setreloadphaseofslot">SetReloadPhaseOfSlot</h3>
+<p><code>public void SetReloadPhaseOfSlot(EquipmentIndex slotIndex, short reloadPhase)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 reload phase of slot 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetReloadPhaseOfSlot(slotIndex, 0);
+</code></pre>
+<h3 id="setamountofslot">SetAmountOfSlot</h3>
+<p><code>public void SetAmountOfSlot(EquipmentIndex slotIndex, short dataValue, bool addOverflowToMaxAmount = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 amount of slot 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetAmountOfSlot(slotIndex, 0, false);
+</code></pre>
+<h3 id="sethitpointsofslot">SetHitPointsOfSlot</h3>
+<p><code>public void SetHitPointsOfSlot(EquipmentIndex slotIndex, short dataValue, bool addOverflowToMaxHitPoints = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 hit points of slot 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetHitPointsOfSlot(slotIndex, 0, false);
+</code></pre>
+<h3 id="setreloadedammoofslot">SetReloadedAmmoOfSlot</h3>
+<p><code>public void SetReloadedAmmoOfSlot(EquipmentIndex slotIndex, EquipmentIndex ammoSlotIndex, short totalAmmo)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 reloaded ammo of slot 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetReloadedAmmoOfSlot(slotIndex, ammoSlotIndex, 0);
+</code></pre>
+<h3 id="setconsumedammoofslot">SetConsumedAmmoOfSlot</h3>
+<p><code>public void SetConsumedAmmoOfSlot(EquipmentIndex slotIndex, short count)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 consumed ammo of slot 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetConsumedAmmoOfSlot(slotIndex, 0);
+</code></pre>
+<h3 id="attachweapontoweaponinslot">AttachWeaponToWeaponInSlot</h3>
+<p><code>public void AttachWeaponToWeaponInSlot(EquipmentIndex slotIndex, ref MissionWeapon weapon, ref MatrixFrame attachLocalFrame)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AttachWeaponToWeaponInSlot 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.AttachWeaponToWeaponInSlot(slotIndex, weapon, attachLocalFrame);
+</code></pre>
+<h3 id="hasshield">HasShield</h3>
+<p><code>public bool HasShield()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 shield。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.HasShield();
+</code></pre>
+<h3 id="hasanyweapon">HasAnyWeapon</h3>
+<p><code>public bool HasAnyWeapon()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 any weapon。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.HasAnyWeapon();
+</code></pre>
+<h3 id="hasanyweaponwithflags">HasAnyWeaponWithFlags</h3>
+<p><code>public bool HasAnyWeaponWithFlags(WeaponFlags flags)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 any weapon with flags。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.HasAnyWeaponWithFlags(flags);
+</code></pre>
+<h3 id="getbanner">GetBanner</h3>
+<p><code>public ItemObject GetBanner()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 banner 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetBanner();
+</code></pre>
+<h3 id="hasrangedweapon">HasRangedWeapon</h3>
+<p><code>public bool HasRangedWeapon(WeaponClass requiredAmmoClass = WeaponClass.Undefined)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 ranged weapon。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.HasRangedWeapon(weaponClass.Undefined);
+</code></pre>
+<h3 id="containsnonconsumablerangedweaponwithammo">ContainsNonConsumableRangedWeaponWithAmmo</h3>
+<p><code>public bool ContainsNonConsumableRangedWeaponWithAmmo()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否含有non consumable ranged weapon with ammo。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.ContainsNonConsumableRangedWeaponWithAmmo();
+</code></pre>
+<h3 id="containsmeleeweapon">ContainsMeleeWeapon</h3>
+<p><code>public bool ContainsMeleeWeapon()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否含有melee weapon。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.ContainsMeleeWeapon();
+</code></pre>
+<h3 id="containsshield">ContainsShield</h3>
+<p><code>public bool ContainsShield()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否含有shield。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.ContainsShield();
+</code></pre>
+<h3 id="containsspear">ContainsSpear</h3>
+<p><code>public bool ContainsSpear()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否含有spear。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.ContainsSpear();
+</code></pre>
+<h3 id="containsthrownweapon">ContainsThrownWeapon</h3>
+<p><code>public bool ContainsThrownWeapon()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否含有thrown weapon。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.ContainsThrownWeapon();
+</code></pre>
+<h3 id="setglossmultipliersofweaponsrandomly">SetGlossMultipliersOfWeaponsRandomly</h3>
+<p><code>public void SetGlossMultipliersOfWeaponsRandomly(int seed)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 gloss multipliers of weapons randomly 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.SetGlossMultipliersOfWeaponsRandomly(0);
+</code></pre>
+<h3 id="initialize">Initialize</h3>
+<p><code>public void Initialize()</code></p>
+<p><strong>用途 / Purpose:</strong> 加载当前对象所需的初始资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.Initialize();
+</code></pre>
+<h3 id="isvalid">IsValid</h3>
+<p><code>public bool IsValid(MissionEquipment.MissionEquipmentCache.CachedBool queriedData)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 valid 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.IsValid(queriedData);
+</code></pre>
+<h3 id="updateandmarkvalid">UpdateAndMarkValid</h3>
+<p><code>public void UpdateAndMarkValid(MissionEquipment.MissionEquipmentCache.CachedBool data, bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 and mark valid 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.UpdateAndMarkValid(data, false);
+</code></pre>
+<h3 id="getvalue">GetValue</h3>
+<p><code>public bool GetValue(MissionEquipment.MissionEquipmentCache.CachedBool data)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 value 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetValue(data);
+</code></pre>
+<h3 id="isvalid-1">IsValid</h3>
+<p><code>public bool IsValid(MissionEquipment.MissionEquipmentCache.CachedFloat queriedData)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 valid 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.IsValid(queriedData);
+</code></pre>
+<h3 id="updateandmarkvalid-1">UpdateAndMarkValid</h3>
+<p><code>public void UpdateAndMarkValid(MissionEquipment.MissionEquipmentCache.CachedFloat data, float value)</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 and mark valid 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.UpdateAndMarkValid(data, 0);
+</code></pre>
+<h3 id="getvalue-1">GetValue</h3>
+<p><code>public float GetValue(MissionEquipment.MissionEquipmentCache.CachedFloat data)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 value 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+var result = missionEquipment.GetValue(data);
+</code></pre>
+<h3 id="invalidateonweaponslotupdated">InvalidateOnWeaponSlotUpdated</h3>
+<p><code>public void InvalidateOnWeaponSlotUpdated()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 InvalidateOnWeaponSlotUpdated 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponSlotUpdated();
+</code></pre>
+<h3 id="invalidateonweaponusageindexupdated">InvalidateOnWeaponUsageIndexUpdated</h3>
+<p><code>public void InvalidateOnWeaponUsageIndexUpdated()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 InvalidateOnWeaponUsageIndexUpdated 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponUsageIndexUpdated();
+</code></pre>
+<h3 id="invalidateonweaponammoupdated">InvalidateOnWeaponAmmoUpdated</h3>
+<p><code>public void InvalidateOnWeaponAmmoUpdated()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 InvalidateOnWeaponAmmoUpdated 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponAmmoUpdated();
+</code></pre>
+<h3 id="invalidateonweaponammoavailabilitychanged">InvalidateOnWeaponAmmoAvailabilityChanged</h3>
+<p><code>public void InvalidateOnWeaponAmmoAvailabilityChanged()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 InvalidateOnWeaponAmmoAvailabilityChanged 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponAmmoAvailabilityChanged();
+</code></pre>
+<h3 id="invalidateonweaponhitpointsupdated">InvalidateOnWeaponHitPointsUpdated</h3>
+<p><code>public void InvalidateOnWeaponHitPointsUpdated()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 InvalidateOnWeaponHitPointsUpdated 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponHitPointsUpdated();
+</code></pre>
+<h3 id="invalidateonweapondestroyed">InvalidateOnWeaponDestroyed</h3>
+<p><code>public void InvalidateOnWeaponDestroyed()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 InvalidateOnWeaponDestroyed 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MissionEquipment 实例
+MissionEquipment missionEquipment = ...;
+missionEquipment.InvalidateOnWeaponDestroyed();
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+MissionEquipment missionEquipment = ...;
+missionEquipment.FillFrom(sourceEquipment);
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/api/mission-ext/">mission-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/api/mission-ext/MusicTheme/">&larr; MusicTheme</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/api/mission-ext/DebugStateAttacker/">DebugStateAttacker &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

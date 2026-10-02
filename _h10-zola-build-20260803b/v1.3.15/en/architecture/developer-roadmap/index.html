@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Developer Task Roadmap</title>
+  <meta name="description" content="I want to do X → dependency chain → entry classes and docs. Task-first navigation for Bannerlord mods (v1.3.15)">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/architecture/developer-roadmap/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/architecture/developer-roadmap/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="active">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;architecture&#x2F;">Architecture</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Developer Task Roadmap</span>
+    </nav>
+  
+  <h1>Developer Task Roadmap</h1>
+  <h1 id="developer-task-roadmap">Developer Task Roadmap</h1>
+<blockquote>
+<p>Pick a task, then follow the dependency chain. This page is a <strong>task hub</strong>, not a class inventory. Many class pages are still stubs (coverage RED). Prefer architecture pages, guides, and existing deep_pass gold pages for real mental models.</p>
+</blockquote>
+<h2 id="how-to-use-this-page">How to use this page</h2>
+<ol>
+<li>Find your row in the task table</li>
+<li>Walk the <strong>dependency chain</strong> left to right (skipping a step usually fails at boot, load, or mission start)</li>
+<li>Jump to entry classes when they help; treat stubs as signature indexes and return to architecture / guides for intent</li>
+</ol>
+<pre><code>Task intent → SubModule lifecycle → Behavior / Model / UI registration
+                    ↓
+             Action / Mission / Save boundaries
+                    ↓
+             Architecture + guides + deep class pages
+</code></pre>
+<hr />
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="../../">🏠 Version home</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/developer-roadmap/./">🏗️ Architecture</a></li>
+<li><a href="../sdk-overview">⭐ SDK Overview</a></li>
+<li><a href="../../api/">📚 API Reference</a></li>
+<li><a href="../../guide/">📖 Guides</a></li>
+</ul>
+<h2 id="twisted-rightwards-arrows-sibling-navigation">🔀 Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>What it solves</th></tr></thead><tbody>
+<tr><td><a href="../sdk-overview">SDK Overview</a></td><td>Layer map: which layers you touch</td></tr>
+<tr><td><a href="../module-system">Module System</a></td><td><code>MBSubModuleBase</code> lifecycle and registration timing</td></tr>
+<tr><td><a href="../save-system">Save System</a></td><td>SaveIds, <code>[SaveableField]</code>, load order</td></tr>
+<tr><td><a href="../crash-boundaries">Crash &amp; Save Boundaries</a></td><td>When you corrupt saves, NRE, or break lifecycles</td></tr>
+<tr><td><a href="../doc-contract">Doc Contract</a></td><td>Handwritten-only policy before writing class docs</td></tr>
+<tr><td><a href="../../guide/">Guides</a></td><td>Campaign / Mission / UI / save tutorials</td></tr>
+</tbody></table>
+<hr />
+<h2 id="task-table-i-want-to">Task table: I want to...</h2>
+<table><thead><tr><th>I want to...</th><th>Dependency chain</th><th>Entry classes</th><th>Docs</th></tr></thead><tbody>
+<tr><td><strong>1. Register SubModule + CampaignBehavior</strong></td><td><code>SubModule.xml</code> → DLL entry → <code>OnGameStart</code> / <code>InitializeGameStarter</code> → <code>CampaignGameStarter.AddBehavior</code> → <code>RegisterEvents</code> / <code>SyncData</code></td><td><a href="../../api/core/MBSubModuleBase"><code>MBSubModuleBase</code></a> · <a href="../../api/campaign-ext/CampaignBehaviorBase"><code>CampaignBehaviorBase</code></a> · <a href="../../api/campaign-ext/CampaignGameStarter"><code>CampaignGameStarter</code></a> · <a href="../../api/campaign/Campaign"><code>Campaign</code></a></td><td><a href="../module-system">Module System</a> · <a href="../../guide/campaign-system">Campaign Guide</a> · <a href="../../guide/mod-workflow">Mod Workflow</a></td></tr>
+<tr><td><strong>2. Give gold / kill a hero / change kingdom safely</strong></td><td>Campaign context ready → pick the matching <code>*Action</code> → <strong><code>Action.Apply(...)</code></strong> (do not poke fields) → let vanilla events and UI follow</td><td><a href="../../api/campaign-ext/GiveGoldAction"><code>GiveGoldAction</code></a> · <a href="../../api/campaign-ext/KillCharacterAction"><code>KillCharacterAction</code></a> · <a href="../../api/campaign-ext/ChangeKingdomAction"><code>ChangeKingdomAction</code></a> · <a href="../../api/campaign/Hero"><code>Hero</code></a> · <a href="../../api/campaign-ext/actions-index">Actions index</a></td><td><a href="../crash-boundaries#2-world-changes-must-go-through-actionapply">Crash boundaries § world changes</a> · <a href="../../guide/campaign-system">Campaign Guide</a> · <a href="../../guide/common-patterns">Common Patterns</a></td></tr>
+<tr><td><strong>3. Custom save fields without corrupting saves</strong></td><td>Stable <strong>SaveId</strong> policy → <code>[SaveableClass]</code> / <code>[SaveableField]</code> <strong>or</strong> behavior <code>SyncData</code> → align with load order → verify round-trip with the save guide</td><td><a href="../../api/save-system/SaveManager"><code>SaveManager</code></a> · <a href="../../api/campaign-ext/CampaignBehaviorBase"><code>CampaignBehaviorBase</code></a> (<code>SyncData</code>) · <code>DefinitionContext</code></td><td><a href="../save-system">Save System</a> · <a href="../../guide/save-system-guide">Save Guide</a> · <a href="../crash-boundaries#1-saves-saveid-sync-vs-saveablefield-load-order">Crash boundaries § saves</a></td></tr>
+<tr><td><strong>4. MissionBehavior + agent death</strong></td><td>Register mission behavior at game start (or mission factory hooks) → <code>OnAgentRemoved</code> / damage callbacks → keep <strong>mission</strong> state separate from <strong>campaign map</strong> state</td><td><a href="../../api/mission/MissionBehavior"><code>MissionBehavior</code></a> · <a href="../../api/mission/Mission"><code>Mission</code></a> · <a href="../../api/mission/Agent"><code>Agent</code></a></td><td><a href="../module-system">Module System</a> · <a href="../../guide/mission-system">Mission Guide</a> · <a href="../crash-boundaries#4-agentmission-lifecycle">Crash boundaries § Agent lifecycle</a></td></tr>
+<tr><td><strong>5. Replace a GameModel (diplomacy / war score, etc.)</strong></td><td><code>InitializeGameStarter</code> → <code>AddModel</code> / replacement chain → override only the methods you change → callers must read <code>Campaign.Current.Models</code></td><td><a href="../../api/campaign-ext/GameModels"><code>GameModels</code></a> · <a href="../../api/core-extra/GameModelsManager"><code>GameModelsManager</code></a> · <a href="../../api/campaign/Campaign"><code>Campaign</code></a></td><td><a href="../module-system">Module System</a> · <a href="../crash-boundaries#7-model-replacement">Crash boundaries § Model replace</a> · <a href="../../guide/game-systems-overview">Game Systems Overview</a></td></tr>
+<tr><td><strong>6. Custom ViewModel / Gauntlet UI</strong></td><td>Prefab / movie → bind <code>ViewModel</code> → mount on the right Screen / Mission layer → <strong>release on close</strong>; do not keep dead VMs on behaviors</td><td><a href="../../api/core-extra/ViewModel"><code>ViewModel</code></a> · ViewModel API · <a href="../../api/gui/">GUI</a></td><td><a href="../../guide/gauntlet-ui">Gauntlet Guide</a> · <a href="../crash-boundaries#8-uiviewmodel-lifetime">Crash boundaries § UI lifetime</a> · <a href="../sdk-overview">SDK Overview L4</a></td></tr>
+<tr><td><strong>7. Register new item / character objects</strong></td><td>XML (or code) definition → visible to <code>MBObjectManager</code> at the right stage → referenced as <code>ItemObject</code> / <code>CharacterObject</code> → consumed by campaign and mission</td><td><a href="../../api/campaign-ext/MBObjectManager"><code>MBObjectManager</code></a> · <a href="../../api/core/ItemObject"><code>ItemObject</code></a> · <a href="../../api/campaign/CharacterObject"><code>CharacterObject</code></a></td><td><a href="../sdk-overview">SDK Overview L2</a> · <a href="../../guide/asset-pipeline">Asset Pipeline</a> · <a href="../crash-boundaries#5-mbobjectmanager-registration">Crash boundaries § MBObjectManager</a></td></tr>
+</tbody></table>
+<blockquote>
+<p><strong>Coverage note</strong>: many linked <code>api/**</code> pages are still stubs. Prefer <strong>architecture + guides + gold deep pages</strong> (<a href="../../api/save-system/SaveManager"><code>SaveManager</code></a>, <a href="../../api/campaign/Hero"><code>Hero</code></a>, <a href="../../api/mission/Mission"><code>Mission</code></a>). Class links are real anchors for future deep_pass work, not proof that the handbook is finished.</p>
+</blockquote>
+<hr />
+<h2 id="dependency-chains-read-order">Dependency chains (read order)</h2>
+<h3 id="1-submodule-campaignbehavior">1. SubModule + CampaignBehavior</h3>
+<pre><code>SubModule.xml declares the DLL
+    → MBSubModuleBase.OnSubModuleLoad (config / Harmony, optional)
+    → OnGameStart / InitializeGameStarter
+    → CampaignGameStarter.AddBehavior(new MyBehavior())
+    → MyBehavior.RegisterEvents()
+    → Cross-save data: SyncData or the saveable graph
+</code></pre>
+<p><strong>Common mistakes</strong>: touching <code>Campaign.Current</code> in <code>OnSubModuleLoad</code> (no campaign yet); constructing a behavior without <code>AddBehavior</code>; never calling <code>RegisterEvents</code> and assuming the hook is live.</p>
+<h3 id="2-world-changes-via-action">2. World changes via Action</h3>
+<pre><code>Intent (pay gold / kill / change affiliation)
+    → TaleWorlds.CampaignSystem.Actions.*
+    → XxxAction.Apply(...)
+    → Vanilla keeps relations, messages, and related state consistent
+</code></pre>
+<p>Writing <code>hero.Gold += n</code> or <code>hero.Clan = ...</code> may "work" once, then desync UI, events, or saves. See <a href="../crash-boundaries#2-world-changes-must-go-through-actionapply">crash boundaries §2</a>.</p>
+<h3 id="3-save-fields">3. Save fields</h3>
+<p>Two valid paths. <strong>Do not keep two sources of truth for the same data.</strong></p>
+<table><thead><tr><th>Path</th><th>Best for</th><th>Rules</th></tr></thead><tbody>
+<tr><td><code>CampaignBehaviorBase.SyncData</code></td><td>Private behavior state, maps, counters</td><td>Lives with the behavior; watch load timing</td></tr>
+<tr><td><code>[SaveableField]</code> / <code>[SaveableClass]</code></td><td>Types that join the object graph</td><td><strong>Never reuse a SaveId for a new meaning</strong>; keep per-class field ids stable</td></tr>
+</tbody></table>
+<p>Deep reads: <a href="../save-system">Save System</a>, <a href="../../api/save-system/SaveManager">SaveManager</a>, <a href="../../guide/save-system-guide">Save Guide</a>.</p>
+<h3 id="4-mission-and-agent">4. Mission and Agent</h3>
+<pre><code>Register MissionBehavior
+    → Mission create / start
+    → Agent spawn and tick
+    → OnAgentRemoved / kill logic
+    → Mission end: every Agent and behavior reference is dead
+</code></pre>
+<p>Campaign death (<code>KillCharacterAction</code>) and battlefield death (<code>Agent</code> state) are different worlds. When a mission callback mutates campaign data, confirm you are still in a safe Campaign phase.</p>
+<h3 id="5-gamemodel-replacement">5. GameModel replacement</h3>
+<pre><code>InitializeGameStarter
+    → starter.AddModel(new MyDiplomacyModel())  // follow the real API
+    → runtime reads Campaign.Current.Models.*
+</code></pre>
+<p>Override only what you change. Caching an old model instance at construction time makes "replacement" a no-op. When several mods stack models, last registration wins; plan for that.</p>
+<h3 id="6-viewmodel-gauntlet">6. ViewModel / Gauntlet</h3>
+<pre><code>Prefab + ViewModel property binding
+    → Screen / GauntletLayer / MissionView mount
+    → refresh on open / OnFinalize on close
+    → do not pin a finalized VM on a CampaignBehavior field forever
+</code></pre>
+<h3 id="7-new-item-character">7. New Item / Character</h3>
+<pre><code>XML or code creates the object
+    → MBObjectManager register / load
+    → stable string ids referenced by equipment and troop tables
+    → CharacterObject → Agent build chain works before combat
+</code></pre>
+<hr />
+<h2 id="suggested-first-hour">Suggested first hour</h2>
+<table><thead><tr><th>Step</th><th>Page</th><th>Why</th></tr></thead><tbody>
+<tr><td>1</td><td><a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/developer-roadmap/./">Architecture hub</a></td><td>Map</td></tr>
+<tr><td>2</td><td><a href="../sdk-overview">SDK Overview</a></td><td>Layers and modules</td></tr>
+<tr><td>3</td><td><a href="../module-system">Module System</a></td><td>When your code runs</td></tr>
+<tr><td>4</td><td><a href="../crash-boundaries">Crash &amp; Save Boundaries</a></td><td>What not to touch</td></tr>
+<tr><td>5</td><td>Matching guide (campaign / mission / save / Gauntlet)</td><td>Hands-on</td></tr>
+<tr><td>6</td><td>Deep pages: <a href="../../api/campaign/Hero"><code>Hero</code></a> · <a href="../../api/mission/Mission"><code>Mission</code></a> · <a href="../../api/save-system/SaveManager"><code>SaveManager</code></a></td><td>Mental models</td></tr>
+</tbody></table>
+<hr />
+<h2 id="coverage-deep-pass-relationship">Coverage / deep_pass relationship</h2>
+<ul>
+<li><strong>Architecture + guides</strong>: treat as the readable source of truth today.</li>
+<li><strong>Gold class pages</strong>: <code>SaveManager</code>, <code>Hero</code>, <code>Mission</code> (see Doc Contract).</li>
+<li><strong>Mass <code>api/**</code> stubs</strong>: a file is not a finished handbook. This roadmap links real paths so deep_pass can fill them later; while coverage is RED, trust architecture and guides first.</li>
+<li>Read <a href="../doc-contract">Doc Contract</a> before writing class docs.</li>
+</ul>
+<hr />
+<h2 id="quick-entry-links">Quick entry links</h2>
+<ul>
+<li>Boot: <a href="../../api/core/MBSubModuleBase"><code>MBSubModuleBase</code></a></li>
+<li>Campaign: <a href="../../api/campaign/Campaign"><code>Campaign</code></a> · <a href="../../api/campaign/Hero"><code>Hero</code></a> · <a href="../../api/campaign-ext/CampaignBehaviorBase"><code>CampaignBehaviorBase</code></a></li>
+<li>Mission: <a href="../../api/mission/Mission"><code>Mission</code></a> · <a href="../../api/mission/Agent"><code>Agent</code></a> · <a href="../../api/mission/MissionBehavior"><code>MissionBehavior</code></a></li>
+<li>Save: <a href="../../api/save-system/SaveManager"><code>SaveManager</code></a></li>
+<li>Mutations: <a href="../../api/campaign-ext/actions-index">Actions</a> · <a href="../../api/campaign-ext/GiveGoldAction"><code>GiveGoldAction</code></a> · <a href="../../api/campaign-ext/KillCharacterAction"><code>KillCharacterAction</code></a> · <a href="../../api/campaign-ext/ChangeKingdomAction"><code>ChangeKingdomAction</code></a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/architecture/">Architecture</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/architecture/doc-contract/">&larr; Doc Contract — Handwritten-Only Policy and Acceptance</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/architecture/noise-policy/">Noise &amp; Non-Business Type Policy &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/architecture/doc-contract/">Doc Contract</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/sdk-overview/">SDK Overview</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/module-system/">Module System</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/save-system/">Save System</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/version-delta/">Version Delta</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/native-interop/">Managed-Native Interop</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/developer-roadmap/">Developer Roadmap</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/crash-boundaries/">Crash Boundaries</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/noise-policy/">Noise Policy</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/sandbox-native-policy/">SandBox&#x2F;StoryMode&#x2F;Native Policy</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -134,4 +134,4 @@ public override void Deserialize(MBObjectManager objectManager, XmlNode node)
 - 使用方：[Campaign](../../campaign/Campaign) — 通过 `ObjectManager` 拿到所有 `MBObjectBase` 实例。
 - 典型实体：[Hero](../../campaign/Hero) 与 [Settlement](../../campaign/Settlement) — 战役里最常被 mod 触碰的两个派生类。
 - 标识类型：`MBGUID` 定义在 objectsystem 命名空间，与本类同属一个模块。
-- 父级：campaign-ext API 目录导览位于版本根 `../../../`。
+- 父级：[campaign-ext API 目录导览](../)

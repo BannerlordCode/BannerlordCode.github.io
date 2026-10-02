@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monster</title>
+  <meta name="description" content="Monster 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core-extra/Monster/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core-extra/Monster/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/core-extra/Monster/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/core-extra/Monster/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/core-extra/Monster/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/core-extra/Monster/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="active">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;core-extra&#x2F;">core-extra 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Monster</span>
+    </nav>
+  
+  <h1>Monster</h1>
+  <h1 id="monster">Monster</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Core
+<strong>Module:</strong> TaleWorlds.Core
+<strong>Type:</strong> <code>public sealed class Monster : MBObjectBase</code>
+<strong>Base:</strong> <code>MBObjectBase</code>
+<strong>File:</strong> <code>TaleWorlds.Core/Monster.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>Monster</code> 位于 <code>TaleWorlds.Core</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.Core</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>BaseMonster</code></td><td><code>public string BaseMonster { get; }</code></td></tr>
+<tr><td><code>BodyCapsuleRadius</code></td><td><code>public float BodyCapsuleRadius { get; }</code></td></tr>
+<tr><td><code>BodyCapsulePoint1</code></td><td><code>public Vec3 BodyCapsulePoint1 { get; }</code></td></tr>
+<tr><td><code>BodyCapsulePoint2</code></td><td><code>public Vec3 BodyCapsulePoint2 { get; }</code></td></tr>
+<tr><td><code>CrouchedBodyCapsuleRadius</code></td><td><code>public float CrouchedBodyCapsuleRadius { get; }</code></td></tr>
+<tr><td><code>CrouchedBodyCapsulePoint1</code></td><td><code>public Vec3 CrouchedBodyCapsulePoint1 { get; }</code></td></tr>
+<tr><td><code>CrouchedBodyCapsulePoint2</code></td><td><code>public Vec3 CrouchedBodyCapsulePoint2 { get; }</code></td></tr>
+<tr><td><code>Flags</code></td><td><code>public AgentFlag Flags { get; }</code></td></tr>
+<tr><td><code>Weight</code></td><td><code>public int Weight { get; }</code></td></tr>
+<tr><td><code>HitPoints</code></td><td><code>public int HitPoints { get; }</code></td></tr>
+<tr><td><code>ActionSetCode</code></td><td><code>public string ActionSetCode { get; }</code></td></tr>
+<tr><td><code>FemaleActionSetCode</code></td><td><code>public string FemaleActionSetCode { get; }</code></td></tr>
+<tr><td><code>NumPaces</code></td><td><code>public int NumPaces { get; }</code></td></tr>
+<tr><td><code>MonsterUsage</code></td><td><code>public string MonsterUsage { get; }</code></td></tr>
+<tr><td><code>WalkingSpeedLimit</code></td><td><code>public float WalkingSpeedLimit { get; }</code></td></tr>
+<tr><td><code>CrouchWalkingSpeedLimit</code></td><td><code>public float CrouchWalkingSpeedLimit { get; }</code></td></tr>
+<tr><td><code>JumpAcceleration</code></td><td><code>public float JumpAcceleration { get; }</code></td></tr>
+<tr><td><code>AbsorbedDamageRatio</code></td><td><code>public float AbsorbedDamageRatio { get; }</code></td></tr>
+<tr><td><code>SoundAndCollisionInfoClassName</code></td><td><code>public string SoundAndCollisionInfoClassName { get; }</code></td></tr>
+<tr><td><code>RiderCameraHeightAdder</code></td><td><code>public float RiderCameraHeightAdder { get; }</code></td></tr>
+<tr><td><code>RiderBodyCapsuleHeightAdder</code></td><td><code>public float RiderBodyCapsuleHeightAdder { get; }</code></td></tr>
+<tr><td><code>RiderBodyCapsuleForwardAdder</code></td><td><code>public float RiderBodyCapsuleForwardAdder { get; }</code></td></tr>
+<tr><td><code>StandingChestHeight</code></td><td><code>public float StandingChestHeight { get; }</code></td></tr>
+<tr><td><code>StandingPelvisHeight</code></td><td><code>public float StandingPelvisHeight { get; }</code></td></tr>
+<tr><td><code>StandingEyeHeight</code></td><td><code>public float StandingEyeHeight { get; }</code></td></tr>
+<tr><td><code>CrouchEyeHeight</code></td><td><code>public float CrouchEyeHeight { get; }</code></td></tr>
+<tr><td><code>MountedEyeHeight</code></td><td><code>public float MountedEyeHeight { get; }</code></td></tr>
+<tr><td><code>RiderEyeHeightAdder</code></td><td><code>public float RiderEyeHeightAdder { get; }</code></td></tr>
+<tr><td><code>EyeOffsetWrtHead</code></td><td><code>public Vec3 EyeOffsetWrtHead { get; }</code></td></tr>
+<tr><td><code>FirstPersonCameraOffsetWrtHead</code></td><td><code>public Vec3 FirstPersonCameraOffsetWrtHead { get; }</code></td></tr>
+<tr><td><code>ArmLength</code></td><td><code>public float ArmLength { get; }</code></td></tr>
+<tr><td><code>ArmWeight</code></td><td><code>public float ArmWeight { get; }</code></td></tr>
+<tr><td><code>JumpSpeedLimit</code></td><td><code>public float JumpSpeedLimit { get; }</code></td></tr>
+<tr><td><code>RelativeSpeedLimitForCharge</code></td><td><code>public float RelativeSpeedLimitForCharge { get; }</code></td></tr>
+<tr><td><code>FamilyType</code></td><td><code>public int FamilyType { get; }</code></td></tr>
+<tr><td><code>IndicesOfRagdollBonesToCheckForCorpses</code></td><td><code>public sbyte IndicesOfRagdollBonesToCheckForCorpses { get; }</code></td></tr>
+<tr><td><code>RagdollFallSoundBoneIndices</code></td><td><code>public sbyte RagdollFallSoundBoneIndices { get; }</code></td></tr>
+<tr><td><code>HeadLookDirectionBoneIndex</code></td><td><code>public sbyte HeadLookDirectionBoneIndex { get; }</code></td></tr>
+<tr><td><code>SpineLowerBoneIndex</code></td><td><code>public sbyte SpineLowerBoneIndex { get; }</code></td></tr>
+<tr><td><code>SpineUpperBoneIndex</code></td><td><code>public sbyte SpineUpperBoneIndex { get; }</code></td></tr>
+<tr><td><code>ThoraxLookDirectionBoneIndex</code></td><td><code>public sbyte ThoraxLookDirectionBoneIndex { get; }</code></td></tr>
+<tr><td><code>NeckRootBoneIndex</code></td><td><code>public sbyte NeckRootBoneIndex { get; }</code></td></tr>
+<tr><td><code>PelvisBoneIndex</code></td><td><code>public sbyte PelvisBoneIndex { get; }</code></td></tr>
+<tr><td><code>RightUpperArmBoneIndex</code></td><td><code>public sbyte RightUpperArmBoneIndex { get; }</code></td></tr>
+<tr><td><code>LeftUpperArmBoneIndex</code></td><td><code>public sbyte LeftUpperArmBoneIndex { get; }</code></td></tr>
+<tr><td><code>FallBlowDamageBoneIndex</code></td><td><code>public sbyte FallBlowDamageBoneIndex { get; }</code></td></tr>
+<tr><td><code>TerrainDecalBone0Index</code></td><td><code>public sbyte TerrainDecalBone0Index { get; }</code></td></tr>
+<tr><td><code>TerrainDecalBone1Index</code></td><td><code>public sbyte TerrainDecalBone1Index { get; }</code></td></tr>
+<tr><td><code>RagdollStationaryCheckBoneIndices</code></td><td><code>public sbyte RagdollStationaryCheckBoneIndices { get; }</code></td></tr>
+<tr><td><code>MoveAdderBoneIndices</code></td><td><code>public sbyte MoveAdderBoneIndices { get; }</code></td></tr>
+<tr><td><code>SplashDecalBoneIndices</code></td><td><code>public sbyte SplashDecalBoneIndices { get; }</code></td></tr>
+<tr><td><code>BloodBurstBoneIndices</code></td><td><code>public sbyte BloodBurstBoneIndices { get; }</code></td></tr>
+<tr><td><code>MainHandBoneIndex</code></td><td><code>public sbyte MainHandBoneIndex { get; }</code></td></tr>
+<tr><td><code>OffHandBoneIndex</code></td><td><code>public sbyte OffHandBoneIndex { get; }</code></td></tr>
+<tr><td><code>MainHandItemBoneIndex</code></td><td><code>public sbyte MainHandItemBoneIndex { get; }</code></td></tr>
+<tr><td><code>OffHandItemBoneIndex</code></td><td><code>public sbyte OffHandItemBoneIndex { get; }</code></td></tr>
+<tr><td><code>MainHandItemSecondaryBoneIndex</code></td><td><code>public sbyte MainHandItemSecondaryBoneIndex { get; }</code></td></tr>
+<tr><td><code>OffHandItemSecondaryBoneIndex</code></td><td><code>public sbyte OffHandItemSecondaryBoneIndex { get; }</code></td></tr>
+<tr><td><code>OffHandShoulderBoneIndex</code></td><td><code>public sbyte OffHandShoulderBoneIndex { get; }</code></td></tr>
+<tr><td><code>HandNumBonesForIk</code></td><td><code>public sbyte HandNumBonesForIk { get; }</code></td></tr>
+<tr><td><code>PrimaryFootBoneIndex</code></td><td><code>public sbyte PrimaryFootBoneIndex { get; }</code></td></tr>
+<tr><td><code>SecondaryFootBoneIndex</code></td><td><code>public sbyte SecondaryFootBoneIndex { get; }</code></td></tr>
+<tr><td><code>RightFootIkEndEffectorBoneIndex</code></td><td><code>public sbyte RightFootIkEndEffectorBoneIndex { get; }</code></td></tr>
+<tr><td><code>LeftFootIkEndEffectorBoneIndex</code></td><td><code>public sbyte LeftFootIkEndEffectorBoneIndex { get; }</code></td></tr>
+<tr><td><code>RightFootIkTipBoneIndex</code></td><td><code>public sbyte RightFootIkTipBoneIndex { get; }</code></td></tr>
+<tr><td><code>LeftFootIkTipBoneIndex</code></td><td><code>public sbyte LeftFootIkTipBoneIndex { get; }</code></td></tr>
+<tr><td><code>FootNumBonesForIk</code></td><td><code>public sbyte FootNumBonesForIk { get; }</code></td></tr>
+<tr><td><code>ReinHandleLeftLocalPosition</code></td><td><code>public Vec3 ReinHandleLeftLocalPosition { get; }</code></td></tr>
+<tr><td><code>ReinHandleRightLocalPosition</code></td><td><code>public Vec3 ReinHandleRightLocalPosition { get; }</code></td></tr>
+<tr><td><code>ReinSkeleton</code></td><td><code>public string ReinSkeleton { get; }</code></td></tr>
+<tr><td><code>ReinCollisionBody</code></td><td><code>public string ReinCollisionBody { get; }</code></td></tr>
+<tr><td><code>FrontBoneToDetectGroundSlopeIndex</code></td><td><code>public sbyte FrontBoneToDetectGroundSlopeIndex { get; }</code></td></tr>
+<tr><td><code>BackBoneToDetectGroundSlopeIndex</code></td><td><code>public sbyte BackBoneToDetectGroundSlopeIndex { get; }</code></td></tr>
+<tr><td><code>BoneIndicesToModifyOnSlopingGround</code></td><td><code>public sbyte BoneIndicesToModifyOnSlopingGround { get; }</code></td></tr>
+<tr><td><code>BodyRotationReferenceBoneIndex</code></td><td><code>public sbyte BodyRotationReferenceBoneIndex { get; }</code></td></tr>
+<tr><td><code>RiderSitBoneIndex</code></td><td><code>public sbyte RiderSitBoneIndex { get; }</code></td></tr>
+<tr><td><code>ReinHandleBoneIndex</code></td><td><code>public sbyte ReinHandleBoneIndex { get; }</code></td></tr>
+<tr><td><code>ReinCollision1BoneIndex</code></td><td><code>public sbyte ReinCollision1BoneIndex { get; }</code></td></tr>
+<tr><td><code>ReinCollision2BoneIndex</code></td><td><code>public sbyte ReinCollision2BoneIndex { get; }</code></td></tr>
+<tr><td><code>ReinHeadBoneIndex</code></td><td><code>public sbyte ReinHeadBoneIndex { get; }</code></td></tr>
+<tr><td><code>ReinHeadRightAttachmentBoneIndex</code></td><td><code>public sbyte ReinHeadRightAttachmentBoneIndex { get; }</code></td></tr>
+<tr><td><code>ReinHeadLeftAttachmentBoneIndex</code></td><td><code>public sbyte ReinHeadLeftAttachmentBoneIndex { get; }</code></td></tr>
+<tr><td><code>ReinRightHandBoneIndex</code></td><td><code>public sbyte ReinRightHandBoneIndex { get; }</code></td></tr>
+<tr><td><code>ReinLeftHandBoneIndex</code></td><td><code>public sbyte ReinLeftHandBoneIndex { get; }</code></td></tr>
+<tr><td><code>MonsterMissionData</code></td><td><code>public IMonsterMissionData MonsterMissionData { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="deserialize">Deserialize</h3>
+<p><code>public override void Deserialize(MBObjectManager objectManager, XmlNode node)</code></p>
+<p><strong>用途 / Purpose:</strong> 从序列化数据还原当前对象。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Monster 实例
+Monster monster = ...;
+monster.Deserialize(objectManager, node);
+</code></pre>
+<h3 id="getbonetoattachforitemflags">GetBoneToAttachForItemFlags</h3>
+<p><code>public sbyte GetBoneToAttachForItemFlags(ItemFlags itemFlags)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 bone to attach for item flags 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Monster 实例
+Monster monster = ...;
+var result = monster.GetBoneToAttachForItemFlags(itemFlags);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+Monster monster = ...;
+monster.Deserialize(objectManager, node);
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/api/core-extra/">core-extra 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/api/core-extra/BannerImageIdentifier/">&larr; BannerImageIdentifier</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/api/core-extra/FormationClass/">FormationClass &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

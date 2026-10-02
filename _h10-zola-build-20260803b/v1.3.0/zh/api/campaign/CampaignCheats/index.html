@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampaignCheats</title>
+  <meta name="description" content="CampaignCheats 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/CampaignCheats/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/CampaignCheats/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/CampaignCheats/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/CampaignCheats/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="active">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CampaignCheats</span>
+    </nav>
+  
+  <h1>CampaignCheats</h1>
+  <h1 id="campaigncheats">CampaignCheats</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public static class CampaignCheats</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/CampaignCheats.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>CampaignCheats</code> 位于 <code>TaleWorlds.CampaignSystem</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.CampaignSystem</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>GetDefaultSettlement</code></td><td><code>public static Settlement GetDefaultSettlement { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="checkcheatusage">CheckCheatUsage</h3>
+<p><code>public static bool CheckCheatUsage(ref string ErrorType)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查cheat usage在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.CheckCheatUsage(errorType);
+</code></pre>
+<h3 id="checkparameters">CheckParameters</h3>
+<p><code>public static bool CheckParameters(List&lt;string&gt; strings, int ParameterCount)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查parameters在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.CheckParameters(strings, 0);
+</code></pre>
+<h3 id="checkhelp">CheckHelp</h3>
+<p><code>public static bool CheckHelp(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查help在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.CheckHelp(strings);
+</code></pre>
+<h3 id="getseparatednames">GetSeparatedNames</h3>
+<p><code>public static List&lt;string&gt; GetSeparatedNames(List&lt;string&gt; strings, bool removeEmptySpaces = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 separated names 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.GetSeparatedNames(strings, false);
+</code></pre>
+<h3 id="concatenatestring">ConcatenateString</h3>
+<p><code>public static string ConcatenateString(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ConcatenateString 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.ConcatenateString(strings);
+</code></pre>
+<h3 id="setcraftingstamina">SetCraftingStamina</h3>
+<p><code>public static string SetCraftingStamina(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 crafting stamina 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetCraftingStamina(strings);
+</code></pre>
+<h3 id="setheroculture">SetHeroCulture</h3>
+<p><code>public static string SetHeroCulture(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 hero culture 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetHeroCulture(strings);
+</code></pre>
+<h3 id="setclanculture">SetClanCulture</h3>
+<p><code>public static string SetClanCulture(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 clan culture 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetClanCulture(strings);
+</code></pre>
+<h3 id="showsettlements">ShowSettlements</h3>
+<p><code>public static string ShowSettlements(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 显示settlements对应的界面或元素。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.ShowSettlements(strings);
+</code></pre>
+<h3 id="setskillsofgivenhero">SetSkillsOfGivenHero</h3>
+<p><code>public static string SetSkillsOfGivenHero(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 skills of given hero 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetSkillsOfGivenHero(strings);
+</code></pre>
+<h3 id="hidesettlements">HideSettlements</h3>
+<p><code>public static string HideSettlements(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 隐藏settlements对应的界面或元素。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.HideSettlements(strings);
+</code></pre>
+<h3 id="setskillmainhero">SetSkillMainHero</h3>
+<p><code>public static string SetSkillMainHero(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 skill main hero 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetSkillMainHero(strings);
+</code></pre>
+<h3 id="setskillcompanion">SetSkillCompanion</h3>
+<p><code>public static string SetSkillCompanion(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 skill companion 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetSkillCompanion(strings);
+</code></pre>
+<h3 id="setallskillsofallcompanions">SetAllSkillsOfAllCompanions</h3>
+<p><code>public static string SetAllSkillsOfAllCompanions(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 all skills of all companions 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetAllSkillsOfAllCompanions(strings);
+</code></pre>
+<h3 id="setallheroskills">SetAllHeroSkills</h3>
+<p><code>public static string SetAllHeroSkills(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 all hero skills 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetAllHeroSkills(strings);
+</code></pre>
+<h3 id="setloyaltyofsettlement">SetLoyaltyOfSettlement</h3>
+<p><code>public static string SetLoyaltyOfSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 loyalty of settlement 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetLoyaltyOfSettlement(strings);
+</code></pre>
+<h3 id="setprosperityofsettlement">SetProsperityOfSettlement</h3>
+<p><code>public static string SetProsperityOfSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 prosperity of settlement 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetProsperityOfSettlement(strings);
+</code></pre>
+<h3 id="setmilitiaofsettlement">SetMilitiaOfSettlement</h3>
+<p><code>public static string SetMilitiaOfSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 militia of settlement 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetMilitiaOfSettlement(strings);
+</code></pre>
+<h3 id="setsecurityofsettlement">SetSecurityOfSettlement</h3>
+<p><code>public static string SetSecurityOfSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 security of settlement 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetSecurityOfSettlement(strings);
+</code></pre>
+<h3 id="setfoodofsettlement">SetFoodOfSettlement</h3>
+<p><code>public static string SetFoodOfSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 food of settlement 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetFoodOfSettlement(strings);
+</code></pre>
+<h3 id="sethearthofsettlement">SetHearthOfSettlement</h3>
+<p><code>public static string SetHearthOfSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 hearth of settlement 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetHearthOfSettlement(strings);
+</code></pre>
+<h3 id="showherorelation">ShowHeroRelation</h3>
+<p><code>public static string ShowHeroRelation(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 显示hero relation对应的界面或元素。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.ShowHeroRelation(strings);
+</code></pre>
+<h3 id="addherorelation">AddHeroRelation</h3>
+<p><code>public static string AddHeroRelation(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 hero relation 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddHeroRelation(strings);
+</code></pre>
+<h3 id="printmainpartyposition">PrintMainPartyPosition</h3>
+<p><code>public static string PrintMainPartyPosition(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PrintMainPartyPosition 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.PrintMainPartyPosition(strings);
+</code></pre>
+<h3 id="addcraftingmaterials">AddCraftingMaterials</h3>
+<p><code>public static string AddCraftingMaterials(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 crafting materials 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddCraftingMaterials(strings);
+</code></pre>
+<h3 id="healmainparty">HealMainParty</h3>
+<p><code>public static string HealMainParty(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 HealMainParty 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.HealMainParty(strings);
+</code></pre>
+<h3 id="declarewar">DeclareWar</h3>
+<p><code>public static string DeclareWar(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DeclareWar 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.DeclareWar(strings);
+</code></pre>
+<h3 id="additemtoplayerparty">AddItemToPlayerParty</h3>
+<p><code>public static string AddItemToPlayerParty(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 item to player party 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddItemToPlayerParty(strings);
+</code></pre>
+<h3 id="declarepeace">DeclarePeace</h3>
+<p><code>public static string DeclarePeace(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DeclarePeace 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.DeclarePeace(strings);
+</code></pre>
+<h3 id="addinfluence">AddInfluence</h3>
+<p><code>public static string AddInfluence(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 influence 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddInfluence(strings);
+</code></pre>
+<h3 id="addrenown">AddRenown</h3>
+<p><code>public static string AddRenown(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 renown 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddRenown(strings);
+</code></pre>
+<h3 id="addgoldtohero">AddGoldToHero</h3>
+<p><code>public static string AddGoldToHero(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 gold to hero 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddGoldToHero(strings);
+</code></pre>
+<h3 id="adddevelopment">AddDevelopment</h3>
+<p><code>public static string AddDevelopment(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 development 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddDevelopment(strings);
+</code></pre>
+<h3 id="activateallpolicies">ActivateAllPolicies</h3>
+<p><code>public static string ActivateAllPolicies(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 激活all policies对应的资源、状态或功能。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.ActivateAllPolicies(strings);
+</code></pre>
+<h3 id="setplayerreputationtrait">SetPlayerReputationTrait</h3>
+<p><code>public static string SetPlayerReputationTrait(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 player reputation trait 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetPlayerReputationTrait(strings);
+</code></pre>
+<h3 id="givesettlementtoplayer">GiveSettlementToPlayer</h3>
+<p><code>public static string GiveSettlementToPlayer(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 GiveSettlementToPlayer 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.GiveSettlementToPlayer(strings);
+</code></pre>
+<h3 id="givesettlementtokingdom">GiveSettlementToKingdom</h3>
+<p><code>public static string GiveSettlementToKingdom(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 GiveSettlementToKingdom 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.GiveSettlementToKingdom(strings);
+</code></pre>
+<h3 id="addpowertonotable">AddPowerToNotable</h3>
+<p><code>public static string AddPowerToNotable(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 power to notable 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddPowerToNotable(strings);
+</code></pre>
+<h3 id="leadyourfaction">LeadYourFaction</h3>
+<p><code>public static string LeadYourFaction(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 LeadYourFaction 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.LeadYourFaction(strings);
+</code></pre>
+<h3 id="printheroessuitableformarriage">PrintHeroesSuitableForMarriage</h3>
+<p><code>public static string PrintHeroesSuitableForMarriage(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PrintHeroesSuitableForMarriage 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.PrintHeroesSuitableForMarriage(strings);
+</code></pre>
+<h3 id="marryplayerwithhero">MarryPlayerWithHero</h3>
+<p><code>public static string MarryPlayerWithHero(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MarryPlayerWithHero 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.MarryPlayerWithHero(strings);
+</code></pre>
+<h3 id="marryherowithhero">MarryHeroWithHero</h3>
+<p><code>public static string MarryHeroWithHero(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MarryHeroWithHero 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.MarryHeroWithHero(strings);
+</code></pre>
+<h3 id="isherosuitableformarriagewithplayer">IsHeroSuitableForMarriageWithPlayer</h3>
+<p><code>public static string IsHeroSuitableForMarriageWithPlayer(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 hero suitable for marriage with player 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.IsHeroSuitableForMarriageWithPlayer(strings);
+</code></pre>
+<h3 id="createplayerkingdom">CreatePlayerKingdom</h3>
+<p><code>public static string CreatePlayerKingdom(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 player kingdom 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.CreatePlayerKingdom(strings);
+</code></pre>
+<h3 id="createrandomclan">CreateRandomClan</h3>
+<p><code>public static string CreateRandomClan(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 random clan 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.CreateRandomClan(strings);
+</code></pre>
+<h3 id="leadkingdom">LeadKingdom</h3>
+<p><code>public static string LeadKingdom(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 LeadKingdom 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.LeadKingdom(strings);
+</code></pre>
+<h3 id="joinkingdom">JoinKingdom</h3>
+<p><code>public static string JoinKingdom(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 把若干kingdom连接成一个整体。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.JoinKingdom(strings);
+</code></pre>
+<h3 id="joinkingdomasmercenary">JoinKingdomAsMercenary</h3>
+<p><code>public static string JoinKingdomAsMercenary(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 把若干kingdom as mercenary连接成一个整体。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.JoinKingdomAsMercenary(strings);
+</code></pre>
+<h3 id="maketradeagreement">MakeTradeAgreement</h3>
+<p><code>public static string MakeTradeAgreement(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MakeTradeAgreement 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.MakeTradeAgreement(strings);
+</code></pre>
+<h3 id="printcriminalratings">PrintCriminalRatings</h3>
+<p><code>public static string PrintCriminalRatings(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PrintCriminalRatings 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.PrintCriminalRatings(strings);
+</code></pre>
+<h3 id="setmainheroage">SetMainHeroAge</h3>
+<p><code>public static string SetMainHeroAge(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 main hero age 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetMainHeroAge(strings);
+</code></pre>
+<h3 id="setmainpartyattackable">SetMainPartyAttackable</h3>
+<p><code>public static string SetMainPartyAttackable(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 main party attackable 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetMainPartyAttackable(strings);
+</code></pre>
+<h3 id="addmoraletoparty">AddMoraleToParty</h3>
+<p><code>public static string AddMoraleToParty(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 morale to party 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddMoraleToParty(strings);
+</code></pre>
+<h3 id="boostcohesionofarmy">BoostCohesionOfArmy</h3>
+<p><code>public static string BoostCohesionOfArmy(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 提升cohesion of army的数值或强度。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.BoostCohesionOfArmy(strings);
+</code></pre>
+<h3 id="addfocuspointcheat">AddFocusPointCheat</h3>
+<p><code>public static string AddFocusPointCheat(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 focus point cheat 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddFocusPointCheat(strings);
+</code></pre>
+<h3 id="addattributepointscheat">AddAttributePointsCheat</h3>
+<p><code>public static string AddAttributePointsCheat(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 attribute points cheat 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddAttributePointsCheat(strings);
+</code></pre>
+<h3 id="printsettlementswithtournament">PrintSettlementsWithTournament</h3>
+<p><code>public static string PrintSettlementsWithTournament(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PrintSettlementsWithTournament 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.PrintSettlementsWithTournament(strings);
+</code></pre>
+<h3 id="convertlisttomultiline">ConvertListToMultiLine</h3>
+<p><code>public static string ConvertListToMultiLine(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 把list to multi line转换为另一种表示或类型。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.ConvertListToMultiLine(strings);
+</code></pre>
+<h3 id="printallissues">PrintAllIssues</h3>
+<p><code>public static string PrintAllIssues(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PrintAllIssues 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.PrintAllIssues(strings);
+</code></pre>
+<h3 id="giveworkshoptoplayer">GiveWorkshopToPlayer</h3>
+<p><code>public static string GiveWorkshopToPlayer(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 GiveWorkshopToPlayer 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.GiveWorkshopToPlayer(strings);
+</code></pre>
+<h3 id="makepregnant">MakePregnant</h3>
+<p><code>public static string MakePregnant(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MakePregnant 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.MakePregnant(strings);
+</code></pre>
+<h3 id="generatechild">GenerateChild</h3>
+<p><code>public static Hero GenerateChild(Hero hero, bool isFemale, CultureObject culture)</code></p>
+<p><strong>用途 / Purpose:</strong> 生成child的实例、数据或表示。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.GenerateChild(hero, false, culture);
+</code></pre>
+<h3 id="addprisonertoparty">AddPrisonerToParty</h3>
+<p><code>public static string AddPrisonerToParty(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 prisoner to party 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddPrisonerToParty(strings);
+</code></pre>
+<h3 id="clearsettlementdefense">ClearSettlementDefense</h3>
+<p><code>public static string ClearSettlementDefense(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的settlement defense。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.ClearSettlementDefense(strings);
+</code></pre>
+<h3 id="addprisonersxp">AddPrisonersXp</h3>
+<p><code>public static string AddPrisonersXp(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 prisoners xp 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddPrisonersXp(strings);
+</code></pre>
+<h3 id="setherotrait">SetHeroTrait</h3>
+<p><code>public static string SetHeroTrait(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 hero trait 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetHeroTrait(strings);
+</code></pre>
+<h3 id="removemilitiasfromsettlement">RemoveMilitiasFromSettlement</h3>
+<p><code>public static string RemoveMilitiasFromSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 militias from settlement。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.RemoveMilitiasFromSettlement(strings);
+</code></pre>
+<h3 id="cancelquestcheat">CancelQuestCheat</h3>
+<p><code>public static string CancelQuestCheat(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否满足 cel quest cheat 的前置条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.CancelQuestCheat(strings);
+</code></pre>
+<h3 id="kickcompanionfromparty">KickCompanionFromParty</h3>
+<p><code>public static string KickCompanionFromParty(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 KickCompanionFromParty 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.KickCompanionFromParty(strings);
+</code></pre>
+<h3 id="addtroopsxp">AddTroopsXp</h3>
+<p><code>public static string AddTroopsXp(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 troops xp 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddTroopsXp(strings);
+</code></pre>
+<h3 id="printgameplaystatistics">PrintGameplayStatistics</h3>
+<p><code>public static string PrintGameplayStatistics(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PrintGameplayStatistics 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.PrintGameplayStatistics(strings);
+</code></pre>
+<h3 id="setallarmiesandpartiesvisible">SetAllArmiesAndPartiesVisible</h3>
+<p><code>public static string SetAllArmiesAndPartiesVisible(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 all armies and parties visible 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetAllArmiesAndPartiesVisible(strings);
+</code></pre>
+<h3 id="printstrengthoflordparties">PrintStrengthOfLordParties</h3>
+<p><code>public static string PrintStrengthOfLordParties(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PrintStrengthOfLordParties 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.PrintStrengthOfLordParties(strings);
+</code></pre>
+<h3 id="toggleinformationrestrictions">ToggleInformationRestrictions</h3>
+<p><code>public static string ToggleInformationRestrictions(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ToggleInformationRestrictions 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.ToggleInformationRestrictions(strings);
+</code></pre>
+<h3 id="printstrengthoffactions">PrintStrengthOfFactions</h3>
+<p><code>public static string PrintStrengthOfFactions(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PrintStrengthOfFactions 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.PrintStrengthOfFactions(strings);
+</code></pre>
+<h3 id="addsupportersformainhero">AddSupportersForMainHero</h3>
+<p><code>public static string AddSupportersForMainHero(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 supporters for main hero 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddSupportersForMainHero(strings);
+</code></pre>
+<h3 id="setcampaignspeed">SetCampaignSpeed</h3>
+<p><code>public static string SetCampaignSpeed(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 campaign speed 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetCampaignSpeed(strings);
+</code></pre>
+<h3 id="showhideouts">ShowHideouts</h3>
+<p><code>public static string ShowHideouts(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 显示hideouts对应的界面或元素。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.ShowHideouts(strings);
+</code></pre>
+<h3 id="hidehideouts">HideHideouts</h3>
+<p><code>public static string HideHideouts(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 隐藏hideouts对应的界面或元素。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.HideHideouts(strings);
+</code></pre>
+<h3 id="unlockcraftingpieces">UnlockCraftingPieces</h3>
+<p><code>public static string UnlockCraftingPieces(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 UnlockCraftingPieces 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.UnlockCraftingPieces(strings);
+</code></pre>
+<h3 id="setrebellionenabled">SetRebellionEnabled</h3>
+<p><code>public static string SetRebellionEnabled(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 rebellion enabled 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.SetRebellionEnabled(strings);
+</code></pre>
+<h3 id="addtroopstoparty">AddTroopsToParty</h3>
+<p><code>public static string AddTroopsToParty(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 troops to party 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.AddTroopsToParty(strings);
+</code></pre>
+<h3 id="canpartygetanythingfromcheat">CanPartyGetAnythingFromCheat</h3>
+<p><code>public static bool CanPartyGetAnythingFromCheat(PartyBase party)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否满足 party get anything from cheat 的前置条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignCheats.CanPartyGetAnythingFromCheat(party);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">CampaignCheats.CheckCheatUsage(errorType);
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/api/campaign/ScoutEnemyGarrisonsQuest/">&larr; ScoutEnemyGarrisonsQuest</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/api/campaign/BoardGameType/">BoardGameType &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

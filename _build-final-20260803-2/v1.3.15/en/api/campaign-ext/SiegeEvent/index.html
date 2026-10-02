@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SiegeEvent</title>
+  <meta name="description" content="The campaign-map runtime state machine for a single active siege (a besieger party attacking a settlement): it holds the besieged settlement, the besieger camp, and both sides&#x27; siege-engine build&#x2F;bombard progress, and advances strategy, construction, and bombardment every campaign daily tick until the siege is lifted or resolved.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/SiegeEvent/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/SiegeEvent/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">SiegeEvent</span>
+    </nav>
+  
+  <h1>SiegeEvent</h1>
+  <h1 id="siegeevent">SiegeEvent</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Siege<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>class SiegeEvent</code><br />
+<strong>Base:</strong> none (not derived from <code>MBObjectBase</code>, so it cannot be fetched through <code>MBObjectManager</code>)<br />
+<strong>Source:</strong> <code>TaleWorlds.CampaignSystem/Siege/SiegeEvent.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>SiegeEvent</code> represents <strong>one siege currently in progress on the campaign map</strong> — a party besieging a settlement. It concentrates the "truth" of that siege into a single object: the besieged settlement, the besieger camp, both sides' siege engines (build progress / hit points / redeployment progress), the naval blockade state, and the per-tick logic that advances construction and bombardment. It is a <strong>strategic-layer</strong> object of the Campaign system and is independent from the actual battle (<code>MapEvent</code> + a mission scene) that may break out: the siege keeps running outside of combat, and a battle is only an interlude within it. Because it is not an <code>MBObjectBase</code>, there is no <code>MBObjectManager.Instance.GetObject&lt;SiegeEvent&gt;()</code> accessor — the only realistic entry points are <code>Settlement.SiegeEvent</code>, <code>PlayerSiege.PlayerSiegeEvent</code>, or <code>Campaign.Current.SiegeEventManager.SiegeEvents</code>.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of a <code>SiegeEvent</code> as <strong>the "siege notice board" hanging over one settlement's head</strong>:</p>
+<ul>
+<li><strong>What it is:</strong> While a siege is active, the besieged <code>Settlement.SiegeEvent</code> points at the same <code>SiegeEvent</code> instance, and the attacker's <code>MobileParty.BesiegerCamp</code> is wired back into this object. It does not run the battle; it only handles the "besieging" — laying out engines, building them, bombarding walls, tallying casualties, and finally wrapping up when the attackers leave or a battle decides the outcome.</li>
+<li><strong>Who creates / holds it:</strong> <code>Campaign.Current.SiegeEventManager</code> creates it via <code>StartSiegeEvent(settlement, attackerParty)</code> and stores it in an internal <code>MBList&lt;SiegeEvent&gt;</code>. The engine walks that list each campaign daily tick and calls <code>Tick</code> on every siege. <strong>Mods should never <code>new SiegeEvent(...)</code> themselves</strong> — a siege is created by the encounter flow (the player picks the besiege menu, or an AI party arrives at a settlement).</li>
+<li><strong>Lifecycle:</strong> <code>StartSiegeEvent</code> → the constructor writes <code>settlement.SiegeEvent</code>, builds the <code>BesiegerCamp</code>, applies a −5 relation hit between the attacker leader and the settlement's owner-clan leader, records <code>SiegeStartTime</code>, auto-activates a blockade if the settlement has a port and ships are present, and broadcasts <code>OnSiegeEventStarted</code> → daily <code>Tick</code> advances construction / bombardment / strategy → the attackers lift the siege or an assault/sally-out battle decides the result → <code>OnBeforeSiegeEventEnd</code> records the winner → <code>FinalizeSiegeEvent</code> cleans up and clears <code>Settlement.SiegeEvent</code> (so <code>ReadyToBeRemoved</code> becomes true) → <code>SiegeEventManager</code> drops it from the list on the next tick.</li>
+<li><strong>Layer:</strong> Campaign strategic layer, not the Mission layer. When a real battle starts, <code>PlayerSiege.StartSiegeMission</code> calls <code>GetPreparedAndActiveSiegeEngines</code> to project this object's engines into the mission scene as <code>MissionSiegeWeapon</code>.</li>
+<li><strong>Relationship with <code>MapEvent</code>:</strong> The assault (Assault) and sally-out (SallyOut) battles of a siege are each a <code>MapEvent</code>. <code>Tick</code> <strong>skips</strong> engine advancement while either side's <code>MapEvent</code> is active, so it never fights the battle logic. After the battle resolves, <code>OnBeforeSiegeEventEnd</code> writes the result back into the siege.</li>
+<li><strong>When to use:</strong> Read/judge the current siege state (besieged settlement, attacker, engine progress, whether it is the player's siege), decide AI tactics in menus/missions, enumerate involved parties, programmatically destroy an engine, or make the attacker legally lift the siege via <code>LiftSiegeAction</code>.</li>
+<li><strong>When NOT to use:</strong> Do not <code>new SiegeEvent</code>, do not set <code>Settlement.SiegeEvent = null</code> directly, and do not manually call <code>Tick</code> / <code>ConstructionTick</code> / <code>BombardTick</code> / <code>AdvanceStrategy</code> during a battle/mission (see Risks). End a siege with <code>LiftSiegeAction</code>, not a manual <code>FinalizeSiegeEvent</code>.</li>
+<li><strong>Dependencies:</strong> Creation/holding depends on <code>SiegeEventManager</code>, <code>Settlement</code>, <code>MobileParty</code> and the attacker's <code>Clan</code>/<code>Kingdom</code> (map faction). Advancement depends on <code>SiegeEventModel</code> (build speed / damage / hit chance) and <code>SiegeStrategyActionModel</code> (what to build each tick) plus the <code>SiegeStrategy</code> chosen by the side. Both attacker and defender are uniformly exposed as <code>ISiegeEventSide</code> (<code>BesiegerCamp</code> is the attacker; the <code>Settlement</code> itself is the defender).</li>
+</ul>
+<h2 id="observing-and-hooking-sieges">Observing and Hooking Sieges</h2>
+<p>A mod usually does not create a <code>SiegeEvent</code> — it observes the ones the game already runs, and reacts through events.</p>
+<pre><code data-lang="csharp">// 1) Get the siege currently running on a settlement (most common)
+Settlement besieged = MobileParty.MainParty.BesiegedSettlement;
+SiegeEvent siegeEvent = besieged?.SiegeEvent;   // null when not under siege
+
+// 2) The siege the player is currently participating in (attacker or defender)
+SiegeEvent playerSiege = PlayerSiege.PlayerSiegeEvent;
+
+// 3) Enumerate every active siege in the world
+foreach (SiegeEvent evt in Campaign.Current.SiegeEventManager.SiegeEvents)
+{
+    if (evt.ReadyToBeRemoved)
+        continue;
+    // evt.BesiegedSettlement / evt.BesiegerCamp ...
+}
+</code></pre>
+<p>To hook into siege progress, subscribe to the campaign events dispatched by <code>SiegeEvent</code> itself — <code>OnSiegeEventStarted</code>, <code>OnSiegeEventEnded</code>, <code>OnSiegeEngineBuilt</code>, <code>OnSiegeBombardmentHit</code>, <code>OnSiegeEngineDestroyed</code>, <code>OnBlockadeActivated</code>, <code>OnBlockadeDeactivated</code> — through <a href="../CampaignEvents/">CampaignEvents</a>. For example, a <code>CampaignBehaviorBase</code> can listen to <code>OnSiegeEngineBuilt</code> to award a quest objective whenever the player's besieger camp finishes an engine.</p>
+<h2 id="dependencies">Dependencies</h2>
+<h3 id="upstream-creation-holding">Upstream (creation / holding)</h3>
+<ul>
+<li><a href="../SiegeEventManager/">SiegeEventManager</a> — the only creation entry <code>StartSiegeEvent</code>; holds the <code>MBList&lt;SiegeEvent&gt;</code> and drives the daily <code>Tick</code>, and runs <code>OnAfterLoad</code> on save load.</li>
+<li><a href="../../campaign/Settlement/">Settlement</a> — <code>BesiegedSettlement</code>; the settlement points its own <code>.SiegeEvent</code> at this object, which is the source of truth for "is this settlement under siege".</li>
+<li><a href="../../campaign/MobileParty/">MobileParty</a> — the attacker leader <code>BesiegerCamp.LeaderParty</code>, plus the reverse <code>MobileParty.BesiegedSettlement</code> / <code>.BesiegerCamp</code> links.</li>
+<li><a href="../../campaign/Clan/">Clan</a> — the settlement's <code>OwnerClan</code> receives the −5 relation hit from the constructor (unless it is the player clan).</li>
+<li><a href="../../campaign/Kingdom/">Kingdom</a> / <code>MapFaction</code> — both sides' involved parties are resolved through their factions' war stances in <code>CanPartyJoinSide</code>.</li>
+<li><a href="../../campaign/Campaign/">Campaign</a> — <code>Campaign.Current.SiegeEventManager</code> is the owning container.</li>
+</ul>
+<h3 id="downstream-consumers">Downstream / consumers</h3>
+<ul>
+<li><a href="../PlayerSiege/">PlayerSiege</a> — static entry for the player's siege; <code>PlayerSiegeEvent</code> is "the <code>SiegeEvent</code> the player is in".</li>
+<li><a href="../SiegeEventCampaignBehavior/">SiegeEventCampaignBehavior</a> — subscribes to siege events, provides the <code>menu_siege_strategies</code> siege menu, and sets default tactics.</li>
+<li><a href="../LiftSiegeAction/">LiftSiegeAction</a> — the <strong>correct</strong> entry to end/lift a siege (clears the besieger camp and nulls <code>Settlement.SiegeEvent</code>).</li>
+<li><a href="../ChangeOwnerOfSettlementAction/">ChangeOwnerOfSettlementAction</a> — the action that captures a settlement; once a siege resolves into a capture, the siege is finalized and its state becomes stale (see Risks).</li>
+</ul>
+<h3 id="related-events-models-data">Related events / models / data</h3>
+<ul>
+<li>Events: <a href="../CampaignEvents/">CampaignEvents</a> and <code>CampaignEventDispatcher</code> raise <code>OnSiegeEventStarted</code> / <code>OnSiegeEventEnded</code> / <code>OnSiegeEngineBuilt</code> / <code>OnSiegeBombardmentHit</code> / <code>OnSiegeEngineDestroyed</code> / <code>OnBlockadeActivated</code> / <code>OnBlockadeDeactivated</code>.</li>
+<li>Models: <a href="../SiegeEventModel/">SiegeEventModel</a> (build speed, damage, hit chance), <a href="../SiegeStrategyActionModel/">SiegeStrategyActionModel</a> (decides what to build/deploy each tick), <a href="../SiegeStrategy/">SiegeStrategy</a> (the side's chosen tactic), <a href="../SiegeBombardTargets/">SiegeBombardTargets</a> (bombardment target kinds).</li>
+<li>Types: <a href="../BesiegerCamp/">BesiegerCamp</a> (attacker <code>ISiegeEventSide</code>), <a href="../ISiegeEventSide/">ISiegeEventSide</a> (unified attacker/defender interface), <a href="../../core-extra/BattleSideEnum/">BattleSideEnum</a>, <a href="../../core-extra/DefaultSiegeEngineTypes/">DefaultSiegeEngineTypes</a> (engine kind constants).</li>
+</ul>
+<h3 id="save-point">Save point</h3>
+<p><code>SiegeEvent</code> is serialized via <code>[SaveableField]</code> / <code>[SaveableProperty]</code> as part of <code>SiegeEventManager</code>, so it persists with the campaign save; <code>OnAfterLoad</code> repairs cross-version saves (e.g. re-activates a blockade for pre-<code>v1.3.13.105378</code> saves).</p>
+<h2 id="risks">Risks</h2>
+<ul>
+<li><strong>Stale reference after relief / capture.</strong> <code>SiegeEvent</code> holds <code>BesiegedSettlement</code> and <code>BesiegerCamp</code>. If a mod destroys / removes / re-owns a settlement while it is still besieged — without first lifting the siege via <code>LiftSiegeAction</code> — <code>Settlement.SiegeEvent</code> still points at a dead object, and a later <code>SiegeEventManager.Tick</code> can crash or corrupt the save. If you must touch the settlement, first lift the siege (clear <code>BesiegerCamp</code>) so <code>Settlement.SiegeEvent</code> is naturally nulled, then act. After a siege ends, treat any cached <code>SiegeEvent</code> as suspect: check <code>ReadyToBeRemoved</code> and re-fetch <code>Settlement.SiegeEvent</code> instead of holding a long-lived reference.</li>
+<li><strong>Manually driving tick in the wrong phase.</strong> <code>Tick</code> / <code>ConstructionTick</code> / <code>BombardTick</code> / <code>AdvanceStrategy</code> are called by the daily campaign tick and guard themselves with <code>CampaignTime.DeltaTime == CampaignTime.Zero</code> and "no side <code>MapEvent</code> active". Calling them during a mission/battle (DeltaTime is zero) or while a <code>MapEvent</code> is active returns early and does nothing; calling them outside the tick can double-count engine progress / hit points and desync engine state. Never call them from a mod.</li>
+<li><strong>Do not call <code>FinalizeSiegeEvent</code> directly.</strong> It dereferences <code>Settlement.SiegeEvent</code>, ends any hanging <code>MapEvent</code>, and switches the player menu. If you call it without clearing the besieger camp, you leave a dangling <code>SiegeEvent</code> and corrupt <code>ReadyToBeRemoved</code> logic. Always end a siege through <code>LiftSiegeAction</code>.</li>
+<li><strong><code>GetPreparedAndActiveSiegeEngines</code> precondition.</strong> <code>PlayerSiege.StartSiegeMission</code> only calls it when <code>BesiegedSettlement.CurrentSiegeState == Settlement.SiegeState.OnTheWalls</code> to spawn assault weapons. Invoking that chain in any other siege state triggers <code>Debug.FailedAssert</code>.</li>
+<li><strong><code>IsPlayerSiegeEvent</code> is transient.</strong> It depends on <code>PlayerSiege.PlayerSiegeEvent</code> and <code>BesiegerCamp.LeaderParty.IsMainParty</code>; reading it while the siege is being finalized (<code>FinalizeSiegeEvent</code>) can yield inconsistent results. Null-check <code>PlayerSiege.PlayerSiegeEvent</code> before branching on it.</li>
+<li><strong>Blockade and the main-party anchor.</strong> <code>ActivateBlockade</code> / <code>DeactivateBlockade</code> toggle <code>MobileParty.MainParty.Anchor.IsDisabled</code>, but only when the main party is an attacker-side party. Calling it on a non-player siege still refreshes the naval visuals of involved parties but does not freeze the main party. Do not treat it as a generic "freeze a party" switch.</li>
+</ul>
+<h2 id="members">Members</h2>
+<h3 id="core-runtime-state">Core runtime state</h3>
+<h4 id="public-readonly-settlement-besiegedsettlement"><code>public readonly Settlement BesiegedSettlement</code></h4>
+<p>The besieged settlement (town/castle). The constructor sets <code>settlement.SiegeEvent = this</code>, so this is the direct source for "is this settlement under siege". Wall hit points, governor, and garrison are reached through it (see <a href="../../campaign/Settlement/">Settlement</a>).</p>
+<h4 id="public-readonly-besiegercamp-besiegercamp"><code>public readonly BesiegerCamp BesiegerCamp</code></h4>
+<p>The besieger camp, which implements <code>ISiegeEventSide</code> and represents the attacker. Holds the involved attacker parties, the attacker engine container, and the leader <code>LeaderParty</code>.</p>
+<h4 id="public-campaigntime-siegestarttime"><code>public CampaignTime SiegeStartTime</code></h4>
+<p>The moment the siege started (<code>CampaignTime.Now</code>). It seeds the deterministic random numbers below and is commonly shown in UI as "besieged for N days".</p>
+<h4 id="public-bool-isplayersiegeevent"><code>public bool IsPlayerSiegeEvent</code></h4>
+<p>Whether the player is involved in this siege. Implemented as: true if the besieger-camp leader is the main party, otherwise compares <code>PlayerSiege.PlayerSiegeEvent == this</code>. Read-only query, no side effects.</p>
+<h4 id="public-bool-readytoberemoved"><code>public bool ReadyToBeRemoved</code></h4>
+<p><code>=&gt; BesiegedSettlement.Party.SiegeEvent == null</code>. Once the settlement's siege reference is cleared (attacker lifted / siege finalized), <code>SiegeEventManager</code> removes this object on the next tick. Read-only.</p>
+<h4 id="public-int-siegewallseed-public-int-siegepeopleseed"><code>public int SiegeWallSeed</code> / <code>public int SiegePeopleSeed</code></h4>
+<p>Deterministic seeds computed from <code>SiegeStartTime</code>, <code>BesiegedSettlement.StringId</code>, total wall hit points, and casualties on both sides, so the wall-break and crowd distributions stay consistent across sessions. Read-only.</p>
+<h4 id="public-bool-blockadeshouldbeactivated-public-bool-isblockadeactive"><code>public bool BlockadeShouldBeActivated</code> / <code>public bool IsBlockadeActive</code></h4>
+<p>Naval-blockade state for settlements with a port. <code>BlockadeShouldBeActivated</code> marks "should be on but not yet" (used by <code>OnAfterLoad</code> to fix old saves); <code>IsBlockadeActive</code> is the current on/off state. Read-only.</p>
+<h3 id="sides-and-factions">Sides and factions</h3>
+<h4 id="public-isiegeeventside-getsiegeeventside-battlesideenum-side"><code>public ISiegeEventSide GetSiegeEventSide(BattleSideEnum side)</code></h4>
+<p>Maps a side to the concrete attacker/defender object: <strong>attacker → <code>BesiegerCamp</code>, defender → <code>BesiegedSettlement</code></strong> (the settlement itself implements <code>ISiegeEventSide</code>). Nearly every method that needs "this side's engines / parties / strategy" (<code>AdvanceStrategy</code>, <code>ConstructionTick</code>, <code>BreakSiegeEngine</code>, <code>GetPreparedAndActiveSiegeEngines</code>, …) calls this first. Pure query.</p>
+<pre><code data-lang="csharp">ISiegeEventSide attacker = siegeEvent.GetSiegeEventSide(BattleSideEnum.Attacker);
+ISiegeEventSide defender = siegeEvent.GetSiegeEventSide(BattleSideEnum.Defender);
+</code></pre>
+<h4 id="public-bool-canpartyjoinside-partybase-party-battlesideenum-side"><code>public bool CanPartyJoinSide(PartyBase party, BattleSideEnum side)</code></h4>
+<p>Whether a party can join a side: its faction must be <strong>not at war</strong> with all parties on the target side and <strong>at war</strong> with all parties on the opposite side. Pure query.</p>
+<h4 id="public-list-partybase-getinvolvedpartiesforeventtype-mapevent-battletypes-battletype"><code>public List&lt;PartyBase&gt; GetInvolvedPartiesForEventType(MapEvent.BattleTypes battleType)</code></h4>
+<p>Merges the involved parties of <code>BesiegerCamp</code> and <code>BesiegedSettlement</code> for that battle type and returns a <code>List&lt;PartyBase&gt;</code>. Use it when enumerating which parties take part (loot, casualties, join checks).</p>
+<h4 id="public-mapevent-battletypes-getcurrentbattletype"><code>public MapEvent.BattleTypes GetCurrentBattleType()</code></h4>
+<p>The current battle type: if the attacker leader's <code>MapEvent</code> exists, returns its <code>EventType</code>; otherwise defaults to <code>MapEvent.BattleTypes.Siege</code>. Often paired with <code>IsPartyInvolved</code>.</p>
+<h4 id="public-bool-ispartyinvolved-partybase-party"><code>public bool IsPartyInvolved(PartyBase party)</code></h4>
+<p><code>=&gt; GetInvolvedPartiesForEventType(GetCurrentBattleType()).Contains(party)</code>. Whether a party is involved in the siege's current battle type. Pure query.</p>
+<h3 id="lifecycle-advancing-and-ending">Lifecycle: advancing and ending</h3>
+<h4 id="public-siegeevent-settlement-settlement-mobileparty-besiegerparty"><code>public SiegeEvent(Settlement settlement, MobileParty besiegerParty)</code></h4>
+<p>Constructs a siege. <strong>Large side effects:</strong> writes <code>settlement.SiegeEvent</code>, builds a <code>BesiegerCamp</code> and points <code>besiegerParty.BesiegerCamp</code> at it, applies a −5 relation between the attacker leader and the settlement owner-clan leader (except the player clan's settlements), initializes both siege sides, records <code>SiegeStartTime</code>, auto-<code>ActivateBlockade</code>s if the settlement has a port and the attacker has ships, and broadcasts <code>OnSiegeEventStarted</code>. <strong>Do not <code>new</code> this from a mod</strong> — the creation entry is <code>SiegeEventManager.StartSiegeEvent</code>, triggered by the encounter flow.</p>
+<h4 id="public-void-tick-float-dt"><code>public void Tick(float dt)</code></h4>
+<p>Called by <code>SiegeEventManager</code> on the daily campaign tick to advance the whole siege: first <code>CheckBesiegerPartiesAndMakeThemLeave</code>, then — if <code>!ReadyToBeRemoved</code> — runs <code>AdvanceStrategy</code> → <code>ConstructionTick</code> → <code>BombardTick</code> for both attacker and defender. <strong>Side effects:</strong> may create/destroy engines, advance build and redeploy progress, spawn <code>SiegeEngineMissile</code>, raise <code>OnSiegeEngineBuilt</code> / <code>OnSiegeBombardmentHit</code>, and cause defender casualties. <strong>Do not call from a mod</strong> — it early-returns when <code>CampaignTime.DeltaTime == CampaignTime.Zero</code> or either side's <code>MapEvent</code> is active.</p>
+<h4 id="public-void-onbeforesiegeeventend-battlestate-winnerside-mapevent-battletypes-battletype"><code>public void OnBeforeSiegeEventEnd(BattleState winnerSide, MapEvent.BattleTypes battleType)</code></h4>
+<p>Records the winner when a battle ends: sets the internal <code>_isBesiegerDefeated</code> flag for <code>SallyOut</code>, and for <code>Siege</code> / <code>SiegeOutside</code>. This is the campaign-layer hook that writes the battle result back into the siege. Called by the battle-resolution flow; mods normally do not call it.</p>
+<h4 id="public-void-onafterload"><code>public void OnAfterLoad()</code></h4>
+<p>Post-load callback: <code>BesiegerCamp.OnAfterLoad()</code> rebuilds internal counters; for saves older than <code>v1.3.13.105378</code> it re-activates a pending blockade (<code>BlockadeShouldBeActivated</code>). Called by <code>SiegeEventManager.OnAfterLoad</code>; mods do not call it.</p>
+<h4 id="public-void-setpositionaftermapchange-campaignvec2-newposition"><code>public void SetPositionAfterMapChange(CampaignVec2 newPosition)</code></h4>
+<p>After a map change, syncs the besieger camp position and any in-progress assault <code>MapEvent</code> position. Called by the system during map changes.</p>
+<h4 id="public-void-finalizesiegeevent"><code>public void FinalizeSiegeEvent()</code></h4>
+<p>Formally ends the siege: broadcasts <code>OnSiegeEventEnded</code>, finalizes <code>BesiegerCamp</code> and <code>BesiegedSettlement</code>, ends any hanging <code>MapEvent</code>, switches the player menu to <code>siege_attacker_defeated</code> / <code>siege_attacker_left</code>, and calls <code>PlayerSiege.FinalizePlayerSiege()</code> when relevant. <strong>Side effect:</strong> dereferences <code>Settlement.SiegeEvent</code> (making <code>ReadyToBeRemoved</code> true) and may switch game menus. <strong>Do not call directly</strong> — let the siege end naturally with the battle/lift, or use <code>LiftSiegeAction</code>.</p>
+<h3 id="siege-strategy-and-engine-construction-engineconstruction">Siege strategy and engine construction (<code>EngineConstruction</code>)</h3>
+<p>The engine build/redeploy lifecycle is driven by <code>ConstructionTick</code>. Each <code>SiegeEngineConstructionProgress</code> records <code>Progress</code> (0→1), <code>Hitpoints</code> / <code>MaxHitPoints</code>, and <code>RedeploymentProgress</code>. A non-constructed, non-redeploying engine gains <code>Progress</code> per hour from <code>SiegeEventModel.GetConstructionProgressPerHour</code>; once <code>IsActive</code> (<code>Progress &gt;= 1f</code> and not being redeployed) <code>CreateSiegeObject</code> spawns its <code>RangedSiegeEngine</code> and broadcasts <code>OnSiegeEngineBuilt</code>. The chosen tactic comes from <a href="../SiegeStrategy/">SiegeStrategy</a> and the per-tick decision from <a href="../SiegeStrategyActionModel/">SiegeStrategyActionModel</a>.</p>
+<h4 id="public-void-advancestrategy-isiegeeventside-siegeeventside"><code>public void AdvanceStrategy(ISiegeEventSide siegeEventSide)</code></h4>
+<p>Advances one side's siege strategy: asks <code>SiegeStrategyActionModel.GetLogicalActionForStrategy</code> what the side should do now (build new engine / deploy from reserve / move to reserve / remove / hold), then hands off to <code>DoSiegeAction</code>. Called by <code>Tick</code> → <code>TickSiegeEventSide</code>; mods rarely call it directly.</p>
+<h4 id="public-void-dosiegeaction-isiegeeventside-siegeeventside-siegestrategyactionmodel-siegeaction-siegeaction-siegeenginetype-siegeenginetype-int-deploymentindex-int-reserveindex"><code>public void DoSiegeAction(ISiegeEventSide siegeEventSide, SiegeStrategyActionModel.SiegeAction siegeAction, SiegeEngineType siegeEngineType, int deploymentIndex, int reserveIndex)</code></h4>
+<p>Executes one siege action: build and deploy a new engine, deploy from reserve, move to reserve, remove a deployed engine, or hold. Refreshes <code>BesiegedSettlement.Party.SetVisualAsDirty()</code> as needed. The action decision comes from <code>AdvanceStrategy</code>, but a mod that wants to programmatically reshape a side's layout can call it directly (supplying correct <code>deploymentIndex</code> / <code>reserveIndex</code>).</p>
+<h4 id="public-void-constructiontick-isiegeeventside-siegeeventside"><code>public void ConstructionTick(ISiegeEventSide siegeEventSide)</code></h4>
+<p>Advances one side's <strong>engine construction and redeployment</strong>: accumulates <code>Progress</code> on unfinished, non-redeploying engines via <code>SiegeEventModel.GetConstructionProgressPerHour</code> (0→1); on completion calls <code>CreateSiegeObject</code> to spawn the <code>RangedSiegeEngine</code>; advances <code>RedeploymentProgress</code> on redeploying engines; cleans up expired removed engines. Called by <code>Tick</code>; mods do not call it.</p>
+<h4 id="public-void-bombardtick-isiegeeventside-siegeeventside"><code>public void BombardTick(ISiegeEventSide siegeEventSide)</code></h4>
+<p>Advances one side's <strong>bombardment</strong>: resolves already-collided <code>SiegeEngineMissile</code> (hitting walls or opposing ranged engines), and for every ready-to-fire (<code>IsReadyToFire</code>) ranged engine picks a target, records <code>OnFireDecisionTaken</code>, and rolls <code>SiegeEventModel.GetSiegeEngineHitChance</code> to spawn a new <code>SiegeEngineMissile</code>. Called by <code>Tick</code>; mods do not call it.</p>
+<h4 id="public-void-breaksiegeengine-isiegeeventside-siegeeventside-siegeenginetype-siegeenginetype"><code>public void BreakSiegeEngine(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngineType)</code></h4>
+<p>Destroys one <strong>active</strong> engine of a given type on a side (removed from deployment, not sent to reserve). A <code>Preparations</code> engine has its progress reset to zero; ranged/melee engines are found via <code>DeployedRangedSiegeEngines</code> / <code>DeployedMeleeSiegeEngines</code>, removed, and the map visual is refreshed. <strong>When to call:</strong> when you need to programmatically destroy an engine (quest reward, special event) — best called from an event callback, at a time that does not collide with <code>Tick</code>.</p>
+<pre><code data-lang="csharp">// Tear down one siege tower the attacker has built
+ISiegeEventSide attacker = siegeEvent.GetSiegeEventSide(BattleSideEnum.Attacker);
+siegeEvent.BreakSiegeEngine(attacker, DefaultSiegeEngineTypes.SiegeTower);
+</code></pre>
+<h3 id="reading-and-arranging-siege-engines">Reading and arranging siege engines</h3>
+<h4 id="public-dictionary-siegeenginetype-int-getpreparedsiegeenginesasdictionary-isiegeeventside-siegeeventside"><code>public Dictionary&lt;SiegeEngineType, int&gt; GetPreparedSiegeEnginesAsDictionary(ISiegeEventSide siegeEventSide)</code></h4>
+<p>Returns a <code>Dictionary&lt;SiegeEngineType, int&gt;</code> of that side's engines that are "built and alive" (<code>Hitpoints &gt; 0</code>, not <code>Preparations</code>). Read-only.</p>
+<h4 id="public-list-missionsiegeweapon-getpreparedandactivesiegeengines-isiegeeventside-siegeeventside"><code>public List&lt;MissionSiegeWeapon&gt; GetPreparedAndActiveSiegeEngines(ISiegeEventSide siegeEventSide)</code></h4>
+<p>Returns the list of engines (<code>MissionSiegeWeapon</code>) that side can field in battle — the projection of campaign-layer engines into the mission scene. Read-only. Called by <code>PlayerSiege.StartSiegeMission</code> only when <code>CurrentSiegeState == OnTheWalls</code> to spawn controllable siege weapons. <strong>Note:</strong> entering this chain in any state other than <code>OnTheWalls</code> triggers <code>Debug.FailedAssert</code>.</p>
+<pre><code data-lang="csharp">if (PlayerSiege.PlayerSiegeEvent != null &amp;&amp; MobileParty.MainParty.BesiegerCamp != null
+    &amp;&amp; MobileParty.MainParty.BesiegedSettlement.CurrentSiegeState == Settlement.SiegeState.OnTheWalls)
+{
+    SiegeEvent playerSiege = PlayerSiege.PlayerSiegeEvent;
+    List&lt;MissionSiegeWeapon&gt; attackerWeapons =
+        playerSiege.GetPreparedAndActiveSiegeEngines(playerSiege.GetSiegeEventSide(BattleSideEnum.Attacker));
+    List&lt;MissionSiegeWeapon&gt; defenderWeapons =
+        playerSiege.GetPreparedAndActiveSiegeEngines(playerSiege.GetSiegeEventSide(BattleSideEnum.Defender));
+}
+</code></pre>
+<h4 id="public-void-createsiegeobject-siegeengineconstructionprogress-siegeengineconstructionprogress-isiegeeventside-siegeside"><code>public void CreateSiegeObject(SiegeEngineConstructionProgress siegeEngineConstructionProgress, ISiegeEventSide siegeSide)</code></h4>
+<p>When an engine finishes construction, spawns the <code>RangedSiegeEngine</code> sub-object for ranged engines, broadcasts <code>OnSiegeEngineBuilt</code>, and refreshes the map visual. Called by <code>ConstructionTick</code> when <code>IsActive</code> is reached.</p>
+<h4 id="public-void-setsiegeenginestatesaftersiegemission-ienumerable-imissionsiegeweapon-attackermissionsiegeenginedata-ienumerable-imissionsiegeweapon-defendermissionsiegeenginedata"><code>public void SetSiegeEngineStatesAfterSiegeMission(IEnumerable&lt;IMissionSiegeWeapon&gt; attackerMissionSiegeEngineData, IEnumerable&lt;IMissionSiegeWeapon&gt; defenderMissionSiegeEngineData)</code></h4>
+<p>After a battle, writes each engine's remaining hit points / alive state back to the campaign layer: surviving engines get their <code>Hitpoints</code> updated, destroyed ones call <code>BreakSiegeEngine</code>. Called by the system after siege-battle resolution.</p>
+<h4 id="public-void-findattackablerangedenginewithhighestpriority-isiegeeventside-siegeeventside-int-attackerslotindex-out-int-targetindex-out-float-targetpriority"><code>public void FindAttackableRangedEngineWithHighestPriority(ISiegeEventSide siegeEventSide, int attackerSlotIndex, out int targetIndex, out float targetPriority)</code></h4>
+<p>For one attacker ranged engine, picks the highest-priority (nearest) target among the opposing deployed ranged engines, returning <code>targetIndex</code> and <code>targetPriority</code> via <code>out</code> parameters. Called internally by <code>BombardTick</code>; mods rarely call it.</p>
+<h4 id="nested-data-siegeenginescontainer-siegeengineconstructionprogress-rangedsiegeengine-siegeenginemissile">Nested data: <code>SiegeEnginesContainer</code> / <code>SiegeEngineConstructionProgress</code> / <code>RangedSiegeEngine</code> / <code>SiegeEngineMissile</code></h4>
+<ul>
+<li><code>SiegeEnginesContainer</code> (via <code>ISiegeEventSide.SiegeEngines</code>): one side's engine container. Capacity constants — attacker at most <strong>3</strong> melee + <strong>4</strong> ranged, defender <strong>0</strong> melee + <strong>4</strong> ranged. Exposes <code>DeployedSiegeEngines</code> / <code>ReservedSiegeEngines</code> / <code>RemovedSiegeEngines</code> (all <code>MBReadOnlyList&lt;SiegeEngineConstructionProgress&gt;</code>), <code>AllSiegeEngines()</code>, plus <code>AddPrebuiltEngineToReserve</code> / <code>DeploySiegeEngineAtIndex</code> / <code>RemoveDeployedSiegeEngine</code> / <code>RemovedSiegeEngineFromReservedSiegeEngines</code> / <code>FindDeploymentIndexOfDeployedEngine</code> / <code>ClearRemovedEnginesIfNecessary</code>.</li>
+<li><code>SiegeEngineConstructionProgress</code>: progress record for a single engine. <code>IsConstructed =&gt; Progress &gt;= 1f</code>, <code>IsActive =&gt; IsConstructed &amp;&amp; !IsBeingRedeployed</code>; carries <code>Hitpoints</code> / <code>MaxHitPoints</code> / <code>RedeploymentProgress</code> and (for ranged engines) <code>RangedSiegeEngine</code>. Provides <code>SetProgress</code> / <code>SetHitpoints</code> / <code>SetRedeploymentProgress</code> / <code>SetRangedSiegeEngine</code>.</li>
+<li><code>RangedSiegeEngine</code>: bombard sub-state of a ranged engine — <code>EngineType</code>, <code>IsReadyToFire</code> (<code>NextTimeEngineCanBombard.IsPast</code>), current/previous target, and fire time; methods <code>Hold</code> / <code>Reload</code> / <code>OnFireDecisionTaken</code>.</li>
+<li><code>SiegeEngineMissile</code>: snapshot of a fired projectile (shooter type/slot, target type/slot, hit success, collision and decision times), consumed by <code>BombardTick</code>.</li>
+</ul>
+<h3 id="naval-blockade">Naval blockade</h3>
+<h4 id="public-void-activateblockade-public-void-deactivateblockade"><code>public void ActivateBlockade()</code> / <code>public void DeactivateBlockade()</code></h4>
+<p>Enable/disable the naval blockade for a settlement with a port. Toggles <code>MobileParty.MainParty.Anchor.IsDisabled</code> (only when the main party is an attacker-side party), broadcasts <code>OnBlockadeActivated</code> / <code>OnBlockadeDeactivated</code>, and refreshes the involved naval visuals. <code>ActivateBlockade</code> also sets <code>BlockadeShouldBeActivated</code> to false. Normally auto-enabled by the constructor when "port + attacker has ships", or re-activated from old saves by <code>OnAfterLoad</code>; mods rarely need to call these.</p>
+<h3 id="public-override-string-tostring"><code>public override string ToString()</code></h3>
+<p>Returns <code>"Siege of " + BesiegedSettlement.Name</code>, handy for logs/debugging.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="example-1-scan-all-active-sieges-and-report-the-one-the-player-is-in">Example 1: Scan all active sieges and report the one the player is in</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Siege;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.Core;
+
+foreach (SiegeEvent siegeEvent in Campaign.Current.SiegeEventManager.SiegeEvents)
+{
+    if (siegeEvent.ReadyToBeRemoved)
+        continue;
+
+    Settlement besieged = siegeEvent.BesiegedSettlement;
+    MobileParty besieger = siegeEvent.BesiegerCamp.LeaderParty;
+
+    if (siegeEvent.IsPlayerSiegeEvent)
+    {
+        InformationManager.DisplayMessage(new InformationMessage(
+            $&quot;Player is besieging {besieged.Name} (attacker leader: {besieger.Name})&quot;));
+    }
+}
+</code></pre>
+<h3 id="example-2-destroy-one-built-attacker-engine-from-a-settlement-s-siege">Example 2: Destroy one built attacker engine from a settlement's siege</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Siege;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.Core;
+
+Settlement besieged = MobileParty.MainParty.BesiegedSettlement;
+SiegeEvent siegeEvent = besieged?.SiegeEvent;
+if (siegeEvent != null &amp;&amp; !siegeEvent.ReadyToBeRemoved)
+{
+    ISiegeEventSide attacker = siegeEvent.GetSiegeEventSide(BattleSideEnum.Attacker);
+    siegeEvent.BreakSiegeEngine(attacker, DefaultSiegeEngineTypes.SiegeTower);
+}
+</code></pre>
+<h3 id="example-3-take-both-sides-fieldable-engines-before-a-player-assault">Example 3: Take both sides' fieldable engines before a player assault</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Siege;
+using TaleWorlds.CampaignSystem.Party;
+using System.Collections.Generic;
+
+if (PlayerSiege.PlayerSiegeEvent != null
+    &amp;&amp; MobileParty.MainParty.BesiegerCamp != null
+    &amp;&amp; MobileParty.MainParty.BesiegedSettlement.CurrentSiegeState == Settlement.SiegeState.OnTheWalls)
+{
+    SiegeEvent playerSiege = PlayerSiege.PlayerSiegeEvent;
+    List&lt;MissionSiegeWeapon&gt; attackerWeapons =
+        playerSiege.GetPreparedAndActiveSiegeEngines(playerSiege.GetSiegeEventSide(BattleSideEnum.Attacker));
+    List&lt;MissionSiegeWeapon&gt; defenderWeapons =
+        playerSiege.GetPreparedAndActiveSiegeEngines(playerSiege.GetSiegeEventSide(BattleSideEnum.Defender));
+    // Hand these to the scene/UI; do NOT enter this chain outside the OnTheWalls state
+}
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Parent: <a href="../">Campaign-ext module</a> · <a href="../../campaign/">Campaign module</a></li>
+<li>↔ Siblings (same bucket): <a href="../SiegeEventManager/">SiegeEventManager</a> · <a href="../BesiegerCamp/">BesiegerCamp</a> · <a href="../PlayerSiege/">PlayerSiege</a> · <a href="../SiegeStrategy/">SiegeStrategy</a> · <a href="../SiegeEventModel/">SiegeEventModel</a> · <a href="../SiegeStrategyActionModel/">SiegeStrategyActionModel</a> · <a href="../ISiegeEventSide/">ISiegeEventSide</a> · <a href="../LiftSiegeAction/">LiftSiegeAction</a> · <a href="../CampaignEvents/">CampaignEvents</a> · <a href="../SiegeEventCampaignBehavior/">SiegeEventCampaignBehavior</a> · <a href="../SiegeBombardTargets/">SiegeBombardTargets</a> · <a href="../ChangeOwnerOfSettlementAction/">ChangeOwnerOfSettlementAction</a></li>
+<li>Related (other buckets): <a href="../../campaign/Settlement/">Settlement</a> · <a href="../../campaign/MobileParty/">MobileParty</a> · <a href="../../campaign/Clan/">Clan</a> · <a href="../../campaign/Kingdom/">Kingdom</a> · <a href="../../campaign/Campaign/">Campaign</a> · <a href="../../campaign/PartyBase/">PartyBase</a> · <a href="../../campaign/Hero/">Hero</a> · <a href="../../core-extra/BattleSideEnum/">BattleSideEnum</a> · <a href="../../core-extra/DefaultSiegeEngineTypes/">DefaultSiegeEngineTypes</a> · <a href="../../campaign/">MapEvent</a> · <a href="../../campaign/">Town</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/RoundStateChange/">&larr; RoundStateChange</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/NarrativeMenu/">NarrativeMenu &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

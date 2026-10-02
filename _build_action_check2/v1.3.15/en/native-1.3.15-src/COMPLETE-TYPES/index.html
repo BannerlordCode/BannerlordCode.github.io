@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>COMPLETE-TYPES</title>
+  <meta name="description" content="Bannerlord Modding SDK Documentation - 模块架构指南与 API 参考">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="active">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/native-1.3.15-src/COMPLETE-TYPES/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" open>
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="active">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;native-1.3.15-src&#x2F;">Native 1.3.15 Source Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">COMPLETE-TYPES</span>
+    </nav>
+  
+  <h1>COMPLETE-TYPES</h1>
+  <h1 id="taleworlds-native-dll-h-complete-type-reference">TaleWorlds.Native.dll.h - Complete Type Reference</h1>
+<blockquote>
+<p><strong>Source</strong>: <code>tmp/native-1.3.15/TaleWorlds.Native.dll.h</code><br />
+<strong>Total Lines</strong>: 33,875<br />
+<strong>Generated</strong>: 2026-04-09<br />
+<strong>Note</strong>: IDA Pro decompiler output for TaleWorlds.Native.dll (native P/Invoke bridge DLL)</p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p>This file contains type definitions extracted from TaleWorlds.Native.dll - a native C++ DLL that serves as a P/Invoke bridge for Mount &amp; Blade II: Bannerlord. The types include:</p>
+<ul>
+<li>Windows API structures</li>
+<li>PE/COFF image format structures</li>
+<li>C++ Exception handling (RTTI) structures</li>
+<li>PhysX physics engine structures</li>
+<li>C++ Standard Library placeholders</li>
+<li>COM interface structures</li>
+</ul>
+<hr />
+<h2 id="mental-model">Mental Model</h2>
+<p>Treat <code>TaleWorlds.Native.dll.h - Complete Type Reference</code> as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.</p>
+<h2 id="statistics">Statistics</h2>
+<table><thead><tr><th>Category</th><th>Count</th></tr></thead><tbody>
+<tr><td>Typedef Basic Types</td><td>82</td></tr>
+<tr><td>Typedef Struct/Enum/Union</td><td>267</td></tr>
+<tr><td>Struct Definitions</td><td>146</td></tr>
+<tr><td>Union Definitions</td><td>12</td></tr>
+<tr><td>Enum Definitions</td><td>6</td></tr>
+<tr><td>Macro Defines</td><td>39</td></tr>
+<tr><td>Vftable Structures</td><td>0</td></tr>
+</tbody></table>
+<hr />
+<h2 id="1-basic-typedefs">1. Basic Typedefs</h2>
+<h3 id="1-1-primitive-types">1.1 Primitive Types</h3>
+<table><thead><tr><th>Line</th><th>Type</th><th>Definition</th></tr></thead><tbody>
+<tr><td>1</td><td><code>undefined</code></td><td><code>unsigned char</code></td></tr>
+<tr><td>3</td><td><code>bool</code></td><td><code>unsigned char</code></td></tr>
+<tr><td>4</td><td><code>byte</code></td><td><code>unsigned char</code></td></tr>
+<tr><td>5</td><td><code>dword</code></td><td><code>unsigned int</code></td></tr>
+<tr><td>9</td><td><code>longlong</code></td><td><code>long long</code></td></tr>
+<tr><td>11</td><td><code>uchar</code></td><td><code>unsigned char</code></td></tr>
+<tr><td>12</td><td><code>uint</code></td><td><code>unsigned int</code></td></tr>
+<tr><td>13</td><td><code>ulong</code></td><td><code>unsigned long</code></td></tr>
+<tr><td>14</td><td><code>ulonglong</code></td><td><code>unsigned long long</code></td></tr>
+<tr><td>15</td><td><code>undefined1</code></td><td><code>unsigned char</code></td></tr>
+<tr><td>16</td><td><code>undefined2</code></td><td><code>unsigned short</code></td></tr>
+<tr><td>17</td><td><code>undefined4</code></td><td><code>unsigned int</code></td></tr>
+<tr><td>18</td><td><code>undefined6</code></td><td><code>unsigned long long</code></td></tr>
+<tr><td>19</td><td><code>undefined8</code></td><td><code>unsigned long long</code></td></tr>
+<tr><td>20</td><td><code>ushort</code></td><td><code>unsigned short</code></td></tr>
+<tr><td>21</td><td><code>wchar16</code></td><td><code>unsigned short</code></td></tr>
+<tr><td>22</td><td><code>wchar_t</code></td><td><code>short</code></td></tr>
+<tr><td>23</td><td><code>word</code></td><td><code>unsigned short</code></td></tr>
+<tr><td>72</td><td><code>__ehstate_t</code></td><td><code>int</code></td></tr>
+<tr><td>151</td><td><code>__uint64</code></td><td><code>ulonglong</code></td></tr>
+</tbody></table>
+<h3 id="1-2-windows-type-aliases">1.2 Windows Type Aliases</h3>
+<table><thead><tr><th>Line</th><th>Type</th><th>Definition</th></tr></thead><tbody>
+<tr><td>6</td><td><code>GUID</code></td><td><code>unsigned long long</code></td></tr>
+<tr><td>7</td><td><code>ImageBaseOffset32</code></td><td><code>pointer32</code></td></tr>
+<tr><td>209</td><td><code>DWORD</code></td><td><code>ulong</code></td></tr>
+<tr><td>211</td><td><code>ULONGLONG</code></td><td><code>ulonglong</code></td></tr>
+<tr><td>213</td><td><code>DWORDLONG</code></td><td><code>ULONGLONG</code></td></tr>
+<tr><td>233</td><td><code>LPVOID</code></td><td><code>void *</code></td></tr>
+<tr><td>239</td><td><code>WORD</code></td><td><code>ushort</code></td></tr>
+<tr><td>270</td><td><code>HANDLE</code></td><td><code>void *</code></td></tr>
+<tr><td>274</td><td><code>PVOID</code></td><td><code>void *</code></td></tr>
+<tr><td>324</td><td><code>WCHAR</code></td><td><code>wchar_t</code></td></tr>
+<tr><td>352</td><td><code>CHAR</code></td><td><code>char</code></td></tr>
+<tr><td>356</td><td><code>BYTE</code></td><td><code>uchar</code></td></tr>
+<tr><td>414</td><td><code>LONG</code></td><td><code>long</code></td></tr>
+<tr><td>460</td><td><code>DWORD64</code></td><td><code>ulonglong</code></td></tr>
+<tr><td>476</td><td><code>LONGLONG</code></td><td><code>longlong</code></td></tr>
+<tr><td>604</td><td><code>ULONG</code></td><td><code>DWORD</code></td></tr>
+<tr><td>606</td><td><code>OLECHAR</code></td><td><code>WCHAR</code></td></tr>
+<tr><td>657</td><td><code>SHORT</code></td><td><code>short</code></td></tr>
+<tr><td>832</td><td><code>USHORT</code></td><td><code>ushort</code></td></tr>
+<tr><td>1000</td><td><code>NTSTATUS</code></td><td><code>LONG</code></td></tr>
+<tr><td>1142</td><td><code>HRESULT</code></td><td><code>long</code></td></tr>
+<tr><td>1277</td><td><code>INT</code></td><td><code>int</code></td></tr>
+<tr><td>1279</td><td><code>ATOM</code></td><td><code>WORD</code></td></tr>
+<tr><td>1289</td><td><code>LPCVOID</code></td><td><code>void *</code></td></tr>
+<tr><td>1573</td><td><code>LSTATUS</code></td><td><code>LONG</code></td></tr>
+<tr><td>1593</td><td><code>MMRESULT</code></td><td><code>UINT</code></td></tr>
+</tbody></table>
+<h3 id="1-3-string-pointer-types">1.3 String Pointer Types</h3>
+<table><thead><tr><th>Line</th><th>Type</th><th>Definition</th></tr></thead><tbody>
+<tr><td>354</td><td><code>LPSTR</code></td><td><code>CHAR *</code></td></tr>
+<tr><td>608</td><td><code>LPCOLESTR</code></td><td><code>OLECHAR *</code></td></tr>
+<tr><td>865</td><td><code>LPCWSTR</code></td><td><code>WCHAR *</code></td></tr>
+<tr><td>909</td><td><code>LPCLSID</code></td><td><code>CLSID *</code></td></tr>
+<tr><td>1042</td><td><code>PCWSTR</code></td><td><code>WCHAR *</code></td></tr>
+<tr><td>1044</td><td><code>LPWSTR</code></td><td><code>WCHAR *</code></td></tr>
+<tr><td>1144</td><td><code>LPCSTR</code></td><td><code>CHAR *</code></td></tr>
+</tbody></table>
+<h3 id="1-4-pointer-types">1.4 Pointer Types</h3>
+<table><thead><tr><th>Line</th><th>Type</th><th>Definition</th></tr></thead><tbody>
+<tr><td>235</td><td><code>ULONG_PTR</code></td><td><code>ulonglong</code></td></tr>
+<tr><td>237</td><td><code>DWORD_PTR</code></td><td><code>ULONG_PTR</code></td></tr>
+<tr><td>396</td><td><code>PSRWLOCK</code></td><td><code>RTL_SRWLOCK *</code></td></tr>
+<tr><td>408</td><td><code>LPCRITICAL_SECTION</code></td><td><code>PRTL_CRITICAL_SECTION</code></td></tr>
+<tr><td>454</td><td><code>PEXCEPTION_RECORD</code></td><td><code>EXCEPTION_RECORD *</code></td></tr>
+<tr><td>687</td><td><code>uintptr_t</code></td><td><code>ulonglong</code></td></tr>
+<tr><td>747</td><td><code>size_t</code></td><td><code>ulonglong</code></td></tr>
+<tr><td>761</td><td><code>UINT</code></td><td><code>uint</code></td></tr>
+<tr><td>763</td><td><code>UINT_PTR</code></td><td><code>ulonglong</code></td></tr>
+<tr><td>765</td><td><code>WPARAM</code></td><td><code>UINT_PTR</code></td></tr>
+<tr><td>767</td><td><code>LONG_PTR</code></td><td><code>longlong</code></td></tr>
+<tr><td>769</td><td><code>LPARAM</code></td><td><code>LONG_PTR</code></td></tr>
+<tr><td>847</td><td><code>LRESULT</code></td><td><code>LONG_PTR</code></td></tr>
+<tr><td>1002</td><td><code>BCRYPT_ALG_HANDLE</code></td><td><code>PVOID</code></td></tr>
+<tr><td>1006</td><td><code>SIZE_T</code></td><td><code>ULONG_PTR</code></td></tr>
+<tr><td>1099</td><td><code>PDWORD64</code></td><td><code>ulonglong *</code></td></tr>
+<tr><td>1148</td><td><code>PLONG</code></td><td><code>LONG *</code></td></tr>
+<tr><td>1150</td><td><code>PFLS_CALLBACK_FUNCTION</code></td><td><code>void (*)(PVOID)</code></td></tr>
+<tr><td>1152</td><td><code>PLARGE_INTEGER</code></td><td><code>LARGE_INTEGER *</code></td></tr>
+<tr><td>1163</td><td><code>PEXCEPTION_ROUTINE</code></td><td><code>EXCEPTION_ROUTINE *</code></td></tr>
+<tr><td>1206</td><td><code>PULONG_PTR</code></td><td><code>ulonglong *</code></td></tr>
+<tr><td>1208</td><td><code>INT_PTR</code></td><td><code>longlong</code></td></tr>
+<tr><td>1227</td><td><code>UCHAR</code></td><td><code>uchar</code></td></tr>
+<tr><td>1229</td><td><code>PUCHAR</code></td><td><code>UCHAR *</code></td></tr>
+<tr><td>1231</td><td><code>LPDWORD</code></td><td><code>DWORD *</code></td></tr>
+<tr><td>1233</td><td><code>PDWORD</code></td><td><code>DWORD *</code></td></tr>
+<tr><td>1249</td><td><code>PUINT</code></td><td><code>uint *</code></td></tr>
+<tr><td>1257</td><td><code>LPLONG</code></td><td><code>long *</code></td></tr>
+<tr><td>1269</td><td><code>FARPROC</code></td><td><code>INT_PTR (*)(void)</code></td></tr>
+<tr><td>1285</td><td><code>LPBOOL</code></td><td><code>BOOL *</code></td></tr>
+<tr><td>1287</td><td><code>PBYTE</code></td><td><code>BYTE *</code></td></tr>
+<tr><td>1575</td><td><code>REGSAM</code></td><td><code>ACCESS_MASK</code></td></tr>
+</tbody></table>
+<h3 id="1-5-handle-types">1.5 Handle Types</h3>
+<table><thead><tr><th>Line</th><th>Type</th><th>Definition</th></tr></thead><tbody>
+<tr><td>859</td><td><code>HCURSOR</code></td><td><code>HICON</code></td></tr>
+<tr><td>1253</td><td><code>HMODULE</code></td><td><code>HINSTANCE</code></td></tr>
+<tr><td>1255</td><td><code>HLOCAL</code></td><td><code>HANDLE</code></td></tr>
+<tr><td>1275</td><td><code>PHKEY</code></td><td><code>HKEY *</code></td></tr>
+<tr><td>1283</td><td><code>HGLOBAL</code></td><td><code>HANDLE</code></td></tr>
+</tbody></table>
+<h3 id="1-6-function-pointer-types">1.6 Function Pointer Types</h3>
+<table><thead><tr><th>Line</th><th>Type</th><th>Definition</th></tr></thead><tbody>
+<tr><td>448</td><td><code>PTOP_LEVEL_EXCEPTION_FILTER</code></td><td><code>LONG (*)(struct _EXCEPTION_POINTERS *)</code></td></tr>
+<tr><td>593</td><td><code>LPTOP_LEVEL_EXCEPTION_FILTER</code></td><td><code>PTOP_LEVEL_EXCEPTION_FILTER</code></td></tr>
+<tr><td>849</td><td><code>WNDPROC</code></td><td><code>LRESULT (*)(HWND, UINT, WPARAM, LPARAM)</code></td></tr>
+<tr><td>1056</td><td><code>EXCEPTION_ROUTINE</code></td><td><code>EXCEPTION_DISPOSITION (*)(struct _EXCEPTION_RECORD *, PVOID, struct _CONTEXT *, PVOID)</code></td></tr>
+<tr><td>1269</td><td><code>FARPROC</code></td><td><code>INT_PTR (*)(void)</code></td></tr>
+<tr><td>1886</td><td><code>_onexit_t</code></td><td><code>int (*)(void)</code></td></tr>
+<tr><td>1888</td><td><code>_invalid_parameter_handler</code></td><td><code>void (*)(wchar_t *, wchar_t *, wchar_t *, uint, uintptr_t)</code></td></tr>
+</tbody></table>
+<h3 id="1-7-special-ida-types">1.7 Special IDA Types</h3>
+<table><thead><tr><th>Line</th><th>Type</th><th>Definition</th></tr></thead><tbody>
+<tr><td>1</td><td><code>undefined</code></td><td><code>unsigned char</code></td></tr>
+<tr><td>6</td><td><code>GUID</code></td><td><code>unsigned long long</code></td></tr>
+<tr><td>7</td><td><code>ImageBaseOffset32</code></td><td><code>pointer32</code></td></tr>
+<tr><td>10</td><td><code>qword</code></td><td><code>unsigned long long</code></td></tr>
+</tbody></table>
+<hr />
+<h2 id="2-struct-definitions">2. Struct Definitions</h2>
+<h3 id="2-1-exception-handling-rtti-structures">2.1 Exception Handling / RTTI Structures</h3>
+<h4 id="s-unwindmapentry-line-74"><code>_s_UnwindMapEntry</code> (Line 74)</h4>
+<pre><code data-lang="c">struct _s_UnwindMapEntry {
+    __ehstate_t toState;
+    ImageBaseOffset32 action;
+};
+</code></pre>
+<h4 id="s-iptostatemapentry-line-83"><code>_s_IPToStateMapEntry</code> (Line 83)</h4>
+<pre><code data-lang="c">struct _s_IPToStateMapEntry {
+    ImageBaseOffset32 Ip;
+    __ehstate_t state;
+};
+</code></pre>
+<h4 id="pmd-line-110"><code>PMD</code> (Line 110)</h4>
+<pre><code data-lang="c">struct PMD {
+    int mdisp;
+    int pdisp;
+    int vdisp;
+};
+</code></pre>
+<h4 id="s-rttibaseclassdescriptor-line-116"><code>_s__RTTIBaseClassDescriptor</code> (Line 116)</h4>
+<pre><code data-lang="c">struct _s__RTTIBaseClassDescriptor {
+    ImageBaseOffset32 pTypeDescriptor;  // ref to TypeDescriptor (RTTI 0) for class
+    dword numContainedBases;             // count of extended classes in BaseClassArray (RTTI 2)
+    struct PMD where;                    // member displacement structure
+    dword attributes;                    // bit flags
+    ImageBaseOffset32 pClassHierarchyDescriptor;  // ref to ClassHierarchyDescriptor (RTTI 3) for class
+};
+</code></pre>
+<h4 id="s-rtticompleteobjectlocator-line-128"><code>_s__RTTICompleteObjectLocator</code> (Line 128)</h4>
+<pre><code data-lang="c">struct _s__RTTICompleteObjectLocator {
+    dword signature;
+    dword offset;              // offset of vbtable within class
+    dword cdOffset;            // constructor displacement offset
+    ImageBaseOffset32 pTypeDescriptor;   // ref to TypeDescriptor (RTTI 0) for class
+    ImageBaseOffset32 pClassDescriptor;   // ref to ClassHierarchyDescriptor (RTTI 3)
+};
+</code></pre>
+<h4 id="s-funcinfo-line-138"><code>_s_FuncInfo</code> (Line 138)</h4>
+<pre><code data-lang="c">struct _s_FuncInfo {
+    uint magicNumber_and_bbtFlags;
+    __ehstate_t maxState;
+    ImageBaseOffset32 dispUnwindMap;
+    uint nTryBlocks;
+    ImageBaseOffset32 dispTryBlockMap;
+    uint nIPMapEntries;
+    ImageBaseOffset32 dispIPToStateMap;
+    int dispUnwindHelp;
+    ImageBaseOffset32 dispESTypeList;
+    int EHFlags;
+};
+</code></pre>
+<h4 id="s-handlertype-line-157"><code>_s_HandlerType</code> (Line 157)</h4>
+<pre><code data-lang="c">struct _s_HandlerType {
+    uint adjectives;
+    ImageBaseOffset32 dispType;
+    int dispCatchObj;
+    ImageBaseOffset32 dispOfHandler;
+    dword dispFrame;
+};
+</code></pre>
+<h4 id="s-tryblockmapentry-line-167"><code>_s_TryBlockMapEntry</code> (Line 167)</h4>
+<pre><code data-lang="c">struct _s_TryBlockMapEntry {
+    __ehstate_t tryLow;
+    __ehstate_t tryHigh;
+    __ehstate_t catchHigh;
+    int nCatches;
+    ImageBaseOffset32 dispHandlerArray;
+};
+</code></pre>
+<h4 id="s-rtticlasshierarchydescriptor-line-190"><code>_s__RTTIClassHierarchyDescriptor</code> (Line 190)</h4>
+<pre><code data-lang="c">struct _s__RTTIClassHierarchyDescriptor {
+    dword signature;
+    dword attributes;                    // bit flags
+    dword numBaseClasses;                // number of base classes (i.e. rtti1Count)
+    RTTIBaseClassDescriptor *32 __((image-base-relative)) *32 __((image-base-relative)) pBaseClassArray;  // ref to BaseClassArray (RTTI 2)
+};
+</code></pre>
+<h3 id="2-2-pe-coff-image-structures">2.2 PE/COFF Image Structures</h3>
+<h4 id="image-dos-header-line-1169"><code>IMAGE_DOS_HEADER</code> (Line 1169)</h4>
+<pre><code data-lang="c">struct IMAGE_DOS_HEADER {
+    char e_magic[2];             // Magic number
+    word e_cblp;                 // Bytes of last page
+    word e_cp;                   // Pages in file
+    word e_crlc;                 // Relocations
+    word e_cparhdr;              // Size of header in paragraphs
+    word e_minalloc;             // Minimum extra paragraphs needed
+    word e_maxalloc;             // Maximum extra paragraphs needed
+    word e_ss;                   // Initial (relative) SS value
+    word e_sp;                   // Initial SP value
+    word e_csum;                 // Checksum
+    word e_ip;                   // Initial IP value
+    word e_cs;                   // Initial (relative) CS value
+    word e_lfarlc;              // File address of relocation table
+    word e_ovno;                // Overlay number
+    word e_res[4][4];           // Reserved words
+    word e_oemid;               // OEM identifier (for e_oeminfo)
+    word e_oeminfo;             // OEM information; e_oemid specific
+    word e_res2[10][10];        // Reserved words
+    dword e_lfanew;             // File address of new exe header
+    byte e_program[64];          // Actual DOS program
+};
+</code></pre>
+<h4 id="image-file-header-line-1324"><code>IMAGE_FILE_HEADER</code> (Line 1324)</h4>
+<pre><code data-lang="c">struct IMAGE_FILE_HEADER {
+    word Machine;                    // 34404
+    word NumberOfSections;
+    dword TimeDateStamp;
+    dword PointerToSymbolTable;
+    dword NumberOfSymbols;
+    word SizeOfOptionalHeader;
+    word Characteristics;
+};
+</code></pre>
+<h4 id="image-optional-header64-line-1423"><code>IMAGE_OPTIONAL_HEADER64</code> (Line 1423)</h4>
+<pre><code data-lang="c">struct IMAGE_OPTIONAL_HEADER64 {
+    word Magic;
+    byte MajorLinkerVersion;
+    byte MinorLinkerVersion;
+    dword SizeOfCode;
+    dword SizeOfInitializedData;
+    dword SizeOfUninitializedData;
+    ImageBaseOffset32 AddressOfEntryPoint;
+    ImageBaseOffset32 BaseOfCode;
+    pointer64 ImageBase;
+    dword SectionAlignment;
+    dword FileAlignment;
+    word MajorOperatingSystemVersion;
+    word MinorOperatingSystemVersion;
+    word MajorImageVersion;
+    word MinorImageVersion;
+    word MajorSubsystemVersion;
+    word MinorSubsystemVersion;
+    dword Win32VersionValue;
+    dword SizeOfImage;
+    dword SizeOfHeaders;
+    dword CheckSum;
+    word Subsystem;
+    word DllCharacteristics;
+    qword SizeOfStackReserve;
+    qword SizeOfStackCommit;
+    qword SizeOfHeapReserve;
+    qword SizeOfHeapCommit;
+    dword LoaderFlags;
+    dword NumberOfRvaAndSizes;
+    struct IMAGE_DATA_DIRECTORY DataDirectory[16];
+};
+</code></pre>
+<h4 id="image-section-header-line-1505"><code>IMAGE_SECTION_HEADER</code> (Line 1505)</h4>
+<pre><code data-lang="c">struct IMAGE_SECTION_HEADER {
+    char Name[8];
+    union Misc Misc;
+    ImageBaseOffset32 VirtualAddress;
+    dword SizeOfRawData;
+    dword PointerToRawData;
+    dword PointerToRelocations;
+    dword PointerToLinenumbers;
+    word NumberOfRelocations;
+    word NumberOfLinenumbers;
+    enum SectionFlags Characteristics;
+};
+</code></pre>
+<h4 id="image-nt-headers64-line-1520"><code>IMAGE_NT_HEADERS64</code> (Line 1520)</h4>
+<pre><code data-lang="c">struct IMAGE_NT_HEADERS64 {
+    char Signature[4];
+    struct IMAGE_FILE_HEADER FileHeader;
+    struct IMAGE_OPTIONAL_HEADER64 OptionalHeader;
+};
+</code></pre>
+<h4 id="image-data-directory-line-1418"><code>IMAGE_DATA_DIRECTORY</code> (Line 1418)</h4>
+<pre><code data-lang="c">struct IMAGE_DATA_DIRECTORY {
+    ImageBaseOffset32 VirtualAddress;
+    dword Size;
+};
+</code></pre>
+<h4 id="image-debug-directory-line-1311"><code>IMAGE_DEBUG_DIRECTORY</code> (Line 1311)</h4>
+<pre><code data-lang="c">struct IMAGE_DEBUG_DIRECTORY {
+    dword Characteristics;
+    dword TimeDateStamp;
+    word MajorVersion;
+    word MinorVersion;
+    dword Type;
+    dword SizeOfData;
+    dword AddressOfRawData;
+    dword PointerToRawData;
+};
+</code></pre>
+<h4 id="image-load-config-directory64-line-1355"><code>IMAGE_LOAD_CONFIG_DIRECTORY64</code> (Line 1355)</h4>
+<pre><code data-lang="c">struct IMAGE_LOAD_CONFIG_DIRECTORY64 {
+    dword Size;
+    dword TimeDateStamp;
+    word MajorVersion;
+    word MinorVersion;
+    dword GlobalFlagsClear;
+    dword GlobalFlagsSet;
+    dword CriticalSectionDefaultTimeout;
+    qword DeCommitFreeBlockThreshold;
+    qword DeCommitTotalFreeThreshold;
+    pointer64 LockPrefixTable;
+    qword MaximumAllocationSize;
+    qword VirtualMemoryThreshold;
+    qword ProcessAffinityMask;
+    dword ProcessHeapFlags;
+    word CsdVersion;
+    word DependentLoadFlags;
+    pointer64 EditList;
+    pointer64 SecurityCookie;
+    pointer64 SEHandlerTable;
+    qword SEHandlerCount;
+    pointer64 GuardCFCCheckFunctionPointer;
+    pointer64 GuardCFDispatchFunctionPointer;
+    pointer64 GuardCFFunctionTable;
+    qword GuardCFFunctionCount;
+    enum IMAGE_GUARD_FLAGS GuardFlags;
+    struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY CodeIntegrity;
+    pointer64 GuardAddressTakenIatEntryTable;
+    qword GuardAddressTakenIatEntryCount;
+    pointer64 GuardLongJumpTargetTable;
+    qword GuardLongJumpTargetCount;
+    pointer64 DynamicValueRelocTable;
+    pointer64 CHPEMetadataPointer;
+    pointer64 GuardRFFailureRoutine;
+    pointer64 GuardRFFailureRoutineFunctionPointer;
+    dword DynamicValueRelocTableOffset;
+    word DynamicValueRelocTableSection;
+    word Reserved1;
+    pointer64 GuardRFVerifyStackPointerFunctionPointer;
+    dword HotPatchTableOffset;
+    dword Reserved2;
+    qword Reserved3;
+};
+</code></pre>
+<h3 id="2-3-windows-api-structures">2.3 Windows API Structures</h3>
+<h4 id="client-id-line-181"><code>CLIENT_ID</code> (Line 181)</h4>
+<pre><code data-lang="c">struct CLIENT_ID {
+    void *UniqueProcess;
+    void *UniqueThread;
+};
+</code></pre>
+<h4 id="memorystatusex-line-215"><code>_MEMORYSTATUSEX</code> (Line 215)</h4>
+<pre><code data-lang="c">struct _MEMORYSTATUSEX {
+    DWORD dwLength;
+    DWORD dwMemoryLoad;
+    DWORDLONG ullTotalPhys;
+    DWORDLONG ullAvailPhys;
+    DWORDLONG ullTotalPageFile;
+    DWORDLONG ullAvailPageFile;
+    DWORDLONG ullTotalVirtual;
+    DWORDLONG ullAvailVirtual;
+    DWORDLONG ullAvailExtendedVirtual;
+};
+</code></pre>
+<h4 id="system-info-line-253"><code>_SYSTEM_INFO</code> (Line 253)</h4>
+<pre><code data-lang="c">struct _SYSTEM_INFO {
+    union _union_552 u;
+    DWORD dwPageSize;
+    LPVOID lpMinimumApplicationAddress;
+    LPVOID lpMaximumApplicationAddress;
+    DWORD_PTR dwActiveProcessorMask;
+    DWORD dwNumberOfProcessors;
+    DWORD dwProcessorType;
+    DWORD dwAllocationGranularity;
+    WORD wProcessorLevel;
+    WORD wProcessorRevision;
+};
+</code></pre>
+<h4 id="overlapped-line-286"><code>_OVERLAPPED</code> (Line 286)</h4>
+<pre><code data-lang="c">struct _OVERLAPPED {
+    ULONG_PTR Internal;
+    ULONG_PTR InternalHigh;
+    union _union_540 u;
+    HANDLE hEvent;
+};
+</code></pre>
+<h4 id="security-attributes-line-297"><code>_SECURITY_ATTRIBUTES</code> (Line 297)</h4>
+<pre><code data-lang="c">struct _SECURITY_ATTRIBUTES {
+    DWORD nLength;
+    LPVOID lpSecurityDescriptor;
+    BOOL bInheritHandle;
+};
+</code></pre>
+<h4 id="systemtime-line-305"><code>_SYSTEMTIME</code> (Line 305)</h4>
+<pre><code data-lang="c">struct _SYSTEMTIME {
+    WORD wYear;
+    WORD wMonth;
+    WORD wDayOfWeek;
+    WORD wDay;
+    WORD wHour;
+    WORD wMinute;
+    WORD wSecond;
+    WORD wMilliseconds;
+};
+</code></pre>
+<h4 id="filetime-line-326"><code>_FILETIME</code> (Line 326)</h4>
+<pre><code data-lang="c">struct _FILETIME {
+    DWORD dwLowDateTime;
+    DWORD dwHighDateTime;
+};
+</code></pre>
+<h4 id="win32-find-dataw-line-331"><code>_WIN32_FIND_DATAW</code> (Line 331)</h4>
+<pre><code data-lang="c">struct _WIN32_FIND_DATAW {
+    DWORD dwFileAttributes;
+    FILETIME ftCreationTime;
+    FILETIME ftLastAccessTime;
+    FILETIME ftLastWriteTime;
+    DWORD nFileSizeHigh;
+    DWORD nFileSizeLow;
+    DWORD dwReserved0;
+    DWORD dwReserved1;
+    WCHAR cFileName[260];
+    WCHAR cAlternateFileName[14];
+};
+</code></pre>
+<h4 id="startupinfoa-line-360"><code>_STARTUPINFOA</code> (Line 360)</h4>
+<pre><code data-lang="c">struct _STARTUPINFOA {
+    DWORD cb;
+    LPSTR lpReserved;
+    LPSTR lpDesktop;
+    LPSTR lpTitle;
+    DWORD dwX;
+    DWORD dwY;
+    DWORD dwXSize;
+    DWORD dwYSize;
+    DWORD dwXCountChars;
+    DWORD dwYCountChars;
+    DWORD dwFillAttribute;
+    DWORD dwFlags;
+    WORD wShowWindow;
+    WORD cbReserved2;
+    LPBYTE lpReserved2;
+    HANDLE hStdInput;
+    HANDLE hStdOutput;
+    HANDLE hStdError;
+};
+</code></pre>
+<h4 id="process-information-line-383"><code>_PROCESS_INFORMATION</code> (Line 383)</h4>
+<pre><code data-lang="c">struct _PROCESS_INFORMATION {
+    HANDLE hProcess;
+    HANDLE hThread;
+    DWORD dwProcessId;
+    DWORD dwThreadId;
+};
+</code></pre>
+<h4 id="tagpoint-line-775"><code>tagPOINT</code> (Line 775)</h4>
+<pre><code data-lang="c">struct tagPOINT {
+    long x;
+    long y;
+};
+</code></pre>
+<h4 id="tagmsg-line-780"><code>tagMSG</code> (Line 780)</h4>
+<pre><code data-lang="c">struct tagMSG {
+    HWND hwnd;
+    UINT message;
+    WPARAM wParam;
+    LPARAM lParam;
+    DWORD time;
+    struct tagPOINT pt;
+};
+</code></pre>
+<h4 id="tagrect-line-816"><code>tagRECT</code> (Line 816)</h4>
+<pre><code data-lang="c">struct tagRECT {
+    long left;
+    long top;
+    long right;
+    long bottom;
+};
+</code></pre>
+<h4 id="tagwndclassexw-line-879"><code>tagWNDCLASSEXW</code> (Line 879)</h4>
+<pre><code data-lang="c">struct tagWNDCLASSEXW {
+    UINT cbSize;
+    UINT style;
+    WNDPROC lpfnWndProc;
+    int cbClsExtra;
+    int cbWndExtra;
+    HINSTANCE hInstance;
+    HICON hIcon;
+    HCURSOR hCursor;
+    HBRUSH hbrBackground;
+    LPCWSTR lpszMenuName;
+    LPCWSTR lpszClassName;
+    HICON hIconSm;
+};
+</code></pre>
+<h3 id="2-4-thread-process-structures">2.4 Thread/Process Structures</h3>
+<h4 id="rtl-srwlock-line-398"><code>_RTL_SRWLOCK</code> (Line 398)</h4>
+<pre><code data-lang="c">struct _RTL_SRWLOCK {
+    PVOID Ptr;
+};
+</code></pre>
+<h4 id="rtl-critical-section-line-420"><code>_RTL_CRITICAL_SECTION</code> (Line 420)</h4>
+<pre><code data-lang="c">struct _RTL_CRITICAL_SECTION {
+    PRTL_CRITICAL_SECTION_DEBUG DebugInfo;
+    LONG LockCount;
+    LONG RecursionCount;
+    HANDLE OwningThread;
+    HANDLE LockSemaphore;
+    ULONG_PTR SpinCount;
+};
+</code></pre>
+<h4 id="list-entry-line-429"><code>_LIST_ENTRY</code> (Line 429)</h4>
+<pre><code data-lang="c">struct _LIST_ENTRY {
+    struct _LIST_ENTRY *Flink;
+    struct _LIST_ENTRY *Blink;
+};
+</code></pre>
+<h4 id="rtl-critical-section-debug-line-434"><code>_RTL_CRITICAL_SECTION_DEBUG</code> (Line 434)</h4>
+<pre><code data-lang="c">struct _RTL_CRITICAL_SECTION_DEBUG {
+    WORD Type;
+    WORD CreatorBackTraceIndex;
+    struct _RTL_CRITICAL_SECTION *CriticalSection;
+    LIST_ENTRY ProcessLocksList;
+    DWORD EntryCount;
+    DWORD ContentionCount;
+    DWORD Flags;
+    WORD CreatorBackTraceIndexHigh;
+    WORD SpareWORD;
+};
+</code></pre>
+<h3 id="2-5-context-exception-structures">2.5 Context/Exception Structures</h3>
+<h4 id="context-line-528"><code>_CONTEXT</code> (Line 528)</h4>
+<pre><code data-lang="c">struct _CONTEXT {
+    // ... full structure contains 926 bytes
+    // XMM/SSE context, general purpose registers, debug registers
+    union _union_54 u;
+    M128A VectorRegister[26];
+    DWORD64 VectorControl;
+    DWORD64 DebugControl;
+    DWORD64 LastBranchToRip;
+    DWORD64 LastBranchFromRip;
+    DWORD64 LastExceptionToRip;
+    DWORD64 LastExceptionFromRip;
+};
+</code></pre>
+<h4 id="exception-record-line-577"><code>_EXCEPTION_RECORD</code> (Line 577)</h4>
+<pre><code data-lang="c">struct _EXCEPTION_RECORD {
+    DWORD ExceptionCode;
+    DWORD ExceptionFlags;
+    struct _EXCEPTION_RECORD *ExceptionRecord;
+    PVOID ExceptionAddress;
+    DWORD NumberParameters;
+    ULONG_PTR ExceptionInformation[15];
+};
+</code></pre>
+<h4 id="exception-pointers-line-586"><code>_EXCEPTION_POINTERS</code> (Line 586)</h4>
+<pre><code data-lang="c">struct _EXCEPTION_POINTERS {
+    struct _EXCEPTION_RECORD *ExceptionRecord;
+    struct _CONTEXT *ContextRecord;
+};
+</code></pre>
+<h4 id="image-runtime-function-entry-line-199"><code>_IMAGE_RUNTIME_FUNCTION_ENTRY</code> (Line 199)</h4>
+<pre><code data-lang="c">struct _IMAGE_RUNTIME_FUNCTION_ENTRY {
+    ImageBaseOffset32 BeginAddress;
+    dword EndAddress;           // Apply ImageBaseOffset32 to see reference
+    ImageBaseOffset32 UnwindInfoAddressOrData;
+};
+</code></pre>
+<h3 id="2-6-physx-sdk-structures-placeholder">2.6 PhysX SDK Structures (Placeholder)</h3>
+<table><thead><tr><th>Line</th><th>Name</th></tr></thead><tbody>
+<tr><td>1773</td><td><code>PxVec3</code></td></tr>
+<tr><td>1778</td><td><code>PxRaycastHit</code></td></tr>
+<tr><td>1783</td><td><code>PxAllocatorCallback</code></td></tr>
+<tr><td>1788</td><td><code>PxSweepHit</code></td></tr>
+<tr><td>1793</td><td><code>PxQuat</code></td></tr>
+<tr><td>1798</td><td><code>PxBounds3</code></td></tr>
+<tr><td>1803</td><td><code>PxFlags&lt;enum_physx::PxHitFlag::Enum,unsigned_short&gt;</code></td></tr>
+<tr><td>1808</td><td><code>PxTransform</code></td></tr>
+<tr><td>1813</td><td><code>PxMat33</code></td></tr>
+<tr><td>1818</td><td><code>PxGeometry</code></td></tr>
+<tr><td>1823</td><td><code>Foundation</code></td></tr>
+<tr><td>1828</td><td><code>CounterFrequencyToTensOfNanos</code></td></tr>
+</tbody></table>
+<h3 id="2-7-c-standard-library-placeholders">2.7 C++ Standard Library Placeholders</h3>
+<table><thead><tr><th>Line</th><th>Name</th></tr></thead><tbody>
+<tr><td>904</td><td><code>basic_filebuf&lt;char,struct_std::char_traits&lt;char&gt;_&gt;</code></td></tr>
+<tr><td>1665</td><td><code>basic_ios&lt;wchar_t,struct_std::char_traits&lt;wchar_t&gt;_&gt;</code></td></tr>
+<tr><td>1670</td><td><code>_Facet_base</code></td></tr>
+<tr><td>1675</td><td><code>basic_ostream&lt;wchar_t,struct_std::char_traits&lt;wchar_t&gt;_&gt;</code></td></tr>
+<tr><td>1680</td><td><code>basic_streambuf&lt;char,struct_std::char_traits&lt;char&gt;_&gt;</code></td></tr>
+<tr><td>1685</td><td><code>basic_istream&lt;char,struct_std::char_traits&lt;char&gt;_&gt;</code></td></tr>
+<tr><td>1690</td><td><code>codecvt_base</code></td></tr>
+<tr><td>1695</td><td><code>basic_ostream&lt;char,struct_std::char_traits&lt;char&gt;_&gt;</code></td></tr>
+<tr><td>1700</td><td><code>basic_iostream&lt;char,struct_std::char_traits&lt;char&gt;_&gt;</code></td></tr>
+<tr><td>1705</td><td><code>locale</code></td></tr>
+<tr><td>1710</td><td><code>_Fac_tidy_reg_t</code></td></tr>
+<tr><td>1715</td><td><code>fpos&lt;struct__Mbstatet&gt;</code></td></tr>
+<tr><td>1720</td><td><code>_Locinfo</code></td></tr>
+<tr><td>1725</td><td><code>ctype&lt;char&gt;</code></td></tr>
+<tr><td>1730</td><td><code>basic_ios&lt;char,struct_std::char_traits&lt;char&gt;_&gt;</code></td></tr>
+<tr><td>1735</td><td><code>codecvt&lt;char,char,struct__Mbstatet&gt;</code></td></tr>
+<tr><td>1740</td><td><code>_Lockit</code></td></tr>
+<tr><td>1745</td><td><code>basic_istream&lt;wchar_t,struct_std::char_traits&lt;wchar_t&gt;_&gt;</code></td></tr>
+<tr><td>1750</td><td><code>_Locimp</code></td></tr>
+<tr><td>1755</td><td><code>facet</code></td></tr>
+<tr><td>1760</td><td><code>id</code></td></tr>
+</tbody></table>
+<h3 id="2-8-com-interface-structures">2.8 COM/Interface Structures</h3>
+<h4 id="iunknownvtbl-line-1894"><code>IUnknownVtbl</code> (Line 1894)</h4>
+<pre><code data-lang="c">struct IUnknownVtbl {
+    HRESULT (*QueryInterface)(struct IUnknown *, IID *, void **);
+    ULONG (*AddRef)(struct IUnknown *);
+    ULONG (*Release)(struct IUnknown *);
+};
+</code></pre>
+<h4 id="iunknown-line-1900"><code>IUnknown</code> (Line 1900)</h4>
+<pre><code data-lang="c">struct IUnknown {
+    struct IUnknownVtbl *lpVtbl;
+};
+</code></pre>
+<h4 id="iallocator-line-1607"><code>IAllocator</code> (Line 1607)</h4>
+<pre><code data-lang="c">struct IAllocator { // PlaceHolder Structure
+};
+</code></pre>
+<h4 id="ilogmanager-line-1612"><code>ILogManager</code> (Line 1612)</h4>
+<pre><code data-lang="c">struct ILogManager { // PlaceHolder Structure
+};
+</code></pre>
+<h4 id="icontext-line-1630"><code>IContext</code> (Line 1630)</h4>
+<pre><code data-lang="c">struct IContext { // PlaceHolder Structure
+};
+</code></pre>
+<h3 id="2-9-bannerlord-game-structures">2.9 Bannerlord Game Structures</h3>
+<table><thead><tr><th>Line</th><th>Name</th></tr></thead><tbody>
+<tr><td>1597</td><td><code>ID3D11Device</code></td></tr>
+<tr><td>1620</td><td><code>ContextCreationParameters</code></td></tr>
+<tr><td>1625</td><td><code>CpuCacheCreationParameters</code></td></tr>
+<tr><td>1635</td><td><code>GpuCacheCreationParameters</code></td></tr>
+<tr><td>1640</td><td><code>ContextBudget</code></td></tr>
+<tr><td>1645</td><td><code>TileSetCreationParameters</code></td></tr>
+<tr><td>1650</td><td><code>DirectX11DeviceOptions</code></td></tr>
+<tr><td>1655</td><td><code>IResourceCallbacks</code></td></tr>
+<tr><td>1660</td><td><code>IDirectX11Device</code></td></tr>
+<tr><td>1768</td><td><code>UMSFreeThreadProxyFactory</code></td></tr>
+<tr><td>1833</td><td><code>MutexImpl</code></td></tr>
+<tr><td>1838</td><td><code>Socket</code></td></tr>
+</tbody></table>
+<h3 id="2-10-opaque-handle-types">2.10 Opaque Handle Types</h3>
+<table><thead><tr><th>Line</th><th>Name</th></tr></thead><tbody>
+<tr><td>789</td><td><code>HWND__</code></td></tr>
+<tr><td>795</td><td><code>HRAWINPUT__</code></td></tr>
+<tr><td>867</td><td><code>HBRUSH__</code></td></tr>
+<tr><td>871</td><td><code>HICON__</code></td></tr>
+<tr><td>875</td><td><code>HINSTANCE__</code></td></tr>
+<tr><td>1217</td><td><code>HBITMAP__</code></td></tr>
+<tr><td>1223</td><td><code>HKEY__</code></td></tr>
+<tr><td>1237</td><td><code>HDC__</code></td></tr>
+<tr><td>1245</td><td><code>HMONITOR__</code></td></tr>
+<tr><td>1263</td><td><code>HMENU__</code></td></tr>
+</tbody></table>
+<hr />
+<h2 id="3-union-definitions">3. Union Definitions</h2>
+<h3 id="3-1-large-integer-line-1034">3.1 <code>_LARGE_INTEGER</code> (Line 1034)</h3>
+<pre><code data-lang="c">union _LARGE_INTEGER {
+    struct _struct_19 s;
+    struct _struct_20 u;
+    LONGLONG QuadPart;
+};
+</code></pre>
+<h3 id="3-2-union-552-line-248">3.2 <code>_union_552</code> (Line 248)</h3>
+<pre><code data-lang="c">union _union_552 {
+    DWORD dwOemId;
+    struct _struct_553 s;
+};
+</code></pre>
+<h3 id="3-3-union-540-line-281">3.3 <code>_union_540</code> (Line 281)</h3>
+<pre><code data-lang="c">union _union_540 {
+    struct _struct_541 s;
+    PVOID Pointer;
+};
+</code></pre>
+<h3 id="3-4-image-resource-directory-entry-directoryunion-line-97">3.4 <code>IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion</code> (Line 97)</h3>
+<pre><code data-lang="c">union IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion {
+    dword OffsetToData;
+    struct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryStruct;
+};
+</code></pre>
+<h3 id="3-5-image-resource-directory-entry-nameunion-line-1403">3.5 <code>IMAGE_RESOURCE_DIRECTORY_ENTRY_NameUnion</code> (Line 1403)</h3>
+<pre><code data-lang="c">union IMAGE_RESOURCE_DIRECTORY_ENTRY_NameUnion {
+    struct IMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct IMAGE_RESOURCE_DIRECTORY_ENTRY_NameStruct;
+    dword Name;
+    word Id;
+};
+</code></pre>
+<h3 id="3-6-misc-line-1500">3.6 <code>Misc</code> (Line 1500)</h3>
+<pre><code data-lang="c">union Misc {
+    dword PhysicalAddress;
+    dword VirtualSize;
+};
+</code></pre>
+<h3 id="3-7-union-1228-line-1860">3.7 <code>_union_1228</code> (Line 1860)</h3>
+<pre><code data-lang="c">union _union_1228 {
+    HANDLE hIcon;
+};
+</code></pre>
+<hr />
+<h2 id="4-enum-definitions">4. Enum Definitions</h2>
+<h3 id="4-1-exception-disposition-line-595">4.1 <code>_EXCEPTION_DISPOSITION</code> (Line 595)</h3>
+<pre><code data-lang="c">typedef enum _EXCEPTION_DISPOSITION {
+    ExceptionContinueExecution=0,
+    ExceptionContinueSearch=1,
+    ExceptionNestedException=2,
+    ExceptionCollidedUnwind=3
+} _EXCEPTION_DISPOSITION;
+</code></pre>
+<h3 id="4-2-image-guard-flags-line-1336">4.2 <code>IMAGE_GUARD_FLAGS</code> (Line 1336)</h3>
+<pre><code data-lang="c">typedef enum IMAGE_GUARD_FLAGS {
+    IMAGE_GUARD_CF_INSTRUMENTED=256,
+    IMAGE_GUARD_CFW_INSTRUMENTED=512,
+    IMAGE_GUARD_CF_FUNCTION_TABLE_PRESENT=1024,
+    IMAGE_GUARD_SECURITY_COOKIE_UNUSED=2048,
+    IMAGE_GUARD_PROTECT_DELAYLOAD_IAT=4096,
+    IMAGE_GUARD_DELAYLOAD_IAT_IN_ITS_OWN_SECTION=8192,
+    IMAGE_GUARD_CF_EXPORT_SUPPRESSION_INFO_PRESENT=16384,
+    IMAGE_GUARD_CF_ENABLE_EXPORT_SUPPRESSION=32768,
+    IMAGE_GUARD_CF_LONGJUMP_TABLE_PRESENT=65536,
+    IMAGE_GUARD_RF_INSTRUMENTED=131072,
+    IMAGE_GUARD_RF_ENABLE=262144,
+    IMAGE_GUARD_RF_STRICT=524288,
+    IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_MASK_1=268435456,
+    IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_MASK_2=536870912,
+    IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_MASK_4=1073741824,
+    IMAGE_GUARD_CF_FUNCTION_TABLE_SIZE_MASK_8=2147483648
+} IMAGE_GUARD_FLAGS;
+</code></pre>
+<h3 id="4-3-sectionflags-line-1460">4.3 <code>SectionFlags</code> (Line 1460)</h3>
+<pre><code data-lang="c">typedef enum SectionFlags {
+    IMAGE_SCN_TYPE_NO_PAD=8,
+    IMAGE_SCN_RESERVED_0001=16,
+    IMAGE_SCN_CNT_CODE=32,
+    IMAGE_SCN_CNT_INITIALIZED_DATA=64,
+    IMAGE_SCN_CNT_UNINITIALIZED_DATA=128,
+    IMAGE_SCN_LNK_OTHER=256,
+    IMAGE_SCN_LNK_INFO=512,
+    IMAGE_SCN_RESERVED_0040=1024,
+    IMAGE_SCN_LNK_REMOVE=2048,
+    IMAGE_SCN_LNK_COMDAT=4096,
+    IMAGE_SCN_GPREL=32768,
+    IMAGE_SCN_MEM_16BIT=131072,
+    IMAGE_SCN_MEM_PURGEABLE=131072,
+    IMAGE_SCN_MEM_LOCKED=262144,
+    IMAGE_SCN_MEM_PRELOAD=524288,
+    IMAGE_SCN_ALIGN_1BYTES=1048576,
+    IMAGE_SCN_ALIGN_2BYTES=2097152,
+    IMAGE_SCN_ALIGN_4BYTES=3145728,
+    IMAGE_SCN_ALIGN_8BYTES=4194304,
+    IMAGE_SCN_ALIGN_16BYTES=5242880,
+    IMAGE_SCN_ALIGN_32BYTES=6291456,
+    IMAGE_SCN_ALIGN_64BYTES=7340032,
+    IMAGE_SCN_ALIGN_128BYTES=8388608,
+    IMAGE_SCN_ALIGN_256BYTES=9437184,
+    IMAGE_SCN_ALIGN_512BYTES=10485760,
+    IMAGE_SCN_ALIGN_1024BYTES=11534336,
+    IMAGE_SCN_ALIGN_2048BYTES=12582912,
+    IMAGE_SCN_ALIGN_4096BYTES=13631488,
+    IMAGE_SCN_ALIGN_8192BYTES=14680064,
+    IMAGE_SCN_LNK_NRELOC_OVFL=16777216,
+    IMAGE_SCN_MEM_DISCARDABLE=33554432,
+    IMAGE_SCN_MEM_NOT_CACHED=67108864,
+    IMAGE_SCN_MEM_NOT_PAGED=134217728,
+    IMAGE_SCN_MEM_SHARED=268435456,
+    IMAGE_SCN_MEM_EXECUTE=536870912,
+    IMAGE_SCN_MEM_READ=1073741824,
+    IMAGE_SCN_MEM_WRITE=2147483648
+} SectionFlags;
+</code></pre>
+<h3 id="4-4-empty-enums">4.4 Empty Enums</h3>
+<table><thead><tr><th>Line</th><th>Name</th></tr></thead><tbody>
+<tr><td>1615</td><td><code>Enum</code></td></tr>
+<tr><td>1763</td><td><code>error_type</code></td></tr>
+</tbody></table>
+<hr />
+<h2 id="5-macro-defines">5. Macro Defines</h2>
+<h3 id="5-1-ida-unknown-byte-types">5.1 IDA Unknown Byte Types</h3>
+<pre><code data-lang="c">#define unkbyte9    unsigned long long   // Line 24
+#define unkbyte10   unsigned long long  // Line 25
+#define unkbyte11   unsigned long long  // Line 26
+#define unkbyte12   unsigned long long  // Line 27
+#define unkbyte13   unsigned long long  // Line 28
+#define unkbyte14   unsigned long long  // Line 29
+#define unkbyte15   unsigned long long  // Line 30
+#define unkbyte16   unsigned long long  // Line 31
+</code></pre>
+<h3 id="5-2-ida-unknown-unsigned-integer-types">5.2 IDA Unknown Unsigned Integer Types</h3>
+<pre><code data-lang="c">#define unkuint9    unsigned long long  // Line 33
+#define unkuint10   unsigned long long  // Line 34
+#define unkuint11   unsigned long long  // Line 35
+#define unkuint12   unsigned long long  // Line 36
+#define unkuint13   unsigned long long  // Line 37
+#define unkuint14   unsigned long long  // Line 38
+#define unkuint15   unsigned long long  // Line 39
+#define unkuint16   unsigned long long  // Line 40
+</code></pre>
+<h3 id="5-3-ida-unknown-signed-integer-types">5.3 IDA Unknown Signed Integer Types</h3>
+<pre><code data-lang="c">#define unkint9     long long           // Line 42
+#define unkint10    long long           // Line 43
+#define unkint11    long long           // Line 44
+#define unkint12    long long           // Line 45
+#define unkint13    long long           // Line 46
+#define unkint14    long long           // Line 47
+#define unkint15    long long           // Line 48
+#define unkint16    long long           // Line 49
+</code></pre>
+<h3 id="5-4-ida-unknown-float-types">5.4 IDA Unknown Float Types</h3>
+<pre><code data-lang="c">#define unkfloat1   float               // Line 51
+#define unkfloat2   float               // Line 52
+#define unkfloat3   float               // Line 53
+#define unkfloat5   double              // Line 54
+#define unkfloat6   double              // Line 55
+#define unkfloat7   double              // Line 56
+#define unkfloat9   long double         // Line 57
+#define unkfloat11  long double         // Line 58
+#define unkfloat12  long double         // Line 59
+#define unkfloat13  long double         // Line 60
+#define unkfloat14  long double         // Line 61
+#define unkfloat15  long double         // Line 62
+#define unkfloat16  long double         // Line 63
+</code></pre>
+<h3 id="5-5-ida-special-types">5.5 IDA Special Types</h3>
+<pre><code data-lang="c">#define BADSPACEBASE   void   // Line 65 - IDA Pro special space base marker
+#define code           void   // Line 66 - IDA Pro code segment marker
+</code></pre>
+<hr />
+<h2 id="6-vftable-structures">6. Vftable Structures</h2>
+<p><strong>No vftable structures found</strong> in this file.</p>
+<h3 id="explanation">Explanation</h3>
+<p>TaleWorlds.Native.dll is a <strong>native C++ P/Invoke bridge DLL</strong>, not a managed .NET assembly. The virtual function tables (vftables) for Bannerlord's managed classes are located in the separate .NET assemblies:</p>
+<ul>
+<li><code>TaleWorlds.MountAndBlade.dll</code></li>
+<li><code>TaleWorlds.Core.dll</code></li>
+<li><code>TaleWorlds.CampaignSystem.dll</code></li>
+<li>Other TaleWorlds.*.dll files</li>
+</ul>
+<p>These managed assemblies contain C# classes with virtual methods, and their vftables are structured differently (using .NET MethodTable structures).</p>
+<hr />
+<h2 id="notes">Notes</h2>
+<ol>
+<li>
+<p><strong>Line Numbers</strong>: All line numbers are 1-indexed from the start of the file.</p>
+</li>
+<li>
+<p><strong>Placeholder Structures</strong>: Many structures are marked "PlaceHolder Structure" because IDA Pro/Ghidra could not determine their internal layout. This typically occurs for:</p>
+<ul>
+<li>C++ template instantiations</li>
+<li>COM interfaces</li>
+<li>Game engine-specific classes</li>
+</ul>
+</li>
+<li>
+<p><strong>ImageBaseOffset32</strong>: This type indicates a 32-bit offset from the image base address (RVA - Relative Virtual Address).</p>
+</li>
+<li>
+<p><strong>Pointer Types</strong>: Types ending with <code>__((image-base-relative))</code> indicate pointers that are stored as RVAs rather than absolute addresses.</p>
+</li>
+<li>
+<p><strong>Function Declarations</strong>: The file contains ~30,000 lines of function declarations starting from line ~1909, using patterns like:</p>
+<ul>
+<li><code>void FUN_180047ca0(...)</code> - Named by address</li>
+<li><code>void Unwind@180a1b140(...)</code> - SEH unwind handlers</li>
+<li><code>void Catch@180a1b190(...)</code> - Exception catch handlers</li>
+</ul>
+</li>
+</ol>
+<hr />
+<p><em>Generated from TaleWorlds.Native.dll.h (IDA Pro/Ghidra decompiler output)</em></p>
+<h2 id="usage-example">Usage Example</h2>
+<p>// （占位示例已移除，见正文说明）</p>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/native-1.3.15-src/">Native 1.3.15 Source Reference</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/native-1.3.15-src/mission/">&larr; 任务系统 &#x2F; Mission System</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/native-1.3.15-src/engine-core/">Engine Core &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

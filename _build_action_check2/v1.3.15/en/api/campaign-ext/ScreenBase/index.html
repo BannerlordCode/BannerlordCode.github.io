@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ScreenBase</title>
+  <meta name="description" content="Abstract base for fullscreen UI: owns the Layer list and Initialize&#x2F;Activate&#x2F;Resume&#x2F;Pause&#x2F;Deactivate&#x2F;Finalize lifecycle; every screen on the ScreenManager stack.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/ScreenBase/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/ScreenBase/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">ScreenBase</span>
+    </nav>
+  
+  <h1>ScreenBase</h1>
+  <h1 id="screenbase">ScreenBase</h1>
+<p><strong>Namespace:</strong> <code>TaleWorlds.ScreenSystem</code><br />
+<strong>Module:</strong> <code>TaleWorlds.ScreenSystem</code><br />
+<strong>Type:</strong> <code>public abstract class ScreenBase</code><br />
+<strong>Base:</strong> —<br />
+<strong>File:</strong> <code>TaleWorlds.ScreenSystem/ScreenBase.cs</code><br />
+<strong>Authority semantics:</strong> <code>bannerlord-1.4.5</code> (same module as 1.3.15)</p>
+<blockquote>
+<p><strong>Path note:</strong> This page lives under <code>api/campaign-ext/</code> for <strong>URL stability</strong> (historical partition only). The real namespace is <strong><code>TaleWorlds.ScreenSystem</code></strong>, unrelated to campaign <code>Campaign</code>. In code use <code>using TaleWorlds.ScreenSystem;</code>. Do not look for it under <code>CampaignSystem</code>.</p>
+</blockquote>
+<h2 id="overview-one-line-job">Overview / one-line job</h2>
+<p><code>ScreenBase</code> is Bannerlord's <strong>lifecycle container for one fullscreen UI</strong>: it does not draw controls itself. It holds an ordered list of <code>ScreenLayer</code>s and responds to <code>ScreenManager</code>-driven Initialize → Activate → Resume → FrameTick → Pause → Deactivate → Finalize.</p>
+<p>Mods usually take one of two subclass shapes:</p>
+<table><thead><tr><th>Shape</th><th>Open</th><th>Close</th></tr></thead><tbody>
+<tr><td>Custom tool screen</td><td><code>ScreenManager.PushScreen(new MyScreen())</code></td><td><code>ScreenManager.PopScreen()</code></td></tr>
+<tr><td>Official / extended campaign panel</td><td><code>[GameStateScreen(typeof(SomeState))]</code> + <code>GameStateManager.PushState</code></td><td><code>Game.Current.GameStateManager.PopState(0)</code></td></tr>
+</tbody></table>
+<p>The real Gauntlet control tree hangs on <a href="../../engine/GauntletLayer">GauntletLayer</a>. Real data lives on <a href="../../core-extra/ViewModel">ViewModel</a>.</p>
+<h2 id="mental-model">Mental Model</h2>
+<pre><code>ScreenManager stack
+  └── ScreenBase (this type)
+        ├── IsInitialized / IsActive / IsPaused / IsFinalized
+        ├── Layers[]  ──► ScreenLayer / GauntletLayer
+        │                     └── movie + ViewModel
+        └── virtual OnInitialize / OnActivate / OnFrameTick / OnFinalize …
+</code></pre>
+<table><thead><tr><th>Dimension</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Lifecycle</td><td>Driven by internal <code>ScreenManager</code> <code>Handle*</code> calls; <strong>do not</strong> assume a bare <code>new</code> is live</td></tr>
+<tr><td>Who creates</td><td>You <code>new</code> the subclass; who <strong>owns and schedules</strong> is <code>ScreenManager</code> (or <code>GameStateScreenManager</code> re-entry)</td></tr>
+<tr><td>Layer</td><td>SDK <strong>L1 ScreenSystem</strong>; used by L4 Gauntlet / view modules</td></tr>
+<tr><td>Save</td><td><strong>Not saveable</strong>; never put a <code>ScreenBase</code> ref in a <code>[SaveableField]</code></td></tr>
+</tbody></table>
+<h3 id="state-machine-aligned-with-screenmanager">State machine (aligned with ScreenManager)</h3>
+<pre><code>Ctor: IsPaused=true, IsActive=false, IsInitialized=false, IsFinalized=false
+
+PushScreen / become Top:
+  HandleInitialize  → OnInitialize     (once until Finalize)
+  HandleActivate    → each Layer Activate → OnActivate
+  HandleResume      → OnResume
+  first FrameTick   → OnReady (once, pending) → OnFrameTick(dt)
+  every frame       → OnFrameTick; then OnPostFrameTick
+
+Covered by a higher screen (still on stack):
+  HandlePause → each Layer Deactivate → OnPause
+  then only IdleTick → OnIdleTick (no more FrameTick)
+
+PopScreen (this screen leaves stack):
+  HandlePause → HandleDeactivate → HandleFinalize
+    after OnFinalize, base Finalizes remaining Layers in reverse order
+  lower screen gets Activate + Resume again
+</code></pre>
+<h3 id="when-to-use">When to use</h3>
+<ul>
+<li><strong>Custom fullscreen UI</strong> (debug tools, standalone panels): subclass <code>ScreenBase</code>, <code>AddLayer</code> in <code>OnInitialize</code> / <code>OnActivate</code>.</li>
+<li><strong>Campaign GameState panels</strong>: subclass <code>ScreenBase</code>, implement <code>IGameStateListener</code>, hang <code>[GameStateScreen(typeof(...))]</code>.</li>
+<li>Read Layer input in <code>OnFrameTick</code> (Exit / Confirm hotkeys) to close or commit.</li>
+<li>Query the current screen: <code>ScreenManager.TopScreen</code> (official screen or your subclass).</li>
+</ul>
+<h3 id="when-not-to-use">When not to use</h3>
+<table><thead><tr><th>Don't</th><th>Do instead</th></tr></thead><tbody>
+<tr><td>Keep long-lived business data on Screen fields and expect it across saves</td><td>Write via <code>CampaignBehaviorBase.SyncData</code> / world objects</td></tr>
+<tr><td><code>new</code> + <code>PushScreen</code> off the main thread</td><td>Main thread; 1.4.5 <code>ScreenManager</code> asserts</td></tr>
+<tr><td>Only <code>Pop</code> without releasing VM / events in <code>OnFinalize</code></td><td>Pair release in <code>OnFinalize</code> (or official Deactivate path)</td></tr>
+<tr><td>Treat <code>ScreenBase</code> as the only Mission HUD approach</td><td>Mission overlays often use <code>MissionView</code> / <code>MissionBehavior</code> + Layer without a full-screen push</td></tr>
+<tr><td>Official panels via <code>PushScreen(new GauntletInventoryScreen(...))</code> bypassing State</td><td><code>Game.Current.GameStateManager.PushState(new InventoryState(...))</code></td></tr>
+<tr><td><code>AddLayer</code> after Finalize / cache a Popped instance</td><td>Instance is dead; <code>new</code> again next time</td></tr>
+</tbody></table>
+<h2 id="dependencies">Dependencies</h2>
+<h3 id="upstream">Upstream</h3>
+<table><thead><tr><th>Type / system</th><th>Relationship</th></tr></thead><tbody>
+<tr><td><a href="../../gui/ScreenManager">ScreenManager</a></td><td>Stack scheduler; all <code>Handle*</code> / <code>FrameTick</code> / <code>IdleTick</code></td></tr>
+<tr><td><code>GameStateScreenManager</code></td><td><code>PushState</code>/<code>PopState</code> → <code>PushScreen</code>/<code>PopScreen</code></td></tr>
+<tr><td><code>Game.Current.GameStateManager</code></td><td>Preferred open/close entry for campaign panels</td></tr>
+</tbody></table>
+<h3 id="downstream">Downstream</h3>
+<table><thead><tr><th>Type / system</th><th>Relationship</th></tr></thead><tbody>
+<tr><td><a href="../ScreenLayer">ScreenLayer</a></td><td><code>AddLayer</code> / <code>RemoveLayer</code>; draw and input</td></tr>
+<tr><td><a href="../../engine/GauntletLayer">GauntletLayer</a></td><td>Most common Layer: <code>LoadMovie</code> + VM</td></tr>
+<tr><td><a href="../../core-extra/ViewModel">ViewModel</a></td><td>Data context; lifetime ≤ Screen</td></tr>
+<tr><td><code>ScreenComponent</code></td><td>Light component bag (<code>AddComponent</code> / <code>FindComponent&lt;T&gt;</code>), rarely used</td></tr>
+</tbody></table>
+<h3 id="events-save">Events / Save</h3>
+<table><thead><tr><th>Item</th><th>Notes</th></tr></thead><tbody>
+<tr><td><code>OnAddLayer</code> / <code>OnRemoveLayer</code></td><td>Instance events; cleared on <code>HandleFinalize</code></td></tr>
+<tr><td>Save</td><td><strong>None</strong>; pure runtime UI</td></tr>
+</tbody></table>
+<h2 id="risks-and-crash-boundaries">Risks and crash boundaries</h2>
+<table><thead><tr><th>Risk</th><th>Outcome</th><th>Guard</th></tr></thead><tbody>
+<tr><td><strong><code>OnFinalize</code> never releases</strong> VM / Campaign events / sprite category</td><td>Leaks, double subscribe on reopen, ghost callbacks</td><td>Official pattern: Deactivate removes Layers; Finalize calls <code>ViewModel.OnFinalize</code></td></tr>
+<tr><td><strong><code>RemoveLayer</code> immediately <code>HandleFinalize</code>s that Layer</strong></td><td>Using Layer after remove → assert / null</td><td>Null the field after Remove; prefer <code>ReleaseMovie</code> first</td></tr>
+<tr><td><strong><code>AddLayer(null)</code> or already finalized Layer</strong></td><td><code>FailedAssert("Trying to add a null or finalized layer")</code></td><td>Only add new, non-finalized layers</td></tr>
+<tr><td><strong>Same Layer added twice</strong></td><td><code>FailedAssert("Layer is already added")</code></td><td><code>HasLayer</code> or a single field</td></tr>
+<tr><td><strong>Finalize then Finalize again</strong></td><td><code>FailedAssert("Screen is already finalized")</code></td><td>Do not call <code>HandleFinalize</code> by hand; go through <code>ScreenManager</code></td></tr>
+<tr><td><strong>Assume every-frame <code>OnFrameTick</code> when not Top</strong></td><td>Covered screens only get <code>OnIdleTick</code></td><td>Background work via Idle or events, not FrameTick</td></tr>
+<tr><td>Treat Screen as a save root</td><td>Bad design / dead after load</td><td>See <a href="../../../architecture/crash-boundaries">crash boundaries §8 UI/ViewModel</a></td></tr>
+</tbody></table>
+<p>Lifecycle hard rules (same as <a href="../../gui/ScreenManager">ScreenManager</a>):</p>
+<pre><code>Push → Initialize → Activate → Resume → (OnReady) → FrameTick…
+Covered → Pause (Layers stop) → IdleTick
+Pop  → Pause → Deactivate → Finalize (must release)
+</code></pre>
+<h2 id="key-members-purpose-timing">Key members (purpose + timing)</h2>
+<h3 id="state-properties">State properties</h3>
+<table><thead><tr><th>Member</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td><code>IsInitialized</code></td><td>Whether <code>OnInitialize</code> has run</td><td>Debug; false again after Finalize</td></tr>
+<tr><td><code>IsActive</code></td><td>Active screen (not Pause/Deactivate)</td><td>Only Active screens get <code>OnFrameTick</code> from FrameTick</td></tr>
+<tr><td><code>IsPaused</code></td><td>Covered by a higher screen</td><td>When true, IdleTick path</td></tr>
+<tr><td><code>IsFinalized</code></td><td>Destroyed</td><td>Do not touch after true</td></tr>
+<tr><td><code>Layers</code></td><td>Read-only layer list (Order-sorted)</td><td>Debug, lookup</td></tr>
+<tr><td><code>MouseVisible</code></td><td>Virtual; subclass can override</td><td>Mouse show/hide policy</td></tr>
+<tr><td><code>DebugInput</code></td><td><code>Input.DebugInput</code></td><td>Debug input</td></tr>
+</tbody></table>
+<h3 id="lifecycle-hooks-what-you-override">Lifecycle hooks (what you override)</h3>
+<table><thead><tr><th>Hook</th><th>Purpose</th><th>Typical timing</th></tr></thead><tbody>
+<tr><td><code>OnInitialize</code></td><td>One-shot init (SFX, hide messages, …)</td><td>First push; Layer creation <strong>not always</strong> here</td></tr>
+<tr><td><code>OnActivate</code></td><td>Become active</td><td>Official quest/inventory screens often <code>new GauntletLayer</code> + <code>LoadMovie</code> + <code>AddLayer</code> here (via <code>IGameStateListener.OnActivate</code>)</td></tr>
+<tr><td><code>OnResume</code></td><td>Return from Pause</td><td>After upper screen pops</td></tr>
+<tr><td><code>OnReady</code></td><td>Once, before first FrameTick after activate</td><td>Deferred layout / navigation</td></tr>
+<tr><td><code>OnFrameTick(dt)</code></td><td>Top-screen per-frame logic, hotkeys</td><td>Read <code>_layer.Input.IsHotKeyReleased("Exit")</code></td></tr>
+<tr><td><code>OnPostFrameTick(dt)</code></td><td>After-frame logic</td><td>Rare</td></tr>
+<tr><td><code>OnIdleTick(dt)</code></td><td>Light tick while <strong>on stack but not top</strong></td><td>Background anim / poll; no heavy work</td></tr>
+<tr><td><code>OnPause</code> / <code>OnDeactivate</code></td><td>Covered / inactive</td><td>Clear focus; may <code>RemoveLayer</code></td></tr>
+<tr><td><code>OnFinalize</code></td><td><strong>Final release</strong></td><td><code>ViewModel.OnFinalize</code>, clear refs</td></tr>
+<tr><td><code>OnFocusChangeOnGameWindow</code></td><td>Game window focus</td><td>Pause input, etc.</td></tr>
+<tr><td><code>UpdateLayout</code></td><td>Resolution / safe-area change</td><td>Default forwards to non-finalized Layers</td></tr>
+</tbody></table>
+<h3 id="layers-and-components">Layers and components</h3>
+<table><thead><tr><th>Member</th><th>Purpose</th><th>Side effects</th></tr></thead><tbody>
+<tr><td><code>AddLayer(layer)</code></td><td>Attach layer; if Active, immediate <code>HandleActivate</code></td><td>Sorts; fires <code>OnAddLayer</code></td></tr>
+<tr><td><code>RemoveLayer(layer)</code></td><td>Detach and <strong>Finalize</strong> that layer</td><td><code>ScreenManager.RefreshGlobalOrder</code></td></tr>
+<tr><td><code>HasLayer</code> / <code>FindLayer&lt;T&gt;()</code> / <code>FindLayer&lt;T&gt;(name)</code></td><td>Lookup</td><td>—</td></tr>
+<tr><td><code>ActivateAllLayers</code> / <code>DeactivateAllLayers</code></td><td>Batch layer on/off</td><td>Does not change Screen <code>IsActive</code></td></tr>
+<tr><td><code>Activate</code> / <code>Deactivate</code></td><td>Manual screen on/off</td><td>Prefer ScreenManager; avoid fighting stack state</td></tr>
+<tr><td><code>SetLayerCategoriesState*</code></td><td>Batch on/off/toggle by <code>layer.Name</code></td><td>Multi-HUD category cases</td></tr>
+<tr><td><code>AddComponent</code> / <code>FindComponent&lt;T&gt;</code></td><td>Attach <code>ScreenComponent</code></td><td>Rare extension point</td></tr>
+</tbody></table>
+<h2 id="real-examples">Real examples</h2>
+<h3 id="example-1-custom-tool-screen-direct-screenmanager">Example 1: Custom tool screen (direct ScreenManager)</h3>
+<pre><code data-lang="csharp">using TaleWorlds.Engine.GauntletUI;
+using TaleWorlds.InputSystem;
+using TaleWorlds.Library;
+using TaleWorlds.ScreenSystem;
+
+public sealed class MyToolScreen : ScreenBase
+{
+    private GauntletLayer _layer;
+    private GauntletMovieIdentifier _movie;
+    private MyToolVM _vm;
+
+    protected override void OnInitialize()
+    {
+        base.OnInitialize();
+        _vm = new MyToolVM(closeAction: () =&gt; ScreenManager.PopScreen());
+        _layer = new GauntletLayer(&quot;MyToolScreen&quot;, localOrder: 200, shouldClear: true)
+        {
+            IsFocusLayer = true
+        };
+        _layer.InputRestrictions.SetInputRestrictions(isMouseVisible: true, InputUsageMask.All);
+        _layer.Input.RegisterHotKeyCategory(HotKeyManager.GetCategory(&quot;GenericPanelGameKeyCategory&quot;));
+        _movie = _layer.LoadMovie(&quot;MyToolMovie&quot;, _vm);
+        AddLayer(_layer);
+        ScreenManager.TrySetFocus(_layer);
+    }
+
+    protected override void OnFrameTick(float dt)
+    {
+        base.OnFrameTick(dt);
+        if (_layer != null &amp;&amp; _layer.Input.IsHotKeyReleased(&quot;Exit&quot;))
+        {
+            ScreenManager.PopScreen();
+        }
+    }
+
+    protected override void OnFinalize()
+    {
+        if (_layer != null &amp;&amp; _movie != null)
+        {
+            _layer.ReleaseMovie(_movie);
+            _movie = null;
+        }
+        if (_layer != null)
+        {
+            RemoveLayer(_layer);
+            _layer = null;
+        }
+        _vm?.OnFinalize();
+        _vm = null;
+        base.OnFinalize();
+    }
+}
+
+// Open on main thread (map hotkey, menu callback, etc.):
+// ScreenManager.PushScreen(new MyToolScreen());
+</code></pre>
+<h3 id="example-2-match-official-campaign-panels-gamestate-igamestatelistener">Example 2: Match official campaign panels (GameState + IGameStateListener)</h3>
+<p>Official <code>GauntletQuestsScreen</code> pattern (semantic summary, not a full file copy):</p>
+<pre><code data-lang="csharp">// [GameStateScreen(typeof(QuestsState))]
+// class GauntletQuestsScreen : ScreenBase, IGameStateListener
+//
+// IGameStateListener.OnActivate:
+//   _vm = new QuestsVM(CloseQuestsScreen);
+//   _layer = new GauntletLayer(&quot;QuestScreen&quot;, 1, shouldClear: true);
+//   _layer.InputRestrictions.SetInputRestrictions(...);
+//   _layer.LoadMovie(&quot;QuestsScreen&quot;, _vm);
+//   AddLayer(_layer);
+//   ScreenManager.TrySetFocus(_layer);
+//
+// IGameStateListener.OnDeactivate:
+//   RemoveLayer(_layer);   // Finalizes Layer internally
+//
+// IGameStateListener.OnFinalize:
+//   _vm.OnFinalize(); _vm = null; _layer = null;
+//
+// Close:
+//   Game.Current.GameStateManager.PopState(0);
+//   // → GameStateScreenManager → ScreenManager.PopScreen()
+</code></pre>
+<p>Open side:</p>
+<pre><code data-lang="csharp">if (Game.Current?.GameStateManager != null)
+{
+    Game.Current.GameStateManager.PushState(new QuestsState());
+}
+</code></pre>
+<p>Query top screen:</p>
+<pre><code data-lang="csharp">ScreenBase top = ScreenManager.TopScreen;
+if (top is MyToolScreen)
+{
+    // only while your tool screen is open
+}
+</code></pre>
+<h2 id="cross-version-notes">Cross-version notes</h2>
+<table><thead><tr><th>Version</th><th>Notes</th></tr></thead><tbody>
+<tr><td>1.3.0 / 1.3.15</td><td>Lifecycle and Layer API already stable</td></tr>
+<tr><td>1.4.5</td><td>Pairs with <code>ScreenManager</code> main-thread asserts; stricter double-Finalize on <code>HandleFinalize</code></td></tr>
+</tbody></table>
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="../">campaign-ext index</a> — partition for this page (historical path)</li>
+<li><a href="../../">API reference</a> — full API</li>
+<li><a href="../../../architecture/sdk-overview/">SDK overview</a> — L1 ScreenSystem / L4 UI</li>
+<li><a href="../../../guide/gauntlet-ui/">Gauntlet UI guide</a> — task walkthrough</li>
+</ul>
+<h2 id="twisted-rightwards-arrows-sibling-navigation">🔀 Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>Relationship</th></tr></thead><tbody>
+<tr><td><a href="../../gui/ScreenManager/">ScreenManager</a></td><td>Stack scheduler; Push/Pop this type</td></tr>
+<tr><td><a href="../ScreenLayer/">ScreenLayer</a></td><td>Layer base</td></tr>
+<tr><td><a href="../../engine/GauntletLayer/">GauntletLayer</a></td><td>Gauntlet movie layer</td></tr>
+<tr><td><a href="../../core-extra/ViewModel/">ViewModel</a></td><td>Bound data; Finalize with the screen</td></tr>
+<tr><td><a href="../../gui/GauntletMovie/">GauntletMovie</a></td><td>Prefab / movie binding</td></tr>
+</tbody></table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../../../architecture/doc-contract/">Doc contract</a> — handwritten deep-page bar</li>
+<li><a href="../../../architecture/crash-boundaries/">Crash boundaries §8</a> — UI / ViewModel lifetime</li>
+<li>Source: <code>SandBox.GauntletUI.GauntletQuestsScreen</code> / <code>GauntletInventoryScreen</code></li>
+<li>Source: <code>TaleWorlds.MountAndBlade.View.Screens.GameStateScreenManager</code></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/EncyclopediaSettlementPageVM/">&larr; EncyclopediaSettlementPageVM</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/PlayerMeetLordLogEntry/">PlayerMeetLordLogEntry &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

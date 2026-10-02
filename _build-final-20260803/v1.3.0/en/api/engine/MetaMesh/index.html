@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MetaMesh</title>
+  <meta name="description" content="Auto-generated class reference for MetaMesh.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/engine/MetaMesh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/engine/MetaMesh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/engine/MetaMesh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/engine/MetaMesh/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/engine/MetaMesh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/engine/MetaMesh/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="active">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;engine&#x2F;">engine index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MetaMesh</span>
+    </nav>
+  
+  <h1>MetaMesh</h1>
+  <h1 id="metamesh">MetaMesh</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Engine
+<strong>Module:</strong> TaleWorlds.Engine
+<strong>Type:</strong> <code>public sealed class MetaMesh : GameEntityComponent</code>
+<strong>Base:</strong> <code>GameEntityComponent</code>
+<strong>File:</strong> <code>TaleWorlds.Engine/MetaMesh.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>MetaMesh</code> lives in <code>TaleWorlds.Engine</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.Engine</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>IsValid</code></td><td><code>public bool IsValid { get; }</code></td></tr>
+<tr><td><code>MeshCount</code></td><td><code>public int MeshCount { get; }</code></td></tr>
+<tr><td><code>Frame</code></td><td><code>public MatrixFrame Frame { get; set; }</code></td></tr>
+<tr><td><code>VectorUserData</code></td><td><code>public Vec3 VectorUserData { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="createmetamesh">CreateMetaMesh</h3>
+<p><code>public static MetaMesh CreateMetaMesh(string name = null)</code></p>
+<p><strong>Purpose:</strong> Constructs a new meta mesh entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MetaMesh.CreateMetaMesh(&quot;example&quot;);
+</code></pre>
+<h3 id="getlodmaskformeshatindex">GetLodMaskForMeshAtIndex</h3>
+<p><code>public int GetLodMaskForMeshAtIndex(int index)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the lod mask for mesh at index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetLodMaskForMeshAtIndex(0);
+</code></pre>
+<h3 id="gettotalgpusize">GetTotalGpuSize</h3>
+<p><code>public int GetTotalGpuSize()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the total gpu size value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetTotalGpuSize();
+</code></pre>
+<h3 id="removemesheswithtag">RemoveMeshesWithTag</h3>
+<p><code>public int RemoveMeshesWithTag(string tag)</code></p>
+<p><strong>Purpose:</strong> Removes meshes with tag from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.RemoveMeshesWithTag(&quot;example&quot;);
+</code></pre>
+<h3 id="removemesheswithouttag">RemoveMeshesWithoutTag</h3>
+<p><code>public int RemoveMeshesWithoutTag(string tag)</code></p>
+<p><strong>Purpose:</strong> Removes meshes without tag from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.RemoveMeshesWithoutTag(&quot;example&quot;);
+</code></pre>
+<h3 id="getmeshcountwithtag">GetMeshCountWithTag</h3>
+<p><code>public int GetMeshCountWithTag(string tag)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mesh count with tag value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetMeshCountWithTag(&quot;example&quot;);
+</code></pre>
+<h3 id="hasvertexbufferoreditdataorpackageitem">HasVertexBufferOrEditDataOrPackageItem</h3>
+<p><code>public bool HasVertexBufferOrEditDataOrPackageItem()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds vertex buffer or edit data or package item.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.HasVertexBufferOrEditDataOrPackageItem();
+</code></pre>
+<h3 id="hasanygeneratedlods">HasAnyGeneratedLods</h3>
+<p><code>public bool HasAnyGeneratedLods()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds any generated lods.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.HasAnyGeneratedLods();
+</code></pre>
+<h3 id="hasanylods">HasAnyLods</h3>
+<p><code>public bool HasAnyLods()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds any lods.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.HasAnyLods();
+</code></pre>
+<h3 id="getcopy">GetCopy</h3>
+<p><code>public static MetaMesh GetCopy(string metaMeshName, bool showErrors = true, bool mayReturnNull = false)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the copy value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MetaMesh.GetCopy(&quot;example&quot;, false, false);
+</code></pre>
+<h3 id="copyto">CopyTo</h3>
+<p><code>public void CopyTo(MetaMesh res, bool copyMeshes = true)</code></p>
+<p><strong>Purpose:</strong> Copies the to state of the this instance to a target.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.CopyTo(res, false);
+</code></pre>
+<h3 id="clearmeshesforotherlods">ClearMeshesForOtherLods</h3>
+<p><code>public void ClearMeshesForOtherLods(int lodToKeep)</code></p>
+<p><strong>Purpose:</strong> Removes all meshes for other lods from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.ClearMeshesForOtherLods(0);
+</code></pre>
+<h3 id="clearmeshesforlod">ClearMeshesForLod</h3>
+<p><code>public void ClearMeshesForLod(int lodToClear)</code></p>
+<p><strong>Purpose:</strong> Removes all meshes for lod from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.ClearMeshesForLod(0);
+</code></pre>
+<h3 id="clearmeshesforlowerlods">ClearMeshesForLowerLods</h3>
+<p><code>public void ClearMeshesForLowerLods(int lodToClear)</code></p>
+<p><strong>Purpose:</strong> Removes all meshes for lower lods from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.ClearMeshesForLowerLods(0);
+</code></pre>
+<h3 id="clearmeshes">ClearMeshes</h3>
+<p><code>public void ClearMeshes()</code></p>
+<p><strong>Purpose:</strong> Removes all meshes from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.ClearMeshes();
+</code></pre>
+<h3 id="setnumlods">SetNumLods</h3>
+<p><code>public void SetNumLods(int lodToClear)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to num lods and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetNumLods(0);
+</code></pre>
+<h3 id="checkmetameshexistence">CheckMetaMeshExistence</h3>
+<p><code>public static void CheckMetaMeshExistence(string metaMeshName, int lod_count_check)</code></p>
+<p><strong>Purpose:</strong> Verifies whether meta mesh existence holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MetaMesh.CheckMetaMeshExistence(&quot;example&quot;, 0);
+</code></pre>
+<h3 id="getmorphedcopy">GetMorphedCopy</h3>
+<p><code>public static MetaMesh GetMorphedCopy(string metaMeshName, float morphTarget, bool showErrors)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the morphed copy value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MetaMesh.GetMorphedCopy(&quot;example&quot;, 0, false);
+</code></pre>
+<h3 id="createcopy">CreateCopy</h3>
+<p><code>public MetaMesh CreateCopy()</code></p>
+<p><strong>Purpose:</strong> Constructs a new copy entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.CreateCopy();
+</code></pre>
+<h3 id="addmesh">AddMesh</h3>
+<p><code>public void AddMesh(Mesh mesh)</code></p>
+<p><strong>Purpose:</strong> Adds mesh to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.AddMesh(mesh);
+</code></pre>
+<h3 id="addmesh-1">AddMesh</h3>
+<p><code>public void AddMesh(Mesh mesh, uint lodLevel)</code></p>
+<p><strong>Purpose:</strong> Adds mesh to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.AddMesh(mesh, 0);
+</code></pre>
+<h3 id="addmetamesh">AddMetaMesh</h3>
+<p><code>public void AddMetaMesh(MetaMesh metaMesh)</code></p>
+<p><strong>Purpose:</strong> Adds meta mesh to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.AddMetaMesh(metaMesh);
+</code></pre>
+<h3 id="setcullmode">SetCullMode</h3>
+<p><code>public void SetCullMode(MBMeshCullingMode cullMode)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to cull mode and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetCullMode(cullMode);
+</code></pre>
+<h3 id="addmaterialshaderflag">AddMaterialShaderFlag</h3>
+<p><code>public void AddMaterialShaderFlag(string materialShaderFlag)</code></p>
+<p><strong>Purpose:</strong> Adds material shader flag to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.AddMaterialShaderFlag(&quot;example&quot;);
+</code></pre>
+<h3 id="mergemultimeshes">MergeMultiMeshes</h3>
+<p><code>public void MergeMultiMeshes(MetaMesh metaMesh)</code></p>
+<p><strong>Purpose:</strong> Executes the MergeMultiMeshes logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.MergeMultiMeshes(metaMesh);
+</code></pre>
+<h3 id="assignclothbodyfrom">AssignClothBodyFrom</h3>
+<p><code>public void AssignClothBodyFrom(MetaMesh metaMesh)</code></p>
+<p><strong>Purpose:</strong> Executes the AssignClothBodyFrom logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.AssignClothBodyFrom(metaMesh);
+</code></pre>
+<h3 id="batchmultimeshes">BatchMultiMeshes</h3>
+<p><code>public void BatchMultiMeshes(MetaMesh metaMesh)</code></p>
+<p><strong>Purpose:</strong> Executes the BatchMultiMeshes logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.BatchMultiMeshes(metaMesh);
+</code></pre>
+<h3 id="hasclothdata">HasClothData</h3>
+<p><code>public bool HasClothData()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds cloth data.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.HasClothData();
+</code></pre>
+<h3 id="batchmultimeshesmultiple">BatchMultiMeshesMultiple</h3>
+<p><code>public void BatchMultiMeshesMultiple(List&lt;MetaMesh&gt; metaMeshes)</code></p>
+<p><strong>Purpose:</strong> Executes the BatchMultiMeshesMultiple logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.BatchMultiMeshesMultiple(metaMeshes);
+</code></pre>
+<h3 id="cleareditdata">ClearEditData</h3>
+<p><code>public void ClearEditData()</code></p>
+<p><strong>Purpose:</strong> Removes all edit data from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.ClearEditData();
+</code></pre>
+<h3 id="getmeshatindex">GetMeshAtIndex</h3>
+<p><code>public Mesh GetMeshAtIndex(int meshIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mesh at index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetMeshAtIndex(0);
+</code></pre>
+<h3 id="getfirstmeshwithtag">GetFirstMeshWithTag</h3>
+<p><code>public Mesh GetFirstMeshWithTag(string tag)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the first mesh with tag value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetFirstMeshWithTag(&quot;example&quot;);
+</code></pre>
+<h3 id="getfactor1">GetFactor1</h3>
+<p><code>public uint GetFactor1()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the factor1 value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetFactor1();
+</code></pre>
+<h3 id="setglossmultiplier">SetGlossMultiplier</h3>
+<p><code>public void SetGlossMultiplier(float value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to gloss multiplier and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetGlossMultiplier(0);
+</code></pre>
+<h3 id="getfactor2">GetFactor2</h3>
+<p><code>public uint GetFactor2()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the factor2 value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetFactor2();
+</code></pre>
+<h3 id="setfactor1linear">SetFactor1Linear</h3>
+<p><code>public void SetFactor1Linear(uint linearFactorColor1)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to factor1 linear and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetFactor1Linear(0);
+</code></pre>
+<h3 id="setfactor2linear">SetFactor2Linear</h3>
+<p><code>public void SetFactor2Linear(uint linearFactorColor2)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to factor2 linear and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetFactor2Linear(0);
+</code></pre>
+<h3 id="setfactor1">SetFactor1</h3>
+<p><code>public void SetFactor1(uint factorColor1)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to factor1 and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetFactor1(0);
+</code></pre>
+<h3 id="setfactor2">SetFactor2</h3>
+<p><code>public void SetFactor2(uint factorColor2)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to factor2 and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetFactor2(0);
+</code></pre>
+<h3 id="setvectorargument">SetVectorArgument</h3>
+<p><code>public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to vector argument and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetVectorArgument(0, 0, 0, 0);
+</code></pre>
+<h3 id="setvectorargument2">SetVectorArgument2</h3>
+<p><code>public void SetVectorArgument2(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to vector argument2 and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetVectorArgument2(0, 0, 0, 0);
+</code></pre>
+<h3 id="getvectorargument2">GetVectorArgument2</h3>
+<p><code>public Vec3 GetVectorArgument2()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the vector argument2 value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetVectorArgument2();
+</code></pre>
+<h3 id="setmaterial">SetMaterial</h3>
+<p><code>public void SetMaterial(Material material)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to material and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetMaterial(material);
+</code></pre>
+<h3 id="setlodbias">SetLodBias</h3>
+<p><code>public void SetLodBias(int lodBias)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to lod bias and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetLodBias(0);
+</code></pre>
+<h3 id="setbillboarding">SetBillboarding</h3>
+<p><code>public void SetBillboarding(BillboardType billboard)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to billboarding and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetBillboarding(billboard);
+</code></pre>
+<h3 id="useheadbonefacegenscaling">UseHeadBoneFaceGenScaling</h3>
+<p><code>public void UseHeadBoneFaceGenScaling(Skeleton skeleton, sbyte headLookDirectionBoneIndex, MatrixFrame frame)</code></p>
+<p><strong>Purpose:</strong> Executes the UseHeadBoneFaceGenScaling logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.UseHeadBoneFaceGenScaling(skeleton, 0, frame);
+</code></pre>
+<h3 id="drawtextwithdefaultfont">DrawTextWithDefaultFont</h3>
+<p><code>public void DrawTextWithDefaultFont(string text, Vec2 textPositionMin, Vec2 textPositionMax, Vec2 size, uint color, TextFlags flags)</code></p>
+<p><strong>Purpose:</strong> Executes the DrawTextWithDefaultFont logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.DrawTextWithDefaultFont(&quot;example&quot;, textPositionMin, textPositionMax, size, 0, flags);
+</code></pre>
+<h3 id="preloadforrendering">PreloadForRendering</h3>
+<p><code>public void PreloadForRendering()</code></p>
+<p><strong>Purpose:</strong> Executes the PreloadForRendering logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.PreloadForRendering();
+</code></pre>
+<h3 id="checkresources">CheckResources</h3>
+<p><code>public int CheckResources()</code></p>
+<p><strong>Purpose:</strong> Verifies whether resources holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.CheckResources();
+</code></pre>
+<h3 id="preloadshaders">PreloadShaders</h3>
+<p><code>public void PreloadShaders(bool useTableau, bool useTeamColor)</code></p>
+<p><strong>Purpose:</strong> Executes the PreloadShaders logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.PreloadShaders(false, false);
+</code></pre>
+<h3 id="recomputeboundingbox">RecomputeBoundingBox</h3>
+<p><code>public void RecomputeBoundingBox(bool recomputeMeshes)</code></p>
+<p><strong>Purpose:</strong> Recomputes bounding box and returns the result.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.RecomputeBoundingBox(false);
+</code></pre>
+<h3 id="addeditdatauser">AddEditDataUser</h3>
+<p><code>public void AddEditDataUser()</code></p>
+<p><strong>Purpose:</strong> Adds edit data user to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.AddEditDataUser();
+</code></pre>
+<h3 id="releaseeditdatauser">ReleaseEditDataUser</h3>
+<p><code>public void ReleaseEditDataUser()</code></p>
+<p><strong>Purpose:</strong> Executes the ReleaseEditDataUser logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.ReleaseEditDataUser();
+</code></pre>
+<h3 id="seteditdatapolicy">SetEditDataPolicy</h3>
+<p><code>public void SetEditDataPolicy(EditDataPolicy policy)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to edit data policy and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetEditDataPolicy(policy);
+</code></pre>
+<h3 id="fit">Fit</h3>
+<p><code>public MatrixFrame Fit()</code></p>
+<p><strong>Purpose:</strong> Executes the Fit logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.Fit();
+</code></pre>
+<h3 id="getboundingbox">GetBoundingBox</h3>
+<p><code>public BoundingBox GetBoundingBox()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bounding box value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetBoundingBox();
+</code></pre>
+<h3 id="getvisibilitymask">GetVisibilityMask</h3>
+<p><code>public VisibilityMaskFlags GetVisibilityMask()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the visibility mask value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetVisibilityMask();
+</code></pre>
+<h3 id="setvisibilitymask">SetVisibilityMask</h3>
+<p><code>public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to visibility mask and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetVisibilityMask(visibilityMask);
+</code></pre>
+<h3 id="getname">GetName</h3>
+<p><code>public string GetName()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+var result = metaMesh.GetName();
+</code></pre>
+<h3 id="getallmultimeshes">GetAllMultiMeshes</h3>
+<p><code>public static void GetAllMultiMeshes(ref List&lt;MetaMesh&gt; multiMeshList)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the all multi meshes value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MetaMesh.GetAllMultiMeshes(multiMeshList);
+</code></pre>
+<h3 id="getmultimesh">GetMultiMesh</h3>
+<p><code>public static MetaMesh GetMultiMesh(string name)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the multi mesh value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MetaMesh.GetMultiMesh(&quot;example&quot;);
+</code></pre>
+<h3 id="setcontourstate">SetContourState</h3>
+<p><code>public void SetContourState(bool alwaysVisible)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to contour state and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetContourState(false);
+</code></pre>
+<h3 id="setcontourcolor">SetContourColor</h3>
+<p><code>public void SetContourColor(uint color)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to contour color and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetContourColor(0);
+</code></pre>
+<h3 id="setmaterialtosubmesheswithtag">SetMaterialToSubMeshesWithTag</h3>
+<p><code>public void SetMaterialToSubMeshesWithTag(Material bodyMaterial, string tag)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to material to sub meshes with tag and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetMaterialToSubMeshesWithTag(bodyMaterial, &quot;example&quot;);
+</code></pre>
+<h3 id="setfactorcolortosubmesheswithtag">SetFactorColorToSubMeshesWithTag</h3>
+<p><code>public void SetFactorColorToSubMeshesWithTag(uint color, string tag)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to factor color to sub meshes with tag and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MetaMesh from the subsystem API first
+MetaMesh metaMesh = ...;
+metaMesh.SetFactorColorToSubMeshesWithTag(0, &quot;example&quot;);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">MetaMesh.CreateMetaMesh(&quot;example&quot;);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/engine/">engine index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/api/engine/Type/">&larr; Type</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/engine/IAsyncTask/">IAsyncTask &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

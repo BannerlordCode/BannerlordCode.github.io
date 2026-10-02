@@ -1,0 +1,5 @@
+$ zola build
+Building site...
+-> Creating 35870 pages (0 orphan) and 300 sections
+Done in 894.6s.
+

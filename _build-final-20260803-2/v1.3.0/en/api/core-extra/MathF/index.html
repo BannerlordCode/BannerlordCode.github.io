@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MathF</title>
+  <meta name="description" content="Auto-generated class reference for MathF.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core-extra/MathF/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core-extra/MathF/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/core-extra/MathF/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/core-extra/MathF/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/core-extra/MathF/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/core-extra/MathF/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="active">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;">core-extra index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MathF</span>
+    </nav>
+  
+  <h1>MathF</h1>
+  <h1 id="mathf">MathF</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Library
+<strong>Module:</strong> TaleWorlds.Library
+<strong>Type:</strong> <code>public static class MathF</code>
+<strong>Base:</strong> none
+<strong>File:</strong> <code>TaleWorlds.Library/MathF.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>MathF</code> lives in <code>TaleWorlds.Library</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.Library</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="sqrt">Sqrt</h3>
+<p><code>public static float Sqrt(float x)</code></p>
+<p><strong>Purpose:</strong> Executes the Sqrt logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Sqrt(0);
+</code></pre>
+<h3 id="sin">Sin</h3>
+<p><code>public static float Sin(float x)</code></p>
+<p><strong>Purpose:</strong> Executes the Sin logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Sin(0);
+</code></pre>
+<h3 id="asin">Asin</h3>
+<p><code>public static float Asin(float x)</code></p>
+<p><strong>Purpose:</strong> Executes the Asin logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Asin(0);
+</code></pre>
+<h3 id="cos">Cos</h3>
+<p><code>public static float Cos(float x)</code></p>
+<p><strong>Purpose:</strong> Executes the Cos logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Cos(0);
+</code></pre>
+<h3 id="acos">Acos</h3>
+<p><code>public static float Acos(float x)</code></p>
+<p><strong>Purpose:</strong> Executes the Acos logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Acos(0);
+</code></pre>
+<h3 id="tan">Tan</h3>
+<p><code>public static float Tan(float x)</code></p>
+<p><strong>Purpose:</strong> Executes the Tan logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Tan(0);
+</code></pre>
+<h3 id="tanh">Tanh</h3>
+<p><code>public static float Tanh(float x)</code></p>
+<p><strong>Purpose:</strong> Executes the Tanh logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Tanh(0);
+</code></pre>
+<h3 id="atan">Atan</h3>
+<p><code>public static float Atan(float x)</code></p>
+<p><strong>Purpose:</strong> Executes the Atan logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Atan(0);
+</code></pre>
+<h3 id="atan2">Atan2</h3>
+<p><code>public static float Atan2(float y, float x)</code></p>
+<p><strong>Purpose:</strong> Executes the Atan2 logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Atan2(0, 0);
+</code></pre>
+<h3 id="pow">Pow</h3>
+<p><code>public static double Pow(double x, double y)</code></p>
+<p><strong>Purpose:</strong> Executes the Pow logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Pow(0, 0);
+</code></pre>
+<h3 id="pow-1">Pow</h3>
+<p><code>public static double Pow(float x, double y)</code></p>
+<p><strong>Purpose:</strong> Executes the Pow logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Pow(0, 0);
+</code></pre>
+<h3 id="pow-2">Pow</h3>
+<p><code>public static double Pow(double x, float y)</code></p>
+<p><strong>Purpose:</strong> Executes the Pow logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Pow(0, 0);
+</code></pre>
+<h3 id="pow-3">Pow</h3>
+<p><code>public static float Pow(float x, float y)</code></p>
+<p><strong>Purpose:</strong> Executes the Pow logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Pow(0, 0);
+</code></pre>
+<h3 id="powtwo32">PowTwo32</h3>
+<p><code>public static int PowTwo32(int x)</code></p>
+<p><strong>Purpose:</strong> Executes the PowTwo32 logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.PowTwo32(0);
+</code></pre>
+<h3 id="powtwo64">PowTwo64</h3>
+<p><code>public static ulong PowTwo64(int x)</code></p>
+<p><strong>Purpose:</strong> Executes the PowTwo64 logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.PowTwo64(0);
+</code></pre>
+<h3 id="isvalidvalue">IsValidValue</h3>
+<p><code>public static bool IsValidValue(float f)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the valid value state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.IsValidValue(0);
+</code></pre>
+<h3 id="clamp">Clamp</h3>
+<p><code>public static float Clamp(float value, float minValue, float maxValue)</code></p>
+<p><strong>Purpose:</strong> Executes the Clamp logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Clamp(0, 0, 0);
+</code></pre>
+<h3 id="angleclamp">AngleClamp</h3>
+<p><code>public static float AngleClamp(float angle)</code></p>
+<p><strong>Purpose:</strong> Executes the AngleClamp logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.AngleClamp(0);
+</code></pre>
+<h3 id="lerp">Lerp</h3>
+<p><code>public static float Lerp(float valueFrom, float valueTo, float amount, float minimumDifference = 1E-05f)</code></p>
+<p><strong>Purpose:</strong> Executes the Lerp logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Lerp(0, 0, 0, 0);
+</code></pre>
+<h3 id="anglelerp">AngleLerp</h3>
+<p><code>public static float AngleLerp(float angleFrom, float angleTo, float amount, float minimumDifference = 1E-05f)</code></p>
+<p><strong>Purpose:</strong> Executes the AngleLerp logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.AngleLerp(0, 0, 0, 0);
+</code></pre>
+<h3 id="round">Round</h3>
+<p><code>public static int Round(double f)</code></p>
+<p><strong>Purpose:</strong> Executes the Round logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Round(0);
+</code></pre>
+<h3 id="round-1">Round</h3>
+<p><code>public static int Round(float f)</code></p>
+<p><strong>Purpose:</strong> Executes the Round logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Round(0);
+</code></pre>
+<h3 id="round-2">Round</h3>
+<p><code>public static float Round(float f, int digits)</code></p>
+<p><strong>Purpose:</strong> Executes the Round logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Round(0, 0);
+</code></pre>
+<h3 id="round-3">Round</h3>
+<p><code>public static int Round(int f)</code></p>
+<p><strong>Purpose:</strong> Executes the Round logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Round(0);
+</code></pre>
+<h3 id="floor">Floor</h3>
+<p><code>public static int Floor(double f)</code></p>
+<p><strong>Purpose:</strong> Executes the Floor logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Floor(0);
+</code></pre>
+<h3 id="floor-1">Floor</h3>
+<p><code>public static int Floor(float f)</code></p>
+<p><strong>Purpose:</strong> Executes the Floor logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Floor(0);
+</code></pre>
+<h3 id="floor-2">Floor</h3>
+<p><code>public static int Floor(int f)</code></p>
+<p><strong>Purpose:</strong> Executes the Floor logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Floor(0);
+</code></pre>
+<h3 id="ceiling">Ceiling</h3>
+<p><code>public static int Ceiling(double f)</code></p>
+<p><strong>Purpose:</strong> Executes the Ceiling logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Ceiling(0);
+</code></pre>
+<h3 id="ceiling-1">Ceiling</h3>
+<p><code>public static int Ceiling(float f)</code></p>
+<p><strong>Purpose:</strong> Executes the Ceiling logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Ceiling(0);
+</code></pre>
+<h3 id="ceiling-2">Ceiling</h3>
+<p><code>public static int Ceiling(int f)</code></p>
+<p><strong>Purpose:</strong> Executes the Ceiling logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Ceiling(0);
+</code></pre>
+<h3 id="abs">Abs</h3>
+<p><code>public static double Abs(double f)</code></p>
+<p><strong>Purpose:</strong> Executes the Abs logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Abs(0);
+</code></pre>
+<h3 id="abs-1">Abs</h3>
+<p><code>public static float Abs(float f)</code></p>
+<p><strong>Purpose:</strong> Executes the Abs logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Abs(0);
+</code></pre>
+<h3 id="abs-2">Abs</h3>
+<p><code>public static int Abs(int f)</code></p>
+<p><strong>Purpose:</strong> Executes the Abs logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Abs(0);
+</code></pre>
+<h3 id="max">Max</h3>
+<p><code>public static double Max(double a, double b)</code></p>
+<p><strong>Purpose:</strong> Executes the Max logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Max(0, 0);
+</code></pre>
+<h3 id="max-1">Max</h3>
+<p><code>public static float Max(float a, float b)</code></p>
+<p><strong>Purpose:</strong> Executes the Max logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Max(0, 0);
+</code></pre>
+<h3 id="max-2">Max</h3>
+<p><code>public static float Max(float a, int b)</code></p>
+<p><strong>Purpose:</strong> Executes the Max logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Max(0, 0);
+</code></pre>
+<h3 id="max-3">Max</h3>
+<p><code>public static float Max(int a, float b)</code></p>
+<p><strong>Purpose:</strong> Executes the Max logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Max(0, 0);
+</code></pre>
+<h3 id="max-4">Max</h3>
+<p><code>public static int Max(int a, int b)</code></p>
+<p><strong>Purpose:</strong> Executes the Max logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Max(0, 0);
+</code></pre>
+<h3 id="max-5">Max</h3>
+<p><code>public static long Max(long a, long b)</code></p>
+<p><strong>Purpose:</strong> Executes the Max logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Max(0, 0);
+</code></pre>
+<h3 id="max-6">Max</h3>
+<p><code>public static uint Max(uint a, uint b)</code></p>
+<p><strong>Purpose:</strong> Executes the Max logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Max(0, 0);
+</code></pre>
+<h3 id="max-7">Max</h3>
+<p><code>public static float Max(float a, float b, float c)</code></p>
+<p><strong>Purpose:</strong> Executes the Max logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Max(0, 0, 0);
+</code></pre>
+<h3 id="min">Min</h3>
+<p><code>public static double Min(double a, double b)</code></p>
+<p><strong>Purpose:</strong> Executes the Min logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Min(0, 0);
+</code></pre>
+<h3 id="min-1">Min</h3>
+<p><code>public static float Min(float a, float b)</code></p>
+<p><strong>Purpose:</strong> Executes the Min logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Min(0, 0);
+</code></pre>
+<h3 id="min-2">Min</h3>
+<p><code>public static short Min(short a, short b)</code></p>
+<p><strong>Purpose:</strong> Executes the Min logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Min(0, 0);
+</code></pre>
+<h3 id="min-3">Min</h3>
+<p><code>public static int Min(int a, int b)</code></p>
+<p><strong>Purpose:</strong> Executes the Min logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Min(0, 0);
+</code></pre>
+<h3 id="min-4">Min</h3>
+<p><code>public static long Min(long a, long b)</code></p>
+<p><strong>Purpose:</strong> Executes the Min logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Min(0, 0);
+</code></pre>
+<h3 id="min-5">Min</h3>
+<p><code>public static uint Min(uint a, uint b)</code></p>
+<p><strong>Purpose:</strong> Executes the Min logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Min(0, 0);
+</code></pre>
+<h3 id="min-6">Min</h3>
+<p><code>public static int Min(int a, float b)</code></p>
+<p><strong>Purpose:</strong> Executes the Min logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Min(0, 0);
+</code></pre>
+<h3 id="min-7">Min</h3>
+<p><code>public static int Min(float a, int b)</code></p>
+<p><strong>Purpose:</strong> Executes the Min logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Min(0, 0);
+</code></pre>
+<h3 id="min-8">Min</h3>
+<p><code>public static float Min(float a, float b, float c)</code></p>
+<p><strong>Purpose:</strong> Executes the Min logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Min(0, 0, 0);
+</code></pre>
+<h3 id="pingpong">PingPong</h3>
+<p><code>public static float PingPong(float min, float max, float time)</code></p>
+<p><strong>Purpose:</strong> Executes the PingPong logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.PingPong(0, 0, 0);
+</code></pre>
+<h3 id="greatestcommondivisor">GreatestCommonDivisor</h3>
+<p><code>public static int GreatestCommonDivisor(int a, int b)</code></p>
+<p><strong>Purpose:</strong> Executes the GreatestCommonDivisor logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.GreatestCommonDivisor(0, 0);
+</code></pre>
+<h3 id="log">Log</h3>
+<p><code>public static float Log(float a)</code></p>
+<p><strong>Purpose:</strong> Executes the Log logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Log(0);
+</code></pre>
+<h3 id="log-1">Log</h3>
+<p><code>public static float Log(float a, float newBase)</code></p>
+<p><strong>Purpose:</strong> Executes the Log logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Log(0, 0);
+</code></pre>
+<h3 id="sign">Sign</h3>
+<p><code>public static int Sign(float f)</code></p>
+<p><strong>Purpose:</strong> Executes the Sign logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Sign(0);
+</code></pre>
+<h3 id="sign-1">Sign</h3>
+<p><code>public static int Sign(int f)</code></p>
+<p><strong>Purpose:</strong> Executes the Sign logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Sign(0);
+</code></pre>
+<h3 id="sincos">SinCos</h3>
+<p><code>public static void SinCos(float a, out float sa, out float ca)</code></p>
+<p><strong>Purpose:</strong> Executes the SinCos logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.SinCos(0, sa, ca);
+</code></pre>
+<h3 id="log10">Log10</h3>
+<p><code>public static float Log10(float val)</code></p>
+<p><strong>Purpose:</strong> Executes the Log10 logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MathF.Log10(0);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">MathF.Sqrt(0);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/core-extra/">core-extra index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/api/core-extra/HyperlinkTexts/">&larr; HyperlinkTexts</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/core-extra/TimedDictionaryCache/">TimedDictionaryCache &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

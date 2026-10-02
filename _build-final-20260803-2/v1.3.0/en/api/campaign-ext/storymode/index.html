@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StoryMode</title>
+  <meta name="description" content="Main storyline and tutorial content.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign-ext/storymode/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign-ext/storymode/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">StoryMode</span>
+    </nav>
+  
+  <h1>StoryMode</h1>
+  <h2 id="up">Up</h2>
+<ul>
+<li><a href="../">Back to campaign-ext index</a></li>
+<li><a href="../../">API Index</a></li>
+<li><a href="../../../">Version Home</a></li>
+</ul>
+<h2 id="subsystem-overview">Subsystem overview</h2>
+<p>This is the <strong>StoryMode</strong> subsystem inside <strong>campaign-ext index</strong>. Classes in the same namespace tackle related concerns; pick a type, then open its page for methods.</p>
+<p>Main storyline and tutorial content.</p>
+<h2 id="classes">Classes</h2>
+<table><thead><tr><th>Class</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="../AchievementsCampaignBehavior/"><code>AchievementsCampaignBehavior</code></a></td><td>AchievementsCampaignBehavior is a public type in StoryMode.GameComponents.CampaignBehaviors.</td></tr>
+<tr><td><a href="../ArmyCohesionStep1Tutorial/"><code>ArmyCohesionStep1Tutorial</code></a></td><td>ArmyCohesionStep1Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../ArmyCohesionStep2Tutorial/"><code>ArmyCohesionStep2Tutorial</code></a></td><td>ArmyCohesionStep2Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../ArzagosBannerPieceQuest/"><code>ArzagosBannerPieceQuest</code></a></td><td>ArzagosBannerPieceQuest is a public type in StoryMode.Quests.FirstPhase.</td></tr>
+<tr><td><a href="../AssembleEmpireQuest/"><code>AssembleEmpireQuest</code></a></td><td>AssembleEmpireQuest is a public type in StoryMode.Quests.SecondPhase.</td></tr>
+<tr><td><a href="../AssembleEmpireQuestBehavior/"><code>AssembleEmpireQuestBehavior</code></a></td><td>AssembleEmpireQuestBehavior is a public type in StoryMode.Quests.SecondPhase.</td></tr>
+<tr><td><a href="../AssembleEmpireQuestBehaviorTypeDefiner/"><code>AssembleEmpireQuestBehaviorTypeDefiner</code></a></td><td>AssembleEmpireQuestBehaviorTypeDefiner is a public type in StoryMode.Quests.SecondPhase.</td></tr>
+<tr><td><a href="../AssembleTheBannerQuest/"><code>AssembleTheBannerQuest</code></a></td><td>AssembleTheBannerQuest is a public type in StoryMode.Quests.FirstPhase.</td></tr>
+<tr><td><a href="../AssignRolesTutorial/"><code>AssignRolesTutorial</code></a></td><td>AssignRolesTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../BannerInvestigationQuest/"><code>BannerInvestigationQuest</code></a></td><td>BannerInvestigationQuest is a public type in StoryMode.Quests.FirstPhase.</td></tr>
+<tr><td><a href="../BombardmentStep1Tutorial/"><code>BombardmentStep1Tutorial</code></a></td><td>BombardmentStep1Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../BuyingFoodStep1Tutorial/"><code>BuyingFoodStep1Tutorial</code></a></td><td>BuyingFoodStep1Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../BuyingFoodStep2Tutorial/"><code>BuyingFoodStep2Tutorial</code></a></td><td>BuyingFoodStep2Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../BuyingFoodStep3Tutorial/"><code>BuyingFoodStep3Tutorial</code></a></td><td>BuyingFoodStep3Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../CampaignStoryMode/"><code>CampaignStoryMode</code></a></td><td>CampaignStoryMode is a public type in StoryMode.</td></tr>
+<tr><td><a href="../ChoosingPerkUpgradesStep1Tutorial/"><code>ChoosingPerkUpgradesStep1Tutorial</code></a></td><td>ChoosingPerkUpgradesStep1Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../ChoosingPerkUpgradesStep2Tutorial/"><code>ChoosingPerkUpgradesStep2Tutorial</code></a></td><td>ChoosingPerkUpgradesStep2Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../ChoosingPerkUpgradesStep3Tutorial/"><code>ChoosingPerkUpgradesStep3Tutorial</code></a></td><td>ChoosingPerkUpgradesStep3Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../ChoosingSkillFocusStep1Tutorial/"><code>ChoosingSkillFocusStep1Tutorial</code></a></td><td>ChoosingSkillFocusStep1Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../ChoosingSkillFocusStep2Tutorial/"><code>ChoosingSkillFocusStep2Tutorial</code></a></td><td>ChoosingSkillFocusStep2Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../ConspiracyBaseOfOperationsDiscoveredConspiracyQuest/"><code>ConspiracyBaseOfOperationsDiscoveredConspiracyQuest</code></a></td><td>ConspiracyBaseOfOperationsDiscoveredConspiracyQuest is a public type in StoryMode.Quests.SecondPhase.ConspiracyQuests.</td></tr>
+<tr><td><a href="../ConspiracyProgressQuest/"><code>ConspiracyProgressQuest</code></a></td><td>ConspiracyProgressQuest is a public type in StoryMode.Quests.SecondPhase.</td></tr>
+<tr><td><a href="../ConspiracyQuestBase/"><code>ConspiracyQuestBase</code></a></td><td>ConspiracyQuestBase is an abstract base class in StoryMode.Quests.SecondPhase that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../ConspiracyQuestMapNotification/"><code>ConspiracyQuestMapNotification</code></a></td><td>ConspiracyQuestMapNotification is a public type in StoryMode.</td></tr>
+<tr><td><a href="../ConspiracyQuestMapNotificationItemVM/"><code>ConspiracyQuestMapNotificationItemVM</code></a></td><td>ConspiracyQuestMapNotificationItemVM is a public type in StoryMode.ViewModelCollection.Map.</td></tr>
+<tr><td><a href="../CraftingOrdersTutorial/"><code>CraftingOrdersTutorial</code></a></td><td>CraftingOrdersTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../CraftingStep1Tutorial/"><code>CraftingStep1Tutorial</code></a></td><td>CraftingStep1Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../CreateArmyStep1Tutorial/"><code>CreateArmyStep1Tutorial</code></a></td><td>CreateArmyStep1Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../CreateArmyStep2Tutorial/"><code>CreateArmyStep2Tutorial</code></a></td><td>CreateArmyStep2Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../CreateArmyStep3Tutorial/"><code>CreateArmyStep3Tutorial</code></a></td><td>CreateArmyStep3Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../CreateKingdomQuest/"><code>CreateKingdomQuest</code></a></td><td>CreateKingdomQuest is a public type in StoryMode.Quests.FirstPhase.</td></tr>
+<tr><td><a href="../CrimeTutorial/"><code>CrimeTutorial</code></a></td><td>CrimeTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../DefeatTheConspiracyQuest/"><code>DefeatTheConspiracyQuest</code></a></td><td>DefeatTheConspiracyQuest is a public type in StoryMode.Quests.ThirdPhase.</td></tr>
+<tr><td><a href="../DefeatTheConspiracyQuestBehavior/"><code>DefeatTheConspiracyQuestBehavior</code></a></td><td>DefeatTheConspiracyQuestBehavior is a public type in StoryMode.Quests.ThirdPhase.</td></tr>
+<tr><td><a href="../DefeatTheConspiracyQuestBehaviorTypeDefiner/"><code>DefeatTheConspiracyQuestBehaviorTypeDefiner</code></a></td><td>DefeatTheConspiracyQuestBehaviorTypeDefiner is a public type in StoryMode.Quests.ThirdPhase.</td></tr>
+<tr><td><a href="../DelayedAction/"><code>DelayedAction</code></a></td><td>DelayedAction is a public type in StoryMode.Missions.</td></tr>
+<tr><td><a href="../DestroyRaidersConspiracyQuest/"><code>DestroyRaidersConspiracyQuest</code></a></td><td>DestroyRaidersConspiracyQuest is a public type in StoryMode.Quests.SecondPhase.ConspiracyQuests.</td></tr>
+<tr><td><a href="../DisruptSupplyLinesConspiracyQuest/"><code>DisruptSupplyLinesConspiracyQuest</code></a></td><td>DisruptSupplyLinesConspiracyQuest is a public type in StoryMode.Quests.SecondPhase.ConspiracyQuests.</td></tr>
+<tr><td><a href="../EncyclopediaClansTutorial/"><code>EncyclopediaClansTutorial</code></a></td><td>EncyclopediaClansTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../EncyclopediaConceptsTutorial/"><code>EncyclopediaConceptsTutorial</code></a></td><td>EncyclopediaConceptsTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../EncyclopediaFiltersTutorial/"><code>EncyclopediaFiltersTutorial</code></a></td><td>EncyclopediaFiltersTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../EncyclopediaFogOfWarTutorial/"><code>EncyclopediaFogOfWarTutorial</code></a></td><td>EncyclopediaFogOfWarTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../EncyclopediaHomeTutorial/"><code>EncyclopediaHomeTutorial</code></a></td><td>EncyclopediaHomeTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../EncyclopediaKingdomsTutorial/"><code>EncyclopediaKingdomsTutorial</code></a></td><td>EncyclopediaKingdomsTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../EncyclopediaPageTutorialBase/"><code>EncyclopediaPageTutorialBase</code></a></td><td>EncyclopediaPageTutorialBase is an abstract base class in StoryMode.GauntletUI.Tutorial that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../EncyclopediaSearchTutorial/"><code>EncyclopediaSearchTutorial</code></a></td><td>EncyclopediaSearchTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../EncyclopediaSettlementsTutorial/"><code>EncyclopediaSettlementsTutorial</code></a></td><td>EncyclopediaSettlementsTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../EncyclopediaSortTutorial/"><code>EncyclopediaSortTutorial</code></a></td><td>EncyclopediaSortTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../EncyclopediaTrackTutorial/"><code>EncyclopediaTrackTutorial</code></a></td><td>EncyclopediaTrackTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../EncyclopediaTroopsTutorial/"><code>EncyclopediaTroopsTutorial</code></a></td><td>EncyclopediaTroopsTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../EnterVillageTutorial/"><code>EnterVillageTutorial</code></a></td><td>EnterVillageTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../EquipmentSetsTutorial/"><code>EquipmentSetsTutorial</code></a></td><td>EquipmentSetsTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../FindHideoutTutorialQuest/"><code>FindHideoutTutorialQuest</code></a></td><td>FindHideoutTutorialQuest is a public type in StoryMode.Quests.TutorialPhase.</td></tr>
+<tr><td><a href="../FirstPhase/"><code>FirstPhase</code></a></td><td>FirstPhase is a public type in StoryMode.StoryModePhases.</td></tr>
+<tr><td><a href="../FirstPhaseCampaignBehavior/"><code>FirstPhaseCampaignBehavior</code></a></td><td>FirstPhaseCampaignBehavior is a public type in StoryMode.GameComponents.CampaignBehaviors.</td></tr>
+<tr><td><a href="../GettingCompanionsStep1Tutorial/"><code>GettingCompanionsStep1Tutorial</code></a></td><td>GettingCompanionsStep1Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../GettingCompanionsStep2Tutorial/"><code>GettingCompanionsStep2Tutorial</code></a></td><td>GettingCompanionsStep2Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../GettingCompanionsStep3Tutorial/"><code>GettingCompanionsStep3Tutorial</code></a></td><td>GettingCompanionsStep3Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../InventoryBannerItemTutorial/"><code>InventoryBannerItemTutorial</code></a></td><td>InventoryBannerItemTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../IsArzagosTag/"><code>IsArzagosTag</code></a></td><td>IsArzagosTag is a public type in StoryMode.</td></tr>
+<tr><td><a href="../IsIstianaTag/"><code>IsIstianaTag</code></a></td><td>IsIstianaTag is a public type in StoryMode.</td></tr>
+<tr><td><a href="../IsStoryModeMentorTag/"><code>IsStoryModeMentorTag</code></a></td><td>IsStoryModeMentorTag is a public type in StoryMode.</td></tr>
+<tr><td><a href="../IstianasBannerPieceQuest/"><code>IstianasBannerPieceQuest</code></a></td><td>IstianasBannerPieceQuest is a public type in StoryMode.Quests.FirstPhase.</td></tr>
+<tr><td><a href="../KingdomDecisionVotingTutorial/"><code>KingdomDecisionVotingTutorial</code></a></td><td>KingdomDecisionVotingTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../LocateAndRescueTravellerTutorialQuest/"><code>LocateAndRescueTravellerTutorialQuest</code></a></td><td>LocateAndRescueTravellerTutorialQuest is a public type in StoryMode.Quests.TutorialPhase.</td></tr>
+<tr><td><a href="../LordConversationsStoryModeBehavior/"><code>LordConversationsStoryModeBehavior</code></a></td><td>LordConversationsStoryModeBehavior is a public type in StoryMode.GameComponents.CampaignBehaviors.</td></tr>
+<tr><td><a href="../MainStoryLine/"><code>MainStoryLine</code></a></td><td>MainStoryLine is a public type in StoryMode.</td></tr>
+<tr><td><a href="../MainStorylineCampaignBehavior/"><code>MainStorylineCampaignBehavior</code></a></td><td>MainStorylineCampaignBehavior is a public type in StoryMode.GameComponents.CampaignBehaviors.</td></tr>
+<tr><td><a href="../MainStoryLineSide/"><code>MainStoryLineSide</code></a></td><td>MainStoryLineSide is a public type in StoryMode.</td></tr>
+<tr><td><a href="../MeetWithArzagosQuest/"><code>MeetWithArzagosQuest</code></a></td><td>MeetWithArzagosQuest is a public type in StoryMode.Quests.FirstPhase.</td></tr>
+<tr><td><a href="../MeetWithIstianaQuest/"><code>MeetWithIstianaQuest</code></a></td><td>MeetWithIstianaQuest is a public type in StoryMode.Quests.FirstPhase.</td></tr>
+<tr><td><a href="../MissionGauntletTrainingFieldObjectiveView/"><code>MissionGauntletTrainingFieldObjectiveView</code></a></td><td>MissionGauntletTrainingFieldObjectiveView is a view-layer object in StoryMode.GauntletUI.Missions responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionTrainingFieldObjectiveView/"><code>MissionTrainingFieldObjectiveView</code></a></td><td>MissionTrainingFieldObjectiveView is a view-layer object in StoryMode.View.Missions responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MouseObjectives/"><code>MouseObjectives</code></a></td><td>MouseObjectives is a public type in StoryMode.Missions.</td></tr>
+<tr><td><a href="../MovementInMissionTutorial/"><code>MovementInMissionTutorial</code></a></td><td>MovementInMissionTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../NavigateOnMapTutorialStep1/"><code>NavigateOnMapTutorialStep1</code></a></td><td>NavigateOnMapTutorialStep1 is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../NavigateOnMapTutorialStep2/"><code>NavigateOnMapTutorialStep2</code></a></td><td>NavigateOnMapTutorialStep2 is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../OrderHideoutTutorial/"><code>OrderHideoutTutorial</code></a></td><td>OrderHideoutTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../OrderOfBattleTutorialStep1Tutorial/"><code>OrderOfBattleTutorialStep1Tutorial</code></a></td><td>OrderOfBattleTutorialStep1Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../OrderOfBattleTutorialStep2Tutorial/"><code>OrderOfBattleTutorialStep2Tutorial</code></a></td><td>OrderOfBattleTutorialStep2Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../OrderOfBattleTutorialStep3Tutorial/"><code>OrderOfBattleTutorialStep3Tutorial</code></a></td><td>OrderOfBattleTutorialStep3Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../OrderTutorialStep1/"><code>OrderTutorialStep1</code></a></td><td>OrderTutorialStep1 is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../OrderTutorialStep2/"><code>OrderTutorialStep2</code></a></td><td>OrderTutorialStep2 is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../PartySpeedTutorial/"><code>PartySpeedTutorial</code></a></td><td>PartySpeedTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../PressLeaveToReturnFromMissionTutorial1/"><code>PressLeaveToReturnFromMissionTutorial1</code></a></td><td>PressLeaveToReturnFromMissionTutorial1 is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../PressLeaveToReturnFromMissionTutorial2/"><code>PressLeaveToReturnFromMissionTutorial2</code></a></td><td>PressLeaveToReturnFromMissionTutorial2 is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../PurchaseGrainTutorialQuest/"><code>PurchaseGrainTutorialQuest</code></a></td><td>PurchaseGrainTutorialQuest is a public type in StoryMode.Quests.TutorialPhase.</td></tr>
+<tr><td><a href="../PurchaseItemTutorialQuestTask/"><code>PurchaseItemTutorialQuestTask</code></a></td><td>PurchaseItemTutorialQuestTask is a public type in StoryMode.Quests.QuestTasks.</td></tr>
+<tr><td><a href="../QuestScreenTutorial/"><code>QuestScreenTutorial</code></a></td><td>QuestScreenTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../RaidVillageStep1Tutorial/"><code>RaidVillageStep1Tutorial</code></a></td><td>RaidVillageStep1Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../RansomingPrisonersStep1Tutorial/"><code>RansomingPrisonersStep1Tutorial</code></a></td><td>RansomingPrisonersStep1Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../RansomingPrisonersStep2Tutorial/"><code>RansomingPrisonersStep2Tutorial</code></a></td><td>RansomingPrisonersStep2Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../RebuildPlayerClanQuest/"><code>RebuildPlayerClanQuest</code></a></td><td>RebuildPlayerClanQuest is a public type in StoryMode.Quests.PlayerClanQuests.</td></tr>
+<tr><td><a href="../RebuildPlayerClanQuestBehaviorTypeDefiner/"><code>RebuildPlayerClanQuestBehaviorTypeDefiner</code></a></td><td>RebuildPlayerClanQuestBehaviorTypeDefiner is a public type in StoryMode.Quests.PlayerClanQuests.</td></tr>
+<tr><td><a href="../RecruitmentStep1Tutorial/"><code>RecruitmentStep1Tutorial</code></a></td><td>RecruitmentStep1Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../RecruitmentStep2Tutorial/"><code>RecruitmentStep2Tutorial</code></a></td><td>RecruitmentStep2Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../RecruitTroopsTutorialQuest/"><code>RecruitTroopsTutorialQuest</code></a></td><td>RecruitTroopsTutorialQuest is a public type in StoryMode.Quests.TutorialPhase.</td></tr>
+<tr><td><a href="../RecruitTroopTutorialQuestTask/"><code>RecruitTroopTutorialQuestTask</code></a></td><td>RecruitTroopTutorialQuestTask is a public type in StoryMode.Quests.QuestTasks.</td></tr>
+<tr><td><a href="../RescueFamilyQuest/"><code>RescueFamilyQuest</code></a></td><td>RescueFamilyQuest is a public type in StoryMode.Quests.PlayerClanQuests.</td></tr>
+<tr><td><a href="../RescueFamilyQuestBehavior/"><code>RescueFamilyQuestBehavior</code></a></td><td>RescueFamilyQuestBehavior is a public type in StoryMode.Quests.PlayerClanQuests.</td></tr>
+<tr><td><a href="../SaveableStoryModeTypeDefiner/"><code>SaveableStoryModeTypeDefiner</code></a></td><td>SaveableStoryModeTypeDefiner is a public type in StoryMode.</td></tr>
+<tr><td><a href="../SecondPhase/"><code>SecondPhase</code></a></td><td>SecondPhase is a public type in StoryMode.StoryModePhases.</td></tr>
+<tr><td><a href="../SecondPhaseCampaignBehavior/"><code>SecondPhaseCampaignBehavior</code></a></td><td>SecondPhaseCampaignBehavior is a public type in StoryMode.GameComponents.CampaignBehaviors.</td></tr>
+<tr><td><a href="../SeeMarkersInMissionTutorial/"><code>SeeMarkersInMissionTutorial</code></a></td><td>SeeMarkersInMissionTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../SneakIntoTheVillaMissionController/"><code>SneakIntoTheVillaMissionController</code></a></td><td>SneakIntoTheVillaMissionController is a controller in Storymode.Missions whose job is to drive the subsystem to its next state after receiving input.</td></tr>
+<tr><td><a href="../StealthCrouchTutorial/"><code>StealthCrouchTutorial</code></a></td><td>StealthCrouchTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../StealthDarkZoneTutorial/"><code>StealthDarkZoneTutorial</code></a></td><td>StealthDarkZoneTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../StealthDistractionTutorial/"><code>StealthDistractionTutorial</code></a></td><td>StealthDistractionTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../StealthHideCorpseTutorial/"><code>StealthHideCorpseTutorial</code></a></td><td>StealthHideCorpseTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../StealthHideInBushesTutorial/"><code>StealthHideInBushesTutorial</code></a></td><td>StealthHideInBushesTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../StealthStealthKillTutorial/"><code>StealthStealthKillTutorial</code></a></td><td>StealthStealthKillTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../StealthTutorialMarkerProvider/"><code>StealthTutorialMarkerProvider</code></a></td><td>StealthTutorialMarkerProvider is a public type in StoryMode.View.MarkerProviders.</td></tr>
+<tr><td><a href="../StealthTutorialView/"><code>StealthTutorialView</code></a></td><td>StealthTutorialView is a view-layer object in StoryMode.View.Missions responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../StealthWalkSlowTutorial/"><code>StealthWalkSlowTutorial</code></a></td><td>StealthWalkSlowTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../StoryModeAgentDecideKilledOrUnconsciousModel/"><code>StoryModeAgentDecideKilledOrUnconsciousModel</code></a></td><td>StoryModeAgentDecideKilledOrUnconsciousModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeBanditDensityModel/"><code>StoryModeBanditDensityModel</code></a></td><td>StoryModeBanditDensityModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeBannerEffects/"><code>StoryModeBannerEffects</code></a></td><td>StoryModeBannerEffects is a public type in StoryMode.StoryModeObjects.</td></tr>
+<tr><td><a href="../StoryModeBannerItemModel/"><code>StoryModeBannerItemModel</code></a></td><td>StoryModeBannerItemModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeBattleRewardModel/"><code>StoryModeBattleRewardModel</code></a></td><td>StoryModeBattleRewardModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeCharacterCreationCampaignBehavior/"><code>StoryModeCharacterCreationCampaignBehavior</code></a></td><td>StoryModeCharacterCreationCampaignBehavior is a public type in StoryMode.GameComponents.CampaignBehaviors.</td></tr>
+<tr><td><a href="../StoryModeCheats/"><code>StoryModeCheats</code></a></td><td>StoryModeCheats is a public type in StoryMode.</td></tr>
+<tr><td><a href="../StoryModeCombatXpModel/"><code>StoryModeCombatXpModel</code></a></td><td>StoryModeCombatXpModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeCutsceneSelectionModel/"><code>StoryModeCutsceneSelectionModel</code></a></td><td>StoryModeCutsceneSelectionModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeData/"><code>StoryModeData</code></a></td><td>StoryModeData is a data carrier in StoryMode that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../StoryModeEncounterGameMenuModel/"><code>StoryModeEncounterGameMenuModel</code></a></td><td>StoryModeEncounterGameMenuModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeEvents/"><code>StoryModeEvents</code></a></td><td>StoryModeEvents is a public type in StoryMode.</td></tr>
+<tr><td><a href="../StoryModeGauntletUISubModule/"><code>StoryModeGauntletUISubModule</code></a></td><td>StoryModeGauntletUISubModule is a public type in StoryMode.GauntletUI.</td></tr>
+<tr><td><a href="../StoryModeGenericXpModel/"><code>StoryModeGenericXpModel</code></a></td><td>StoryModeGenericXpModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeHeroDeathProbabilityCalculationModel/"><code>StoryModeHeroDeathProbabilityCalculationModel</code></a></td><td>StoryModeHeroDeathProbabilityCalculationModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeHeroes/"><code>StoryModeHeroes</code></a></td><td>StoryModeHeroes is a public type in StoryMode.StoryModeObjects.</td></tr>
+<tr><td><a href="../StoryModeIncidentModel/"><code>StoryModeIncidentModel</code></a></td><td>StoryModeIncidentModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeKingdomDecisionPermissionModel/"><code>StoryModeKingdomDecisionPermissionModel</code></a></td><td>StoryModeKingdomDecisionPermissionModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeManager/"><code>StoryModeManager</code></a></td><td>StoryModeManager is a manager in StoryMode that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../StoryModeMissions/"><code>StoryModeMissions</code></a></td><td>StoryModeMissions is a public type in StoryMode.Missions.</td></tr>
+<tr><td><a href="../StoryModeMissionViews/"><code>StoryModeMissionViews</code></a></td><td>StoryModeMissionViews is a public type in StoryMode.View.Missions.</td></tr>
+<tr><td><a href="../StoryModeNotableSpawnModel/"><code>StoryModeNotableSpawnModel</code></a></td><td>StoryModeNotableSpawnModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModePartySizeLimitModel/"><code>StoryModePartySizeLimitModel</code></a></td><td>StoryModePartySizeLimitModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModePartyWageModel/"><code>StoryModePartyWageModel</code></a></td><td>StoryModePartyWageModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModePermissionsSystem/"><code>StoryModePermissionsSystem</code></a></td><td>StoryModePermissionsSystem is a public type in StoryMode.View.Permissions.</td></tr>
+<tr><td><a href="../StoryModePrisonerRecruitmentCalculationModel/"><code>StoryModePrisonerRecruitmentCalculationModel</code></a></td><td>StoryModePrisonerRecruitmentCalculationModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeQuestBase/"><code>StoryModeQuestBase</code></a></td><td>StoryModeQuestBase is an abstract base class in StoryMode that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../StoryModeSubModule/"><code>StoryModeSubModule</code></a></td><td>StoryModeSubModule is a public type in StoryMode.</td></tr>
+<tr><td><a href="../StoryModeTargetScoreCalculatingModel/"><code>StoryModeTargetScoreCalculatingModel</code></a></td><td>StoryModeTargetScoreCalculatingModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeTroopSupplierProbabilityModel/"><code>StoryModeTroopSupplierProbabilityModel</code></a></td><td>StoryModeTroopSupplierProbabilityModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../StoryModeTutorialBoxCampaignBehavior/"><code>StoryModeTutorialBoxCampaignBehavior</code></a></td><td>StoryModeTutorialBoxCampaignBehavior is a public type in StoryMode.GameComponents.CampaignBehaviors.</td></tr>
+<tr><td><a href="../StoryModeViewCreator/"><code>StoryModeViewCreator</code></a></td><td>StoryModeViewCreator is a public type in StoryMode.View.</td></tr>
+<tr><td><a href="../StoryModeViewSubModule/"><code>StoryModeViewSubModule</code></a></td><td>StoryModeViewSubModule is a public type in StoryMode.View.</td></tr>
+<tr><td><a href="../StoryModeVoiceOverModel/"><code>StoryModeVoiceOverModel</code></a></td><td>StoryModeVoiceOverModel is a rule model in StoryMode.GameComponents; it defines how a subsystem computes things, and modders usually customize it by subclassing or replacement.</td></tr>
+<tr><td><a href="../SupportKingdomQuest/"><code>SupportKingdomQuest</code></a></td><td>SupportKingdomQuest is a public type in StoryMode.Quests.FirstPhase.</td></tr>
+<tr><td><a href="../TakingPrisonersTutorial/"><code>TakingPrisonersTutorial</code></a></td><td>TakingPrisonersTutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../TalkToNotableTutorialStep1/"><code>TalkToNotableTutorialStep1</code></a></td><td>TalkToNotableTutorialStep1 is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../TalkToNotableTutorialStep2/"><code>TalkToNotableTutorialStep2</code></a></td><td>TalkToNotableTutorialStep2 is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../TalkToTheHeadmanTutorialQuest/"><code>TalkToTheHeadmanTutorialQuest</code></a></td><td>TalkToTheHeadmanTutorialQuest is a public type in StoryMode.Quests.TutorialPhase.</td></tr>
+<tr><td><a href="../ThirdPhase/"><code>ThirdPhase</code></a></td><td>ThirdPhase is a public type in StoryMode.StoryModePhases.</td></tr>
+<tr><td><a href="../ThirdPhaseCampaignBehavior/"><code>ThirdPhaseCampaignBehavior</code></a></td><td>ThirdPhaseCampaignBehavior is a public type in StoryMode.GameComponents.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TrainingField/"><code>TrainingField</code></a></td><td>TrainingField is a public type in StoryMode.</td></tr>
+<tr><td><a href="../TrainingFieldCampaignBehavior/"><code>TrainingFieldCampaignBehavior</code></a></td><td>TrainingFieldCampaignBehavior is a public type in StoryMode.GameComponents.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TrainingFieldEncounter/"><code>TrainingFieldEncounter</code></a></td><td>TrainingFieldEncounter is a public type in StoryMode.</td></tr>
+<tr><td><a href="../TrainingFieldMissionController/"><code>TrainingFieldMissionController</code></a></td><td>TrainingFieldMissionController is a controller in StoryMode.Missions whose job is to drive the subsystem to its next state after receiving input.</td></tr>
+<tr><td><a href="../TrainingFieldObjectiveItemVM/"><code>TrainingFieldObjectiveItemVM</code></a></td><td>TrainingFieldObjectiveItemVM is a public type in StoryMode.ViewModelCollection.Missions.</td></tr>
+<tr><td><a href="../TrainingFieldObjectivesVM/"><code>TrainingFieldObjectivesVM</code></a></td><td>TrainingFieldObjectivesVM is a public type in StoryMode.ViewModelCollection.Missions.</td></tr>
+<tr><td><a href="../TravelToVillageTutorialQuest/"><code>TravelToVillageTutorialQuest</code></a></td><td>TravelToVillageTutorialQuest is a public type in StoryMode.Quests.TutorialPhase.</td></tr>
+<tr><td><a href="../TutorialObjective/"><code>TutorialObjective</code></a></td><td>TutorialObjective is a public type in StoryMode.Missions.</td></tr>
+<tr><td><a href="../TutorialPhase/"><code>TutorialPhase</code></a></td><td>TutorialPhase is a public type in StoryMode.StoryModePhases.</td></tr>
+<tr><td><a href="../TutorialPhaseCampaignBehavior/"><code>TutorialPhaseCampaignBehavior</code></a></td><td>TutorialPhaseCampaignBehavior is a public type in StoryMode.GameComponents.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TutorialQuestPhase/"><code>TutorialQuestPhase</code></a></td><td>TutorialQuestPhase is a public type in StoryMode.StoryModePhases.</td></tr>
+<tr><td><a href="../UpgradingTroopsStep1Tutorial/"><code>UpgradingTroopsStep1Tutorial</code></a></td><td>UpgradingTroopsStep1Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../UpgradingTroopsStep2Tutorial/"><code>UpgradingTroopsStep2Tutorial</code></a></td><td>UpgradingTroopsStep2Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../UpgradingTroopsStep3Tutorial/"><code>UpgradingTroopsStep3Tutorial</code></a></td><td>UpgradingTroopsStep3Tutorial is a public type in StoryMode.GauntletUI.Tutorial.</td></tr>
+<tr><td><a href="../VillagersInNeed/"><code>VillagersInNeed</code></a></td><td>VillagersInNeed is a public type in StoryMode.Quests.TutorialPhase.</td></tr>
+<tr><td><a href="../WeakenEmpireQuest/"><code>WeakenEmpireQuest</code></a></td><td>WeakenEmpireQuest is a public type in StoryMode.Quests.SecondPhase.</td></tr>
+<tr><td><a href="../WeakenEmpireQuestBehavior/"><code>WeakenEmpireQuestBehavior</code></a></td><td>WeakenEmpireQuestBehavior is a public type in StoryMode.Quests.SecondPhase.</td></tr>
+<tr><td><a href="../WeakenEmpireQuestBehaviorTypeDefiner/"><code>WeakenEmpireQuestBehaviorTypeDefiner</code></a></td><td>WeakenEmpireQuestBehaviorTypeDefiner is a public type in StoryMode.Quests.SecondPhase.</td></tr>
+</tbody></table>
+<h2 id="other-subsystems-in-this-area">Other subsystems in this area</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/storymode/./../global/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/storymode/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/storymode/./../actions/">Actions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/storymode/./../networkmessages/">NetworkMessages</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/storymode/./../sandbox/">SandBox</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/storymode/./../taleworlds/">TaleWorlds</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

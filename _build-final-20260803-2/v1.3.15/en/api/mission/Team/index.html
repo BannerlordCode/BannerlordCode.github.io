@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Team</title>
+  <meta name="description" content="One side in a battle — a Mission-owned collection of Agents and Formations with its own OrderControllers, TeamAI, faction relationships, and colors (attacker &#x2F; defender &#x2F; player &#x2F; neutral).">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission/Team/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission/Team/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="active">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;mission&#x2F;">mission index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Team</span>
+    </nav>
+  
+  <h1>Team</h1>
+  <h1 id="team">Team</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade<br />
+<strong>Module:</strong> TaleWorlds.MountAndBlade<br />
+<strong>Type:</strong> <code>public class Team : IMissionTeam</code><br />
+<strong>Base:</strong> <code>IMissionTeam</code><br />
+<strong>Source:</strong> <code>TaleWorlds.MountAndBlade/Team.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Team</code> represents <strong>one faction/side inside a single <code>Mission</code></strong>: the attacker, the defender, the player's party, the player's allies, or even neutral onlookers — each is a <code>Team</code>. A <code>Team</code> is simultaneously:</p>
+<ul>
+<li>a container that <em>owns</em> a set of <code>Agent</code>s (soldiers, the player, mounts);</li>
+<li>the owner of a set of <code>Formation</code>s (infantry / ranged / cavalry / special);</li>
+<li>a mount point for a command system (<code>OrderController</code>, master/player) and a tactical AI system (<code>TeamAIComponent</code>);</li>
+<li>the carrier of faction relationships (enemy / friend) and visual identity (<code>Color</code> / <code>Banner</code>).</li>
+</ul>
+<p>It connects downward to thousands of <code>Agent</code>s via <code>Agent.Team</code> and is managed upward by <code>Mission.Teams</code>. Most combat mods start their "friend-or-foe", "formation command", and "strength tally" logic from <code>Team</code>.</p>
+<h2 id="responsibility-in-one-line">Responsibility in One Line</h2>
+<p>A single-battle unit group that is commanded together, shares one faction relationship and one color scheme — described to the outside world as "enemy / friend / player side" and categorized internally as "attacker / defender / neutral".</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of a <code>Team</code> as <strong>"all the units under one banner on the battlefield"</strong>:</p>
+<ul>
+<li><strong>How long it lives:</strong> Only for the lifetime of one <code>Mission</code>. It is created by <code>Mission.Teams</code> when the mission loads and destroyed by <code>Mission.Teams.Clear()</code> → <code>Team.Clear()</code> when the mission ends. Switching scenes builds a brand-new <code>Mission</code> with a brand-new set of <code>Team</code>s.</li>
+<li><strong>Who creates it:</strong> Never <code>new Team()</code> yourself. <code>Team</code> is a managed wrapper around the native <code>MBTeam</code> (the <code>MBTeam</code> field). The only real creation entry is <code>Mission.Teams.Add(BattleSideEnum side, ...)</code>, called by the campaign/mission spawn logic during initialization. The engine then raises <code>MissionBehavior.OnAddTeam</code> / <code>AfterAddTeam</code> for every team.</li>
+<li><strong>Which layer it lives in:</strong> It belongs to the <strong>runtime combat layer</strong> of <code>TaleWorlds.MountAndBlade</code>, decoupled from the campaign layer (<code>Campaign</code> / <code>Hero</code>). The same <code>Hero</code> belongs to a different <code>Team</code> instance in every battle.</li>
+<li><strong>Relationship to <code>Agent</code>:</strong> Each <code>Agent</code> is added to exactly one team on spawn (<code>Team.AddAgentToTeam</code>) and references it back via <code>agent.Team</code>; switching teams uses <code>agent.SetTeam(...)</code>, which syncs the native side and broadcasts.</li>
+<li><strong>Relationship to <code>Formation</code>:</strong> A team pre-creates 10 <code>Formation</code>s in <code>Initialize()</code> (8 standard + 2 special), indexed by <code>FormationClass</code>; <code>GetFormation(FormationClass)</code> simply indexes in.</li>
+<li><strong>Relationship to the command system:</strong> It holds 2 <code>OrderController</code>s by default — <code>MasterOrderController</code> (index 0, commander / AI issued) and <code>PlayerOrderController</code> (index 1, player issued); more controllers are lazily created per <code>Agent</code>.</li>
+</ul>
+<h2 id="how-to-obtain-a-team">How to Obtain a Team</h2>
+<pre><code data-lang="csharp">// 1) The player&#39;s own team (most common entry point)
+Team playerTeam = Mission.Current?.PlayerTeam;
+
+// 2) Iterate every team in the current Mission
+foreach (Team team in Mission.Current.Teams)
+{
+    // ...
+}
+
+// 3) Get the player-relative side: player, player enemy, player ally
+Team enemy = Mission.Current.PlayerEnemyTeam;
+Team ally  = Mission.Current.PlayerAllyTeam;
+Team enemy2 = Mission.GetTeam(TeamSideEnum.EnemyTeam);   // static convenience
+
+// 4) Get by attacker/defender side (a battle may have several of each)
+foreach (Team t in Mission.GetTeamsOfSide(BattleSideEnum.Attacker))
+{
+    // ...
+}
+
+// 5) From an Agent, get the team it belongs to
+Team team = someAgent.Team;
+
+// 6) Resolve by team index (common in network / native callbacks)
+Team t = Mission.GetTeamFromTeamIndex(someAgent.TeamIndex);
+</code></pre>
+<blockquote>
+<p><strong>Sentinel trap:</strong> <code>Mission.Teams.Find(MBTeam)</code> returns <code>Team.Invalid</code> (a static sentinel whose <code>Mission == null</code>) when nothing matches — <strong>not <code>null</code></strong>. Always test validity with <code>team.IsValid</code> (i.e. <code>MBTeam.IsValid</code>), never with <code>team == null</code>.</p>
+</blockquote>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p><strong>Use:</strong></p>
+<ul>
+<li><code>Mission.Current.Teams</code> to iterate, and <code>agent.Team</code> to read the owning team;</li>
+<li><code>Mission.Current.PlayerTeam</code> / <code>PlayerEnemyTeam</code> / <code>PlayerAllyTeam</code> for the player-related sides;</li>
+<li><code>team.ActiveAgents</code> to enumerate currently-alive members and <code>team.GetFormation(FormationClass.X)</code> to manipulate formations;</li>
+<li><code>team.IsEnemyOf(other)</code> / <code>team.IsFriendOf(other)</code> for friend-or-foe checks;</li>
+<li><code>team.QuerySystem</code> to read aggregated strength / position statistics.</li>
+</ul>
+<p><strong>Do NOT:</strong></p>
+<ul>
+<li><strong>Do not <code>new Team(...)</code>:</strong> the constructor is not for mods. <code>TeamCollection.Add(Team)</code> prints <code>"Pre-created Team can not be added to TeamCollection!"</code> and does nothing. Create a team only via <code>Mission.Teams.Add(BattleSideEnum, ...)</code>.</li>
+<li><strong>Do not cache <code>Team</code> references across missions:</strong> after the mission ends the <code>Team</code> / <code>MBTeam</code> become invalid, <code>IsValid</code> turns <code>false</code>, and further access reads corrupt data or crashes. Re-fetch from <code>Mission.Current</code> every frame.</li>
+<li><strong>Do not hard-code indices like <code>Teams[0]</code>, <code>Teams[1]</code>:</strong> there can be multiple attackers/defenders (Attacker / AttackerAlly / Defender / DefenderAlly), and order is not guaranteed. Use <code>Mission.Current.PlayerTeam</code> or <code>Mission.GetTeamsOfSide(...)</code>.</li>
+<li><strong>Do not manually add/remove team members outside the Mission tick:</strong> <code>AddAgentToTeam</code> / <code>RemoveAgentFromTeam</code> / <code>DeactivateAgent</code> are called by the engine on spawn/death; calling them yourself breaks <code>_activeAgents</code> / <code>_teamAgents</code> consistency. To switch teams use <code>agent.SetTeam(...)</code>.</li>
+<li><strong>Do not arbitrarily change faction relationships on the client:</strong> <code>SetIsEnemyOf</code> only broadcasts when <code>GameNetwork.IsServerOrRecorder</code>; it is correct only when called on the server.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<p><strong>Upstream (creates / owns)</strong></p>
+<ul>
+<li><a href="../Mission/">Mission</a> — the global scene; holds the <code>Teams</code> collection and calls <code>Team.Tick</code> every frame.</li>
+<li><a href="../../mission-ext/">TeamCollection</a> — the concrete type of <code>Mission.Teams</code>; provides the <code>Add(BattleSideEnum)</code> creation entry.</li>
+<li><a href="../../mission-ext/">MBTeam</a> — the native (C++) team; <code>Team</code>'s <code>MBTeam</code> field is its managed wrapper.</li>
+</ul>
+<p><strong>Downstream / owned</strong></p>
+<ul>
+<li><a href="../Agent/">Agent</a> — belongs via <code>agent.Team</code>; <code>ActiveAgents</code> / <code>TeamAgents</code> list members back.</li>
+<li><a href="../Formation/">Formation</a> — 10 per team, indexed by <code>FormationClass</code>.</li>
+<li><a href="../../mission-ext/">OrderController</a> — <code>MasterOrderController</code> / <code>PlayerOrderController</code> / lazily created.</li>
+<li><a href="../../mission-ext/">TeamAIComponent</a> — tactical AI mount point (<code>TeamAI</code>).</li>
+<li><a href="../../mission-ext/">TeamQuerySystem</a> — aggregated queries (strength, position).</li>
+<li><a href="../../core-extra/">Banner</a> — the team banner; <code>Color</code> / <code>Color2</code> are <code>uint</code> ARGB.</li>
+<li><a href="../../core-extra/">BattleSideEnum</a> / <a href="../../core-extra/">TeamSideEnum</a> / <a href="../../core-extra/">FormationClass</a> — side / identity / formation enums.</li>
+</ul>
+<p><strong>Related Events · Behaviors · Models</strong></p>
+<ul>
+<li><code>MissionBehavior.OnAddTeam</code> / <code>AfterAddTeam</code> (override in <a href="../MissionBehavior/">MissionBehavior</a>) — raised when a team is added.</li>
+<li>Instance events: <code>OnFormationsChanged</code>, <code>OnOrderIssued</code>, <code>OnFormationAIActiveBehaviorChanged</code>, <code>OnFormationsChangedInDeployment</code>.</li>
+<li><a href="../../mission-ext/">TacticComponent</a> — registered onto <code>TeamAI</code> via <code>AddTacticOption</code>.</li>
+<li><a href="../../mission-ext/">MissionObject</a> — flags / capture points associate with a team via <code>Side</code>.</li>
+<li><a href="../../mission-ext/">MissionState</a> — faction relationships may only be written while the mission is in progress.</li>
+</ul>
+<h2 id="risks">Risks</h2>
+<ol>
+<li>
+<p><strong>Referencing a <code>Team</code> after the mission ends:</strong> Mission end runs <code>Teams.Clear()</code> → per-team <code>Team.Clear()</code> → native <code>ResetTeams</code>, and <code>Team.Invalid</code> is reset to <code>null</code>. If a mod stores a <code>Team</code> in a field and accesses it after <code>OnMissionEnded</code>, its <code>MBTeam</code> is dead; reading <code>ActiveAgents</code> / <code>Formations</code> / <code>QuerySystem</code> throws or returns corrupt data. <strong>Fix:</strong> clear the reference in <code>MissionBehavior.OnMissionEnded</code>; before any access check <code>Mission.Current != null</code> and <code>team.IsValid</code>.</p>
+</li>
+<li>
+<p><strong>Assuming team index / team order is stable:</strong> <code>TeamIndex</code> comes from <code>MBTeam.Index</code> (native creation order), and there may be Attacker/AttackerAlly/Defender/DefenderAlly teams. Hard-coded indices misalign ally/enemy detection.</p>
+</li>
+<li>
+<p><strong>Mutating team membership outside the Mission tick:</strong> Manually calling <code>AddAgentToTeam</code> / <code>RemoveAgentFromTeam</code> skips <code>Agent.SetTeam</code>'s native sync and network broadcast; <code>DeactivateAgent</code> only removes from <code>_activeAgents</code>, not <code>_teamAgents</code>, leaving them inconsistent (e.g. <code>TeamAgents</code> still holds deactivated units). To switch teams use <code>agent.SetTeam(...)</code>.</p>
+</li>
+<li>
+<p><strong>Faction relationships can only be changed on the server:</strong> <code>SetIsEnemyOf</code> does not broadcast under <code>!IsServerOrRecorder</code>, so client-side calls desync client/server faction state; <code>PlayerEnemyTeam</code> / <code>PlayerAllyTeam</code> are recomputed from it. Always call on the server while the <code>Mission</code> is running.</p>
+</li>
+<li>
+<p><strong><code>Team.Invalid</code> is not <code>null</code>:</strong> <code>Find()</code> and <code>GetTeamFromTeamIndex(-1)</code> return the sentinel, not <code>null</code>; a <code>== null</code> check wrongly treats it as "valid". Always use <code>IsValid</code>.</p>
+</li>
+<li>
+<p><strong>Objects may be null under Replay:</strong> <code>Initialize()</code> skips creating <code>FormationsIncludingEmpty</code>, <code>_orderControllers</code>, <code>QuerySystem</code>, and <code>DetachmentManager</code> when <code>GameNetwork.IsReplay</code>. Accessing those fields under replay can be <code>null</code>/empty, and most <code>Tick</code> logic is <code>IsReplay</code>-guarded; do not assume formations / order controllers exist during replay.</p>
+</li>
+</ol>
+<h2 id="key-members">Key Members</h2>
+<blockquote>
+<p>Key mod-visible members grouped by theme. Each notes <strong>purpose + side effect + when to call</strong>. Purely internal fields are omitted.</p>
+</blockquote>
+<h3 id="1-side-identity">1. Side &amp; Identity</h3>
+<table><thead><tr><th>Member</th><th>Type</th><th>Purpose / when to call</th></tr></thead><tbody>
+<tr><td><code>Side</code></td><td><code>BattleSideEnum</code></td><td>Attacker / Defender / None. Set at construction from <code>Teams.Add</code>'s <code>side</code> arg; read-only afterwards. The "physical side".</td></tr>
+<tr><td><code>TeamSide</code></td><td><code>TeamSideEnum</code></td><td>Identity derived relative to the player: <code>PlayerTeam</code> / <code>PlayerAllyTeam</code> / <code>EnemyTeam</code> (anything that is neither player nor ally counts as enemy, including neutral). Read-only.</td></tr>
+<tr><td><code>IsPlayerTeam</code> / <code>IsPlayerAlly</code></td><td><code>bool</code></td><td>Equivalent to <code>Mission.PlayerTeam == this</code>, and "same Side and not the player" respectively. Drives UI highlight and command permission.</td></tr>
+<tr><td><code>IsAttacker</code> / <code>IsDefender</code></td><td><code>bool</code></td><td>Direct derivations of <code>Side</code>.</td></tr>
+<tr><td><code>IsValid</code></td><td><code>bool</code></td><td><code>MBTeam.IsValid</code>. <strong>Whether the team is still valid</strong> (false after mission end). Use instead of <code>== null</code>.</td></tr>
+<tr><td><code>TeamIndex</code></td><td><code>int</code></td><td><code>MBTeam.Index</code>. Used in network messages and <code>GetTeamFromTeamIndex</code>.</td></tr>
+<tr><td><code>Color</code> / <code>Color2</code></td><td><code>uint</code></td><td>Primary / secondary team color (ARGB). Passed at construction; <code>Add</code> defaults to <code>uint.MaxValue</code> (engine picks the side default).</td></tr>
+<tr><td><code>Banner</code></td><td><code>Banner</code></td><td>The team banner object; may be <code>null</code>.</td></tr>
+<tr><td><code>MoraleChangeFactor</code></td><td><code>float</code></td><td>Morale change multiplier (default <code>1f</code>); scales how much the team's morale rises/falls.</td></tr>
+</tbody></table>
+<h3 id="2-formations">2. Formations</h3>
+<ul>
+<li><strong><code>FormationsIncludingEmpty</code></strong> (<code>MBList&lt;Formation&gt;</code>, 8): standard formations (Infantry/Ranged/Cavalry/HorseArcher/…), including empty ones.</li>
+<li><strong><code>FormationsIncludingSpecialAndEmpty</code></strong> (<code>MBList&lt;Formation&gt;</code>, 10): the 8 above plus 2 special (e.g. Reserve/Unset). Created in <code>Initialize()</code>; empty under replay.</li>
+<li><strong><code>GetFormation(FormationClass formationIndex)</code></strong>: returns the <code>Formation</code> at the given index (the <code>FormationClass</code> enum value). <code>Team</code> does no bounds check — pass a value inside the enum range.</li>
+<li><strong><code>HasAnyFormationsIncludingSpecialThatIsNotEmpty()</code></strong>: whether any non-empty formation exists — commonly used to test "does this team still have troops".</li>
+<li><strong><code>GetFormationCount()</code></strong> / <strong><code>GetAIControlledFormationCount()</code></strong>: count of non-empty formations / how many of those are AI-controlled.</li>
+</ul>
+<h3 id="3-members-agents">3. Members (Agents)</h3>
+<ul>
+<li><strong><code>ActiveAgents</code></strong> (<code>MBReadOnlyList&lt;Agent&gt;</code>): currently alive and active members (excluding those removed by <code>DeactivateAgent</code>).</li>
+<li><strong><code>TeamAgents</code></strong> (<code>MBReadOnlyList&lt;Agent&gt;</code>): <strong>every member that ever joined</strong> the team, including deactivated/dead ones not yet fully removed. Use it for "ever belonged", use <code>ActiveAgents</code> for "can still fight".</li>
+<li><strong><code>Heroes</code></strong> (<code>IEnumerable&lt;Agent&gt;</code>): yields the player hero <code>Agent.Main</code> only if <code>Agent.Main.Team == this</code> (only the player main hero is included, not every hero on the team).</li>
+<li><strong><code>Leader</code></strong> (<code>Agent</code>): the player main hero if on this team, else the first active <code>IsHero</code> unit; <code>null</code> if neither.</li>
+<li><strong><code>HasBots</code></strong> (<code>bool</code>): whether there is any non-mount, non-player-controlled AI unit — decides whether <code>TeamAI.Tick</code> runs.</li>
+<li><code>AddAgentToTeam</code> / <code>RemoveAgentFromTeam</code> / <code>DeactivateAgent</code>: called by the engine on <code>Agent.SetTeam</code> / death; <strong>mods should not call them</strong> (see Risk 3).</li>
+</ul>
+<h3 id="4-command-ai">4. Command &amp; AI</h3>
+<ul>
+<li><strong><code>MasterOrderController</code></strong> / <strong><code>PlayerOrderController</code></strong>: the two default <code>OrderController</code>s (index 0 / 1). The former is issued by AI/commander, the latter by the player. Indexing the list when empty throws — do not use under replay / before initialization.</li>
+<li><strong><code>GetOrderControllerOf(Agent agent)</code></strong>: gets the <code>Agent</code>-specific <code>OrderController</code>, lazily <code>new</code>-ing and wiring events if absent. For issuing orders to a single unit.</li>
+<li><strong><code>SetCustomOrderController(OrderController, OrderController)</code></strong>: replaces the default master/player controllers, re-binding the old controllers' delegates onto the new ones; sets <code>_alreadyHasCustomOrderController</code>.</li>
+<li><strong><code>TeamAI</code></strong> (<code>TeamAIComponent</code>) / <strong><code>HasTeamAi</code></strong> (<code>bool</code>): the tactical AI component and whether it exists.</li>
+<li><strong><code>AddTeamAI(TeamAIComponent teamAI, bool forceNotAIControlled = false)</code></strong>: attaches <code>TeamAI</code>, sets formations to AI control, initializes detachments, resets tactics, and ticks once any formation with troops. <strong>Large side effects</strong> — typically called by a behavior during mission init.</li>
+<li><strong><code>AddTacticOption</code> / <code>RemoveTacticOption</code> / <code>ClearTacticOptions</code> / <code>ResetTactic</code></strong>: operate the <code>TeamAI</code> tactic table; all silently no-op when there is no <code>TeamAI</code>.</li>
+<li><strong><code>DelegateCommandToAI()</code></strong>: hands every formation back to AI control (<code>SetControlledByAI(true)</code>). Use when the player gives up manual command.</li>
+<li><strong><code>SetPlayerRole(bool isPlayerGeneral, bool isPlayerSergeant)</code></strong>: sets "player is general / sergeant", which decides whether the player team's formations are AI-controlled (<code>!IsPlayerGeneral</code> → AI takes over).</li>
+<li><strong><code>AssignPlayerAsSergeantOfFormation(MissionPeer peer, FormationClass formationClass)</code></strong>: assigns an online player as sergeant of a formation, taking over its command (and, on the server, network-pushes <code>AssignFormationToPlayer</code> to that player).</li>
+</ul>
+<h3 id="5-space-queries-tactical-stats">5. Space, Queries &amp; Tactical Stats</h3>
+<ul>
+<li><strong><code>QuerySystem</code></strong> (<code>TeamQuerySystem</code>): aggregated queries (average strength, unit counts, formation state). <code>null</code> under replay.</li>
+<li><strong><code>GetAveragePosition()</code></strong> / <strong><code>GetAveragePositionOfEnemies()</code></strong>: average ground position (<code>Vec2</code>) of this team's / enemies' active units; <code>Vec2.Invalid</code> if none.</li>
+<li><strong><code>GetMedianPosition(Vec2 averagePosition)</code></strong>: the world position (<code>WorldPosition</code>) of the member nearest the average point — used to find the "formation core".</li>
+<li><strong><code>GetWeightedAverageOfEnemies(Vec2 basePoint)</code></strong>: enemy weighted center using squared distance to <code>basePoint</code> as weight — common for "nearest threat direction".</li>
+<li><strong><code>HasAnyEnemyTeamsWithAgents(bool ignoreMountedAgents)</code></strong>: whether any enemy team still has active units; <code>ignoreMountedAgents=true</code> counts only infantry.</li>
+<li><strong><code>CachedEnemyDataForFleeing</code></strong> / <strong><code>UpdateCachedEnemyDataForFleeing()</code></strong>: fleeing-AI cached enemy formation data; recomputed only when the list is empty, and <code>Tick</code> clears the cache every frame to force recompute.</li>
+<li><strong><code>DetachmentManager</code></strong> / <strong><code>DisableDetachmentTicking()</code></strong>: manages formation detachments (e.g. skirmish groups); the latter sets <code>_tickDetachments = false</code>, stopping detachment advancement in <code>Tick</code>.</li>
+</ul>
+<h3 id="6-faction-relations-lifecycle">6. Faction Relations &amp; Lifecycle</h3>
+<ul>
+<li><strong><code>IsEnemyOf(Team other)</code></strong> / <strong><code>IsFriendOf(Team other)</code></strong>: based on <code>MBTeam</code>'s friend/foe relationship. Note <code>IsFriendOf</code> returns <code>true</code> for itself.</li>
+<li><strong><code>SetIsEnemyOf(Team otherTeam, bool isEnemyOf)</code></strong>: rewrites the friend/foe relation and syncs <code>MBTeam</code>; broadcasts the <code>TeamSetIsEnemyOf</code> network message only on server/recorder (see Risk 4).</li>
+<li><strong><code>Tick(float dt)</code></strong>: called every frame by the engine inside <code>Mission.TickAgentsAndTeams</code> — advances <code>TeamAI</code>, detachments, and each formation; handles retreat (<code>Mission.RetreatSide</code>) and clears the fleeing cache. <strong>Mods must not call it.</strong></li>
+<li><strong><code>OnMissionEnded()</code></strong>: called by <code>Mission</code> at mission end, forwarded to <code>TeamAI.OnMissionEnded</code>.</li>
+<li><strong><code>OnAgentRemoved(Agent agent)</code></strong>: called by the engine when an <code>Agent</code> is removed (returns immediately on client/replay), notifying each formation's AI to clean up.</li>
+<li><strong><code>Reset()</code></strong> / <strong><code>Clear()</code></strong>: <code>Reset</code> resets formations, drops extra order controllers, rebuilds <code>QuerySystem</code>; <code>Clear</code> unbinds formation events first then <code>Reset</code>. Used on mission restart / internal reset; mods rarely call directly.</li>
+<li><strong><code>TriggerOnFormationsChanged(Formation)</code></strong> / <strong><code>TriggerOnFormationsChangedInDeployment()</code></strong>: raise the corresponding events (formation changed / formation changed in deployment).</li>
+<li><strong><code>Invalid</code></strong> (static): the sentinel <code>Team</code> (<code>Mission == null</code>) returned when no team is found; <code>IsValid</code> is <code>false</code>.</li>
+<li><strong>Static helpers:</strong> <code>DoesFirstFormationClassContainSecond(f1, f2)</code> (bitwise test), <code>GetFormationFormationClass(Formation)</code> (infers troop type from query system), <code>GetPlayerTeamFormationClass(Agent)</code> (infers the <code>FormationClass</code> the main hero belongs to from equipped gear).</li>
+</ul>
+<h2 id="examples">Examples</h2>
+<h3 id="example-1-iterate-enemy-teams-and-read-their-average-position-in-a-missionbehavior-per-frame-tick">Example 1: Iterate enemy teams and read their average position (in a MissionBehavior per-frame tick)</h3>
+<pre><code data-lang="csharp">public override void OnMissionTick(float dt)
+{
+    base.OnMissionTick(dt);
+
+    Mission mission = Mission.Current;
+    if (mission == null || mission.PlayerTeam == null) return;
+
+    Team playerTeam = mission.PlayerTeam;
+    int aliveFriendCount = playerTeam.ActiveAgents.Count;
+
+    // Find every team that is an enemy of the player and still has active units
+    foreach (Team team in mission.Teams)
+    {
+        if (team.IsEnemyOf(playerTeam) &amp;&amp; team.ActiveAgents.Count &gt; 0)
+        {
+            Vec2 enemyAverage = team.GetAveragePosition();
+            // Use enemyAverage for a UI marker or an AI decision
+        }
+    }
+}
+</code></pre>
+<h3 id="example-2-issue-an-advance-order-to-the-player-team-s-infantry-formation-real-acquisition-path">Example 2: Issue an "Advance" order to the player team's infantry formation (real acquisition path)</h3>
+<pre><code data-lang="csharp">// Inside a MissionBehavior, ensure the player is the general
+Team playerTeam = Mission.Current.PlayerTeam;
+if (playerTeam != null &amp;&amp; playerTeam.IsPlayerGeneral)
+{
+    Formation infantry = playerTeam.GetFormation(FormationClass.Infantry);
+    if (infantry != null &amp;&amp; infantry.CountOfUnits &gt; 0)
+    {
+        // MasterOrderController carries orders issued by the commander / AI
+        playerTeam.MasterOrderController.SetOrder(OrderType.Advance);
+    }
+}
+</code></pre>
+<blockquote>
+<p>Both examples avoid caching the <code>Team</code> — they re-fetch from <code>Mission.Current</code> every time, so the reference never goes stale after a mission switch.</p>
+</blockquote>
+<h2 id="cross-version-notes">Cross-Version Notes</h2>
+<ul>
+<li>The semantics of this page follow the full <code>bannerlord-1.4.5</code> source. <code>Team</code>'s core API (<code>Side</code> / <code>TeamSide</code> / <code>ActiveAgents</code> / <code>GetFormation</code> / <code>IsEnemyOf</code> / <code>OrderController</code> / <code>TeamAI</code> / <code>Tick</code>) is consistent across v1.3.0 / v1.3.15 / v1.4.5.</li>
+<li>v1.4.5 mostly pushed network-sync details down into <code>MissionNetworkHelper</code> and <code>OrderController</code>, with minimal impact on <code>Team</code>'s public surface. The cross-version-safe pattern is always "fetch via <code>Mission.Current</code> / <code>agent.Team</code>, never <code>new</code> it yourself".</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Parent: <a href="../">Mission API Index</a></li>
+<li>↔ Sibling: <a href="../Mission/">Mission</a> · <a href="../Agent/">Agent</a> · <a href="../Formation/">Formation</a> · <a href="../MissionBehavior/">MissionBehavior</a> · <a href="../TacticOption/">TacticOption</a></li>
+<li>Related (cross-bucket): <a href="../../mission-ext/">TeamCollection</a> · <a href="../../mission-ext/">MBTeam</a> · <a href="../../mission-ext/">TeamAIComponent</a> · <a href="../../mission-ext/">TeamQuerySystem</a> · <a href="../../mission-ext/">OrderController</a> · <a href="../../mission-ext/">TacticComponent</a> · <a href="../../mission-ext/">MissionObject</a> · <a href="../../core-extra/">Banner</a> · <a href="../../core-extra/">BattleSideEnum</a> · <a href="../../core-extra/">TeamSideEnum</a> · <a href="../../core-extra/">FormationClass</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/mission/">mission index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/mission/IMBVoiceManager/">&larr; IMBVoiceManager</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/mission/IMBBannerlordChecker/">IMBBannerlordChecker &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

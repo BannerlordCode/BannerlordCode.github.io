@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Character Development Family Handbook</title>
+  <meta name="description" content="How Bannerlord registers skills, perks, traits, cultural feats, hero progression, and event-driven skill experience.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/character-development/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/character-development/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Character Development Family Handbook</span>
+    </nav>
+  
+  <h1>Character Development Family Handbook</h1>
+  <h1 id="character-development-family-handbook">Character Development Family Handbook</h1>
+<p><strong>One-sentence role:</strong> This namespace defines the objects and routing that turn campaign events into skill experience, perk choices, traits, and cultural effects; it does not replace the campaign models that decide the underlying rules.</p>
+<h2 id="mental-model">Mental model</h2>
+<p>Read this family as four connected layers rather than as thirty unrelated classes.</p>
+<ol>
+<li><code>DefaultPerks</code> and its nested skill groups (<code>OneHanded</code>, <code>Bow</code>, <code>Medicine</code>, and the rest) register the static <code>PerkObject</code> graph. Each perk has a required skill value, an optional alternative, role-scoped primary and secondary effects, increment types, and troop-usage masks. The nested classes are catalogs, not per-hero state.</li>
+<li><code>DefaultTraits</code> and <code>DefaultCulturalFeats</code> register <code>TraitObject</code> and <code>FeatObject</code> definitions through the game object manager. <code>TraitObject</code> stores a bounded personality or hidden trait definition; <code>FeatObject</code> stores an additive or factor-based cultural effect. The live value belongs to a hero or culture, not to the definition class.</li>
+<li><code>HeroDeveloper</code> owns the mutable progression for one <code>Hero</code>: skill XP, focus points, attribute points, total XP, levels, and learned perks. It asks <code>Campaign.Current.Models.CharacterDevelopmentModel</code> how XP maps to levels and learning rates, then changes the hero through the existing internal setters and campaign events.</li>
+<li><code>SkillLevelingManager</code> is the static forwarding surface. It delegates to the <code>ISkillLevelingManager</code> instance held by the current campaign; <code>DefaultSkillLevelingManager</code> maps combat, travel, trade, healing, siege, recruitment, and other real events to the relevant skill. <code>TraitLevelingHelper</code> is the corresponding player-trait path: it applies XP through the character-development model, updates the main hero, fires the trait-change event, and creates reputation log entries when the change is large enough.</li>
+</ol>
+<p>The practical reading order is <code>Campaign.Current</code> -&gt; <code>Hero.HeroDeveloper</code> or a <code>SkillLevelingManager</code> event boundary -&gt; <code>SkillObject</code> / <code>PerkObject</code> / <code>TraitObject</code> -&gt; <code>CharacterDevelopmentModel</code>. Use <a href="../CharacterDevelopmentModel">CharacterDevelopmentModel</a> for XP thresholds, learning rates, and level decisions. Use <a href="../models/">Models</a> for replaceable calculations and <a href="../actions/">Actions</a> for world mutations. A perk catalog is not a replacement for either one.</p>
+<h2 id="dependencies-and-boundaries">Dependencies and boundaries</h2>
+<ul>
+<li><strong>Upstream:</strong> <a href="../../campaign/Campaign">Campaign</a>, <a href="../../campaign/Hero">Hero</a>, <a href="../../campaign/MobileParty">MobileParty</a>, <a href="../../campaign/Settlement">Settlement</a>, <a href="../../core-extra/SkillObject">SkillObject</a>, and <a href="../GameModels">GameModels</a>.</li>
+<li><strong>Downstream:</strong> campaign behaviors, <a href="../CampaignEvents">CampaignEvents</a>, persuasion, trade, combat, siege, settlement management, and the <a href="../../save-system/">save system</a>.</li>
+<li><strong>Sibling families:</strong> <a href="../models/">Models</a>, <a href="../actions/">Actions</a>, <a href="../behaviors/">Behaviors</a>, <a href="../party/">Party</a>, and <a href="../quests/">Quests</a>.</li>
+<li><strong>Registration boundary:</strong> the default classes create presumed objects while the campaign/game object manager is being assembled. Do not construct a second <code>PerkObject</code>, <code>TraitObject</code>, or <code>FeatObject</code> for a running campaign and expect <code>All</code>, perk checks, or culture checks to see it.</li>
+<li><strong>Calculation boundary:</strong> <code>HeroDeveloper</code> and the default skill manager call the current character-development, combat, diplomacy, healing, persuasion, and siege models. Do not copy their XP constants into a UI or behavior that is meant to follow a replaceable model.</li>
+<li><strong>Mutation boundary:</strong> use the real event or campaign entry point. Do not award XP repeatedly from a render tick, write a hero's skill fields directly, or change relation/world state from a model query.</li>
+</ul>
+<h2 id="the-registered-public-surface">The registered public surface</h2>
+<p>The table deliberately uses fully qualified names. <code>Crafting</code> here is the campaign character-development perk catalog; it is different from the core crafting data type. Every row is a business purpose, not a signature restatement.</p>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.AdditionType</td><td>Selects whether a feat effect is interpreted as a direct addition or an additive factor when <code>FeatObject.Initialize</code> stores it.</td><td>Cultural-feat registration</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Athletics</td><td>Catalogs the Athletics <code>PerkObject</code> alternatives and their personal, party-leader, captain, or governor effects.</td><td>Default perk registration and perk selection</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Bow</td><td>Catalogs the Bow perk branch and its weapon, ranged-troop, and role effects.</td><td>Default perk registration and perk selection</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Charm</td><td>Catalogs social and persuasion perks whose effects are later consumed by relation, conversation, and settlement behaviors.</td><td>Default perk registration; persuasion and relation checks</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Crafting</td><td>Catalogs crafting, smelting, stamina, and smithing-related perks.</td><td>Default perk registration; crafting operations</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Crossbow</td><td>Catalogs crossbow weapon and crossbow-troop perks, including effects consumed during siege and combat calculations.</td><td>Default perk registration and combat/siege checks</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.DefaultCulturalFeats</td><td>Creates and initializes the culture-specific <code>FeatObject</code> definitions, including the Aserai, Battania, Empire, Khuzait, Sturgia, and Vlandia entries.</td><td>Campaign setup and culture effect queries</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.DefaultPerks</td><td>Owns the default perk catalogs, object registration, tier-cost lookup, alternative pairing, and initialization of all skill branches.</td><td>Campaign setup and hero perk selection</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.DefaultSkillLevelingManager</td><td>Implements <code>ISkillLevelingManager</code>; translates real combat, travel, trade, healing, siege, recruitment, and campaign events into skill XP.</td><td>Event callbacks during a live campaign</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.DefaultTraits</td><td>Creates the personality, persona, role, gang, and other hidden <code>TraitObject</code> definitions and exposes the five personality traits as <code>Personality</code>.</td><td>Campaign setup and trait reads</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Engineering</td><td>Catalogs engineering perks for siege engines, siege camps, settlement projects, and engineer/governor roles.</td><td>Default perk registration; siege and settlement checks</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.FeatObject</td><td>Stores a named culture effect, its numeric bonus, additive mode, and positive/negative classification after initialization.</td><td>Culture definition registration and effect evaluation</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.HeroDeveloper</td><td>Owns one hero's saveable skill XP, focus points, attribute points, total XP, level transitions, and perk selection.</td><td>Hero creation, XP gain, level-up, load, and reset flows</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.ISkillLevelingManager</td><td>Defines the event-to-XP contract for combat, movement, trade, persuasion, medicine, scouting, tactics, engineering, and newer campaign activities.</td><td>Campaign service registration and event forwarding</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Leadership</td><td>Catalogs leadership perks for recruiting, troop upgrades, party morale, party capacity, and party-leader effects.</td><td>Default perk registration; party and recruitment checks</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Medicine</td><td>Catalogs medicine perks consumed by healing, surgery, wounded recovery, settlement governance, and surgeon effects.</td><td>Default perk registration; map healing and battle recovery</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.OneHanded</td><td>Catalogs one-handed weapon and shield perks, including mounted, infantry, captain, and personal effects.</td><td>Default perk registration and combat checks</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.PerkObject</td><td>Stores a perk's skill, threshold, alternative branch, role bonuses, increment types, troop masks, and localized descriptions.</td><td>Object initialization and runtime perk queries</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Polearm</td><td>Catalogs polearm mounted/on-foot branches and their formation effects.</td><td>Default perk registration and combat checks</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Riding</td><td>Catalogs mounted movement, horse, cavalry, and riding-party perks.</td><td>Default perk registration; travel and combat checks</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Roguery</td><td>Catalogs roguery perks consumed by bandit recruitment, looting, prison breaks, alleys, and illicit campaign actions.</td><td>Default perk registration; crime and encounter flows</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Scouting</td><td>Catalogs scouting perks for tracks, hideouts, terrain, party movement, and scout-role effects.</td><td>Default perk registration; map movement and track events</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.SkillLevelingManager</td><td>Delegates the static event API to <code>Campaign.Current.SkillLevelingManager</code>, keeping callers independent of the default implementation.</td><td>Event producers during campaign ticks and outcomes</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Steward</td><td>Catalogs quartermaster and governor perks for food, wages, projects, carrying capacity, and settlement management.</td><td>Default perk registration; party and settlement checks</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Tactics</td><td>Catalogs tactics perks and is the destination for commander/army tactics XP.</td><td>Default perk registration; battle simulation and army flows</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Throwing</td><td>Catalogs throwing-weapon and throwing-troop perks.</td><td>Default perk registration and combat checks</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.Trade</td><td>Catalogs trade-profit and caravan/trading perks, including party and governor effects.</td><td>Default perk registration; trade and economy checks</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.TraitLevelingHelper</td><td>Applies player trait XP, converts it to a trait level through the current model, broadcasts changes, and records sufficiently large reputation changes.</td><td>Quest, battle, raid, persuasion, siege, and incident outcomes</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.TraitObject</td><td>Defines a trait's localized identity, visible/hidden status, and permitted value range; it does not hold a hero's current trait value.</td><td>Trait definition registration and hero trait reads</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CharacterDevelopment</td><td>TaleWorlds.CampaignSystem.CharacterDevelopment.TwoHanded</td><td>Catalogs two-handed weapon perks and their personal, infantry, captain, governor, and party-leader effects.</td><td>Default perk registration and combat checks</td></tr>
+</tbody></table>
+<h2 id="real-access-paths">Real access paths</h2>
+<p>The <code>Hero</code> owns the developer object. The following reads the real campaign objects and avoids inventing a second progression store. <code>HeroDeveloper.GetFocus</code> and <code>GetSkillXpProgress</code> are read operations; use <code>Hero.AddSkillXp</code> or the event-facing manager at the appropriate campaign boundary when the feature genuinely awards experience.</p>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CharacterDevelopment;
+using TaleWorlds.Core;
+
+Hero hero = Hero.MainHero;
+if (hero != null &amp;&amp; hero.HeroDeveloper != null)
+{
+    SkillObject scouting = DefaultSkills.Scouting;
+    int focus = hero.HeroDeveloper.GetFocus(scouting);
+    int progress = hero.HeroDeveloper.GetSkillXpProgress(scouting);
+    bool knowsOratory = hero.GetPerkValue(DefaultPerks.Charm.Oratory);
+    int honorLevel = hero.GetTraitLevel(DefaultTraits.Honor);
+}
+</code></pre>
+<p>Event producers should enter through the static facade so the campaign's registered implementation remains in control. The parameter below must be the profit from the actual completed trade path; it is not a UI preview value.</p>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CharacterDevelopment;
+
+Hero trader = MobileParty.MainParty.LeaderHero;
+if (trader != null)
+{
+    SkillLevelingManager.OnTradeProfitMade(trader, tradeProfit);
+}
+</code></pre>
+<p><code>DefaultSkillLevelingManager</code> then applies its model-aware routing. For example, positive trade profit awards Trade XP, a successful surgery awards Medicine XP through the surgeon role, a detected track awards Scouting XP, and a siege-engine callback awards Engineering XP only when an effective engineer exists. The caller should not reproduce those formulas beside the facade.</p>
+<h2 id="important-member-behavior">Important member behavior</h2>
+<ul>
+<li><code>PerkObject.Initialize</code> creates localized primary and secondary descriptions, sets the skill threshold and role effects, stores troop masks, and links <code>AlternativePerk</code> in both directions. Passing a one-sided alternative or treating <code>PrimaryBonus</code> as always a percentage changes later consumers.</li>
+<li><code>FeatObject.Initialize</code> stores <code>EffectBonus</code>, <code>IncrementType</code>, and <code>IsPositive</code>. <code>AdditionType.Add</code> and <code>AdditionType.AddFactor</code> are consumed differently; a factor is not interchangeable with a raw integer bonus.</li>
+<li><code>HeroDeveloper.AddSkillXp</code> applies the generic XP multiplier and, when requested, the focus learning factor. It can advance the skill and the hero level, dispatch <code>OnHeroGainedSkill</code> or <code>OnHeroLevelledUp</code>, and update saveable progress. <code>ChangeSkillLevel</code> is a deliberate level adjustment that converts the requested change back into XP; it is not a raw setter.</li>
+<li><code>HeroDeveloper.AddFocus</code> and <code>AddAttribute</code> consume unspent points by default. <code>RemoveFocus</code> and <code>RemoveAttribute</code> do not restore the corresponding unspent pool automatically; callers must understand that asymmetry before using them in a respec flow.</li>
+<li><code>DefaultSkillLevelingManager</code> intentionally filters several events: team kills do not award combat XP, non-positive trade/relation/tactics values do not enter the normal path, and medicine/scouting/engineering routes require the relevant party role or entity. These checks are part of the game rule, not optional validation.</li>
+<li><code>TraitLevelingHelper</code> targets <code>Hero.MainHero</code>, adds to the player's existing trait XP, asks <code>CharacterDevelopmentModel.GetTraitLevelForTraitXp</code> for the new level and remainder, then emits the trait event. It is not a general-purpose setter for an arbitrary NPC's personality.</li>
+<li><code>DefaultTraits.Personality</code> contains exactly Mercy, Valor, Honor, Generosity, and Calculating. Persona, role, gang, and naval traits are exposed separately; hidden traits use the <code>0..20</code> range while personality traits use <code>-2..2</code>.</li>
+</ul>
+<h2 id="crash-and-save-boundaries">Crash and save boundaries</h2>
+<ul>
+<li><code>HeroDeveloper</code> has saveable fields and properties for <code>_skillXps</code>, <code>_newFocuses</code>, <code>_totalXp</code>, the point pools, and the hero reference. Removing a field, changing its save ID, or replacing the <code>PropertyOwner&lt;SkillObject&gt;</code> shape needs a save-compatibility review.</li>
+<li>The default definitions are registered through <code>Game.Current.ObjectManager</code> and read from campaign collections such as <code>PerkObject.All</code>, <code>TraitObject.All</code>, and <code>FeatObject.All</code>. Accessing those collections before campaign setup, or registering duplicate presumed objects, can produce missing lookups and inconsistent perk checks.</li>
+<li><code>PerkObject.Initialize</code> mutates the paired alternative perk. Initialize a branch once during setup; rerunning it in a module tick can overwrite reciprocal links and localized descriptions.</li>
+<li>Skill-level callbacks are event boundaries, not timers. Calling <code>SkillLevelingManager.OnTravelOnFoot</code>, <code>OnTradeProfitMade</code>, or a combat callback every frame multiplies progression and can create a save that no longer reflects the campaign event history.</li>
+<li>Trait changes and skill changes are model-mediated. Bypassing <code>CharacterDevelopmentModel</code>, <code>Hero.AddSkillXp</code>, or the trait helper can leave the numeric level, XP remainder, notifications, and log entries out of sync.</li>
+<li>Do not hold a <code>Hero</code>, <code>MobileParty</code>, <code>Settlement</code>, <code>Track</code>, or <code>SiegeEngineType</code> captured from a callback past its lifecycle without checking that the entity is still valid. The default manager receives destroyed parties and completed outcomes in normal campaign progression.</li>
+</ul>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li><strong>Parent:</strong> <a href="../">Campaign-Ext API</a></li>
+<li><strong>Siblings:</strong> <a href="../models/">Models</a>, <a href="../actions/">Actions</a>, <a href="../behaviors/">Behaviors</a>, <a href="../party/">Party</a>, <a href="../quests/">Quests</a></li>
+<li><strong>Related:</strong> <a href="../CharacterDevelopmentModel">CharacterDevelopmentModel</a>, <a href="../GameModels">GameModels</a>, <a href="../CampaignEvents">CampaignEvents</a>, <a href="../CampaignBehaviorBase">CampaignBehaviorBase</a>, <a href="../ChangeRelationAction">ChangeRelationAction</a>, and the <a href="../../save-system/">save system</a></li>
+<li><strong>Roadmap:</strong> This family page covers the shared registration and runtime contract. The highest-risk <code>HeroDeveloper</code>, <code>PerkObject</code>, and <code>DefaultSkillLevelingManager</code> members should become standalone deep pages when the H3/H5 deep-page wave reaches character development; this page remains the qualified coverage entry until then.</li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

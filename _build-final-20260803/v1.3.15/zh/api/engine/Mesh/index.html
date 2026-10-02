@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mesh</title>
+  <meta name="description" content="Mesh 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/engine/Mesh/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/engine/Mesh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/engine/Mesh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/engine/Mesh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/engine/Mesh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/engine/Mesh/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="active">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;engine&#x2F;">engine 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Mesh</span>
+    </nav>
+  
+  <h1>Mesh</h1>
+  <h1 id="mesh">Mesh</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Engine
+<strong>Module:</strong> TaleWorlds.Engine
+<strong>Type:</strong> <code>public sealed class Mesh : Resource</code>
+<strong>Base:</strong> <code>Resource</code>
+<strong>File:</strong> <code>TaleWorlds.Engine/Mesh.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>Mesh</code> 位于 <code>TaleWorlds.Engine</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.Engine</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>Name</code></td><td><code>public string Name { get; set; }</code></td></tr>
+<tr><td><code>CullingMode</code></td><td><code>public MBMeshCullingMode CullingMode { get; set; }</code></td></tr>
+<tr><td><code>MorphTime</code></td><td><code>public float MorphTime { get; set; }</code></td></tr>
+<tr><td><code>Color</code></td><td><code>public uint Color { get; set; }</code></td></tr>
+<tr><td><code>Color2</code></td><td><code>public uint Color2 { get; set; }</code></td></tr>
+<tr><td><code>Billboard</code></td><td><code>public BillboardType Billboard { get; set; }</code></td></tr>
+<tr><td><code>VisibilityMask</code></td><td><code>public VisibilityMaskFlags VisibilityMask { get; set; }</code></td></tr>
+<tr><td><code>EditDataFaceCornerCount</code></td><td><code>public int EditDataFaceCornerCount { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="createmeshwithmaterial">CreateMeshWithMaterial</h3>
+<p><code>public static Mesh CreateMeshWithMaterial(Material material)</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 mesh with material 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Mesh.CreateMeshWithMaterial(material);
+</code></pre>
+<h3 id="createmesh">CreateMesh</h3>
+<p><code>public static Mesh CreateMesh(bool editable = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 mesh 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Mesh.CreateMesh(false);
+</code></pre>
+<h3 id="getbasemesh">GetBaseMesh</h3>
+<p><code>public Mesh GetBaseMesh()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 base mesh 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetBaseMesh();
+</code></pre>
+<h3 id="getfromresource">GetFromResource</h3>
+<p><code>public static Mesh GetFromResource(string meshName)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 from resource 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Mesh.GetFromResource(&quot;example&quot;);
+</code></pre>
+<h3 id="getrandommeshwithvdecl">GetRandomMeshWithVdecl</h3>
+<p><code>public static Mesh GetRandomMeshWithVdecl(int inputLayout)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 random mesh with vdecl 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Mesh.GetRandomMeshWithVdecl(0);
+</code></pre>
+<h3 id="setcolorandstroke">SetColorAndStroke</h3>
+<p><code>public void SetColorAndStroke(uint color, uint strokeColor, bool drawStroke)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 color and stroke 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetColorAndStroke(0, 0, false);
+</code></pre>
+<h3 id="setmeshrenderorder">SetMeshRenderOrder</h3>
+<p><code>public void SetMeshRenderOrder(int renderOrder)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 mesh render order 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetMeshRenderOrder(0);
+</code></pre>
+<h3 id="hastag">HasTag</h3>
+<p><code>public bool HasTag(string str)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 tag。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.HasTag(&quot;example&quot;);
+</code></pre>
+<h3 id="createcopy">CreateCopy</h3>
+<p><code>public Mesh CreateCopy()</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 copy 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.CreateCopy();
+</code></pre>
+<h3 id="setmaterial">SetMaterial</h3>
+<p><code>public void SetMaterial(string newMaterialName)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 material 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetMaterial(&quot;example&quot;);
+</code></pre>
+<h3 id="setvectorargument">SetVectorArgument</h3>
+<p><code>public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 vector argument 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetVectorArgument(0, 0, 0, 0);
+</code></pre>
+<h3 id="setvectorargument2">SetVectorArgument2</h3>
+<p><code>public void SetVectorArgument2(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 vector argument2 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetVectorArgument2(0, 0, 0, 0);
+</code></pre>
+<h3 id="getvectorargument">GetVectorArgument</h3>
+<p><code>public Vec3 GetVectorArgument()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 vector argument 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetVectorArgument();
+</code></pre>
+<h3 id="getvectorargument2">GetVectorArgument2</h3>
+<p><code>public Vec3 GetVectorArgument2()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 vector argument2 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetVectorArgument2();
+</code></pre>
+<h3 id="setupadditionalbonebuffer">SetupAdditionalBoneBuffer</h3>
+<p><code>public void SetupAdditionalBoneBuffer(int numBones)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 up additional bone buffer 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetupAdditionalBoneBuffer(0);
+</code></pre>
+<h3 id="setadditionalboneframe">SetAdditionalBoneFrame</h3>
+<p><code>public void SetAdditionalBoneFrame(int boneIndex, in MatrixFrame frame)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 additional bone frame 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetAdditionalBoneFrame(0, frame);
+</code></pre>
+<h3 id="setmaterial-1">SetMaterial</h3>
+<p><code>public void SetMaterial(Material material)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 material 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetMaterial(material);
+</code></pre>
+<h3 id="getmaterial">GetMaterial</h3>
+<p><code>public Material GetMaterial()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 material 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetMaterial();
+</code></pre>
+<h3 id="getsecondmaterial">GetSecondMaterial</h3>
+<p><code>public Material GetSecondMaterial()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 second material 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetSecondMaterial();
+</code></pre>
+<h3 id="addfacecorner">AddFaceCorner</h3>
+<p><code>public int AddFaceCorner(Vec3 position, Vec3 normal, Vec2 uvCoord, uint color, UIntPtr lockHandle)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 face corner 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.AddFaceCorner(position, normal, uvCoord, 0, lockHandle);
+</code></pre>
+<h3 id="addface">AddFace</h3>
+<p><code>public int AddFace(int patchNode0, int patchNode1, int patchNode2, UIntPtr lockHandle)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 face 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.AddFace(0, 0, 0, lockHandle);
+</code></pre>
+<h3 id="clearmesh">ClearMesh</h3>
+<p><code>public void ClearMesh()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的mesh。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.ClearMesh();
+</code></pre>
+<h3 id="setcoloralpha">SetColorAlpha</h3>
+<p><code>public void SetColorAlpha(uint newAlpha)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 color alpha 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetColorAlpha(0);
+</code></pre>
+<h3 id="getfacecount">GetFaceCount</h3>
+<p><code>public uint GetFaceCount()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 face count 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetFaceCount();
+</code></pre>
+<h3 id="getfacecornercount">GetFaceCornerCount</h3>
+<p><code>public uint GetFaceCornerCount()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 face corner count 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetFaceCornerCount();
+</code></pre>
+<h3 id="computenormals">ComputeNormals</h3>
+<p><code>public void ComputeNormals()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ComputeNormals 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.ComputeNormals();
+</code></pre>
+<h3 id="computetangents">ComputeTangents</h3>
+<p><code>public void ComputeTangents()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ComputeTangents 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.ComputeTangents();
+</code></pre>
+<h3 id="addmesh">AddMesh</h3>
+<p><code>public void AddMesh(string meshResourceName, MatrixFrame meshFrame)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 mesh 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.AddMesh(&quot;example&quot;, meshFrame);
+</code></pre>
+<h3 id="addmesh-1">AddMesh</h3>
+<p><code>public void AddMesh(Mesh mesh, MatrixFrame meshFrame)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 mesh 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.AddMesh(mesh, meshFrame);
+</code></pre>
+<h3 id="getlocalframe">GetLocalFrame</h3>
+<p><code>public MatrixFrame GetLocalFrame()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 local frame 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetLocalFrame();
+</code></pre>
+<h3 id="setlocalframe">SetLocalFrame</h3>
+<p><code>public void SetLocalFrame(MatrixFrame meshFrame)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 local frame 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetLocalFrame(meshFrame);
+</code></pre>
+<h3 id="setvisibilitymask">SetVisibilityMask</h3>
+<p><code>public void SetVisibilityMask(VisibilityMaskFlags visibilityMask)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 visibility mask 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetVisibilityMask(visibilityMask);
+</code></pre>
+<h3 id="updateboundingbox">UpdateBoundingBox</h3>
+<p><code>public void UpdateBoundingBox()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 bounding box 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.UpdateBoundingBox();
+</code></pre>
+<h3 id="setasnoteffectedbyseason">SetAsNotEffectedBySeason</h3>
+<p><code>public void SetAsNotEffectedBySeason()</code></p>
+<p><strong>用途 / Purpose:</strong> 为 as not effected by season 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetAsNotEffectedBySeason();
+</code></pre>
+<h3 id="getboundingboxwidth">GetBoundingBoxWidth</h3>
+<p><code>public float GetBoundingBoxWidth()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 bounding box width 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetBoundingBoxWidth();
+</code></pre>
+<h3 id="getboundingboxheight">GetBoundingBoxHeight</h3>
+<p><code>public float GetBoundingBoxHeight()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 bounding box height 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetBoundingBoxHeight();
+</code></pre>
+<h3 id="getboundingboxmin">GetBoundingBoxMin</h3>
+<p><code>public Vec3 GetBoundingBoxMin()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 bounding box min 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetBoundingBoxMin();
+</code></pre>
+<h3 id="getboundingboxmax">GetBoundingBoxMax</h3>
+<p><code>public Vec3 GetBoundingBoxMax()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 bounding box max 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetBoundingBoxMax();
+</code></pre>
+<h3 id="addtriangle">AddTriangle</h3>
+<p><code>public void AddTriangle(Vec3 p1, Vec3 p2, Vec3 p3, Vec2 uv1, Vec2 uv2, Vec2 uv3, uint color, UIntPtr lockHandle)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 triangle 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.AddTriangle(p1, p2, p3, uv1, uv2, uv3, 0, lockHandle);
+</code></pre>
+<h3 id="addtrianglewithvertexcolors">AddTriangleWithVertexColors</h3>
+<p><code>public void AddTriangleWithVertexColors(Vec3 p1, Vec3 p2, Vec3 p3, Vec2 uv1, Vec2 uv2, Vec2 uv3, uint c1, uint c2, uint c3, UIntPtr lockHandle)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 triangle with vertex colors 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.AddTriangleWithVertexColors(p1, p2, p3, uv1, uv2, uv3, 0, 0, 0, lockHandle);
+</code></pre>
+<h3 id="hintindicesdynamic">HintIndicesDynamic</h3>
+<p><code>public void HintIndicesDynamic()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 HintIndicesDynamic 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.HintIndicesDynamic();
+</code></pre>
+<h3 id="hintverticesdynamic">HintVerticesDynamic</h3>
+<p><code>public void HintVerticesDynamic()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 HintVerticesDynamic 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.HintVerticesDynamic();
+</code></pre>
+<h3 id="recomputeboundingbox">RecomputeBoundingBox</h3>
+<p><code>public void RecomputeBoundingBox()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新执行bounding box相关的计算并返回结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.RecomputeBoundingBox();
+</code></pre>
+<h3 id="seteditdatafacecornervertexcolor">SetEditDataFaceCornerVertexColor</h3>
+<p><code>public void SetEditDataFaceCornerVertexColor(int index, uint color)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 edit data face corner vertex color 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetEditDataFaceCornerVertexColor(0, 0);
+</code></pre>
+<h3 id="geteditdatafacecornervertexcolor">GetEditDataFaceCornerVertexColor</h3>
+<p><code>public uint GetEditDataFaceCornerVertexColor(int index)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 edit data face corner vertex color 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetEditDataFaceCornerVertexColor(0);
+</code></pre>
+<h3 id="preloadforrendering">PreloadForRendering</h3>
+<p><code>public void PreloadForRendering()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PreloadForRendering 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.PreloadForRendering();
+</code></pre>
+<h3 id="setcontourcolor">SetContourColor</h3>
+<p><code>public void SetContourColor(Vec3 color, bool alwaysVisible, bool maskMesh)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 contour color 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetContourColor(color, false, false);
+</code></pre>
+<h3 id="disablecontour">DisableContour</h3>
+<p><code>public void DisableContour()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DisableContour 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.DisableContour();
+</code></pre>
+<h3 id="setexternalboundingbox">SetExternalBoundingBox</h3>
+<p><code>public void SetExternalBoundingBox(BoundingBox bbox)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 external bounding box 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetExternalBoundingBox(bbox);
+</code></pre>
+<h3 id="addeditdatauser">AddEditDataUser</h3>
+<p><code>public void AddEditDataUser()</code></p>
+<p><strong>用途 / Purpose:</strong> 将 edit data user 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.AddEditDataUser();
+</code></pre>
+<h3 id="releaseeditdatauser">ReleaseEditDataUser</h3>
+<p><code>public void ReleaseEditDataUser()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ReleaseEditDataUser 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.ReleaseEditDataUser();
+</code></pre>
+<h3 id="seteditdatapolicy">SetEditDataPolicy</h3>
+<p><code>public void SetEditDataPolicy(EditDataPolicy policy)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 edit data policy 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetEditDataPolicy(policy);
+</code></pre>
+<h3 id="lockeditdatawrite">LockEditDataWrite</h3>
+<p><code>public UIntPtr LockEditDataWrite()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 LockEditDataWrite 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.LockEditDataWrite();
+</code></pre>
+<h3 id="unlockeditdatawrite">UnlockEditDataWrite</h3>
+<p><code>public void UnlockEditDataWrite(UIntPtr handle)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 UnlockEditDataWrite 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.UnlockEditDataWrite(handle);
+</code></pre>
+<h3 id="setcustomclipplane">SetCustomClipPlane</h3>
+<p><code>public void SetCustomClipPlane(Vec3 clipPlanePosition, Vec3 clipPlaneNormal, int planeIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 custom clip plane 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+mesh.SetCustomClipPlane(clipPlanePosition, clipPlaneNormal, 0);
+</code></pre>
+<h3 id="getclothlinearvelocitymultiplier">GetClothLinearVelocityMultiplier</h3>
+<p><code>public float GetClothLinearVelocityMultiplier()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 cloth linear velocity multiplier 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.GetClothLinearVelocityMultiplier();
+</code></pre>
+<h3 id="hascloth">HasCloth</h3>
+<p><code>public bool HasCloth()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 cloth。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Mesh 实例
+Mesh mesh = ...;
+var result = mesh.HasCloth();
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">Mesh.CreateMeshWithMaterial(material);
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/engine/">engine 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/engine/CapsuleData/">&larr; CapsuleData</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/engine/NativeBooleanOptionData/">NativeBooleanOptionData &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

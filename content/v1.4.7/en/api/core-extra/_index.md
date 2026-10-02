@@ -1,42 +1,47 @@
 ---
-title: "Core extra — Foundation long tail: runtime primitives, platform bridge, events and collections"
-description: "Three namespaces merged into one directory: `TaleWorlds.Core`, `TaleWorlds.Library` and `TaleWorlds.DotNet`. This is not"
+title: "Core extra — the foundation long tail"
+description: "TaleWorlds.Core, Library, DotNet, LinQuick, Starter, plus the taxonomy catch-all. 0 pages in this tree; the 2 pages are Chinese-tree-only."
 ---
-# Core extra — Foundation long tail: runtime primitives, platform bridge, events and collections
+# Core extra — the foundation long tail
 
-Three namespaces merged into one directory: `TaleWorlds.Core`, `TaleWorlds.Library` and `TaleWorlds.DotNet`. This is not a "business" area — it is the **foundation every business area stands on**: assembly loading, the event bus, MVVM notification, cross-platform IO, diagnostics.
+This bucket is where `TaleWorlds.Core` (222 `.cs` files), `TaleWorlds.Library` (166), `TaleWorlds.DotNet` (50), `TaleWorlds.LinQuick` (3) and `TaleWorlds.Starter` live, plus **every type no other namespace rule claims**. It is the catch-all of the taxonomy.
 
-What a mod author looks for here is lifecycle plumbing, not playable objects: `Game`, `GameStateManager`, `ViewModel`, `AssemblyLoader`, `ApplicationPlatform`.
+Being a catch-all has a practical consequence: this directory holds both types you must know exist — `AssemblyLoader`, `ApplicationPlatform`, `BasePath` — and some BCL noise. If a type's namespace is unfamiliar to you, suspect `core-extra` first.
 
-Some platform and third-party namespaces also land here through the fallback rule (Diamond lobby protobuf, `StbSharp`, `psai.*`). Those types are not mod API.
+The direction rule matters here: `TaleWorlds.Core` contains no `Hero` reference at all. The arrow is campaign → core, never the reverse. That is why "where do I put my helper class" has an answer in this tree rather than being a matter of taste.
 
-## Pages in this area (54)
+## Pages in this area (0 in English)
 
-[BannerHelper](BannerHelper) · [BannerImageIdentifier](BannerImageIdentifier) · [CallbackDebugTool](CallbackDebugTool)
-[CallbackStringBufferManager](CallbackStringBufferManager) · [CharacterImageIdentifier](CharacterImageIdentifier) · [CharacterSkillsResolver](CharacterSkillsResolver)
-[ClassCode](ClassCode) · [ClassCodeAccessModifier](ClassCodeAccessModifier) · [CodeBlock](CodeBlock)
-[CodeGenerationContext](CodeGenerationContext) · [CodeGenerationFile](CodeGenerationFile) · [CommandLineFunctionality](CommandLineFunctionality)
-[CommentSection](CommentSection) · [Controller](Controller) · [Crafting](Crafting)
-[CraftingPieceImageIdentifier](CraftingPieceImageIdentifier) · [CustomEngineStructMemberData](CustomEngineStructMemberData) · [CustomParameter](CustomParameter)
-[DictionaryByType](DictionaryByType) · [DotNetHttpDriver](DotNetHttpDriver) · [EmptyImageIdentifier](EmptyImageIdentifier)
-[EngineStackArray](EngineStackArray) · [Error](Error) · [EventBase](EventBase)
-[EventManager](EventManager) · [GameStateManager](GameStateManager) · [GameTextManager](GameTextManager)
-[GraphLinePointVM](GraphLinePointVM) · [GraphLineVM](GraphLineVM) · [GraphVM](GraphVM)
-[HttpDriverManager](HttpDriverManager) · [HttpGetRequest](HttpGetRequest) · [HttpPostRequest](HttpPostRequest)
-[HttpRequestTaskState](HttpRequestTaskState) · [IGameStarter](IGameStarter) · [IHttpDriver](IHttpDriver)
-[ImageIdentifier](ImageIdentifier) · [InformationManager](InformationManager) · [ItemImageIdentifier](ItemImageIdentifier)
-[LinQuick](LinQuick) · [Logger](Logger) · [MBDotNet](MBDotNet)
-[MBSortedMultiList](MBSortedMultiList) · [Min](Min) · [NewsItem](NewsItem)
-[NewsManager](NewsManager) · [NewsType](NewsType) · [Oriented2DArea](Oriented2DArea)
-[Program](Program) · [SRTHelper](SRTHelper) · [SceneNotificationData](SceneNotificationData)
-[StackArray](StackArray) · [TauntUsageManager](TauntUsageManager) · [TooltipTriggerVM](TooltipTriggerVM)
+No pages in this bucket have been written in this tree. The two that exist are in the Chinese tree:
+
+| Page | What it covers |
+| --- | --- |
+| [zh/api/core-extra/Game](../../../zh/api/core-extra/Game) | the static entry point into the running game |
+| [zh/api/core-extra/ViewModel](../../../zh/api/core-extra/ViewModel) | the property-notification base every Gauntlet binding derives from |
+
+They are not arbitrary picks. `Game` is the "is the game up yet" checkpoint; `ViewModel` is the binding base for every screen. Both are types a mod author meets as a reference somewhere else and needs to look up.
+
+## Not yet written
+
+In this tree, both. Across both trees, the bucket's readable tail is the longest gap in the documentation:
+
+- **Assemblies and platform**: `AssemblyLoader` (assembly resolution and dependencies), `ApplicationPlatform`, `BasePath`, `BuildInfo`, `AreaInformation`, `AmbientInformation`.
+- **Events and async**: `AsyncRunner`, `AwaitableAsyncRunner`, the task family, `MBEventManager` and the event plumbing behind it.
+- **Collections and utilities**: the 3 `LinQuick` types, the `MBReadOnlyList` family, `MBFastList`.
+- **Core enums and data**: `AgentState`, `AgentFlag`, `AgentMovementMode`, `AgentOriginType`, `ArmorComponent`, `Banner`, `ItemQuality` and a batch of other enums shared across layers.
+- **The `TaleWorlds.DotNet` binding layer**: `BindingPath`, `ViewModelPathAttribute`, property-binding infrastructure — noting that `MBDebug` resolves to [engine](../engine/), not here.
+
+By size the catch-all comes to roughly 54 types with documentation. Two have pages.
 
 ## Sibling areas
 
-[core](../core/) · [mission](../mission/) · [mission-ext](../mission-ext/) · [campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [gui](../gui/) · [save-system](../save-system/) · [viewmodel](../viewmodel/) · [localization](../localization/) · [engine](../engine/) · [system](../system/) · [custombattle](../custombattle/) · [modulemanager](../modulemanager/) · [network](../network/) · [sandbox](../sandbox/) · [storymode](../storymode/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
+[core](../core/) · [campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [mission](../mission/) · [mission-ext](../mission-ext/) · [gui](../gui/) · [viewmodel](../viewmodel/) · [engine](../engine/) · [sandbox](../sandbox/) · [custombattle](../custombattle/) · [system](../system/) · [network](../network/) · [modulemanager](../modulemanager/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
+
+There is no `save-system/` directory in this tree; its pages are Chinese-tree-only — [zh/api/save-system/SaveManager](../../../zh/api/save-system/SaveManager).
 
 ## See also
 
 - ↑ [Version home](../../)
 - ↑ [API reference](../)
 - ↔ [Architecture overview](../../architecture/)
+- ↘ [SDK Overview](../../architecture/sdk-overview)

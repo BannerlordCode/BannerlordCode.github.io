@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Root</title>
+  <meta name="description" content="位于该区域根命名空间的类型集合。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/root/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/root/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Root</span>
+    </nav>
+  
+  <h1>Root</h1>
+  <h2 id="shang-ji-dao-hang">上级导航</h2>
+<ul>
+<li><a href="../">返回 mission-ext 目录</a></li>
+<li><a href="../../">API 目录</a></li>
+<li><a href="../../../">版本首页</a></li>
+</ul>
+<h2 id="zi-xi-tong-gai-shu">子系统概述</h2>
+<p>这里是 <strong>mission-ext 目录</strong> 的 <strong>Root</strong> 子系统。同一命名空间下的类负责相近功能，可从中找到需要的类型后再进入类页查看方法。</p>
+<p>位于该区域根命名空间的类型集合。</p>
+<h2 id="lei-lie-biao">类列表</h2>
+<table><thead><tr><th>类</th><th>用途</th></tr></thead><tbody>
+<tr><td><a href="../ActionCodeType/"><code>ActionCodeType</code></a></td><td>ActionCodeType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ActionStage/"><code>ActionStage</code></a></td><td>ActionStage 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AddPlayersResult/"><code>AddPlayersResult</code></a></td><td>AddPlayersResult 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AgentBuildData/"><code>AgentBuildData</code></a></td><td>AgentBuildData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../AgentCapsuleData/"><code>AgentCapsuleData</code></a></td><td>AgentCapsuleData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../AgentCommonAILogic/"><code>AgentCommonAILogic</code></a></td><td>AgentCommonAILogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../AgentComponent/"><code>AgentComponent</code></a></td><td>AgentComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../AgentComponentExtensions/"><code>AgentComponentExtensions</code></a></td><td>AgentComponentExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AgentController/"><code>AgentController</code></a></td><td>AgentController 是一个控制器，位于 TaleWorlds.MountAndBlade，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../AgentDrivenProperties/"><code>AgentDrivenProperties</code></a></td><td>AgentDrivenProperties 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AgentHumanAILogic/"><code>AgentHumanAILogic</code></a></td><td>AgentHumanAILogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../AgentLastHitInfo/"><code>AgentLastHitInfo</code></a></td><td>AgentLastHitInfo 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AgentMovementLockedState/"><code>AgentMovementLockedState</code></a></td><td>AgentMovementLockedState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AgentPropertiesModifiers/"><code>AgentPropertiesModifiers</code></a></td><td>AgentPropertiesModifiers 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AgentProximityMap/"><code>AgentProximityMap</code></a></td><td>AgentProximityMap 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AgentSpawnData/"><code>AgentSpawnData</code></a></td><td>AgentSpawnData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../AgentStatCalculateModel/"><code>AgentStatCalculateModel</code></a></td><td>AgentStatCalculateModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../AgentVictoryLogic/"><code>AgentVictoryLogic</code></a></td><td>AgentVictoryLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../AgentVisualHolder/"><code>AgentVisualHolder</code></a></td><td>AgentVisualHolder 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AgentVisualsData/"><code>AgentVisualsData</code></a></td><td>AgentVisualsData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../AIScriptedFrameFlags/"><code>AIScriptedFrameFlags</code></a></td><td>AIScriptedFrameFlags 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AISimpleBehaviorKind/"><code>AISimpleBehaviorKind</code></a></td><td>AISimpleBehaviorKind 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AISpecialCombatModeFlags/"><code>AISpecialCombatModeFlags</code></a></td><td>AISpecialCombatModeFlags 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AIStateFlag/"><code>AIStateFlag</code></a></td><td>AIStateFlag 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AITargetVisibilityState/"><code>AITargetVisibilityState</code></a></td><td>AITargetVisibilityState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AnimatedFlag/"><code>AnimatedFlag</code></a></td><td>AnimatedFlag 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AnimationSystemBoneData/"><code>AnimationSystemBoneData</code></a></td><td>AnimationSystemBoneData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../AnimationSystemBoneDataBiped/"><code>AnimationSystemBoneDataBiped</code></a></td><td>AnimationSystemBoneDataBiped 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AnimationSystemBoneDataQuadruped/"><code>AnimationSystemBoneDataQuadruped</code></a></td><td>AnimationSystemBoneDataQuadruped 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AnimationSystemData/"><code>AnimationSystemData</code></a></td><td>AnimationSystemData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../AnimationSystemDataQuadruped/"><code>AnimationSystemDataQuadruped</code></a></td><td>AnimationSystemDataQuadruped 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AnimFlags/"><code>AnimFlags</code></a></td><td>AnimFlags 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ArcherPosition/"><code>ArcherPosition</code></a></td><td>ArcherPosition 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ArmyManagementHotkeyCategory/"><code>ArmyManagementHotkeyCategory</code></a></td><td>ArmyManagementHotkeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ArrangementOrder/"><code>ArrangementOrder</code></a></td><td>ArrangementOrder 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ArrangementOrderEnum/"><code>ArrangementOrderEnum</code></a></td><td>ArrangementOrderEnum 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AssignPlayerRoleInTeamMissionController/"><code>AssignPlayerRoleInTeamMissionController</code></a></td><td>AssignPlayerRoleInTeamMissionController 是一个控制器，位于 TaleWorlds.MountAndBlade，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../AttackCollisionData/"><code>AttackCollisionData</code></a></td><td>AttackCollisionData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../AttackEntityOrderDetachment/"><code>AttackEntityOrderDetachment</code></a></td><td>AttackEntityOrderDetachment 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../AttackInformation/"><code>AttackInformation</code></a></td><td>AttackInformation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Axis/"><code>Axis</code></a></td><td>Axis 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Ballista/"><code>Ballista</code></a></td><td>Ballista 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BallistaAI/"><code>BallistaAI</code></a></td><td>BallistaAI 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BannerBearerLogic/"><code>BannerBearerLogic</code></a></td><td>BannerBearerLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../BannerBuilderState/"><code>BannerBuilderState</code></a></td><td>BannerBuilderState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BannerInstance/"><code>BannerInstance</code></a></td><td>BannerInstance 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BannerlordConfig/"><code>BannerlordConfig</code></a></td><td>BannerlordConfig 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BannerlordFriendListService/"><code>BannerlordFriendListService</code></a></td><td>BannerlordFriendListService 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BannerlordMissions/"><code>BannerlordMissions</code></a></td><td>BannerlordMissions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BannerlordNetwork/"><code>BannerlordNetwork</code></a></td><td>BannerlordNetwork 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BannerlordTableauManager/"><code>BannerlordTableauManager</code></a></td><td>BannerlordTableauManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../BannerState/"><code>BannerState</code></a></td><td>BannerState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BaseNetworkComponentData/"><code>BaseNetworkComponentData</code></a></td><td>BaseNetworkComponentData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../BaseSynchedMissionObjectReadableRecord/"><code>BaseSynchedMissionObjectReadableRecord</code></a></td><td>BaseSynchedMissionObjectReadableRecord 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BasicBattleAgentOrigin/"><code>BasicBattleAgentOrigin</code></a></td><td>BasicBattleAgentOrigin 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BasicGameStarter/"><code>BasicGameStarter</code></a></td><td>BasicGameStarter 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BasicLeaveMissionLogic/"><code>BasicLeaveMissionLogic</code></a></td><td>BasicLeaveMissionLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../BasicMissionTimer/"><code>BasicMissionTimer</code></a></td><td>BasicMissionTimer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BatteringRam/"><code>BatteringRam</code></a></td><td>BatteringRam 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BatteringRamAI/"><code>BatteringRamAI</code></a></td><td>BatteringRamAI 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BatteringRamRecord/"><code>BatteringRamRecord</code></a></td><td>BatteringRamRecord 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BattleDeploymentMissionController/"><code>BattleDeploymentMissionController</code></a></td><td>BattleDeploymentMissionController 是一个控制器，位于 TaleWorlds.MountAndBlade，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../BattleEndLogic/"><code>BattleEndLogic</code></a></td><td>BattleEndLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../BattleHighlightsController/"><code>BattleHighlightsController</code></a></td><td>BattleHighlightsController 是一个控制器，位于 TaleWorlds.MountAndBlade，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../BattleMissionStarterLogic/"><code>BattleMissionStarterLogic</code></a></td><td>BattleMissionStarterLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../BattleObserverMissionLogic/"><code>BattleObserverMissionLogic</code></a></td><td>BattleObserverMissionLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../BattlePowerCalculationLogic/"><code>BattlePowerCalculationLogic</code></a></td><td>BattlePowerCalculationLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../BattleReinforcementsSpawnController/"><code>BattleReinforcementsSpawnController</code></a></td><td>BattleReinforcementsSpawnController 是一个控制器，位于 TaleWorlds.MountAndBlade，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../BattleSideSpawnPathSelector/"><code>BattleSideSpawnPathSelector</code></a></td><td>BattleSideSpawnPathSelector 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BattleSizeQualifier/"><code>BattleSizeQualifier</code></a></td><td>BattleSizeQualifier 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BattleSizeType/"><code>BattleSizeType</code></a></td><td>BattleSizeType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BattleSpawnPathSelector/"><code>BattleSpawnPathSelector</code></a></td><td>BattleSpawnPathSelector 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BattleViewModel/"><code>BattleViewModel</code></a></td><td>BattleViewModel 是一个 Gauntlet ViewModel，位于 TaleWorlds.MountAndBlade，负责把 C# 逻辑状态绑定到 UI。</td></tr>
+<tr><td><a href="../BehaviorAdvance/"><code>BehaviorAdvance</code></a></td><td>BehaviorAdvance 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorAssaultWalls/"><code>BehaviorAssaultWalls</code></a></td><td>BehaviorAssaultWalls 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorCautiousAdvance/"><code>BehaviorCautiousAdvance</code></a></td><td>BehaviorCautiousAdvance 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorCavalryScreen/"><code>BehaviorCavalryScreen</code></a></td><td>BehaviorCavalryScreen 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorCharge/"><code>BehaviorCharge</code></a></td><td>BehaviorCharge 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorComponent/"><code>BehaviorComponent</code></a></td><td>BehaviorComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../BehaviorData/"><code>BehaviorData</code></a></td><td>BehaviorData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../BehaviorDefend/"><code>BehaviorDefend</code></a></td><td>BehaviorDefend 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorDefendCastleKeyPosition/"><code>BehaviorDefendCastleKeyPosition</code></a></td><td>BehaviorDefendCastleKeyPosition 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorDefendKeyPosition/"><code>BehaviorDefendKeyPosition</code></a></td><td>BehaviorDefendKeyPosition 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorDefendSiegeWeapon/"><code>BehaviorDefendSiegeWeapon</code></a></td><td>BehaviorDefendSiegeWeapon 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorDefensiveRing/"><code>BehaviorDefensiveRing</code></a></td><td>BehaviorDefensiveRing 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorDestroySiegeWeapons/"><code>BehaviorDestroySiegeWeapons</code></a></td><td>BehaviorDestroySiegeWeapons 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorEliminateEnemyInsideCastle/"><code>BehaviorEliminateEnemyInsideCastle</code></a></td><td>BehaviorEliminateEnemyInsideCastle 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorFireFromInfantryCover/"><code>BehaviorFireFromInfantryCover</code></a></td><td>BehaviorFireFromInfantryCover 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorFlank/"><code>BehaviorFlank</code></a></td><td>BehaviorFlank 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorGeneral/"><code>BehaviorGeneral</code></a></td><td>BehaviorGeneral 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorHoldHighGround/"><code>BehaviorHoldHighGround</code></a></td><td>BehaviorHoldHighGround 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorHorseArcherSkirmish/"><code>BehaviorHorseArcherSkirmish</code></a></td><td>BehaviorHorseArcherSkirmish 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorMountedSkirmish/"><code>BehaviorMountedSkirmish</code></a></td><td>BehaviorMountedSkirmish 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorProtectFlank/"><code>BehaviorProtectFlank</code></a></td><td>BehaviorProtectFlank 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorProtectGeneral/"><code>BehaviorProtectGeneral</code></a></td><td>BehaviorProtectGeneral 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorPullBack/"><code>BehaviorPullBack</code></a></td><td>BehaviorPullBack 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorRegroup/"><code>BehaviorRegroup</code></a></td><td>BehaviorRegroup 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorReserve/"><code>BehaviorReserve</code></a></td><td>BehaviorReserve 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorRetakeCastleKeyPosition/"><code>BehaviorRetakeCastleKeyPosition</code></a></td><td>BehaviorRetakeCastleKeyPosition 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorRetreat/"><code>BehaviorRetreat</code></a></td><td>BehaviorRetreat 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorRetreatToCastle/"><code>BehaviorRetreatToCastle</code></a></td><td>BehaviorRetreatToCastle 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorRetreatToKeep/"><code>BehaviorRetreatToKeep</code></a></td><td>BehaviorRetreatToKeep 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorSallyOut/"><code>BehaviorSallyOut</code></a></td><td>BehaviorSallyOut 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorScreenedSkirmish/"><code>BehaviorScreenedSkirmish</code></a></td><td>BehaviorScreenedSkirmish 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorSergeantMPInfantry/"><code>BehaviorSergeantMPInfantry</code></a></td><td>BehaviorSergeantMPInfantry 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorSergeantMPLastFlagLastStand/"><code>BehaviorSergeantMPLastFlagLastStand</code></a></td><td>BehaviorSergeantMPLastFlagLastStand 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorSergeantMPMounted/"><code>BehaviorSergeantMPMounted</code></a></td><td>BehaviorSergeantMPMounted 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorSergeantMPMountedRanged/"><code>BehaviorSergeantMPMountedRanged</code></a></td><td>BehaviorSergeantMPMountedRanged 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorSergeantMPRanged/"><code>BehaviorSergeantMPRanged</code></a></td><td>BehaviorSergeantMPRanged 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorShootFromCastleWalls/"><code>BehaviorShootFromCastleWalls</code></a></td><td>BehaviorShootFromCastleWalls 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorShootFromCliff/"><code>BehaviorShootFromCliff</code></a></td><td>BehaviorShootFromCliff 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorShootFromSiegeTower/"><code>BehaviorShootFromSiegeTower</code></a></td><td>BehaviorShootFromSiegeTower 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorSide/"><code>BehaviorSide</code></a></td><td>BehaviorSide 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorSkirmish/"><code>BehaviorSkirmish</code></a></td><td>BehaviorSkirmish 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorSkirmishBehindFormation/"><code>BehaviorSkirmishBehindFormation</code></a></td><td>BehaviorSkirmishBehindFormation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorSkirmishLine/"><code>BehaviorSkirmishLine</code></a></td><td>BehaviorSkirmishLine 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorSparseSkirmish/"><code>BehaviorSparseSkirmish</code></a></td><td>BehaviorSparseSkirmish 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorStop/"><code>BehaviorStop</code></a></td><td>BehaviorStop 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorTacticalCharge/"><code>BehaviorTacticalCharge</code></a></td><td>BehaviorTacticalCharge 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorUseMurderHole/"><code>BehaviorUseMurderHole</code></a></td><td>BehaviorUseMurderHole 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorUseSiegeMachines/"><code>BehaviorUseSiegeMachines</code></a></td><td>BehaviorUseSiegeMachines 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorValues/"><code>BehaviorValues</code></a></td><td>BehaviorValues 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorValueSet/"><code>BehaviorValueSet</code></a></td><td>BehaviorValueSet 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorVanguard/"><code>BehaviorVanguard</code></a></td><td>BehaviorVanguard 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorWaitForLadders/"><code>BehaviorWaitForLadders</code></a></td><td>BehaviorWaitForLadders 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Bird/"><code>Bird</code></a></td><td>Bird 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Blow/"><code>Blow</code></a></td><td>Blow 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BlowFlags/"><code>BlowFlags</code></a></td><td>BlowFlags 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BlowWeaponRecord/"><code>BlowWeaponRecord</code></a></td><td>BlowWeaponRecord 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameHotkeyCategory/"><code>BoardGameHotkeyCategory</code></a></td><td>BoardGameHotkeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BodyGenerator/"><code>BodyGenerator</code></a></td><td>BodyGenerator 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BoneBodyPartType/"><code>BoneBodyPartType</code></a></td><td>BoneBodyPartType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BoneBodyTypeData/"><code>BoneBodyTypeData</code></a></td><td>BoneBodyTypeData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../BoundaryWallView/"><code>BoundaryWallView</code></a></td><td>BoundaryWallView 是一个视图层对象，位于 TaleWorlds.MountAndBlade，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../CachedBool/"><code>CachedBool</code></a></td><td>CachedBool 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CachedFloat/"><code>CachedFloat</code></a></td><td>CachedFloat 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CameraDisplay/"><code>CameraDisplay</code></a></td><td>CameraDisplay 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CameraState/"><code>CameraState</code></a></td><td>CameraState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CaptureTheFlagCapturePoint/"><code>CaptureTheFlagCapturePoint</code></a></td><td>CaptureTheFlagCapturePoint 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CaptureTheFlagCaptureResultEnum/"><code>CaptureTheFlagCaptureResultEnum</code></a></td><td>CaptureTheFlagCaptureResultEnum 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CaptureTheFlagFlagDirection/"><code>CaptureTheFlagFlagDirection</code></a></td><td>CaptureTheFlagFlagDirection 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CastleGate/"><code>CastleGate</code></a></td><td>CastleGate 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CastleGateAI/"><code>CastleGateAI</code></a></td><td>CastleGateAI 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CasualtyHandler/"><code>CasualtyHandler</code></a></td><td>CasualtyHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../ChatBox/"><code>ChatBox</code></a></td><td>ChatBox 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ChatLogHotKeyCategory/"><code>ChatLogHotKeyCategory</code></a></td><td>ChatLogHotKeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ChatType/"><code>ChatType</code></a></td><td>ChatType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CheerActionGroupEnum/"><code>CheerActionGroupEnum</code></a></td><td>CheerActionGroupEnum 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CheerReactionTimeSettings/"><code>CheerReactionTimeSettings</code></a></td><td>CheerReactionTimeSettings 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CircularFormation/"><code>CircularFormation</code></a></td><td>CircularFormation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CircularSchiltronFormation/"><code>CircularSchiltronFormation</code></a></td><td>CircularSchiltronFormation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ClanFriendListService/"><code>ClanFriendListService</code></a></td><td>ClanFriendListService 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ClearHandInverseKinematicsOnStopUsageComponent/"><code>ClearHandInverseKinematicsOnStopUsageComponent</code></a></td><td>ClearHandInverseKinematicsOnStopUsageComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../ClimbingMachineDetachment/"><code>ClimbingMachineDetachment</code></a></td><td>ClimbingMachineDetachment 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ColumnFormation/"><code>ColumnFormation</code></a></td><td>ColumnFormation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CombatCollisionResult/"><code>CombatCollisionResult</code></a></td><td>CombatCollisionResult 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CombatHitResultFlags/"><code>CombatHitResultFlags</code></a></td><td>CombatHitResultFlags 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CombatHotKeyCategory/"><code>CombatHotKeyCategory</code></a></td><td>CombatHotKeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CombatLogColor/"><code>CombatLogColor</code></a></td><td>CombatLogColor 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CombatLogData/"><code>CombatLogData</code></a></td><td>CombatLogData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../CombatLogManager/"><code>CombatLogManager</code></a></td><td>CombatLogManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../CombatSoundContainer/"><code>CombatSoundContainer</code></a></td><td>CombatSoundContainer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CombatVoiceNetworkPredictionType/"><code>CombatVoiceNetworkPredictionType</code></a></td><td>CombatVoiceNetworkPredictionType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CommonAIComponent/"><code>CommonAIComponent</code></a></td><td>CommonAIComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../CommunityClient/"><code>CommunityClient</code></a></td><td>CommunityClient 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CommunityGameJoinData/"><code>CommunityGameJoinData</code></a></td><td>CommunityGameJoinData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../CompassItemUpdateParams/"><code>CompassItemUpdateParams</code></a></td><td>CompassItemUpdateParams 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CompassMarker/"><code>CompassMarker</code></a></td><td>CompassMarker 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CompressionBasic/"><code>CompressionBasic</code></a></td><td>CompressionBasic 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CompressionInfo/"><code>CompressionInfo</code></a></td><td>CompressionInfo 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CompressionMatchmaker/"><code>CompressionMatchmaker</code></a></td><td>CompressionMatchmaker 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CompressionMission/"><code>CompressionMission</code></a></td><td>CompressionMission 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ConditionalEffectContainer/"><code>ConditionalEffectContainer</code></a></td><td>ConditionalEffectContainer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ConsoleCommandMethod/"><code>ConsoleCommandMethod</code></a></td><td>ConsoleCommandMethod 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ConsolesModuleExtension/"><code>ConsolesModuleExtension</code></a></td><td>ConsolesModuleExtension 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ConversationHotKeyCategory/"><code>ConversationHotKeyCategory</code></a></td><td>ConversationHotKeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CoreManaged/"><code>CoreManaged</code></a></td><td>CoreManaged 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CorpseAgentInfo/"><code>CorpseAgentInfo</code></a></td><td>CorpseAgentInfo 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CosmeticsManagerHelper/"><code>CosmeticsManagerHelper</code></a></td><td>CosmeticsManagerHelper 是一个帮助类，位于 TaleWorlds.MountAndBlade，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../CraftingHotkeyCategory/"><code>CraftingHotkeyCategory</code></a></td><td>CraftingHotkeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CreationType/"><code>CreationType</code></a></td><td>CreationType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CrushThroughState/"><code>CrushThroughState</code></a></td><td>CrushThroughState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CultureVoteTypes/"><code>CultureVoteTypes</code></a></td><td>CultureVoteTypes 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CustomAgentApplyDamageModel/"><code>CustomAgentApplyDamageModel</code></a></td><td>CustomAgentApplyDamageModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CustomBattleAgentLogic/"><code>CustomBattleAgentLogic</code></a></td><td>CustomBattleAgentLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../CustomBattleAgentOrigin/"><code>CustomBattleAgentOrigin</code></a></td><td>CustomBattleAgentOrigin 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CustomBattleAgentStatCalculateModel/"><code>CustomBattleAgentStatCalculateModel</code></a></td><td>CustomBattleAgentStatCalculateModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CustomBattleApplyWeatherEffectsModel/"><code>CustomBattleApplyWeatherEffectsModel</code></a></td><td>CustomBattleApplyWeatherEffectsModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CustomBattleAutoBlockModel/"><code>CustomBattleAutoBlockModel</code></a></td><td>CustomBattleAutoBlockModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CustomBattleBannerBearersModel/"><code>CustomBattleBannerBearersModel</code></a></td><td>CustomBattleBannerBearersModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CustomBattleCombatant/"><code>CustomBattleCombatant</code></a></td><td>CustomBattleCombatant 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CustomBattleInitializationModel/"><code>CustomBattleInitializationModel</code></a></td><td>CustomBattleInitializationModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CustomBattleMoraleModel/"><code>CustomBattleMoraleModel</code></a></td><td>CustomBattleMoraleModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CustomBattleSpawnModel/"><code>CustomBattleSpawnModel</code></a></td><td>CustomBattleSpawnModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CustomBattleTroopSupplier/"><code>CustomBattleTroopSupplier</code></a></td><td>CustomBattleTroopSupplier 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../CustomGameBannedPlayerManager/"><code>CustomGameBannedPlayerManager</code></a></td><td>CustomGameBannedPlayerManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../CustomGameUsableMap/"><code>CustomGameUsableMap</code></a></td><td>CustomGameUsableMap 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DamageParticleModel/"><code>DamageParticleModel</code></a></td><td>DamageParticleModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DebugExtensions/"><code>DebugExtensions</code></a></td><td>DebugExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DebugNetworkPacketStatisticsStruct/"><code>DebugNetworkPacketStatisticsStruct</code></a></td><td>DebugNetworkPacketStatisticsStruct 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DebugNetworkPositionCompressionStatisticsStruct/"><code>DebugNetworkPositionCompressionStatisticsStruct</code></a></td><td>DebugNetworkPositionCompressionStatisticsStruct 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DebugSiegeBehavior/"><code>DebugSiegeBehavior</code></a></td><td>DebugSiegeBehavior 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DebugStateAttacker/"><code>DebugStateAttacker</code></a></td><td>DebugStateAttacker 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DebugStateDefender/"><code>DebugStateDefender</code></a></td><td>DebugStateDefender 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DedicatedServerType/"><code>DedicatedServerType</code></a></td><td>DedicatedServerType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultAgentDecideKilledOrUnconsciousModel/"><code>DefaultAgentDecideKilledOrUnconsciousModel</code></a></td><td>DefaultAgentDecideKilledOrUnconsciousModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DefaultDamageParticleModel/"><code>DefaultDamageParticleModel</code></a></td><td>DefaultDamageParticleModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DefaultDeploymentPlan/"><code>DefaultDeploymentPlan</code></a></td><td>DefaultDeploymentPlan 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultFormationArrangementModel/"><code>DefaultFormationArrangementModel</code></a></td><td>DefaultFormationArrangementModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DefaultFormationDeploymentPlan/"><code>DefaultFormationDeploymentPlan</code></a></td><td>DefaultFormationDeploymentPlan 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultItemPickupModel/"><code>DefaultItemPickupModel</code></a></td><td>DefaultItemPickupModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DefaultMissionDeploymentPlan/"><code>DefaultMissionDeploymentPlan</code></a></td><td>DefaultMissionDeploymentPlan 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultMissionDifficultyModel/"><code>DefaultMissionDifficultyModel</code></a></td><td>DefaultMissionDifficultyModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DefaultStrikeMagnitudeModel/"><code>DefaultStrikeMagnitudeModel</code></a></td><td>DefaultStrikeMagnitudeModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DefaultTacticalDecisionCodes/"><code>DefaultTacticalDecisionCodes</code></a></td><td>DefaultTacticalDecisionCodes 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultTeamDeploymentPlan/"><code>DefaultTeamDeploymentPlan</code></a></td><td>DefaultTeamDeploymentPlan 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DefencePoint/"><code>DefencePoint</code></a></td><td>DefencePoint 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DefineGameNetworkMessageTypeForMod/"><code>DefineGameNetworkMessageTypeForMod</code></a></td><td>DefineGameNetworkMessageTypeForMod 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DefineSynchedMissionObjectTypeForMod/"><code>DefineSynchedMissionObjectTypeForMod</code></a></td><td>DefineSynchedMissionObjectTypeForMod 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DeformKeyData/"><code>DeformKeyData</code></a></td><td>DeformKeyData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../DeploymentHandler/"><code>DeploymentHandler</code></a></td><td>DeploymentHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../DeploymentMissionController/"><code>DeploymentMissionController</code></a></td><td>DeploymentMissionController 是一个控制器，位于 TaleWorlds.MountAndBlade，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../DeploymentOrderComparer/"><code>DeploymentOrderComparer</code></a></td><td>DeploymentOrderComparer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DeploymentPoint/"><code>DeploymentPoint</code></a></td><td>DeploymentPoint 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DeploymentPointState/"><code>DeploymentPointState</code></a></td><td>DeploymentPointState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DeploymentPointType/"><code>DeploymentPointType</code></a></td><td>DeploymentPointType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DestructableComponent/"><code>DestructableComponent</code></a></td><td>DestructableComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../DestructableComponentRecord/"><code>DestructableComponentRecord</code></a></td><td>DestructableComponentRecord 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DestructableMissionObject/"><code>DestructableMissionObject</code></a></td><td>DestructableMissionObject 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DestructedPrefabInfoMissionObject/"><code>DestructedPrefabInfoMissionObject</code></a></td><td>DestructedPrefabInfoMissionObject 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DetachmentData/"><code>DetachmentData</code></a></td><td>DetachmentData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../DetachmentManager/"><code>DetachmentManager</code></a></td><td>DetachmentManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../DividableTask/"><code>DividableTask</code></a></td><td>DividableTask 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DoorOwnership/"><code>DoorOwnership</code></a></td><td>DoorOwnership 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DuelZoneLandmark/"><code>DuelZoneLandmark</code></a></td><td>DuelZoneLandmark 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../DynamicallyCreatedEntity/"><code>DynamicallyCreatedEntity</code></a></td><td>DynamicallyCreatedEntity 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../EditorGame/"><code>EditorGame</code></a></td><td>EditorGame 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../EditorGameManager/"><code>EditorGameManager</code></a></td><td>EditorGameManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../EditorState/"><code>EditorState</code></a></td><td>EditorState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../EquipmentControllerLeaveLogic/"><code>EquipmentControllerLeaveLogic</code></a></td><td>EquipmentControllerLeaveLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../EventBroadcastFlags/"><code>EventBroadcastFlags</code></a></td><td>EventBroadcastFlags 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../EventControlFlag/"><code>EventControlFlag</code></a></td><td>EventControlFlag 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ExitDoor/"><code>ExitDoor</code></a></td><td>ExitDoor 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ExitResult/"><code>ExitResult</code></a></td><td>ExitResult 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FaceGenerationParams/"><code>FaceGenerationParams</code></a></td><td>FaceGenerationParams 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FaceGenHotkeyCategory/"><code>FaceGenHotkeyCategory</code></a></td><td>FaceGenHotkeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FacialAnimChannel/"><code>FacialAnimChannel</code></a></td><td>FacialAnimChannel 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FacingOrder/"><code>FacingOrder</code></a></td><td>FacingOrder 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FacingOrderEnum/"><code>FacingOrderEnum</code></a></td><td>FacingOrderEnum 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FactoredNumber/"><code>FactoredNumber</code></a></td><td>FactoredNumber 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FFASpawnFrameBehavior/"><code>FFASpawnFrameBehavior</code></a></td><td>FFASpawnFrameBehavior 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FireBallista/"><code>FireBallista</code></a></td><td>FireBallista 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FireMangonel/"><code>FireMangonel</code></a></td><td>FireMangonel 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FiringFocus/"><code>FiringFocus</code></a></td><td>FiringFocus 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FiringOrder/"><code>FiringOrder</code></a></td><td>FiringOrder 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FlagDominationSpawnFrameBehavior/"><code>FlagDominationSpawnFrameBehavior</code></a></td><td>FlagDominationSpawnFrameBehavior 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FlagDominationSpawningBehavior/"><code>FlagDominationSpawningBehavior</code></a></td><td>FlagDominationSpawningBehavior 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FleePosition/"><code>FleePosition</code></a></td><td>FleePosition 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Float/"><code>Float</code></a></td><td>Float 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FocusableObjectInformation/"><code>FocusableObjectInformation</code></a></td><td>FocusableObjectInformation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FocusableObjectType/"><code>FocusableObjectType</code></a></td><td>FocusableObjectType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ForceUseState/"><code>ForceUseState</code></a></td><td>ForceUseState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FormationAI/"><code>FormationAI</code></a></td><td>FormationAI 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FormationDeploymentFlank/"><code>FormationDeploymentFlank</code></a></td><td>FormationDeploymentFlank 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FormationDeploymentOrder/"><code>FormationDeploymentOrder</code></a></td><td>FormationDeploymentOrder 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FormationExtensions/"><code>FormationExtensions</code></a></td><td>FormationExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FormationIntegrityDataGroup/"><code>FormationIntegrityDataGroup</code></a></td><td>FormationIntegrityDataGroup 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FormationPocket/"><code>FormationPocket</code></a></td><td>FormationPocket 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FormationQuerySystem/"><code>FormationQuerySystem</code></a></td><td>FormationQuerySystem 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FormationSceneSpawnEntry/"><code>FormationSceneSpawnEntry</code></a></td><td>FormationSceneSpawnEntry 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FormOrder/"><code>FormOrder</code></a></td><td>FormOrder 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FormOrderEnum/"><code>FormOrderEnum</code></a></td><td>FormOrderEnum 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GameEntityExtensions/"><code>GameEntityExtensions</code></a></td><td>GameEntityExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GameKeyDefinition/"><code>GameKeyDefinition</code></a></td><td>GameKeyDefinition 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GameKeyMainCategories/"><code>GameKeyMainCategories</code></a></td><td>GameKeyMainCategories 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GameKeyTextExtensions/"><code>GameKeyTextExtensions</code></a></td><td>GameKeyTextExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GameLoadingState/"><code>GameLoadingState</code></a></td><td>GameLoadingState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GameNetwork/"><code>GameNetwork</code></a></td><td>GameNetwork 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GameNetworkMessageSendType/"><code>GameNetworkMessageSendType</code></a></td><td>GameNetworkMessageSendType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GameStartupInfo/"><code>GameStartupInfo</code></a></td><td>GameStartupInfo 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GameStartupType/"><code>GameStartupType</code></a></td><td>GameStartupType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GateState/"><code>GateState</code></a></td><td>GateState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GeneralsAndCaptainsAssignmentLogic/"><code>GeneralsAndCaptainsAssignmentLogic</code></a></td><td>GeneralsAndCaptainsAssignmentLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../GenerationType/"><code>GenerationType</code></a></td><td>GenerationType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GenericCampaignPanelsGameKeyCategory/"><code>GenericCampaignPanelsGameKeyCategory</code></a></td><td>GenericCampaignPanelsGameKeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GenericGameKeyContext/"><code>GenericGameKeyContext</code></a></td><td>GenericGameKeyContext 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GenericPanelGameKeyCategory/"><code>GenericPanelGameKeyCategory</code></a></td><td>GenericPanelGameKeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GoldGainFlags/"><code>GoldGainFlags</code></a></td><td>GoldGainFlags 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GuardMode/"><code>GuardMode</code></a></td><td>GuardMode 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../HandIndex/"><code>HandIndex</code></a></td><td>HandIndex 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../HideoutSpawnPointGroup/"><code>HideoutSpawnPointGroup</code></a></td><td>HideoutSpawnPointGroup 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Highlight/"><code>Highlight</code></a></td><td>Highlight 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../HighlightsController/"><code>HighlightsController</code></a></td><td>HighlightsController 是一个控制器，位于 TaleWorlds.MountAndBlade，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../HighlightType/"><code>HighlightType</code></a></td><td>HighlightType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../HitParticleResultData/"><code>HitParticleResultData</code></a></td><td>HitParticleResultData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../Hitter/"><code>Hitter</code></a></td><td>Hitter 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../HumanAIComponent/"><code>HumanAIComponent</code></a></td><td>HumanAIComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../HumanWalkingMovementMode/"><code>HumanWalkingMovementMode</code></a></td><td>HumanWalkingMovementMode 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IAgentStateDecider/"><code>IAgentStateDecider</code></a></td><td>IAgentStateDecider 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IAgentVisual/"><code>IAgentVisual</code></a></td><td>IAgentVisual 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IAgentVisualCreator/"><code>IAgentVisualCreator</code></a></td><td>IAgentVisualCreator 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IAnalyticsFlagInfo/"><code>IAnalyticsFlagInfo</code></a></td><td>IAnalyticsFlagInfo 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IBattleEndLogic/"><code>IBattleEndLogic</code></a></td><td>IBattleEndLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../IBattlePowerCalculationLogic/"><code>IBattlePowerCalculationLogic</code></a></td><td>IBattlePowerCalculationLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../ICastleKeyPosition/"><code>ICastleKeyPosition</code></a></td><td>ICastleKeyPosition 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ICommanderInfo/"><code>ICommanderInfo</code></a></td><td>ICommanderInfo 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ICommunityClientHandler/"><code>ICommunityClientHandler</code></a></td><td>ICommunityClientHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../ICustomReinforcementSpawnTimer/"><code>ICustomReinforcementSpawnTimer</code></a></td><td>ICustomReinforcementSpawnTimer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IDetachment/"><code>IDetachment</code></a></td><td>IDetachment 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IEditorMissionTester/"><code>IEditorMissionTester</code></a></td><td>IEditorMissionTester 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IEntityFactory/"><code>IEntityFactory</code></a></td><td>IEntityFactory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IFaceGeneratorHandler/"><code>IFaceGeneratorHandler</code></a></td><td>IFaceGeneratorHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../IFlagRemoved/"><code>IFlagRemoved</code></a></td><td>IFlagRemoved 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IFocusable/"><code>IFocusable</code></a></td><td>IFocusable 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IFormation/"><code>IFormation</code></a></td><td>IFormation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IFormationArrangement/"><code>IFormationArrangement</code></a></td><td>IFormationArrangement 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IFormationDeploymentPlan/"><code>IFormationDeploymentPlan</code></a></td><td>IFormationDeploymentPlan 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IFormationUnit/"><code>IFormationUnit</code></a></td><td>IFormationUnit 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IGameNetworkHandler/"><code>IGameNetworkHandler</code></a></td><td>IGameNetworkHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../IMissionAgentSpawnLogic/"><code>IMissionAgentSpawnLogic</code></a></td><td>IMissionAgentSpawnLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../IMissionBehavior/"><code>IMissionBehavior</code></a></td><td>IMissionBehavior 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IMissionDeploymentPlan/"><code>IMissionDeploymentPlan</code></a></td><td>IMissionDeploymentPlan 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IMissionListener/"><code>IMissionListener</code></a></td><td>IMissionListener 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IMissionSystemHandler/"><code>IMissionSystemHandler</code></a></td><td>IMissionSystemHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../IMoveableSiegeWeapon/"><code>IMoveableSiegeWeapon</code></a></td><td>IMoveableSiegeWeapon 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ImpactSoundModifier/"><code>ImpactSoundModifier</code></a></td><td>ImpactSoundModifier 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IMusicHandler/"><code>IMusicHandler</code></a></td><td>IMusicHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../IncrementalTimer/"><code>IncrementalTimer</code></a></td><td>IncrementalTimer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../InitialSpawnMethod/"><code>InitialSpawnMethod</code></a></td><td>InitialSpawnMethod 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../InitialState/"><code>InitialState</code></a></td><td>InitialState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../InitialStateOption/"><code>InitialStateOption</code></a></td><td>InitialStateOption 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Integer/"><code>Integer</code></a></td><td>Integer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IntermissionVoteItem/"><code>IntermissionVoteItem</code></a></td><td>IntermissionVoteItem 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IntermissionVoteItemListExtensions/"><code>IntermissionVoteItemListExtensions</code></a></td><td>IntermissionVoteItemListExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../InventoryHotKeyCategory/"><code>InventoryHotKeyCategory</code></a></td><td>InventoryHotKeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IOnSpawnPerkEffect/"><code>IOnSpawnPerkEffect</code></a></td><td>IOnSpawnPerkEffect 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IOrderable/"><code>IOrderable</code></a></td><td>IOrderable 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IOrderableWithInteractionArea/"><code>IOrderableWithInteractionArea</code></a></td><td>IOrderableWithInteractionArea 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IPathHolder/"><code>IPathHolder</code></a></td><td>IPathHolder 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IPlayerInputEffector/"><code>IPlayerInputEffector</code></a></td><td>IPlayerInputEffector 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IPointDefendable/"><code>IPointDefendable</code></a></td><td>IPointDefendable 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IPrimarySiegeWeapon/"><code>IPrimarySiegeWeapon</code></a></td><td>IPrimarySiegeWeapon 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IQueryData/"><code>IQueryData</code></a></td><td>IQueryData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../IReadOnlyPerkObject/"><code>IReadOnlyPerkObject</code></a></td><td>IReadOnlyPerkObject 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IRoundComponent/"><code>IRoundComponent</code></a></td><td>IRoundComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../IScoreboardData/"><code>IScoreboardData</code></a></td><td>IScoreboardData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../ISynchedMissionObjectReadableRecord/"><code>ISynchedMissionObjectReadableRecord</code></a></td><td>ISynchedMissionObjectReadableRecord 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ITargetable/"><code>ITargetable</code></a></td><td>ITargetable 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ItemCollectionElementMissionExtensions/"><code>ItemCollectionElementMissionExtensions</code></a></td><td>ItemCollectionElementMissionExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ItemPhysicsSoundContainer/"><code>ItemPhysicsSoundContainer</code></a></td><td>ItemPhysicsSoundContainer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IUdpNetworkHandler/"><code>IUdpNetworkHandler</code></a></td><td>IUdpNetworkHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../IUsable/"><code>IUsable</code></a></td><td>IUsable 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../IVehicleHandler/"><code>IVehicleHandler</code></a></td><td>IVehicleHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../IVisible/"><code>IVisible</code></a></td><td>IVisible 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../KillInfo/"><code>KillInfo</code></a></td><td>KillInfo 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../KillingBlow/"><code>KillingBlow</code></a></td><td>KillingBlow 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../LadderAnimationState/"><code>LadderAnimationState</code></a></td><td>LadderAnimationState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../LadderQueueManager/"><code>LadderQueueManager</code></a></td><td>LadderQueueManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../LadderState/"><code>LadderState</code></a></td><td>LadderState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../LaneDefenseStates/"><code>LaneDefenseStates</code></a></td><td>LaneDefenseStates 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../LaneStateEnum/"><code>LaneStateEnum</code></a></td><td>LaneStateEnum 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../LightCycle/"><code>LightCycle</code></a></td><td>LightCycle 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Lightning/"><code>Lightning</code></a></td><td>Lightning 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../LineFormation/"><code>LineFormation</code></a></td><td>LineFormation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../LobbyMissionType/"><code>LobbyMissionType</code></a></td><td>LobbyMissionType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../LobbyNetworkComponent/"><code>LobbyNetworkComponent</code></a></td><td>LobbyNetworkComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../LongInteger/"><code>LongInteger</code></a></td><td>LongInteger 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ManagedOptions/"><code>ManagedOptions</code></a></td><td>ManagedOptions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ManagedOptionsType/"><code>ManagedOptionsType</code></a></td><td>ManagedOptionsType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Mangonel/"><code>Mangonel</code></a></td><td>Mangonel 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MangonelAI/"><code>MangonelAI</code></a></td><td>MangonelAI 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MapAtmosphereProbe/"><code>MapAtmosphereProbe</code></a></td><td>MapAtmosphereProbe 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MapHotKeyCategory/"><code>MapHotKeyCategory</code></a></td><td>MapHotKeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MapNotificationHotKeyCategory/"><code>MapNotificationHotKeyCategory</code></a></td><td>MapNotificationHotKeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Markable/"><code>Markable</code></a></td><td>Markable 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBActionSet/"><code>MBActionSet</code></a></td><td>MBActionSet 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBAgentRendererSceneController/"><code>MBAgentRendererSceneController</code></a></td><td>MBAgentRendererSceneController 是一个控制器，位于 TaleWorlds.MountAndBlade，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../MBAgentVisuals/"><code>MBAgentVisuals</code></a></td><td>MBAgentVisuals 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBAnimation/"><code>MBAnimation</code></a></td><td>MBAnimation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBAPI/"><code>MBAPI</code></a></td><td>MBAPI 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBBodyProperties/"><code>MBBodyProperties</code></a></td><td>MBBodyProperties 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBBoundaryCollection/"><code>MBBoundaryCollection</code></a></td><td>MBBoundaryCollection 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBCallback/"><code>MBCallback</code></a></td><td>MBCallback 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBCommon/"><code>MBCommon</code></a></td><td>MBCommon 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBDebugManager/"><code>MBDebugManager</code></a></td><td>MBDebugManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MBEditor/"><code>MBEditor</code></a></td><td>MBEditor 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBEquipmentMissionExtensions/"><code>MBEquipmentMissionExtensions</code></a></td><td>MBEquipmentMissionExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBExtensions/"><code>MBExtensions</code></a></td><td>MBExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBGameManager/"><code>MBGameManager</code></a></td><td>MBGameManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MBGlobals/"><code>MBGlobals</code></a></td><td>MBGlobals 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBInitialScreenBase/"><code>MBInitialScreenBase</code></a></td><td>MBInitialScreenBase 是一个抽象基类，位于 TaleWorlds.MountAndBlade，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../MBItem/"><code>MBItem</code></a></td><td>MBItem 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBMapScene/"><code>MBMapScene</code></a></td><td>MBMapScene 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBMissile/"><code>MBMissile</code></a></td><td>MBMissile 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBMultiplayerData/"><code>MBMultiplayerData</code></a></td><td>MBMultiplayerData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../MBMusicManager/"><code>MBMusicManager</code></a></td><td>MBMusicManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MBMusicTrack/"><code>MBMusicTrack</code></a></td><td>MBMusicTrack 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBParticleSystem/"><code>MBParticleSystem</code></a></td><td>MBParticleSystem 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBProfileSelectionScreenBase/"><code>MBProfileSelectionScreenBase</code></a></td><td>MBProfileSelectionScreenBase 是一个抽象基类，位于 TaleWorlds.MountAndBlade，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../MBSceneUtilities/"><code>MBSceneUtilities</code></a></td><td>MBSceneUtilities 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBSkeletonExtensions/"><code>MBSkeletonExtensions</code></a></td><td>MBSkeletonExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBSoundEvent/"><code>MBSoundEvent</code></a></td><td>MBSoundEvent 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBSoundTrack/"><code>MBSoundTrack</code></a></td><td>MBSoundTrack 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBTeam/"><code>MBTeam</code></a></td><td>MBTeam 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBTestRun/"><code>MBTestRun</code></a></td><td>MBTestRun 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MBUnusedResourceManager/"><code>MBUnusedResourceManager</code></a></td><td>MBUnusedResourceManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MBWindowManager/"><code>MBWindowManager</code></a></td><td>MBWindowManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MeleeCollisionReaction/"><code>MeleeCollisionReaction</code></a></td><td>MeleeCollisionReaction 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MessageManager/"><code>MessageManager</code></a></td><td>MessageManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MiscSoundContainer/"><code>MiscSoundContainer</code></a></td><td>MiscSoundContainer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Missile/"><code>Missile</code></a></td><td>Missile 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissileCollisionReaction/"><code>MissileCollisionReaction</code></a></td><td>MissileCollisionReaction 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionAgentPanicHandler/"><code>MissionAgentPanicHandler</code></a></td><td>MissionAgentPanicHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MissionAgentSpawnLogic/"><code>MissionAgentSpawnLogic</code></a></td><td>MissionAgentSpawnLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../MissionBattleSchedulerClientComponent/"><code>MissionBattleSchedulerClientComponent</code></a></td><td>MissionBattleSchedulerClientComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MissionBehaviorType/"><code>MissionBehaviorType</code></a></td><td>MissionBehaviorType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionBoundaryCrossingHandler/"><code>MissionBoundaryCrossingHandler</code></a></td><td>MissionBoundaryCrossingHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MissionBoundaryPlacer/"><code>MissionBoundaryPlacer</code></a></td><td>MissionBoundaryPlacer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionCombatantsLogic/"><code>MissionCombatantsLogic</code></a></td><td>MissionCombatantsLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../MissionCombatMechanicsHelper/"><code>MissionCombatMechanicsHelper</code></a></td><td>MissionCombatMechanicsHelper 是一个帮助类，位于 TaleWorlds.MountAndBlade，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../MissionCombatType/"><code>MissionCombatType</code></a></td><td>MissionCombatType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionCommunityClientComponent/"><code>MissionCommunityClientComponent</code></a></td><td>MissionCommunityClientComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MissionCustomGameClientComponent/"><code>MissionCustomGameClientComponent</code></a></td><td>MissionCustomGameClientComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MissionDeploymentPlanningLogic/"><code>MissionDeploymentPlanningLogic</code></a></td><td>MissionDeploymentPlanningLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../MissionEquipment/"><code>MissionEquipment</code></a></td><td>MissionEquipment 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionFocusableObjectInformationProvider/"><code>MissionFocusableObjectInformationProvider</code></a></td><td>MissionFocusableObjectInformationProvider 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionGameModels/"><code>MissionGameModels</code></a></td><td>MissionGameModels 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionHardBorderPlacer/"><code>MissionHardBorderPlacer</code></a></td><td>MissionHardBorderPlacer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionInfo/"><code>MissionInfo</code></a></td><td>MissionInfo 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionLobbyComponent/"><code>MissionLobbyComponent</code></a></td><td>MissionLobbyComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MissionLobbyEquipmentNetworkComponent/"><code>MissionLobbyEquipmentNetworkComponent</code></a></td><td>MissionLobbyEquipmentNetworkComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MissionLogic/"><code>MissionLogic</code></a></td><td>MissionLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../MissionManager/"><code>MissionManager</code></a></td><td>MissionManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MissionMethod/"><code>MissionMethod</code></a></td><td>MissionMethod 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionMultiplayerDuel/"><code>MissionMultiplayerDuel</code></a></td><td>MissionMultiplayerDuel 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionMultiplayerFlagDomination/"><code>MissionMultiplayerFlagDomination</code></a></td><td>MissionMultiplayerFlagDomination 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionMultiplayerGameModeBase/"><code>MissionMultiplayerGameModeBase</code></a></td><td>MissionMultiplayerGameModeBase 是一个抽象基类，位于 TaleWorlds.MountAndBlade，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../MissionMultiplayerGameModeBaseClient/"><code>MissionMultiplayerGameModeBaseClient</code></a></td><td>MissionMultiplayerGameModeBaseClient 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionMultiplayerGameModeDuelClient/"><code>MissionMultiplayerGameModeDuelClient</code></a></td><td>MissionMultiplayerGameModeDuelClient 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionMultiplayerGameModeFlagDominationClient/"><code>MissionMultiplayerGameModeFlagDominationClient</code></a></td><td>MissionMultiplayerGameModeFlagDominationClient 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionMultiplayerSiege/"><code>MissionMultiplayerSiege</code></a></td><td>MissionMultiplayerSiege 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionMultiplayerSiegeClient/"><code>MissionMultiplayerSiegeClient</code></a></td><td>MissionMultiplayerSiegeClient 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionMultiplayerTeamDeathmatch/"><code>MissionMultiplayerTeamDeathmatch</code></a></td><td>MissionMultiplayerTeamDeathmatch 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionMultiplayerTeamDeathmatchClient/"><code>MissionMultiplayerTeamDeathmatchClient</code></a></td><td>MissionMultiplayerTeamDeathmatchClient 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionNetwork/"><code>MissionNetwork</code></a></td><td>MissionNetwork 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionNetworkComponent/"><code>MissionNetworkComponent</code></a></td><td>MissionNetworkComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MissionNetworkHelper/"><code>MissionNetworkHelper</code></a></td><td>MissionNetworkHelper 是一个帮助类，位于 TaleWorlds.MountAndBlade，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../MissionObject/"><code>MissionObject</code></a></td><td>MissionObject 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionObjectId/"><code>MissionObjectId</code></a></td><td>MissionObjectId 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionOrderHotkeyCategory/"><code>MissionOrderHotkeyCategory</code></a></td><td>MissionOrderHotkeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionPeer/"><code>MissionPeer</code></a></td><td>MissionPeer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionQuestConversationHandler/"><code>MissionQuestConversationHandler</code></a></td><td>MissionQuestConversationHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MissionRecorder/"><code>MissionRecorder</code></a></td><td>MissionRecorder 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionReinforcementsHelper/"><code>MissionReinforcementsHelper</code></a></td><td>MissionReinforcementsHelper 是一个帮助类，位于 TaleWorlds.MountAndBlade，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../MissionRepresentativeBase/"><code>MissionRepresentativeBase</code></a></td><td>MissionRepresentativeBase 是一个抽象基类，位于 TaleWorlds.MountAndBlade，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../MissionScoreboardComponent/"><code>MissionScoreboardComponent</code></a></td><td>MissionScoreboardComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MissionScoreboardSide/"><code>MissionScoreboardSide</code></a></td><td>MissionScoreboardSide 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionSiegeEnginesLogic/"><code>MissionSiegeEnginesLogic</code></a></td><td>MissionSiegeEnginesLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../MissionSpawnSettings/"><code>MissionSpawnSettings</code></a></td><td>MissionSpawnSettings 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionTeamAITypeEnum/"><code>MissionTeamAITypeEnum</code></a></td><td>MissionTeamAITypeEnum 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionTickAction/"><code>MissionTickAction</code></a></td><td>MissionTickAction 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionTime/"><code>MissionTime</code></a></td><td>MissionTime 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionTimer/"><code>MissionTimer</code></a></td><td>MissionTimer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionTimeTracker/"><code>MissionTimeTracker</code></a></td><td>MissionTimeTracker 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MissionWeapon/"><code>MissionWeapon</code></a></td><td>MissionWeapon 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ModuleExtensions/"><code>ModuleExtensions</code></a></td><td>ModuleExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ModuleNetworkData/"><code>ModuleNetworkData</code></a></td><td>ModuleNetworkData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../MonsterExtensions/"><code>MonsterExtensions</code></a></td><td>MonsterExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MonsterMissionData/"><code>MonsterMissionData</code></a></td><td>MonsterMissionData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../MonsterMissionDataCreator/"><code>MonsterMissionDataCreator</code></a></td><td>MonsterMissionDataCreator 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MortalityState/"><code>MortalityState</code></a></td><td>MortalityState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MovementBehaviorType/"><code>MovementBehaviorType</code></a></td><td>MovementBehaviorType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MovementControlFlag/"><code>MovementControlFlag</code></a></td><td>MovementControlFlag 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MovementOrder/"><code>MovementOrder</code></a></td><td>MovementOrder 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MovementOrderEnum/"><code>MovementOrderEnum</code></a></td><td>MovementOrderEnum 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MovementPath/"><code>MovementPath</code></a></td><td>MovementPath 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MovementStateEnum/"><code>MovementStateEnum</code></a></td><td>MovementStateEnum 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Mover/"><code>Mover</code></a></td><td>Mover 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MPCombatPerkHandler/"><code>MPCombatPerkHandler</code></a></td><td>MPCombatPerkHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MPConditionalEffect/"><code>MPConditionalEffect</code></a></td><td>MPConditionalEffect 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MPHeroClass/"><code>MPHeroClass</code></a></td><td>MPHeroClass 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MPHeroClassGroup/"><code>MPHeroClassGroup</code></a></td><td>MPHeroClassGroup 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MPOnSpawnPerkEffect/"><code>MPOnSpawnPerkEffect</code></a></td><td>MPOnSpawnPerkEffect 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MPOnSpawnPerkEffectBase/"><code>MPOnSpawnPerkEffectBase</code></a></td><td>MPOnSpawnPerkEffectBase 是一个抽象基类，位于 TaleWorlds.MountAndBlade，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../MPOnSpawnPerkHandler/"><code>MPOnSpawnPerkHandler</code></a></td><td>MPOnSpawnPerkHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MPPerkCondition/"><code>MPPerkCondition</code></a></td><td>MPPerkCondition 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MPPerkEffect/"><code>MPPerkEffect</code></a></td><td>MPPerkEffect 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MPPerkEffectBase/"><code>MPPerkEffectBase</code></a></td><td>MPPerkEffectBase 是一个抽象基类，位于 TaleWorlds.MountAndBlade，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../MPPerkHandler/"><code>MPPerkHandler</code></a></td><td>MPPerkHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MPPerkObject/"><code>MPPerkObject</code></a></td><td>MPPerkObject 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MPPerksAgentComponent/"><code>MPPerksAgentComponent</code></a></td><td>MPPerksAgentComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MPPerkSelection/"><code>MPPerkSelection</code></a></td><td>MPPerkSelection 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MPPerkSelectionManager/"><code>MPPerkSelectionManager</code></a></td><td>MPPerkSelectionManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MPRandomOnSpawnPerkEffect/"><code>MPRandomOnSpawnPerkEffect</code></a></td><td>MPRandomOnSpawnPerkEffect 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerAgentApplyDamageModel/"><code>MultiplayerAgentApplyDamageModel</code></a></td><td>MultiplayerAgentApplyDamageModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MultiplayerAgentStatCalculateModel/"><code>MultiplayerAgentStatCalculateModel</code></a></td><td>MultiplayerAgentStatCalculateModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MultiplayerBattleBannerBearersModel/"><code>MultiplayerBattleBannerBearersModel</code></a></td><td>MultiplayerBattleBannerBearersModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MultiplayerBattleInitializationModel/"><code>MultiplayerBattleInitializationModel</code></a></td><td>MultiplayerBattleInitializationModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MultiplayerBattleMoraleModel/"><code>MultiplayerBattleMoraleModel</code></a></td><td>MultiplayerBattleMoraleModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MultiplayerBattleSpawnModel/"><code>MultiplayerBattleSpawnModel</code></a></td><td>MultiplayerBattleSpawnModel 是一个规则模型，位于 TaleWorlds.MountAndBlade，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MultiplayerClassDivisions/"><code>MultiplayerClassDivisions</code></a></td><td>MultiplayerClassDivisions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerGameMode/"><code>MultiplayerGameMode</code></a></td><td>MultiplayerGameMode 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerGameNotificationsComponent/"><code>MultiplayerGameNotificationsComponent</code></a></td><td>MultiplayerGameNotificationsComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MultiplayerGameState/"><code>MultiplayerGameState</code></a></td><td>MultiplayerGameState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerGameType/"><code>MultiplayerGameType</code></a></td><td>MultiplayerGameType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerGameTypeInfo/"><code>MultiplayerGameTypeInfo</code></a></td><td>MultiplayerGameTypeInfo 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerGameTypes/"><code>MultiplayerGameTypes</code></a></td><td>MultiplayerGameTypes 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerGlobalMutedPlayersManager/"><code>MultiplayerGlobalMutedPlayersManager</code></a></td><td>MultiplayerGlobalMutedPlayersManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MultiplayerHotkeyCategory/"><code>MultiplayerHotkeyCategory</code></a></td><td>MultiplayerHotkeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerIntermissionState/"><code>MultiplayerIntermissionState</code></a></td><td>MultiplayerIntermissionState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerIntermissionVotingManager/"><code>MultiplayerIntermissionVotingManager</code></a></td><td>MultiplayerIntermissionVotingManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MultiplayerMessageFilter/"><code>MultiplayerMessageFilter</code></a></td><td>MultiplayerMessageFilter 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerMissionAgentVisualSpawnComponent/"><code>MultiplayerMissionAgentVisualSpawnComponent</code></a></td><td>MultiplayerMissionAgentVisualSpawnComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MultiplayerOption/"><code>MultiplayerOption</code></a></td><td>MultiplayerOption 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerOptions/"><code>MultiplayerOptions</code></a></td><td>MultiplayerOptions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerOptionsAccessMode/"><code>MultiplayerOptionsAccessMode</code></a></td><td>MultiplayerOptionsAccessMode 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerOptionsExtensions/"><code>MultiplayerOptionsExtensions</code></a></td><td>MultiplayerOptionsExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerOptionsProperty/"><code>MultiplayerOptionsProperty</code></a></td><td>MultiplayerOptionsProperty 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerPollComponent/"><code>MultiplayerPollComponent</code></a></td><td>MultiplayerPollComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MultiplayerPollRejectReason/"><code>MultiplayerPollRejectReason</code></a></td><td>MultiplayerPollRejectReason 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerRoundComponent/"><code>MultiplayerRoundComponent</code></a></td><td>MultiplayerRoundComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MultiplayerRoundController/"><code>MultiplayerRoundController</code></a></td><td>MultiplayerRoundController 是一个控制器，位于 TaleWorlds.MountAndBlade，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../MultiplayerRoundState/"><code>MultiplayerRoundState</code></a></td><td>MultiplayerRoundState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerSceneValidator/"><code>MultiplayerSceneValidator</code></a></td><td>MultiplayerSceneValidator 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MultiplayerTeamSelectComponent/"><code>MultiplayerTeamSelectComponent</code></a></td><td>MultiplayerTeamSelectComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MultiplayerTimerComponent/"><code>MultiplayerTimerComponent</code></a></td><td>MultiplayerTimerComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MultiplayerWarmupComponent/"><code>MultiplayerWarmupComponent</code></a></td><td>MultiplayerWarmupComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../MusicMode/"><code>MusicMode</code></a></td><td>MusicMode 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MusicParameters/"><code>MusicParameters</code></a></td><td>MusicParameters 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../MusicTheme/"><code>MusicTheme</code></a></td><td>MusicTheme 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../NavigationData/"><code>NavigationData</code></a></td><td>NavigationData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../NetworkCommunication/"><code>NetworkCommunication</code></a></td><td>NetworkCommunication 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../NetworkCommunicator/"><code>NetworkCommunicator</code></a></td><td>NetworkCommunicator 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../NetworkMain/"><code>NetworkMain</code></a></td><td>NetworkMain 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../NetworkMessageHandlerRegisterer/"><code>NetworkMessageHandlerRegisterer</code></a></td><td>NetworkMessageHandlerRegisterer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../NetworkMessageHandlerRegistererContainer/"><code>NetworkMessageHandlerRegistererContainer</code></a></td><td>NetworkMessageHandlerRegistererContainer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../NotificationProperty/"><code>NotificationProperty</code></a></td><td>NotificationProperty 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../OptionsCategory/"><code>OptionsCategory</code></a></td><td>OptionsCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../OptionType/"><code>OptionType</code></a></td><td>OptionType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../OptionValueType/"><code>OptionValueType</code></a></td><td>OptionValueType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../OrderComponent/"><code>OrderComponent</code></a></td><td>OrderComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../OrderController/"><code>OrderController</code></a></td><td>OrderController 是一个控制器，位于 TaleWorlds.MountAndBlade，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../OrderOfBattleFormationExtensions/"><code>OrderOfBattleFormationExtensions</code></a></td><td>OrderOfBattleFormationExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../OrderType/"><code>OrderType</code></a></td><td>OrderType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../OverrideStrikeAndDeathActionDuringUsageComponent/"><code>OverrideStrikeAndDeathActionDuringUsageComponent</code></a></td><td>OverrideStrikeAndDeathActionDuringUsageComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../PartyHotKeyCategory/"><code>PartyHotKeyCategory</code></a></td><td>PartyHotKeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../PathLastNodeFixer/"><code>PathLastNodeFixer</code></a></td><td>PathLastNodeFixer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../PathTracker/"><code>PathTracker</code></a></td><td>PathTracker 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../PeerExtensions/"><code>PeerExtensions</code></a></td><td>PeerExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../PeerVisualsHolder/"><code>PeerVisualsHolder</code></a></td><td>PeerVisualsHolder 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../PerkEventFlags/"><code>PerkEventFlags</code></a></td><td>PerkEventFlags 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Permission/"><code>Permission</code></a></td><td>Permission 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../PermissionType/"><code>PermissionType</code></a></td><td>PermissionType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerConnectionInfo/"><code>PlayerConnectionInfo</code></a></td><td>PlayerConnectionInfo 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../PollHotkeyCategory/"><code>PollHotkeyCategory</code></a></td><td>PollHotkeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ProfileSelectionState/"><code>ProfileSelectionState</code></a></td><td>ProfileSelectionState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ProximityMapSearchStruct/"><code>ProximityMapSearchStruct</code></a></td><td>ProximityMapSearchStruct 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../QueryData/"><code>QueryData</code></a></td><td>QueryData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../QueryLibrary/"><code>QueryLibrary</code></a></td><td>QueryLibrary 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RamState/"><code>RamState</code></a></td><td>RamState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RandomParticleSpawner/"><code>RandomParticleSpawner</code></a></td><td>RandomParticleSpawner 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RandomTimer/"><code>RandomTimer</code></a></td><td>RandomTimer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RangedSiegeWeapon/"><code>RangedSiegeWeapon</code></a></td><td>RangedSiegeWeapon 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RangedSiegeWeaponAi/"><code>RangedSiegeWeaponAi</code></a></td><td>RangedSiegeWeaponAi 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RangedSiegeWeaponRecord/"><code>RangedSiegeWeaponRecord</code></a></td><td>RangedSiegeWeaponRecord 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RangedWeaponUsageOrderEnum/"><code>RangedWeaponUsageOrderEnum</code></a></td><td>RangedWeaponUsageOrderEnum 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RecentPlayersFriendListService/"><code>RecentPlayersFriendListService</code></a></td><td>RecentPlayersFriendListService 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RecordMissionLogic/"><code>RecordMissionLogic</code></a></td><td>RecordMissionLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../RectilinearSchiltronFormation/"><code>RectilinearSchiltronFormation</code></a></td><td>RectilinearSchiltronFormation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RegisterMode/"><code>RegisterMode</code></a></td><td>RegisterMode 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ReinforcementFormationData/"><code>ReinforcementFormationData</code></a></td><td>ReinforcementFormationData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../ReinforcementFormationPreferenceComparer/"><code>ReinforcementFormationPreferenceComparer</code></a></td><td>ReinforcementFormationPreferenceComparer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ReinforcementFormationPriority/"><code>ReinforcementFormationPriority</code></a></td><td>ReinforcementFormationPriority 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ReinforcementSpawnMethod/"><code>ReinforcementSpawnMethod</code></a></td><td>ReinforcementSpawnMethod 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ReinforcementTimingMethod/"><code>ReinforcementTimingMethod</code></a></td><td>ReinforcementTimingMethod 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ReplayMissionLogic/"><code>ReplayMissionLogic</code></a></td><td>ReplayMissionLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../ReplicationOccurrence/"><code>ReplicationOccurrence</code></a></td><td>ReplicationOccurrence 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ResetAnimationOnStopUsageComponent/"><code>ResetAnimationOnStopUsageComponent</code></a></td><td>ResetAnimationOnStopUsageComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent/"><code>ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent</code></a></td><td>ResetGravityExclusionAndEntityAttachmentOnStopUsageComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../RestrictedAccess/"><code>RestrictedAccess</code></a></td><td>RestrictedAccess 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RetreatPositionCacheSystem/"><code>RetreatPositionCacheSystem</code></a></td><td>RetreatPositionCacheSystem 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RidingOrder/"><code>RidingOrder</code></a></td><td>RidingOrder 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RidingOrderEnum/"><code>RidingOrderEnum</code></a></td><td>RidingOrderEnum 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RoadPoint/"><code>RoadPoint</code></a></td><td>RoadPoint 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RoadStart/"><code>RoadStart</code></a></td><td>RoadStart 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RoundEndReason/"><code>RoundEndReason</code></a></td><td>RoundEndReason 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../RoundStateExtensions/"><code>RoundStateExtensions</code></a></td><td>RoundStateExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SallyOutEndLogic/"><code>SallyOutEndLogic</code></a></td><td>SallyOutEndLogic 是一个行为逻辑类，位于 TaleWorlds.MountAndBlade，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../SallyOutMissionController/"><code>SallyOutMissionController</code></a></td><td>SallyOutMissionController 是一个控制器，位于 TaleWorlds.MountAndBlade，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../SallyOutMissionNotificationsHandler/"><code>SallyOutMissionNotificationsHandler</code></a></td><td>SallyOutMissionNotificationsHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../SallyOutReinforcementSpawnTimer/"><code>SallyOutReinforcementSpawnTimer</code></a></td><td>SallyOutReinforcementSpawnTimer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ScenePropDecal/"><code>ScenePropDecal</code></a></td><td>ScenePropDecal 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ScenePropNegativeLight/"><code>ScenePropNegativeLight</code></a></td><td>ScenePropNegativeLight 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ScenePropPositiveLight/"><code>ScenePropPositiveLight</code></a></td><td>ScenePropPositiveLight 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ScoreboardHeader/"><code>ScoreboardHeader</code></a></td><td>ScoreboardHeader 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ScoreboardHotKeyCategory/"><code>ScoreboardHotKeyCategory</code></a></td><td>ScoreboardHotKeyCategory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Side/"><code>Side</code></a></td><td>Side 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeDeploymentMissionController/"><code>SiegeDeploymentMissionController</code></a></td><td>SiegeDeploymentMissionController 是一个控制器，位于 TaleWorlds.MountAndBlade，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../SiegeLadder/"><code>SiegeLadder</code></a></td><td>SiegeLadder 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeLadderAI/"><code>SiegeLadderAI</code></a></td><td>SiegeLadderAI 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeLadderRecord/"><code>SiegeLadderRecord</code></a></td><td>SiegeLadderRecord 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeLane/"><code>SiegeLane</code></a></td><td>SiegeLane 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeMissionPreparationHandler/"><code>SiegeMissionPreparationHandler</code></a></td><td>SiegeMissionPreparationHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../SiegeQuerySystem/"><code>SiegeQuerySystem</code></a></td><td>SiegeQuerySystem 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeSpawnFrameBehavior/"><code>SiegeSpawnFrameBehavior</code></a></td><td>SiegeSpawnFrameBehavior 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeSpawningBehavior/"><code>SiegeSpawningBehavior</code></a></td><td>SiegeSpawningBehavior 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeTower/"><code>SiegeTower</code></a></td><td>SiegeTower 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeTowerAI/"><code>SiegeTowerAI</code></a></td><td>SiegeTowerAI 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeTowerRecord/"><code>SiegeTowerRecord</code></a></td><td>SiegeTowerRecord 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeWeapon/"><code>SiegeWeapon</code></a></td><td>SiegeWeapon 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeWeaponController/"><code>SiegeWeaponController</code></a></td><td>SiegeWeaponController 是一个控制器，位于 TaleWorlds.MountAndBlade，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../SiegeWeaponMovementComponent/"><code>SiegeWeaponMovementComponent</code></a></td><td>SiegeWeaponMovementComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../SiegeWeaponOrderType/"><code>SiegeWeaponOrderType</code></a></td><td>SiegeWeaponOrderType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SkeinFormation/"><code>SkeinFormation</code></a></td><td>SkeinFormation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SkeletonModelBoundsRecFlags/"><code>SkeletonModelBoundsRecFlags</code></a></td><td>SkeletonModelBoundsRecFlags 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SkeletonType/"><code>SkeletonType</code></a></td><td>SkeletonType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SkinGenerationParams/"><code>SkinGenerationParams</code></a></td><td>SkinGenerationParams 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SkinVoiceManager/"><code>SkinVoiceManager</code></a></td><td>SkinVoiceManager 是一个管理器，位于 TaleWorlds.MountAndBlade，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../SkinVoiceType/"><code>SkinVoiceType</code></a></td><td>SkinVoiceType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SnapMethod/"><code>SnapMethod</code></a></td><td>SnapMethod 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SoundPlayer/"><code>SoundPlayer</code></a></td><td>SoundPlayer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SpawnComponent/"><code>SpawnComponent</code></a></td><td>SpawnComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../SpawnedItemEntity/"><code>SpawnedItemEntity</code></a></td><td>SpawnedItemEntity 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SpawnerEntityEditorHelper/"><code>SpawnerEntityEditorHelper</code></a></td><td>SpawnerEntityEditorHelper 是一个帮助类，位于 TaleWorlds.MountAndBlade，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../SpawnerEntityMissionHelper/"><code>SpawnerEntityMissionHelper</code></a></td><td>SpawnerEntityMissionHelper 是一个帮助类，位于 TaleWorlds.MountAndBlade，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../SpawnFrameBehaviorBase/"><code>SpawnFrameBehaviorBase</code></a></td><td>SpawnFrameBehaviorBase 是一个抽象基类，位于 TaleWorlds.MountAndBlade，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../SpawningBehaviorBase/"><code>SpawningBehaviorBase</code></a></td><td>SpawningBehaviorBase 是一个抽象基类，位于 TaleWorlds.MountAndBlade，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../SpawnPathData/"><code>SpawnPathData</code></a></td><td>SpawnPathData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../SpectatorData/"><code>SpectatorData</code></a></td><td>SpectatorData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../SquareFormation/"><code>SquareFormation</code></a></td><td>SquareFormation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray8Agent/"><code>StackArray8Agent</code></a></td><td>StackArray8Agent 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray8StandingPoint/"><code>StackArray8StandingPoint</code></a></td><td>StackArray8StandingPoint 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray8ThrowingPoint/"><code>StackArray8ThrowingPoint</code></a></td><td>StackArray8ThrowingPoint 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StandingPoint/"><code>StandingPoint</code></a></td><td>StandingPoint 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StandingPointForRangedArea/"><code>StandingPointForRangedArea</code></a></td><td>StandingPointForRangedArea 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StandingPointWithAgentLimit/"><code>StandingPointWithAgentLimit</code></a></td><td>StandingPointWithAgentLimit 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StandingPointWithTeamLimit/"><code>StandingPointWithTeamLimit</code></a></td><td>StandingPointWithTeamLimit 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StandingPointWithVolumeBox/"><code>StandingPointWithVolumeBox</code></a></td><td>StandingPointWithVolumeBox 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StandingPointWithWeaponRequirement/"><code>StandingPointWithWeaponRequirement</code></a></td><td>StandingPointWithWeaponRequirement 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StonePile/"><code>StonePile</code></a></td><td>StonePile 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StonePileAI/"><code>StonePileAI</code></a></td><td>StonePileAI 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StonePileRecord/"><code>StonePileRecord</code></a></td><td>StonePileRecord 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StopUsingGameObjectFlags/"><code>StopUsingGameObjectFlags</code></a></td><td>StopUsingGameObjectFlags 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StrategicArea/"><code>StrategicArea</code></a></td><td>StrategicArea 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SynchedMissionObject/"><code>SynchedMissionObject</code></a></td><td>SynchedMissionObject 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../SynchFlags/"><code>SynchFlags</code></a></td><td>SynchFlags 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticalDecision/"><code>TacticalDecision</code></a></td><td>TacticalDecision 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticalPosition/"><code>TacticalPosition</code></a></td><td>TacticalPosition 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticalPositionTypeEnum/"><code>TacticalPositionTypeEnum</code></a></td><td>TacticalPositionTypeEnum 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticalRegion/"><code>TacticalRegion</code></a></td><td>TacticalRegion 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticalRegionTypeEnum/"><code>TacticalRegionTypeEnum</code></a></td><td>TacticalRegionTypeEnum 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticBreachWalls/"><code>TacticBreachWalls</code></a></td><td>TacticBreachWalls 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticCharge/"><code>TacticCharge</code></a></td><td>TacticCharge 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticComponent/"><code>TacticComponent</code></a></td><td>TacticComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../TacticCoordinatedRetreat/"><code>TacticCoordinatedRetreat</code></a></td><td>TacticCoordinatedRetreat 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticDefendCastle/"><code>TacticDefendCastle</code></a></td><td>TacticDefendCastle 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticDefensiveEngagement/"><code>TacticDefensiveEngagement</code></a></td><td>TacticDefensiveEngagement 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticDefensiveLine/"><code>TacticDefensiveLine</code></a></td><td>TacticDefensiveLine 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticDefensiveRing/"><code>TacticDefensiveRing</code></a></td><td>TacticDefensiveRing 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticFrontalCavalryCharge/"><code>TacticFrontalCavalryCharge</code></a></td><td>TacticFrontalCavalryCharge 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticFullScaleAttack/"><code>TacticFullScaleAttack</code></a></td><td>TacticFullScaleAttack 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticHoldChokePoint/"><code>TacticHoldChokePoint</code></a></td><td>TacticHoldChokePoint 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticPerimeterDefense/"><code>TacticPerimeterDefense</code></a></td><td>TacticPerimeterDefense 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticRangedHarrassmentOffensive/"><code>TacticRangedHarrassmentOffensive</code></a></td><td>TacticRangedHarrassmentOffensive 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticSallyOutDefense/"><code>TacticSallyOutDefense</code></a></td><td>TacticSallyOutDefense 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticSallyOutHitAndRun/"><code>TacticSallyOutHitAndRun</code></a></td><td>TacticSallyOutHitAndRun 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticSergeantMPBotTactic/"><code>TacticSergeantMPBotTactic</code></a></td><td>TacticSergeantMPBotTactic 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticState/"><code>TacticState</code></a></td><td>TacticState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TacticStop/"><code>TacticStop</code></a></td><td>TacticStop 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TargetFlags/"><code>TargetFlags</code></a></td><td>TargetFlags 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TargetIconType/"><code>TargetIconType</code></a></td><td>TargetIconType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Team/"><code>Team</code></a></td><td>Team 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TeamAIComponent/"><code>TeamAIComponent</code></a></td><td>TeamAIComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../TeamAIGeneral/"><code>TeamAIGeneral</code></a></td><td>TeamAIGeneral 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TeamAiMultiplayerSiegeAttacker/"><code>TeamAiMultiplayerSiegeAttacker</code></a></td><td>TeamAiMultiplayerSiegeAttacker 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TeamAiMultiplayerSiegeDefender/"><code>TeamAiMultiplayerSiegeDefender</code></a></td><td>TeamAiMultiplayerSiegeDefender 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TeamAISallyOutAttacker/"><code>TeamAISallyOutAttacker</code></a></td><td>TeamAISallyOutAttacker 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TeamAISallyOutDefender/"><code>TeamAISallyOutDefender</code></a></td><td>TeamAISallyOutDefender 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TeamAISiegeAttacker/"><code>TeamAISiegeAttacker</code></a></td><td>TeamAISiegeAttacker 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TeamAISiegeComponent/"><code>TeamAISiegeComponent</code></a></td><td>TeamAISiegeComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../TeamAISiegeDefender/"><code>TeamAISiegeDefender</code></a></td><td>TeamAISiegeDefender 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TeamCollection/"><code>TeamCollection</code></a></td><td>TeamCollection 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TeammateColorsExtensions/"><code>TeammateColorsExtensions</code></a></td><td>TeammateColorsExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TeamQuerySystem/"><code>TeamQuerySystem</code></a></td><td>TeamQuerySystem 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TerrainTypeSoundSlot/"><code>TerrainTypeSoundSlot</code></a></td><td>TerrainTypeSoundSlot 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TestScript/"><code>TestScript</code></a></td><td>TestScript 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Threat/"><code>Threat</code></a></td><td>Threat 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ThreatSeeker/"><code>ThreatSeeker</code></a></td><td>ThreatSeeker 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TimeSpeedRequest/"><code>TimeSpeedRequest</code></a></td><td>TimeSpeedRequest 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TimeType/"><code>TimeType</code></a></td><td>TimeType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TrainingIcon/"><code>TrainingIcon</code></a></td><td>TrainingIcon 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TrainingType/"><code>TrainingType</code></a></td><td>TrainingType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TrajectoryVisualizer/"><code>TrajectoryVisualizer</code></a></td><td>TrajectoryVisualizer 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TransposedLineFormation/"><code>TransposedLineFormation</code></a></td><td>TransposedLineFormation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../Trebuchet/"><code>Trebuchet</code></a></td><td>Trebuchet 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TrebuchetAI/"><code>TrebuchetAI</code></a></td><td>TrebuchetAI 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TrebuchetSpawner/"><code>TrebuchetSpawner</code></a></td><td>TrebuchetSpawner 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TroopFilteringUtilities/"><code>TroopFilteringUtilities</code></a></td><td>TroopFilteringUtilities 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TroopMissionInfo/"><code>TroopMissionInfo</code></a></td><td>TroopMissionInfo 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../TutorialArea/"><code>TutorialArea</code></a></td><td>TutorialArea 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../UdpNetworkComponent/"><code>UdpNetworkComponent</code></a></td><td>UdpNetworkComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../UnderAttackType/"><code>UnderAttackType</code></a></td><td>UnderAttackType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../UnsignedInteger/"><code>UnsignedInteger</code></a></td><td>UnsignedInteger 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../UnsignedLongInteger/"><code>UnsignedLongInteger</code></a></td><td>UnsignedLongInteger 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../UnspecifiedDedicatedServerState/"><code>UnspecifiedDedicatedServerState</code></a></td><td>UnspecifiedDedicatedServerState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../UsableGameObjectGroup/"><code>UsableGameObjectGroup</code></a></td><td>UsableGameObjectGroup 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../UsableMachine/"><code>UsableMachine</code></a></td><td>UsableMachine 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../UsableMachineAIBase/"><code>UsableMachineAIBase</code></a></td><td>UsableMachineAIBase 是一个抽象基类，位于 TaleWorlds.MountAndBlade，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../UsableMissionObject/"><code>UsableMissionObject</code></a></td><td>UsableMissionObject 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../UsableMissionObjectComponent/"><code>UsableMissionObjectComponent</code></a></td><td>UsableMissionObjectComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../UsableMissionObjectRecord/"><code>UsableMissionObjectRecord</code></a></td><td>UsableMissionObjectRecord 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../UsableObjectInterestKind/"><code>UsableObjectInterestKind</code></a></td><td>UsableObjectInterestKind 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../UsageDirection/"><code>UsageDirection</code></a></td><td>UsageDirection 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../VertexAnimator/"><code>VertexAnimator</code></a></td><td>VertexAnimator 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../VertexAnimatorRecord/"><code>VertexAnimatorRecord</code></a></td><td>VertexAnimatorRecord 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../VictoryComponent/"><code>VictoryComponent</code></a></td><td>VictoryComponent 是一个组件型对象，位于 TaleWorlds.MountAndBlade，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../VideoPlaybackState/"><code>VideoPlaybackState</code></a></td><td>VideoPlaybackState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ViewCreatorModule/"><code>ViewCreatorModule</code></a></td><td>ViewCreatorModule 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../ViewMethod/"><code>ViewMethod</code></a></td><td>ViewMethod 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../VisualShipFactory/"><code>VisualShipFactory</code></a></td><td>VisualShipFactory 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../VoiceChatHandler/"><code>VoiceChatHandler</code></a></td><td>VoiceChatHandler 是一个处理器，位于 TaleWorlds.MountAndBlade，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../VoiceType/"><code>VoiceType</code></a></td><td>VoiceType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../VolumeBox/"><code>VolumeBox</code></a></td><td>VolumeBox 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WallSegment/"><code>WallSegment</code></a></td><td>WallSegment 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WarmupSpawningBehavior/"><code>WarmupSpawningBehavior</code></a></td><td>WarmupSpawningBehavior 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WarmupStates/"><code>WarmupStates</code></a></td><td>WarmupStates 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WatchState/"><code>WatchState</code></a></td><td>WatchState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WaterPathPoint/"><code>WaterPathPoint</code></a></td><td>WaterPathPoint 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WaveFloater/"><code>WaveFloater</code></a></td><td>WaveFloater 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WeaponComponentMissionExtensions/"><code>WeaponComponentMissionExtensions</code></a></td><td>WeaponComponentMissionExtensions 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WeaponData/"><code>WeaponData</code></a></td><td>WeaponData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../WeaponInfo/"><code>WeaponInfo</code></a></td><td>WeaponInfo 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WeaponSpawner/"><code>WeaponSpawner</code></a></td><td>WeaponSpawner 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WeaponSpawnFlags/"><code>WeaponSpawnFlags</code></a></td><td>WeaponSpawnFlags 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WeaponState/"><code>WeaponState</code></a></td><td>WeaponState 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WeaponStatsData/"><code>WeaponStatsData</code></a></td><td>WeaponStatsData 是一个数据载体，位于 TaleWorlds.MountAndBlade，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../WeaponWieldActionType/"><code>WeaponWieldActionType</code></a></td><td>WeaponWieldActionType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WedgeFormation/"><code>WedgeFormation</code></a></td><td>WedgeFormation 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../WindMill/"><code>WindMill</code></a></td><td>WindMill 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../XmlInformationType/"><code>XmlInformationType</code></a></td><td>XmlInformationType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+</tbody></table>
+<h2 id="ben-qu-yu-qi-ta-zi-xi-tong">本区域其他子系统</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/mission-ext/root/./../componentinterfaces/">ComponentInterfaces</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/mission-ext/root/./../gauntletui/">GauntletUI</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/mission-ext/root/./../missionrepresentatives/">MissionRepresentatives</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/mission-ext/root/./../missions/">Missions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/mission-ext/root/./../missionspawnhandlers/">MissionSpawnHandlers</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/mission-ext/root/./../network/">Network</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/mission-ext/root/./../objects/">Objects</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/mission-ext/root/./../options/">Options</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/mission-ext/root/./../source/">Source</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/mission-ext/root/./../view/">View</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/mission-ext/root/./../viewmodelcollection/">ViewModelCollection</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClanManagement</title>
+  <meta name="description" content="Clan, fief and member management UI.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/viewmodel/clanmanagement/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/viewmodel/clanmanagement/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="active">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;viewmodel&#x2F;">viewmodel index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">ClanManagement</span>
+    </nav>
+  
+  <h1>ClanManagement</h1>
+  <h2 id="up">Up</h2>
+<ul>
+<li><a href="../">Back to viewmodel index</a></li>
+<li><a href="../../">API Index</a></li>
+<li><a href="../../../">Version Home</a></li>
+</ul>
+<h2 id="subsystem-overview">Subsystem overview</h2>
+<p>This is the <strong>ClanManagement</strong> subsystem inside <strong>viewmodel index</strong>. Classes in the same namespace tackle related concerns; pick a type, then open its page for methods.</p>
+<p>Clan, fief and member management UI.</p>
+<h2 id="classes">Classes</h2>
+<table><thead><tr><th>Class</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="../AlleyItemComparerBase/"><code>AlleyItemComparerBase</code></a></td><td>AlleyItemComparerBase is an abstract base class in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../AlleyItemIncomeComparer/"><code>AlleyItemIncomeComparer</code></a></td><td>AlleyItemIncomeComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../AlleyItemLocationComparer/"><code>AlleyItemLocationComparer</code></a></td><td>AlleyItemLocationComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../AlleyItemNameComparer/"><code>AlleyItemNameComparer</code></a></td><td>AlleyItemNameComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../CardSelectionItemSpriteType/"><code>CardSelectionItemSpriteType</code></a></td><td>CardSelectionItemSpriteType is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanCardSelectionInfo/"><code>ClanCardSelectionInfo</code></a></td><td>ClanCardSelectionInfo is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanCardSelectionItemInfo/"><code>ClanCardSelectionItemInfo</code></a></td><td>ClanCardSelectionItemInfo is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanCardSelectionItemPropertyInfo/"><code>ClanCardSelectionItemPropertyInfo</code></a></td><td>ClanCardSelectionItemPropertyInfo is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanCardSelectionPopupItemPropertyVM/"><code>ClanCardSelectionPopupItemPropertyVM</code></a></td><td>ClanCardSelectionPopupItemPropertyVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanCardSelectionPopupItemVM/"><code>ClanCardSelectionPopupItemVM</code></a></td><td>ClanCardSelectionPopupItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanCardSelectionPopupVM/"><code>ClanCardSelectionPopupVM</code></a></td><td>ClanCardSelectionPopupVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanFiefsSortControllerVM/"><code>ClanFiefsSortControllerVM</code></a></td><td>ClanFiefsSortControllerVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../ClanFiefsVM/"><code>ClanFiefsVM</code></a></td><td>ClanFiefsVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../ClanFinanceAlleyItemVM/"><code>ClanFinanceAlleyItemVM</code></a></td><td>ClanFinanceAlleyItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance.</td></tr>
+<tr><td><a href="../ClanFinanceCommonAreaItemVM/"><code>ClanFinanceCommonAreaItemVM</code></a></td><td>ClanFinanceCommonAreaItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance.</td></tr>
+<tr><td><a href="../ClanFinanceExpenseItemVM/"><code>ClanFinanceExpenseItemVM</code></a></td><td>ClanFinanceExpenseItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanFinanceIncomeItemBaseVM/"><code>ClanFinanceIncomeItemBaseVM</code></a></td><td>ClanFinanceIncomeItemBaseVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanFinanceMercenaryItemVM/"><code>ClanFinanceMercenaryItemVM</code></a></td><td>ClanFinanceMercenaryItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance.</td></tr>
+<tr><td><a href="../ClanFinanceTownItemVM/"><code>ClanFinanceTownItemVM</code></a></td><td>ClanFinanceTownItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance.</td></tr>
+<tr><td><a href="../ClanFinanceWorkshopItemVM/"><code>ClanFinanceWorkshopItemVM</code></a></td><td>ClanFinanceWorkshopItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance.</td></tr>
+<tr><td><a href="../ClanIncomeSortControllerVM/"><code>ClanIncomeSortControllerVM</code></a></td><td>ClanIncomeSortControllerVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../ClanIncomeVM/"><code>ClanIncomeVM</code></a></td><td>ClanIncomeVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../ClanLordItemVM/"><code>ClanLordItemVM</code></a></td><td>ClanLordItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanLordStatusItemVM/"><code>ClanLordStatusItemVM</code></a></td><td>ClanLordStatusItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanManagementVM/"><code>ClanManagementVM</code></a></td><td>ClanManagementVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanMembersSortControllerVM/"><code>ClanMembersSortControllerVM</code></a></td><td>ClanMembersSortControllerVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../ClanMembersVM/"><code>ClanMembersVM</code></a></td><td>ClanMembersVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../ClanPartiesSortControllerVM/"><code>ClanPartiesSortControllerVM</code></a></td><td>ClanPartiesSortControllerVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../ClanPartiesVM/"><code>ClanPartiesVM</code></a></td><td>ClanPartiesVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../ClanPartyBehaviorSelectorVM/"><code>ClanPartyBehaviorSelectorVM</code></a></td><td>ClanPartyBehaviorSelectorVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanPartyItemVM/"><code>ClanPartyItemVM</code></a></td><td>ClanPartyItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanPartyMemberItemVM/"><code>ClanPartyMemberItemVM</code></a></td><td>ClanPartyMemberItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanPartyType/"><code>ClanPartyType</code></a></td><td>ClanPartyType is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanRoleAssignedThroughClanScreenEvent/"><code>ClanRoleAssignedThroughClanScreenEvent</code></a></td><td>ClanRoleAssignedThroughClanScreenEvent is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanRoleItemVM/"><code>ClanRoleItemVM</code></a></td><td>ClanRoleItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanRoleMemberItemVM/"><code>ClanRoleMemberItemVM</code></a></td><td>ClanRoleMemberItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanSettlementItemVM/"><code>ClanSettlementItemVM</code></a></td><td>ClanSettlementItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ClanSupporterGroupVM/"><code>ClanSupporterGroupVM</code></a></td><td>ClanSupporterGroupVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Supporters.</td></tr>
+<tr><td><a href="../ClanSupporterItemVM/"><code>ClanSupporterItemVM</code></a></td><td>ClanSupporterItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Supporters.</td></tr>
+<tr><td><a href="../IncomeTypes/"><code>IncomeTypes</code></a></td><td>IncomeTypes is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_ClanManagement_Categories/"><code>ItemComparerBase__TaleWorlds_CampaignSystem_ViewModelCollection_ClanManagement_Categories</code></a></td><td>ItemComparerBase is an abstract base class in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../ItemGovernorComparer/"><code>ItemGovernorComparer</code></a></td><td>ItemGovernorComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../ItemLocationComparer/"><code>ItemLocationComparer</code></a></td><td>ItemLocationComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_ClanManagement_Categories/"><code>ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_ClanManagement_Categories</code></a></td><td>ItemNameComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../ItemProfitComparer/"><code>ItemProfitComparer</code></a></td><td>ItemProfitComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../ItemShipCountComparer/"><code>ItemShipCountComparer</code></a></td><td>ItemShipCountComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../ItemSizeComparer/"><code>ItemSizeComparer</code></a></td><td>ItemSizeComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../LordStatus/"><code>LordStatus</code></a></td><td>LordStatus is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../SupporterItemComparerBase/"><code>SupporterItemComparerBase</code></a></td><td>SupporterItemComparerBase is an abstract base class in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../SupporterItemIncomeComparer/"><code>SupporterItemIncomeComparer</code></a></td><td>SupporterItemIncomeComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../SupporterItemNameComparer/"><code>SupporterItemNameComparer</code></a></td><td>SupporterItemNameComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../TaxType/"><code>TaxType</code></a></td><td>TaxType is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.</td></tr>
+<tr><td><a href="../WorkshopItemComparerBase/"><code>WorkshopItemComparerBase</code></a></td><td>WorkshopItemComparerBase is an abstract base class in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../WorkshopItemIncomeComparer/"><code>WorkshopItemIncomeComparer</code></a></td><td>WorkshopItemIncomeComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../WorkshopItemLocationComparer/"><code>WorkshopItemLocationComparer</code></a></td><td>WorkshopItemLocationComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../WorkshopItemNameComparer/"><code>WorkshopItemNameComparer</code></a></td><td>WorkshopItemNameComparer is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.Categories.</td></tr>
+<tr><td><a href="../WorkshopPercentageSelectorItemVM/"><code>WorkshopPercentageSelectorItemVM</code></a></td><td>WorkshopPercentageSelectorItemVM is a public type in TaleWorlds.CampaignSystem.ViewModelCollection.ClanManagement.ClanFinance.</td></tr>
+</tbody></table>
+<h2 id="other-subsystems-in-this-area">Other subsystems in this area</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../armymanagement/">ArmyManagement</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../charactercreation/">CharacterCreation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../characterdeveloper/">CharacterDeveloper</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../conversation/">Conversation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../education/">Education</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../encyclopedia/">Encyclopedia</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../gamemenu/">GameMenu</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../inventory/">Inventory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../kingdommanagement/">KingdomManagement</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../map/">Map</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../party/">Party</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../quests/">Quests</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/viewmodel/clanmanagement/./../weaponcrafting/">WeaponCrafting</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

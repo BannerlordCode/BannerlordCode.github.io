@@ -192,5 +192,5 @@ public class MyItemSetDef : MBObjectBase
 
 ## 参见
 
-- ↑ 父级：[campaign-ext 索引](../)
+- ↑ 父级：campaign-ext 目录下没有索引页；本目录只有两个页面——本页 `MBObjectBase` 与 [MBObjectManager](../MBObjectManager)。
 - ↔ 相关：[MBObjectManager](../MBObjectManager) · [Game](../../core-extra/Game) · [MBSubModuleBase](../../core/MBSubModuleBase) · [Campaign](../../campaign/Campaign)

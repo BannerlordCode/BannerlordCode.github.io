@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>View</title>
+  <meta name="description" content="Types in the TaleWorlds.MountAndBlade.View namespace.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/view/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/view/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">View</span>
+    </nav>
+  
+  <h1>View</h1>
+  <h2 id="up">Up</h2>
+<ul>
+<li><a href="../">Back to mission-ext index</a></li>
+<li><a href="../../">API Index</a></li>
+<li><a href="../../../">Version Home</a></li>
+</ul>
+<h2 id="subsystem-overview">Subsystem overview</h2>
+<p>This is the <strong>View</strong> subsystem inside <strong>mission-ext index</strong>. Classes in the same namespace tackle related concerns; pick a type, then open its page for methods.</p>
+<h2 id="classes">Classes</h2>
+<table><thead><tr><th>Class</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="../AgentVisuals/"><code>AgentVisuals</code></a></td><td>AgentVisuals is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../AgentVisualsCreator/"><code>AgentVisualsCreator</code></a></td><td>AgentVisualsCreator is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../Alignment/"><code>Alignment</code></a></td><td>Alignment is a public type in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails.</td></tr>
+<tr><td><a href="../AvatarThumbnailCache/"><code>AvatarThumbnailCache</code></a></td><td>AvatarThumbnailCache is a public type in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails.</td></tr>
+<tr><td><a href="../AvatarThumbnailCreationData/"><code>AvatarThumbnailCreationData</code></a></td><td>AvatarThumbnailCreationData is a data carrier in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../BallistaView/"><code>BallistaView</code></a></td><td>BallistaView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../BannerBuilderScreen/"><code>BannerBuilderScreen</code></a></td><td>BannerBuilderScreen is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../BannerLargeThumbnailCache/"><code>BannerLargeThumbnailCache</code></a></td><td>BannerLargeThumbnailCache is a public type in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails.</td></tr>
+<tr><td><a href="../BannerLargeThumbnailCreationData/"><code>BannerLargeThumbnailCreationData</code></a></td><td>BannerLargeThumbnailCreationData is a data carrier in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../BannerSmallThumbnailCache/"><code>BannerSmallThumbnailCache</code></a></td><td>BannerSmallThumbnailCache is a public type in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails.</td></tr>
+<tr><td><a href="../BannerSmallThumbnailCreationData/"><code>BannerSmallThumbnailCreationData</code></a></td><td>BannerSmallThumbnailCreationData is a data carrier in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../BannerTableau/"><code>BannerTableau</code></a></td><td>BannerTableau is a public type in TaleWorlds.MountAndBlade.View.Tableaus.</td></tr>
+<tr><td><a href="../BannerThumbnailCache/"><code>BannerThumbnailCache</code></a></td><td>BannerThumbnailCache is a public type in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails.</td></tr>
+<tr><td><a href="../BannerThumbnailCreationData/"><code>BannerThumbnailCreationData</code></a></td><td>BannerThumbnailCreationData is a data carrier in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../BannerVisual/"><code>BannerVisual</code></a></td><td>BannerVisual is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../BannerVisualCreator/"><code>BannerVisualCreator</code></a></td><td>BannerVisualCreator is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../BannerVisualExtensions/"><code>BannerVisualExtensions</code></a></td><td>BannerVisualExtensions is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../BarterView/"><code>BarterView</code></a></td><td>BarterView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../BasicCharacterTableau/"><code>BasicCharacterTableau</code></a></td><td>BasicCharacterTableau is a public type in TaleWorlds.MountAndBlade.View.Tableaus.</td></tr>
+<tr><td><a href="../BenchmarkScreen/"><code>BenchmarkScreen</code></a></td><td>BenchmarkScreen is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../BoardGameView/"><code>BoardGameView</code></a></td><td>BoardGameView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../BodyPartIndex/"><code>BodyPartIndex</code></a></td><td>BodyPartIndex is a public type in TaleWorlds.MountAndBlade.View.Scripts.</td></tr>
+<tr><td><a href="../BorderFlagEntityFactory/"><code>BorderFlagEntityFactory</code></a></td><td>BorderFlagEntityFactory is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../BricoleView/"><code>BricoleView</code></a></td><td>BricoleView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../BrightnessDemoTableau/"><code>BrightnessDemoTableau</code></a></td><td>BrightnessDemoTableau is a public type in TaleWorlds.MountAndBlade.View.Tableaus.</td></tr>
+<tr><td><a href="../CameraFadeState__TaleWorlds_MountAndBlade_View_MissionViews/"><code>CameraFadeState__TaleWorlds_MountAndBlade_View_MissionViews</code></a></td><td>CameraFadeState is a public type in TaleWorlds.MountAndBlade.View.MissionViews.</td></tr>
+<tr><td><a href="../CameraPoint/"><code>CameraPoint</code></a></td><td>CameraPoint is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../CameraPointTestType/"><code>CameraPointTestType</code></a></td><td>CameraPointTestType is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../CampaignSounds/"><code>CampaignSounds</code></a></td><td>CampaignSounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../CharacterDebugSpawner/"><code>CharacterDebugSpawner</code></a></td><td>CharacterDebugSpawner is a public type in TaleWorlds.MountAndBlade.View.Scripts.</td></tr>
+<tr><td><a href="../CharacterSpawner/"><code>CharacterSpawner</code></a></td><td>CharacterSpawner is a public type in TaleWorlds.MountAndBlade.View.Scripts.</td></tr>
+<tr><td><a href="../CharacterTableau/"><code>CharacterTableau</code></a></td><td>CharacterTableau is a public type in TaleWorlds.MountAndBlade.View.Tableaus.</td></tr>
+<tr><td><a href="../CharacterThumbnailCache/"><code>CharacterThumbnailCache</code></a></td><td>CharacterThumbnailCache is a public type in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails.</td></tr>
+<tr><td><a href="../CharacterThumbnailCreationData/"><code>CharacterThumbnailCreationData</code></a></td><td>CharacterThumbnailCreationData is a data carrier in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../ConversationTagView/"><code>ConversationTagView</code></a></td><td>ConversationTagView is a view-layer object in TaleWorlds.MountAndBlade.View responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../CraftedDataView/"><code>CraftedDataView</code></a></td><td>CraftedDataView is a view-layer object in TaleWorlds.MountAndBlade.View responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../CraftedDataViewManager/"><code>CraftedDataViewManager</code></a></td><td>CraftedDataViewManager is a manager in TaleWorlds.MountAndBlade.View that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../CraftingPieceCollectionElementViewExtensions/"><code>CraftingPieceCollectionElementViewExtensions</code></a></td><td>CraftingPieceCollectionElementViewExtensions is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../CraftingPieceCreationData/"><code>CraftingPieceCreationData</code></a></td><td>CraftingPieceCreationData is a data carrier in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../CraftingPieceThumbnailCache/"><code>CraftingPieceThumbnailCache</code></a></td><td>CraftingPieceThumbnailCache is a public type in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails.</td></tr>
+<tr><td><a href="../CraftingSounds/"><code>CraftingSounds</code></a></td><td>CraftingSounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../CreditsScreen/"><code>CreditsScreen</code></a></td><td>CreditsScreen is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../CursorState/"><code>CursorState</code></a></td><td>CursorState is a public type in TaleWorlds.MountAndBlade.View.MissionViews.Order.</td></tr>
+<tr><td><a href="../CustomBattleFactory/"><code>CustomBattleFactory</code></a></td><td>CustomBattleFactory is a public type in TaleWorlds.MountAndBlade.View.CustomBattle.</td></tr>
+<tr><td><a href="../DefaultSounds/"><code>DefaultSounds</code></a></td><td>DefaultSounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../DefaultView/"><code>DefaultView</code></a></td><td>DefaultView is a view-layer object in TaleWorlds.MountAndBlade.View responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../DefaultVisualOrderProvider/"><code>DefaultVisualOrderProvider</code></a></td><td>DefaultVisualOrderProvider is a public type in TaleWorlds.MountAndBlade.View.VisualOrders.</td></tr>
+<tr><td><a href="../DeploymentMissionView/"><code>DeploymentMissionView</code></a></td><td>DeploymentMissionView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../DeploymentView/"><code>DeploymentView</code></a></td><td>DeploymentView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../DeploymentVisualizationPreference/"><code>DeploymentVisualizationPreference</code></a></td><td>DeploymentVisualizationPreference is a public type in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer.</td></tr>
+<tr><td><a href="../DLCInstallationQueryView/"><code>DLCInstallationQueryView</code></a></td><td>DLCInstallationQueryView is a view-layer object in TaleWorlds.MountAndBlade.View responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../EndgameSounds/"><code>EndgameSounds</code></a></td><td>EndgameSounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../FaceGeneratorMissionView/"><code>FaceGeneratorMissionView</code></a></td><td>FaceGeneratorMissionView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../FaceGeneratorScreen/"><code>FaceGeneratorScreen</code></a></td><td>FaceGeneratorScreen is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../FormationIndicatorMissionView/"><code>FormationIndicatorMissionView</code></a></td><td>FormationIndicatorMissionView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../GameLoadingScreen/"><code>GameLoadingScreen</code></a></td><td>GameLoadingScreen is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../GameStateScreen/"><code>GameStateScreen</code></a></td><td>GameStateScreen is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../GameStateScreenManager/"><code>GameStateScreenManager</code></a></td><td>GameStateScreenManager is a manager in TaleWorlds.MountAndBlade.View.Screens that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../GenericVisualOrderSet/"><code>GenericVisualOrderSet</code></a></td><td>GenericVisualOrderSet is a public type in TaleWorlds.MountAndBlade.View.VisualOrders.OrderSets.</td></tr>
+<tr><td><a href="../HandMorphTest/"><code>HandMorphTest</code></a></td><td>HandMorphTest is a public type in TaleWorlds.MountAndBlade.View.Scripts.</td></tr>
+<tr><td><a href="../HandPose/"><code>HandPose</code></a></td><td>HandPose is a public type in TaleWorlds.MountAndBlade.View.Scripts.</td></tr>
+<tr><td><a href="../IChatLogHandlerScreen/"><code>IChatLogHandlerScreen</code></a></td><td>IChatLogHandlerScreen is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../ICustomBattleProvider/"><code>ICustomBattleProvider</code></a></td><td>ICustomBattleProvider is a public type in TaleWorlds.MountAndBlade.View.CustomBattle.</td></tr>
+<tr><td><a href="../IFaceGeneratorScreen/"><code>IFaceGeneratorScreen</code></a></td><td>IFaceGeneratorScreen is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../Indicator/"><code>Indicator</code></a></td><td>Indicator is a public type in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer.</td></tr>
+<tr><td><a href="../InterpolationType/"><code>InterpolationType</code></a></td><td>InterpolationType is a public type in TaleWorlds.MountAndBlade.View.Scripts.</td></tr>
+<tr><td><a href="../InventorySounds/"><code>InventorySounds</code></a></td><td>InventorySounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../ISiegeDeploymentView/"><code>ISiegeDeploymentView</code></a></td><td>ISiegeDeploymentView is a view-layer object in TaleWorlds.MountAndBlade.View responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../ItemCollectionElementViewExtensions/"><code>ItemCollectionElementViewExtensions</code></a></td><td>ItemCollectionElementViewExtensions is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../ItemObjectViewExtensions/"><code>ItemObjectViewExtensions</code></a></td><td>ItemObjectViewExtensions is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../ItemTableau/"><code>ItemTableau</code></a></td><td>ItemTableau is a public type in TaleWorlds.MountAndBlade.View.Tableaus.</td></tr>
+<tr><td><a href="../ItemThumbnailCache/"><code>ItemThumbnailCache</code></a></td><td>ItemThumbnailCache is a public type in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails.</td></tr>
+<tr><td><a href="../ItemThumbnailCreationData/"><code>ItemThumbnailCreationData</code></a></td><td>ItemThumbnailCreationData is a data carrier in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../ItemVisualizer/"><code>ItemVisualizer</code></a></td><td>ItemVisualizer is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../IThumbnailCache/"><code>IThumbnailCache</code></a></td><td>IThumbnailCache is a public type in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails.</td></tr>
+<tr><td><a href="../KingdomSounds/"><code>KingdomSounds</code></a></td><td>KingdomSounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../MangonelView/"><code>MangonelView</code></a></td><td>MangonelView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MapColorGradeManager/"><code>MapColorGradeManager</code></a></td><td>MapColorGradeManager is a manager in TaleWorlds.MountAndBlade.View.Scripts that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../MissionAgentContourControllerView/"><code>MissionAgentContourControllerView</code></a></td><td>MissionAgentContourControllerView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionAgentLabelView/"><code>MissionAgentLabelView</code></a></td><td>MissionAgentLabelView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionAgentLockVisualizerView/"><code>MissionAgentLockVisualizerView</code></a></td><td>MissionAgentLockVisualizerView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionAgentStatusUIHandler/"><code>MissionAgentStatusUIHandler</code></a></td><td>MissionAgentStatusUIHandler is a handler in TaleWorlds.MountAndBlade.View.MissionViews that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../MissionBattleScoreUIHandler/"><code>MissionBattleScoreUIHandler</code></a></td><td>MissionBattleScoreUIHandler is a handler in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../MissionBattleUIBaseView/"><code>MissionBattleUIBaseView</code></a></td><td>MissionBattleUIBaseView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionBoundaryCrossingView/"><code>MissionBoundaryCrossingView</code></a></td><td>MissionBoundaryCrossingView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionBoundaryWallView/"><code>MissionBoundaryWallView</code></a></td><td>MissionBoundaryWallView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionCameraFadeView/"><code>MissionCameraFadeView</code></a></td><td>MissionCameraFadeView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionCheatView/"><code>MissionCheatView</code></a></td><td>MissionCheatView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionConversationView/"><code>MissionConversationView</code></a></td><td>MissionConversationView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionCrosshair/"><code>MissionCrosshair</code></a></td><td>MissionCrosshair is a public type in TaleWorlds.MountAndBlade.View.MissionViews.</td></tr>
+<tr><td><a href="../MissionCustomBattlePreloadView/"><code>MissionCustomBattlePreloadView</code></a></td><td>MissionCustomBattlePreloadView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionDeploymentBoundaryMarker/"><code>MissionDeploymentBoundaryMarker</code></a></td><td>MissionDeploymentBoundaryMarker is a public type in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer.</td></tr>
+<tr><td><a href="../MissionEntitySelectionUIHandler/"><code>MissionEntitySelectionUIHandler</code></a></td><td>MissionEntitySelectionUIHandler is a handler in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../MissionEscapeMenuView/"><code>MissionEscapeMenuView</code></a></td><td>MissionEscapeMenuView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionFormationMarkerUIHandler/"><code>MissionFormationMarkerUIHandler</code></a></td><td>MissionFormationMarkerUIHandler is a handler in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../MissionFormationTargetSelectionHandler/"><code>MissionFormationTargetSelectionHandler</code></a></td><td>MissionFormationTargetSelectionHandler is a handler in TaleWorlds.MountAndBlade.View.MissionViews that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../MissionGamepadEffectsView/"><code>MissionGamepadEffectsView</code></a></td><td>MissionGamepadEffectsView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionHintView/"><code>MissionHintView</code></a></td><td>MissionHintView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionItemContourControllerView/"><code>MissionItemContourControllerView</code></a></td><td>MissionItemContourControllerView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionLeaveView/"><code>MissionLeaveView</code></a></td><td>MissionLeaveView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionMainAgentCheerBarkControllerView/"><code>MissionMainAgentCheerBarkControllerView</code></a></td><td>MissionMainAgentCheerBarkControllerView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionMainAgentController/"><code>MissionMainAgentController</code></a></td><td>MissionMainAgentController is a controller in TaleWorlds.MountAndBlade.View.MissionViews whose job is to drive the subsystem to its next state after receiving input.</td></tr>
+<tr><td><a href="../MissionMainAgentControlModeView/"><code>MissionMainAgentControlModeView</code></a></td><td>MissionMainAgentControlModeView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionMainAgentEquipDropView/"><code>MissionMainAgentEquipDropView</code></a></td><td>MissionMainAgentEquipDropView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionMainAgentEquipmentControllerView/"><code>MissionMainAgentEquipmentControllerView</code></a></td><td>MissionMainAgentEquipmentControllerView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionMainAgentInteractionComponent/"><code>MissionMainAgentInteractionComponent</code></a></td><td>MissionMainAgentInteractionComponent is a component-style object in TaleWorlds.MountAndBlade.View.MissionViews, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../MissionMessageUIHandler/"><code>MissionMessageUIHandler</code></a></td><td>MissionMessageUIHandler is a handler in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../MissionObjectiveView/"><code>MissionObjectiveView</code></a></td><td>MissionObjectiveView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionOptionsUIHandler/"><code>MissionOptionsUIHandler</code></a></td><td>MissionOptionsUIHandler is a handler in TaleWorlds.MountAndBlade.View.MissionViews that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../MissionOrderOfBattleUIHandler/"><code>MissionOrderOfBattleUIHandler</code></a></td><td>MissionOrderOfBattleUIHandler is a handler in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../MissionOrderUIHandler/"><code>MissionOrderUIHandler</code></a></td><td>MissionOrderUIHandler is a handler in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../MissionPlayerMovementFlagsChangeEvent/"><code>MissionPlayerMovementFlagsChangeEvent</code></a></td><td>MissionPlayerMovementFlagsChangeEvent is a public type in TaleWorlds.MountAndBlade.View.MissionViews.</td></tr>
+<tr><td><a href="../MissionPlayerToggledOrderViewEvent/"><code>MissionPlayerToggledOrderViewEvent</code></a></td><td>MissionPlayerToggledOrderViewEvent is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../MissionScoreUIHandler/"><code>MissionScoreUIHandler</code></a></td><td>MissionScoreUIHandler is a handler in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../MissionScreen/"><code>MissionScreen</code></a></td><td>MissionScreen is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../MissionSiegeEngineMarkerView/"><code>MissionSiegeEngineMarkerView</code></a></td><td>MissionSiegeEngineMarkerView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionSingleplayerEscapeMenu/"><code>MissionSingleplayerEscapeMenu</code></a></td><td>MissionSingleplayerEscapeMenu is a public type in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer.</td></tr>
+<tr><td><a href="../MissionSingleplayerKillNotificationUIHandler/"><code>MissionSingleplayerKillNotificationUIHandler</code></a></td><td>MissionSingleplayerKillNotificationUIHandler is a handler in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../MissionSounds/"><code>MissionSounds</code></a></td><td>MissionSounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../MissionSpectatorControlView/"><code>MissionSpectatorControlView</code></a></td><td>MissionSpectatorControlView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionView/"><code>MissionView</code></a></td><td>MissionView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MissionViewsContainer/"><code>MissionViewsContainer</code></a></td><td>MissionViewsContainer is a public type in TaleWorlds.MountAndBlade.View.MissionViews.</td></tr>
+<tr><td><a href="../MountVisualCreator/"><code>MountVisualCreator</code></a></td><td>MountVisualCreator is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../MultiplayerSounds/"><code>MultiplayerSounds</code></a></td><td>MultiplayerSounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../MultiThreadedStressTestsScreen/"><code>MultiThreadedStressTestsScreen</code></a></td><td>MultiThreadedStressTestsScreen is a public type in TaleWorlds.MountAndBlade.View.Screens.Scripts.</td></tr>
+<tr><td><a href="../MultiThreadedTestFunctions/"><code>MultiThreadedTestFunctions</code></a></td><td>MultiThreadedTestFunctions is a public type in TaleWorlds.MountAndBlade.View.Screens.Scripts.</td></tr>
+<tr><td><a href="../MusicBattleMissionView/"><code>MusicBattleMissionView</code></a></td><td>MusicBattleMissionView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Sound responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MusicSilencedMissionView/"><code>MusicSilencedMissionView</code></a></td><td>MusicSilencedMissionView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Sound responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../MusicStealthMissionView/"><code>MusicStealthMissionView</code></a></td><td>MusicStealthMissionView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Sound responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../NodeComparer/"><code>NodeComparer</code></a></td><td>NodeComparer is a public type in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails.</td></tr>
+<tr><td><a href="../NotificationSounds/"><code>NotificationSounds</code></a></td><td>NotificationSounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../OptionsScreen/"><code>OptionsScreen</code></a></td><td>OptionsScreen is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../OrderFlag/"><code>OrderFlag</code></a></td><td>OrderFlag is a public type in TaleWorlds.MountAndBlade.View.MissionViews.Order.</td></tr>
+<tr><td><a href="../OrderOfBattleSounds/"><code>OrderOfBattleSounds</code></a></td><td>OrderOfBattleSounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../OrderTroopPlacer/"><code>OrderTroopPlacer</code></a></td><td>OrderTroopPlacer is a public type in TaleWorlds.MountAndBlade.View.MissionViews.Order.</td></tr>
+<tr><td><a href="../OverrideMainAgentControlFlag/"><code>OverrideMainAgentControlFlag</code></a></td><td>OverrideMainAgentControlFlag is a public type in TaleWorlds.MountAndBlade.View.MissionViews.</td></tr>
+<tr><td><a href="../OverrideView/"><code>OverrideView</code></a></td><td>OverrideView is a view-layer object in TaleWorlds.MountAndBlade.View responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../PanelSounds/"><code>PanelSounds</code></a></td><td>PanelSounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../PartySounds/"><code>PartySounds</code></a></td><td>PartySounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../PathAnimationState/"><code>PathAnimationState</code></a></td><td>PathAnimationState is a public type in TaleWorlds.MountAndBlade.View.Scripts.</td></tr>
+<tr><td><a href="../PhotoModeView/"><code>PhotoModeView</code></a></td><td>PhotoModeView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../PopupSceneBanner/"><code>PopupSceneBanner</code></a></td><td>PopupSceneBanner is a public type in TaleWorlds.MountAndBlade.View.SceneNotification.</td></tr>
+<tr><td><a href="../PopupSceneCameraPath/"><code>PopupSceneCameraPath</code></a></td><td>PopupSceneCameraPath is a public type in TaleWorlds.MountAndBlade.View.Scripts.</td></tr>
+<tr><td><a href="../PopupSceneEmissionHandler/"><code>PopupSceneEmissionHandler</code></a></td><td>PopupSceneEmissionHandler is a handler in TaleWorlds.MountAndBlade.View that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../PopupSceneSequence/"><code>PopupSceneSequence</code></a></td><td>PopupSceneSequence is a public type in TaleWorlds.MountAndBlade.View.Scripts.</td></tr>
+<tr><td><a href="../PopupSceneShipSpawnPoint/"><code>PopupSceneShipSpawnPoint</code></a></td><td>PopupSceneShipSpawnPoint is a public type in TaleWorlds.MountAndBlade.View.SceneNotification.</td></tr>
+<tr><td><a href="../PopupSceneSkeletonAnimationScript/"><code>PopupSceneSkeletonAnimationScript</code></a></td><td>PopupSceneSkeletonAnimationScript is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../PopupSceneSpawnPoint/"><code>PopupSceneSpawnPoint</code></a></td><td>PopupSceneSpawnPoint is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../PopupSceneSwitchCameraSequence/"><code>PopupSceneSwitchCameraSequence</code></a></td><td>PopupSceneSwitchCameraSequence is a public type in TaleWorlds.MountAndBlade.View.Scripts.</td></tr>
+<tr><td><a href="../PopupSceneSwitchItemSequence/"><code>PopupSceneSwitchItemSequence</code></a></td><td>PopupSceneSwitchItemSequence is a public type in TaleWorlds.MountAndBlade.View.Scripts.</td></tr>
+<tr><td><a href="../PortSounds/"><code>PortSounds</code></a></td><td>PortSounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../PreloadHelper/"><code>PreloadHelper</code></a></td><td>PreloadHelper is a helper class in TaleWorlds.MountAndBlade.View, offering static utility methods that do not depend on instance state.</td></tr>
+<tr><td><a href="../RangedSiegeWeaponView/"><code>RangedSiegeWeaponView</code></a></td><td>RangedSiegeWeaponView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../RangedSiegeWeaponViewController/"><code>RangedSiegeWeaponViewController</code></a></td><td>RangedSiegeWeaponViewController is a controller in TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon whose job is to drive the subsystem to its next state after receiving input.</td></tr>
+<tr><td><a href="../RenderDetails/"><code>RenderDetails</code></a></td><td>RenderDetails is a public type in TaleWorlds.MountAndBlade.View.Tableaus.</td></tr>
+<tr><td><a href="../ReplayCaptureLogic/"><code>ReplayCaptureLogic</code></a></td><td>ReplayCaptureLogic is a behavior-logic class in TaleWorlds.MountAndBlade.View.MissionViews that reacts to events, drives flows, and updates subsystem state at key moments.</td></tr>
+<tr><td><a href="../ReplayMissionView/"><code>ReplayMissionView</code></a></td><td>ReplayMissionView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../SceneEditorLayer/"><code>SceneEditorLayer</code></a></td><td>SceneEditorLayer is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../SceneEditorScreen/"><code>SceneEditorScreen</code></a></td><td>SceneEditorScreen is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../SceneTableau/"><code>SceneTableau</code></a></td><td>SceneTableau is a public type in TaleWorlds.MountAndBlade.View.Tableaus.</td></tr>
+<tr><td><a href="../SiegeDeploymentVisualizationMissionView/"><code>SiegeDeploymentVisualizationMissionView</code></a></td><td>SiegeDeploymentVisualizationMissionView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../SiegeSounds/"><code>SiegeSounds</code></a></td><td>SiegeSounds is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../SimpleSceneTestWithMission/"><code>SimpleSceneTestWithMission</code></a></td><td>SimpleSceneTestWithMission is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../SingleVisualOrder/"><code>SingleVisualOrder</code></a></td><td>SingleVisualOrder is a public type in TaleWorlds.MountAndBlade.View.VisualOrders.Orders.</td></tr>
+<tr><td><a href="../SingleVisualOrderSet/"><code>SingleVisualOrderSet</code></a></td><td>SingleVisualOrderSet is a public type in TaleWorlds.MountAndBlade.View.VisualOrders.OrderSets.</td></tr>
+<tr><td><a href="../SpectatorCameraView/"><code>SpectatorCameraView</code></a></td><td>SpectatorCameraView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../ThumbnailCache/"><code>ThumbnailCache</code></a></td><td>ThumbnailCache is a public type in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails.</td></tr>
+<tr><td><a href="../ThumbnailCacheManager/"><code>ThumbnailCacheManager</code></a></td><td>ThumbnailCacheManager is a manager in TaleWorlds.MountAndBlade.View.Tableaus that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../ThumbnailCacheNode/"><code>ThumbnailCacheNode</code></a></td><td>ThumbnailCacheNode is a public type in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails.</td></tr>
+<tr><td><a href="../ThumbnailCreationData/"><code>ThumbnailCreationData</code></a></td><td>ThumbnailCreationData is a data carrier in TaleWorlds.MountAndBlade.View.Tableaus.Thumbnails that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../ToggleFacingVisualOrder/"><code>ToggleFacingVisualOrder</code></a></td><td>ToggleFacingVisualOrder is a public type in TaleWorlds.MountAndBlade.View.VisualOrders.Orders.ToggleOrders.</td></tr>
+<tr><td><a href="../TrebuchetView/"><code>TrebuchetView</code></a></td><td>TrebuchetView is a view-layer object in TaleWorlds.MountAndBlade.View.MissionViews.SiegeWeapon responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../TutorialMissionViews/"><code>TutorialMissionViews</code></a></td><td>TutorialMissionViews is a public type in TaleWorlds.MountAndBlade.View.MissionViews.Singleplayer.</td></tr>
+<tr><td><a href="../UISoundsHelper/"><code>UISoundsHelper</code></a></td><td>UISoundsHelper is a helper class in TaleWorlds.MountAndBlade.View, offering static utility methods that do not depend on instance state.</td></tr>
+<tr><td><a href="../VideoPlaybackScreen/"><code>VideoPlaybackScreen</code></a></td><td>VideoPlaybackScreen is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../ViewCreator/"><code>ViewCreator</code></a></td><td>ViewCreator is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../ViewCreatorManager/"><code>ViewCreatorManager</code></a></td><td>ViewCreatorManager is a manager in TaleWorlds.MountAndBlade.View that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../ViewSubModule/"><code>ViewSubModule</code></a></td><td>ViewSubModule is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+<tr><td><a href="../VisualTestsScreen/"><code>VisualTestsScreen</code></a></td><td>VisualTestsScreen is a public type in TaleWorlds.MountAndBlade.View.Screens.</td></tr>
+<tr><td><a href="../WeaponComponentViewExtensions/"><code>WeaponComponentViewExtensions</code></a></td><td>WeaponComponentViewExtensions is a public type in TaleWorlds.MountAndBlade.View.</td></tr>
+</tbody></table>
+<h2 id="other-subsystems-in-this-area">Other subsystems in this area</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/mission-ext/view/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/mission-ext/view/./../componentinterfaces/">ComponentInterfaces</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/mission-ext/view/./../gauntletui/">GauntletUI</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/mission-ext/view/./../missionrepresentatives/">MissionRepresentatives</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/mission-ext/view/./../missions/">Missions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/mission-ext/view/./../missionspawnhandlers/">MissionSpawnHandlers</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/mission-ext/view/./../network/">Network</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/mission-ext/view/./../objects/">Objects</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/mission-ext/view/./../options/">Options</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/mission-ext/view/./../source/">Source</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/mission-ext/view/./../viewmodelcollection/">ViewModelCollection</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

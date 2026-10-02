@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameEntity</title>
+  <meta name="description" content="Auto-generated class reference for GameEntity.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/engine/GameEntity/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/engine/GameEntity/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/engine/GameEntity/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/engine/GameEntity/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/engine/GameEntity/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/engine/GameEntity/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="active">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;engine&#x2F;">engine index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">GameEntity</span>
+    </nav>
+  
+  <h1>GameEntity</h1>
+  <h1 id="gameentity">GameEntity</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Engine
+<strong>Module:</strong> TaleWorlds.Engine
+<strong>Type:</strong> <code>public sealed class GameEntity : NativeObject</code>
+<strong>Base:</strong> <code>NativeObject</code>
+<strong>File:</strong> <code>TaleWorlds.Engine/GameEntity.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>GameEntity</code> lives in <code>TaleWorlds.Engine</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.Engine</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>Scene</code></td><td><code>public Scene Scene { get; }</code></td></tr>
+<tr><td><code>WeakEntity</code></td><td><code>public WeakGameEntity WeakEntity { get; }</code></td></tr>
+<tr><td><code>Name</code></td><td><code>public string Name { get; set; }</code></td></tr>
+<tr><td><code>EntityFlags</code></td><td><code>public EntityFlags EntityFlags { get; set; }</code></td></tr>
+<tr><td><code>EntityVisibilityFlags</code></td><td><code>public EntityVisibilityFlags EntityVisibilityFlags { get; set; }</code></td></tr>
+<tr><td><code>BodyFlag</code></td><td><code>public BodyFlags BodyFlag { get; set; }</code></td></tr>
+<tr><td><code>PhysicsDescBodyFlag</code></td><td><code>public BodyFlags PhysicsDescBodyFlag { get; }</code></td></tr>
+<tr><td><code>Mass</code></td><td><code>public float Mass { get; }</code></td></tr>
+<tr><td><code>CenterOfMass</code></td><td><code>public Vec3 CenterOfMass { get; }</code></td></tr>
+<tr><td><code>GlobalPosition</code></td><td><code>public Vec3 GlobalPosition { get; }</code></td></tr>
+<tr><td><code>Tags</code></td><td><code>public string Tags { get; }</code></td></tr>
+<tr><td><code>ChildCount</code></td><td><code>public int ChildCount { get; }</code></td></tr>
+<tr><td><code>Parent</code></td><td><code>public GameEntity Parent { get; }</code></td></tr>
+<tr><td><code>Root</code></td><td><code>public GameEntity Root { get; }</code></td></tr>
+<tr><td><code>MultiMeshComponentCount</code></td><td><code>public int MultiMeshComponentCount { get; }</code></td></tr>
+<tr><td><code>ClothSimulatorComponentCount</code></td><td><code>public int ClothSimulatorComponentCount { get; }</code></td></tr>
+<tr><td><code>GlobalBoxMax</code></td><td><code>public Vec3 GlobalBoxMax { get; }</code></td></tr>
+<tr><td><code>GlobalBoxMin</code></td><td><code>public Vec3 GlobalBoxMin { get; }</code></td></tr>
+<tr><td><code>Skeleton</code></td><td><code>public Skeleton Skeleton { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="createfromweakentity">CreateFromWeakEntity</h3>
+<p><code>public static GameEntity CreateFromWeakEntity(WeakGameEntity weakEntity)</code></p>
+<p><strong>Purpose:</strong> Constructs a new from weak entity entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.CreateFromWeakEntity(weakEntity);
+</code></pre>
+<h3 id="getscenepointer">GetScenePointer</h3>
+<p><code>public UIntPtr GetScenePointer()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the scene pointer value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetScenePointer();
+</code></pre>
+<h3 id="tostring">ToString</h3>
+<p><code>public override string ToString()</code></p>
+<p><strong>Purpose:</strong> Returns a human-readable string representation of the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.ToString();
+</code></pre>
+<h3 id="clearentitycomponents">ClearEntityComponents</h3>
+<p><code>public void ClearEntityComponents(bool resetAll, bool removeScripts, bool deleteChildEntities)</code></p>
+<p><strong>Purpose:</strong> Removes all entity components from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.ClearEntityComponents(false, false, false);
+</code></pre>
+<h3 id="clearcomponents">ClearComponents</h3>
+<p><code>public void ClearComponents()</code></p>
+<p><strong>Purpose:</strong> Removes all components from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.ClearComponents();
+</code></pre>
+<h3 id="clearonlyowncomponents">ClearOnlyOwnComponents</h3>
+<p><code>public void ClearOnlyOwnComponents()</code></p>
+<p><strong>Purpose:</strong> Removes all only own components from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.ClearOnlyOwnComponents();
+</code></pre>
+<h3 id="checkresources">CheckResources</h3>
+<p><code>public bool CheckResources(bool addToQueue, bool checkFaceResources)</code></p>
+<p><strong>Purpose:</strong> Verifies whether resources holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.CheckResources(false, false);
+</code></pre>
+<h3 id="setmobility">SetMobility</h3>
+<p><code>public void SetMobility(GameEntity.Mobility mobility)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to mobility and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetMobility(mobility);
+</code></pre>
+<h3 id="getmobility">GetMobility</h3>
+<p><code>public GameEntity.Mobility GetMobility()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mobility value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetMobility();
+</code></pre>
+<h3 id="addmesh">AddMesh</h3>
+<p><code>public void AddMesh(Mesh mesh, bool recomputeBoundingBox = true)</code></p>
+<p><strong>Purpose:</strong> Adds mesh to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.AddMesh(mesh, false);
+</code></pre>
+<h3 id="addmultimeshtoskeleton">AddMultiMeshToSkeleton</h3>
+<p><code>public void AddMultiMeshToSkeleton(MetaMesh metaMesh)</code></p>
+<p><strong>Purpose:</strong> Adds multi mesh to skeleton to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.AddMultiMeshToSkeleton(metaMesh);
+</code></pre>
+<h3 id="addmultimeshtoskeletonbone">AddMultiMeshToSkeletonBone</h3>
+<p><code>public void AddMultiMeshToSkeletonBone(MetaMesh metaMesh, sbyte boneIndex)</code></p>
+<p><strong>Purpose:</strong> Adds multi mesh to skeleton bone to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.AddMultiMeshToSkeletonBone(metaMesh, 0);
+</code></pre>
+<h3 id="setcolortoallmesheswithtagrecursive">SetColorToAllMeshesWithTagRecursive</h3>
+<p><code>public void SetColorToAllMeshesWithTagRecursive(uint color, string tag)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to color to all meshes with tag recursive and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetColorToAllMeshesWithTagRecursive(0, &quot;example&quot;);
+</code></pre>
+<h3 id="getallmesheswithtag">GetAllMeshesWithTag</h3>
+<p><code>public IEnumerable&lt;Mesh&gt; GetAllMeshesWithTag(string tag)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the all meshes with tag value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetAllMeshesWithTag(&quot;example&quot;);
+</code></pre>
+<h3 id="setcolor">SetColor</h3>
+<p><code>public void SetColor(uint color1, uint color2, string meshTag)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to color and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetColor(0, 0, &quot;example&quot;);
+</code></pre>
+<h3 id="getfactorcolor">GetFactorColor</h3>
+<p><code>public uint GetFactorColor()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the factor color value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetFactorColor();
+</code></pre>
+<h3 id="setfactorcolor">SetFactorColor</h3>
+<p><code>public void SetFactorColor(uint color)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to factor color and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetFactorColor(0);
+</code></pre>
+<h3 id="setasreplayentity">SetAsReplayEntity</h3>
+<p><code>public void SetAsReplayEntity()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to as replay entity and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetAsReplayEntity();
+</code></pre>
+<h3 id="setclothmaxdistancemultiplier">SetClothMaxDistanceMultiplier</h3>
+<p><code>public void SetClothMaxDistanceMultiplier(float multiplier)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to cloth max distance multiplier and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetClothMaxDistanceMultiplier(0);
+</code></pre>
+<h3 id="removemultimeshfromskeleton">RemoveMultiMeshFromSkeleton</h3>
+<p><code>public void RemoveMultiMeshFromSkeleton(MetaMesh metaMesh)</code></p>
+<p><strong>Purpose:</strong> Removes multi mesh from skeleton from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.RemoveMultiMeshFromSkeleton(metaMesh);
+</code></pre>
+<h3 id="removemultimeshfromskeletonbone">RemoveMultiMeshFromSkeletonBone</h3>
+<p><code>public void RemoveMultiMeshFromSkeletonBone(MetaMesh metaMesh, sbyte boneIndex)</code></p>
+<p><strong>Purpose:</strong> Removes multi mesh from skeleton bone from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.RemoveMultiMeshFromSkeletonBone(metaMesh, 0);
+</code></pre>
+<h3 id="removecomponentwithmesh">RemoveComponentWithMesh</h3>
+<p><code>public bool RemoveComponentWithMesh(Mesh mesh)</code></p>
+<p><strong>Purpose:</strong> Removes component with mesh from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.RemoveComponentWithMesh(mesh);
+</code></pre>
+<h3 id="addcomponent">AddComponent</h3>
+<p><code>public void AddComponent(GameEntityComponent component)</code></p>
+<p><strong>Purpose:</strong> Adds component to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.AddComponent(component);
+</code></pre>
+<h3 id="hascomponent">HasComponent</h3>
+<p><code>public bool HasComponent(GameEntityComponent component)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds component.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.HasComponent(component);
+</code></pre>
+<h3 id="isineditorscene">IsInEditorScene</h3>
+<p><code>public bool IsInEditorScene()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the in editor scene state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.IsInEditorScene();
+</code></pre>
+<h3 id="removecomponent">RemoveComponent</h3>
+<p><code>public bool RemoveComponent(GameEntityComponent component)</code></p>
+<p><strong>Purpose:</strong> Removes component from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.RemoveComponent(component);
+</code></pre>
+<h3 id="getguid">GetGuid</h3>
+<p><code>public string GetGuid()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the guid value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetGuid();
+</code></pre>
+<h3 id="isguidvalid">IsGuidValid</h3>
+<p><code>public bool IsGuidValid()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the guid valid state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.IsGuidValid();
+</code></pre>
+<h3 id="setenforcedmaximumlodlevel">SetEnforcedMaximumLodLevel</h3>
+<p><code>public void SetEnforcedMaximumLodLevel(int lodLevel)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to enforced maximum lod level and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetEnforcedMaximumLodLevel(0);
+</code></pre>
+<h3 id="getlodlevelfordistancesq">GetLodLevelForDistanceSq</h3>
+<p><code>public float GetLodLevelForDistanceSq(float distSq)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the lod level for distance sq value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetLodLevelForDistanceSq(0);
+</code></pre>
+<h3 id="getquickboneentitialframe">GetQuickBoneEntitialFrame</h3>
+<p><code>public void GetQuickBoneEntitialFrame(sbyte index, out MatrixFrame frame)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the quick bone entitial frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.GetQuickBoneEntitialFrame(0, frame);
+</code></pre>
+<h3 id="updatevisibilitymask">UpdateVisibilityMask</h3>
+<p><code>public void UpdateVisibilityMask()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of visibility mask.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.UpdateVisibilityMask();
+</code></pre>
+<h3 id="createempty">CreateEmpty</h3>
+<p><code>public static GameEntity CreateEmpty(Scene scene, bool isModifiableFromEditor = true, bool createPhysics = true, bool callScriptCallbacks = true)</code></p>
+<p><strong>Purpose:</strong> Constructs a new empty entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.CreateEmpty(scene, false, false, false);
+</code></pre>
+<h3 id="createemptydynamic">CreateEmptyDynamic</h3>
+<p><code>public static GameEntity CreateEmptyDynamic(Scene scene, bool isModifiableFromEditor = true)</code></p>
+<p><strong>Purpose:</strong> Constructs a new empty dynamic entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.CreateEmptyDynamic(scene, false);
+</code></pre>
+<h3 id="createemptywithoutscene">CreateEmptyWithoutScene</h3>
+<p><code>public static GameEntity CreateEmptyWithoutScene()</code></p>
+<p><strong>Purpose:</strong> Constructs a new empty without scene entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.CreateEmptyWithoutScene();
+</code></pre>
+<h3 id="copyfrom">CopyFrom</h3>
+<p><code>public static GameEntity CopyFrom(Scene scene, GameEntity entity, bool createPhysics = true, bool callScriptCallbacks = true)</code></p>
+<p><strong>Purpose:</strong> Copies the from state of the this instance to a target.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.CopyFrom(scene, entity, false, false);
+</code></pre>
+<h3 id="copyfrom-1">CopyFrom</h3>
+<p><code>public static GameEntity CopyFrom(Scene scene, WeakGameEntity entity, bool createPhysics = true, bool callScriptCallbacks = true)</code></p>
+<p><strong>Purpose:</strong> Copies the from state of the this instance to a target.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.CopyFrom(scene, entity, false, false);
+</code></pre>
+<h3 id="instantiate">Instantiate</h3>
+<p><code>public static GameEntity Instantiate(Scene scene, string prefabName, bool callScriptCallbacks, bool createPhysics = true, string scriptInclusingTag = "")</code></p>
+<p><strong>Purpose:</strong> Executes the Instantiate logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.Instantiate(scene, &quot;example&quot;, false, false, &quot;example&quot;);
+</code></pre>
+<h3 id="callscriptcallbacks">CallScriptCallbacks</h3>
+<p><code>public void CallScriptCallbacks(bool registerScriptComponents)</code></p>
+<p><strong>Purpose:</strong> Executes the CallScriptCallbacks logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.CallScriptCallbacks(false);
+</code></pre>
+<h3 id="instantiate-1">Instantiate</h3>
+<p><code>public static GameEntity Instantiate(Scene scene, string prefabName, MatrixFrame frame, bool callScriptCallbacks = true, string scriptInclusingTag = "")</code></p>
+<p><strong>Purpose:</strong> Executes the Instantiate logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.Instantiate(scene, &quot;example&quot;, frame, false, &quot;example&quot;);
+</code></pre>
+<h3 id="isghostobject">IsGhostObject</h3>
+<p><code>public bool IsGhostObject()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the ghost object state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.IsGhostObject();
+</code></pre>
+<h3 id="createandaddscriptcomponent">CreateAndAddScriptComponent</h3>
+<p><code>public void CreateAndAddScriptComponent(string name, bool callScriptCallbacks)</code></p>
+<p><strong>Purpose:</strong> Constructs a new and add script component entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.CreateAndAddScriptComponent(&quot;example&quot;, false);
+</code></pre>
+<h3 id="prefabexists">PrefabExists</h3>
+<p><code>public static bool PrefabExists(string name)</code></p>
+<p><strong>Purpose:</strong> Executes the PrefabExists logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.PrefabExists(&quot;example&quot;);
+</code></pre>
+<h3 id="removescriptcomponent">RemoveScriptComponent</h3>
+<p><code>public void RemoveScriptComponent(UIntPtr scriptComponent, int removeReason)</code></p>
+<p><strong>Purpose:</strong> Removes script component from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.RemoveScriptComponent(scriptComponent, 0);
+</code></pre>
+<h3 id="setentityenvmapvisibility">SetEntityEnvMapVisibility</h3>
+<p><code>public void SetEntityEnvMapVisibility(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to entity env map visibility and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetEntityEnvMapVisibility(false);
+</code></pre>
+<h3 id="hasscene">HasScene</h3>
+<p><code>public bool HasScene()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds scene.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.HasScene();
+</code></pre>
+<h3 id="hasscriptcomponent">HasScriptComponent</h3>
+<p><code>public bool HasScriptComponent(string scName)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds script component.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.HasScriptComponent(&quot;example&quot;);
+</code></pre>
+<h3 id="getscriptcomponents">GetScriptComponents</h3>
+<p><code>public IEnumerable&lt;ScriptComponentBehavior&gt; GetScriptComponents()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the script components value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetScriptComponents();
+</code></pre>
+<h3 id="getfirstchildentitywithtag">GetFirstChildEntityWithTag</h3>
+<p><code>public GameEntity GetFirstChildEntityWithTag(string tag)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the first child entity with tag value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetFirstChildEntityWithTag(&quot;example&quot;);
+</code></pre>
+<h3 id="hasscriptoftype">HasScriptOfType</h3>
+<p><code>public bool HasScriptOfType(Type t)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds script of type.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.HasScriptOfType(t);
+</code></pre>
+<h3 id="setalpha">SetAlpha</h3>
+<p><code>public void SetAlpha(float alpha)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to alpha and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetAlpha(0);
+</code></pre>
+<h3 id="setvisibilityexcludeparents">SetVisibilityExcludeParents</h3>
+<p><code>public void SetVisibilityExcludeParents(bool visible)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to visibility exclude parents and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetVisibilityExcludeParents(false);
+</code></pre>
+<h3 id="setreadytorender">SetReadyToRender</h3>
+<p><code>public void SetReadyToRender(bool ready)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to ready to render and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetReadyToRender(false);
+</code></pre>
+<h3 id="getvisibilityexcludeparents">GetVisibilityExcludeParents</h3>
+<p><code>public bool GetVisibilityExcludeParents()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the visibility exclude parents value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetVisibilityExcludeParents();
+</code></pre>
+<h3 id="isvisibleincludeparents">IsVisibleIncludeParents</h3>
+<p><code>public bool IsVisibleIncludeParents()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the visible include parents state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.IsVisibleIncludeParents();
+</code></pre>
+<h3 id="getvisibilitylevelmaskincludingparents">GetVisibilityLevelMaskIncludingParents</h3>
+<p><code>public uint GetVisibilityLevelMaskIncludingParents()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the visibility level mask including parents value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetVisibilityLevelMaskIncludingParents();
+</code></pre>
+<h3 id="geteditmodelevelvisibility">GetEditModeLevelVisibility</h3>
+<p><code>public bool GetEditModeLevelVisibility()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the edit mode level visibility value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetEditModeLevelVisibility();
+</code></pre>
+<h3 id="remove">Remove</h3>
+<p><code>public void Remove(int removeReason)</code></p>
+<p><strong>Purpose:</strong> Removes an item from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.Remove(0);
+</code></pre>
+<h3 id="copyfromprefab">CopyFromPrefab</h3>
+<p><code>public static GameEntity CopyFromPrefab(GameEntity prefab)</code></p>
+<p><strong>Purpose:</strong> Copies the from prefab state of the this instance to a target.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.CopyFromPrefab(prefab);
+</code></pre>
+<h3 id="copyfromprefab-1">CopyFromPrefab</h3>
+<p><code>public static GameEntity CopyFromPrefab(WeakGameEntity prefab)</code></p>
+<p><strong>Purpose:</strong> Copies the from prefab state of the this instance to a target.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.CopyFromPrefab(prefab);
+</code></pre>
+<h3 id="setupgradelevelmask">SetUpgradeLevelMask</h3>
+<p><code>public void SetUpgradeLevelMask(GameEntity.UpgradeLevelMask mask)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to upgrade level mask and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetUpgradeLevelMask(mask);
+</code></pre>
+<h3 id="getupgradelevelmask">GetUpgradeLevelMask</h3>
+<p><code>public GameEntity.UpgradeLevelMask GetUpgradeLevelMask()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the upgrade level mask value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetUpgradeLevelMask();
+</code></pre>
+<h3 id="getupgradelevelmaskcumulative">GetUpgradeLevelMaskCumulative</h3>
+<p><code>public GameEntity.UpgradeLevelMask GetUpgradeLevelMaskCumulative()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the upgrade level mask cumulative value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetUpgradeLevelMaskCumulative();
+</code></pre>
+<h3 id="getupgradelevelofentity">GetUpgradeLevelOfEntity</h3>
+<p><code>public int GetUpgradeLevelOfEntity()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the upgrade level of entity value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetUpgradeLevelOfEntity();
+</code></pre>
+<h3 id="getoldprefabname">GetOldPrefabName</h3>
+<p><code>public string GetOldPrefabName()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the old prefab name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetOldPrefabName();
+</code></pre>
+<h3 id="getprefabname">GetPrefabName</h3>
+<p><code>public string GetPrefabName()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the prefab name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetPrefabName();
+</code></pre>
+<h3 id="copyscriptcomponentfromanotherentity">CopyScriptComponentFromAnotherEntity</h3>
+<p><code>public void CopyScriptComponentFromAnotherEntity(GameEntity otherEntity, string scriptName)</code></p>
+<p><strong>Purpose:</strong> Copies the script component from another entity state of the this instance to a target.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.CopyScriptComponentFromAnotherEntity(otherEntity, &quot;example&quot;);
+</code></pre>
+<h3 id="setframe">SetFrame</h3>
+<p><code>public void SetFrame(ref MatrixFrame frame, bool isTeleportation = true)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to frame and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetFrame(frame, false);
+</code></pre>
+<h3 id="setlocalframe">SetLocalFrame</h3>
+<p><code>public void SetLocalFrame(ref MatrixFrame frame, bool isTeleportation)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to local frame and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetLocalFrame(frame, false);
+</code></pre>
+<h3 id="setclothcomponentkeepstate">SetClothComponentKeepState</h3>
+<p><code>public void SetClothComponentKeepState(MetaMesh metaMesh, bool state)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to cloth component keep state and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetClothComponentKeepState(metaMesh, false);
+</code></pre>
+<h3 id="setclothcomponentkeepstateofallmeshes">SetClothComponentKeepStateOfAllMeshes</h3>
+<p><code>public void SetClothComponentKeepStateOfAllMeshes(bool state)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to cloth component keep state of all meshes and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetClothComponentKeepStateOfAllMeshes(false);
+</code></pre>
+<h3 id="setpreviousframeinvalid">SetPreviousFrameInvalid</h3>
+<p><code>public void SetPreviousFrameInvalid()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to previous frame invalid and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetPreviousFrameInvalid();
+</code></pre>
+<h3 id="getframe">GetFrame</h3>
+<p><code>public MatrixFrame GetFrame()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetFrame();
+</code></pre>
+<h3 id="getlocalframe">GetLocalFrame</h3>
+<p><code>public void GetLocalFrame(out MatrixFrame frame)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.GetLocalFrame(frame);
+</code></pre>
+<h3 id="getlocalframe-1">GetLocalFrame</h3>
+<p><code>public MatrixFrame GetLocalFrame()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetLocalFrame();
+</code></pre>
+<h3 id="getglobalframe">GetGlobalFrame</h3>
+<p><code>public MatrixFrame GetGlobalFrame()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the global frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetGlobalFrame();
+</code></pre>
+<h3 id="getglobalframeimpreciseforfixedtick">GetGlobalFrameImpreciseForFixedTick</h3>
+<p><code>public MatrixFrame GetGlobalFrameImpreciseForFixedTick()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the global frame imprecise for fixed tick value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetGlobalFrameImpreciseForFixedTick();
+</code></pre>
+<h3 id="computepreciseglobalframeforfixedtickslow">ComputePreciseGlobalFrameForFixedTickSlow</h3>
+<p><code>public MatrixFrame ComputePreciseGlobalFrameForFixedTickSlow()</code></p>
+<p><strong>Purpose:</strong> Executes the ComputePreciseGlobalFrameForFixedTickSlow logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.ComputePreciseGlobalFrameForFixedTickSlow();
+</code></pre>
+<h3 id="setglobalframe">SetGlobalFrame</h3>
+<p><code>public void SetGlobalFrame(in MatrixFrame frame, bool isTeleportation = true)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to global frame and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetGlobalFrame(frame, false);
+</code></pre>
+<h3 id="getpreviousglobalframe">GetPreviousGlobalFrame</h3>
+<p><code>public MatrixFrame GetPreviousGlobalFrame()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the previous global frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetPreviousGlobalFrame();
+</code></pre>
+<h3 id="getbodyworldtransform">GetBodyWorldTransform</h3>
+<p><code>public MatrixFrame GetBodyWorldTransform()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the body world transform value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetBodyWorldTransform();
+</code></pre>
+<h3 id="getbodyvisualworldtransform">GetBodyVisualWorldTransform</h3>
+<p><code>public MatrixFrame GetBodyVisualWorldTransform()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the body visual world transform value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetBodyVisualWorldTransform();
+</code></pre>
+<h3 id="setlocalposition">SetLocalPosition</h3>
+<p><code>public void SetLocalPosition(Vec3 position)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to local position and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetLocalPosition(position);
+</code></pre>
+<h3 id="updatetriadframeforeditor">UpdateTriadFrameForEditor</h3>
+<p><code>public void UpdateTriadFrameForEditor()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of triad frame for editor.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.UpdateTriadFrameForEditor();
+</code></pre>
+<h3 id="updatetriadframeforeditorforallchildren">UpdateTriadFrameForEditorForAllChildren</h3>
+<p><code>public void UpdateTriadFrameForEditorForAllChildren()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of triad frame for editor for all children.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.UpdateTriadFrameForEditorForAllChildren();
+</code></pre>
+<h3 id="getphysicsmaterial">GetPhysicsMaterial</h3>
+<p><code>public PhysicsMaterial GetPhysicsMaterial()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the physics material value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetPhysicsMaterial();
+</code></pre>
+<h3 id="setbodyflags">SetBodyFlags</h3>
+<p><code>public void SetBodyFlags(BodyFlags bodyFlags)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to body flags and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetBodyFlags(bodyFlags);
+</code></pre>
+<h3 id="setbodyflagsrecursive">SetBodyFlagsRecursive</h3>
+<p><code>public void SetBodyFlagsRecursive(BodyFlags bodyFlags)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to body flags recursive and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetBodyFlagsRecursive(bodyFlags);
+</code></pre>
+<h3 id="addbodyflags">AddBodyFlags</h3>
+<p><code>public void AddBodyFlags(BodyFlags bodyFlags, bool applyToChildren = true)</code></p>
+<p><strong>Purpose:</strong> Adds body flags to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.AddBodyFlags(bodyFlags, false);
+</code></pre>
+<h3 id="removebodyflags">RemoveBodyFlags</h3>
+<p><code>public void RemoveBodyFlags(BodyFlags bodyFlags, bool applyToChildren = true)</code></p>
+<p><strong>Purpose:</strong> Removes body flags from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.RemoveBodyFlags(bodyFlags, false);
+</code></pre>
+<h3 id="getglobalscale">GetGlobalScale</h3>
+<p><code>public Vec3 GetGlobalScale()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the global scale value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetGlobalScale();
+</code></pre>
+<h3 id="getlocalscale">GetLocalScale</h3>
+<p><code>public Vec3 GetLocalScale()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local scale value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetLocalScale();
+</code></pre>
+<h3 id="setanimationsoundactivation">SetAnimationSoundActivation</h3>
+<p><code>public void SetAnimationSoundActivation(bool activate)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to animation sound activation and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetAnimationSoundActivation(false);
+</code></pre>
+<h3 id="copycomponentstoskeleton">CopyComponentsToSkeleton</h3>
+<p><code>public void CopyComponentsToSkeleton()</code></p>
+<p><strong>Purpose:</strong> Copies the components to skeleton state of the this instance to a target.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.CopyComponentsToSkeleton();
+</code></pre>
+<h3 id="addmeshtobone">AddMeshToBone</h3>
+<p><code>public void AddMeshToBone(sbyte boneIndex, Mesh mesh)</code></p>
+<p><strong>Purpose:</strong> Adds mesh to bone to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.AddMeshToBone(0, mesh);
+</code></pre>
+<h3 id="activateragdoll">ActivateRagdoll</h3>
+<p><code>public void ActivateRagdoll()</code></p>
+<p><strong>Purpose:</strong> Activates the resource, state, or feature associated with ragdoll.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.ActivateRagdoll();
+</code></pre>
+<h3 id="pauseskeletonanimation">PauseSkeletonAnimation</h3>
+<p><code>public void PauseSkeletonAnimation()</code></p>
+<p><strong>Purpose:</strong> Executes the PauseSkeletonAnimation logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.PauseSkeletonAnimation();
+</code></pre>
+<h3 id="resumeskeletonanimation">ResumeSkeletonAnimation</h3>
+<p><code>public void ResumeSkeletonAnimation()</code></p>
+<p><strong>Purpose:</strong> Executes the ResumeSkeletonAnimation logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.ResumeSkeletonAnimation();
+</code></pre>
+<h3 id="isskeletonanimationpaused">IsSkeletonAnimationPaused</h3>
+<p><code>public bool IsSkeletonAnimationPaused()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the skeleton animation paused state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.IsSkeletonAnimationPaused();
+</code></pre>
+<h3 id="getbonecount">GetBoneCount</h3>
+<p><code>public sbyte GetBoneCount()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bone count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetBoneCount();
+</code></pre>
+<h3 id="getwaterlevelatposition">GetWaterLevelAtPosition</h3>
+<p><code>public float GetWaterLevelAtPosition(Vec2 position, bool useWaterRenderer, bool checkWaterBodyEntities)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the water level at position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetWaterLevelAtPosition(position, false, false);
+</code></pre>
+<h3 id="getboneentitialframewithindex">GetBoneEntitialFrameWithIndex</h3>
+<p><code>public MatrixFrame GetBoneEntitialFrameWithIndex(sbyte boneIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bone entitial frame with index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetBoneEntitialFrameWithIndex(0);
+</code></pre>
+<h3 id="getboneentitialframewithname">GetBoneEntitialFrameWithName</h3>
+<p><code>public MatrixFrame GetBoneEntitialFrameWithName(string boneName)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bone entitial frame with name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetBoneEntitialFrameWithName(&quot;example&quot;);
+</code></pre>
+<h3 id="addtag">AddTag</h3>
+<p><code>public void AddTag(string tag)</code></p>
+<p><strong>Purpose:</strong> Adds tag to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.AddTag(&quot;example&quot;);
+</code></pre>
+<h3 id="removetag">RemoveTag</h3>
+<p><code>public void RemoveTag(string tag)</code></p>
+<p><strong>Purpose:</strong> Removes tag from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.RemoveTag(&quot;example&quot;);
+</code></pre>
+<h3 id="hastag">HasTag</h3>
+<p><code>public bool HasTag(string tag)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds tag.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.HasTag(&quot;example&quot;);
+</code></pre>
+<h3 id="addchild">AddChild</h3>
+<p><code>public void AddChild(GameEntity gameEntity, bool autoLocalizeFrame = false)</code></p>
+<p><strong>Purpose:</strong> Adds child to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.AddChild(gameEntity, false);
+</code></pre>
+<h3 id="removechild">RemoveChild</h3>
+<p><code>public void RemoveChild(GameEntity childEntity, bool keepPhysics, bool keepScenePointer, bool callScriptCallbacks, int removeReason)</code></p>
+<p><strong>Purpose:</strong> Removes child from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.RemoveChild(childEntity, false, false, false, 0);
+</code></pre>
+<h3 id="breakprefab">BreakPrefab</h3>
+<p><code>public void BreakPrefab()</code></p>
+<p><strong>Purpose:</strong> Executes the BreakPrefab logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.BreakPrefab();
+</code></pre>
+<h3 id="getchild">GetChild</h3>
+<p><code>public GameEntity GetChild(int index)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the child value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetChild(0);
+</code></pre>
+<h3 id="hascomplexanimtree">HasComplexAnimTree</h3>
+<p><code>public bool HasComplexAnimTree()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds complex anim tree.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.HasComplexAnimTree();
+</code></pre>
+<h3 id="addmultimesh">AddMultiMesh</h3>
+<p><code>public void AddMultiMesh(MetaMesh metaMesh, bool updateVisMask = true)</code></p>
+<p><strong>Purpose:</strong> Adds multi mesh to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.AddMultiMesh(metaMesh, false);
+</code></pre>
+<h3 id="removemultimesh">RemoveMultiMesh</h3>
+<p><code>public bool RemoveMultiMesh(MetaMesh metaMesh)</code></p>
+<p><strong>Purpose:</strong> Removes multi mesh from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.RemoveMultiMesh(metaMesh);
+</code></pre>
+<h3 id="getcomponentcount">GetComponentCount</h3>
+<p><code>public int GetComponentCount(GameEntity.ComponentType componentType)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the component count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetComponentCount(componentType);
+</code></pre>
+<h3 id="addallmeshesofgameentity">AddAllMeshesOfGameEntity</h3>
+<p><code>public void AddAllMeshesOfGameEntity(GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Adds all meshes of game entity to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.AddAllMeshesOfGameEntity(gameEntity);
+</code></pre>
+<h3 id="setframechanged">SetFrameChanged</h3>
+<p><code>public void SetFrameChanged()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to frame changed and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetFrameChanged();
+</code></pre>
+<h3 id="getcomponentatindex">GetComponentAtIndex</h3>
+<p><code>public GameEntityComponent GetComponentAtIndex(int index, GameEntity.ComponentType componentType)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the component at index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetComponentAtIndex(0, componentType);
+</code></pre>
+<h3 id="getmetamesh">GetMetaMesh</h3>
+<p><code>public MetaMesh GetMetaMesh(int metaMeshIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the meta mesh value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetMetaMesh(0);
+</code></pre>
+<h3 id="getclothsimulator">GetClothSimulator</h3>
+<p><code>public ClothSimulatorComponent GetClothSimulator(int clothSimulatorIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the cloth simulator value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetClothSimulator(0);
+</code></pre>
+<h3 id="setvectorargument">SetVectorArgument</h3>
+<p><code>public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to vector argument and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetVectorArgument(0, 0, 0, 0);
+</code></pre>
+<h3 id="setmaterialforallmeshes">SetMaterialForAllMeshes</h3>
+<p><code>public void SetMaterialForAllMeshes(Material material)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to material for all meshes and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetMaterialForAllMeshes(material);
+</code></pre>
+<h3 id="addlight">AddLight</h3>
+<p><code>public bool AddLight(Light light)</code></p>
+<p><strong>Purpose:</strong> Adds light to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.AddLight(light);
+</code></pre>
+<h3 id="getlight">GetLight</h3>
+<p><code>public Light GetLight()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the light value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetLight();
+</code></pre>
+<h3 id="addparticlesystemcomponent">AddParticleSystemComponent</h3>
+<p><code>public void AddParticleSystemComponent(string particleid)</code></p>
+<p><strong>Purpose:</strong> Adds particle system component to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.AddParticleSystemComponent(&quot;example&quot;);
+</code></pre>
+<h3 id="removeallparticlesystems">RemoveAllParticleSystems</h3>
+<p><code>public void RemoveAllParticleSystems()</code></p>
+<p><strong>Purpose:</strong> Removes all particle systems from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.RemoveAllParticleSystems();
+</code></pre>
+<h3 id="checkpointwithorientedboundingbox">CheckPointWithOrientedBoundingBox</h3>
+<p><code>public bool CheckPointWithOrientedBoundingBox(Vec3 point)</code></p>
+<p><strong>Purpose:</strong> Verifies whether point with oriented bounding box holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.CheckPointWithOrientedBoundingBox(point);
+</code></pre>
+<h3 id="pauseparticlesystem">PauseParticleSystem</h3>
+<p><code>public void PauseParticleSystem(bool doChildren)</code></p>
+<p><strong>Purpose:</strong> Executes the PauseParticleSystem logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.PauseParticleSystem(false);
+</code></pre>
+<h3 id="resumeparticlesystem">ResumeParticleSystem</h3>
+<p><code>public void ResumeParticleSystem(bool doChildren)</code></p>
+<p><strong>Purpose:</strong> Executes the ResumeParticleSystem logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.ResumeParticleSystem(false);
+</code></pre>
+<h3 id="burstentityparticle">BurstEntityParticle</h3>
+<p><code>public void BurstEntityParticle(bool doChildren)</code></p>
+<p><strong>Purpose:</strong> Executes the BurstEntityParticle logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.BurstEntityParticle(false);
+</code></pre>
+<h3 id="setruntimeemissionratemultiplier">SetRuntimeEmissionRateMultiplier</h3>
+<p><code>public void SetRuntimeEmissionRateMultiplier(float emissionRateMultiplier)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to runtime emission rate multiplier and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetRuntimeEmissionRateMultiplier(0);
+</code></pre>
+<h3 id="getlocalboundingbox">GetLocalBoundingBox</h3>
+<p><code>public BoundingBox GetLocalBoundingBox()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local bounding box value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetLocalBoundingBox();
+</code></pre>
+<h3 id="getglobalboundingbox">GetGlobalBoundingBox</h3>
+<p><code>public BoundingBox GetGlobalBoundingBox()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the global bounding box value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetGlobalBoundingBox();
+</code></pre>
+<h3 id="getboundingboxmin">GetBoundingBoxMin</h3>
+<p><code>public Vec3 GetBoundingBoxMin()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bounding box min value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetBoundingBoxMin();
+</code></pre>
+<h3 id="sethascustomboundingboxvalidationsystem">SetHasCustomBoundingBoxValidationSystem</h3>
+<p><code>public void SetHasCustomBoundingBoxValidationSystem(bool hasCustomBoundingBox)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to has custom bounding box validation system and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetHasCustomBoundingBoxValidationSystem(false);
+</code></pre>
+<h3 id="validateboundingbox">ValidateBoundingBox</h3>
+<p><code>public void ValidateBoundingBox()</code></p>
+<p><strong>Purpose:</strong> Checks whether bounding box satisfies the required constraints, usually returning a boolean.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.ValidateBoundingBox();
+</code></pre>
+<h3 id="getboundingboxmax">GetBoundingBoxMax</h3>
+<p><code>public Vec3 GetBoundingBoxMax()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bounding box max value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetBoundingBoxMax();
+</code></pre>
+<h3 id="updateglobalbounds">UpdateGlobalBounds</h3>
+<p><code>public void UpdateGlobalBounds()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of global bounds.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.UpdateGlobalBounds();
+</code></pre>
+<h3 id="recomputeboundingbox">RecomputeBoundingBox</h3>
+<p><code>public void RecomputeBoundingBox()</code></p>
+<p><strong>Purpose:</strong> Recomputes bounding box and returns the result.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.RecomputeBoundingBox();
+</code></pre>
+<h3 id="getboundingboxradius">GetBoundingBoxRadius</h3>
+<p><code>public float GetBoundingBoxRadius()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bounding box radius value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetBoundingBoxRadius();
+</code></pre>
+<h3 id="setboundingboxdirty">SetBoundingboxDirty</h3>
+<p><code>public void SetBoundingboxDirty()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to boundingbox dirty and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetBoundingboxDirty();
+</code></pre>
+<h3 id="computeglobalphysicsboundingboxminmax">ComputeGlobalPhysicsBoundingBoxMinMax</h3>
+<p><code>public ValueTuple&lt;Vec3, Vec3&gt; ComputeGlobalPhysicsBoundingBoxMinMax()</code></p>
+<p><strong>Purpose:</strong> Executes the ComputeGlobalPhysicsBoundingBoxMinMax logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.ComputeGlobalPhysicsBoundingBoxMinMax();
+</code></pre>
+<h3 id="setcontourcolor">SetContourColor</h3>
+<p><code>public void SetContourColor(uint? color, bool alwaysVisible = true)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to contour color and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetContourColor(0, false);
+</code></pre>
+<h3 id="gethasframechanged">GetHasFrameChanged</h3>
+<p><code>public bool GetHasFrameChanged()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the has frame changed value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetHasFrameChanged();
+</code></pre>
+<h3 id="getfirstmesh">GetFirstMesh</h3>
+<p><code>public Mesh GetFirstMesh()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the first mesh value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetFirstMesh();
+</code></pre>
+<h3 id="getattachednavmeshfacecount">GetAttachedNavmeshFaceCount</h3>
+<p><code>public int GetAttachedNavmeshFaceCount()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the attached navmesh face count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetAttachedNavmeshFaceCount();
+</code></pre>
+<h3 id="getattachednavmeshfacerecords">GetAttachedNavmeshFaceRecords</h3>
+<p><code>public void GetAttachedNavmeshFaceRecords(PathFaceRecord faceRecords)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the attached navmesh face records value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.GetAttachedNavmeshFaceRecords(faceRecords);
+</code></pre>
+<h3 id="setexternalreferencesusage">SetExternalReferencesUsage</h3>
+<p><code>public void SetExternalReferencesUsage(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to external references usage and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetExternalReferencesUsage(false);
+</code></pre>
+<h3 id="setmorphframeofcomponents">SetMorphFrameOfComponents</h3>
+<p><code>public void SetMorphFrameOfComponents(float value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to morph frame of components and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetMorphFrameOfComponents(0);
+</code></pre>
+<h3 id="addeditdatausertoallmeshes">AddEditDataUserToAllMeshes</h3>
+<p><code>public void AddEditDataUserToAllMeshes(bool entityComponents, bool skeletonComponents)</code></p>
+<p><strong>Purpose:</strong> Adds edit data user to all meshes to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.AddEditDataUserToAllMeshes(false, false);
+</code></pre>
+<h3 id="releaseeditdatausertoallmeshes">ReleaseEditDataUserToAllMeshes</h3>
+<p><code>public void ReleaseEditDataUserToAllMeshes(bool entityComponents, bool skeletonComponents)</code></p>
+<p><strong>Purpose:</strong> Executes the ReleaseEditDataUserToAllMeshes logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.ReleaseEditDataUserToAllMeshes(false, false);
+</code></pre>
+<h3 id="getcameraparamsfromcamerascript">GetCameraParamsFromCameraScript</h3>
+<p><code>public void GetCameraParamsFromCameraScript(Camera cam, ref Vec3 dofParams)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the camera params from camera script value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.GetCameraParamsFromCameraScript(cam, dofParams);
+</code></pre>
+<h3 id="getmeshbendedframe">GetMeshBendedFrame</h3>
+<p><code>public void GetMeshBendedFrame(MatrixFrame worldSpacePosition, ref MatrixFrame output)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mesh bended frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.GetMeshBendedFrame(worldSpacePosition, output);
+</code></pre>
+<h3 id="computetrajectoryvolume">ComputeTrajectoryVolume</h3>
+<p><code>public void ComputeTrajectoryVolume(float missileSpeed, float verticalAngleMaxInDegrees, float verticalAngleMinInDegrees, float horizontalAngleRangeInDegrees, float airFrictionConstant)</code></p>
+<p><strong>Purpose:</strong> Executes the ComputeTrajectoryVolume logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.ComputeTrajectoryVolume(0, 0, 0, 0, 0);
+</code></pre>
+<h3 id="setanimtreechannelparameterforceupdate">SetAnimTreeChannelParameterForceUpdate</h3>
+<p><code>public void SetAnimTreeChannelParameterForceUpdate(float phase, int channelNo)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to anim tree channel parameter force update and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetAnimTreeChannelParameterForceUpdate(0, 0);
+</code></pre>
+<h3 id="changemetameshorremoveitifnotexists">ChangeMetaMeshOrRemoveItIfNotExists</h3>
+<p><code>public void ChangeMetaMeshOrRemoveItIfNotExists(MetaMesh entityMetaMesh, MetaMesh newMetaMesh)</code></p>
+<p><strong>Purpose:</strong> Executes the ChangeMetaMeshOrRemoveItIfNotExists logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.ChangeMetaMeshOrRemoveItIfNotExists(entityMetaMesh, newMetaMesh);
+</code></pre>
+<h3 id="setupdatevalidtyonframechangedoffaceswithid">SetUpdateValidtyOnFrameChangedOfFacesWithId</h3>
+<p><code>public void SetUpdateValidtyOnFrameChangedOfFacesWithId(int faceGroupId, bool updateValidity)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to update validty on frame changed of faces with id and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetUpdateValidtyOnFrameChangedOfFacesWithId(0, false);
+</code></pre>
+<h3 id="attachnavigationmeshfaces">AttachNavigationMeshFaces</h3>
+<p><code>public void AttachNavigationMeshFaces(int faceGroupId, bool isConnected, bool isBlocker = false, bool autoLocalize = false, bool finalizeBlockerConvexHullComputation = false, bool updateEntityFrame = true)</code></p>
+<p><strong>Purpose:</strong> Executes the AttachNavigationMeshFaces logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.AttachNavigationMeshFaces(0, false, false, false, false, false);
+</code></pre>
+<h3 id="detachallattachednavigationmeshfaces">DetachAllAttachedNavigationMeshFaces</h3>
+<p><code>public void DetachAllAttachedNavigationMeshFaces()</code></p>
+<p><strong>Purpose:</strong> Executes the DetachAllAttachedNavigationMeshFaces logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.DetachAllAttachedNavigationMeshFaces();
+</code></pre>
+<h3 id="updateattachednavigationmeshfaces">UpdateAttachedNavigationMeshFaces</h3>
+<p><code>public void UpdateAttachedNavigationMeshFaces()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of attached navigation mesh faces.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.UpdateAttachedNavigationMeshFaces();
+</code></pre>
+<h3 id="removeskeleton">RemoveSkeleton</h3>
+<p><code>public void RemoveSkeleton()</code></p>
+<p><strong>Purpose:</strong> Removes skeleton from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.RemoveSkeleton();
+</code></pre>
+<h3 id="removeallchildren">RemoveAllChildren</h3>
+<p><code>public void RemoveAllChildren()</code></p>
+<p><strong>Purpose:</strong> Removes all children from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.RemoveAllChildren();
+</code></pre>
+<h3 id="getchildren">GetChildren</h3>
+<p><code>public IEnumerable&lt;GameEntity&gt; GetChildren()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the children value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetChildren();
+</code></pre>
+<h3 id="getentityandchildren">GetEntityAndChildren</h3>
+<p><code>public IEnumerable&lt;GameEntity&gt; GetEntityAndChildren()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the entity and children value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetEntityAndChildren();
+</code></pre>
+<h3 id="getchildrenrecursive">GetChildrenRecursive</h3>
+<p><code>public void GetChildrenRecursive(ref List&lt;GameEntity&gt; children)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the children recursive value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.GetChildrenRecursive(children);
+</code></pre>
+<h3 id="getchildrenwithtagrecursive">GetChildrenWithTagRecursive</h3>
+<p><code>public void GetChildrenWithTagRecursive(List&lt;GameEntity&gt; children, string tag)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the children with tag recursive value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.GetChildrenWithTagRecursive(children, &quot;example&quot;);
+</code></pre>
+<h3 id="isselectedoneditor">IsSelectedOnEditor</h3>
+<p><code>public bool IsSelectedOnEditor()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the selected on editor state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.IsSelectedOnEditor();
+</code></pre>
+<h3 id="selectentityoneditor">SelectEntityOnEditor</h3>
+<p><code>public void SelectEntityOnEditor()</code></p>
+<p><strong>Purpose:</strong> Executes the SelectEntityOnEditor logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SelectEntityOnEditor();
+</code></pre>
+<h3 id="deselectentityoneditor">DeselectEntityOnEditor</h3>
+<p><code>public void DeselectEntityOnEditor()</code></p>
+<p><strong>Purpose:</strong> Executes the DeselectEntityOnEditor logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.DeselectEntityOnEditor();
+</code></pre>
+<h3 id="setaspredisplayentity">SetAsPredisplayEntity</h3>
+<p><code>public void SetAsPredisplayEntity()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to as predisplay entity and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetAsPredisplayEntity();
+</code></pre>
+<h3 id="removefrompredisplayentity">RemoveFromPredisplayEntity</h3>
+<p><code>public void RemoveFromPredisplayEntity()</code></p>
+<p><strong>Purpose:</strong> Removes from predisplay entity from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.RemoveFromPredisplayEntity();
+</code></pre>
+<h3 id="setnativescriptcomponentvariable">SetNativeScriptComponentVariable</h3>
+<p><code>public void SetNativeScriptComponentVariable(string className, string fieldName, ref ScriptComponentFieldHolder data, RglScriptFieldType variableType)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to native script component variable and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetNativeScriptComponentVariable(&quot;example&quot;, &quot;example&quot;, data, variableType);
+</code></pre>
+<h3 id="setmanualglobalboundingbox">SetManualGlobalBoundingBox</h3>
+<p><code>public void SetManualGlobalBoundingBox(Vec3 boundingBoxStartGlobal, Vec3 boundingBoxEndGlobal)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to manual global bounding box and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetManualGlobalBoundingBox(boundingBoxStartGlobal, boundingBoxEndGlobal);
+</code></pre>
+<h3 id="rayhitentity">RayHitEntity</h3>
+<p><code>public bool RayHitEntity(Vec3 rayOrigin, Vec3 rayDirection, float maxLength, ref float resultLength)</code></p>
+<p><strong>Purpose:</strong> Executes the RayHitEntity logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.RayHitEntity(rayOrigin, rayDirection, 0, resultLength);
+</code></pre>
+<h3 id="rayhitentitywithnormal">RayHitEntityWithNormal</h3>
+<p><code>public bool RayHitEntityWithNormal(Vec3 rayOrigin, Vec3 rayDirection, float maxLength, ref Vec3 resultNormal, ref float resultLength)</code></p>
+<p><strong>Purpose:</strong> Executes the RayHitEntityWithNormal logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.RayHitEntityWithNormal(rayOrigin, rayDirection, 0, resultNormal, resultLength);
+</code></pre>
+<h3 id="getnativescriptcomponentvariable">GetNativeScriptComponentVariable</h3>
+<p><code>public void GetNativeScriptComponentVariable(string className, string fieldName, ref ScriptComponentFieldHolder data, RglScriptFieldType variableType)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the native script component variable value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.GetNativeScriptComponentVariable(&quot;example&quot;, &quot;example&quot;, data, variableType);
+</code></pre>
+<h3 id="setcustomclipplane">SetCustomClipPlane</h3>
+<p><code>public void SetCustomClipPlane(Vec3 clipPosition, Vec3 clipNormal, bool setForChildren)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to custom clip plane and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetCustomClipPlane(clipPosition, clipNormal, false);
+</code></pre>
+<h3 id="getboundingboxlongesthalfdimension">GetBoundingBoxLongestHalfDimension</h3>
+<p><code>public float GetBoundingBoxLongestHalfDimension()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the bounding box longest half dimension value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetBoundingBoxLongestHalfDimension();
+</code></pre>
+<h3 id="computeboundingboxfromlongesthalfdimension">ComputeBoundingBoxFromLongestHalfDimension</h3>
+<p><code>public BoundingBox ComputeBoundingBoxFromLongestHalfDimension(float longestHalfDimensionCoefficient)</code></p>
+<p><strong>Purpose:</strong> Executes the ComputeBoundingBoxFromLongestHalfDimension logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.ComputeBoundingBoxFromLongestHalfDimension(0);
+</code></pre>
+<h3 id="computeboundingboxincludechildren">ComputeBoundingBoxIncludeChildren</h3>
+<p><code>public BoundingBox ComputeBoundingBoxIncludeChildren()</code></p>
+<p><strong>Purpose:</strong> Executes the ComputeBoundingBoxIncludeChildren logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.ComputeBoundingBoxIncludeChildren();
+</code></pre>
+<h3 id="setmanuallocalboundingbox">SetManualLocalBoundingBox</h3>
+<p><code>public void SetManualLocalBoundingBox(in BoundingBox boundingBox)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to manual local bounding box and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetManualLocalBoundingBox(boundingBox);
+</code></pre>
+<h3 id="relaxlocalboundingbox">RelaxLocalBoundingBox</h3>
+<p><code>public void RelaxLocalBoundingBox(in BoundingBox boundingBox)</code></p>
+<p><strong>Purpose:</strong> Executes the RelaxLocalBoundingBox logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.RelaxLocalBoundingBox(boundingBox);
+</code></pre>
+<h3 id="setcullmode">SetCullMode</h3>
+<p><code>public void SetCullMode(MBMeshCullingMode cullMode)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to cull mode and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetCullMode(cullMode);
+</code></pre>
+<h3 id="getfirstchildentitywithtagrecursive">GetFirstChildEntityWithTagRecursive</h3>
+<p><code>public GameEntity GetFirstChildEntityWithTagRecursive(string tag)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the first child entity with tag recursive value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetFirstChildEntityWithTagRecursive(&quot;example&quot;);
+</code></pre>
+<h3 id="equals">Equals</h3>
+<p><code>public override bool Equals(object obj)</code></p>
+<p><strong>Purpose:</strong> Compares the this instance with the supplied instance for equality.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.Equals(obj);
+</code></pre>
+<h3 id="gethashcode">GetHashCode</h3>
+<p><code>public override int GetHashCode()</code></p>
+<p><strong>Purpose:</strong> Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetHashCode();
+</code></pre>
+<h3 id="setdonotcheckvisibility">SetDoNotCheckVisibility</h3>
+<p><code>public void SetDoNotCheckVisibility(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to do not check visibility and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetDoNotCheckVisibility(false);
+</code></pre>
+<h3 id="setboneframetoallmeshes">SetBoneFrameToAllMeshes</h3>
+<p><code>public void SetBoneFrameToAllMeshes(int boneIndex, in MatrixFrame frame)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to bone frame to all meshes and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetBoneFrameToAllMeshes(0, frame);
+</code></pre>
+<h3 id="getglobalwindstrengthvectorofscene">GetGlobalWindStrengthVectorOfScene</h3>
+<p><code>public Vec2 GetGlobalWindStrengthVectorOfScene()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the global wind strength vector of scene value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetGlobalWindStrengthVectorOfScene();
+</code></pre>
+<h3 id="getglobalwindvelocityofscene">GetGlobalWindVelocityOfScene</h3>
+<p><code>public Vec2 GetGlobalWindVelocityOfScene()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the global wind velocity of scene value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetGlobalWindVelocityOfScene();
+</code></pre>
+<h3 id="getlastfinalrendercamerapositionofscene">GetLastFinalRenderCameraPositionOfScene</h3>
+<p><code>public Vec3 GetLastFinalRenderCameraPositionOfScene()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the last final render camera position of scene value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.GetLastFinalRenderCameraPositionOfScene();
+</code></pre>
+<h3 id="setforcedecalstorender">SetForceDecalsToRender</h3>
+<p><code>public void SetForceDecalsToRender(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to force decals to render and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetForceDecalsToRender(false);
+</code></pre>
+<h3 id="setforcenotaffectedbyseason">SetForceNotAffectedBySeason</h3>
+<p><code>public void SetForceNotAffectedBySeason(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to force not affected by season and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetForceNotAffectedBySeason(false);
+</code></pre>
+<h3 id="checkisprefablinkrootprefab">CheckIsPrefabLinkRootPrefab</h3>
+<p><code>public bool CheckIsPrefabLinkRootPrefab(int depth)</code></p>
+<p><strong>Purpose:</strong> Verifies whether is prefab link root prefab holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.CheckIsPrefabLinkRootPrefab(0);
+</code></pre>
+<h3 id="setupadditionalbonebufferformeshes">SetupAdditionalBoneBufferForMeshes</h3>
+<p><code>public void SetupAdditionalBoneBufferForMeshes(int boneCount)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to up additional bone buffer for meshes and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SetupAdditionalBoneBufferForMeshes(0);
+</code></pre>
+<h3 id="createphysxcookinginstance">CreatePhysxCookingInstance</h3>
+<p><code>public static UIntPtr CreatePhysxCookingInstance()</code></p>
+<p><strong>Purpose:</strong> Constructs a new physx cooking instance entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.CreatePhysxCookingInstance();
+</code></pre>
+<h3 id="deletephysxcookinginstance">DeletePhysxCookingInstance</h3>
+<p><code>public static void DeletePhysxCookingInstance(UIntPtr pointer)</code></p>
+<p><strong>Purpose:</strong> Executes the DeletePhysxCookingInstance logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.DeletePhysxCookingInstance(pointer);
+</code></pre>
+<h3 id="deleteemptyshape">DeleteEmptyShape</h3>
+<p><code>public void DeleteEmptyShape(UIntPtr shape1, UIntPtr shape2)</code></p>
+<p><strong>Purpose:</strong> Executes the DeleteEmptyShape logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.DeleteEmptyShape(shape1, shape2);
+</code></pre>
+<h3 id="createemptyphysxshape">CreateEmptyPhysxShape</h3>
+<p><code>public UIntPtr CreateEmptyPhysxShape(bool isVariable, int physxMaterialIndex)</code></p>
+<p><strong>Purpose:</strong> Constructs a new empty physx shape entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+var result = gameEntity.CreateEmptyPhysxShape(false, 0);
+</code></pre>
+<h3 id="swapphysxshapeinentity">SwapPhysxShapeInEntity</h3>
+<p><code>public void SwapPhysxShapeInEntity(UIntPtr oldShape, UIntPtr newShape, bool isVariable)</code></p>
+<p><strong>Purpose:</strong> Executes the SwapPhysxShapeInEntity logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of GameEntity from the subsystem API first
+GameEntity gameEntity = ...;
+gameEntity.SwapPhysxShapeInEntity(oldShape, newShape, false);
+</code></pre>
+<h3 id="cooktrianglephysxmesh">CookTrianglePhysxMesh</h3>
+<p><code>public static void CookTrianglePhysxMesh(UIntPtr cookingInstancePointer, UIntPtr shapePointer, UIntPtr quadPinnedPointer, int physicsMaterial, int numberOfVertices, UIntPtr indicesPinnedPointer, int numberOfIndices)</code></p>
+<p><strong>Purpose:</strong> Executes the CookTrianglePhysxMesh logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntity.CookTrianglePhysxMesh(cookingInstancePointer, shapePointer, quadPinnedPointer, 0, 0, indicesPinnedPointer, 0);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">GameEntity.CreateFromWeakEntity(weakEntity);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/engine/">engine index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/engine/ClothSimulatorComponent/">&larr; ClothSimulatorComponent</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/engine/VideoPlayerView/">VideoPlayerView &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

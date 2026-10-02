@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MobileParty</title>
+  <meta name="description" content="MobileParty 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/MobileParty/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="active">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">战役 API — v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MobileParty</span>
+    </nav>
+  
+  <h1>MobileParty</h1>
+  <h1 id="mobileparty">MobileParty</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Party
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public sealed class MobileParty : CampaignObjectBase, ILocatable&lt;MobileParty&gt;, IMapPoint, ITrackableCampaignObject, ITrackableBase, IRandomOwner</code>
+<strong>Base:</strong> <code>CampaignObjectBase</code>
+<strong>File:</strong> <code>bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.Party/MobileParty.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>MobileParty</code> 位于 <code>TaleWorlds.CampaignSystem.Party</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.CampaignSystem.Party</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>Name</code></td><td><code>public TextObject Name { get; }</code></td></tr>
+<tr><td><code>LastVisitedSettlement</code></td><td><code>public Settlement LastVisitedSettlement { get; }</code></td></tr>
+<tr><td><code>Bearing</code></td><td><code>public Vec2 Bearing { get; }</code></td></tr>
+<tr><td><code>HasLandNavigationCapability</code></td><td><code>public bool HasLandNavigationCapability { get; }</code></td></tr>
+<tr><td><code>Aggressiveness</code></td><td><code>public float Aggressiveness { get; set; }</code></td></tr>
+<tr><td><code>Banner</code></td><td><code>public Banner Banner { get; }</code></td></tr>
+<tr><td><code>ArmyPositionAdder</code></td><td><code>public Vec2 ArmyPositionAdder { get; }</code></td></tr>
+<tr><td><code>Objective</code></td><td><code>public PartyObjective Objective { get; }</code></td></tr>
+<tr><td><code>Ai</code></td><td><code>public MobilePartyAi Ai { get; }</code></td></tr>
+<tr><td><code>Party</code></td><td><code>public PartyBase Party { get; }</code></td></tr>
+<tr><td><code>IsActive</code></td><td><code>public bool IsActive { get; set; }</code></td></tr>
+<tr><td><code>IsInRaftState</code></td><td><code>public bool IsInRaftState { get; set; }</code></td></tr>
+<tr><td><code>ThinkParamsCache</code></td><td><code>public PartyThinkParams ThinkParamsCache { get; }</code></td></tr>
+<tr><td><code>Speed</code></td><td><code>public float Speed { get; }</code></td></tr>
+<tr><td><code>SpeedExplained</code></td><td><code>public ExplainedNumber SpeedExplained { get; }</code></td></tr>
+<tr><td><code>ShortTermBehavior</code></td><td><code>public AiBehavior ShortTermBehavior { get; }</code></td></tr>
+<tr><td><code>IsPartyTradeActive</code></td><td><code>public bool IsPartyTradeActive { get; }</code></td></tr>
+<tr><td><code>PartyTradeGold</code></td><td><code>public int PartyTradeGold { get; set; }</code></td></tr>
+<tr><td><code>PartyTradeTaxGold</code></td><td><code>public int PartyTradeTaxGold { get; }</code></td></tr>
+<tr><td><code>StationaryStartTime</code></td><td><code>public CampaignTime StationaryStartTime { get; }</code></td></tr>
+<tr><td><code>VersionNo</code></td><td><code>public int VersionNo { get; }</code></td></tr>
+<tr><td><code>ShouldJoinPlayerBattles</code></td><td><code>public bool ShouldJoinPlayerBattles { get; set; }</code></td></tr>
+<tr><td><code>IsDisbanding</code></td><td><code>public bool IsDisbanding { get; set; }</code></td></tr>
+<tr><td><code>NavigationCapability</code></td><td><code>public NavigationType NavigationCapability { get; }</code></td></tr>
+<tr><td><code>IsCurrentlyAtSea</code></td><td><code>public bool IsCurrentlyAtSea { get; set; }</code></td></tr>
+<tr><td><code>IsNavalVisualDirty</code></td><td><code>public bool IsNavalVisualDirty { get; }</code></td></tr>
+<tr><td><code>IsTargetingPort</code></td><td><code>public bool IsTargetingPort { get; }</code></td></tr>
+<tr><td><code>Anchor</code></td><td><code>public AnchorPoint Anchor { get; }</code></td></tr>
+<tr><td><code>EndPositionForNavigationTransition</code></td><td><code>public CampaignVec2 EndPositionForNavigationTransition { get; }</code></td></tr>
+<tr><td><code>NavigationTransitionStartTime</code></td><td><code>public CampaignTime NavigationTransitionStartTime { get; }</code></td></tr>
+<tr><td><code>NavigationTransitionDuration</code></td><td><code>public CampaignTime NavigationTransitionDuration { get; }</code></td></tr>
+<tr><td><code>DesiredAiNavigationType</code></td><td><code>public NavigationType DesiredAiNavigationType { get; set; }</code></td></tr>
+<tr><td><code>CurrentSettlement</code></td><td><code>public Settlement CurrentSettlement { get; set; }</code></td></tr>
+<tr><td><code>HomeSettlement</code></td><td><code>public Settlement HomeSettlement { get; }</code></td></tr>
+<tr><td><code>AttachedTo</code></td><td><code>public MobileParty AttachedTo { get; set; }</code></td></tr>
+<tr><td><code>Army</code></td><td><code>public Army Army { get; set; }</code></td></tr>
+<tr><td><code>BesiegerCamp</code></td><td><code>public BesiegerCamp BesiegerCamp { get; set; }</code></td></tr>
+<tr><td><code>DefaultBehavior</code></td><td><code>public AiBehavior DefaultBehavior { get; }</code></td></tr>
+<tr><td><code>TargetPosition</code></td><td><code>public CampaignVec2 TargetPosition { get; set; }</code></td></tr>
+<tr><td><code>TargetParty</code></td><td><code>public MobileParty TargetParty { get; set; }</code></td></tr>
+<tr><td><code>EffectiveScout</code></td><td><code>public Hero EffectiveScout { get; }</code></td></tr>
+<tr><td><code>EffectiveQuartermaster</code></td><td><code>public Hero EffectiveQuartermaster { get; }</code></td></tr>
+<tr><td><code>EffectiveEngineer</code></td><td><code>public Hero EffectiveEngineer { get; }</code></td></tr>
+<tr><td><code>EffectiveSurgeon</code></td><td><code>public Hero EffectiveSurgeon { get; }</code></td></tr>
+<tr><td><code>EffectiveFirstMate</code></td><td><code>public Hero EffectiveFirstMate { get; }</code></td></tr>
+<tr><td><code>EffectiveNavigator</code></td><td><code>public Hero EffectiveNavigator { get; }</code></td></tr>
+<tr><td><code>RecentEventsMorale</code></td><td><code>public float RecentEventsMorale { get; set; }</code></td></tr>
+<tr><td><code>TotalWeightCarried</code></td><td><code>public float TotalWeightCarried { get; }</code></td></tr>
+<tr><td><code>MapEventSide</code></td><td><code>public MapEventSide MapEventSide { get; set; }</code></td></tr>
+<tr><td><code>Morale</code></td><td><code>public float Morale { get; }</code></td></tr>
+<tr><td><code>FoodChange</code></td><td><code>public float FoodChange { get; }</code></td></tr>
+<tr><td><code>ActualClan</code></td><td><code>public Clan ActualClan { get; set; }</code></td></tr>
+<tr><td><code>FoodChangeExplained</code></td><td><code>public ExplainedNumber FoodChangeExplained { get; }</code></td></tr>
+<tr><td><code>PathBegin</code></td><td><code>public int PathBegin { get; }</code></td></tr>
+<tr><td><code>ForceAiNoPathMode</code></td><td><code>public bool ForceAiNoPathMode { get; set; }</code></td></tr>
+<tr><td><code>EventPositionAdder</code></td><td><code>public Vec2 EventPositionAdder { get; set; }</code></td></tr>
+<tr><td><code>IsVisible</code></td><td><code>public bool IsVisible { get; set; }</code></td></tr>
+<tr><td><code>Position</code></td><td><code>public CampaignVec2 Position { get; set; }</code></td></tr>
+<tr><td><code>IsInspected</code></td><td><code>public bool IsInspected { get; set; }</code></td></tr>
+<tr><td><code>MapFaction</code></td><td><code>public IFaction MapFaction { get; }</code></td></tr>
+<tr><td><code>ArmyName</code></td><td><code>public TextObject ArmyName { get; }</code></td></tr>
+<tr><td><code>IsEngaging</code></td><td><code>public bool IsEngaging { get; }</code></td></tr>
+<tr><td><code>PartySizeRatio</code></td><td><code>public float PartySizeRatio { get; }</code></td></tr>
+<tr><td><code>IsMoving</code></td><td><code>public bool IsMoving { get; }</code></td></tr>
+<tr><td><code>ShouldBeIgnored</code></td><td><code>public bool ShouldBeIgnored { get; }</code></td></tr>
+<tr><td><code>IsMilitia</code></td><td><code>public bool IsMilitia { get; }</code></td></tr>
+<tr><td><code>IsLordParty</code></td><td><code>public bool IsLordParty { get; }</code></td></tr>
+<tr><td><code>IsVillager</code></td><td><code>public bool IsVillager { get; }</code></td></tr>
+<tr><td><code>IsCaravan</code></td><td><code>public bool IsCaravan { get; }</code></td></tr>
+<tr><td><code>IsPatrolParty</code></td><td><code>public bool IsPatrolParty { get; }</code></td></tr>
+<tr><td><code>IsGarrison</code></td><td><code>public bool IsGarrison { get; }</code></td></tr>
+<tr><td><code>IsCustomParty</code></td><td><code>public bool IsCustomParty { get; }</code></td></tr>
+<tr><td><code>IsBandit</code></td><td><code>public bool IsBandit { get; }</code></td></tr>
+<tr><td><code>IsBanditBossParty</code></td><td><code>public bool IsBanditBossParty { get; }</code></td></tr>
+<tr><td><code>AvoidHostileActions</code></td><td><code>public bool AvoidHostileActions { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="tostring">ToString</h3>
+<p><code>public override string ToString()</code></p>
+<p><strong>用途 / Purpose:</strong> 返回当前对象的人类可读字符串表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.ToString();
+</code></pre>
+<h3 id="setlandnavigationaccess">SetLandNavigationAccess</h3>
+<p><code>public void SetLandNavigationAccess(bool access)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 land navigation access 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetLandNavigationAccess(false);
+</code></pre>
+<h3 id="getname">GetName</h3>
+<p><code>public override TextObject GetName()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 name 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.GetName();
+</code></pre>
+<h3 id="haslimitedwage">HasLimitedWage</h3>
+<p><code>public bool HasLimitedWage()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 limited wage。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.HasLimitedWage();
+</code></pre>
+<h3 id="getavailablewagebudget">GetAvailableWageBudget</h3>
+<p><code>public int GetAvailableWageBudget()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 available wage budget 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.GetAvailableWageBudget();
+</code></pre>
+<h3 id="iswagelimitexceeded">IsWageLimitExceeded</h3>
+<p><code>public bool IsWageLimitExceeded()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 wage limit exceeded 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.IsWageLimitExceeded();
+</code></pre>
+<h3 id="setwagepaymentlimit">SetWagePaymentLimit</h3>
+<p><code>public void SetWagePaymentLimit(int newLimit)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 wage payment limit 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetWagePaymentLimit(0);
+</code></pre>
+<h3 id="setnavalvisualasdirty">SetNavalVisualAsDirty</h3>
+<p><code>public void SetNavalVisualAsDirty()</code></p>
+<p><strong>用途 / Purpose:</strong> 为 naval visual as dirty 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetNavalVisualAsDirty();
+</code></pre>
+<h3 id="onnavalvisualsupdated">OnNavalVisualsUpdated</h3>
+<p><code>public void OnNavalVisualsUpdated()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 naval visuals updated 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.OnNavalVisualsUpdated();
+</code></pre>
+<h3 id="setsailatposition">SetSailAtPosition</h3>
+<p><code>public void SetSailAtPosition(CampaignVec2 position)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 sail at position 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetSailAtPosition(position);
+</code></pre>
+<h3 id="disembarktoposition">DisembarkToPosition</h3>
+<p><code>public void DisembarkToPosition(CampaignVec2 position)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DisembarkToPosition 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.DisembarkToPosition(position);
+</code></pre>
+<h3 id="cancelnavigationtransition">CancelNavigationTransition</h3>
+<p><code>public void CancelNavigationTransition()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否满足 cel navigation transition 的前置条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.CancelNavigationTransition();
+</code></pre>
+<h3 id="changeiscurrentlyatseacheat">ChangeIsCurrentlyAtSeaCheat</h3>
+<p><code>public void ChangeIsCurrentlyAtSeaCheat()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ChangeIsCurrentlyAtSeaCheat 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.ChangeIsCurrentlyAtSeaCheat();
+</code></pre>
+<h3 id="setcustomhomesettlement">SetCustomHomeSettlement</h3>
+<p><code>public void SetCustomHomeSettlement(Settlement customHomeSettlement)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 custom home settlement 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetCustomHomeSettlement(customHomeSettlement);
+</code></pre>
+<h3 id="settargetsettlement">SetTargetSettlement</h3>
+<p><code>public void SetTargetSettlement(Settlement settlement, bool isTargetingPort)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 target settlement 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetTargetSettlement(settlement, false);
+</code></pre>
+<h3 id="setpartyscout">SetPartyScout</h3>
+<p><code>public void SetPartyScout(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 party scout 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetPartyScout(hero);
+</code></pre>
+<h3 id="setpartyquartermaster">SetPartyQuartermaster</h3>
+<p><code>public void SetPartyQuartermaster(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 party quartermaster 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetPartyQuartermaster(hero);
+</code></pre>
+<h3 id="setpartyengineer">SetPartyEngineer</h3>
+<p><code>public void SetPartyEngineer(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 party engineer 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetPartyEngineer(hero);
+</code></pre>
+<h3 id="setpartysurgeon">SetPartySurgeon</h3>
+<p><code>public void SetPartySurgeon(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 party surgeon 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetPartySurgeon(hero);
+</code></pre>
+<h3 id="setpartyfirstmate">SetPartyFirstMate</h3>
+<p><code>public void SetPartyFirstMate(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 party first mate 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetPartyFirstMate(hero);
+</code></pre>
+<h3 id="setpartynavigator">SetPartyNavigator</h3>
+<p><code>public void SetPartyNavigator(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 party navigator 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetPartyNavigator(hero);
+</code></pre>
+<h3 id="tostring-1">ToString</h3>
+<p><code>public override string ToString()</code></p>
+<p><strong>用途 / Purpose:</strong> 返回当前对象的人类可读字符串表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.ToString();
+</code></pre>
+<h3 id="changepartyleader">ChangePartyLeader</h3>
+<p><code>public void ChangePartyLeader(Hero newLeader)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ChangePartyLeader 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.ChangePartyLeader(newLeader);
+</code></pre>
+<h3 id="onpartyinteraction">OnPartyInteraction</h3>
+<p><code>public void OnPartyInteraction(MobileParty engagingParty)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 party interaction 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.OnPartyInteraction(engagingParty);
+</code></pre>
+<h3 id="setpositionaftermapchange">SetPositionAfterMapChange</h3>
+<p><code>public void SetPositionAfterMapChange(CampaignVec2 newPosition)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 position after map change 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetPositionAfterMapChange(newPosition);
+</code></pre>
+<h3 id="removepartyleader">RemovePartyLeader</h3>
+<p><code>public void RemovePartyLeader()</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 party leader。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.RemovePartyLeader();
+</code></pre>
+<h3 id="checkpositionsformapchangeandupdateifneeded">CheckPositionsForMapChangeAndUpdateIfNeeded</h3>
+<p><code>public void CheckPositionsForMapChangeAndUpdateIfNeeded()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查positions for map change and update if needed在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.CheckPositionsForMapChangeAndUpdateIfNeeded();
+</code></pre>
+<h3 id="checkaiformapchangeandupdateifneeded">CheckAiForMapChangeAndUpdateIfNeeded</h3>
+<p><code>public void CheckAiForMapChangeAndUpdateIfNeeded()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查ai for map change and update if needed在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.CheckAiForMapChangeAndUpdateIfNeeded();
+</code></pre>
+<h3 id="movepartytotheclosestland">MovePartyToTheClosestLand</h3>
+<p><code>public void MovePartyToTheClosestLand()</code></p>
+<p><strong>用途 / Purpose:</strong> 移动party to the closest land到新的位置或状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.MovePartyToTheClosestLand();
+</code></pre>
+<h3 id="getbehaviortext">GetBehaviorText</h3>
+<p><code>public TextObject GetBehaviorText()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 behavior text 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.GetBehaviorText();
+</code></pre>
+<h3 id="initialize">Initialize</h3>
+<p><code>public override void Initialize()</code></p>
+<p><strong>用途 / Purpose:</strong> 加载当前对象所需的初始资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.Initialize();
+</code></pre>
+<h3 id="initializemobilepartyatposition">InitializeMobilePartyAtPosition</h3>
+<p><code>public void InitializeMobilePartyAtPosition(CampaignVec2 position)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 mobile party at position 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.InitializeMobilePartyAtPosition(position);
+</code></pre>
+<h3 id="initializemobilepartyatposition-1">InitializeMobilePartyAtPosition</h3>
+<p><code>public void InitializeMobilePartyAtPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, bool isNaval = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 mobile party at position 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.InitializeMobilePartyAtPosition(memberRoster, prisonerRoster, position, false);
+</code></pre>
+<h3 id="initializemobilepartyaroundposition">InitializeMobilePartyAroundPosition</h3>
+<p><code>public void InitializeMobilePartyAroundPosition(TroopRoster memberRoster, TroopRoster prisonerRoster, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f, bool isNaval = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 mobile party around position 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.InitializeMobilePartyAroundPosition(memberRoster, prisonerRoster, position, 0, 0, false);
+</code></pre>
+<h3 id="initializemobilepartyatposition-2">InitializeMobilePartyAtPosition</h3>
+<p><code>public void InitializeMobilePartyAtPosition(PartyTemplateObject pt, CampaignVec2 position)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 mobile party at position 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.InitializeMobilePartyAtPosition(pt, position);
+</code></pre>
+<h3 id="initializemobilepartyaroundposition-1">InitializeMobilePartyAroundPosition</h3>
+<p><code>public void InitializeMobilePartyAroundPosition(PartyTemplateObject pt, CampaignVec2 position, float spawnRadius, float minSpawnRadius = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 mobile party around position 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.InitializeMobilePartyAroundPosition(pt, position, 0, 0);
+</code></pre>
+<h3 id="setdisorganized">SetDisorganized</h3>
+<p><code>public void SetDisorganized(bool isDisorganized)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 disorganized 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetDisorganized(false);
+</code></pre>
+<h3 id="recalculateshorttermbehavior">RecalculateShortTermBehavior</h3>
+<p><code>public void RecalculateShortTermBehavior()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算short term behavior以反映最新状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.RecalculateShortTermBehavior();
+</code></pre>
+<h3 id="isfleebehavior">IsFleeBehavior</h3>
+<p><code>public static bool IsFleeBehavior(AiBehavior aiBehavior)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 flee behavior 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MobileParty.IsFleeBehavior(aiBehavior);
+</code></pre>
+<h3 id="isfleeing">IsFleeing</h3>
+<p><code>public bool IsFleeing()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 fleeing 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.IsFleeing();
+</code></pre>
+<h3 id="setpartyusedbyquest">SetPartyUsedByQuest</h3>
+<p><code>public void SetPartyUsedByQuest(bool isActivelyUsed)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 party used by quest 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetPartyUsedByQuest(false);
+</code></pre>
+<h3 id="ignoreforhours">IgnoreForHours</h3>
+<p><code>public void IgnoreForHours(float hours)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 IgnoreForHours 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.IgnoreForHours(0);
+</code></pre>
+<h3 id="ignorebyotherpartiestill">IgnoreByOtherPartiesTill</h3>
+<p><code>public void IgnoreByOtherPartiesTill(CampaignTime time)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 IgnoreByOtherPartiesTill 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.IgnoreByOtherPartiesTill(time);
+</code></pre>
+<h3 id="setanchor">SetAnchor</h3>
+<p><code>public void SetAnchor(AnchorPoint anchor)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 anchor 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetAnchor(anchor);
+</code></pre>
+<h3 id="setpartyobjective">SetPartyObjective</h3>
+<p><code>public void SetPartyObjective(PartyObjective objective)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 party objective 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetPartyObjective(objective);
+</code></pre>
+<h3 id="updateversionno">UpdateVersionNo</h3>
+<p><code>public void UpdateVersionNo()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 version no 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.UpdateVersionNo();
+</code></pre>
+<h3 id="isspotted">IsSpotted</h3>
+<p><code>public bool IsSpotted()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 spotted 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.IsSpotted();
+</code></pre>
+<h3 id="addelementtomemberroster">AddElementToMemberRoster</h3>
+<p><code>public int AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 element to member roster 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.AddElementToMemberRoster(element, 0, false);
+</code></pre>
+<h3 id="addprisoner">AddPrisoner</h3>
+<p><code>public int AddPrisoner(CharacterObject element, int numberToAdd)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 prisoner 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.AddPrisoner(element, 0);
+</code></pre>
+<h3 id="getpositionasvec3">GetPositionAsVec3</h3>
+<p><code>public Vec3 GetPositionAsVec3()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 position as vec3 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.GetPositionAsVec3();
+</code></pre>
+<h3 id="gettotallandstrengthwithfollowers">GetTotalLandStrengthWithFollowers</h3>
+<p><code>public float GetTotalLandStrengthWithFollowers(bool includeNonAttachedArmyMembers = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 total land strength with followers 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.GetTotalLandStrengthWithFollowers(false);
+</code></pre>
+<h3 id="hasperk">HasPerk</h3>
+<p><code>public bool HasPerk(PerkObject perk, bool checkSecondaryRole = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 perk。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.HasPerk(perk, false);
+</code></pre>
+<h3 id="setheropartyrole">SetHeroPartyRole</h3>
+<p><code>public void SetHeroPartyRole(Hero hero, PartyRole partyRole)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 hero party role 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetHeroPartyRole(hero, partyRole);
+</code></pre>
+<h3 id="removeallpartyrolesofhero">RemoveAllPartyRolesOfHero</h3>
+<p><code>public void RemoveAllPartyRolesOfHero(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 all party roles of hero。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.RemoveAllPartyRolesOfHero(hero);
+</code></pre>
+<h3 id="getheropartyroles">GetHeroPartyRoles</h3>
+<p><code>public List&lt;PartyRole&gt; GetHeroPartyRoles(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hero party roles 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.GetHeroPartyRoles(hero);
+</code></pre>
+<h3 id="removepartyroleofhero">RemovePartyRoleOfHero</h3>
+<p><code>public void RemovePartyRoleOfHero(Hero hero, PartyRole partyRole)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 party role of hero。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.RemovePartyRoleOfHero(hero, partyRole);
+</code></pre>
+<h3 id="removeonepartyroleofhero">RemoveOnePartyRoleOfHero</h3>
+<p><code>public void RemoveOnePartyRoleOfHero(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 one party role of hero。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.RemoveOnePartyRoleOfHero(hero);
+</code></pre>
+<h3 id="getroleholder">GetRoleHolder</h3>
+<p><code>public Hero GetRoleHolder(PartyRole partyRole)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 role holder 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.GetRoleHolder(partyRole);
+</code></pre>
+<h3 id="geteffectiveroleholder">GetEffectiveRoleHolder</h3>
+<p><code>public Hero GetEffectiveRoleHolder(PartyRole partyRole)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 effective role holder 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.GetEffectiveRoleHolder(partyRole);
+</code></pre>
+<h3 id="getnumdaysforfoodtolast">GetNumDaysForFoodToLast</h3>
+<p><code>public int GetNumDaysForFoodToLast()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 num days for food to last 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.GetNumDaysForFoodToLast();
+</code></pre>
+<h3 id="recalculatelongtermpath">RecalculateLongTermPath</h3>
+<p><code>public bool RecalculateLongTermPath()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算long term path以反映最新状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.RecalculateLongTermPath();
+</code></pre>
+<h3 id="getregionswitchcostfromlandtosea">GetRegionSwitchCostFromLandToSea</h3>
+<p><code>public int GetRegionSwitchCostFromLandToSea()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 region switch cost from land to sea 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.GetRegionSwitchCostFromLandToSea();
+</code></pre>
+<h3 id="getregionswitchcostfromseatoland">GetRegionSwitchCostFromSeaToLand</h3>
+<p><code>public int GetRegionSwitchCostFromSeaToLand()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 region switch cost from sea to land 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.GetRegionSwitchCostFromSeaToLand();
+</code></pre>
+<h3 id="setmovemodehold">SetMoveModeHold</h3>
+<p><code>public void SetMoveModeHold()</code></p>
+<p><strong>用途 / Purpose:</strong> 为 move mode hold 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetMoveModeHold();
+</code></pre>
+<h3 id="setmoveengageparty">SetMoveEngageParty</h3>
+<p><code>public void SetMoveEngageParty(MobileParty party, NavigationType navigationType)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 move engage party 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetMoveEngageParty(party, navigationType);
+</code></pre>
+<h3 id="setmovegoaroundparty">SetMoveGoAroundParty</h3>
+<p><code>public void SetMoveGoAroundParty(MobileParty party, NavigationType navigationType)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 move go around party 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetMoveGoAroundParty(party, navigationType);
+</code></pre>
+<h3 id="setmovegotosettlement">SetMoveGoToSettlement</h3>
+<p><code>public void SetMoveGoToSettlement(Settlement settlement, NavigationType navigationType, bool isTargetingThePort)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 move go to settlement 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetMoveGoToSettlement(settlement, navigationType, false);
+</code></pre>
+<h3 id="setmovegotopoint">SetMoveGoToPoint</h3>
+<p><code>public void SetMoveGoToPoint(CampaignVec2 point, NavigationType navigationType)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 move go to point 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetMoveGoToPoint(point, navigationType);
+</code></pre>
+<h3 id="setmovetonearestland">SetMoveToNearestLand</h3>
+<p><code>public void SetMoveToNearestLand(Settlement settlement)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 move to nearest land 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetMoveToNearestLand(settlement);
+</code></pre>
+<h3 id="setmovegotointeractablepoint">SetMoveGoToInteractablePoint</h3>
+<p><code>public void SetMoveGoToInteractablePoint(IInteractablePoint point, NavigationType navigationType)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 move go to interactable point 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetMoveGoToInteractablePoint(point, navigationType);
+</code></pre>
+<h3 id="setmoveescortparty">SetMoveEscortParty</h3>
+<p><code>public void SetMoveEscortParty(MobileParty mobileParty, NavigationType navigationType, bool isTargetingPort)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 move escort party 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetMoveEscortParty(mobileParty, navigationType, false);
+</code></pre>
+<h3 id="setmovepatrolaroundpoint">SetMovePatrolAroundPoint</h3>
+<p><code>public void SetMovePatrolAroundPoint(CampaignVec2 point, NavigationType navigationType)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 move patrol around point 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetMovePatrolAroundPoint(point, navigationType);
+</code></pre>
+<h3 id="setmovepatrolaroundsettlement">SetMovePatrolAroundSettlement</h3>
+<p><code>public void SetMovePatrolAroundSettlement(Settlement settlement, NavigationType navigationType, bool isTargetingPort)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 move patrol around settlement 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetMovePatrolAroundSettlement(settlement, navigationType, false);
+</code></pre>
+<h3 id="setmoveraidsettlement">SetMoveRaidSettlement</h3>
+<p><code>public void SetMoveRaidSettlement(Settlement settlement, NavigationType navigationType, bool isTargetingPort)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 move raid settlement 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetMoveRaidSettlement(settlement, navigationType, false);
+</code></pre>
+<h3 id="setmovebesiegesettlement">SetMoveBesiegeSettlement</h3>
+<p><code>public void SetMoveBesiegeSettlement(Settlement settlement, NavigationType navigationType)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 move besiege settlement 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetMoveBesiegeSettlement(settlement, navigationType);
+</code></pre>
+<h3 id="setmovedefendsettlement">SetMoveDefendSettlement</h3>
+<p><code>public void SetMoveDefendSettlement(Settlement settlement, bool isTargetingPort, NavigationType navigationType)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 move defend settlement 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetMoveDefendSettlement(settlement, false, navigationType);
+</code></pre>
+<h3 id="startfindinglocatablesaroundposition">StartFindingLocatablesAroundPosition</h3>
+<p><code>public static LocatableSearchData&lt;MobileParty&gt; StartFindingLocatablesAroundPosition(Vec2 position, float radius)</code></p>
+<p><strong>用途 / Purpose:</strong> 启动finding locatables around position流程或状态机。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MobileParty.StartFindingLocatablesAroundPosition(position, 0);
+</code></pre>
+<h3 id="findnextlocatable">FindNextLocatable</h3>
+<p><code>public static MobileParty FindNextLocatable(ref LocatableSearchData&lt;MobileParty&gt; data)</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找满足条件的next locatable。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MobileParty.FindNextLocatable(data);
+</code></pre>
+<h3 id="updatelocator">UpdateLocator</h3>
+<p><code>public static void UpdateLocator(MobileParty party)</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 locator 的最新表示。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MobileParty.UpdateLocator(party);
+</code></pre>
+<h3 id="computeiswaiting">ComputeIsWaiting</h3>
+<p><code>public bool ComputeIsWaiting()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ComputeIsWaiting 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+var result = mobileParty.ComputeIsWaiting();
+</code></pre>
+<h3 id="initializepartytrade">InitializePartyTrade</h3>
+<p><code>public void InitializePartyTrade(int initialGold)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 party trade 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.InitializePartyTrade(0);
+</code></pre>
+<h3 id="addtaxgold">AddTaxGold</h3>
+<p><code>public void AddTaxGold(int amount)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 tax gold 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.AddTaxGold(0);
+</code></pre>
+<h3 id="createparty">CreateParty</h3>
+<p><code>public static MobileParty CreateParty(string stringId, PartyComponent component)</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 party 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MobileParty.CreateParty(&quot;example&quot;, component);
+</code></pre>
+<h3 id="setpartycomponent">SetPartyComponent</h3>
+<p><code>public void SetPartyComponent(PartyComponent partyComponent, bool firstTimePartyComponentCreation = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 party component 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.SetPartyComponent(partyComponent, false);
+</code></pre>
+<h3 id="updatepartycomponentflags">UpdatePartyComponentFlags</h3>
+<p><code>public void UpdatePartyComponentFlags()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 party component flags 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MobileParty 实例
+MobileParty mobileParty = ...;
+mobileParty.UpdatePartyComponentFlags();
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+MobileParty mobileParty = ...;
+mobileParty.ToString();
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/zh/api/campaign/">战役 API — v1.4.5</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/zh/api/campaign/BannerItemModel/">&larr; BannerItemModel</a>
+          
+          
+            <a rel="next" href="/v1.4.5/zh/api/campaign/OneHanded/">OneHanded &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

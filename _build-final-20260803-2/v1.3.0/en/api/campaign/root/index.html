@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Root</title>
+  <meta name="description" content="Types located directly in this area root namespace.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/root/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/root/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="active">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Root</span>
+    </nav>
+  
+  <h1>Root</h1>
+  <h2 id="up">Up</h2>
+<ul>
+<li><a href="../">Back to campaign index</a></li>
+<li><a href="../../">API Index</a></li>
+<li><a href="../../../">Version Home</a></li>
+</ul>
+<h2 id="subsystem-overview">Subsystem overview</h2>
+<p>This is the <strong>Root</strong> subsystem inside <strong>campaign index</strong>. Classes in the same namespace tackle related concerns; pick a type, then open its page for methods.</p>
+<p>Types located directly in this area root namespace.</p>
+<h2 id="classes">Classes</h2>
+<table><thead><tr><th>Class</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="../ActionNotes/"><code>ActionNotes</code></a></td><td>ActionNotes is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../AIBehaviorData/"><code>AIBehaviorData</code></a></td><td>AIBehaviorData is a data carrier in TaleWorlds.CampaignSystem that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../Army/"><code>Army</code></a></td><td>Army is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../ArmyDispersionReason/"><code>ArmyDispersionReason</code></a></td><td>ArmyDispersionReason is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../ArmyTypes/"><code>ArmyTypes</code></a></td><td>ArmyTypes is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../AtmosphereGrid/"><code>AtmosphereGrid</code></a></td><td>AtmosphereGrid is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../AutoGeneratedSaveManager/"><code>AutoGeneratedSaveManager</code></a></td><td>AutoGeneratedSaveManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../BattleSimulation/"><code>BattleSimulation</code></a></td><td>BattleSimulation is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../BehaviorSaveData/"><code>BehaviorSaveData</code></a></td><td>BehaviorSaveData is a data carrier in TaleWorlds.CampaignSystem that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../BoardGameType/"><code>BoardGameType</code></a></td><td>BoardGameType is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../Campaign/"><code>Campaign</code></a></td><td>Campaign is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignBehaviorBase/"><code>CampaignBehaviorBase</code></a></td><td>CampaignBehaviorBase is an abstract base class in TaleWorlds.CampaignSystem that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../CampaignBehaviorDataStore/"><code>CampaignBehaviorDataStore</code></a></td><td>CampaignBehaviorDataStore is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignCheats/"><code>CampaignCheats</code></a></td><td>CampaignCheats is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignData/"><code>CampaignData</code></a></td><td>CampaignData is a data carrier in TaleWorlds.CampaignSystem that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../CampaignEntityComponent/"><code>CampaignEntityComponent</code></a></td><td>CampaignEntityComponent is a component-style object in TaleWorlds.CampaignSystem, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../CampaignEventDispatcher/"><code>CampaignEventDispatcher</code></a></td><td>CampaignEventDispatcher is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignEventReceiver/"><code>CampaignEventReceiver</code></a></td><td>CampaignEventReceiver is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignEvents/"><code>CampaignEvents</code></a></td><td>CampaignEvents is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignGameMode/"><code>CampaignGameMode</code></a></td><td>CampaignGameMode is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignGameStarter/"><code>CampaignGameStarter</code></a></td><td>CampaignGameStarter is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignInformationManager/"><code>CampaignInformationManager</code></a></td><td>CampaignInformationManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../CampaignMission/"><code>CampaignMission</code></a></td><td>CampaignMission is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignObjectBase/"><code>CampaignObjectBase</code></a></td><td>CampaignObjectBase is an abstract base class in TaleWorlds.CampaignSystem that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../CampaignObjectManager/"><code>CampaignObjectManager</code></a></td><td>CampaignObjectManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../CampaignOptions/"><code>CampaignOptions</code></a></td><td>CampaignOptions is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignPeriodicEventManager/"><code>CampaignPeriodicEventManager</code></a></td><td>CampaignPeriodicEventManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../CampaignTickCacheDataStore/"><code>CampaignTickCacheDataStore</code></a></td><td>CampaignTickCacheDataStore is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignTime/"><code>CampaignTime</code></a></td><td>CampaignTime is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignTimeControlMode/"><code>CampaignTimeControlMode</code></a></td><td>CampaignTimeControlMode is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignTutorial/"><code>CampaignTutorial</code></a></td><td>CampaignTutorial is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CampaignVec2/"><code>CampaignVec2</code></a></td><td>CampaignVec2 is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../Concept/"><code>Concept</code></a></td><td>Concept is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../ConversationContext/"><code>ConversationContext</code></a></td><td>ConversationContext is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../ConversationSceneData/"><code>ConversationSceneData</code></a></td><td>ConversationSceneData is a data carrier in TaleWorlds.CampaignSystem that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../CultureObject/"><code>CultureObject</code></a></td><td>CultureObject is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../CultureTrait/"><code>CultureTrait</code></a></td><td>CultureTrait is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../DefaultItems/"><code>DefaultItems</code></a></td><td>DefaultItems is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../DefaultPolicies/"><code>DefaultPolicies</code></a></td><td>DefaultPolicies is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../DefaultSkillEffects/"><code>DefaultSkillEffects</code></a></td><td>DefaultSkillEffects is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../DialogFlow/"><code>DialogFlow</code></a></td><td>DialogFlow is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../DialogFlowContext/"><code>DialogFlowContext</code></a></td><td>DialogFlowContext is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../DialogFlowLine/"><code>DialogFlowLine</code></a></td><td>DialogFlowLine is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../Difficulty/"><code>Difficulty</code></a></td><td>Difficulty is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../EncounterManager/"><code>EncounterManager</code></a></td><td>EncounterManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../EventHandlerRec/"><code>EventHandlerRec</code></a></td><td>EventHandlerRec is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../ExplainedNumber/"><code>ExplainedNumber</code></a></td><td>ExplainedNumber is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../ExplanationLine/"><code>ExplanationLine</code></a></td><td>ExplanationLine is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../FactionManager/"><code>FactionManager</code></a></td><td>FactionManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../FactionManagerStancesData/"><code>FactionManagerStancesData</code></a></td><td>FactionManagerStancesData is a data carrier in TaleWorlds.CampaignSystem that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../FinishStates/"><code>FinishStates</code></a></td><td>FinishStates is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../GameLoadingType/"><code>GameLoadingType</code></a></td><td>GameLoadingType is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../GameModels/"><code>GameModels</code></a></td><td>GameModels is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../GameSceneDataManager/"><code>GameSceneDataManager</code></a></td><td>GameSceneDataManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../IAgentBehaviorManager/"><code>IAgentBehaviorManager</code></a></td><td>IAgentBehaviorManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../ICampaignBehavior/"><code>ICampaignBehavior</code></a></td><td>ICampaignBehavior is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../ICampaignBehaviorManager/"><code>ICampaignBehaviorManager</code></a></td><td>ICampaignBehaviorManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../ICampaignMission/"><code>ICampaignMission</code></a></td><td>ICampaignMission is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../ICampaignMissionManager/"><code>ICampaignMissionManager</code></a></td><td>ICampaignMissionManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../IDataStore/"><code>IDataStore</code></a></td><td>IDataStore is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../IFaction/"><code>IFaction</code></a></td><td>IFaction is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../IMapEventVisualCreator/"><code>IMapEventVisualCreator</code></a></td><td>IMapEventVisualCreator is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../IMbEvent/"><code>IMbEvent</code></a></td><td>IMbEvent is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../IMbEventBase/"><code>IMbEventBase</code></a></td><td>IMbEventBase is an abstract base class in TaleWorlds.CampaignSystem that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../INavigationElement/"><code>INavigationElement</code></a></td><td>INavigationElement is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../INavigationHandler/"><code>INavigationHandler</code></a></td><td>INavigationHandler is a handler in TaleWorlds.CampaignSystem that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../IRandomOwner/"><code>IRandomOwner</code></a></td><td>IRandomOwner is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../ISandBoxMissionManager/"><code>ISandBoxMissionManager</code></a></td><td>ISandBoxMissionManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../ISaveManager/"><code>ISaveManager</code></a></td><td>ISaveManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../ITrackableCampaignObject/"><code>ITrackableCampaignObject</code></a></td><td>ITrackableCampaignObject is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../IViewDataTracker/"><code>IViewDataTracker</code></a></td><td>IViewDataTracker is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../JournalLog/"><code>JournalLog</code></a></td><td>JournalLog is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../LogType/"><code>LogType</code></a></td><td>LogType is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../ManagedParameters/"><code>ManagedParameters</code></a></td><td>ManagedParameters is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../ManagedParametersEnum/"><code>ManagedParametersEnum</code></a></td><td>ManagedParametersEnum is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../MapNavigationExtensions/"><code>MapNavigationExtensions</code></a></td><td>MapNavigationExtensions is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../MapNavigationItemType/"><code>MapNavigationItemType</code></a></td><td>MapNavigationItemType is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../MapTimeTracker/"><code>MapTimeTracker</code></a></td><td>MapTimeTracker is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../MBCampaignEvent/"><code>MBCampaignEvent</code></a></td><td>MBCampaignEvent is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../MbEvent/"><code>MbEvent</code></a></td><td>MbEvent is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../MeetingSceneData/"><code>MeetingSceneData</code></a></td><td>MeetingSceneData is a data carrier in TaleWorlds.CampaignSystem that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../NameGenerator/"><code>NameGenerator</code></a></td><td>NameGenerator is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../NavigationPermissionItem/"><code>NavigationPermissionItem</code></a></td><td>NavigationPermissionItem is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../NoticeType/"><code>NoticeType</code></a></td><td>NoticeType is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../Occupation/"><code>Occupation</code></a></td><td>Occupation is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../OperationType/"><code>OperationType</code></a></td><td>OperationType is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../PeriodicTicker/"><code>PeriodicTicker</code></a></td><td>PeriodicTicker is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../PlayerCaptivity/"><code>PlayerCaptivity</code></a></td><td>PlayerCaptivity is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../PolicyObject/"><code>PolicyObject</code></a></td><td>PolicyObject is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../PropertyObjectData/"><code>PropertyObjectData</code></a></td><td>PropertyObjectData is a data carrier in TaleWorlds.CampaignSystem that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../RandomOwnerExtensions/"><code>RandomOwnerExtensions</code></a></td><td>RandomOwnerExtensions is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../ReferenceIMBEvent/"><code>ReferenceIMBEvent</code></a></td><td>ReferenceIMBEvent is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../ReferenceMBEvent/"><code>ReferenceMBEvent</code></a></td><td>ReferenceMBEvent is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../Romance/"><code>Romance</code></a></td><td>Romance is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../RomanceLevelEnum/"><code>RomanceLevelEnum</code></a></td><td>RomanceLevelEnum is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../RomanticState/"><code>RomanticState</code></a></td><td>RomanticState is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../SandBoxManager/"><code>SandBoxManager</code></a></td><td>SandBoxManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../SandBoxMission/"><code>SandBoxMission</code></a></td><td>SandBoxMission is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../SaveableCampaignTypeDefiner/"><code>SaveableCampaignTypeDefiner</code></a></td><td>SaveableCampaignTypeDefiner is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../SaveHandler/"><code>SaveHandler</code></a></td><td>SaveHandler is a handler in TaleWorlds.CampaignSystem that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../SaveMode/"><code>SaveMode</code></a></td><td>SaveMode is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../Seasons/"><code>Seasons</code></a></td><td>Seasons is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../SingleplayerBattleSceneData/"><code>SingleplayerBattleSceneData</code></a></td><td>SingleplayerBattleSceneData is a data carrier in TaleWorlds.CampaignSystem that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../SkillEffect/"><code>SkillEffect</code></a></td><td>SkillEffect is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../SkillObjectData/"><code>SkillObjectData</code></a></td><td>SkillObjectData is a data carrier in TaleWorlds.CampaignSystem that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../StanceLink/"><code>StanceLink</code></a></td><td>StanceLink is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../StanceType/"><code>StanceType</code></a></td><td>StanceType is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../Track/"><code>Track</code></a></td><td>Track is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../TrackedObject/"><code>TrackedObject</code></a></td><td>TrackedObject is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../TradeRumor/"><code>TradeRumor</code></a></td><td>TradeRumor is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../TroopUpgradeTracker/"><code>TroopUpgradeTracker</code></a></td><td>TroopUpgradeTracker is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../VisualCreator/"><code>VisualCreator</code></a></td><td>VisualCreator is a public type in TaleWorlds.CampaignSystem.</td></tr>
+<tr><td><a href="../VisualTrackerManager/"><code>VisualTrackerManager</code></a></td><td>VisualTrackerManager is a manager in TaleWorlds.CampaignSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+</tbody></table>
+<h2 id="other-subsystems-in-this-area">Other subsystems in this area</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../agentorigins/">AgentOrigins</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../bartersystem/">BarterSystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../campaignbehaviors/">CampaignBehaviors</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../charactercreationcontent/">CharacterCreationContent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../characterdevelopment/">CharacterDevelopment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../characters/">Characters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../componentinterfaces/">ComponentInterfaces</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../conversation/">Conversation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../election/">Election</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../encounters/">Encounters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../encyclopedia/">Encyclopedia</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../extensions/">Extensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../gamecomponents/">GameComponents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../gamemenus/">GameMenus</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../gamestate/">GameState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../heroes/">Heroes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../inventory/">Inventory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../issues/">Issues</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../logentries/">LogEntries</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../map/">Map</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../mapevents/">MapEvents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../mapnotificationtypes/">MapNotificationTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../naval/">Naval</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../parties/">Parties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../party/">Party</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../quests/">Quests</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../roster/">Roster</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../savecompability/">SaveCompability</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../sceneinformationpopuptypes/">SceneInformationPopupTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../settlements/">Settlements</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../siege/">Siege</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/root/./../tournamentgames/">TournamentGames</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

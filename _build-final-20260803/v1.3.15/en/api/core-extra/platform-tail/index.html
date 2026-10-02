@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Core, Library, and Engine platform long tail</title>
+  <meta name="description" content="Source-backed long-tail references for managed Core, Library, Engine, and native-boundary types.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core-extra/platform-tail/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core-extra/platform-tail/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="active">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;">core-extra index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Core, Library, and Engine platform long tail</span>
+    </nav>
+  
+  <h1>Core, Library, and Engine platform long tail</h1>
+  <h1 id="core-library-and-engine-platform-long-tail">Core, Library, and Engine platform long tail</h1>
+<h2 id="mental-model">Mental Model</h2>
+<p>These identities belong to the managed platform layer. Core and Library provide value objects, serialization, and diagnostics; Engine provides managed scene, rendering, physics, and native-bridge wrappers. Mods should depend on these managed entry points, never treat <code>[EngineMethod]</code> names or native addresses as a stable ABI.</p>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><a href="../">Engine</a> and <a href="../../../native/">Native Reference</a> define the managed/native boundary; CampaignSystem still owns persistent campaign state.</li>
+</ul>
+<h2 id="source-provenance">Source provenance</h2>
+<p>Type identities and page paths come from <code>tools/data/type-inventory.json</code>. Engine native relationships are traced only through managed wrappers and <code>native-1.3.15-src</code> evidence pages; this page does not expand the native class sea.</p>
+<h2 id="qualified-entries">Qualified entries</h2>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.Core</td><td><a href="../ActionSetCode">ActionSetCode</a>; <a href="../AgentAttackType">AgentAttackType</a>; <a href="../AgentControllerType">AgentControllerType</a>; <a href="../AgentData">AgentData</a>; <a href="../AgentFlag">AgentFlag</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../AgentMovementMode">AgentMovementMode</a>; <a href="../AgentOriginUtilities">AgentOriginUtilities</a>; <a href="../AgentSaveData">AgentSaveData</a>; <a href="../AgentState">AgentState</a>; <a href="../ArmorComponent">ArmorComponent</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../ArmorMaterialTypes">ArmorMaterialTypes</a>; <a href="../AtmosphereState">AtmosphereState</a>; <a href="../BannerColor">BannerColor</a>; <a href="../BannerComponent">BannerComponent</a>; <a href="../BannerData">BannerData</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../BannerEffect">BannerEffect</a>; <a href="../BannerExtensions">BannerExtensions</a>; <a href="../BannerIconData">BannerIconData</a>; <a href="../BannerIconGroup">BannerIconGroup</a>; <a href="../BannerManager">BannerManager</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../BasicCharacterObject">BasicCharacterObject</a>; <a href="../BasicCultureObject">BasicCultureObject</a>; <a href="../BasicGameModels">BasicGameModels</a>; <a href="../BattleSideEnum">BattleSideEnum</a>; <a href="../BattleSideEnumExtensions">BattleSideEnumExtensions</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../BattleState">BattleState</a>; <a href="../BeardCoverTypes">BeardCoverTypes</a>; <a href="../BladeData">BladeData</a>; <a href="../BodyDeformTypes">BodyDeformTypes</a>; <a href="../BodyMeshMaturityType">BodyMeshMaturityType</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../BodyMeshTypes">BodyMeshTypes</a>; <a href="../BodyProperties">BodyProperties</a>; <a href="../BodyPropertiesJsonConverter">BodyPropertiesJsonConverter</a>; <a href="../CampaignSaveMetaDataArgs">CampaignSaveMetaDataArgs</a>; <a href="../CharacterAttribute">CharacterAttribute</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../CharacterCode">CharacterCode</a>; <a href="../ChoiceTag">ChoiceTag</a>; <a href="../CombatStatCalculator">CombatStatCalculator</a>; <a href="../Crafting">Crafting</a>; <a href="../CraftingMaterials">CraftingMaterials</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../CraftingPiece">CraftingPiece</a>; <a href="../CraftingStatData">CraftingStatData</a>; <a href="../CraftingStatTypes">CraftingStatTypes</a>; <a href="../CraftingTemplate">CraftingTemplate</a>; <a href="../DamageTypes">DamageTypes</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../DefaultBannerEffects">DefaultBannerEffects</a>; <a href="../DefaultCharacterAttributes">DefaultCharacterAttributes</a>; <a href="../DefaultItemCategories">DefaultItemCategories</a>; <a href="../DefaultItemCategorySelector">DefaultItemCategorySelector</a>; <a href="../DefaultItemValueModel">DefaultItemValueModel</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../DefaultRidingModel">DefaultRidingModel</a>; <a href="../DefaultSiegeEngineTypes">DefaultSiegeEngineTypes</a>; <a href="../DefaultSkills">DefaultSkills</a>; <a href="../DeploymentFormationClass">DeploymentFormationClass</a>; <a href="../DialogNotificationHandle">DialogNotificationHandle</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../DrivenProperty">DrivenProperty</a>; <a href="../DummyCommunicator">DummyCommunicator</a>; <a href="../DynamicBodyProperties">DynamicBodyProperties</a>; <a href="../EffectIncrementType">EffectIncrementType</a>; <a href="../EntitySystem">EntitySystem</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../EquipmentElement">EquipmentElement</a>; <a href="../EquipmentFlags">EquipmentFlags</a>; <a href="../EquipmentIndex">EquipmentIndex</a>; <a href="../EquipmentType">EquipmentType</a>; <a href="../Extensions">Extensions</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../FaceGen">FaceGen</a>; <a href="../FaceGeneratorStage">FaceGeneratorStage</a>; <a href="../FaceGenHistory">FaceGenHistory</a>; <a href="../FilePaths">FilePaths</a>; <a href="../ForestDensity">ForestDensity</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../FormationClass">FormationClass</a>; <a href="../FormationClassExtensions">FormationClassExtensions</a>; <a href="../FormationFilterType">FormationFilterType</a>; <a href="../FormationPositionPreference">FormationPositionPreference</a>; <a href="../GameHandler">GameHandler</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../GameManagerBase">GameManagerBase</a>; <a href="../GameManagerComponent">GameManagerComponent</a>; <a href="../GameManagerLoadingSteps">GameManagerLoadingSteps</a>; <a href="../GameModel">GameModel</a>; <a href="../GameModelsManager">GameModelsManager</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../GameState">GameState</a>; <a href="../GameStateManager">GameStateManager</a>; <a href="../GameStateManagerType">GameStateManagerType</a>; <a href="../GameText">GameText</a>; <a href="../GameTextHelper">GameTextHelper</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../GameTextManager">GameTextManager</a>; <a href="../GameTexts">GameTexts</a>; <a href="../GameTextVariation">GameTextVariation</a>; <a href="../GameType">GameType</a>; <a href="../GameTypeLoadingStates">GameTypeLoadingStates</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../HairCoverTypes">HairCoverTypes</a>; <a href="../HorseComponent">HorseComponent</a>; <a href="../HorseHarnessCoverTypes">HorseHarnessCoverTypes</a>; <a href="../HorseTailCoverTypes">HorseTailCoverTypes</a>; <a href="../HumanBone">HumanBone</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../HyperlinkTexts">HyperlinkTexts</a>; <a href="../IAgent">IAgent</a>; <a href="../IAgentOriginBase">IAgentOriginBase</a>; <a href="../IBannerVisual">IBannerVisual</a>; <a href="../IBannerVisualCreator">IBannerVisualCreator</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../IBattleCombatant">IBattleCombatant</a>; <a href="../IBattleObserver">IBattleObserver</a>; <a href="../ICameraModeLogic">ICameraModeLogic</a>; <a href="../ICharacterData">ICharacterData</a>; <a href="../ICommunicator">ICommunicator</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../IEntityComponent">IEntityComponent</a>; <a href="../IFaceGen">IFaceGen</a>; <a href="../IFaceGeneratorCustomFilter">IFaceGeneratorCustomFilter</a>; <a href="../IGameStarter">IGameStarter</a>; <a href="../IGameStateListener">IGameStateListener</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../IGameStateManagerListener">IGameStateManagerListener</a>; <a href="../IGameStateManagerOwner">IGameStateManagerOwner</a>; <a href="../IInformationDataHolder">IInformationDataHolder</a>; <a href="../IManagedParametersInitializer">IManagedParametersInitializer</a>; <a href="../IMission">IMission</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../IMissionSiegeWeapon">IMissionSiegeWeapon</a>; <a href="../IMissionTeam">IMissionTeam</a>; <a href="../IMissionTroopSupplier">IMissionTroopSupplier</a>; <a href="../IMonsterMissionData">IMonsterMissionData</a>; <a href="../IMonsterMissionDataCreator">IMonsterMissionDataCreator</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../IndexEntry">IndexEntry</a>; <a href="../INetworkCommunication">INetworkCommunication</a>; <a href="../InformationData">InformationData</a>; <a href="../InitialWeaponEquipPreference">InitialWeaponEquipPreference</a>; <a href="../InquiryElement">InquiryElement</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../IReadOnlyPropertyOwner">IReadOnlyPropertyOwner</a>; <a href="../IReadOnlyPropertyOwnerF">IReadOnlyPropertyOwnerF</a>; <a href="../ISceneNotificationContextProvider">ISceneNotificationContextProvider</a>; <a href="../IShipOrigin">IShipOrigin</a>; <a href="../ItemCategory">ItemCategory</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../ItemCategorySelector">ItemCategorySelector</a>; <a href="../ItemComponent">ItemComponent</a>; <a href="../ItemFlags">ItemFlags</a>; <a href="../ItemModifier">ItemModifier</a>; <a href="../ItemModifierGroup">ItemModifierGroup</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../ItemQuality">ItemQuality</a>; <a href="../ItemRosterElement">ItemRosterElement</a>; <a href="../ItemTiers">ItemTiers</a>; <a href="../ItemTypeEnum">ItemTypeEnum</a>; <a href="../ItemUsageSetFlags">ItemUsageSetFlags</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../ItemValueModel">ItemValueModel</a>; <a href="../ITrackableBase">ITrackableBase</a>; <a href="../JobType">JobType</a>; <a href="../LinearFrictionTerm">LinearFrictionTerm</a>; <a href="../ManagedParameters__TaleWorlds_Core">ManagedParameters</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../ManagedParametersEnum__TaleWorlds_Core">ManagedParametersEnum</a>; <a href="../MaterialProperty">MaterialProperty</a>; <a href="../MBBodyProperty">MBBodyProperty</a>; <a href="../MBCharacterSkills">MBCharacterSkills</a>; <a href="../MBEquipmentRoster">MBEquipmentRoster</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../MBException">MBException</a>; <a href="../MBFastRandom">MBFastRandom</a>; <a href="../MBFastRandomSelector">MBFastRandomSelector</a>; <a href="../MBGameModel">MBGameModel</a>; <a href="../MBHaltonColorGenerator">MBHaltonColorGenerator</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../MBIllegalValueException">MBIllegalValueException</a>; <a href="../MBInformationManager">MBInformationManager</a>; <a href="../MBInvalidParameterException">MBInvalidParameterException</a>; <a href="../MBMethodNameNotFoundException">MBMethodNameNotFoundException</a>; <a href="../MBMisuseException">MBMisuseException</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../MBNetwork">MBNetwork</a>; <a href="../MBNetworkBitException">MBNetworkBitException</a>; <a href="../MBNotFoundException">MBNotFoundException</a>; <a href="../MBNotNullParameterException">MBNotNullParameterException</a>; <a href="../MBNullParameterException">MBNullParameterException</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../MBObjectManagerExtensions">MBObjectManagerExtensions</a>; <a href="../MBOutOfRangeException">MBOutOfRangeException</a>; <a href="../MBPerlin">MBPerlin</a>; <a href="../MBRandom">MBRandom</a>; <a href="../MBSaveLoad">MBSaveLoad</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../MBTypeMismatchException">MBTypeMismatchException</a>; <a href="../MBUnderFlowException">MBUnderFlowException</a>; <a href="../MBUnknownTypeException">MBUnknownTypeException</a>; <a href="../MetaDataExtensions__TaleWorlds_Core">MetaDataExtensions</a>; <a href="../MissionInitializerRecord">MissionInitializerRecord</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../MissionMode">MissionMode</a>; <a href="../MissionResult">MissionResult</a>; <a href="../MissionShipObject">MissionShipObject</a>; <a href="../MissionSiegeWeapon">MissionSiegeWeapon</a>; <a href="../ModuleCheckResultType">ModuleCheckResultType</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../Monster">Monster</a>; <a href="../MountCreationKey">MountCreationKey</a>; <a href="../MultiSelectionInquiryData">MultiSelectionInquiryData</a>; <a href="../NotificationPriority">NotificationPriority</a>; <a href="../NotificationSceneProperties">NotificationSceneProperties</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../NotificationStatus">NotificationStatus</a>; <a href="../PeerComponent">PeerComponent</a>; <a href="../PieceData">PieceData</a>; <a href="../PieceTypes">PieceTypes</a>; <a href="../PlayerGameState">PlayerGameState</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../Property">Property</a>; <a href="../PropertyObject">PropertyObject</a>; <a href="../PropertyOwner">PropertyOwner</a>; <a href="../PropertyOwnerF">PropertyOwnerF</a>; <a href="../RefiningFormula">RefiningFormula</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../RelevantContextType">RelevantContextType</a>; <a href="../ResetAllTutorialsEvent">ResetAllTutorialsEvent</a>; <a href="../RidingModel">RidingModel</a>; <a href="../SaddleComponent">SaddleComponent</a>; <a href="../SailType">SailType</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../SaveableCoreTypeDefiner">SaveableCoreTypeDefiner</a>; <a href="../SceneNotificationCharacter">SceneNotificationCharacter</a>; <a href="../SceneNotificationData">SceneNotificationData</a>; <a href="../SceneNotificationShip">SceneNotificationShip</a>; <a href="../ShipHull">ShipHull</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../ShipPhysicsReference">ShipPhysicsReference</a>; <a href="../ShipSail">ShipSail</a>; <a href="../ShipSlot">ShipSlot</a>; <a href="../ShipSlotAndPieceName">ShipSlotAndPieceName</a>; <a href="../ShipType">ShipType</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../ShipUpgradePiece">ShipUpgradePiece</a>; <a href="../ShipVisualSlotInfo">ShipVisualSlotInfo</a>; <a href="../SiegeEngineType">SiegeEngineType</a>; <a href="../SkeletonScale">SkeletonScale</a>; <a href="../SkillType">SkillType</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../SkinMask">SkinMask</a>; <a href="../SpectatorCameraTypes">SpectatorCameraTypes</a>; <a href="../StackArray">StackArray</a>; <a href="../StackArray10FloatFloatTuple">StackArray10FloatFloatTuple</a>; <a href="../StackArray2Bool">StackArray2Bool</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../StackArray32Bool">StackArray32Bool</a>; <a href="../StackArray3Bool">StackArray3Bool</a>; <a href="../StackArray3Float">StackArray3Float</a>; <a href="../StackArray3Int">StackArray3Int</a>; <a href="../StackArray4Bool">StackArray4Bool</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../StackArray4Int">StackArray4Int</a>; <a href="../StackArray5Bool">StackArray5Bool</a>; <a href="../StackArray5Float">StackArray5Float</a>; <a href="../StackArray6Bool">StackArray6Bool</a>; <a href="../StackArray7Bool">StackArray7Bool</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../StackArray8Bool">StackArray8Bool</a>; <a href="../StackArray8Int">StackArray8Int</a>; <a href="../State">State</a>; <a href="../StaticBodyProperties">StaticBodyProperties</a>; <a href="../StrikeType">StrikeType</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../TauntUsage">TauntUsage</a>; <a href="../TauntUsageFlag">TauntUsageFlag</a>; <a href="../TauntUsageManager">TauntUsageManager</a>; <a href="../TauntUsageSet">TauntUsageSet</a>; <a href="../TeamSideEnum">TeamSideEnum</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../TeamSideEnumExtensions">TeamSideEnumExtensions</a>; <a href="../TerrainType">TerrainType</a>; <a href="../Timer">Timer</a>; <a href="../TradeItemComponent">TradeItemComponent</a>; <a href="../TroopClassExtensions">TroopClassExtensions</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../TroopTraitsMask">TroopTraitsMask</a>; <a href="../TroopTraitsMaskExtensions">TroopTraitsMaskExtensions</a>; <a href="../TroopType">TroopType</a>; <a href="../TroopUsageFlags">TroopUsageFlags</a>; <a href="../TutorialContextChangedEvent">TutorialContextChangedEvent</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../TutorialContexts">TutorialContexts</a>; <a href="../UnderwearTypes">UnderwearTypes</a>; <a href="../UndoRedoKey">UndoRedoKey</a>; <a href="../UniqueTroopDescriptor">UniqueTroopDescriptor</a>; <a href="../UnitSpawnPrioritizations">UnitSpawnPrioritizations</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../VirtualPlayer">VirtualPlayer</a>; <a href="../WaitForGameState">WaitForGameState</a>; <a href="../WeaponClass">WeaponClass</a>; <a href="../WeaponComponent">WeaponComponent</a>; <a href="../WeaponComponentData">WeaponComponentData</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../WeaponComponentDataExtensions">WeaponComponentDataExtensions</a>; <a href="../WeaponDescription">WeaponDescription</a>; <a href="../WeaponDesign">WeaponDesign</a>; <a href="../WeaponDesignElement">WeaponDesignElement</a>; <a href="../WeaponFlags">WeaponFlags</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Core</td><td><a href="../WeaponTiers">WeaponTiers</a>; <a href="../XmlHelper">XmlHelper</a></td><td>Documents Core data and value contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Core startup, entity lookup, or mission query</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/AnimResult">AnimResult</a>; <a href="../../engine/ApplicationHealthChecker">ApplicationHealthChecker</a>; <a href="../../engine/ApplicationInterfaceBase">ApplicationInterfaceBase</a>; <a href="../../engine/AsyncTask">AsyncTask</a>; <a href="../../engine/BillboardType">BillboardType</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/BodyFlags">BodyFlags</a>; <a href="../../engine/BoundingBox">BoundingBox</a>; <a href="../../engine/CapsuleData">CapsuleData</a>; <a href="../../engine/ClothSimulatorComponent">ClothSimulatorComponent</a>; <a href="../../engine/ColorStyle">ColorStyle</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/ComponentType">ComponentType</a>; <a href="../../engine/CompositeComponent">CompositeComponent</a>; <a href="../../engine/CrashInformation">CrashInformation</a>; <a href="../../engine/CrashInformationCollector">CrashInformationCollector</a>; <a href="../../engine/CrashInformationProvider">CrashInformationProvider</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/Decal">Decal</a>; <a href="../../engine/DecalAtlasGroup">DecalAtlasGroup</a>; <a href="../../engine/EditDataPolicy">EditDataPolicy</a>; <a href="../../engine/EditorVisibleScriptComponentVariable">EditorVisibleScriptComponentVariable</a>; <a href="../../engine/EngineApplicationInterface">EngineApplicationInterface</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/EngineCallback">EngineCallback</a>; <a href="../../engine/EngineController">EngineController</a>; <a href="../../engine/EngineExtensions">EngineExtensions</a>; <a href="../../engine/EngineFilePaths">EngineFilePaths</a>; <a href="../../engine/EngineManaged">EngineManaged</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/EngineRenderDisplayMode">EngineRenderDisplayMode</a>; <a href="../../engine/EntityFlags">EntityFlags</a>; <a href="../../engine/EntityVisibilityFlags">EntityVisibilityFlags</a>; <a href="../../engine/Face">Face</a>; <a href="../../engine/FaceCorner">FaceCorner</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/FloaterVolumeDynamicUpAxis">FloaterVolumeDynamicUpAxis</a>; <a href="../../engine/ForceMode">ForceMode</a>; <a href="../../engine/FtlCapsuleData">FtlCapsuleData</a>; <a href="../../engine/GameEntityPhysicsExtensions">GameEntityPhysicsExtensions</a>; <a href="../../engine/GameEntityWithWorldPosition">GameEntityWithWorldPosition</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/HasTableauCache">HasTableauCache</a>; <a href="../../engine/Highlights">Highlights</a>; <a href="../../engine/IAsyncTask">IAsyncTask</a>; <a href="../../engine/IBodyPart">IBodyPart</a>; <a href="../../engine/ICamera">ICamera</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/IClothSimulatorComponent">IClothSimulatorComponent</a>; <a href="../../engine/ICompositeComponent">ICompositeComponent</a>; <a href="../../engine/IConfig">IConfig</a>; <a href="../../engine/IDebug">IDebug</a>; <a href="../../engine/IDecal">IDecal</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/IEngineSizeChecker">IEngineSizeChecker</a>; <a href="../../engine/IGameEntity">IGameEntity</a>; <a href="../../engine/IGameEntityComponent">IGameEntityComponent</a>; <a href="../../engine/IHighlights">IHighlights</a>; <a href="../../engine/IImgui">IImgui</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/IInput">IInput</a>; <a href="../../engine/ILight">ILight</a>; <a href="../../engine/ILoadingWindowManager">ILoadingWindowManager</a>; <a href="../../engine/IManagedMeshEditOperations">IManagedMeshEditOperations</a>; <a href="../../engine/IMaterial">IMaterial</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/IMesh">IMesh</a>; <a href="../../engine/IMeshBuilder">IMeshBuilder</a>; <a href="../../engine/IMetaMesh">IMetaMesh</a>; <a href="../../engine/Imgui">Imgui</a>; <a href="../../engine/IMouseManager">IMouseManager</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/IMusic">IMusic</a>; <a href="../../engine/InputLayout">InputLayout</a>; <a href="../../engine/Intersection">Intersection</a>; <a href="../../engine/IntersectionDetails">IntersectionDetails</a>; <a href="../../engine/IntersectionType">IntersectionType</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/IParticleSystem">IParticleSystem</a>; <a href="../../engine/IPath">IPath</a>; <a href="../../engine/IPhysicsMaterial">IPhysicsMaterial</a>; <a href="../../engine/IPhysicsShape">IPhysicsShape</a>; <a href="../../engine/IScene">IScene</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/ISceneView">ISceneView</a>; <a href="../../engine/IScreen">IScreen</a>; <a href="../../engine/IScriptComponent">IScriptComponent</a>; <a href="../../engine/IShader">IShader</a>; <a href="../../engine/ISkeleton">ISkeleton</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/ISoundEvent">ISoundEvent</a>; <a href="../../engine/ISoundManager">ISoundManager</a>; <a href="../../engine/ITableauView">ITableauView</a>; <a href="../../engine/ITexture">ITexture</a>; <a href="../../engine/ITextureView">ITextureView</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/IThumbnailCreatorView">IThumbnailCreatorView</a>; <a href="../../engine/ITime">ITime</a>; <a href="../../engine/ITwoDimensionView">ITwoDimensionView</a>; <a href="../../engine/IUtil">IUtil</a>; <a href="../../engine/IVideoPlayerView">IVideoPlayerView</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/IView">IView</a>; <a href="../../engine/Job">Job</a>; <a href="../../engine/JobManager">JobManager</a>; <a href="../../engine/Light">Light</a>; <a href="../../engine/LoadingWindow">LoadingWindow</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/MainThreadPerformanceQuery">MainThreadPerformanceQuery</a>; <a href="../../engine/ManagedExtensions">ManagedExtensions</a>; <a href="../../engine/ManagedMeshEditOperations">ManagedMeshEditOperations</a>; <a href="../../engine/ManagedScriptComponent">ManagedScriptComponent</a>; <a href="../../engine/ManagedScriptHolder">ManagedScriptHolder</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/Material">Material</a>; <a href="../../engine/MaterialFlags">MaterialFlags</a>; <a href="../../engine/MBAlphaBlendMode">MBAlphaBlendMode</a>; <a href="../../engine/MBDebug">MBDebug</a>; <a href="../../engine/MBMeshCullingMode">MBMeshCullingMode</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/MBMouseButtonState">MBMouseButtonState</a>; <a href="../../engine/MBTextureType">MBTextureType</a>; <a href="../../engine/MeshBuilder">MeshBuilder</a>; <a href="../../engine/MessageBoxTypeFlag">MessageBoxTypeFlag</a>; <a href="../../engine/MessageManagerBase">MessageManagerBase</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/MetaMesh">MetaMesh</a>; <a href="../../engine/Mobility">Mobility</a>; <a href="../../engine/MouseManager">MouseManager</a>; <a href="../../engine/Music">Music</a>; <a href="../../engine/NativeConfig">NativeConfig</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/NativeParallelDriver">NativeParallelDriver</a>; <a href="../../engine/NativeScriptComponent">NativeScriptComponent</a>; <a href="../../engine/ParticleSystem">ParticleSystem</a>; <a href="../../engine/ParticleSystemManager">ParticleSystemManager</a>; <a href="../../engine/Path">Path</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/PerformanceAnalyzer">PerformanceAnalyzer</a>; <a href="../../engine/PhysicsContact">PhysicsContact</a>; <a href="../../engine/PhysicsContactInfo">PhysicsContactInfo</a>; <a href="../../engine/PhysicsContactPair">PhysicsContactPair</a>; <a href="../../engine/PhysicsEventType">PhysicsEventType</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/PhysicsJoint">PhysicsJoint</a>; <a href="../../engine/PhysicsMaterial">PhysicsMaterial</a>; <a href="../../engine/PhysicsMaterialFlags">PhysicsMaterialFlags</a>; <a href="../../engine/PhysicsShape">PhysicsShape</a>; <a href="../../engine/PostfxConfig">PostfxConfig</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/RagdollState">RagdollState</a>; <a href="../../engine/RenderTargetComponent">RenderTargetComponent</a>; <a href="../../engine/Resource">Resource</a>; <a href="../../engine/RglScriptFieldType">RglScriptFieldType</a>; <a href="../../engine/SceneInitializationData">SceneInitializationData</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/SceneProblemChecker">SceneProblemChecker</a>; <a href="../../engine/SceneView">SceneView</a>; <a href="../../engine/Screen">Screen</a>; <a href="../../engine/ScreenManagerEngineConnection">ScreenManagerEngineConnection</a>; <a href="../../engine/ScriptComponent">ScriptComponent</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/ScriptComponentBehavior">ScriptComponentBehavior</a>; <a href="../../engine/ScriptComponentFieldHolder">ScriptComponentFieldHolder</a>; <a href="../../engine/Shader">Shader</a>; <a href="../../engine/ShadowType">ShadowType</a>; <a href="../../engine/Significance">Significance</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/SimpleButton">SimpleButton</a>; <a href="../../engine/Skeleton">Skeleton</a>; <a href="../../engine/SoundEvent">SoundEvent</a>; <a href="../../engine/SoundEventParameter">SoundEventParameter</a>; <a href="../../engine/SoundManager">SoundManager</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/SphereData">SphereData</a>; <a href="../../engine/TableauView">TableauView</a>; <a href="../../engine/TextFlags">TextFlags</a>; <a href="../../engine/Texture">Texture</a>; <a href="../../engine/TextureSaveFormat">TextureSaveFormat</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/TextureView">TextureView</a>; <a href="../../engine/ThumbnailCreatorView">ThumbnailCreatorView</a>; <a href="../../engine/ThumbnailRenderRequest">ThumbnailRenderRequest</a>; <a href="../../engine/TickRequirement">TickRequirement</a>; <a href="../../engine/Time">Time</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/TransformedBoundingBoxPointsContainer">TransformedBoundingBoxPointsContainer</a>; <a href="../../engine/TwoDimensionMeshDrawData">TwoDimensionMeshDrawData</a>; <a href="../../engine/TwoDimensionTextMeshDrawData">TwoDimensionTextMeshDrawData</a>; <a href="../../engine/Type">Type</a>; <a href="../../engine/UpgradeLevelMask">UpgradeLevelMask</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/Utilities">Utilities</a>; <a href="../../engine/VideoPlayerView">VideoPlayerView</a>; <a href="../../engine/View">View</a>; <a href="../../engine/ViewRenderOptions">ViewRenderOptions</a>; <a href="../../engine/VisibilityMaskFlags">VisibilityMaskFlags</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/VolumeDataForSubmergeComputation">VolumeDataForSubmergeComputation</a>; <a href="../../engine/WeakGameEntity">WeakGameEntity</a>; <a href="../../engine/WeakMaterial">WeakMaterial</a>; <a href="../../engine/WorldFrame">WorldFrame</a>; <a href="../../engine/WorldPositionEnforcedCache">WorldPositionEnforcedCache</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Engine</td><td><a href="../../engine/ZValidityState">ZValidityState</a></td><td>Documents managed scene, rendering, physics, and native-bridge contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Scene load, frame update, or engine callback</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../AmbientInformation">AmbientInformation</a>; <a href="../ApplicationPlatform">ApplicationPlatform</a>; <a href="../ApplicationVersion">ApplicationVersion</a>; <a href="../ApplicationVersionJsonConverter">ApplicationVersionJsonConverter</a>; <a href="../ApplicationVersionType">ApplicationVersionType</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../AreaInformation">AreaInformation</a>; <a href="../AssemblyLoader">AssemblyLoader</a>; <a href="../AsyncRunner">AsyncRunner</a>; <a href="../AtmosphereInfo">AtmosphereInfo</a>; <a href="../AwaitableAsyncRunner">AwaitableAsyncRunner</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../AzureDiscovery">AzureDiscovery</a>; <a href="../BasePath">BasePath</a>; <a href="../bin">bin</a>; <a href="../BinaryReader">BinaryReader</a>; <a href="../BinaryWriter">BinaryWriter</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../BindingPath">BindingPath</a>; <a href="../../campaign-ext/BuildInfo">BuildInfo</a>; <a href="../CachedDataAttribute">CachedDataAttribute</a>; <a href="../ClientProfiles">ClientProfiles</a>; <a href="../Color">Color</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../ColorExtensions">ColorExtensions</a>; <a href="../Colors">Colors</a>; <a href="../CommandLineArgumentFunction">CommandLineArgumentFunction</a>; <a href="../CommandLineFunctionality">CommandLineFunctionality</a>; <a href="../Common">Common</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../ComparerType">ComparerType</a>; <a href="../ConfigurationManager">ConfigurationManager</a>; <a href="../Corners">Corners</a>; <a href="../CubicBezier">CubicBezier</a>; <a href="../DataSourceProperty">DataSourceProperty</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../Debug">Debug</a>; <a href="../DebugColor">DebugColor</a>; <a href="../DebugSystemFilter">DebugSystemFilter</a>; <a href="../DebugUserFilter">DebugUserFilter</a>; <a href="../DefaultParallelDriver">DefaultParallelDriver</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../DiamondDebugCategory">DiamondDebugCategory</a>; <a href="../DiamondDebugManager">DiamondDebugManager</a>; <a href="../EngineMethod">EngineMethod</a>; <a href="../EngineType">EngineType</a>; <a href="../EnumHelper">EnumHelper</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../Extensions">Extensions</a>; <a href="../FileHelper">FileHelper</a>; <a href="../FileHelperExtensions">FileHelperExtensions</a>; <a href="../FogInformation">FogInformation</a>; <a href="../GCHandleFactory">GCHandleFactory</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../GenericComparer">GenericComparer</a>; <a href="../HTMLDebugCategory">HTMLDebugCategory</a>; <a href="../HTMLDebugData">HTMLDebugData</a>; <a href="../HttpHelper">HttpHelper</a>; <a href="../ICache">ICache</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../IConfigurationManager">IConfigurationManager</a>; <a href="../IDebugManager">IDebugManager</a>; <a href="../InformationMessage">InformationMessage</a>; <a href="../InputType">InputType</a>; <a href="../InputUsageMask">InputUsageMask</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../InquiryData">InquiryData</a>; <a href="../IParallelDriver">IParallelDriver</a>; <a href="../IPlatformFileHelper">IPlatformFileHelper</a>; <a href="../IReader">IReader</a>; <a href="../ISerializableObject">ISerializableObject</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../ITask">ITask</a>; <a href="../ITelemetryManager">ITelemetryManager</a>; <a href="../IViewModel">IViewModel</a>; <a href="../IViewModelGetterInterface">IViewModelGetterInterface</a>; <a href="../IViewModelSetterInterface">IViewModelSetterInterface</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../IWriter">IWriter</a>; <a href="../LineSegment2D">LineSegment2D</a>; <a href="../ListChangedEventArgs">ListChangedEventArgs</a>; <a href="../ListChangedType">ListChangedType</a>; <a href="../Logger">Logger</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../MachineId">MachineId</a>; <a href="../ManagedArray">ManagedArray</a>; <a href="../ManagedDllFolder">ManagedDllFolder</a>; <a href="../Mat2">Mat2</a>; <a href="../Mat3">Mat3</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../MathF">MathF</a>; <a href="../MatrixFrame">MatrixFrame</a>; <a href="../MBArrayList">MBArrayList</a>; <a href="../MBBindingList">MBBindingList</a>; <a href="../MBList">MBList</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../MBList2D">MBList2D</a>; <a href="../MBMath">MBMath</a>; <a href="../MBQueue">MBQueue</a>; <a href="../MBReadOnlyDictionary">MBReadOnlyDictionary</a>; <a href="../MBReadOnlyList">MBReadOnlyList</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../MBReadOnlyQueue">MBReadOnlyQueue</a>; <a href="../MBSortedMultiList">MBSortedMultiList</a>; <a href="../MBStringBuilder">MBStringBuilder</a>; <a href="../MBUtil">MBUtil</a>; <a href="../MBWorkspace">MBWorkspace</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../NauticalInformation">NauticalInformation</a>; <a href="../NavigationPath">NavigationPath</a>; <a href="../ObjectInstanceTracker">ObjectInstanceTracker</a>; <a href="../Oriented2DArea">Oriented2DArea</a>; <a href="../ParameterContainer">ParameterContainer</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../ParameterFile">ParameterFile</a>; <a href="../ParameterLoader">ParameterLoader</a>; <a href="../Parameters">Parameters</a>; <a href="../PathFaceRecord">PathFaceRecord</a>; <a href="../PathFinder">PathFinder</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../PerformanceTestBlock">PerformanceTestBlock</a>; <a href="../PinnedArrayData">PinnedArrayData</a>; <a href="../Platform">Platform</a>; <a href="../PlatformDirectoryPath">PlatformDirectoryPath</a>; <a href="../PlatformFileHelperPC">PlatformFileHelperPC</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../PlatformFilePath">PlatformFilePath</a>; <a href="../PlatformFileType">PlatformFileType</a>; <a href="../PlatformInitParams">PlatformInitParams</a>; <a href="../PostProcessInformation">PostProcessInformation</a>; <a href="../PriorityQueue">PriorityQueue</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../ProfanityChechkerType">ProfanityChechkerType</a>; <a href="../ProfanityChecker">ProfanityChecker</a>; <a href="../PropertyChangedWithBoolValueEventArgs">PropertyChangedWithBoolValueEventArgs</a>; <a href="../PropertyChangedWithColorValueEventArgs">PropertyChangedWithColorValueEventArgs</a>; <a href="../PropertyChangedWithDoubleValueEventArgs">PropertyChangedWithDoubleValueEventArgs</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../PropertyChangedWithFloatValueEventArgs">PropertyChangedWithFloatValueEventArgs</a>; <a href="../PropertyChangedWithIntValueEventArgs">PropertyChangedWithIntValueEventArgs</a>; <a href="../PropertyChangedWithUIntValueEventArgs">PropertyChangedWithUIntValueEventArgs</a>; <a href="../PropertyChangedWithValueEventArgs">PropertyChangedWithValueEventArgs</a>; <a href="../PropertyChangedWithVec2ValueEventArgs">PropertyChangedWithVec2ValueEventArgs</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../Quaternion">Quaternion</a>; <a href="../RainInformation">RainInformation</a>; <a href="../Ray">Ray</a>; <a href="../ResourceDepot">ResourceDepot</a>; <a href="../ResourceDepotFile">ResourceDepotFile</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../ResourceDepotLocation">ResourceDepotLocation</a>; <a href="../Runtime">Runtime</a>; <a href="../SaveResult">SaveResult</a>; <a href="../SaveResultWithMessage">SaveResultWithMessage</a>; <a href="../ScopedTimer">ScopedTimer</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../SerialTask">SerialTask</a>; <a href="../SingleThreadedSynchronizationContext">SingleThreadedSynchronizationContext</a>; <a href="../SingleThreadedSynchronizationContextManager">SingleThreadedSynchronizationContextManager</a>; <a href="../SkyInformation">SkyInformation</a>; <a href="../SnowInformation">SnowInformation</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../SRTHelper">SRTHelper</a>; <a href="../SrtParser">SrtParser</a>; <a href="../StackArray8Vec3">StackArray8Vec3</a>; <a href="../StreamHelpers">StreamHelpers</a>; <a href="../StringReader">StringReader</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../StringWriter">StringWriter</a>; <a href="../SubtitleItem">SubtitleItem</a>; <a href="../SunInformation">SunInformation</a>; <a href="../TelemetryLevelMask">TelemetryLevelMask</a>; <a href="../TestCommonBase">TestCommonBase</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../TestContext">TestContext</a>; <a href="../TextInquiryData">TextInquiryData</a>; <a href="../TimedDictionaryCache">TimedDictionaryCache</a>; <a href="../TimeInformation">TimeInformation</a>; <a href="../TooltipBaseVM">TooltipBaseVM</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../TooltipRegistry">TooltipRegistry</a>; <a href="../Transformation">Transformation</a>; <a href="../TWException">TWException</a>; <a href="../TWParallel">TWParallel</a>; <a href="../TWSharedMutex">TWSharedMutex</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../TWSharedMutexReadLock">TWSharedMutexReadLock</a>; <a href="../TWSharedMutexWriteLock">TWSharedMutexWriteLock</a>; <a href="../TWXmlLoadException">TWXmlLoadException</a>; <a href="../UiStringHelper">UiStringHelper</a>; <a href="../UniqueSceneId">UniqueSceneId</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../Vec2">Vec2</a>; <a href="../Vec2i">Vec2i</a>; <a href="../Vec3">Vec3</a>; <a href="../Vec3i">Vec3i</a>; <a href="../VirtualDirectoryAttribute">VirtualDirectoryAttribute</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../VirtualFileAttribute">VirtualFileAttribute</a>; <a href="../VirtualFolders">VirtualFolders</a>; <a href="../Watchdog">Watchdog</a>; <a href="../Win64_Shipping_Client">Win64_Shipping_Client</a>; <a href="../../campaign-ext/WindingOrder">WindingOrder</a></td><td>Documents shared utility, serialization, diagnostics, and threading contracts; prefer the managed contract and return world mutation to the owning system.</td><td>Utility call, serialization, or diagnostics</td></tr>
+</tbody></table>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li><a href="..">Parent: Core extensions</a></li>
+<li><a href="../">Related: Engine</a> · <a href="../../../architecture/sandbox-native-policy">Native policy</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

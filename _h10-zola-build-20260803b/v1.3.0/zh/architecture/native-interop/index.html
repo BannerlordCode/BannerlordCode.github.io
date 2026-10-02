@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>托管 &#x2F; 原生互操作 &#x2F; Managed-Native Interop</title>
+  <meta name="description" content="解释 Bannerlord v1.3.0 的 C# 托管代码如何通过 EngineMethod 调用 TaleWorlds.Native.dll，以及 mod 开发者应如何安全跨越这条边界。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/architecture/native-interop/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/architecture/native-interop/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/architecture/native-interop/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/architecture/native-interop/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="active">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;architecture&#x2F;">架构 &#x2F; Architecture (v1.3.0)</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">托管 &#x2F; 原生互操作 &#x2F; Managed-Native Interop</span>
+    </nav>
+  
+  <h1>托管 &#x2F; 原生互操作 &#x2F; Managed-Native Interop</h1>
+  <h1 id="tuo-guan-yuan-sheng-hu-cao-zuo-managed-native-interop">托管 / 原生互操作 / Managed-Native Interop</h1>
+<h2 id="shang-ji-dao-hang">上级导航</h2>
+<ul>
+<li><a href="../../">首页 / Home</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/native-interop/./">架构总览 / Architecture</a></li>
+<li><a href="../sdk-overview/">SDK 总览 / SDK Overview</a></li>
+</ul>
+<h2 id="tong-ji-dao-hang">同级导航</h2>
+<table><thead><tr><th>页面</th><th>解决什么问题</th></tr></thead><tbody>
+<tr><td><a href="../sdk-overview/">SDK 总览</a></td><td>全部模块地图</td></tr>
+<tr><td><a href="../module-system/">模块系统</a></td><td>生命周期与加载机制</td></tr>
+<tr><td><a href="../save-system/">存档系统</a></td><td>自定义数据持久化</td></tr>
+<tr><td><a href="../version-delta/">版本差异</a></td><td>后续版本改了什么</td></tr>
+</tbody></table>
+<blockquote>
+<p><strong>v1.3.0 提示</strong>
+v1.3.0 的原生互操作机制与 v1.3.15 基本一致。由于 v1.3.0 没有单独反编译的原生源码目录，排查原生侧问题时请使用 <a href="../../../../v1.3.15/zh/native-1.3.15-src/">v1.3.15 Native 源码参考</a>。跨版本迁移请同时参考 <a href="../../../../versions/">跨版本类对比</a>。</p>
+</blockquote>
+<h2 id="yuan-sheng-yuan-ma-zai-na-li-where-the-native-source-lives">原生源码在哪里 / Where the native source lives</h2>
+<p>反编译后的 <code>TaleWorlds.Native.dll</code> 源码按版本放在代码库同级目录。v1.3.0 可用的参考如下：</p>
+<table><thead><tr><th>目录</th><th>版本</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>native-1.3.15/</code></td><td>v1.3.15</td><td>主参考；托管层与原生层映射一致时可优先查此目录，<a href="../../../../v1.3.15/zh/native-1.3.15-src/">完整索引</a></td></tr>
+<tr><td><code>native-1.4.5/</code></td><td>v1.4.5</td><td>后续版本反编译；结构不同但可作为概念对照</td></tr>
+<tr><td><code>native-1.3.0/</code></td><td>—</td><td>没有单独解压</td></tr>
+<tr><td><code>native-1.2.9/</code></td><td>—</td><td>已移除，不再存在</td></tr>
+</tbody></table>
+<hr />
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>Bannerlord engine 分成两层：</p>
+<ul>
+<li><strong>托管层</strong>：你写的 C# mod 代码，以及 <code>TaleWorlds.*</code> 程序集。</li>
+<li><strong>原生层</strong>：<code>TaleWorlds.Native.dll</code>，包含渲染、物理、动画、音频和网络等 engine 实现。</li>
+</ul>
+<p>托管代码并不直接调用原生函数。TaleWorlds 用 <code>[EngineMethod]</code> 和 <code>[EngineClass]</code> 特性把 C# 包装类映射到原生导出，形成一个<strong>受控的互操作边界</strong>。普通 mod 只需要使用托管包装类，不必关心函数指针或 exports。</p>
+<hr />
+<h2 id="diao-yong-liu-cheng">调用流程</h2>
+<pre><code>你的 mod 代码
+    ↓ 调用 Mission.Scene、Camera.SetFovVertical、Vec3 等托管 API
+TaleWorlds.Engine / TaleWorlds.MountAndBlade 等托管程序集
+    ↓ [EngineMethod(&quot;native_name&quot;)] 接口方法
+LibraryApplicationInterface.INative* 静态委托
+    ↓ 函数指针（启动时由 TaleWorlds.Native.dll 注入）
+TaleWorlds.Native.dll
+</code></pre>
+<p>启动时，<code>MBDotNet</code> 通过几个 DllImport 把原生函数指针交给 <code>ScriptingInterfaceObjects.SetFunctionPointer</code>。之后所有 <code>[EngineMethod]</code> 方法都走这些静态委托，而不是每次重新 P/Invoke。</p>
+<hr />
+<h2 id="chang-jian-tuo-guan-yuan-sheng-diao-yong">常见托管 → 原生调用</h2>
+<p>下面这张表列出 mod 开发中经常碰到的调用。它们看起来是普通的 C# 属性/方法，实际都会进入原生 engine。</p>
+<table><thead><tr><th>托管调用</th><th>包装类程序集</th><th>原生子系统</th><th>常见用途</th></tr></thead><tbody>
+<tr><td><code>Mission.Scene</code></td><td><code>TaleWorlds.MountAndBlade</code></td><td><a href="../../../../v1.3.15/zh/native-1.3.15-src/scene">场景系统</a></td><td>获取当前任务所在的 Scene</td></tr>
+<tr><td><code>Camera.SetFovVertical</code></td><td><code>TaleWorlds.Engine</code></td><td><a href="../../../../v1.3.15/zh/native-1.3.15-src/rendering">渲染系统</a></td><td>修改视野，做自定义相机</td></tr>
+<tr><td><code>Agent.GetCurrentVelocity</code></td><td><code>TaleWorlds.MountAndBlade</code></td><td><a href="../../../../v1.3.15/zh/native-1.3.15-src/physics">物理系统</a></td><td>读取 Agent 当前速度</td></tr>
+<tr><td><code>Agent.SetTargetPosition</code></td><td><code>TaleWorlds.MountAndBlade</code></td><td><a href="../../../../v1.3.15/zh/native-1.3.15-src/mission">任务系统</a> + <a href="../../../../v1.3.15/zh/native-1.3.15-src/scene">场景系统</a></td><td>指引 Agent 移动/寻路</td></tr>
+<tr><td><code>MBBounds</code>（含 <code>Min</code>、<code>Max</code>、<code>Center</code>）</td><td><code>TaleWorlds.Library</code></td><td><a href="../../../../v1.3.15/zh/native-1.3.15-src/utilities">工具函数 / 数学</a></td><td>包围盒计算</td></tr>
+<tr><td><code>Mat3</code>（旋转矩阵）</td><td><code>TaleWorlds.Library</code></td><td><a href="../../../../v1.3.15/zh/native-1.3.15-src/utilities">工具函数 / 数学</a></td><td>坐标系转换</td></tr>
+<tr><td><code>Vec3</code> 运算（<code>Distance</code>、<code>Normalize</code> 等）</td><td><code>TaleWorlds.Library</code></td><td><a href="../../../../v1.3.15/zh/native-1.3.15-src/utilities">工具函数 / 数学</a></td><td>3D 向量数学</td></tr>
+<tr><td><code>GameEntity.SetGlobalFrame</code></td><td><code>TaleWorlds.Engine</code></td><td><a href="../../../../v1.3.15/zh/native-1.3.15-src/scene">场景系统</a></td><td>移动/旋转场景实体</td></tr>
+<tr><td><code>Scene.AddEntity</code></td><td><code>TaleWorlds.Engine</code></td><td><a href="../../../../v1.3.15/zh/native-1.3.15-src/scene">场景系统</a></td><td>向场景添加新实体</td></tr>
+<tr><td><code>Mission.GetCamera</code></td><td><code>TaleWorlds.MountAndBlade</code></td><td><a href="../../../../v1.3.15/zh/native-1.3.15-src/rendering">渲染系统</a></td><td>获取当前渲染相机</td></tr>
+<tr><td><code>Skeleton.SetFrameAtChannel</code></td><td><code>TaleWorlds.Engine</code></td><td><a href="../../../../v1.3.15/zh/native-1.3.15-src/animation">动画系统</a></td><td>控制骨骼动画</td></tr>
+<tr><td><code>SoundEvent.PlayEvent</code></td><td><code>TaleWorlds.Engine</code></td><td><a href="../../../../v1.3.15/zh/native-1.3.15-src/audio">音频系统</a></td><td>播放 FMOD 音效</td></tr>
+</tbody></table>
+<blockquote>
+<p>表格中的子系统链接指向 <a href="../../../../v1.3.15/zh/native-1.3.15-src/">v1.3.15 反编译源码参考</a>。这些页面按地址段和字符串线索对 <code>TaleWorlds.Native.dll</code> 做了索引，适合排查崩溃、验证函数映射时使用。v1.3.0 与 v1.3.15 的核心映射相同，但具体函数地址可能不同。</p>
+</blockquote>
+<hr />
+<h2 id="yuan-sheng-jie-kou-wen-dang-suo-yin">原生接口文档索引</h2>
+<p>如果你想看 <code>[EngineClass]</code>、<code>[EngineMethod]</code>、<code>NativeObject</code>、字符串/数组包装等托管桥接细节，先读这些页面：</p>
+<ul>
+<li><a href="../../../../v1.3.15/zh/native/">原生接口总览</a></li>
+<li><a href="../../../../v1.3.15/zh/native/EngineMethod">EngineClass 与 EngineMethod 特性</a></li>
+<li><a href="../../../../v1.3.15/zh/native/NativeObject">NativeObject 基类</a></li>
+<li><a href="../../../../v1.3.15/zh/native/IManaged">IManaged 生命周期</a></li>
+<li><a href="../../../../v1.3.15/zh/native/INativeArray">INativeArray 数组包装</a></li>
+<li><a href="../../../../v1.3.15/zh/native/INativeObjectArray">INativeObjectArray 对象数组</a></li>
+<li><a href="../../../../v1.3.15/zh/native/INativeString">INativeString 字符串包装</a></li>
+<li><a href="../../../../v1.3.15/zh/native/LibraryApplicationInterface">LibraryApplicationInterface 注册表</a></li>
+</ul>
+<hr />
+<h2 id="native-yuan-ma-can-kao-suo-yin">Native 源码参考索引</h2>
+<p>当托管接口满足不了排查需求时，可以追到 <code>TaleWorlds.Native.dll</code> 的反编译源码：</p>
+<ul>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/">Native 1.3.15 源码参考总览</a></li>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/exports-and-bridge">导出与托管桥接</a></li>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/COMPLETE-FUNCTIONS">完整函数目录</a></li>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/COMPLETE-TYPES">完整类型参考</a></li>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/engine-core">引擎核心</a></li>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/rendering">渲染系统</a></li>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/animation">动画系统</a></li>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/physics">物理系统</a></li>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/audio">音频系统</a></li>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/network">网络系统</a></li>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/mission">任务系统</a></li>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/scene">场景系统</a></li>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/utilities">工具函数</a></li>
+</ul>
+<hr />
+<h2 id="shen-me-qing-kuang-xia-yao-peng-yuan-sheng-ceng">什么情况下要碰原生层</h2>
+<table><thead><tr><th>场景</th><th>建议做法</th></tr></thead><tbody>
+<tr><td>日常 mod 功能</td><td>只用托管 API，例如 <code>Agent</code>、<code>Mission</code>、<code>Scene</code>、<code>Camera</code></td></tr>
+<tr><td>想知道某个 C# 方法对应哪个原生函数</td><td>在该方法上搜索 <code>[EngineMethod("...")]</code>，再查源码参考</td></tr>
+<tr><td>崩溃栈停在 <code>TaleWorlds.Native.dll</code></td><td>用崩溃地址或字符串在 <a href="../../../../v1.3.15/zh/native-1.3.15-src/COMPLETE-FUNCTIONS">完整函数目录</a> 中定位</td></tr>
+<tr><td>需要新的原生能力</td><td>先确认托管层真的没有公开，再考虑 Harmony patch 或反射，而非直接 P/Invoke</td></tr>
+</tbody></table>
+<hr />
+<blockquote>
+<p><strong>不要直接 P/Invoke 到 <code>TaleWorlds.Native.dll</code>.</strong></p>
+<p><code>TaleWorlds.Native.dll</code> 的导出不是稳定 API。函数地址、签名和调用约定会在版本间变化，而且 engine 启动时才把函数指针注入到 <code>LibraryApplicationInterface</code>。直接写 <code>[DllImport("TaleWorlds.Native.dll")]</code> 会导致：</p>
+<ul>
+<li>版本升级后立刻失效；</li>
+<li>调用约定或引用计数不匹配，引发崩溃或内存泄漏；</li>
+<li>绕过 TaleWorlds 的初始化顺序，可能拿到空指针。</li>
+</ul>
+<p>如果你真的需要调用未公开的导出，请通过 <a href="../../../../v1.3.15/zh/native-1.3.15-src/exports-and-bridge">导出与托管桥接</a> 理解启动流程，并优先用 Harmony/反射调用已有的托管包装方法。</p>
+</blockquote>
+<hr />
+<h2 id="xiang-guan-zhi-nan">相关指南</h2>
+<ul>
+<li><a href="../sdk-overview/">SDK 总览</a> — 各层模块地图与入口类</li>
+<li><a href="../../../../v1.3.15/zh/guide/common-patterns/">常见模式</a> — 代码组织和最佳实践</li>
+<li><a href="../../../../v1.3.15/zh/guide/mission-system/">任务系统</a> — Mission、Agent、MissionBehavior</li>
+<li><a href="../../../../v1.3.15/zh/guide/campaign-system/">战役系统</a> — CampaignBehavior 与世界地图</li>
+<li><a href="../../../../v1.3.15/zh/guide/save-system-guide/">存档系统指南</a> — 跨版本保存自定义数据</li>
+<li><a href="../../../../versions/">跨版本类对比</a> — 迁移前检查 API 变化</li>
+</ul>
+<!-- BEGIN SECTION INDEX -->
+<h2 id="shang-ji-dao-hang-1">↑ 上级导航</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/native-interop/./">架构总览 / Architecture</a></li>
+<li><a href="../sdk-overview">SDK 总览 / SDK Overview</a></li>
+<li><a href="../../guide/">开发指南 / Guides</a></li>
+</ul>
+<h2 id="zi-ye-mian">↓ 子页面</h2>
+<ul>
+<li><a href="../../../../v1.3.15/zh/native/">原生接口 / Native Reference</a></li>
+<li><a href="../../../../v1.3.15/zh/native-1.3.15-src/">Native 1.3.15 源码参考 / Native 1.3.15 Source Reference</a></li>
+</ul>
+<!-- END SECTION INDEX -->
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/architecture/">架构 &#x2F; Architecture (v1.3.0)</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/architecture/sdk-overview/">&larr; SDK 总览 — 模块地图与开发者路线图</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/architecture/version-delta/">版本差异 &#x2F; Version Delta &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

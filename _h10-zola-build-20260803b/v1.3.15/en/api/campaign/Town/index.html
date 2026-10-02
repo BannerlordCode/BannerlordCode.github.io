@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Town</title>
+  <meta name="description" content="The runtime object for a built settlement (town or castle): holds buildings, workshops, market and daily Prosperity&#x2F;Loyalty&#x2F;Security&#x2F;Food settlement, plus governance state such as its Governor and owning Clan.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/Town/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/Town/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/Town/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/Town/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/Town/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/Town/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Town</span>
+    </nav>
+  
+  <h1>Town</h1>
+  <h1 id="town">Town</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Settlements<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public class Town : Fief</code><br />
+<strong>Base:</strong> <code>Fief</code> → <code>SettlementComponent</code> → <code>MBObjectBase</code><br />
+<strong>Source:</strong> <code>TaleWorlds.CampaignSystem.Settlements/Town.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Town</code> is the runtime container for all campaign-world state of a built settlement (a town or a castle). Every day it automatically settles Prosperity, Loyalty, Security, Food and Militia, and it exposes readable/writable entry points for buildings, workshops and the market, as well as governance relations such as its Governor and owning Clan.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Treat <code>Town</code> as <strong>"the ledger + asset list that gets replayed for a settlement once per day"</strong>, not as a plain object you can just construct and poke:</p>
+<ul>
+<li><strong>You never <code>new Town()</code>.</strong> Instances are produced when the settlement XML is deserialized by <code>MBObjectManager</code>, after which the <code>Town</code> lives long-term as the public field <code>Settlement.Town</code> hanging off a <code>Settlement</code>. A manually <code>new</code>'d <code>Town</code> is never registered with the save system and has no parent <code>Settlement</code>; referencing it gets you a broken save or a null reference.</li>
+<li><strong>It is a daily-tick settlement unit.</strong> <code>Campaign.DailyTickSettlement</code> calls <code>settlement.Town.DailyTick()</code> during the daily settlement (see <code>Town.cs:596</code>). Inside, each <code>SettlementXxxModel</code> computes a delta that is accumulated in place: <code>Loyalty += LoyaltyChange</code>, <code>Security += SecurityChange</code>, <code>Prosperity += ProsperityChange</code>, <code>base.Owner.Settlement.Militia += MilitiaChange</code>, while food stocks and wall repair are also advanced. After the accumulation it raises <code>DailyTickTownEvent</code>.</li>
+<li><strong>It lives in the Campaign (strategic) layer, not the Mission (battle) layer.</strong> There is no <code>Town</code> during a scene fight; when battle starts the settlement spawns <code>Party</code>/<code>Agent</code> objects, but <code>Town</code> state only evolves on the map.</li>
+<li><strong>Who holds / who is held:</strong> the parent is <code>Settlement</code> (<code>Settlement.Town</code>). Upstream it depends on <code>Settlement.Owner</code> (the owning <code>Clan</code>), and <code>Hero Governor</code>; downstream it drives <code>Building</code>, <code>Workshop</code>, <code>TownMarketData</code>, and <code>Village</code>.</li>
+<li><code>Town</code> represents <strong>both towns and castles</strong>: <code>IsTown</code> / <code>IsCastle</code> are decided by the <code>is_castle</code> flag at deserialize time and are mutually exclusive.</li>
+</ul>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p><strong>Use <code>Town</code> when:</strong></p>
+<ul>
+<li>Reading state: <code>Prosperity</code>, <code>Loyalty</code>, <code>Security</code>, <code>FoodStocks</code>, Militia (via <code>Settlement.Militia</code>), <code>TradeTaxAccumulated</code>, <code>InRebelliousState</code>.</li>
+<li>Iterating assets: <code>Buildings</code> / <code>BuildingsInProgress</code>, <code>Workshops</code>, <code>MarketData</code>, <code>Villages</code> / <code>TradeBoundVillages</code>.</li>
+<li>Subscribing to <code>DailyTickTownEvent</code> for daily logic; checking settlement kind (<code>IsTown</code> / <code>IsCastle</code>) and ownership (<code>OwnerClan</code>).</li>
+<li>Reading the daily deltas (<code>LoyaltyChange</code>, <code>ProsperityChange</code>, etc.) instead of hard-writing fields.</li>
+</ul>
+<p><strong>Do NOT use <code>Town</code> when:</strong></p>
+<ul>
+<li><strong>Do not <code>new Town()</code>.</strong> Creation goes through settlement XML + <code>MBObjectManager</code> (see above).</li>
+<li><strong>Do not treat <code>Prosperity</code> / <code>Loyalty</code> / <code>Security</code> as persistent targets you assign directly.</strong> The daily <code>DailyTick</code> recomputes the delta via <code>SettlementXxxModel</code> and <strong>accumulates over</strong> your value, and writing the field directly <strong>broadcasts no change event</strong> (the source has nothing like <code>OnSettlementProsperityChanged</code>). To raise a value long-term, change the "inputs" — building levels, governor perks, policies, or <strong>override the relevant <code>SettlementXxxModel</code></strong>.</li>
+<li><strong>Do not change ownership by only writing <code>town.OwnerClan = clan</code>.</strong> The setter updates clan relations (<code>ChangeClanInternal</code> → <code>OnFortificationAdded/Removed</code>), but a full ownership transfer should go through <code>ChangeOwnerOfSettlementAction.ApplyBy*</code> — it also raises <code>OnSettlementOwnerChangedEvent</code> and handles collateral state.</li>
+<li><strong>Do not cache <code>[CachedData]</code> collections across saves.</strong> <code>Villages</code> / <code>TradeBoundVillages</code> / <code>BesiegerCampPositions1/2</code> are session-cached and rebuilt in <code>OnLoad()</code> / <code>OnSessionStart()</code> (see <code>Town.cs:508</code>, <code>Town.cs:488</code>). After a load your reference points at a stale collection.</li>
+<li>Do not confuse <code>Settlement.Town</code> (a field on the settlement) with <code>Town</code> itself — <code>Town</code> has no property named <code>Town</code>.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><strong>Upstream (holds / creates / owns)</strong>
+<ul>
+<li><a href="../Settlement/">Settlement</a> — parent; <code>Town</code> exists as the <code>Settlement.Town</code> field; much state (e.g. <code>Militia</code>, the <code>FoodStocks</code> cap) is exposed through <code>Settlement</code> / <code>SettlementComponent</code>.</li>
+<li><a href="../Clan/">Clan</a> — <code>OwnerClan</code> (current owning clan), <code>LastCapturedBy</code> (who captured it last).</li>
+<li><a href="../Hero/">Hero</a> — <code>Governor</code> (the governor, bidirectional via <code>Hero.GovernorOf</code>).</li>
+<li><a href="../../campaign-ext/MBObjectManager/">MBObjectManager</a> — creates the <code>Town</code> instance when the settlement XML is deserialized and wires it into the save system.</li>
+</ul>
+</li>
+<li><strong>Downstream (held / driven by <code>Town</code>)</strong>
+<ul>
+<li><a href="../Workshop/">Workshop</a> — <code>Workshops</code> (<code>Workshop[]</code>, the workshop array).</li>
+<li><a href="../Village/">Village</a> — <code>Villages</code> (bound villages), <code>TradeBoundVillages</code> (trade-bound villages).</li>
+<li><code>Building</code> — <code>Buildings</code> / <code>BuildingsInProgress</code>; see <a href="../../campaign-ext/SettlementComponent/">SettlementComponent</a> for the building system. This page only describes how <code>Town</code> holds it.</li>
+<li><code>TownMarketData</code> — <code>MarketData</code> (market pricing and price factors); see <a href="../../campaign-ext/TownMarketData/">TownMarketData</a>.</li>
+</ul>
+</li>
+<li><strong>Related events / Actions (in <code>CampaignEvents</code> / <code>TaleWorlds.CampaignSystem.Actions</code>)</strong>
+<ul>
+<li><code>DailyTickTownEvent</code> — raised after each settlement's <code>DailyTick</code> ends (see the example below).</li>
+<li><code>OnSettlementOwnerChangedEvent</code> — raised when <code>OwnerClan</code> changes via an Action.</li>
+<li><a href="../../campaign-ext/ChangeOwnerOfSettlementAction/">ChangeOwnerOfSettlementAction</a>, <code>ChangeOwnerOfWorkshopAction</code>, <code>ChangeProductionTypeOfWorkshopAction</code>, <code>InitializeWorkshopAction</code> — the legal ownership/workshop change entry points.</li>
+</ul>
+</li>
+<li><strong>Related Models (<code>Campaign.Current.Models.*</code>, entry point see <a href="../Campaign/">Campaign</a>)</strong>
+<ul>
+<li><a href="../../campaign-ext/SettlementProsperityModel/">SettlementProsperityModel</a>, <a href="../../campaign-ext/SettlementLoyaltyModel/">SettlementLoyaltyModel</a>, <a href="../../campaign-ext/SettlementSecurityModel/">SettlementSecurityModel</a>, <a href="../../campaign-ext/SettlementFoodModel/">SettlementFoodModel</a>, <a href="../../campaign-ext/SettlementMilitiaModel/">SettlementMilitiaModel</a>, <a href="../../campaign-ext/BuildingConstructionModel/">BuildingConstructionModel</a>, <a href="../../campaign-ext/SettlementGarrisonModel/">SettlementGarrisonModel</a>, <a href="../../campaign-ext/WorkshopModel/">WorkshopModel</a>.</li>
+</ul>
+</li>
+<li><strong>Economy helpers</strong>
+<ul>
+<li><a href="../../campaign-ext/GiveGoldAction/">GiveGoldAction</a> — used by <code>BuildingHelper.BoostBuildingProcessWithGold</code> to move gold between player and town.</li>
+</ul>
+</li>
+</ul>
+<h2 id="risks">Risks</h2>
+<ol>
+<li><strong>Writing fields in the wrong phase gets overwritten by the daily tick.</strong> <code>DailyTick</code> is called by <code>Campaign.DailyTickSettlement</code> during daily settlement. If you write <code>town.Loyalty = 100</code> in <code>OnSessionStart</code>, a load callback, or any non-daily moment, the next <code>DailyTick</code> still does <code>Loyalty += LoyaltyChange</code>, and your write <strong>went through no change event</strong>. To "pin" a value, change the inputs that affect it (buildings/governor/policies) or override the corresponding Model — do not hard-write fields outside the tick.</li>
+<li><strong>Caching <code>[CachedData]</code> collections across a load → dangling reference / broken save.</strong> <code>Villages</code>, <code>TradeBoundVillages</code>, <code>BesiegerCampPositions1/2</code> are re-<code>new</code>'d in <code>OnLoad()</code> (<code>Town.cs:508</code>) and <code>OnSessionStart()</code> (<code>Town.cs:488</code>). If you store <code>town.TradeBoundVillages</code> (an <code>MBReadOnlyList&lt;Village&gt;</code>) into your own field, after one save/load your list is detached from the live world — iterating it yields stale or already-released objects. Always re-fetch from <code>town.Villages</code> / <code>town.TradeBoundVillages</code>; do not hold them long-term.</li>
+<li><strong>Directly assigning <code>Prosperity</code>/<code>Loyalty</code>/<code>Security</code> instead of going through a Model/Event.</strong> In the source these setters only clamp the number (Loyalty/Security clamped to 0–100, Prosperity floored at 0); they raise no event and do not participate in the Model's "explained" accumulation. Other systems (UI, AI, quest checks) read the Model result and the post-tick real value, so direct writes make everyone see inconsistent state.</li>
+<li><strong>Setting <code>Governor</code> wrong can leave a half-broken bidirectional link.</strong> The <code>Governor</code> setter also maintains <code>hero.GovernorOf = this</code> (clearing the old governor's <code>GovernorOf</code> on swap). If you set only <code>Hero.GovernorOf</code> but not <code>Town.Governor</code> (or vice versa), you get "the town thinks X is governor, but X's <code>GovernorOf</code> points elsewhere". <code>AfterLoad()</code> clears a governor whose <code>GovernorOf == null</code> (<code>Town.cs:554</code>), but during normal runtime you should maintain both sides.</li>
+<li><strong><code>BesiegerCampPositions1/2</code> are only valid during the session.</strong> These <code>[CachedData]</code> arrays are filled from the map scene in <code>OnSessionStart</code>; before load completes or while the map scene is not ready, they return <code>MatrixFrame.Identity</code> placeholders — do not make logic decisions on them.</li>
+<li><strong><code>new Town()</code> never enters the save.</strong> Any manually constructed <code>Town</code> is outside <code>MBObjectManager</code> and <code>Campaign.Current.AllTowns</code>; it is neither advanced by <code>DailyTick</code> nor serialized, so referencing it is referencing a detached object.</li>
+</ol>
+<h2 id="members-grouped-by-theme">Members (grouped by theme)</h2>
+<blockquote>
+<p>Most fields are "readable/writable state", but their correct write timing is almost entirely confined to the daily tick or to going through an Action/Model. Side effects and call timing are noted per member below.</p>
+</blockquote>
+<h3 id="governance-and-ownership">Governance and ownership</h3>
+<h4 id="public-clan-ownerclan-get-set"><code>public Clan OwnerClan { get; set; }</code></h4>
+<p>The clan that currently owns the settlement. <strong>Side effect:</strong> the setter calls <code>ChangeClanInternal</code> on value change, which does <code>RemoveOwnerClan()</code> / <code>SetNewOwnerClan()</code>, raising <code>Clan.OnFortificationAdded/Removed</code> and refreshing bound-village visuals. <strong>Call timing:</strong> almost never assign directly; use <code>ChangeOwnerOfSettlementAction.ApplyByDefault(Hero, Settlement)</code> etc., which also raises <code>OnSettlementOwnerChangedEvent</code>.</p>
+<h4 id="public-hero-governor-get-set"><code>public Hero Governor { get; set; }</code></h4>
+<p>The governor. <strong>Side effect:</strong> the setter <strong>bidirectionally</strong> maintains <code>hero.GovernorOf = this</code> (it nulls the old governor's <code>GovernorOf</code> on swap). <strong>Call timing:</strong> maintain both sides when setting/clearing a governor; the daily tick reads the governor's perks (<code>DefaultPerks.Roguery.WhiteLies</code> / <code>Scarface</code>) to occasionally add relations.</p>
+<h4 id="public-clan-lastcapturedby-get-set"><code>public Clan LastCapturedBy { get; set; }</code></h4>
+<p>The clan that last captured the settlement; written by the siege/ownership-change flow and used for loot and renown settlement ownership checks.</p>
+<h4 id="public-cultureobject-culture"><code>public CultureObject Culture</code></h4>
+<p>Read-only, equals <code>Settlement.Culture</code>. Used for troop, name and building-style decisions.</p>
+<h4 id="public-bool-inrebelliousstate"><code>public bool InRebelliousState</code></h4>
+<p>Whether the settlement is in revolt; affects whether the defender militia joins the daily defense (<code>GetDefenderParties</code> logic inside <code>DailyTick</code>). Written by the rebellion behavior.</p>
+<h3 id="prosperity-loyalty-security-food">Prosperity / Loyalty / Security / Food</h3>
+<h4 id="public-float-prosperity-get-set"><code>public float Prosperity { get; set; }</code></h4>
+<p>Prosperity; setter clamps to <code>&gt;= 0</code>. <strong>Note:</strong> writing directly only changes the field, raises no event, and the daily tick recomputes and overwrites it via <code>SettlementProsperityModel</code>. Read it for the current value; change it via Model inputs.</p>
+<h4 id="public-float-loyalty-get-set"><code>public float Loyalty { get; set; }</code></h4>
+<p>Loyalty; setter clamps to 0–100. Same mechanism as <code>Prosperity</code>.</p>
+<h4 id="public-float-security-get-set"><code>public float Security { get; set; }</code></h4>
+<p>Security; setter clamps to 0–100. Same mechanism as <code>Prosperity</code>.</p>
+<h4 id="public-float-foodstocks-inherited-from-fief"><code>public float FoodStocks</code> (inherited from <code>Fief</code>)</h4>
+<p>Food stock; accumulated by <code>FoodChange</code> in <code>DailyTick</code>. When below 0 it is set to 0 and flagged <code>RemainingFoodPercentage = -100</code>; when above <code>FoodStocksUpperLimit()</code> it is clamped. Do not hard-write food as a persistent value — it is recomputed daily by <code>SettlementFoodModel</code>.</p>
+<h4 id="public-int-tradetaxaccumulated-get-set"><code>public int TradeTaxAccumulated { get; set; }</code></h4>
+<p>Accumulated trade tax; initialized at <code>1000 + RandomInt(1000)</code> for towns and <code>0</code> for castles on <code>OnInit</code>. Accumulated by trade behavior, read/reset by taxation behavior.</p>
+<h4 id="public-ireadonlycollection-selllog-solditems"><code>public IReadOnlyCollection&lt;SellLog&gt; SoldItems</code></h4>
+<p>Recent sell records of this town (<code>SellLog</code>: category + amount). Written by market sell logic (<code>SetSoldItems</code>); read-only for display.</p>
+<h3 id="daily-deltas-read-only-from-models">Daily deltas (read-only, from Models)</h3>
+<p>These properties are <strong>not state — they are "what would happen if we settled now"</strong> predictions, computed live by the corresponding Model, read-only:</p>
+<ul>
+<li><code>ProsperityChange</code> / <code>ProsperityChangeExplanation</code> — <code>SettlementProsperityModel.CalculateProsperityChange</code>.</li>
+<li><code>LoyaltyChange</code> / <code>LoyaltyChangeExplanation</code> — <code>SettlementLoyaltyModel.CalculateLoyaltyChange</code>.</li>
+<li><code>SecurityChange</code> / <code>SecurityChangeExplanation</code> — <code>SettlementSecurityModel.CalculateSecurityChange</code>.</li>
+<li><code>FoodChange</code> / <code>FoodChangeWithoutMarketStocks</code> / <code>FoodChangeExplanation</code> — <code>SettlementFoodModel.CalculateTownFoodStocksChange</code>.</li>
+<li><code>MilitiaChange</code> / <code>MilitiaChangeExplanation</code> — <code>SettlementMilitiaModel.CalculateMilitiaChange</code> (applied to <code>Settlement.Militia</code>).</li>
+<li><code>Construction</code> / <code>ConstructionExplanation</code> — <code>BuildingConstructionModel.CalculateDailyConstructionPower</code> (daily building progress points).</li>
+</ul>
+<p>The <code>*Explanation</code> variants return an <code>ExplainedNumber</code> that can expand each contribution source in UI/debug — the correct entry point when diagnosing "why is prosperity dropping".</p>
+<h3 id="buildings">Buildings</h3>
+<h4 id="public-mblist-building-buildings"><code>public MBList&lt;Building&gt; Buildings</code></h4>
+<p>All buildings of the settlement (level + progress). <strong>Call timing:</strong> iterating/reading is safe; changing a building level should go through <code>Building</code> itself and <code>BuildingConstructionModel</code>, not by poking internal fields. <code>AfterLoad</code> drops entries whose <code>BuildingType == null</code> or <code>!IsReady</code> (<code>Town.cs:526</code>).</p>
+<h4 id="public-queue-building-buildingsinprogress"><code>public Queue&lt;Building&gt; BuildingsInProgress</code></h4>
+<p>The queue of buildings under construction (head = current construction item).</p>
+<h4 id="public-building-currentbuilding"><code>public Building CurrentBuilding</code></h4>
+<p>The building under construction: <code>Peek()</code> of the queue if non-empty, else <code>CurrentDefaultBuilding</code>.</p>
+<h4 id="public-building-currentdefaultbuilding"><code>public Building CurrentDefaultBuilding</code></h4>
+<p>The "default construction building" when nothing is under construction (the first <code>IsCurrentlyDefault</code> building); returns <code>null</code> when something is under construction.</p>
+<h4 id="public-int-boostbuildingprocess"><code>public int BoostBuildingProcess</code></h4>
+<p>Extra construction-acceleration points the player injects with gold (added into the daily <code>Construction</code>). The real write entry is <code>TaleWorlds.CampaignSystem.Helpers.BuildingHelper.BoostBuildingProcessWithGold(int gold, Town town)</code>, which moves gold between player and town via <code>GiveGoldAction</code> before writing this field — do not assign directly or the gold bookkeeping breaks.</p>
+<h4 id="public-float-construction-see-daily-deltas-above"><code>public float Construction</code> (see "Daily deltas" above)</h4>
+<h4 id="public-int-getwalllevel"><code>public int GetWallLevel()</code></h4>
+<p>Returns the current wall-building level (towns use <code>SettlementFortifications</code>, castles use <code>CastleFortifications</code>); used for siege damage and appearance. Inside <code>DailyTick</code>, <code>RepairWallsOfSettlementDaily</code> repairs wall segments via <code>SettlementGarrisonModel</code>.</p>
+<h3 id="workshops">Workshops</h3>
+<h4 id="saveableproperty-public-workshop-workshops-get-protected-set"><code>[SaveableProperty] public Workshop[] Workshops { get; protected set; }</code></h4>
+<p>The settlement's workshop array (length decided by <code>InitializeWorkshops</code>). <strong>Call timing:</strong> read-only iteration is safe; adding/removing workshops goes through <code>InitializeWorkshopAction</code> / <code>ChangeOwnerOfWorkshopAction</code> / <code>ChangeProductionTypeOfWorkshopAction</code>. <code>AfterLoad</code> calls <code>Workshop.AfterLoad()</code> on each workshop.</p>
+<h4 id="public-void-initializeworkshops-int-count"><code>public void InitializeWorkshops(int count)</code></h4>
+<p>Creates an empty workshop array of size <code>count</code> with ids <code>"workshop_i"</code>; called by the new-game init flow. Mods generally should not call it at runtime.</p>
+<h3 id="market-and-prices">Market and prices</h3>
+<h4 id="public-townmarketdata-marketdata"><code>public TownMarketData MarketData</code></h4>
+<p>Market data (prices, price factors, stock-update callbacks). <code>GetItemPrice(ItemObject, ...)</code> / <code>GetItemPrice(EquipmentElement, ...)</code> and <code>GetItemCategoryPriceIndex(ItemCategory)</code> all delegate to it; buy/sell goes through here, not your own pricing.</p>
+<h4 id="public-int-getitemprice-itemobject-item-mobileparty-tradingparty-null-bool-isselling-false"><code>public int GetItemPrice(ItemObject item, MobileParty tradingParty = null, bool isSelling = false)</code></h4>
+<p>Delegates to <code>MarketData.GetPrice</code>; the only reliable entry for settlement trade pricing. The <code>item</code> argument is an <a href="../../core/ItemObject/">ItemObject</a>.</p>
+<h4 id="public-float-getitemcategorypriceindex-itemcategory-itemcategory"><code>public float GetItemCategoryPriceIndex(ItemCategory itemCategory)</code></h4>
+<p>Price index of an item category (for supply/demand fluctuation display).</p>
+<h3 id="villages-supply-fleet">Villages / supply / fleet</h3>
+<h4 id="cacheddata-public-mbreadonlylist-village-villages"><code>[CachedData] public MBReadOnlyList&lt;Village&gt; Villages</code></h4>
+<p>Villages bound to this settlement (a cached view of <code>Settlement.BoundVillages</code>). <strong>[Risk]</strong> see the "caching across loads" section above — re-fetch on every access, do not hold long-term.</p>
+<h4 id="public-mbreadonlylist-village-tradeboundvillages"><code>public MBReadOnlyList&lt;Village&gt; TradeBoundVillages</code></h4>
+<p>Trade-bound villages (<code>_tradeBoundVillagesCache</code>, rebuilt on <code>OnLoad</code>). Same mechanism and risk as above.</p>
+<h4 id="public-mbreadonlylist-ship-availableships"><code>public MBReadOnlyList&lt;Ship&gt; AvailableShips</code></h4>
+<p>Ships available at this settlement's dock (<code>Settlement.Party.Ships</code>).</p>
+<h4 id="public-bool-hastournament"><code>public bool HasTournament</code></h4>
+<p><code>true</code> only for towns when <code>TournamentManager.GetTournamentGame(this) != null</code>.</p>
+<h3 id="queries-and-static-entry-points">Queries and static entry points</h3>
+<h4 id="public-static-mbreadonlylist-town-alltowns-allcastles"><code>public static MBReadOnlyList&lt;Town&gt; AllTowns</code> / <code>AllCastles</code></h4>
+<p>Convenience forwards to <code>Campaign.Current.AllTowns</code> / <code>AllCastles</code>; iterate all towns/castles with these rather than filtering yourself.</p>
+<h4 id="public-static-ienumerable-town-allfiefs"><code>public static IEnumerable&lt;Town&gt; AllFiefs</code></h4>
+<p>The merged enumeration of <code>AllTowns</code> and <code>AllCastles</code> (towns + castles).</p>
+<h4 id="public-override-bool-istown-public-override-bool-iscastle"><code>public override bool IsTown</code> / <code>public override bool IsCastle</code></h4>
+<p>Whether town / castle (mutually exclusive); prefer <code>Settlement.IsTown</code> / <code>IsCastle</code> when checking settlement kind — they forward to <code>Town</code> internally.</p>
+<h4 id="public-bool-isundersiege"><code>public bool IsUnderSiege</code></h4>
+<p>Forwards to <code>Settlement.IsUnderSiege</code>.</p>
+<h4 id="public-mbreadonlylist-settlement-getneighborfortifications-mobileparty-navigationtype-navigationtype"><code>public MBReadOnlyList&lt;Settlement&gt; GetNeighborFortifications(MobileParty.NavigationType navigationType)</code></h4>
+<p>Gets neighboring settlements via <code>MapDistanceModel.GetNeighborsOfFortification</code>; used for reinforcement/march checks.</p>
+<h4 id="public-int-foodstocksupperlimit"><code>public int FoodStocksUpperLimit()</code></h4>
+<p>Food cap: <code>SettlementFoodModel</code> base + castle bonus + building (<code>BuildingEffectEnum.FoodStock</code>) contribution. <code>DailyTick</code> clamps food with it.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="example-1-iterate-a-player-s-workshops-across-all-towns-read-only-any-time">Example 1: Iterate a player's workshops across all towns (read-only, any time)</h3>
+<pre><code data-lang="csharp">// Real acquisition path: Settlement.All -&gt; Settlement.Town -&gt; Town.Workshops
+foreach (Settlement settlement in Settlement.All)
+{
+    if (!settlement.IsTown)
+    {
+        continue;
+    }
+
+    Town town = settlement.Town;
+    foreach (Workshop workshop in town.Workshops)
+    {
+        if (workshop.Owner == Hero.MainHero)
+        {
+            // A workshop owned by the player; read workshop.Capital / workshop.ProfitOfTheLastDay etc.
+            int capital = workshop.Capital;
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p>This pattern comes directly from <code>WorkshopsCampaignBehavior.RemoveDeadOwnersFromWorkshops</code> (around <code>WorkshopsCampaignBehavior.cs:170</code>): <code>Workshop[] workshops = item.Town.Workshops;</code> then iterate.</p>
+</blockquote>
+<h3 id="example-2-subscribe-to-daily-town-settlement-in-a-campaignbehavior-the-correct-when">Example 2: Subscribe to daily town settlement in a CampaignBehavior (the correct "when")</h3>
+<pre><code data-lang="csharp">public class MyTownWatcherBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        // Real event: raised after each settlement&#39;s DailyTick
+        CampaignEvents.DailyTickTownEvent.AddNonSerializedListener(this, OnDailyTickTown);
+    }
+
+    private void OnDailyTickTown(Town town)
+    {
+        if (town.OwnerClan != Clan.PlayerClan)
+        {
+            return;
+        }
+
+        // Read the daily deltas instead of hard-writing fields:
+        float loyaltyChange = town.LoyaltyChange;
+        float prosperityChange = town.ProsperityChange;
+
+        // To raise loyalty long-term, change the inputs (buildings/governor perks/policies),
+        // or override SettlementLoyaltyModel, not town.Loyalty += x.
+        if (town.Loyalty &lt; 25f)
+        {
+            // trigger your alert/event logic
+        }
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        // no fields to persist
+    }
+}
+</code></pre>
+<h3 id="example-3-inject-construction-acceleration-via-the-legal-entry-point-correct-way-to-mutate-state">Example 3: Inject construction acceleration via the legal entry point (correct way to mutate state)</h3>
+<pre><code data-lang="csharp">// Do NOT write town.BoostBuildingProcess directly; use BuildingHelper which handles the gold transfer:
+Town town = Settlement.CurrentSettlement.Town;
+if (town != null)
+{
+    TaleWorlds.CampaignSystem.Helpers.BuildingHelper.BoostBuildingProcessWithGold(1000, town);
+}
+
+// Iterate buildings (read-only):
+foreach (Building building in town.Buildings)
+{
+    if (building.BuildingType == DefaultBuildingTypes.SettlementMilitiaBarracks)
+    {
+        int level = building.CurrentLevel;
+    }
+}
+</code></pre>
+<h3 id="example-4-legally-transfer-settlement-ownership-instead-of-writing-ownerclan">Example 4: Legally transfer settlement ownership (instead of writing OwnerClan)</h3>
+<pre><code data-lang="csharp">Settlement target = Settlement.Find(&quot;town_ESWE_1&quot;);
+if (target != null &amp;&amp; target.Town != null)
+{
+    // Correctly updates Town.OwnerClan and raises OnSettlementOwnerChangedEvent:
+    ChangeOwnerOfSettlementAction.ApplyByDefault(Hero.MainHero, target);
+}
+</code></pre>
+<h2 id="cross-version-notes">Cross-version notes</h2>
+<ul>
+<li>The API semantics on this page are authoritative against the <strong>1.4.5</strong> source. Compared with <code>bannerlord-1.3.15</code>'s <code>Town.cs</code>, the <strong>public interface is essentially the same</strong> (both <code>Town : Fief</code>, with <code>Prosperity</code>/<code>Loyalty</code>/<code>Security</code>/<code>Buildings</code>/<code>Workshops</code>/<code>Governor</code>/<code>OwnerClan</code> members, plus <code>DailyTick</code> and <code>InitializeWorkshops</code>). This page lives under the <code>v1.3.15</code> doc bucket and shares the same API description.</li>
+<li><code>DailyTickTownEvent</code>, <code>ChangeOwnerOfSettlementAction</code>, and <code>BuildingHelper.BoostBuildingProcessWithGold</code> already exist in 1.3.x, so the examples are reusable directly.</li>
+<li>For cross-version mods, note that <code>Town.FoodStocks</code> is inherited from <code>Fief</code> (the same in 1.3.x); the food cap / wall-repair logic goes through the corresponding <code>SettlementXxxModel</code>, and overriding the Model is safer than hard-writing fields.</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Parent: <a href="../Settlement/">Settlement</a> — <code>Town</code> hangs under <code>Settlement.Town</code>, its parent component</li>
+<li>↔ Siblings / related: <a href="../Clan/">Clan</a> (OwnerClan), <a href="../Hero/">Hero</a> (Governor), <a href="../Workshop/">Workshop</a> (workshops), <a href="../Village/">Village</a> (bound villages)</li>
+<li>Related behaviors &amp; model entry: <a href="../Campaign/">Campaign</a> — <code>Campaign.Current.Models</code> and the <code>SettlementXxxModel</code>s, plus <code>CampaignEvents</code></li>
+<li>Creation &amp; deserialization: <a href="../../campaign-ext/MBObjectManager/">MBObjectManager</a> — <code>Town</code> instances are produced from settlement XML by it</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign/">campaign index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign/EncyclopediaListItemNameComparer/">&larr; EncyclopediaListItemNameComparer</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign/AIMoveToNearestLandBehavior/">AIMoveToNearestLandBehavior &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

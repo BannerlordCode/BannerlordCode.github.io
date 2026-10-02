@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TroopRoster</title>
+  <meta name="description" content="The per-party &#x2F; per-settlement membership and prisoner ledger keyed by CharacterObject. TroopRoster holds TroopRosterElement rows, drives add&#x2F;remove counting, totals, and XP, and carries the hero-in-party &#x2F; hero-in-captivity callbacks.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/TroopRoster/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/TroopRoster/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">TroopRoster</span>
+    </nav>
+  
+  <h1>TroopRoster</h1>
+  <h1 id="trooproster">TroopRoster</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Roster
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class TroopRoster : ISerializableObject</code>
+<strong>Base:</strong> <code>ISerializableObject</code>
+<strong>Source:</strong> <code>TaleWorlds.CampaignSystem/Roster/TroopRoster.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>TroopRoster</code> is a <strong>keyed ledger of troops</strong> whose key is a <code>CharacterObject</code>: internally it keeps a <code>TroopRosterElement[]</code> array recording "how many soldiers, how many wounded, how much XP" for each troop type, and exposes add/remove, counting, totals, and per-element access. Every party owns <strong>two</strong> rosters — <code>PartyBase.MemberRoster</code> (the living members, including hero lords, regulars, and wanderers) and <code>PartyBase.PrisonRoster</code> (captured prisoners). The roster itself carries <strong>no combat-strength value</strong> and performs <strong>no auto-upgrade</strong>: strength is derived by <code>PartyBase.EstimatedStrength</code> (via <code>PartyStrengthModel</code>) from the roster contents, and upgrades are driven by <code>PartyUpgraderCampaignBehavior</code> + <code>PartyTroopUpgradeModel</code>. Treat it as an ordered, cache-maintaining container of troops.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of <code>TroopRoster</code> as the <strong>muster roll of a party</strong>:</p>
+<ul>
+<li><strong>Lifecycle:</strong> a roster is created together with its <code>PartyBase</code> (<code>new TroopRoster(this)</code>) and is almost never <code>new</code>'d by a mod. <code>OwnerParty</code> is bound in the constructor and is read-only afterwards (private setter).</li>
+<li><strong>Who holds it:</strong> <code>MobileParty.Party.MemberRoster</code> / <code>PrisonRoster</code>, or a <code>Settlement</code>'s garrison / prisoner roster. <code>TroopRoster</code> is pure data — it knows nothing about world state beyond who owns it.</li>
+<li><strong>Which layer:</strong> this is <strong>Campaign-layer</strong> data (campaign state), not Mission (battle scene). Casualties and wounds from a fight are written back to the roster <strong>after</strong> the battle via <code>PlayerEncounter</code> / <code>MapEvent</code>, never mutated directly inside the battle scene.</li>
+<li><strong>The truth about mutations:</strong> every headcount change ultimately flows through <code>AddToCounts</code> → <code>AddToCountsAtIndex</code>, which simultaneously maintains the cached totals (<code>_totalRegulars</code>, <code>_totalHeroes</code>, …) and fires the <code>OwnerParty</code> callbacks (<code>OnHeroAdded</code> / <code>OnHeroRemoved</code> / <code>OnRosterSizeChanged</code> / <code>OnXpChanged</code>). <code>VersionNo</code> is incremented on every change and cascades into <code>MobileParty.UpdateVersionNo()</code>.</li>
+</ul>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p><strong>Use it when:</strong></p>
+<ul>
+<li>You need to query a party's member/prisoner counts, healthy/wounded split: <code>TotalManCount</code>, <code>TotalWounded</code>, <code>GetTroopCount(c)</code>.</li>
+<li>You add or remove ordinary troops directly: <code>roster.AddToCounts(character, n, ...)</code> / <code>roster.RemoveTroop(character, n)</code>.</li>
+<li>You merge two rosters: <code>roster.Add(otherRoster)</code>.</li>
+<li>You need a <strong>temporary, unowned</strong> container for computation: <code>TroopRoster.CreateDummyTroopRoster()</code> (<code>OwnerParty == null</code>, so mutations fire no party callbacks).</li>
+</ul>
+<p><strong>Do NOT use it when:</strong></p>
+<ul>
+<li><strong>Do not</strong> mutate hero counts or wounds through <code>SetElementNumber</code> / <code>SetElementWoundedNumber</code> / <code>SetElementXp</code>. These are "bare" writers: they do not maintain the cached totals and do <strong>not</strong> fire <code>OwnerParty</code> callbacks, silently corrupting <code>TotalRegulars</code> and the hero-belonging state. Use <code>AddToCounts</code> / <code>RemoveTroop</code>; for heroes entering/leaving a party, go through <code>AddHeroToPartyAction.Apply</code> / <code>TakePrisonerAction.Apply</code>.</li>
+<li><strong>Do not</strong> <code>new TroopRoster()</code> and assign it to <code>PartyBase.MemberRoster</code> to "replace" the roster — a <code>null</code> <code>OwnerParty</code> disables all later callbacks. Operate on the existing roster via <code>Add</code> / <code>Clear</code> / <code>AddToCounts</code>.</li>
+<li><strong>Do not</strong> share one <code>TroopRoster</code> instance across parties — <code>OwnerParty</code> is a single binding, so callbacks would point at the wrong side.</li>
+<li><strong>Do not</strong> assume <code>GetElementCopyAtIndex</code> returns something you can write back — it is a value copy (see the value-copy trap below).</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<p><strong>Upstream (what TroopRoster depends on)</strong></p>
+<ul>
+<li><a href="../../campaign/CharacterObject/">CharacterObject</a> — the troop template for every roster entry (skills, equipment, tier).</li>
+<li><a href="../../campaign/Hero/">Hero</a> — a hero is a special <code>CharacterObject</code> stored as a roster entry.</li>
+<li><a href="../../campaign/PartyBase/">PartyBase</a> — the <code>OwnerParty</code>; holds <code>MemberRoster</code> and <code>PrisonRoster</code> and receives the add/remove callbacks.</li>
+<li><a href="../../campaign/MobileParty/">MobileParty</a> — the most common owner; its <code>UpdateVersionNo()</code> is cascaded from <code>VersionNo</code>.</li>
+<li><a href="../../campaign/Settlement/">Settlement</a> — a settlement's <code>Party</code> also holds a garrison roster and a prisoner roster.</li>
+</ul>
+<p><strong>Downstream (what depends on TroopRoster)</strong></p>
+<ul>
+<li><code>PartyBase.EstimatedStrength</code> — combat strength derived from the roster via <code>PartyStrengthModel</code>.</li>
+<li><a href="../ItemRoster/">ItemRoster</a> — the "item twin" of a troop roster; parallel structure.</li>
+</ul>
+<p><strong>Related Actions (prefer these for hero/prisoner changes)</strong></p>
+<ul>
+<li><a href="../AddHeroToPartyAction/">AddHeroToPartyAction</a> — adds a hero to a party (correctly fires callbacks).</li>
+<li><a href="../TakePrisonerAction/">TakePrisonerAction</a> — puts a hero into a <code>PrisonRoster</code>.</li>
+</ul>
+<h2 id="members-by-theme">Members by Theme</h2>
+<blockquote>
+<p>Convention: the <strong>element count</strong> (number of troops) is <code>data[i].Number</code>; <code>Count</code> is the number of <em>distinct</em> <code>CharacterObject</code> entries, <strong>not</strong> the total headcount.</p>
+</blockquote>
+<h3 id="adding-and-removing-troops">Adding and removing troops</h3>
+<h4 id="public-int-addtocounts-characterobject-character-int-count-bool-insertatfront-false-int-woundedcount-0-int-xpchange-0-bool-removedepleted-true-int-index-1"><code>public int AddToCounts(CharacterObject character, int count, bool insertAtFront = false, int woundedCount = 0, int xpChange = 0, bool removeDepleted = true, int index = -1)</code></h4>
+<p><strong>Purpose:</strong> the central entry point for changing the roster. Adds <code>count</code> troops, of which <code>woundedCount</code> are wounded, and applies <code>xpChange</code> XP.
+<strong>Side effects:</strong> maintains the cached totals (regulars go to <code>_totalRegulars</code>, heroes to <code>_totalHeroes</code>); hero add/remove fires <code>OwnerParty.OnHeroAdded</code> / <code>OnHeroRemoved</code> and <code>OnRosterSizeChanged</code>; any change calls <code>UpdateVersion()</code> (and thus <code>MobileParty.UpdateVersionNo()</code>). If an entry reaches zero and <code>removeDepleted == true</code>, the troop-type entry is removed. Returns the entry's index in <code>data</code>.
+<strong>When to call:</strong> any time you mutate ordinary troops; adding heroes also flows through here (but prefer <code>AddHeroToPartyAction.Apply</code> so hero-side state stays consistent).</p>
+<h4 id="public-void-removetroop-characterobject-troop-int-numbertoremove-1-uniquetroopdescriptor-troopseed-default-int-xp-0"><code>public void RemoveTroop(CharacterObject troop, int numberToRemove = 1, UniqueTroopDescriptor troopSeed = default, int xp = 0)</code></h4>
+<p><strong>Purpose:</strong> removes troops (regulars or heroes) from the roster.
+<strong>Side effects:</strong> for non-heroes it rolls back <code>xp</code> (subtracts XP); <strong>when <code>PlayerEncounter.CurrentBattleSimulation != null</code> and the target is not a hero, <code>removeDepleted</code> is forced to <code>false</code></strong> — during battle simulation, ordinary troops only decrement <code>Number</code> and are <em>not</em> compacted immediately; cleanup happens after the simulation ends. This is deliberate lazy cleanup: if you <code>RemoveTroop</code> down to 0 repeatedly during a battle sim without compaction, you will be left with <code>Number == 0</code> entries.
+<strong>When to call:</strong> daily attrition, freeing prisoners, post-battle settlement.</p>
+<h4 id="public-void-woundtroop-characterobject-troop-int-numbertowound-1-uniquetroopdescriptor-troopseed-default"><code>public void WoundTroop(CharacterObject troop, int numberToWound = 1, UniqueTroopDescriptor troopSeed = default)</code></h4>
+<p><strong>Purpose:</strong> marks ordinary troops as wounded (internally <code>AddToCountsAtIndex(index, 0, numberToWound)</code>).
+<strong>Trap:</strong> a hero's <code>WoundedNumber</code> is derived from <code>Character.HeroObject.IsWounded</code> (the <code>TroopRosterElement</code> getter returns 0 or 1 for heroes), so <strong><code>WoundTroop</code> does nothing for heroes</strong>. To wound a hero, call <code>Hero.MakeWounded(...)</code>, which writes back <code>_totalWoundedHeroes</code> via <code>OnHeroHealthStatusChanged</code>.</p>
+<h4 id="public-void-add-trooproster-trooproster-public-void-add-trooprosterelement-element"><code>public void Add(TroopRoster troopRoster)</code> / <code>public void Add(TroopRosterElement element)</code></h4>
+<p><strong>Purpose:</strong> merges another roster (or a single element) into this one. Each entry is added through <code>AddToCounts</code>, so caches and callbacks are maintained correctly.
+<strong>Note:</strong> <code>Add</code> uses <em>this</em> roster's <code>OwnerParty</code>; the merged roster's ownership is ignored.</p>
+<h4 id="public-void-clear"><code>public void Clear()</code></h4>
+<p><strong>Purpose:</strong> removes all entries. It walks each entry through <code>AddToCountsAtIndex(negative)</code>, so each hero fires <code>OnHeroRemoved</code>.
+<strong>When to call:</strong> disbanding a party or resetting a roster (note this triggers belonging callbacks and may change hero world-state).</p>
+<h4 id="public-icollection-trooprosterelement-removeif-predicate-trooprosterelement-match"><code>public ICollection&lt;TroopRosterElement&gt; RemoveIf(Predicate&lt;TroopRosterElement&gt; match)</code></h4>
+<p><strong>Purpose:</strong> batch-removes by predicate, returning a <strong>copy list</strong> of the removed elements. It iterates backwards and reverse-applies <code>AddToCountsAtIndex</code> for each match, so totals and callbacks stay correct.</p>
+<h4 id="public-void-removezerocounts"><code>public void RemoveZeroCounts()</code></h4>
+<p><strong>Purpose:</strong> compacts the <code>data</code> array, dropping every <code>Number == 0</code> entry.
+<strong>Risk:</strong> it moves the array and only calls <code>UpdateVersion()</code> — it does <strong>not</strong> fire <code>OwnerParty.OnHeroRemoved</code>. If you use it to drop a zero-count hero entry, the hero's <code>PartyBelongedTo</code> and similar state are never notified, causing desync. To remove a hero, always use <code>RemoveTroop</code>.</p>
+<h3 id="counts-and-totals-read-only">Counts and totals (read-only)</h3>
+<table><thead><tr><th>Property</th><th>Meaning</th><th>Source</th></tr></thead><tbody>
+<tr><td><code>Count</code></td><td>number of distinct <code>CharacterObject</code> entries (not headcount)</td><td><code>_count</code></td></tr>
+<tr><td><code>TotalRegulars</code></td><td>total non-hero troops</td><td>cached, maintained on add/remove</td></tr>
+<tr><td><code>TotalHeroes</code></td><td>number of hero entries (entries, not headcount)</td><td>cached</td></tr>
+<tr><td><code>TotalWoundedRegulars</code> / <code>TotalWoundedHeroes</code></td><td>wounded regulars / heroes</td><td>cached</td></tr>
+<tr><td><code>TotalWounded</code></td><td><code>TotalWoundedRegulars + TotalWoundedHeroes</code></td><td>derived</td></tr>
+<tr><td><code>TotalManCount</code></td><td><code>TotalRegulars + TotalHeroes</code> (party headcount)</td><td>derived</td></tr>
+<tr><td><code>TotalHealthyCount</code></td><td><code>TotalManCount - TotalWounded</code></td><td>derived</td></tr>
+<tr><td><code>VersionNo</code></td><td>version bumped on every add/remove / XP change; cascades <code>MobileParty.UpdateVersionNo()</code></td><td><code>CachedData</code></td></tr>
+</tbody></table>
+<blockquote>
+<p>These totals are <strong>cached fields</strong>, refreshed only inside <code>AddToCountsAtIndex</code> / <code>OnHeroHealthStatusChanged</code> / <code>CalculateCachedStatsOnLoad</code>. If you mutate counts with the bare setters (<code>SetElementNumber</code> and friends), these properties go stale (see Risks).</p>
+</blockquote>
+<h3 id="element-access-and-queries">Element access and queries</h3>
+<h4 id="public-mblist-trooprosterelement-gettrooproster"><code>public MBList&lt;TroopRosterElement&gt; GetTroopRoster()</code></h4>
+<p><strong>Purpose:</strong> returns the (cached) list of all elements for <code>foreach</code> iteration.
+<strong>Trap:</strong> the returned <code>MBList</code> is cached by <code>VersionNo</code>. If you <strong>hold a reference</strong> and the roster changes afterwards, the next <code>GetTroopRoster()</code> rebuilds the list, but your old reference remains an old snapshot. Fetch it fresh each time you iterate; do not cache it long-term.</p>
+<h4 id="public-trooprosterelement-getelementcopyatindex-int-index"><code>public TroopRosterElement GetElementCopyAtIndex(int index)</code></h4>
+<p><strong>Purpose:</strong> returns the element at an index.
+<strong>Value-copy trap:</strong> <code>TroopRosterElement</code> is a <code>struct</code>, returned by value. The following does <strong>not</strong> change the roster:</p>
+<pre><code data-lang="csharp">TroopRosterElement e = roster.GetElementCopyAtIndex(i);
+e.Number = 5;   // only changes the local copy; roster unchanged!
+e.Xp += 100;    // also ineffective
+</code></pre>
+<p>To really mutate, use <code>AddToCounts</code> / <code>SetElementNumber</code> / <code>SetElementXp</code>.</p>
+<h4 id="public-characterobject-getcharacteratindex-int-index"><code>public CharacterObject GetCharacterAtIndex(int index)</code></h4>
+<p>Returns the troop template at the index; throws <code>IndexOutOfRangeException</code> if out of range.</p>
+<h4 id="public-int-getelementnumber-int-index-getelementnumber-characterobject-character"><code>public int GetElementNumber(int index)</code> / <code>GetElementNumber(CharacterObject character)</code></h4>
+<p>Returns an entry's / a troop type's headcount (<code>0</code> if absent).</p>
+<h4 id="public-int-getelementwoundednumber-int-index-gettroopcount-characterobject-troop-contains-characterobject-character-findindexoftroop-characterobject-character"><code>public int GetElementWoundedNumber(int index)</code> / <code>GetTroopCount(CharacterObject troop)</code> / <code>Contains(CharacterObject character)</code> / <code>FindIndexOfTroop(CharacterObject character)</code></h4>
+<p>Routine queries: <code>GetTroopCount</code> is a <code>FindIndexOfTroop</code> + read <code>Number</code> convenience; <code>Contains</code> / <code>FindIndexOfTroop</code> compare <code>CharacterObject</code> by reference equality.</p>
+<h4 id="public-int-sum-func-trooprosterelement-int-selector"><code>public int Sum(Func&lt;TroopRosterElement, int&gt; selector)</code></h4>
+<p>Convenience sum over all elements, e.g. <code>roster.Sum(e =&gt; e.Number)</code> equals <code>TotalManCount</code>.</p>
+<h3 id="xp-version-and-copying">XP, version, and copying</h3>
+<h4 id="public-void-addxptotroop-characterobject-troop-int-xpamount-addxptotroopatindex-int-index-int-xpamount"><code>public void AddXpToTroop(CharacterObject troop, int xpAmount)</code> / <code>AddXpToTroopAtIndex(int index, int xpAmount)</code></h4>
+<p><strong>Purpose:</strong> accumulates XP for a troop type. Internally goes through <code>SetElementXp</code>, firing <code>OwnerParty.OnXpChanged</code>.
+<strong>Note:</strong> it <strong>writes XP only — it does not trigger upgrades</strong>. Promotion to the next tier is decided by <code>PartyUpgraderCampaignBehavior</code> on the daily tick, which reads XP and calls <code>AddToCounts</code> via <code>PartyTroopUpgradeModel</code>. <code>TroopRoster</code> has no auto-upgrade logic of its own.</p>
+<h4 id="public-void-setelementxp-int-index-int-number-setelementnumber-int-index-int-number-setelementwoundednumber-int-index-int-number"><code>public void SetElementXp(int index, int number)</code> / <code>SetElementNumber(int index, int number)</code> / <code>SetElementWoundedNumber(int index, int number)</code></h4>
+<p><strong>Purpose:</strong> low-level direct writes of <code>Xp</code> / <code>Number</code> / <code>WoundedNumber</code>.
+<strong>Risk (important):</strong> these three setters only change data + <code>UpdateVersion()</code>, they do <strong>not</strong> maintain the cached totals and do <strong>not</strong> fire <code>OwnerParty</code> callbacks. After <code>SetElementNumber</code>, <code>TotalRegulars</code> / <code>TotalHeroes</code> no longer match reality, and hero add/remove callbacks do not fire — the discrepancy is only fully recomputed on the next load via <code>CalculateCachedStatsOnLoad</code>. Unless you are doing low-level / serialization work, always use <code>AddToCounts</code> / <code>RemoveTroop</code>.</p>
+<h4 id="public-void-updateversion"><code>public void UpdateVersion()</code></h4>
+<p>Called automatically after every add/remove / XP change; increments <code>VersionNo</code> and cascades <code>MobileParty.UpdateVersionNo()</code>, invalidating dependent caches (strength, wages, layered counts).</p>
+<h4 id="public-void-onherohealthstatuschanged-hero-hero"><code>public void OnHeroHealthStatusChanged(Hero hero)</code></h4>
+<p>Called back by the hero system when a hero's wound status changes: refreshes <code>_totalWoundedHeroes</code>. Ordinary-troop wound changes do not go through here — they are maintained inside <code>AddToCountsAtIndex</code>.</p>
+<h4 id="public-trooproster-clonerosterdata"><code>public TroopRoster CloneRosterData()</code></h4>
+<p><strong>Purpose:</strong> copies into a new roster where <code>OwnerParty == null</code>, keeping only <code>Character</code> / <code>Number</code> / <code>WoundedNumber</code> (<strong>not</strong> XP). Useful for snapshots or staging before a merge.</p>
+<h4 id="public-flattenedtrooproster-toflattenedroster"><code>public FlattenedTroopRoster ToFlattenedRoster()</code></h4>
+<p>Returns a <code>FlattenedTroopRoster</code> that expands each element into individual troops (for templates / UI / recruitment tables).</p>
+<h4 id="public-static-trooproster-createdummytrooproster"><code>public static TroopRoster CreateDummyTroopRoster()</code></h4>
+<p>Returns an empty roster with <code>OwnerParty == null</code>. Handy as a temporary compute container.</p>
+<h4 id="public-static-void-calculatecachedstatsonload"><code>public static void CalculateCachedStatsOnLoad()</code></h4>
+<p><strong>Purpose:</strong> called exactly <strong>once</strong> by the save system after load. It walks every freshly-deserialized <code>TroopRoster</code> in the session and recomputes <code>_totalRegulars</code> / <code>_totalHeroes</code> / wounded caches (serialization stores only <code>data</code> + <code>_count</code> + <code>VersionNo</code>; the totals are not persisted). Mods rarely call this directly; but if you deserialize or construct a roster yourself and depend on <code>TotalRegulars</code> etc., remember those fields are 0 / stale until this step of the load pipeline runs.</p>
+<h4 id="public-static-bool-rostersareidentical-trooproster-a-trooproster-b"><code>public static bool RostersAreIdentical(TroopRoster a, TroopRoster b)</code></h4>
+<p>Compares <code>Count</code> / <code>OwnerParty</code> / <code>VersionNo</code> and per-entry <code>Character</code> + <code>Number</code> (used for save validation / tests).</p>
+<h2 id="example">Example</h2>
+<h3 id="example-1-reinforce-the-main-party-with-recruits-and-grant-xp">Example 1: Reinforce the main party with recruits and grant XP</h3>
+<pre><code data-lang="csharp">MobileParty party = MobileParty.MainParty;
+TroopRoster roster = party.MemberRoster; // same as party.Party.MemberRoster
+
+// Resolve a real troop template through MBObjectManager (e.g. &quot;looter&quot;)
+CharacterObject recruit = MBObjectManager.Instance.GetObject&lt;CharacterObject&gt;(&quot;looter&quot;);
+if (recruit != null)
+{
+    // Add 10 troops, 150 XP; insertAtFront=false appends to the tail
+    roster.AddToCounts(recruit, 10, insertAtFront: false, woundedCount: 0, xpChange: 150);
+
+    int now = roster.GetTroopCount(recruit); // headcount now
+    int xp  = roster.GetElementXp(recruit);  // accumulated XP for this type
+    InformationManager.DisplayMessage(
+        new InformationMessage($&quot;{recruit.Name}: {now} troops, {xp} XP&quot;));
+}
+</code></pre>
+<h3 id="example-2-tally-members-and-free-a-class-of-prisoners">Example 2: Tally members and free a class of prisoners</h3>
+<pre><code data-lang="csharp">// Tally the main party&#39;s healthy / wounded split
+TroopRoster members = MobileParty.MainParty.MemberRoster;
+int total    = members.TotalManCount;     // total headcount
+int wounded  = members.TotalWounded;      // total wounded
+int healthy  = members.TotalHealthyCount; // healthy headcount
+
+// Iterate each troop type (GetTroopRoster returns a value-copy list;
+// changing local variables does not affect the roster)
+foreach (TroopRosterElement element in members.GetTroopRoster())
+{
+    CharacterObject c = element.Character;
+    int n  = element.Number; // headcount (value copy)
+    int xp = element.Xp;     // XP (value copy)
+}
+
+// Free every prisoner of one type from the main party&#39;s prisoner roster
+TroopRoster prisoners = MobileParty.MainParty.PrisonRoster;
+CharacterObject prisoner = MBObjectManager.Instance.GetObject&lt;CharacterObject&gt;(&quot;prisoner_template&quot;);
+if (prisoner != null &amp;&amp; prisoners.Contains(prisoner))
+{
+    // Remove all of that prisoner type; for hero prisoners prefer the
+    // reverse flow of TakePrisonerAction.
+    prisoners.RemoveTroop(prisoner, prisoners.GetTroopCount(prisoner));
+}
+</code></pre>
+<h2 id="risks">Risks</h2>
+<ol>
+<li>
+<p><strong>XP is lost across save/load.</strong> <code>TroopRosterElement.SerializeTo</code> writes four fields — <code>Character</code> (<code>WriteUInt</code>), <code>_number</code>, <code>_woundedNumber</code>, and <code>_xp</code> — but <code>DeserializeFrom</code> reads back only the first three (<code>_number</code>, <code>_woundedNumber</code>) and <strong>never reads <code>_xp</code></strong> (<code>TroopRosterElement.cs</code>, <code>SerializeTo</code>/<code>DeserializeFrom</code>). As a result, troop XP in a party roster is <strong>zeroed on every save → load</strong> (identical behavior in v1.3.0, v1.3.15, and v1.4.5). Do not treat XP as persistent state across saves; if you need durable upgrade progress, store it in your own mod data.</p>
+</li>
+<li>
+<p><strong><code>SetElementNumber</code> / <code>SetElementWoundedNumber</code> / <code>SetElementXp</code> corrupt the cached totals.</strong> All three are bare writers: they do not maintain <code>_totalRegulars</code> / <code>_totalHeroes</code> / the wounded caches, and they do not fire <code>OwnerParty</code> callbacks. After using them, <code>TotalManCount</code> and friends diverge from reality and hero-belonging state desyncs, only corrected wholesale on the next <code>CalculateCachedStatsOnLoad</code> (the next load). Always prefer <code>AddToCounts</code> / <code>RemoveTroop</code>; hero add/remove goes through <code>AddHeroToPartyAction</code> / <code>TakePrisonerAction</code>.</p>
+</li>
+<li>
+<p><strong><code>GetElementCopyAtIndex</code> is a value copy.</strong> <code>TroopRosterElement</code> is a <code>struct</code>; what you get is a copy, and assigning to it does not change the roster (see the example above). To mutate, go through <code>AddToCounts</code> / <code>SetElement*</code>.</p>
+</li>
+<li>
+<p><strong><code>RemoveZeroCounts</code> fires no callback.</strong> When it compacts the array it skips <code>OnHeroRemoved</code>. Dropping a zero-count hero entry this way leaves the hero's <code>PartyBelongedTo</code> and similar state behind. Remove heroes with <code>RemoveTroop</code>.</p>
+</li>
+<li>
+<p><strong><code>RemoveTroop</code> does not compact immediately during battle simulation.</strong> When <code>PlayerEncounter.CurrentBattleSimulation != null</code> and the target is not a hero, <code>removeDepleted</code> is forced <code>false</code>, so the entry only decrements <code>Number</code> and is not removed. The battle-resolution logic relies on this lazy cleanup; do not assume "a troop reduced to 0 has already left the roster" mid-simulation.</p>
+</li>
+<li>
+<p><strong>Hero wounds cannot be done with <code>WoundTroop</code>.</strong> A hero's wounded count is derived from <code>HeroObject.IsWounded</code>; calling <code>WoundTroop</code> on a hero is a no-op. Wound a hero via <code>Hero.MakeWounded(...)</code>, which correctly updates <code>_totalWoundedHeroes</code> through <code>OnHeroHealthStatusChanged</code>.</p>
+</li>
+<li>
+<p><strong>Do not share / manually <code>new</code> a replacement roster.</strong> <code>OwnerParty</code> is immutable after construction; sharing one instance makes add/remove callbacks point at the wrong <code>PartyBase</code>, and <code>new TroopRoster()</code> assigned to <code>PartyBase.MemberRoster</code> yields <code>OwnerParty == null</code>, disabling all later callbacks.</p>
+</li>
+<li>
+<p><strong>Do not hold the cached list long-term.</strong> <code>GetTroopRoster()</code> returns an <code>MBList</code> cached by <code>VersionNo</code>; after the roster changes, the old reference becomes a stale snapshot. Fetch fresh on each iteration.</p>
+</li>
+</ol>
+<h2 id="cross-version-notes">Cross-Version Notes</h2>
+<ul>
+<li><strong>v1.3.0 / v1.3.15:</strong> the core API (<code>AddToCounts</code>, <code>RemoveTroop</code>, <code>WoundTroop</code>, <code>AddXpToTroop</code>, <code>CloneRosterData</code>, <code>CreateDummyTroopRoster</code>, <code>CalculateCachedStatsOnLoad</code>, …) has signatures and semantics essentially identical to v1.4.5, and the XP save/load asymmetry described above is present in both versions.</li>
+<li><strong>v1.4.5 (authoritative source):</strong> as described on this page. For cross-version mods, avoid relying on the correctness of the <code>SetElement*</code> setters, and assume XP cannot survive a save/load.</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Parent: <a href="../">campaign-ext index</a></li>
+<li>↔ Sibling: <a href="../ItemRoster/">ItemRoster</a> · <a href="../../campaign/CharacterObject/">CharacterObject</a> · <a href="../../campaign/MobileParty/">MobileParty</a></li>
+<li>Upstream hub: <a href="../../campaign/PartyBase/">PartyBase</a> · <a href="../../campaign/Hero/">Hero</a> · <a href="../../campaign/Settlement/">Settlement</a></li>
+<li>Related Actions: <a href="../AddHeroToPartyAction/">AddHeroToPartyAction</a> · <a href="../TakePrisonerAction/">TakePrisonerAction</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/ReferenceIMBEvent/">&larr; ReferenceIMBEvent</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/Crossbow/">Crossbow &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quests 家族</title>
+  <meta name="description" content="Quest 状态机、Issue 交接、目标完成与可存档的战役生命周期。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/quests/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/quests/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Quests 家族</span>
+    </nav>
+  
+  <h1>Quests 家族</h1>
+  <h1 id="quests-jia-zu">Quests 家族</h1>
+<p><strong>一句话职责：</strong> Quest 持有跨多个 tick 和存档的战役叙事状态，包括目标、参与者与完成结果。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<h3 id="yue-du-shun-xu">阅读顺序</h3>
+<p>从 <a href="../QuestBase">QuestBase</a> 开始，再对比 <a href="../ArmyNeedsSuppliesIssueQuest">ArmyNeedsSuppliesIssueQuest</a> 的 Issue 与 Behavior。按创建、目标更新、完成、清理的顺序追踪。</p>
+<h2 id="he-shi-shi-yong">何时使用</h2>
+<p>需要持久、面向玩家的多步骤流程时使用 Quest；提示通知使用 CampaignEvent，原子世界变更使用 Action。不要从 UI 回调直接推进目标而不检查 Quest 所有权和生命周期。</p>
+<h2 id="yi-lai-guan-xi">依赖关系</h2>
+<ul>
+<li>上游：Issue 解决、Campaign Behaviors、Hero、Party 与 Settlement。</li>
+<li>下游：Menus、Conversations、通知、奖励 Action 与存档。</li>
+<li>同级：<a href="../issues">Issues</a>、<a href="../dialogs">Dialogs</a>、<a href="../actions">Actions</a>。</li>
+</ul>
+<h2 id="zui-xiao-zhen-shi-ru-kou">最小真实入口</h2>
+<pre><code data-lang="csharp">QuestManager manager = Campaign.Current.QuestManager;
+IEnumerable&lt;QuestBase&gt; active = manager.Quests;
+CampaignEvents.HourlyTickEvent.AddNonSerializedListener(this, OnHourlyTick);
+</code></pre>
+<p><code>QuestManager</code> 持有当前战役的 Quest 集合；具体 Issue Quest 由所属 Behavior 创建并在完成/失败时清理。不要在条件回调中伪造 <code>Advance()</code>，目标推进必须走该 Quest 源码声明的事件、任务或 Action。</p>
+<h2 id="feng-xian-bian-jie">风险边界</h2>
+<p>Quest 状态会进入存档。事件订阅只注册一次，清理时解除，并让完成逻辑幂等。参与者查找失败后仍保留悬空引用会污染存档。</p>
+<h2 id="quest-yu-ren-wu-tiao-mu">Quest 与任务条目</h2>
+<p>每一行都是源码中的公共入口；Purpose 说明它负责的业务状态，Timing 指通常创建、更新或完成的阶段。</p>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.CampaignSystem</td><td><a href="../QuestManager">QuestManager</a></td><td>持有活动 Quest，协调注册、完成、失败与存档恢复。</td><td>Campaign 建立后与读档阶段</td></tr>
+<tr><td>TaleWorlds.CampaignSystem</td><td><a href="../QuestCompleteDetails">QuestCompleteDetails</a></td><td>携带 Quest 完成时的奖励、声望和结果说明。</td><td>Quest 完成结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem</td><td><a href="../QuestTaskBase">QuestTaskBase</a></td><td>为具体 Quest 表达可完成的目标和完成状态。</td><td>Quest 初始化、事件更新、完成检查</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../ArmyNeedsSuppliesIssueQuest">ArmyNeedsSuppliesIssueQuest</a></td><td>将军队补给 Issue 转换为可跟踪的补给任务链。</td><td>Issue 接受后至补给交付</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../ArtisanCantSellProductsAtAFairPriceIssueQuest">ArtisanCantSellProductsAtAFairPriceIssueQuest</a></td><td>跟踪工匠低价出售问题的调查与解决结果。</td><td>Issue 解决流程</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../ArtisanOverpricedGoodsIssueQuest">ArtisanOverpricedGoodsIssueQuest</a></td><td>记录工匠货物定价问题及玩家选择的后果。</td><td>Issue 接受与完成</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../BettingFraudQuest">BettingFraudQuest</a></td><td>管理竞技场投注欺诈的调查、对话和奖励。</td><td>对话开始至奖励结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../CapturedByBountyHuntersIssueQuest">CapturedByBountyHuntersIssueQuest</a></td><td>追踪被赏金猎人捕获后的逃脱或交涉目标。</td><td>事件触发至释放/失败</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../CaravanAmbushIssueQuest">CaravanAmbushIssueQuest</a></td><td>记录商队遭袭、援护队伍和战斗结果。</td><td>遭遇创建至 MapEvent 结束</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../EscortMerchantCaravanIssueQuest">EscortMerchantCaravanIssueQuest</a></td><td>将护送商队目标绑定到移动、遭遇与交付任务。</td><td>接受后至商队抵达</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../ExtortionByDesertersIssueQuest">ExtortionByDesertersIssueQuest</a></td><td>跟踪逃兵勒索事件的谈判或清剿路线。</td><td>Issue 接受至 consequence</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../GangLeaderNeedsRecruitsIssueQuest">GangLeaderNeedsRecruitsIssueQuest</a></td><td>记录帮派招募目标与交付名册。</td><td>接受后至招募完成</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../GangLeaderNeedsSpecialWeaponsIssueQuest">GangLeaderNeedsSpecialWeaponsIssueQuest</a></td><td>追踪特殊武器收集与交付结果。</td><td>物品收集与完成检查</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../HeadmanNeedsGrainIssueQuest">HeadmanNeedsGrainIssueQuest</a></td><td>追踪村长粮食需求及交付奖励。</td><td>村庄 Issue 生命周期</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../LandLordCompanyOfTroubleIssueQuest">LandLordCompanyOfTroubleIssueQuest</a></td><td>管理地主与麻烦团伙冲突的多步目标。</td><td>对话、战斗与结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../LordNeedsGarrisonTroopsIssueQuest">LordNeedsGarrisonTroopsIssueQuest</a></td><td>记录领主补充驻军的兵员目标。</td><td>接受后至驻军交付</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../MerchantNeedsHelpWithOutlawsIssueQuest">MerchantNeedsHelpWithOutlawsIssueQuest</a></td><td>跟踪商人清剿盗匪并返回结果。</td><td>任务队伍创建至战斗完成</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../RaidAnEnemyTerritoryQuest">RaidAnEnemyTerritoryQuest</a></td><td>记录袭扰敌方领地的目标、参与者和奖励。</td><td>MapEvent 前后与 Quest 完成</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../ScoutEnemyGarrisonsQuest">ScoutEnemyGarrisonsQuest</a></td><td>保存侦察敌方驻军的进度和报告结果。</td><td>侦察事件回调</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../SmugglersIssueQuest">SmugglersIssueQuest</a></td><td>管理走私者 Issue 的路线、选择与后果。</td><td>Issue 接受至 consequence</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues</td><td><a href="../TheConquestOfSettlementIssueQuest">TheConquestOfSettlementIssueQuest</a></td><td>追踪征服据点 Issue 的战斗与所有权结果。</td><td>围城/战斗结算后</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues.IssueQuestTasks</td><td><a href="../CaptureAndBringNpcTask">CaptureAndBringNpcTask</a></td><td>将捕获指定 NPC 的目标封装为可保存任务。</td><td>目标捕获事件</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues.IssueQuestTasks</td><td><a href="../ChangeSettlementOwnerTask">ChangeSettlementOwnerTask</a></td><td>在 Quest 中等待据点所有权变更并报告完成。</td><td>ChangeOwnerOfSettlementAction 后</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues.IssueQuestTasks</td><td><a href="../DefeatPartyQuestTask">DefeatPartyQuestTask</a></td><td>监听指定 Party 被击败的任务条件。</td><td>MapEvent 结束检查</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues.IssueQuestTasks</td><td><a href="../RaidVillageQuestTask">RaidVillageQuestTask</a></td><td>跟踪指定村庄遭袭并记录结果。</td><td>Raid Action/MapEvent 结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Issues.IssueQuestTasks</td><td><a href="../TalkToNpcQuestTask">TalkToNpcQuestTask</a></td><td>等待与指定 NPC 的有效对话完成。</td><td>Conversation consequence</td></tr>
+</tbody></table>
+<h2 id="dao-hang">导航</h2>
+<ul>
+<li><a href="..">上级：Campaign-Ext</a></li>
+<li><a href="../issues">同级：Issues</a> · <a href="../dialogs">Dialogs</a></li>
+<li><a href="../CampaignEvents">相关：CampaignEvents</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

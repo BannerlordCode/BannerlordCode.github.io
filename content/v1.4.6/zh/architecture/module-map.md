@@ -1,10 +1,12 @@
 ---
 title: 1.4.6 模块地图
-description: "按 bannerlord-1.4.6 真实源码目录核实：每个模块目录负责什么、关键类型在哪个命名空间、mod 在什么时候会碰到它，以及被排除的噪声目录。"
+description: "按 bannerlord-1.4.6 真实源码目录核实：每个模块目录负责什么、关键类型在哪个命名空间、文档桶当前手写到哪、mod 什么时候会碰到它，以及被排除的噪声目录。"
 ---
 # 1.4.6 模块地图
 
 > 本文所有模块名、类型归属、文件计数都来自 `bannerlord-1.4.6/` 源码核实，不是从旧版本文档搬来的。**1.4.6 有一批「老文档说在 A 程序集、实际在 B 程序集」的类型，本文给出实际位置。**
+>
+> 表格里的「文档桶」列同时说明**当前文档覆盖状态**。1.4.6 的 API 分区只保留手写类页，共 40 张、分布在 9 个桶；桶名可点表示该桶已有页面，桶名为纯文本表示**该桶尚未手写任何页面**——不要去找那些目录，它们现在不存在。待补的类型名见每层表格与 [API 参考](../../api) 文末清单。
 
 ## 源码树长什么样
 
@@ -22,79 +24,80 @@ bannerlord-1.4.6/
 
 核实到的规模：顶层 90 个目录，其中 71 个玩法模块目录（`TaleWorlds.*` / `SandBox` / `StoryMode`），全树 11385 个 `.cs` 文件；这 71 个模块下按「文件去重、排除各模块 `Properties/`」统计的类型文件共 6478 个。噪声目录（第三方库与平台层）另外占了一部分，见文末「不生成文档的目录」。
 
-文档分区**不按源码目录名**命名。命名空间按固定规则归入 17 个桶（权威文件 `tools/_dir-map-canonical.json`，最长前缀优先 + 少量类型名覆写）。所以「源码目录 ↔ 文档分区」不是一一对应：
+文档分区**不按源码目录名**命名。命名空间按固定规则归入 17 个桶（权威文件 `tools/_dir-map-canonical.json`，最长前缀优先 + 少量类型名覆写），所以「源码目录 ↔ 文档桶」不是一一对应：
 
-| 源码目录 / 命名空间 | 文档桶 | 规则要点 |
+| 源码目录 / 命名空间 | 文档桶（当前手写状态） | 规则要点 |
 | --- | --- | --- |
-| `TaleWorlds.Core` / `TaleWorlds.Library` / `TaleWorlds.DotNet` | [core-extra](../../api/core-extra/) | 前缀直落；`MBSubModuleBase` / `Module` 由类型名覆写改到 [core](../../api/core/) |
-| `TaleWorlds.CampaignSystem` | [campaign](../../api/campaign/) | 前缀直落；`FastMode` 等子域继承同一桶 |
-| `TaleWorlds.CampaignSystem.*`（Behaviors / GameComponents / ComponentInterfaces / Conversation / Issues / SandBox / PartyBasedVisitables） | [campaign-ext](../../api/campaign-ext/) | 子域各自一条更长前缀规则 |
-| `TaleWorlds.ObjectSystem` | [campaign-ext](../../api/campaign-ext/) | **它属于 campaign-ext，不叫 objectsystem** |
-| `TaleWorlds.MountAndBlade*` | [mission-ext](../../api/mission-ext/) | 前缀直落；`CustomBattle` → [custombattle](../../api/custombattle/)；`Mission` / `Agent` / `MissionBehavior` / `Formation` / `MissionState` 由类型名覆写改到 [mission](../../api/mission/) |
-| `*.ViewModelCollection`（Core / CampaignSystem / MountAndBlade） | [viewmodel](../../api/viewmodel/) | 更长前缀优先于父前缀 |
-| `TaleWorlds.ScreenSystem` / `TaleWorlds.GauntletUI*` / `TaleWorlds.TwoDimension*` | [gui](../../api/gui/) | 屏幕、Gauntlet、二维绘制同一个桶 |
-| `TaleWorlds.Engine` / `TaleWorlds.Engine.GauntletUI` | [engine](../../api/engine/) | `GauntletLayer` 归 engine（1.4.5 实测先例） |
-| `TaleWorlds.InputSystem` | [system](../../api/system/) | 不是 `engine`，也不是 campaign-ext |
-| `TaleWorlds.SaveSystem` / `TaleWorlds.Localization` / `TaleWorlds.ModuleManager` | [save-system](../../api/save-system/) · [localization](../../api/localization/) · [modulemanager](../../api/modulemanager/) | 各自独立桶 |
-| `SandBox*` / `StoryMode*` | [sandbox](../../api/sandbox/) · [storymode](../../api/storymode/) | 前缀直落 |
-| `TaleWorlds.ActivitySystem` / `TaleWorlds.AchievementSystem` / `TaleWorlds.Network` | [activitysystem](../../api/activitysystem/) · [achievementsystem](../../api/achievementsystem/) · [network](../../api/network/) | 前缀直落 |
+| `TaleWorlds.Core` / `TaleWorlds.Library` / `TaleWorlds.DotNet` | [core-extra](../../api/core-extra/Game) · 17 页 | 前缀直落；`MBSubModuleBase` / `Module` 由类型名覆写改到 [core](../../api/core/MBSubModuleBase) |
+| `TaleWorlds.CampaignSystem` | [campaign](../../api/campaign/Campaign) · 7 页 | 前缀直落；`FastMode` 等子域继承同一桶 |
+| `TaleWorlds.CampaignSystem.*`（Behaviors / GameComponents / ComponentInterfaces / Conversation / Issues / SandBox / PartyBasedVisitables） | [campaign-ext](../../api/campaign-ext/MBObjectManager) · 2 页 | 子域各自一条更长前缀规则 |
+| `TaleWorlds.ObjectSystem` | [campaign-ext](../../api/campaign-ext/MBObjectBase) | 源码目录名与文档桶名不同：它落在 campaign-ext，不另开一个「对象系统」桶 |
+| `TaleWorlds.MountAndBlade*` | `mission-ext` · **0 页**；`Mission` / `Agent` / `MissionBehavior` / `Formation` 由类型名覆写改到 [mission](../../api/mission/Mission) · 4 页；`CustomBattle` → `custombattle` · **0 页** | 前缀直落 + 类型名覆写 |
+| `*.ViewModelCollection`（Core / CampaignSystem / MountAndBlade） | `viewmodel` · **0 页** | 更长前缀优先于父前缀 |
+| `TaleWorlds.ScreenSystem` / `TaleWorlds.GauntletUI*` / `TaleWorlds.TwoDimension*` | [gui](../../api/gui/ScreenManager) · 2 页 | 屏幕、Gauntlet、二维绘制同一个桶 |
+| `TaleWorlds.Engine` / `TaleWorlds.Engine.GauntletUI` | [engine](../../api/engine/GauntletLayer) · 1 页 | `GauntletLayer` 归 engine（1.4.5 实测先例） |
+| `TaleWorlds.InputSystem` | `system` · **0 页** | 前缀直落到 system，既不是 engine 也不是 campaign-ext |
+| `TaleWorlds.SaveSystem` / `TaleWorlds.Localization` / `TaleWorlds.ModuleManager` | [save-system](../../api/save-system/SaveManager) · 4 页 · [localization](../../api/localization/TextObject) · 1 页 · `modulemanager` · **0 页** | 各自独立桶 |
+| `SandBox*` / `StoryMode*` | `sandbox` · **0 页** · `storymode` · **0 页** | 前缀直落 |
+| `TaleWorlds.ActivitySystem` / `TaleWorlds.AchievementSystem` / `TaleWorlds.Network` | `activitysystem` · **0 页** · `achievementsystem` · **0 页** · `network` · **0 页** | 前缀直落 |
 
 **未命中任何前缀规则的命名空间（unmapped，落到默认桶 `core-extra`）**：`TaleWorlds.NavigationSystem`、`TaleWorlds.PlatformService.Epic`、`TaleWorlds.PlatformService.GOG`、`TaleWorlds.PlatformService.Steam`、`TaleWorlds.ServiceDiscovery.Client`。前一个是空壳程序集，后四个是平台层；记录在此以便后续补规则，而不是默默混进 `core-extra`。
 
 ## Foundation 层：谁都不依赖它，它不依赖玩法层
 
-| 模块目录 | 文档分区 | 关键类型（命名空间已核实） | mod 什么时候碰到它 |
+| 模块目录 | 文档桶现状 | 关键类型（命名空间已核实） | mod 什么时候碰到它 |
 | --- | --- | --- | --- |
-| `TaleWorlds.Core` | [core-extra](../../api/core-extra/) | `Game`、`GameState`、`GameType`、`IGameStarter`、`ItemObject`（`TaleWorlds.Core`） | 写 `MBSubModuleBase` 子类时拿一局游戏的根；要自己造物品/装备定义时 |
-| `TaleWorlds.Library` | [core-extra](../../api/core-extra/) | `ViewModel`、`Vec3`、`InformationManager`（均为 `TaleWorlds.Library`） | 写 ViewModel 绑定、做向量运算、给玩家弹提示消息 |
-| `TaleWorlds.Localization` | [localization](../../api/localization/) | `TextObject`、`MBTextManager`、`LanguageData`、`LocalizedTextManager` | 任何面向玩家的文本 |
-| `TaleWorlds.ObjectSystem` | [campaign-ext](../../api/campaign-ext/) | `MBObjectManager`、`MBObjectBase`、`MBGUID`、`AutoGeneratedSaveManager`、`MBTypeNotRegisteredException` | 用 `MBGUID` 跨存档引用对象、动态注册类型、加载 XML 定义 |
-| `TaleWorlds.ModuleManager` | [modulemanager](../../api/modulemanager/) | `ModuleInfo`、`ModuleHelper`、`SubModuleInfo`、`ModuleCategory`、`ModuleType`、`DependedModule` | 想知道模块加载顺序、模块依赖、`SubModule.xml` 的语义 |
-| `TaleWorlds.ActivitySystem` | [activitysystem](../../api/activitysystem/) | `Activity`、`ActivityManager`、`ActivityOutcome`、`ActivityTransition`、`IActivityService` | 需要一个「玩家正在做什么」的跨系统状态机（活动/日程类 mod） |
-| `TaleWorlds.AchievementSystem` | [achievementsystem](../../api/achievementsystem/) | `Achievement`、`AchievementManager`、`IAchievementService` | 接成就；`AchievementManager.SetStat` / `GetStat` 是异步的（返回 `Task<int>`） |
-| `TaleWorlds.InputSystem` | [system](../../api/system/) | `IInputManager`、`Input`、`InputContext`、`InputKey`、`InputState`、`GameKey`、`HotKey` | 判断按键/轴输入。**注意：1.4.6 里没有 `InputManager` 这个类**（只有接口 `IInputManager`），旧文档写 `InputManager` 会写不进去 |
+| `TaleWorlds.Core` | core-extra 已手写（[Game](../../api/core-extra/Game) · [ItemObject](../../api/core-extra/ItemObject) · [GameStateManager](../../api/core-extra/GameStateManager) 等）；core 已手写（[MBSubModuleBase](../../api/core/MBSubModuleBase) · [Module](../../api/core/Module)）；待补 `IGameStarter`、`GameState`、`GameType` | `Game`、`GameState`、`GameType`、`IGameStarter`、`ItemObject`（`TaleWorlds.Core`） | 写 `MBSubModuleBase` 子类时拿一局游戏的根；要自己造物品/装备定义时 |
+| `TaleWorlds.Library` | core-extra 已手写（[ViewModel](../../api/core-extra/ViewModel) · [InformationManager](../../api/core-extra/InformationManager)）；待补 `Vec3` 等数学与集合工具 | `ViewModel`、`Vec3`、`InformationManager`（均为 `TaleWorlds.Library`） | 写 ViewModel 绑定、做向量运算、给玩家弹提示消息 |
+| `TaleWorlds.Localization` | localization 已手写（[TextObject](../../api/localization/TextObject)）；待补 `MBTextManager`、`LanguageData`、`LocalizedTextManager` | `TextObject`、`MBTextManager`、`LanguageData`、`LocalizedTextManager` | 任何面向玩家的文本 |
+| `TaleWorlds.ObjectSystem` | campaign-ext 已手写（[MBObjectManager](../../api/campaign-ext/MBObjectManager) · [MBObjectBase](../../api/campaign-ext/MBObjectBase)）；待补 `MBGUID`、`AutoGeneratedSaveManager`、`MBTypeNotRegisteredException` | `MBObjectManager`、`MBObjectBase`、`MBGUID`、`AutoGeneratedSaveManager`、`MBTypeNotRegisteredException` | 用 `MBGUID` 跨存档引用对象、动态注册类型、加载 XML 定义 |
+| `TaleWorlds.ModuleManager` | `modulemanager` · **0 页待补** | `ModuleInfo`、`ModuleHelper`、`SubModuleInfo`、`ModuleCategory`、`ModuleType`、`DependedModule` | 想知道模块加载顺序、模块依赖、`SubModule.xml` 的语义 |
+| `TaleWorlds.ActivitySystem` | `activitysystem` · **0 页待补** | `Activity`、`ActivityManager`、`ActivityOutcome`、`ActivityTransition`、`IActivityService` | 需要一个「玩家正在做什么」的跨系统状态机（活动/日程类 mod） |
+| `TaleWorlds.AchievementSystem` | `achievementsystem` · **0 页待补** | `Achievement`、`AchievementManager`、`IAchievementService` | 接成就；`AchievementManager.SetStat` / `GetStat` 是异步的（返回 `Task<int>`） |
+| `TaleWorlds.InputSystem` | `system` · **0 页待补** | `IInputManager`、`InputContext`、`GameKey`、`HotKey`、`HotKeyManager` | 判断按键/轴输入。**注意：1.4.6 里没有 `InputManager` 这个类**（只有接口 `IInputManager`），旧文档写 `InputManager` 会写不进去 |
 
 ## Mission 层：一场战斗的生命周期
 
-| 模块目录 | 文档分区 | 关键类型（命名空间已核实） | mod 什么时候碰到它 |
+| 模块目录 | 文档桶现状 | 关键类型（命名空间已核实） | mod 什么时候碰到它 |
 | --- | --- | --- | --- |
-| `TaleWorlds.MountAndBlade` | [mission-ext](../../api/mission-ext/)；`Mission` / `Agent` / `MissionBehavior` 在 [mission](../../api/mission/)；`MBSubModuleBase` / `Module` 在 [core](../../api/core/) | `MBSubModuleBase`、`Module`（都在 `TaleWorlds.MountAndBlade`）、`Mission`、`Agent`、`MissionBehavior`、`MissionLogic`、`MBGameManager` | **模块入口在这里**；战斗行为、Agent 处理、生成点、攻城器械都在这里 |
+| `TaleWorlds.MountAndBlade` | mission 已手写（[Mission](../../api/mission/Mission) · [Agent](../../api/mission/Agent) · [MissionBehavior](../../api/mission/MissionBehavior) · [Formation](../../api/mission/Formation)）；`mission-ext` · **0 页待补**（`MissionLogic`、`MBGameManager` 等）；模块入口两张页在 [core](../../api/core/MBSubModuleBase) | `MBSubModuleBase`、`Module`（都在 `TaleWorlds.MountAndBlade`）、`Mission`、`Agent`、`MissionBehavior`、`MissionLogic`、`MBGameManager` | **模块入口在这里**；战斗行为、Agent 处理、生成点、攻城器械都在这里 |
 
-> **纠偏**：`MBSubModuleBase` 与 `Module` 属于 `TaleWorlds.MountAndBlade`，不是 `TaleWorlds.Core`。旧版文档把 `MBSubModuleBase` 归到 Core 目录是错的；文档分区名要跟源码目录名走。
+> **纠偏**：`MBSubModuleBase` 与 `Module` 属于 `TaleWorlds.MountAndBlade`，不是 `TaleWorlds.Core`。旧版文档把 `MBSubModuleBase` 归到 Core 目录是错的；文档桶名要跟源码目录名走。
 
 ## Campaign 层：长期世界状态
 
-| 模块目录 | 文档分区 | 关键类型（命名空间已核实） | mod 什么时候碰到它 |
+| 模块目录 | 文档桶现状 | 关键类型（命名空间已核实） | mod 什么时候碰到它 |
 | --- | --- | --- | --- |
-| `TaleWorlds.CampaignSystem` | [campaign](../../api/campaign/) | `Campaign`、`CampaignBehaviorBase`、`CampaignEvents`、`CampaignGameStarter`、`GameModels`、`CharacterObject`（`TaleWorlds.CampaignSystem`） | 战役世界的一切：英雄、家族、聚落、部队、行为、事件总线、计算模型 |
-| `TaleWorlds.CampaignSystem.*`（Behaviors / GameComponents / ComponentInterfaces / Conversation / Issues / SandBox / PartyBasedVisitables） | [campaign-ext](../../api/campaign-ext/) | 行为、组件接口、对话、事务、议题等子域类型 | 写行为实现、组件接口、对话流程时 |
-| `*.ViewModelCollection`（`TaleWorlds.CampaignSystem` / `.Core` / `.MountAndBlade`） | [viewmodel](../../api/viewmodel/) | 界面数据类（CampaignSystem 下 352 个） | 地图界面、外交、部队管理类界面 |
-| `TaleWorlds.CampaignSystem.FastMode` | [campaign](../../api/campaign/) | `FastModeSubModule`、`FastModeOptionsProvider`（1.4.6 里只有 3 个文件） | 只在你明确支持快速模式时 |
-| `TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeath` | [viewmodel](../../api/viewmodel/) | 生育/继承相关界面数据 | 极少，通常不用碰 |
+| `TaleWorlds.CampaignSystem` | campaign 已手写（[Campaign](../../api/campaign/Campaign) · [CampaignBehaviorBase](../../api/campaign/CampaignBehaviorBase) · [CampaignEvents](../../api/campaign/CampaignEvents) · [CampaignGameStarter](../../api/campaign/CampaignGameStarter) · [Hero](../../api/campaign/Hero) · [Settlement](../../api/campaign/Settlement) · [IDataStore](../../api/campaign/IDataStore)）；待补 `GameModels`、`CharacterObject` | `Campaign`、`CampaignBehaviorBase`、`CampaignEvents`、`CampaignGameStarter`、`GameModels`、`CharacterObject`（`TaleWorlds.CampaignSystem`） | 战役世界的一切：英雄、家族、聚落、部队、行为、事件总线、计算模型 |
+| `TaleWorlds.CampaignSystem.*`（Behaviors / GameComponents / ComponentInterfaces / Conversation / Issues / SandBox / PartyBasedVisitables） | campaign-ext 已手写（[MBObjectManager](../../api/campaign-ext/MBObjectManager) · [MBObjectBase](../../api/campaign-ext/MBObjectBase)）；行为、组件接口、对话等子域类型**待补** | 行为、组件接口、对话、事务、议题等子域类型 | 写行为实现、组件接口、对话流程时 |
+| `*.ViewModelCollection`（`TaleWorlds.CampaignSystem` / `.Core` / `.MountAndBlade`） | `viewmodel` · **0 页待补**（`BattleResultVM`、`CharacterViewModel`、`ControlCharacterCreationStage`） | 界面数据类（CampaignSystem 下 352 个） | 地图界面、外交、部队管理类界面 |
+| `TaleWorlds.CampaignSystem.FastMode` | campaign 桶；`FastModeSubModule`、`FastModeOptionsProvider` **待补**（1.4.6 里只有 3 个文件） | `FastModeSubModule`、`FastModeOptionsProvider` | 只在你明确支持快速模式时 |
+| `TaleWorlds.CampaignSystem.ViewModelCollection.BirthAndDeath` | `viewmodel` · **0 页待补** | 生育/继承相关界面数据 | 极少，通常不用碰 |
 
 ## UI 层：把状态投影到屏幕
 
-| 模块目录 | 文档分区 | 关键类型（命名空间已核实） | mod 什么时候碰到它 |
+| 模块目录 | 文档桶现状 | 关键类型（命名空间已核实） | mod 什么时候碰到它 |
 | --- | --- | --- | --- |
-| `TaleWorlds.ScreenSystem` | [gui](../../api/gui/) | `ScreenManager`、`ScreenBase`、`ScreenLayer`、`ScreenComponent`、`GlobalLayer`、`InputRestrictions`（`TaleWorlds.ScreenSystem`） | 推屏/弹屏、加全局层、按输入限制屏蔽交互。**1.4.6 里屏幕栈全在 ScreenSystem**，不是 MountAndBlade |
-| `TaleWorlds.GauntletUI` + `.Data` + `.ExtraWidgets` | [gui](../../api/gui/) | 布局、控件基类、`GauntletMovie`（`TaleWorlds.GauntletUI.Data`） | 自定义 Gauntlet 界面、用 movie 标识加载 `.prefab` |
-| `TaleWorlds.Engine.GauntletUI` | [engine](../../api/engine/) | `GauntletLayer`、`UIResourceManager`、`EngineTexture`、`UIConfig` | 拿到渲染用的 layer；`GauntletLayer` 在 `TaleWorlds.Engine.GauntletUI`，归 `engine/` 桶而不是 `gui/` |
-| `TaleWorlds.MountAndBlade.View` / `.ViewModelCollection` / `TaleWorlds.Core.ViewModelCollection` | [mission-ext](../../api/mission-ext/) / [viewmodel](../../api/viewmodel/) | 官方 ViewModel 与界面 | 抄官方界面写法 |
-| `TaleWorlds.TwoDimension` | [gui](../../api/gui/) | `Font`、`EditableText`、`ITexture`、`IDrawObject` | 自己做二维绘制（棋盘、图标、图鉴） |
+| `TaleWorlds.ScreenSystem` | gui 已手写（[ScreenManager](../../api/gui/ScreenManager) · [ScreenBase](../../api/gui/ScreenBase)）；待补 `ScreenLayer`、`ScreenComponent`、`GlobalLayer`、`InputRestrictions` | `ScreenManager`、`ScreenBase`、`ScreenLayer`、`ScreenComponent`、`GlobalLayer`、`InputRestrictions`（`TaleWorlds.ScreenSystem`） | 推屏/弹屏、加全局层、按输入限制屏蔽交互。**1.4.6 里屏幕栈全在 ScreenSystem**，不是 MountAndBlade |
+| `TaleWorlds.GauntletUI` + `.Data` + `.ExtraWidgets` | gui 桶；布局、控件基类、`GauntletMovie`（`TaleWorlds.GauntletUI.Data`）**待补** | 布局、控件基类、`GauntletMovie`（`TaleWorlds.GauntletUI.Data`） | 自定义 Gauntlet 界面、用 movie 标识加载 `.prefab` |
+| `TaleWorlds.Engine.GauntletUI` | engine 已手写（[GauntletLayer](../../api/engine/GauntletLayer)）；待补 `UIResourceManager`、`EngineTexture`、`UIConfig` | `GauntletLayer`、`UIResourceManager`、`EngineTexture`、`UIConfig` | 拿到渲染用的 layer；`GauntletLayer` 在 `TaleWorlds.Engine.GauntletUI`，归 engine 桶而不是 gui 桶 |
+| `TaleWorlds.MountAndBlade.View` / `.ViewModelCollection` / `TaleWorlds.Core.ViewModelCollection` | `mission-ext` / `viewmodel` · **0 页待补** | 官方 ViewModel 与界面 | 抄官方界面写法 |
+| `TaleWorlds.TwoDimension` | gui 桶；`Font`、`EditableText`、`ITexture`、`IDrawObject` **待补** | `Font`、`EditableText`、`ITexture`、`IDrawObject` | 自己做二维绘制（棋盘、图标、图鉴） |
 
 ## Save 层：可独立存在的持久化
 
-| 模块目录 | 文档分区 | 关键类型（命名空间已核实） | mod 什么时候碰到它 |
+| 模块目录 | 文档桶现状 | 关键类型（命名空间已核实） | mod 什么时候碰到它 |
 | --- | --- | --- | --- |
-| `TaleWorlds.SaveSystem` | [save-system](../../api/save-system/) | `SaveManager`、`ISaveDriver`、`AsyncFileSaveDriver`、`InMemDriver`、`SaveContext`/`LoadContext` 相关类型；子目录 `Definition/`、`Load/`、`Resolvers/`、`Save/` | 给自定义行为加存档字段、注册可保存类型 |
+| `TaleWorlds.SaveSystem` | save-system 已手写（[SaveManager](../../api/save-system/SaveManager) · [SaveableTypeDefiner](../../api/save-system/SaveableTypeDefiner) · [SaveableFieldAttribute](../../api/save-system/SaveableFieldAttribute) · [SaveablePropertyAttribute](../../api/save-system/SaveablePropertyAttribute)）；待补 `ISaveDriver`、`AsyncFileSaveDriver`、`InMemDriver`、`SaveContext`/`LoadContext` 相关类型 | `SaveManager`、`ISaveDriver`、`AsyncFileSaveDriver`、`InMemDriver`、`SaveContext`/`LoadContext` 相关类型；子目录 `Definition/`、`Load/`、`Resolvers/`、`Save/` | 给自定义行为加存档字段、注册可保存类型 |
 
 ## 官方玩法模块（SandBox / StoryMode）
 
-| 模块目录 | 文档分区 | 关键类型（命名空间已核实） | mod 什么时候碰到它 |
+| 模块目录 | 文档桶现状 | 关键类型（命名空间已核实） | mod 什么时候碰到它 |
 | --- | --- | --- | --- |
-| `SandBox` | [sandbox](../../api/sandbox/) | `SandBoxSubModule`、`SandBoxCampaign`、`SandBoxMissions`、`SandBoxSaveManager`、`AutoGeneratedSaveManager` | 读官方战役行为做参考；你的自定义行为通常要插到同一批行为里 |
-| `StoryMode` | [storymode](../../api/storymode/) | `StoryModeSubModule`、`CampaignStoryMode`、`StoryModeManager`、`StoryModeEvents` | 同上，战役故事线版本 |
-| `SandBox.GauntletUI` / `SandBox.View` / `SandBox.ViewModelCollection` | [sandbox](../../api/sandbox/)（前缀直落，不另开桶） | 官方界面与 ViewModel | 抄界面 |
+| `SandBox` | `sandbox` · **0 页待补**（`SandBoxSubModule`、`SandBoxMissions`、`SandBoxSaveManager`） | `SandBoxSubModule`、`SandBoxMissions`、`SandBoxSaveManager`、`AutoGeneratedSaveManager` | 读官方战役行为做参考；你的自定义行为通常要插到同一批行为里 |
+| `StoryMode` | `storymode` · **0 页待补**（`StoryModeSubModule`、`CampaignStoryMode`、`StoryModeManager`、`StoryModeEvents`） | `StoryModeSubModule`、`CampaignStoryMode`、`StoryModeManager`、`StoryModeEvents` | 同上，战役故事线版本 |
+| `SandBox.GauntletUI` / `SandBox.View` / `SandBox.ViewModelCollection` | `sandbox` 桶（前缀直落，不另开桶）· **0 页** | 官方界面与 ViewModel | 抄界面 |
+| `TaleWorlds.MountAndBlade.CustomBattle` | `custombattle` · **0 页待补**（`CustomBattleScreen`、`CustomBattleSceneData`、`CPUBenchmarkMissionLogic`） | 自定义对战场景与基准测试 mission | 极少见，通常不用碰 |
 
 ## 1.4.6 独有的新增工具模块
 
@@ -114,7 +117,7 @@ bannerlord-1.4.6/
 
 - 第三方库：`GalaxyCSharp`、`Newtonsoft.Json`、`StbSharp`、`Steamworks.NET`、`jose-jwt`、`System.Management`、`System.Numerics.Vectors`、`mscorlib`、`netstandard`、`Mono`。
 - 平台与发行：`TaleWorlds.Diamond.AccessProvider`、`TaleWorlds.PlatformService`、`TaleWorlds.ServiceDiscovery`、`TaleWorlds.PlayerServices`、`TaleWorlds.Launcher`、`TaleWorlds.Avatar`。
-- 多人与服务器：`TaleWorlds.Network`（在 canonical 映射里落在 `network` 桶，见上表规则行）、`TaleWorlds.MountAndBlade.Multiplayer*`、`TaleWorlds.MountAndBlade.DedicatedCustomServer`、`TaleWorlds.PSAI`。
+- 多人与服务器：`TaleWorlds.Network`（在 canonical 映射里落在 network 桶）、`TaleWorlds.MountAndBlade.Multiplayer*`、`TaleWorlds.MountAndBlade.DedicatedCustomServer`、`TaleWorlds.PSAI`。
 - 代码生成与自动生成：任何以 `AutoGenerated` / `CodeGenerator` 结尾的命名空间，以及 `TaleWorlds.GauntletUI.PrefabSystem`。
 - `TaleWorlds.TwoDimension.Standalone`、`TaleWorlds.LinQuick`（落到默认桶 `core-extra`）。
 - **特殊**：`TaleWorlds.NavigationSystem` 在 1.4.6 里只有一个 `Properties/AssemblyInfo.cs`，**没有任何游戏类型**——它是空壳程序集。旧文档把它写成「导航系统」是误导，mod 在 1.4.6 里找不到导航 API 应该去哪里，请以本模块地图为准。
@@ -122,13 +125,13 @@ bannerlord-1.4.6/
 
 ## 心智模型：怎么用这张地图
 
-1. **先按层选模块**：要改世界状态就去 `campaignsystem`，要改一场战斗就去 `mountandblade`，要加界面就去 `screensystem` + `gauntletui`。分层理由见 [SDK 分层概览](../sdk-overview)。
+1. **先按层选模块**：要改世界状态就去 `TaleWorlds.CampaignSystem`，要改一场战斗就去 `TaleWorlds.MountAndBlade`，要加界面就去 `TaleWorlds.ScreenSystem` + `TaleWorlds.GauntletUI`。分层理由见 [SDK 分层概览](../sdk-overview)。
 2. **再按目录找类型**：1.4.6 的目录名就是程序集名，`grep` 源码时不用猜 DLL 归属。
-3. **最后才进 API 分区**：分区索引提供该模块的 A–Z 类目录，类型页才讲「这个成员是做什么用的」。
+3. **最后才进 API 分区**：分区里目前只有 40 张手写类页，能点开的入口见 [API 参考](../../api) 的「按任务找入口」表；上表标注 **0 页** 的桶目前无页可点。
 
 ## 导航
 
 - [↑ 上一级 / Up](../) — 架构总览
-- ↔ 兄弟：[SDK 分层概览](../sdk-overview) · [版本差异](../version-delta) · [English](../../../en/architecture/module-map/)
+- ↔ 兄弟：[SDK 分层概览](../sdk-overview) · [版本差异](../version-delta) · [English](../../../en/architecture/module-map)
 - ↑↑ 版本首页：[zh](../../) · [en](../../../en/)
 - ↔ 跨版本：[逐类 API 对比](../../../../versions/)

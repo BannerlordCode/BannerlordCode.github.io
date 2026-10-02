@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settlement</title>
+  <meta name="description" content="Fixed locations on the campaign map: towns, castles, villages, hideouts.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/Settlement/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/Settlement/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/Settlement/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/Settlement/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/Settlement/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/Settlement/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Settlement</span>
+    </nav>
+  
+  <h1>Settlement</h1>
+  <h1 id="settlement">Settlement</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Settlements<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public class Settlement : PartyBase, ILocatable</code><br />
+<strong>Base:</strong> <code>PartyBase</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Settlements/Settlement.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Settlement</code> is the unified abstraction for <strong>every fixed location on Bannerlord's campaign map</strong>: towns, castles, villages, hideouts, and war machines. It is a static geographical entity and also a <code>PartyBase</code> (garrison, militia, item stash).</p>
+<p>Key roles:</p>
+<ul>
+<li>Represents a fixed map location: position, name, component (<code>Town</code>/<code>Village</code>/<code>Castle</code>/<code>Hideout</code>), and owner (<code>Clan</code>/<code>Kingdom</code>).</li>
+<li>Manages garrison, militia, prisoners, granary, and stash.</li>
+<li>Provides siege state, prosperity, security, loyalty, and other metrics (mostly on the matching <code>SettlementComponent</code>).</li>
+<li>Serves as the target for <code>MobileParty</code> movement, trade, and quests.</li>
+</ul>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of <code>Settlement</code> as the <strong>gateway object for a location</strong>:</p>
+<ul>
+<li>First get the settlement, then decide what it is: <code>settlement.IsTown</code>, <code>settlement.IsCastle</code>, <code>settlement.IsVillage</code>, <code>settlement.IsHideout</code>.</li>
+<li>Concrete data lives in <code>SettlementComponent</code>: <code>settlement.SettlementComponent</code> can be cast to <code>Town</code>, <code>Village</code>, <code>Castle</code>, or <code>Hideout</code>.</li>
+<li><code>Settlement.Party</code> is the garrison, <code>MilitiaPartyComponent</code> is the militia.</li>
+<li>Player's current location: <code>Settlement.CurrentSettlement</code>.</li>
+</ul>
+<h2 id="how-to-obtain-a-settlement">How to Obtain a Settlement</h2>
+<pre><code data-lang="csharp">Settlement current = Settlement.CurrentSettlement;
+
+Settlement town = Settlement.Find(&quot;town_A7&quot;); // example Khuzait town
+
+Settlement richTown = Settlement.FindFirst(s =&gt; s.IsTown &amp;&amp; s.Town.Prosperity &gt; 6000f);
+
+foreach (Settlement s in Settlement.All)
+{
+    if (s.OwnerClan == Clan.PlayerClan)
+    {
+        // player-owned settlement
+    }
+}
+</code></pre>
+<h2 id="core-properties">Core Properties</h2>
+<table><thead><tr><th>Property</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>All</code></td><td>All settlements.</td></tr>
+<tr><td><code>CurrentSettlement</code></td><td>Settlement the player is currently in.</td></tr>
+<tr><td><code>SettlementComponent</code></td><td>Underlying component (<code>Town</code>/<code>Castle</code>/<code>Village</code>/<code>Hideout</code>).</td></tr>
+<tr><td><code>OwnerClan</code> / <code>MapFaction</code></td><td>Owning clan / faction.</td></tr>
+<tr><td><code>Party</code></td><td>Garrison <code>PartyBase</code>.</td></tr>
+<tr><td><code>GarrisonWagePaymentLimit</code></td><td>Garrison wage cap.</td></tr>
+<tr><td><code>GatePosition</code> / <code>PortPosition</code></td><td>Gate / port positions.</td></tr>
+<tr><td><code>HasPort</code></td><td>Has a port.</td></tr>
+<tr><td><code>IsUnderSiege</code> / <code>CurrentSiegeState</code></td><td>Siege state.</td></tr>
+<tr><td><code>SiegeEvent</code></td><td>Current siege event.</td></tr>
+<tr><td><code>Stash</code></td><td>Player stash in this settlement (if any).</td></tr>
+<tr><td><code>Alleys</code></td><td>List of alleys.</td></tr>
+<tr><td><code>IsTown</code> / <code>IsCastle</code> / <code>IsVillage</code> / <code>IsHideout</code></td><td>Settlement-type checks.</td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="public-static-settlement-find-string-idstring"><code>public static Settlement Find(string idString)</code></h3>
+<p>Find a settlement by string ID.</p>
+<pre><code data-lang="csharp">Settlement khuzaitTown = Settlement.Find(&quot;town_A7&quot;);
+</code></pre>
+<h3 id="public-static-settlement-findfirst-func-settlement-bool-predicate"><code>public static Settlement FindFirst(Func&lt;Settlement, bool&gt; predicate)</code></h3>
+<p>Find the first settlement matching a condition.</p>
+<pre><code data-lang="csharp">Settlement firstPlayerSettlement = Settlement.FindFirst(s =&gt; s.OwnerClan == Clan.PlayerClan);
+</code></pre>
+<h3 id="public-void-addgarrisonparty"><code>public void AddGarrisonParty()</code></h3>
+<p>Spawn or reinforce the garrison for this settlement.</p>
+<pre><code data-lang="csharp">mySettlement.AddGarrisonParty();
+</code></pre>
+<h3 id="public-float-getvalue-hero-hero-null-bool-countalsoboundedsettlements-true"><code>public float GetValue(Hero hero = null, bool countAlsoBoundedSettlements = true)</code></h3>
+<p>Compute the settlement's value to a hero or faction.</p>
+<pre><code data-lang="csharp">float value = enemyTown.GetValue(Hero.MainHero);
+</code></pre>
+<h3 id="public-bool-issettlementbusy-object-asker-issettlementbusy-object-asker-int-limitingpriority"><code>public bool IsSettlementBusy(object asker)</code> / <code>IsSettlementBusy(object asker, int limitingPriority)</code></h3>
+<p>Check whether the settlement is currently busy with another task or scene.</p>
+<pre><code data-lang="csharp">bool busy = town.IsSettlementBusy(this);
+</code></pre>
+<h3 id="public-void-setnextsiegestate-public-void-resetsiegestate"><code>public void SetNextSiegeState()</code> / <code>public void ResetSiegeState()</code></h3>
+<p>Advance / reset the siege phase.</p>
+<pre><code data-lang="csharp">if (town.IsUnderSiege) town.SetNextSiegeState();
+</code></pre>
+<h3 id="public-void-setsiegestrategy-siegestrategy-strategy"><code>public void SetSiegeStrategy(SiegeStrategy strategy)</code></h3>
+<p>Set the siege strategy.</p>
+<pre><code data-lang="csharp">town.SetSiegeStrategy(DefaultSiegeStrategies.PrepareCrossbows);
+</code></pre>
+<h3 id="public-static-locatablesearchdata-settlement-startfindinglocatablesaroundposition-vec2-position-float-radius"><code>public static LocatableSearchData&lt;Settlement&gt; StartFindingLocatablesAroundPosition(Vec2 position, float radius)</code></h3>
+<p>Query settlements within a radius.</p>
+<pre><code data-lang="csharp">var data = Settlement.StartFindingLocatablesAroundPosition(center, 50f);
+Settlement nearby = Settlement.FindNextLocatable(ref data);
+</code></pre>
+<h3 id="public-void-onpartyinteraction-mobileparty-engagingparty"><code>public void OnPartyInteraction(MobileParty engagingParty)</code></h3>
+<p>Triggered when a party interacts with this settlement.</p>
+<pre><code data-lang="csharp">public override void OnPartyInteraction(MobileParty engagingParty)
+{
+    base.OnPartyInteraction(engagingParty);
+    if (engagingParty == MobileParty.MainParty)
+    {
+        InformationManager.DisplayMessage(new InformationMessage(&quot;Party arrived at settlement.&quot;));
+    }
+}
+</code></pre>
+<h2 id="typical-usage-examples">Typical Usage Examples</h2>
+<h3 id="example-1-boost-prosperity-in-all-player-owned-towns">Example 1: Boost prosperity in all player-owned towns</h3>
+<pre><code data-lang="csharp">foreach (Settlement s in Settlement.All)
+{
+    if (s.IsTown &amp;&amp; s.OwnerClan == Clan.PlayerClan)
+    {
+        s.Town.Prosperity += 1000f;
+    }
+}
+</code></pre>
+<h3 id="example-2-teleport-the-player-party-to-a-town-gate">Example 2: Teleport the player party to a town gate</h3>
+<pre><code data-lang="csharp">Settlement target = Settlement.Find(&quot;town_A7&quot;);
+MobileParty.MainParty.SetMoveGoToSettlement(target, NavigationType.Default, false);
+MobileParty.MainParty.Position2D = target.GatePosition;
+</code></pre>
+<h3 id="example-3-check-whether-a-village-belongs-to-an-enemy-kingdom">Example 3: Check whether a village belongs to an enemy kingdom</h3>
+<pre><code data-lang="csharp">bool IsEnemyVillage(Settlement settlement) =&gt;
+    settlement.IsVillage &amp;&amp; settlement.MapFaction.IsAtWarWith(Hero.MainHero.MapFaction);
+</code></pre>
+<h2 id="cross-version-notes">Cross-Version Notes</h2>
+<ul>
+<li>v1.3.0 / v1.3.15 / v1.4.5 <code>Settlement</code> core lookup and properties are stable.</li>
+<li>v1.4.5 adds more naval/port properties (<code>HasPort</code>, <code>PortPosition</code>).</li>
+<li>Economy/loyalty field names may vary slightly across versions.</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../../campaign-ext/Town/">Town</a> / <a href="../Village/">Village</a> / <a href="../../campaign-ext/CastleEncounter/">Castle</a> — concrete settlement components</li>
+<li><a href="../MobileParty/">MobileParty</a> — moving parties that enter settlements</li>
+<li><a href="../Clan/">Clan</a> — settlement owner</li>
+<li><a href="../../campaign-ext/SiegeEvent/">SiegeEvent</a> — siege logic</li>
+<li><a href="../../campaign-ext/CampaignBehaviorBase/">CampaignBehaviorBase</a> — listen for settlement events</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign/">campaign index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign/EncyclopediaModel/">&larr; EncyclopediaModel</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign/ItemTradeData/">ItemTradeData &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

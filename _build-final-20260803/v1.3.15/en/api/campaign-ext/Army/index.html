@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Army</title>
+  <meta name="description" content="Temporary kingdom army: several MobileParties share a goal under LeaderParty; cohesion drain or finished objective ends the army.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/Army/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/Army/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Army</span>
+    </nav>
+  
+  <h1>Army</h1>
+  <h1 id="army">Army</h1>
+<p><strong>Namespace:</strong> <code>TaleWorlds.CampaignSystem</code><br />
+<strong>Module:</strong> <code>TaleWorlds.CampaignSystem</code><br />
+<strong>Type:</strong> <code>public class Army</code><br />
+<strong>Base:</strong> (none)<br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Army.cs</code></p>
+<h2 id="one-line-job">One-line job</h2>
+<p>On the campaign map, <strong>temporarily</strong> group several <code>MobileParty</code> instances into one strategic force: a leader party, cohesion, morale, and an objective type (siege / raid / defend, …). When the goal ends or conditions fail, the army disbands.</p>
+<h2 id="mental-model">Mental Model</h2>
+<pre><code>Kingdom.CreateArmy / Gather
+         │
+         ▼
+      Army
+   LeaderParty (locomotive MobileParty)
+        │
+        ├── Attached parties (cars)
+        ├── Cohesion (fuel) ──runs out──► DisbandArmyAction
+        ├── Morale
+        └── ArmyType + target Settlement
+</code></pre>
+<p>Treat <code>Army</code> as a <strong>train lords assemble for a short campaign</strong>:</p>
+<table><thead><tr><th>Dimension</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Who creates</td><td>Usually <code>Kingdom.CreateArmy(...)</code>; gather flow can use <code>GatherArmyAction</code></td></tr>
+<tr><td>Who holds</td><td><code>Kingdom.Armies</code>; reverse ref <code>MobileParty.Army</code> on members</td></tr>
+<tr><td>Layer</td><td>Campaign-map strategy (not Mission formations)</td></tr>
+<tr><td>Lifetime</td><td><strong>Short</strong>: objective done, cohesion gone, leader dead/captured, no active war, … → <code>DisbandArmyAction</code> / <code>FinishArmyObjective</code></td></tr>
+<tr><td>vs Party</td><td>Cars remain independent <code>MobileParty</code>s; they can leave or fight alone</td></tr>
+</tbody></table>
+<h3 id="when-to-use">When to use</h3>
+<ul>
+<li>"Is this party in an army?": <code>party.Army</code>, <code>army.DoesLeaderPartyAndAttachedPartiesContain(party)</code>.</li>
+<li>Create / gather siege or defense armies: <code>Kingdom.CreateArmy</code> + <code>Gather</code>.</li>
+<li>Read army strength / headcount: <code>CalculateCurrentStrength</code>, <code>TotalManCount</code>, <code>TotalHealthyMembers</code>.</li>
+<li>Quest scripts that force disband or top up cohesion: <code>DisbandArmyAction</code> / <code>BoostCohesionWithInfluence</code>.</li>
+<li>Follow positions on the map: <code>GetRelativePositionForParty</code>.</li>
+</ul>
+<h3 id="when-not-to-use-do-not-write-fields-directly">When not to use / do not write fields directly</h3>
+<table><thead><tr><th>Don't</th><th>Why</th><th>Do instead</th></tr></thead><tbody>
+<tr><td><code>party.Army = null</code> as a clean leave</td><td>Lists, cohesion, AI goals desync</td><td>Official leave / disband Actions or <code>FinishArmyObjective</code> paths</td></tr>
+<tr><td>Build permanent TOE on Army as core save gameplay</td><td>Engine treats armies as temporary; load may disband them again</td><td>Persist intent in your Behavior data, re-gather when needed</td></tr>
+<tr><td>Force a siege army with no kingdom / no war</td><td>AI and <code>ApplyByNoActiveWar</code> tear it down</td><td><code>DeclareWarAction</code> first, then create army</td></tr>
+<tr><td><code>new Army(...)</code> without attaching to Kingdom</td><td>No tick, no UI, easy leak</td><td><code>Kingdom.CreateArmy</code></td></tr>
+<tr><td>Use Army instead of <code>MobileParty</code> for rosters</td><td>Troops live on the party</td><td><code>MemberRoster</code> / recruit Actions</td></tr>
+<tr><td>Confuse map army with battlefield <code>Formation</code></td><td>Different layers</td><td>Mission: <code>Team</code> / <code>Formation</code></td></tr>
+</tbody></table>
+<h2 id="dependencies">Dependencies</h2>
+<h3 id="upstream">Upstream</h3>
+<table><thead><tr><th>Type</th><th>Relation</th></tr></thead><tbody>
+<tr><td><a href="../../campaign/Kingdom"><code>Kingdom</code></a></td><td>Owning kingdom; <code>CreateArmy</code>; <code>Armies</code> list</td></tr>
+<tr><td><a href="../../campaign/MobileParty"><code>MobileParty</code></a></td><td><code>LeaderParty</code> and attached parties</td></tr>
+<tr><td><a href="../../campaign/Hero"><code>Hero</code></a></td><td><code>ArmyOwner</code> (army leader hero)</td></tr>
+<tr><td><a href="../../campaign/Settlement"><code>Settlement</code></a></td><td>Gather / siege / defend targets</td></tr>
+</tbody></table>
+<h3 id="downstream">Downstream</h3>
+<table><thead><tr><th>Type</th><th>Relation</th></tr></thead><tbody>
+<tr><td>Map AI</td><td>Attached follow, <code>ArmyPositionAdder</code></td></tr>
+<tr><td>Siege / <code>SiegeEvent</code></td><td><code>ArmyTypes.Besieger</code> and settlement interaction</td></tr>
+<tr><td>UI notices</td><td><code>GetNotificationText</code> / <code>GetLongTermBehaviorText</code></td></tr>
+</tbody></table>
+<h3 id="events-actions-models-save">Events / Actions / Models / Save</h3>
+<table><thead><tr><th>Channel</th><th>Relation</th></tr></thead><tbody>
+<tr><td>Actions</td><td><code>GatherArmyAction.Apply</code>, <code>DisbandArmyAction.ApplyBy*</code> (objective finished, cohesion, starvation, leader death, and many other reasons)</td></tr>
+<tr><td>Events</td><td>Create, disband, party join/leave related <code>CampaignEvents</code></td></tr>
+<tr><td>Models</td><td>Daily cohesion change, dispersion thresholds via campaign Models</td></tr>
+<tr><td>Save</td><td>Army state can save with the campaign; <strong>still a temporary object</strong>. After load, unmet conditions may disband again</td></tr>
+</tbody></table>
+<h2 id="risks-and-crash-boundaries">Risks and crash boundaries</h2>
+<table><thead><tr><th>Risk</th><th>Result</th><th>Mitigation</th></tr></thead><tbody>
+<tr><td>Disband while iterating <code>Armies</code></td><td>Collection modified exception</td><td><code>ToList()</code> then mutate</td></tr>
+<tr><td>Leader party hit by <code>DestroyPartyAction</code></td><td>Army collapses; use <code>ApplyByLeaderPartyRemoved</code> path</td><td>Disband army before destroy, or official destroy flow</td></tr>
+<tr><td>Extreme <code>Cohesion</code> writes without notify</td><td>Odd AI / UI</td><td><code>BoostCohesionWithInfluence</code> or intentional direct write with known side effects</td></tr>
+<tr><td>Create army at sea / without ships (1.4 navy)</td><td><code>ApplyByNoShip</code>-style disband</td><td>Check navigation capability</td></tr>
+<tr><td><code>Campaign.Current == null</code></td><td>NRE</td><td>Campaign context only</td></tr>
+<tr><td>Cache a disbanded <code>Army</code></td><td>Null <code>LeaderParty</code></td><td>Always re-fetch from <code>party.Army</code> / <code>kingdom.Armies</code></td></tr>
+</tbody></table>
+<h2 id="key-members-purpose-timing">Key members (purpose + timing)</h2>
+<h3 id="identity-and-composition">Identity and composition</h3>
+<table><thead><tr><th>Member</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>ctor <code>Army(Kingdom, MobileParty leaderParty, ArmyTypes)</code></td><td>Low-level construct</td><td>Prefer <code>Kingdom.CreateArmy</code></td></tr>
+<tr><td><code>LeaderParty</code></td><td>Locomotive party</td><td>Read-only use</td></tr>
+<tr><td><code>ArmyOwner</code></td><td>Leader hero</td><td>Display / rights</td></tr>
+<tr><td><code>Kingdom</code></td><td>Owning kingdom</td><td>Friend/foe filters</td></tr>
+<tr><td><code>ArmyType</code></td><td>Besieger / Raider / Defender / Patrolling, …</td><td>Objective logic</td></tr>
+<tr><td><code>Name</code> / <code>UpdateName</code></td><td>Display name</td><td>UI</td></tr>
+<tr><td><code>DoesLeaderPartyAndAttachedPartiesContain</code></td><td>Membership test</td><td>Quest conditions</td></tr>
+<tr><td><code>LeaderPartyAndAttachedPartiesCount</code></td><td>Size</td><td>AI</td></tr>
+<tr><td><code>IsReady</code> / <code>IsArmyInGatheringState</code> / <code>IsWaitingForArmyMembers</code></td><td>Gather phase</td><td>Script waits</td></tr>
+</tbody></table>
+<h3 id="morale-cohesion-strength">Morale, cohesion, strength</h3>
+<table><thead><tr><th>Member</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>Cohesion</code> / <code>DailyCohesionChange</code> / <code>CohesionThresholdForDispersion</code></td><td>Fuel and break-up line</td></tr>
+<tr><td><code>BoostCohesionWithInfluence</code></td><td>Spend influence to restore cohesion</td></tr>
+<tr><td><code>Morale</code> / <code>RecalculateArmyMorale</code></td><td>Morale</td></tr>
+<tr><td><code>TotalHealthyMembers</code> / <code>TotalManCount</code> / <code>TotalRegularCount</code></td><td>Headcount</td></tr>
+<tr><td><code>EstimatedStrength</code> / <code>CalculateCurrentStrength</code> / <code>GetCustomStrength</code></td><td>Strength estimates</td></tr>
+</tbody></table>
+<h3 id="lifecycle-methods">Lifecycle methods</h3>
+<table><thead><tr><th>Member</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>Gather(settlement, partiesToCall)</code></td><td>Gather toward target and pull parties</td></tr>
+<tr><td><code>AddPartyToMergedParties</code></td><td>Attach a party</td></tr>
+<tr><td><code>FinishArmyObjective</code></td><td>End objective (often leads to disband)</td></tr>
+<tr><td><code>GetRelativePositionForParty</code></td><td>Relative formation coordinates</td></tr>
+<tr><td><code>SetPositionAfterMapChange</code> / <code>CheckPositionsForMapChangeAndUpdateIfNeeded</code></td><td>Fix positions after map change</td></tr>
+</tbody></table>
+<pre><code data-lang="csharp">Army army = MobileParty.MainParty.Army;
+if (army != null &amp;&amp; army.Cohesion &lt; 30f)
+{
+    army.BoostCohesionWithInfluence(cohesionToGain: 15f, cost: 50);
+}
+</code></pre>
+<h2 id="real-examples">Real examples</h2>
+<h3 id="example-1-disband-all-player-kingdom-armies-safe-copy">Example 1: Disband all player-kingdom armies (safe copy)</h3>
+<pre><code data-lang="csharp">using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+
+public void DisbandPlayerKingdomArmies()
+{
+    Kingdom k = Clan.PlayerClan.Kingdom;
+    if (k == null)
+    {
+        return;
+    }
+    foreach (Army army in k.Armies.ToList())
+    {
+        DisbandArmyAction.ApplyByUnknownReason(army);
+    }
+}
+</code></pre>
+<h3 id="example-2-create-a-siege-army">Example 2: Create a siege army</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Settlements;
+
+public void CreateSiegeArmyOn(Settlement target)
+{
+    Kingdom kingdom = Clan.PlayerClan.Kingdom;
+    Hero leader = Hero.MainHero;
+    if (kingdom == null || target == null || !target.IsFortification)
+    {
+        return;
+    }
+    if (leader.PartyBelongedTo == null)
+    {
+        return;
+    }
+    if (target.MapFaction == null || !target.MapFaction.IsAtWarWith(kingdom))
+    {
+        return;
+    }
+    kingdom.CreateArmy(leader, target, Army.ArmyTypes.Besieger);
+}
+</code></pre>
+<h3 id="example-3-is-a-party-already-in-the-main-army">Example 3: Is a party already in the main army?</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem.Party;
+
+public bool IsInMainArmy(MobileParty party)
+{
+    Army army = MobileParty.MainParty.Army;
+    if (army == null || party == null)
+    {
+        return false;
+    }
+    return army.DoesLeaderPartyAndAttachedPartiesContain(party);
+}
+</code></pre>
+<h3 id="example-4-end-army-when-siege-objective-lifts-script">Example 4: End army when siege objective lifts (script)</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Settlements;
+
+public void FinishIfSiegeLifted(Army army, Settlement wasTarget)
+{
+    if (army == null || wasTarget == null)
+    {
+        return;
+    }
+    if (!wasTarget.IsUnderSiege)
+    {
+        // Prefer reason-tagged disband for logs and AI
+        DisbandArmyAction.ApplyByObjectiveFinished(army);
+        // or army.FinishArmyObjective();
+    }
+}
+</code></pre>
+<h2 id="cross-version-notes">Cross-version notes</h2>
+<ul>
+<li><strong>1.3.x:</strong> <code>Kingdom.CreateArmy</code>, <code>Gather</code>, and rich <code>DisbandArmyAction</code> reason variants are in place.</li>
+<li><strong>1.4.5:</strong> Naval / no-ship disband reasons are fuller; check <code>HasNavalNavigationCapability</code> / at-sea before creating.</li>
+<li>Do not assume an army lives forever. Store <strong>intent</strong> in a <code>CampaignBehavior</code>, call <code>CreateArmy</code> when you need the group again.</li>
+</ul>
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/campaign-ext/Army/./">campaign-ext section</a></li>
+<li><a href="../">API section</a></li>
+<li><a href="../../../architecture/sdk-overview">SDK overview</a></li>
+<li><a href="../../../guide/campaign-system">Campaign system guide</a></li>
+</ul>
+<h2 id="sibling-navigation">Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>Relation</th></tr></thead><tbody>
+<tr><td><a href="../../campaign/Kingdom">Kingdom</a></td><td>Creates and holds armies</td></tr>
+<tr><td><a href="../../campaign/MobileParty">MobileParty</a></td><td>Locomotive and cars</td></tr>
+<tr><td><a href="../../campaign/Settlement">Settlement</a></td><td>Gather / siege targets</td></tr>
+<tr><td><a href="../../campaign/Clan">Clan</a></td><td>Owner clans of member parties</td></tr>
+<tr><td><a href="../../campaign/Hero">Hero</a></td><td>ArmyOwner</td></tr>
+<tr><td><a href="../CampaignBehaviorBase">CampaignBehaviorBase</a></td><td>Listen for create / disband</td></tr>
+</tbody></table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../DisbandArmyAction">DisbandArmyAction</a> / <a href="../GatherArmyAction">GatherArmyAction</a></li>
+<li><a href="../SiegeEvent">SiegeEvent</a>: siege events</li>
+<li><a href="../../../architecture/crash-boundaries">Crash boundaries</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/ItemFlagVM/">&larr; ItemFlagVM</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/SiegeAftermathAction/">SiegeAftermathAction &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

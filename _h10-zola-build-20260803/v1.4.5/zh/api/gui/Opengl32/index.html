@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opengl32</title>
+  <meta name="description" content="Opengl32 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/gui/Opengl32/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/gui/Opengl32/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/gui/Opengl32/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/gui/Opengl32/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="active">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;">gui 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Opengl32</span>
+    </nav>
+  
+  <h1>Opengl32</h1>
+  <h1 id="opengl32">Opengl32</h1>
+<p><strong>Namespace:</strong> TaleWorlds.TwoDimension.Standalone.Native.OpenGL
+<strong>Module:</strong> TaleWorlds.TwoDimension
+<strong>Type:</strong> <code>internal static class Opengl32</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/Opengl32.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>Opengl32</code> 位于 <code>TaleWorlds.TwoDimension.Standalone.Native.OpenGL</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.TwoDimension.Standalone.Native.OpenGL</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="drawarrays">DrawArrays</h3>
+<p><code>public static extern void DrawArrays(BeginMode mode, int first, int count)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DrawArrays 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.DrawArrays(mode, 0, 0);
+</code></pre>
+<h3 id="getinteger">GetInteger</h3>
+<p><code>public static extern void GetInteger(Target target, int parameters)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 integer 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.GetInteger(target, 0);
+</code></pre>
+<h3 id="scissor">Scissor</h3>
+<p><code>public static extern void Scissor(int x, int y, int width, int height)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Scissor 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Scissor(0, 0, 0, 0);
+</code></pre>
+<h3 id="getstring">GetString</h3>
+<p><code>public static string GetString(uint name)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 string 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.GetString(0);
+</code></pre>
+<h3 id="pixelstore">PixelStore</h3>
+<p><code>public static extern void PixelStore(Target pname, int param)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PixelStore 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.PixelStore(pname, 0);
+</code></pre>
+<h3 id="pixelzoom">PixelZoom</h3>
+<p><code>public static extern void PixelZoom(float xfactor, float yfactor)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PixelZoom 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.PixelZoom(0, 0);
+</code></pre>
+<h3 id="readpixels">ReadPixels</h3>
+<p><code>public static extern void ReadPixels(int x, int y, int width, int height, PixelFormat format, DataType type, byte pixels)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前实例读取pixels相关数据。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.ReadPixels(0, 0, 0, 0, format, type, 0);
+</code></pre>
+<h3 id="copypixels">CopyPixels</h3>
+<p><code>public static extern void CopyPixels(int x, int y, int width, int height, PixelFormat type)</code></p>
+<p><strong>用途 / Purpose:</strong> 把当前对象的pixels状态复制到目标对象。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.CopyPixels(0, 0, 0, 0, type);
+</code></pre>
+<h3 id="deletetextures">DeleteTextures</h3>
+<p><code>public static extern void DeleteTextures(int n, int textures)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DeleteTextures 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.DeleteTextures(0, 0);
+</code></pre>
+<h3 id="blendfunc">BlendFunc</h3>
+<p><code>public static extern void BlendFunc(BlendingSourceFactor sfactor, BlendingDestinationFactor dfactor)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BlendFunc 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.BlendFunc(sfactor, dfactor);
+</code></pre>
+<h3 id="viewport">Viewport</h3>
+<p><code>public static extern void Viewport(int x, int y, int width, int height)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Viewport 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Viewport(0, 0, 0, 0);
+</code></pre>
+<h3 id="multmatrix">MultMatrix</h3>
+<p><code>public static extern void MultMatrix(float matrix)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MultMatrix 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.MultMatrix(0);
+</code></pre>
+<h3 id="loadmatrix">LoadMatrix</h3>
+<p><code>public static extern void LoadMatrix(float matrix)</code></p>
+<p><strong>用途 / Purpose:</strong> 从持久化存储或流中读取 matrix。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.LoadMatrix(0);
+</code></pre>
+<h3 id="loadmatrix-1">LoadMatrix</h3>
+<p><code>public static extern void LoadMatrix(ref Matrix4x4 matrix)</code></p>
+<p><strong>用途 / Purpose:</strong> 从持久化存储或流中读取 matrix。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.LoadMatrix(matrix);
+</code></pre>
+<h3 id="colormaterial">ColorMaterial</h3>
+<p><code>public static extern void ColorMaterial(uint face, uint mode)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ColorMaterial 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.ColorMaterial(0, 0);
+</code></pre>
+<h3 id="texcoordpointer">TexCoordPointer</h3>
+<p><code>public static extern void TexCoordPointer(int size, DataType type, int stride, float vertexData)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TexCoordPointer 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.TexCoordPointer(0, type, 0, 0);
+</code></pre>
+<h3 id="vertexpointer">VertexPointer</h3>
+<p><code>public static extern void VertexPointer(int size, DataType type, int stride, float vertexData)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 VertexPointer 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.VertexPointer(0, type, 0, 0);
+</code></pre>
+<h3 id="normalpointer">NormalPointer</h3>
+<p><code>public static extern void NormalPointer(DataType type, int stride, float normalData)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 NormalPointer 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.NormalPointer(type, 0, 0);
+</code></pre>
+<h3 id="drawelements">DrawElements</h3>
+<p><code>public static extern void DrawElements(BeginMode mode, int count, DataType type, uint indices)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DrawElements 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.DrawElements(mode, 0, type, 0);
+</code></pre>
+<h3 id="disableclientstate">DisableClientState</h3>
+<p><code>public static extern void DisableClientState(uint array)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DisableClientState 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.DisableClientState(0);
+</code></pre>
+<h3 id="enableclientstate">EnableClientState</h3>
+<p><code>public static extern void EnableClientState(uint array)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EnableClientState 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.EnableClientState(0);
+</code></pre>
+<h3 id="translate">Translate</h3>
+<p><code>public static extern void Translate(float x, float y, float z)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Translate 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Translate(0, 0, 0);
+</code></pre>
+<h3 id="lightfv">Lightfv</h3>
+<p><code>public static extern void Lightfv(uint light, uint pname, float parameters)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Lightfv 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Lightfv(0, 0, 0);
+</code></pre>
+<h3 id="hint">Hint</h3>
+<p><code>public static extern void Hint(uint target, uint mode)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Hint 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Hint(0, 0);
+</code></pre>
+<h3 id="matrixmode">MatrixMode</h3>
+<p><code>public static extern void MatrixMode(MatrixMode mode)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MatrixMode 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.MatrixMode(mode);
+</code></pre>
+<h3 id="depthfunc">DepthFunc</h3>
+<p><code>public static extern void DepthFunc(uint mode)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DepthFunc 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.DepthFunc(0);
+</code></pre>
+<h3 id="shademodel">ShadeModel</h3>
+<p><code>public static extern void ShadeModel(ShadingModel func)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ShadeModel 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.ShadeModel(func);
+</code></pre>
+<h3 id="cleardepth">ClearDepth</h3>
+<p><code>public static extern void ClearDepth(double depth)</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的depth。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.ClearDepth(0);
+</code></pre>
+<h3 id="popmatrix">PopMatrix</h3>
+<p><code>public static extern void PopMatrix()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PopMatrix 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.PopMatrix();
+</code></pre>
+<h3 id="pushmatrix">PushMatrix</h3>
+<p><code>public static extern void PushMatrix()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PushMatrix 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.PushMatrix();
+</code></pre>
+<h3 id="rotate">Rotate</h3>
+<p><code>public static extern void Rotate(double angle, double x, double y, double z)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Rotate 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Rotate(0, 0, 0, 0);
+</code></pre>
+<h3 id="rotate-1">Rotate</h3>
+<p><code>public static extern void Rotate(float angle, float x, float y, float z)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Rotate 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Rotate(0, 0, 0, 0);
+</code></pre>
+<h3 id="scale">Scale</h3>
+<p><code>public static extern void Scale(double x, double y, double z)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Scale 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Scale(0, 0, 0);
+</code></pre>
+<h3 id="scale-1">Scale</h3>
+<p><code>public static extern void Scale(float x, float y, float z)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Scale 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Scale(0, 0, 0);
+</code></pre>
+<h3 id="loadidentity">LoadIdentity</h3>
+<p><code>public static extern void LoadIdentity()</code></p>
+<p><strong>用途 / Purpose:</strong> 从持久化存储或流中读取 identity。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.LoadIdentity();
+</code></pre>
+<h3 id="clear">Clear</h3>
+<p><code>public static extern void Clear(AttribueMask mask)</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的内容。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Clear(mask);
+</code></pre>
+<h3 id="begin">Begin</h3>
+<p><code>public static extern void Begin(BeginMode mode)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Begin 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Begin(mode);
+</code></pre>
+<h3 id="end">End</h3>
+<p><code>public static extern void End()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 End 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.End();
+</code></pre>
+<h3 id="vertex">Vertex</h3>
+<p><code>public static extern void Vertex(int x, int y)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Vertex 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Vertex(0, 0);
+</code></pre>
+<h3 id="vertex-1">Vertex</h3>
+<p><code>public static extern void Vertex(float x, float y, float z)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Vertex 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Vertex(0, 0, 0);
+</code></pre>
+<h3 id="color">Color</h3>
+<p><code>public static extern void Color(float red, float green, float blue)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Color 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Color(0, 0, 0);
+</code></pre>
+<h3 id="color-1">Color</h3>
+<p><code>public static extern void Color(float red, float green, float blue, float alpha)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Color 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Color(0, 0, 0, 0);
+</code></pre>
+<h3 id="clearcolor">ClearColor</h3>
+<p><code>public static extern void ClearColor(float red, float green, float blue, float alpha)</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的color。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.ClearColor(0, 0, 0, 0);
+</code></pre>
+<h3 id="teximage2d">TexImage2D</h3>
+<p><code>public static extern void TexImage2D(Target target, int level, uint internalformat, int width, int height, int border, PixelFormat format, DataType type, IntPtr pixels)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TexImage2D 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.TexImage2D(target, 0, 0, 0, 0, 0, format, type, pixels);
+</code></pre>
+<h3 id="teximage2d-1">TexImage2D</h3>
+<p><code>public static extern void TexImage2D(Target target, int level, uint internalformat, int width, int height, int border, PixelFormat format, DataType type, byte pixels)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TexImage2D 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.TexImage2D(target, 0, 0, 0, 0, 0, format, type, 0);
+</code></pre>
+<h3 id="gentextures">GenTextures</h3>
+<p><code>public static extern void GenTextures(int size, ref int textures)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 GenTextures 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.GenTextures(0, textures);
+</code></pre>
+<h3 id="bindtexture">BindTexture</h3>
+<p><code>public static extern void BindTexture(Target target, int texture)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BindTexture 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.BindTexture(target, 0);
+</code></pre>
+<h3 id="enable">Enable</h3>
+<p><code>public static extern void Enable(Target cap)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Enable 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Enable(cap);
+</code></pre>
+<h3 id="disable">Disable</h3>
+<p><code>public static extern void Disable(Target cap)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Disable 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Disable(cap);
+</code></pre>
+<h3 id="texcoord">TexCoord</h3>
+<p><code>public static extern void TexCoord(float s, float t)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TexCoord 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.TexCoord(0, 0);
+</code></pre>
+<h3 id="texparameteri">TexParameteri</h3>
+<p><code>public static extern void TexParameteri(Target target, TextureParameterName pname, int param)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TexParameteri 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.TexParameteri(target, pname, 0);
+</code></pre>
+<h3 id="geterror">GetError</h3>
+<p><code>public static extern uint GetError()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 error 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.GetError();
+</code></pre>
+<h3 id="flush">Flush</h3>
+<p><code>public static extern void Flush()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Flush 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Flush();
+</code></pre>
+<h3 id="finish">Finish</h3>
+<p><code>public static extern void Finish()</code></p>
+<p><strong>用途 / Purpose:</strong> 结束当前对象的流程并执行必要的收尾工作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.Finish();
+</code></pre>
+<h3 id="wglcreatecontext">wglCreateContext</h3>
+<p><code>public static extern IntPtr wglCreateContext(IntPtr hdc)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 wglCreateContext 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.wglCreateContext(hdc);
+</code></pre>
+<h3 id="wglmakecurrent">wglMakeCurrent</h3>
+<p><code>public static extern bool wglMakeCurrent(IntPtr hdc, IntPtr hglrc)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 wglMakeCurrent 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.wglMakeCurrent(hdc, hglrc);
+</code></pre>
+<h3 id="wglgetprocaddress">wglGetProcAddress</h3>
+<p><code>public static extern IntPtr wglGetProcAddress(string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 wglGetProcAddress 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.wglGetProcAddress(&quot;example&quot;);
+</code></pre>
+<h3 id="wgldeletecontext">wglDeleteContext</h3>
+<p><code>public static extern bool wglDeleteContext(IntPtr hglrc)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 wglDeleteContext 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.wglDeleteContext(hglrc);
+</code></pre>
+<h3 id="wglgetcurrentcontext">wglGetCurrentContext</h3>
+<p><code>public static extern IntPtr wglGetCurrentContext()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 wglGetCurrentContext 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Opengl32.wglGetCurrentContext();
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">Opengl32.DrawArrays(mode, 0, 0);
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/zh/api/gui/">gui 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/zh/api/gui/LayeredWindowController/">&larr; LayeredWindowController</a>
+          
+          
+            <a rel="next" href="/v1.4.5/zh/api/gui/WidgetContainer/">WidgetContainer &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

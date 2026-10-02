@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MBObjectBase</title>
+  <meta name="description" content="Root type for every registerable game object in ObjectSystem: StringId, MBGUID, registration lifecycle, and save-time reference identity.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/MBObjectBase/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/MBObjectBase/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign-ext/MBObjectBase/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign-ext/MBObjectBase/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MBObjectBase</span>
+    </nav>
+  
+  <h1>MBObjectBase</h1>
+  <h1 id="mbobjectbase">MBObjectBase</h1>
+<p><strong>Namespace:</strong> TaleWorlds.ObjectSystem<br />
+<strong>Module:</strong> TaleWorlds.ObjectSystem<br />
+<strong>Type:</strong> <code>public class MBObjectBase</code><br />
+<strong>Base:</strong> —<br />
+<strong>File:</strong> <code>TaleWorlds.ObjectSystem/MBObjectBase.cs</code><br />
+<strong>Authority source:</strong> 1.4.5 (semantics match 1.3.15)</p>
+<h2 id="overview">Overview</h2>
+<p><code>MBObjectBase</code> is the root type of Bannerlord's <strong>ObjectSystem</strong>. Almost everything that lands in the <code>MBObjectManager</code> dictionary, can be deserialized from XML, and is rebuilt in saves as an <strong>object reference</strong> (not a bare string) inherits it:</p>
+<ul>
+<li>Campaign entities: <code>Hero</code>, <code>Clan</code>, <code>Kingdom</code>, <code>Settlement</code>, <code>MobileParty</code>, <code>ItemObject</code>, <code>CharacterObject</code>, …</li>
+<li>Core definitions: <code>SkillObject</code>, <code>CultureObject</code>, <code>Monster</code>, <code>CraftingTemplate</code>, …</li>
+<li>Mod custom types: if you register them in <code>RegisterSubModuleTypes</code>, they join the same system</li>
+</ul>
+<p>As a modder you rarely <code>new MBObjectBase()</code> yourself, but you <strong>will</strong> look objects up by <code>StringId</code>, hold <code>Hero</code> / <code>ItemObject</code> references, and store those references in <code>SaveableField</code>s every day. This class is the key to why saves carry object identity instead of raw id strings.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of <code>MBObjectBase</code> as a <strong>registry entry with two keys</strong>:</p>
+<table><thead><tr><th>Key</th><th>Type</th><th>Role</th></tr></thead><tbody>
+<tr><td><code>StringId</code></td><td><code>string</code></td><td>Human/XML/<code>GetObject&lt;T&gt;("iron_sword_t2")</code> stable name</td></tr>
+<tr><td><code>Id</code></td><td><code>MBGUID</code></td><td>Runtime-unique GUID; <code>GetHashCode()</code> is based on it</td></tr>
+</tbody></table>
+<p>Lifecycle (engine-driven; mods mostly observe):</p>
+<ol>
+<li><strong>Construct</strong> — <code>new T()</code> or XML deserialization creates the instance; it is <strong>not</strong> in the manager yet.</li>
+<li><strong>Register</strong> — after <code>MBObjectManager</code> records it, <code>OnRegistered()</code> runs → <code>IsRegistered = true</code> → virtual <code>AfterRegister()</code>.</li>
+<li><strong>Initialize</strong> — <code>Initialize()</code> / <code>Deserialize</code> set <code>IsInitialized</code>; <code>AfterInitialized()</code> sets <code>IsReady</code> when already registered.</li>
+<li><strong>Save load</strong> — <code>[LoadInitializationCallback] BeforeLoad</code> → if <code>IsRegistered</code>, <code>TryRegisterObjectWithoutInitialization</code> re-attaches to the manager, then <code>PreAfterLoad</code> / <code>AfterLoad</code>.</li>
+</ol>
+<p><strong>When to use</strong></p>
+<ul>
+<li>Game data that needs stable identity (items, heroes, settlements, skills, …)</li>
+<li>Saving <strong>references to registered objects</strong> in <code>SaveableField</code> (the engine resolves by object identity; you don't hand-rebuild from strings)</li>
+</ul>
+<p><strong>When not to use</strong></p>
+<ul>
+<li>Temporary UI state, per-frame caches → plain class / ViewModel, keep them out of ObjectSystem</li>
+<li>Cross-session data that is <strong>not</strong> an ObjectSystem object → <code>CampaignBehaviorBase.SyncData</code> with primitives or your own Saveable types</li>
+<li>Don't assume "has a <code>StringId</code>" means "registered"; unregistered instances in saves or lookups corrupt saves / return null</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<table><thead><tr><th>Direction</th><th>Type / system</th><th>Relationship</th></tr></thead><tbody>
+<tr><td>Upstream</td><td><a href="../MBObjectManager">MBObjectManager</a></td><td>Registry; <code>Instance.GetObject&lt;T&gt;(stringId)</code>, type registration</td></tr>
+<tr><td>Upstream</td><td><a href="../../core-extra/Game">Game</a></td><td>Session holds <code>ObjectManager</code>; loads base XML</td></tr>
+<tr><td>Upstream</td><td><a href="../../core/MBSubModuleBase">MBSubModuleBase</a></td><td><code>RegisterSubModuleTypes</code> declares custom <code>MBObjectBase</code> derivatives</td></tr>
+<tr><td>Downstream</td><td><a href="../../campaign/Hero">Hero</a>, ItemObject, Settlement, …</td><td>Shared base of all business objects</td></tr>
+<tr><td>Save</td><td><a href="../../save-system/SaveManager">SaveManager</a></td><td><code>StringId</code> / <code>Id</code> / <code>IsRegistered</code> are <code>[SaveableProperty]</code>; reference fields collected via the object graph</td></tr>
+<tr><td>Load hooks</td><td><code>LoadInitializationCallback</code></td><td><code>BeforeLoad</code> rebuilds registration after deserialize, before business AfterLoad</td></tr>
+</tbody></table>
+<h2 id="risks-and-crash-boundaries">Risks and crash boundaries</h2>
+<table><thead><tr><th>Risk</th><th>Consequence</th><th>Mitigation</th></tr></thead><tbody>
+<tr><td>Use an unregistered instance as a real object</td><td><code>GetObject</code> misses it; save refs dangle</td><td>Only use manager-returned instances, or official Creator / XML load paths</td></tr>
+<tr><td>Change an existing object's <code>StringId</code> without updating callers</td><td>Lookup failures, bad saves, duplicate ids</td><td>Treat StringId as a <strong>primary key</strong>; almost never mutate at runtime</td></tr>
+<tr><td>Touch the business graph before <code>OnBeforeLoad</code> / AfterLoad finish</td><td>Other objects not ready yet</td><td>Put logic in <code>AfterLoad</code> overrides or Campaign events; don't poke <code>Campaign.Current</code> in constructors</td></tr>
+<tr><td>Custom type never <code>RegisterType</code>d</td><td>XML / save load fails</td><td>Register in <code>RegisterSubModuleTypes</code>; keep type ids unique vs vanilla</td></tr>
+<tr><td>Stuff an unregistered temp object into a <code>SaveableField</code></td><td>Serialize/deserialize crash or null</td><td>Only save <strong>registered</strong> <code>MBObjectBase</code> refs, or save <code>StringId</code> and resolve later</td></tr>
+<tr><td>Confuse <code>Id</code> (GUID) with <code>StringId</code></td><td>Wrong API usage</td><td>Display/config → StringId; hash/internal → Id</td></tr>
+</tbody></table>
+<h2 id="key-members">Key members</h2>
+<h3 id="identity">Identity</h3>
+<table><thead><tr><th>Member</th><th>Purpose and timing</th></tr></thead><tbody>
+<tr><td><code>string StringId { get; set; }</code></td><td>Stable string id. XML <code>id=</code>, config tables, <code>GetObject&lt;T&gt;(id)</code> all use it. <code>[SaveableProperty(1)]</code>.</td></tr>
+<tr><td><code>MBGUID Id { get; set; }</code></td><td>Runtime GUID. <code>GetHashCode()</code> is based on it. <code>[SaveableProperty(2)]</code>.</td></tr>
+<tr><td><code>bool IsInitialized</code></td><td>Whether <code>Initialize</code>/<code>Deserialize</code> has run. <code>[CachedData]</code>, not a business primary key.</td></tr>
+<tr><td><code>bool IsReady</code></td><td>True after registration and <code>AfterInitialized</code>.</td></tr>
+<tr><td><code>bool IsRegistered</code></td><td>Whether it sits in ObjectManager; persisted in saves. Internal set.</td></tr>
+</tbody></table>
+<h3 id="lifecycle-engine-called-subclasses-may-override">Lifecycle (engine-called; subclasses may override)</h3>
+<table><thead><tr><th>Member</th><th>Purpose and timing</th></tr></thead><tbody>
+<tr><td><code>virtual void Initialize()</code></td><td>Marks <code>IsInitialized = true</code>. XML path calls this from <code>Deserialize</code>.</td></tr>
+<tr><td><code>virtual void Deserialize(MBObjectManager, XmlNode)</code></td><td>Reads <code>id</code> from XML and <code>Initialize</code>s. Override on custom objects for extra attributes.</td></tr>
+<tr><td><code>virtual void AfterRegister()</code></td><td>After <code>OnRegistered</code>; light "just entered the table" hooks.</td></tr>
+<tr><td><code>void AfterInitialized()</code></td><td>If registered, sets <code>IsReady = true</code>.</td></tr>
+<tr><td><code>void OnRegistered()</code> / <code>OnUnregistered()</code></td><td>Manager sets <code>IsRegistered</code> on register/unregister.</td></tr>
+<tr><td><code>protected virtual void OnBeforeLoad()</code></td><td>After load: re-attach registered objects to Manager.</td></tr>
+<tr><td><code>protected virtual void PreAfterLoad()</code> / <code>AfterLoad()</code></td><td>Two-phase business repair after load; engine calls via <code>*Internal</code>.</td></tr>
+<tr><td><code>virtual TextObject GetName()</code></td><td>Default <code>TextObject</code> content is <code>StringId</code>; display names usually overridden by subclasses.</td></tr>
+</tbody></table>
+<h3 id="construction">Construction</h3>
+<pre><code data-lang="csharp">public MBObjectBase()
+public MBObjectBase(string stringId)   // sets StringId only; still needs registration
+public MBObjectBase(MBObjectBase other) // copies StringId
+</code></pre>
+<h2 id="real-examples">Real examples</h2>
+<h3 id="example-1-resolve-a-registered-object-by-stringid">Example 1: Resolve a registered object by StringId</h3>
+<pre><code data-lang="csharp">using TaleWorlds.Core;
+using TaleWorlds.ObjectSystem;
+
+// In-session: Game.Current.ObjectManager and MBObjectManager.Instance share the same registry
+ItemObject ironSword = MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(&quot;iron_sword_t2&quot;);
+if (ironSword == null)
+{
+    // Wrong id, module not loaded, or type not registered
+    return;
+}
+
+// StringId is the primary key; Id is the runtime GUID
+string key = ironSword.StringId; // &quot;iron_sword_t2&quot;
+</code></pre>
+<h3 id="example-2-persist-an-object-reference-in-a-campaignbehavior-preferred">Example 2: Persist an object reference in a CampaignBehavior (preferred)</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.SaveSystem;
+
+public class MyTrackedHeroBehavior : CampaignBehaviorBase
+{
+    // Saves a Hero reference; the engine resolves by MBObjectBase identity.
+    // Don&#39;t replace this with a bare string and hand-rebuild.
+    [SaveableField(1)]
+    private Hero _patron;
+
+    public override void RegisterEvents()
+    {
+        CampaignEvents.OnSessionLaunchedEvent.AddNonSerializedListener(this, OnSessionLaunched);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        dataStore.SyncData(&quot;patron&quot;, ref _patron);
+    }
+
+    private void OnSessionLaunched(CampaignGameStarter starter)
+    {
+        if (_patron == null)
+            _patron = Hero.MainHero; // already-registered campaign object
+    }
+}
+</code></pre>
+<h3 id="example-3-register-a-custom-type-submodule">Example 3: Register a custom type (SubModule)</h3>
+<pre><code data-lang="csharp">using TaleWorlds.MountAndBlade;
+using TaleWorlds.ObjectSystem;
+
+public class MyModSubModule : MBSubModuleBase
+{
+    protected override void RegisterSubModuleTypes()
+    {
+        base.RegisterSubModuleTypes();
+        // typeId must be globally unique; collisions fail registration
+        MBObjectManager.Instance.RegisterType&lt;MyCustomObject&gt;(
+            &quot;MyCustomObject&quot;, &quot;MyCustomObjects&quot;, 9100u, true, false);
+    }
+}
+
+// Custom object: override Deserialize at least, to read XML fields
+public class MyCustomObject : MBObjectBase
+{
+    public int Power { get; private set; }
+
+    public override void Deserialize(MBObjectManager objectManager, System.Xml.XmlNode node)
+    {
+        base.Deserialize(objectManager, node); // sets StringId + Initialize
+        if (node.Attributes[&quot;power&quot;] != null)
+            Power = int.Parse(node.Attributes[&quot;power&quot;].Value);
+    }
+}
+</code></pre>
+<h2 id="cross-version-notes">Cross-version notes</h2>
+<ul>
+<li><strong>1.3.0 / 1.3.15 / 1.4.5:</strong> <code>StringId</code> + <code>Id</code> + register/load-hook model is stable.</li>
+<li><strong>1.4.5:</strong> source is decompiled; <code>SaveableProperty</code> numbers and <code>AutoGenerated*</code> collectors follow the same idea as 1.3.15. When modding, stick to "register, then reference"; don't depend on private field layout.</li>
+</ul>
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/campaign-ext/MBObjectBase/./">campaign-ext index</a> — module for this page</li>
+<li><a href="../../../architecture/sdk-overview">SDK overview</a> — layering and ObjectSystem placement</li>
+<li><a href="../../../architecture/save-system">Save system</a> — how references enter saves</li>
+</ul>
+<h2 id="sibling-navigation">↔ Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>Relationship</th></tr></thead><tbody>
+<tr><td><a href="../MBObjectManager">MBObjectManager</a></td><td>Register and lookup entry point</td></tr>
+<tr><td><a href="../CampaignBehaviorBase">CampaignBehaviorBase</a></td><td>Common host; <code>SyncData</code> saves object refs</td></tr>
+<tr><td><a href="../../campaign/Hero">Hero</a></td><td>Typical <code>MBObjectBase</code> derivative (campaign character)</td></tr>
+<tr><td><a href="../../campaign/Campaign">Campaign</a></td><td>Campaign root; owns large object graphs</td></tr>
+<tr><td><a href="../../core-extra/Game">Game</a></td><td>Session and <code>ObjectManager</code></td></tr>
+<tr><td><a href="../../save-system/SaveManager">SaveManager</a></td><td>Serialization coordinator</td></tr>
+<tr><td><a href="../../core/MBSubModuleBase">MBSubModuleBase</a></td><td>When to register custom types</td></tr>
+</tbody></table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../../../architecture/module-system">Module system</a> — SubModule lifecycle and registration order</li>
+<li><a href="../../../architecture/doc-contract">Doc contract</a> — handwritten deep-page standard</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/CheckClanNameValidMessage/">&larr; CheckClanNameValidMessage</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/VassalRewardsModel/">VassalRewardsModel &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

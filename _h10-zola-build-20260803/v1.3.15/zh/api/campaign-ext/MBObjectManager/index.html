@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MBObjectManager</title>
+  <meta name="description" content="Bannerlord 所有 MBObjectBase 派生类型的全局注册中心：负责类型的登记、对象的创建&#x2F;查找&#x2F;注销，以及 XML 定义与存档的加载顺序。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/MBObjectManager/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/MBObjectManager/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign-ext/MBObjectManager/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign-ext/MBObjectManager/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MBObjectManager</span>
+    </nav>
+  
+  <h1>MBObjectManager</h1>
+  <h1 id="mbobjectmanager">MBObjectManager</h1>
+<p><strong>Namespace:</strong> TaleWorlds.ObjectSystem<br />
+<strong>Module:</strong> TaleWorlds.ObjectSystem<br />
+<strong>Type:</strong> <code>public sealed class MBObjectManager</code><br />
+<strong>Base:</strong> 无（直接继承 <code>System.Object</code>）<br />
+<strong>File:</strong> <code>TaleWorlds.ObjectSystem/MBObjectManager.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>MBObjectManager</code> 是 Bannerlord 底层（Foundation 层）的<strong>全局对象注册中心</strong>。游戏里几乎所有带 <code>StringId</code> 的数据对象——<code>Hero</code>、<code>ItemObject</code>、<code>Settlement</code>、<code>CharacterObject</code>、<code>Clan</code>、<code>Kingdom</code>、<code>MobileParty</code> 等——都直接或间接派生自 <code>MBObjectBase</code>，而它们的实例全部集中登记在这个管理器里，按其具体类型分桶存放（<code>ObjectTypeRecord&lt;T&gt;</code>）。</p>
+<p>它做四件事：</p>
+<ul>
+<li><strong>类型登记</strong>：在游戏初始化阶段，通过 <code>RegisterType&lt;T&gt;</code> 把每种 <code>MBObjectBase</code> 派生类型登记进来，并分配一个 <code>uint</code> 类型的 <code>typeId</code>。这个 <code>typeId</code> 会编码进每个对象的 <code>MBGUID</code>，是存档里横向引用对象的凭据。</li>
+<li><strong>对象创建与注册</strong>：<code>CreateObject&lt;T&gt;</code> 与 <code>RegisterObject&lt;T&gt;</code> 负责把一个新对象纳入管理（分配 <code>MBGUID</code>、<code>OnRegistered</code> 回调、<code>AfterCreateObject</code> 通知处理器）。</li>
+<li><strong>对象查找</strong>：按 <code>StringId</code>（<code>GetObject&lt;T&gt;(string)</code>）、按 <code>MBGUID</code>（<code>GetObject(MBGUID)</code>）、按谓词过滤（<code>GetObject&lt;T&gt;(Func)</code>、<code>GetObjects&lt;T&gt;</code>）、或枚举全部（<code>GetObjectTypeList&lt;T&gt;</code>）。</li>
+<li><strong>加载与清理</strong>：<code>LoadXML</code>/<code>LoadXml</code> 从 XML 定义里反序列化对象；<code>PreAfterLoad</code>/<code>AfterLoad</code>/<code>ReInitialize</code> 在存档读盘后让对象补全交叉引用；<code>ClearAllObjects</code>/<code>RemoveTemporaryTypes</code>/<code>UnregisterObject</code> 负责注销。</li>
+</ul>
+<p>它是<strong>单例</strong>：通过静态属性 <code>MBObjectManager.Instance</code> 访问，由 <code>Game.CreateGame</code> / <code>Game.LoadSaveGame</code> 在启动时调用 <code>MBObjectManager.Init()</code> 创建。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>MBObjectManager</code> 当成一张**「类型 → 对象字典」的全局索引表**来理解：</p>
+<ul>
+<li>它的生命周期与一次游戏会话（新游戏或读档）绑定。<code>Init()</code> 创建它，<code>Destroy()</code> 清空并置 <code>Instance</code> 为 <code>null</code>。不要在会话中途手动 <code>new</code>——构造器是 <code>private</code>。</li>
+<li><strong>对象必须在登记了类型之后才能创建/查找</strong>。<code>RegisterType&lt;T&gt;</code> 发生在 <code>Game</code> 的 <code>BeforeRegisterTypes</code> / <code>OnRegisterTypes</code> 阶段；如果某个 <code>MBObjectBase</code> 派生类型没有登记就调用 <code>GetObject</code> / <code>CreateObject</code>，会触发 <code>Debug.FailedAssert</code> 并返回 <code>null</code>（发布版不弹断言，直接返回 <code>null</code>），下游很容易 <code>NullReferenceException</code>。</li>
+<li><strong>跨存档读盘后，你手里持有的任何原始 C# 引用都会失效。</strong> 读档时整个对象图会被重新反序列化（新实例、新 <code>MBGUID</code> 映射），旧引用指向的是已被丢弃的对象。正确做法是只保存 <code>StringId</code> 或 <code>MBGUID</code>，需要时用 <code>MBObjectManager.Instance.GetObject&lt;T&gt;(stringId)</code> 重新查。</li>
+<li><strong><code>typeId</code>（<code>RegisterType</code> 的第三个参数）必须在跨版本间保持稳定。</strong> 它写进了存档里每个对象的 <code>MBGUID</code>。一旦某个模块的 <code>typeId</code> 与其它模块冲突，或你在旧存档之后新增/调整了类型编号，读档时的类型索引就对不上，导致坏档或对象查不到。</li>
+<li>不要把它当持久存储用：除了 <code>isTemporary: true</code> 的类型（如 <code>Hero</code>、<code>MobileParty</code>、<code>Clan</code>、<code>Kingdom</code>）会在 <code>RemoveTemporaryTypes</code> 时整体移除，<code>GetObjectTypeList&lt;T&gt;()</code> 返回的是实时的 <code>MBReadOnlyList&lt;T&gt;</code> 视图，遍历中途注销对象要小心。</li>
+</ul>
+<h2 id="ru-he-huo-qu-mbobjectmanager">如何获取 MBObjectManager</h2>
+<p>它是单例，通常直接取 <code>Instance</code>：</p>
+<pre><code data-lang="csharp">// 全局单例；会话存在期间一定非 null
+MBObjectManager objectManager = MBObjectManager.Instance;
+
+// 启动时由引擎创建（来自 TaleWorlds.Core.Game）：
+//   MBObjectManager objectManager = MBObjectManager.Init();
+//   RegisterTypes(gameType, objectManager, gameManager);
+// 类型登记正是在这里通过 objectManager.RegisterType&lt;T&gt;(...) 完成。
+
+// 在 Campaign 代码里也能直接拿到：
+MBObjectManager manager = Campaign.Current.ObjectManager; // 与 MBObjectManager.Instance 是同一实例
+</code></pre>
+<blockquote>
+<p>不要自己调用 <code>new MBObjectManager()</code>——构造器为 <code>private</code>，且 <code>Instance</code> 的 setter 也是 <code>private</code>，只有 <code>Init()</code> 能写入。</p>
+</blockquote>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>属性</th><th>类型</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>Instance</code></td><td><code>MBObjectManager</code>（<code>static</code>）</td><td>全局单例。会话未初始化（未调用 <code>Init()</code> 或已 <code>Destroy()</code>）时为 <code>null</code>。</td></tr>
+<tr><td><code>NumRegisteredTypes</code></td><td><code>int</code></td><td>当前已登记类型的数量，即 <code>ObjectTypeRecords.Count</code>。未初始化时为 0。</td></tr>
+<tr><td><code>MaxRegisteredTypes</code></td><td><code>int</code>（常量 256）</td><td>类型数量硬上限。超过时 <code>RegisterType</code> 会 <code>Debug.FailedAssert</code>（抛 <code>MBTooManyRegisteredTypesException</code> 文本），但仍会把类型加进去。</td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="dan-li-yu-sheng-ming-zhou-qi">单例与生命周期</h3>
+<h4 id="public-static-mbobjectmanager-init"><code>public static MBObjectManager Init()</code></h4>
+<p>创建新的 <code>MBObjectManager</code> 并写入 <code>Instance</code>（覆盖旧值，不沿用旧状态）。由 <code>Game.CreateGame</code> 和 <code>Game.LoadSaveGame</code> 在各自启动时调用。<code>Init()</code> 之后必须在登记完所有类型之前、或读档流程里调用 <code>ReInitialize()</code> 之前完成 <code>RegisterType&lt;T&gt;</code>。</p>
+<pre><code data-lang="csharp">// 引擎内部流程（TaleWorlds.Core.Game.CreateGame）：
+MBObjectManager objectManager = MBObjectManager.Init();
+RegisterTypes(gameType, objectManager, gameManager); // 内部调用各 Game 的 OnRegisterTypes
+</code></pre>
+<h4 id="public-void-destroy"><code>public void Destroy()</code></h4>
+<p>先 <code>ClearAllObjects()</code> 注销所有对象，再把 <code>Instance</code> 置 <code>null</code>。会话结束时由引擎调用，不要在对象仍被引用时手动调用。</p>
+<h4 id="public-static-bool-mergeelementattributes-xelement-element1-xelement-element2"><code>public static bool MergeElementAttributes(XElement element1, XElement element2)</code></h4>
+<p>（静态）把 <code>element2</code> 的属性合并到 <code>element1</code>，遇到 <code>_replaceWhileMerging="true"</code> 时先清空再覆盖。这是 XML 合并管线的一部分，mod 作者一般不直接调用。</p>
+<hr />
+<h3 id="lei-xing-deng-ji">类型登记</h3>
+<h4 id="public-void-registertype-t-string-classprefix-string-classlistprefix-uint-typeid-bool-autocreateinstance-true-bool-istemporary-false-where-t-mbobjectbase"><code>public void RegisterType&lt;T&gt;(string classPrefix, string classListPrefix, uint typeId, bool autoCreateInstance = true, bool isTemporary = false) where T : MBObjectBase</code></h4>
+<p>把类型 <code>T</code> 登记进管理器，内部新建一个 <code>ObjectTypeRecord&lt;T&gt;</code>。<code>classPrefix</code> 是 XML 元素名（如 <code>"Hero"</code>、<code>"Settlement"</code>），<code>classListPrefix</code> 是容器元素名（如 <code>"Heroes"</code>、<code>"Settlements"</code>），<code>typeId</code> 会作为该类型所有对象的 <code>MBGUID</code> 高 8 位类型索引——<strong>必须与存档兼容且全局唯一</strong>。<code>autoCreateInstance</code> 控制 XML 反序列化时遇到未知 <code>id</code> 是否自动补建占位对象；<code>isTemporary</code> 为 <code>true</code> 的类型会被 <code>RemoveTemporaryTypes</code> 在战役清理阶段整类移除。</p>
+<pre><code data-lang="csharp">// 战役初始化时登记的真实片段（TaleWorlds.CampaignSystem.Campaign.OnRegisterTypes）：
+objectManager.RegisterType&lt;Settlement&gt;(&quot;Settlement&quot;, &quot;Settlements&quot;, 25u);
+objectManager.RegisterType&lt;Hero&gt;(&quot;Hero&quot;, &quot;Heroes&quot;, 32u, autoCreateInstance: true, isTemporary: true);
+objectManager.RegisterType&lt;MobileParty&gt;(&quot;MobileParty&quot;, &quot;MobileParties&quot;, 14u, autoCreateInstance: true, isTemporary: true);
+</code></pre>
+<h4 id="public-bool-hastype-t-public-bool-hastype-type-type"><code>public bool HasType&lt;T&gt;() / public bool HasType(Type type)</code></h4>
+<p>查询某类型是否已登记。<code>T</code> 是密封类时精确比较 <code>ObjectClass</code>，非密封时按 <code>IsAssignableFrom</code> 匹配派生类。</p>
+<h4 id="public-string-findregisteredclassprefix-type-type"><code>public string FindRegisteredClassPrefix(Type type)</code></h4>
+<p>返回某类型登记时的 <code>classPrefix</code>（XML 元素名）；未登记时 <code>FailedAssert</code> 并返回 <code>null</code>。</p>
+<h4 id="public-type-findregisteredtype-string-classprefix"><code>public Type FindRegisteredType(string classPrefix)</code></h4>
+<p>反向查找：由 XML 元素名得到对应的 <code>MBObjectBase</code> 派生类型；找不到时断言并返回 <code>null</code>。</p>
+<hr />
+<h3 id="chuang-jian-yu-zhu-ce-dui-xiang">创建与注册对象</h3>
+<h4 id="public-t-createobject-t-string-stringid-where-t-mbobjectbase-new"><code>public T CreateObject&lt;T&gt;(string stringId) where T : MBObjectBase, new()</code></h4>
+<p>新建一个 <code>T</code> 实例、设好 <code>StringId</code>、调用 <code>RegisterObject&lt;T&gt;</code> 纳入管理，并依次通知所有 <code>IObjectManagerHandler.AfterCreateObject</code>。返回的是<strong>已注册</strong>的那个实例（可能和传入的 <code>stringId</code> 不完全一致，见下方重复 id 处理）。</p>
+<pre><code data-lang="csharp">// 战役开局创建玩家部队（TaleWorlds.CampaignSystem.Campaign.OnNewCampaignStart）：
+MainParty = MBObjectManager.Instance.CreateObject&lt;MobileParty&gt;(&quot;player_party&quot;);
+</code></pre>
+<h4 id="public-t-createobject-t-where-t-mbobjectbase-new"><code>public T CreateObject&lt;T&gt;() where T : MBObjectBase, new()</code></h4>
+<p>不带 <code>id</code> 的重载，内部用 <code>typeof(T).Name + "_1"</code> 作为 <code>StringId</code>。</p>
+<h4 id="public-t-registerobject-t-t-obj-where-t-mbobjectbase"><code>public T RegisterObject&lt;T&gt;(T obj) where T : MBObjectBase</code></h4>
+<p>把一个<strong>已经存在</strong>的 <code>T</code> 实例登记进管理器（分配 <code>MBGUID</code>、<code>IsReady = true</code>、<code>OnRegistered</code>）。与 <code>CreateObject</code> 的区别是它不负责 <code>new</code>，你先构造好对象再交给它。返回登记后的实例。</p>
+<h4 id="public-t-registerpresumedobject-t-t-obj-where-t-mbobjectbase"><code>public T RegisterPresumedObject&lt;T&gt;(T obj) where T : MBObjectBase</code></h4>
+<p>以「占位（presumed）」方式登记：<code>IsReady</code> 保持 <code>false</code>，表示对象引用已存在但内容尚未补全。XML 反序列化交叉引用阶段大量使用此方式，等全部读完后由 <code>UnregisterNonReadyObjects</code> 把始终没补全的占位对象清除掉。</p>
+<h4 id="public-void-unregisterobject-mbobjectbase-obj"><code>public void UnregisterObject(MBObjectBase obj)</code></h4>
+<p>从管理器注销对象：调用 <code>OnUnregistered</code>、从两本字典与列表中移除、并通知各 handler 的 <code>AfterUnregisterObject</code>。<code>obj</code> 为 <code>null</code> 时直接返回；类型未登记则 <code>FailedAssert</code>。</p>
+<h4 id="internal-void-tryregisterobjectwithoutinitialization-mbobjectbase-obj"><code>internal void TryRegisterObjectWithoutInitialization(MBObjectBase obj)</code></h4>
+<p>读档时由 <code>MBObjectBase.OnBeforeLoad</code> 调用，把已存在 <code>id</code> 的对象不加初始化地登记回去（重建 <code>MBGUID</code> → 实例 映射）。这是「按 <code>MBGUID</code> 重新定位存档引用」的关键一步。</p>
+<hr />
+<h3 id="cha-xun-yu-bian-li">查询与遍历</h3>
+<h4 id="public-t-getobject-t-string-objectname-where-t-mbobjectbase"><code>public T GetObject&lt;T&gt;(string objectName) where T : MBObjectBase</code></h4>
+<p>按 <code>StringId</code> 在该类型桶里精确查找；找不到返回 <code>null</code>（1.3.x 返回 <code>default(T)</code>，对引用类型同样是 <code>null</code>）。<code>T</code> 非密封时遍历所有派生类型桶逐个试。</p>
+<pre><code data-lang="csharp">// 按 StringId 取物品（TaleWorlds.MountAndBlade.Network.Gameplay.Perks.Effects.RandomEquipmentEffect）：
+ItemObject item = MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(xmlAttribute.Value);
+if (item != null) { /* 装备该物品 */ }
+</code></pre>
+<h4 id="public-mbobjectbase-getobject-mbguid-objectid"><code>public MBObjectBase GetObject(MBGUID objectId)</code></h4>
+<p>按 <code>MBGUID</code> 查找：先用 <code>objectId.GetTypeIndex()</code> 定位类型桶，再查 <code>MBGUID</code> 字典。存档里保存的对象引用最终都靠它还原。<code>objectId</code> 的类型索引在 <code>ObjectTypeRecords</code> 中找不到时 <code>FailedAssert</code> 并返回 <code>null</code>。</p>
+<h4 id="public-t-getobject-t-func-t-bool-predicate-where-t-mbobjectbase"><code>public T GetObject&lt;T&gt;(Func&lt;T, bool&gt; predicate) where T : MBObjectBase</code></h4>
+<p>返回该类型桶里第一个满足谓词的对象；无匹配返回 <code>null</code>。</p>
+<h4 id="public-mbreadonlylist-t-getobjects-t-func-t-bool-predicate-where-t-mbobjectbase"><code>public MBReadOnlyList&lt;T&gt; GetObjects&lt;T&gt;(Func&lt;T, bool&gt; predicate) where T : MBObjectBase</code></h4>
+<p>返回该类型桶里<strong>所有</strong>满足条件的对象（新的 <code>MBList&lt;T&gt;</code>，不是实时视图）。</p>
+<h4 id="public-mbreadonlylist-t-getobjecttypelist-t-where-t-mbobjectbase"><code>public MBReadOnlyList&lt;T&gt; GetObjectTypeList&lt;T&gt;() where T : MBObjectBase</code></h4>
+<p>返回该类型桶里<strong>全部</strong>对象的实时只读列表（密封类型是同一份 <code>RegisteredObjectsList</code> 引用，非密封类型是新合并的 <code>MBList</code>）。这是「遍历某类所有对象」的标准入口。</p>
+<pre><code data-lang="csharp">// 遍历全部物品（TaleWorlds.MountAndBlade.Multiplayer.LobbyState）：
+foreach (ItemObject item in (List&lt;ItemObject&gt;)(object)MBObjectManager.Instance.GetObjectTypeList&lt;ItemObject&gt;())
+{
+    // item.StringId / item.Name 等
+}
+</code></pre>
+<h4 id="public-t-getfirstobject-t-where-t-mbobjectbase"><code>public T GetFirstObject&lt;T&gt;() where T : MBObjectBase</code></h4>
+<p>取该类型桶的第一个对象（通常是 <code>RegisteredObjectsList[0]</code>）。</p>
+<h4 id="public-bool-containsobject-t-string-objectname-where-t-mbobjectbase"><code>public bool ContainsObject&lt;T&gt;(string objectName) where T : MBObjectBase</code></h4>
+<p>判断某 <code>StringId</code> 是否已在该类型桶登记。</p>
+<h4 id="public-mbobjectbase-getobject-string-typename-string-objectname"><code>public MBObjectBase GetObject(string typeName, string objectName)</code></h4>
+<p>按 XML 元素名（<code>classPrefix</code>）+ <code>StringId</code> 查找，等价于先 <code>FindRegisteredType</code> 再按 <code>id</code> 查。</p>
+<hr />
+<h3 id="jia-zai-yu-xu-lie-hua">加载与序列化</h3>
+<h4 id="public-void-loadxml-string-id-bool-isdevelopment-string-gametype-bool-skipxmlfilterforeditor-false"><code>public void LoadXML(string id, bool isDevelopment, string gameType, bool skipXmlFilterForEditor = false)</code></h4>
+<p>合并并加载某个 XML 定义集（按 <code>id</code> 定位，如 <code>"Items"</code>、<code>"Settlements"</code>），内部调用 <code>GetMergedXmlForManaged</code> 把所有启用模块的对应 XML 与 XSLT 合并后交给 <code>LoadXml</code>。加载异常被吞掉。</p>
+<h4 id="public-void-loadxml-xmldocument-doc-bool-isdevelopment-false"><code>public void LoadXml(XmlDocument doc, bool isDevelopment = false)</code></h4>
+<p>核心反序列化入口：扫描文档根节点，按 <code>classListPrefix</code> 匹配已登记类型，对每个子节点取 <code>id</code> 属性，经 <code>GetPresumedObject</code> 取得/补建占位对象，再 <code>Deserialize</code> + <code>AfterInitialized</code>。</p>
+<h4 id="public-mbobjectbase-createobjectfromxmlnode-xmlnode-node-createobjectfromxmlnode-xmlnode-node-string-typename"><code>public MBObjectBase CreateObjectFromXmlNode(XmlNode node)</code> / <code>CreateObjectFromXmlNode(XmlNode node, string typeName)</code></h4>
+<p>从单个 XML 节点补建一个对象并反序列化（带 <code>typeName</code> 重载用节点名或指定元素名定位类型）。</p>
+<h4 id="public-mbobjectbase-createobjectwithoutdeserialize-xmlnode-node"><code>public MBObjectBase CreateObjectWithoutDeserialize(XmlNode node)</code></h4>
+<p>只 <code>Initialize</code> + <code>AfterInitialized</code>，不跑 <code>Deserialize</code>——用于只需要占位、无需填充字段的场景。</p>
+<h4 id="public-t-readobjectreferencefromxml-t-string-attributename-xmlnode-node-where-t-mbobjectbase"><code>public T ReadObjectReferenceFromXml&lt;T&gt;(string attributeName, XmlNode node) where T : MBObjectBase</code></h4>
+<p>解析形如 <code>"Culture.empire"</code> 的跨对象引用：按 <code>.</code> 拆成 <code>类型前缀</code> + <code>对象 id</code>，用 <code>GetPresumedObject</code> 取对象（找不到且类型允许自动创建则补建占位）。属性缺失返回 <code>null</code>；格式不对（没有 <code>.</code>）抛 <code>MBInvalidReferenceException</code>。非泛型重载 <code>(string attributeName, Type objectType, XmlNode node)</code> 同理。</p>
+<h4 id="public-void-preafterload-public-void-afterload"><code>public void PreAfterLoad()</code> / <code>public void AfterLoad()</code></h4>
+<p>读档后由引擎依次调用：遍历所有类型桶，对每个对象触发 <code>PreAfterLoadInternal</code> / <code>AfterLoadInternal</code>，让对象在全部引用就位后补全交叉引用（例如 <code>Settlement</code> 链接其 <code>Town</code>/<code>Village</code> 组件，<code>Clan</code> 关联 <code>Kingdom</code>）。</p>
+<h4 id="public-void-reinitialize"><code>public void ReInitialize()</code></h4>
+<p>读档流程（<code>Game.LoadSaveGame</code>）在 <code>loadResult.InitializeObjects()</code> 之后调用：重算每个类型桶的内部 <code>_objCount</code>（基于现有对象的最大 <code>SubId</code>），保证后续 <code>CreateObject</code> 不会复用已存在的 <code>MBGUID</code>。</p>
+<h4 id="public-void-unregisternonreadyobjects"><code>public void UnregisterNonReadyObjects()</code></h4>
+<p>清理所有 <code>IsReady == false</code> 的占位对象，并在日志打印 <code>"Null object reference found with ID: " + StringId</code>。这是「某个对象被引用却从未真正定义」这一类坏档的典型报错来源。</p>
+<hr />
+<h3 id="qing-li">清理</h3>
+<h4 id="public-void-clearallobjects"><code>public void ClearAllObjects()</code></h4>
+<p>遍历全部类型桶，逐个 <code>UnregisterMBObject</code> + 通知 handler，最终回到空状态。<code>Destroy()</code> 会先调用它。</p>
+<h4 id="public-void-clearallobjectswithtype-type-type"><code>public void ClearAllObjectsWithType(Type type)</code></h4>
+<p>只清空某一类型桶（如战役结束时清掉所有临时类型）。</p>
+<h4 id="public-void-removetemporarytypes"><code>public void RemoveTemporaryTypes()</code></h4>
+<p>反向遍历 <code>ObjectTypeRecords</code>，把所有 <code>isTemporary: true</code> 的类型桶整体移除（先注销桶内每个对象，再删掉类型记录）。战役对象（<code>Hero</code>、<code>MobileParty</code>、<code>Clan</code>、<code>Kingdom</code>）都属于临时类型，新游戏开始时它们会被清掉重建。</p>
+<hr />
+<h3 id="zhen-duan-yu-kuo-zhan">诊断与扩展</h3>
+<h4 id="public-void-addhandler-iobjectmanagerhandler-handler-removehandler"><code>public void AddHandler(IObjectManagerHandler handler)</code> / <code>RemoveHandler(...)</code></h4>
+<p>注册/移除一个 <code>IObjectManagerHandler</code>，在对象被创建（<code>AfterCreateObject</code>）和注销（<code>AfterUnregisterObject</code>）时收到回调。引擎内部用它同步缓存。</p>
+<h4 id="public-string-debugdump"><code>public string DebugDump()</code></h4>
+<p>把所有类型桶的对象清单写到 <code>mbobjectmanagerdump.txt</code> 并返回文本；<code>DebugPrint(PrintOutputDelegate)</code> 则把每类数量打印到给定输出（调试用）。</p>
+<h4 id="public-string-getobjecttypeids"><code>public string GetObjectTypeIds()</code></h4>
+<p>返回每行 <code>"&lt;typeNo&gt; - &lt;record 类型全名&gt;"</code> 的清单，用于排查 <code>typeId</code> 分配（跨模块冲突时很有用）。</p>
+<h2 id="dian-xing-yong-fa-shi-li">典型用法示例</h2>
+<h3 id="shi-li-1-an-stringid-cha-zhao-yi-ge-yi-deng-ji-dui-xiang-zui-chang-jian">示例 1：按 StringId 查找一个已登记对象（最常见）</h3>
+<pre><code data-lang="csharp">// 取帝国文化对象；找不到时返回 null，必须判空
+BasicCultureObject empire = MBObjectManager.Instance.GetObject&lt;BasicCultureObject&gt;(&quot;empire&quot;);
+if (empire != null)
+{
+    // 用它来配兵、做判定等
+}
+</code></pre>
+<h3 id="shi-li-2-bian-li-mou-lei-xing-de-quan-bu-dui-xiang">示例 2：遍历某类型的全部对象</h3>
+<pre><code data-lang="csharp">// 统计/批量处理所有物品
+MBReadOnlyList&lt;ItemObject&gt; allItems = MBObjectManager.Instance.GetObjectTypeList&lt;ItemObject&gt;();
+foreach (ItemObject item in allItems)
+{
+    if (item.Value &gt; 1000)
+    {
+        // 对高价物品做处理
+    }
+}
+</code></pre>
+<h3 id="shi-li-3-zai-onregistertypes-zhong-deng-ji-ni-zi-ji-de-mbobjectbase-pai-sheng-lei-xing">示例 3：在 OnRegisterTypes 中登记你自己的 MBObjectBase 派生类型</h3>
+<pre><code data-lang="csharp">// 在你的 Game 子类里重写（注意 typeId 必须稳定、且不要与其它模块冲突）：
+protected override void OnRegisterTypes(MBObjectManager objectManager)
+{
+    base.OnRegisterTypes(objectManager);
+    objectManager.RegisterType&lt;MyCustomObject&gt;(&quot;MyCustom&quot;, &quot;MyCustoms&quot;, 200u);
+}
+
+// 之后即可创建与查找：
+MyCustomObject obj = MBObjectManager.Instance.CreateObject&lt;MyCustomObject&gt;(&quot;my_custom_1&quot;);
+MyCustomObject same = MBObjectManager.Instance.GetObject&lt;MyCustomObject&gt;(&quot;my_custom_1&quot;);
+</code></pre>
+<blockquote>
+<p>注意：<code>typeId</code>（上例的 <code>200u</code>）会写进对象的 <code>MBGUID</code>。如果你给一个新类型分配了一个与别的模块相撞的编号，或调整了已有类型的编号，已发布的旧存档读盘时类型索引错位，会出现坏档或对象查不到。</p>
+</blockquote>
+<h2 id="feng-xian-yu-beng-kui-bian-jie">风险与崩溃边界</h2>
+<ul>
+<li><strong>类型未登记就查找/创建</strong>：<code>GetObject</code> / <code>CreateObject</code> / <code>RegisterObject</code> 在 <code>ObjectTypeRecords</code> 找不到对应类型时会 <code>Debug.FailedAssert</code> 并返回 <code>null</code>（发布版无断言）。随后对这些返回值解引用就是 <code>NullReferenceException</code>。务必保证类型在 <code>OnRegisterTypes</code> 阶段已登记。</li>
+<li><strong>跨存档持有原始引用失效</strong>：读档后对象图被整体重建，你缓存的 <code>Hero</code> / <code>Settlement</code> 等字段变成悬空引用。只持久化 <code>StringId</code> 或 <code>MBGUID</code>，用 <code>GetObject&lt;T&gt;(stringId)</code> / <code>GetObject(mbGuid)</code> 重新取。<code>MBGUID</code> 在 <code>ReInitialize</code> 后能稳定定位，是更可靠的存档引用方式。</li>
+<li><strong><code>typeId</code> 冲突 / 登记顺序变化导致坏档</strong>：<code>MBGUID</code> 高 8 位即登记时的 <code>typeId</code>。<code>GetObject(MBGUID)</code> 用 <code>GetTypeIndex()</code> 反查类型桶，若 <code>typeId</code> 被改、被其他模块占用、或 <code>RegisterType</code> 次序改变导致类型错位，存档里的引用会落到错误类型或找不到对象。新增自定义类型时选一个与其它模块不冲突的编号，且不要在不同版本间变动。</li>
+<li><strong>重复 <code>StringId</code> 被静默改名</strong>：同一类型桶内 <code>RegisterObject</code> 遇到已存在的 <code>StringId</code> 且不是同一实例、也不是占位，会自动在末尾追加自增数字（<code>GetIdParts</code> 拆分字母与数字后缀）。这不会抛异常，但会让你的 <code>StringId</code> 与预期不符，按原 <code>id</code> 再查会查不到——调试时务必打印实际 <code>StringId</code>。</li>
+<li><strong><code>autoCreateInstance: false</code> 的类型被引用却缺失</strong>：XML/存档里引用了一个本应存在、但类型登记时关闭了自动创建的对象，<code>GetPresumedObject</code> 会抛 <code>MBCanNotCreatePresumedObjectException</code>；若最终也没被任何定义补全，读盘末尾 <code>UnregisterNonReadyObjects</code> 会打印 <code>"Null object reference found with ID: ..."</code> 并注销它，下游交叉引用随之崩溃。</li>
+<li><strong>在错误阶段登记类型</strong>：<code>RegisterType&lt;T&gt;</code> 只能在 <code>BeforeRegisterTypes</code> / <code>OnRegisterTypes</code>（或等效的初始化时机）调用。游戏跑起来之后再去登记新类型，已存在的对象图不会包含它，相关查找全部落空。</li>
+<li><strong>线程上下文</strong>：<code>MBObjectManager</code> 及其类型桶都不是线程安全的，所有创建/查找/注销都在主线程（游戏逻辑线程）进行。在异步任务或后台线程里直接操作会触发数据竞争与不可预期崩溃。</li>
+</ul>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li>v1.3.x 与 v1.4.5 之间，<code>MBObjectManager</code> 的公开 API <strong>几乎无变化</strong>：<code>Instance</code>、<code>Init</code>、<code>Destroy</code>、<code>RegisterType&lt;T&gt;</code>、<code>CreateObject&lt;T&gt;</code>、<code>RegisterObject&lt;T&gt;</code>、<code>GetObject</code> 系列、<code>GetObjectTypeList&lt;T&gt;</code>、<code>LoadXML</code>/<code>LoadXml</code>、<code>PreAfterLoad</code>/<code>AfterLoad</code>、<code>ClearAllObjects</code>、<code>RemoveTemporaryTypes</code>、<code>AddHandler</code> 在两个版本中签名与行为一致。</li>
+<li>唯一的细微差异：<code>GetObject&lt;T&gt;(string)</code> 在 1.3.x 返回 <code>default(T)</code>（引用类型为 <code>null</code>），在 1.4.5 直接返回 <code>null</code>——对调用方而言等价，无需区分。</li>
+<li><code>ObjectTypeRecord&lt;T&gt;.GetNewId()</code> 的自增实现两版本写法略有不同（1.4.5 用前置 <code>++</code>），但分配的 <code>MBGUID</code> 数值结果相同，存档兼容。</li>
+<li>如果你要写跨 1.3.0 / 1.4.5 的 mod，本类可以直接复用代码；真正需要留意的是各 <code>RegisterType&lt;T&gt;</code> 的 <code>typeId</code> 是否与目标版本的基础游戏及其他模块保持一致。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../MBObjectBase">MBObjectBase</a> — 所有登记对象的基类，详述 <code>StringId</code> / <code>MBGUID</code> / <code>IsReady</code> 等字段</li>
+<li><a href="/">../</a> — 本区域（campaign-ext）目录索引</li>
+<li><a href="../../core-extra/Game/">../../core-extra/Game/</a> — 调用 <code>MBObjectManager.Init()</code> 与 <code>RegisterTypes</code> 的上游入口</li>
+<li><a href="../../campaign/Campaign/">../../campaign/Campaign/</a> — 战役中登记 <code>Hero</code>/<code>Settlement</code>/<code>Clan</code> 等类型的实际位置</li>
+<li><a href="../../campaign/Hero/">../../campaign/Hero/</a> — 最常见的 <code>MBObjectBase</code> 派生类型之一</li>
+<li><a href="../../core/ItemObject/">../../core/ItemObject/</a> — 通过 <code>GetObject&lt;ItemObject&gt;(stringId)</code> 查找的典型例子</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign-ext/">campaign-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign-ext/AudioData__psai_net/">&larr; AudioData</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign-ext/WidgetAttributeKeyTypeDataSource/">WidgetAttributeKeyTypeDataSource &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

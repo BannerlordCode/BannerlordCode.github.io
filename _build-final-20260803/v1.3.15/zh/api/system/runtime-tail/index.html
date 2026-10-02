@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Managed runtime long tail</title>
+  <meta name="description" content="托管 UI、渲染、存档、本地化、输入和互操作类型的源码依据与运行时边界。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/system/runtime-tail/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/system/runtime-tail/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="active">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;system&#x2F;">system 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Managed runtime long tail</span>
+    </nav>
+  
+  <h1>Managed runtime long tail</h1>
+  <h1 id="managed-runtime-long-tail">Managed runtime long tail</h1>
+<h2 id="mental-model">Mental Model</h2>
+<p>本页覆盖非 MountAndBlade 的托管运行时长尾：UI、渲染、存档、本地化、网络、输入、模块和互操作类型。它们只通过托管边界连接业务系统；Native provenance 仍回到独立 Native 页面。</p>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><a href="../">API Reference</a>、<a href="../../../architecture/sandbox-native-policy">Native policy</a>、以及对应的 <a href="../../save-system/">Save</a>、<a href="../../gui/">GUI</a> 和 <a href="../../engine/">Engine</a> 家族入口。</li>
+</ul>
+<h2 id="qualified-entries">Qualified entries</h2>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>MBHelpers</td><td><a href="../../campaign-ext/BannerHelper__MBHelpers">BannerHelper</a></td><td>说明 Bannerlord 辅助查询；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.ImageIdentifiers</td><td><a href="../../core-extra/BannerImageIdentifier">BannerImageIdentifier</a>; <a href="../../core-extra/CharacterImageIdentifier">CharacterImageIdentifier</a>; <a href="../../core-extra/CraftingPieceImageIdentifier">CraftingPieceImageIdentifier</a>; <a href="../../core-extra/EmptyImageIdentifier">EmptyImageIdentifier</a>; <a href="../../core-extra/ImageIdentifier">ImageIdentifier</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.ImageIdentifiers</td><td><a href="../../core-extra/ItemImageIdentifier">ItemImageIdentifier</a>; <a href="../../core-extra/PlayerAvatarImageIdentifier">PlayerAvatarImageIdentifier</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.SaveCompability</td><td><a href="../../core-extra/CharacterSkillsResolver">CharacterSkillsResolver</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.Core.ViewModelCollection</td><td><a href="../../core-extra/BattleResultVM">BattleResultVM</a>; <a href="../../core-extra/CharacterEquipmentItemVM">CharacterEquipmentItemVM</a>; <a href="../../core-extra/CharacterWithActionViewModel">CharacterWithActionViewModel</a>; <a href="../../core-extra/CraftingItemViewModel">CraftingItemViewModel</a>; <a href="../../core-extra/ItemCollectionElementViewModel">ItemCollectionElementViewModel</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.ViewModelCollection</td><td><a href="../../core-extra/ItemVM">ItemVM</a>; <a href="../../core-extra/PowerLevelComparer">PowerLevelComparer</a>; <a href="../../core-extra/StanceTypes">StanceTypes</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.ViewModelCollection.BannerEditor</td><td><a href="../../core-extra/BannerColorVM">BannerColorVM</a>; <a href="../../core-extra/BannerIconVM">BannerIconVM</a>; <a href="../../core-extra/BannerViewModel">BannerViewModel</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.ViewModelCollection.Generic</td><td><a href="../../core-extra/BindingListFloatItem">BindingListFloatItem</a>; <a href="../../core-extra/BindingListStringItem">BindingListStringItem</a>; <a href="../../core-extra/BoolItemWithActionVM">BoolItemWithActionVM</a>; <a href="../../core-extra/StringItemWithActionVM">StringItemWithActionVM</a>; <a href="../../core-extra/StringItemWithEnabledAndHintVM">StringItemWithEnabledAndHintVM</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.ViewModelCollection.Generic</td><td><a href="../../core-extra/StringItemWithHintVM">StringItemWithHintVM</a>; <a href="../../core-extra/StringPairItemVM">StringPairItemVM</a>; <a href="../../core-extra/StringPairItemWithActionVM">StringPairItemWithActionVM</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.ViewModelCollection.ImageIdentifiers</td><td><a href="../../core-extra/BannerImageIdentifierVM">BannerImageIdentifierVM</a>; <a href="../../core-extra/CharacterImageIdentifierVM">CharacterImageIdentifierVM</a>; <a href="../../core-extra/CraftingPieceImageIdentifierVM">CraftingPieceImageIdentifierVM</a>; <a href="../../core-extra/GenericImageIdentifierVM">GenericImageIdentifierVM</a>; <a href="../../core-extra/ImageIdentifierVM">ImageIdentifierVM</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.ViewModelCollection.ImageIdentifiers</td><td><a href="../../core-extra/ItemImageIdentifierVM">ItemImageIdentifierVM</a>; <a href="../../core-extra/PlayerAvatarImageIdentifierVM">PlayerAvatarImageIdentifierVM</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.ViewModelCollection.Information</td><td><a href="../../core-extra/BasicTooltipViewModel">BasicTooltipViewModel</a>; <a href="../../core-extra/GameNotificationItemVM">GameNotificationItemVM</a>; <a href="../../core-extra/GameNotificationVM">GameNotificationVM</a>; <a href="../../core-extra/HintVM">HintVM</a>; <a href="../../core-extra/InquiryElementVM">InquiryElementVM</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.ViewModelCollection.Information</td><td><a href="../../core-extra/PropertyBasedTooltipVM">PropertyBasedTooltipVM</a>; <a href="../../core-extra/SceneNotificationVM">SceneNotificationVM</a>; <a href="../../core-extra/TooltipMode">TooltipMode</a>; <a href="../../core-extra/TooltipProperty">TooltipProperty</a>; <a href="../../core-extra/TooltipPropertyFlags">TooltipPropertyFlags</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.ViewModelCollection.Information.RundownTooltip</td><td><a href="../../core-extra/RundownLineVM">RundownLineVM</a>; <a href="../../core-extra/RundownTooltipVM">RundownTooltipVM</a>; <a href="../../core-extra/ValueCategorization">ValueCategorization</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.ViewModelCollection.Selector</td><td><a href="../../core-extra/SelectorItemVM">SelectorItemVM</a>; <a href="../../core-extra/SelectorVM">SelectorVM</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Core.ViewModelCollection.Tutorial</td><td><a href="../../core-extra/ElementNotificationVM">ElementNotificationVM</a>; <a href="../../core-extra/TutorialNotificationElementChangeEvent">TutorialNotificationElementChangeEvent</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.DotNet</td><td><a href="../../campaign-ext/CallbackDebugTool">CallbackDebugTool</a>; <a href="../../campaign-ext/CallbackStringBufferManager">CallbackStringBufferManager</a>; <a href="../../campaign-ext/Controller">Controller</a>; <a href="../../campaign-ext/CustomEngineStructMemberData">CustomEngineStructMemberData</a>; <a href="../CustomParameter">CustomParameter</a></td><td>说明 托管与原生互操作；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.DotNet</td><td><a href="../../campaign-ext/DefineAsEngineStruct">DefineAsEngineStruct</a>; <a href="../../campaign-ext/DefineCustomEngineStructMemberData">DefineCustomEngineStructMemberData</a>; <a href="../../campaign-ext/DotNetObject">DotNetObject</a>; <a href="../../campaign-ext/EditableScriptComponentVariable">EditableScriptComponentVariable</a>; <a href="../../campaign-ext/EngineBaseClass">EngineBaseClass</a></td><td>说明 托管与原生互操作；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.DotNet</td><td><a href="../../campaign-ext/EngineClass">EngineClass</a>; <a href="../EngineClassTypeDefinition">EngineClassTypeDefinition</a>; <a href="../EngineStackArray">EngineStackArray</a>; <a href="../../campaign-ext/EngineStruct">EngineStruct</a>; <a href="../../campaign-ext/GameApplicationDomainController">GameApplicationDomainController</a></td><td>说明 托管与原生互操作；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.DotNet</td><td><a href="../../campaign-ext/ICallbackManager">ICallbackManager</a>; <a href="../ILibrarySizeChecker">ILibrarySizeChecker</a>; <a href="../IManaged">IManaged</a>; <a href="../../campaign-ext/IManagedComponent">IManagedComponent</a>; <a href="../INativeArray">INativeArray</a></td><td>说明 托管与原生互操作；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.DotNet</td><td><a href="../INativeObjectArray">INativeObjectArray</a>; <a href="../INativeString">INativeString</a>; <a href="../INativeStringHelper">INativeStringHelper</a>; <a href="../ITelemetry">ITelemetry</a>; <a href="../LibraryApplicationInterface">LibraryApplicationInterface</a></td><td>说明 托管与原生互操作；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.DotNet</td><td><a href="../../campaign-ext/LibraryCallback">LibraryCallback</a>; <a href="../LibraryInterfaceBase">LibraryInterfaceBase</a>; <a href="../../campaign-ext/Managed">Managed</a>; <a href="../../campaign-ext/ManagedDelegate">ManagedDelegate</a>; <a href="../../campaign-ext/ManagedFromNativeCallback">ManagedFromNativeCallback</a></td><td>说明 托管与原生互操作；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.DotNet</td><td><a href="../../campaign-ext/ManagedObject">ManagedObject</a>; <a href="../ManagedObjectKeeper">ManagedObjectKeeper</a>; <a href="../ManagedObjectOwner">ManagedObjectOwner</a>; <a href="../../campaign-ext/ManagedToUnmanagedScopedCallCounter">ManagedToUnmanagedScopedCallCounter</a>; <a href="../../campaign-ext/MonoNativeFunctionWrapperAttribute">MonoNativeFunctionWrapperAttribute</a></td><td>说明 托管与原生互操作；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.DotNet</td><td><a href="../../campaign-ext/MonoPInvokeCallbackAttribute">MonoPInvokeCallbackAttribute</a>; <a href="../../campaign-ext/NativeArray">NativeArray</a>; <a href="../../campaign-ext/NativeArrayEnumerator">NativeArrayEnumerator</a>; <a href="../../campaign-ext/NativeObjectArray">NativeObjectArray</a>; <a href="../NativeObjectKeeper">NativeObjectKeeper</a></td><td>说明 托管与原生互操作；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.DotNet</td><td><a href="../NativeObjectPointer">NativeObjectPointer</a>; <a href="../../campaign-ext/NativeString">NativeString</a>; <a href="../NativeStringHelper">NativeStringHelper</a>; <a href="../../campaign-ext/NativeTelemetryManager">NativeTelemetryManager</a>; <a href="../../campaign-ext/ScriptComponentParams">ScriptComponentParams</a></td><td>说明 托管与原生互操作；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.DotNet</td><td><a href="../../campaign-ext/StackArray40Int">StackArray40Int</a>; <a href="../../campaign-ext/WeakNativeObjectReference">WeakNativeObjectReference</a></td><td>说明 托管与原生互操作；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Engine.GauntletUI</td><td><a href="../../engine/EngineTexture">EngineTexture</a>; <a href="../../engine/Extensions__TaleWorlds_Engine_GauntletUI">Extensions</a>; <a href="../../engine/GauntletMovieIdentifier">GauntletMovieIdentifier</a>; <a href="../../engine/TwoDimensionEnginePlatform">TwoDimensionEnginePlatform</a>; <a href="../../engine/TwoDimensionEngineResourceContext">TwoDimensionEngineResourceContext</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.Engine.GauntletUI</td><td><a href="../../engine/UIConfig">UIConfig</a>; <a href="../../engine/UIResourceManager">UIResourceManager</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.Engine.InputSystem</td><td><a href="../../engine/CheatsHotKeyCategory">CheatsHotKeyCategory</a>; <a href="../../engine/DebugHotKeyCategory">DebugHotKeyCategory</a>; <a href="../../engine/EngineInputManager">EngineInputManager</a></td><td>说明 输入映射与设备状态；优先使用托管入口，世界状态由所属系统拥有。</td><td>输入采样与按键查询</td></tr>
+<tr><td>TaleWorlds.Engine.Options</td><td><a href="../../engine/ConfigQuality">ConfigQuality</a>; <a href="../../engine/IBooleanOptionData">IBooleanOptionData</a>; <a href="../../engine/INumericOptionData">INumericOptionData</a>; <a href="../../engine/IOptionData">IOptionData</a>; <a href="../../engine/ISelectionOptionData">ISelectionOptionData</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Engine.Options</td><td><a href="../../engine/NativeBooleanOptionData">NativeBooleanOptionData</a>; <a href="../../engine/NativeNumericOptionData">NativeNumericOptionData</a>; <a href="../../engine/NativeOptionData">NativeOptionData</a>; <a href="../../engine/NativeOptions">NativeOptions</a>; <a href="../../engine/NativeOptionsType">NativeOptionsType</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Engine.Options</td><td><a href="../../engine/NativeSelectionOptionData">NativeSelectionOptionData</a>; <a href="../../engine/SelectionData">SelectionData</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Engine.Screens</td><td><a href="../../engine/SceneLayer">SceneLayer</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="../../campaign-ext/AlignmentAxis">AlignmentAxis</a>; <a href="../../campaign-ext/AnimatedDropdownWidget">AnimatedDropdownWidget</a>; <a href="../../campaign-ext/AnimationInterpolation">AnimationInterpolation</a>; <a href="../../campaign-ext/AudioProperty">AudioProperty</a>; <a href="../../campaign-ext/Brush">Brush</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="../../campaign-ext/BrushAnimation">BrushAnimation</a>; <a href="../../campaign-ext/BrushAnimationKeyFrame">BrushAnimationKeyFrame</a>; <a href="../../campaign-ext/BrushAnimationProperty">BrushAnimationProperty</a>; <a href="../../campaign-ext/BrushAnimationPropertyType">BrushAnimationPropertyType</a>; <a href="../../campaign-ext/BrushFactory">BrushFactory</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="../../campaign-ext/BrushLayer">BrushLayer</a>; <a href="../../campaign-ext/BrushLayerAnimation">BrushLayerAnimation</a>; <a href="../../campaign-ext/BrushLayerSizePolicy">BrushLayerSizePolicy</a>; <a href="../../campaign-ext/BrushLayerState">BrushLayerState</a>; <a href="../../campaign-ext/BrushListPanel">BrushListPanel</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="../../campaign-ext/BrushOverlayMethod">BrushOverlayMethod</a>; <a href="../../campaign-ext/BrushRenderer">BrushRenderer</a>; <a href="../../campaign-ext/BrushRendererAnimationState">BrushRendererAnimationState</a>; <a href="../../campaign-ext/BrushState">BrushState</a>; <a href="../../campaign-ext/CircleActionSelectorWidget">CircleActionSelectorWidget</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="../../campaign-ext/CircleItemPlacerWidget">CircleItemPlacerWidget</a>; <a href="../../campaign-ext/ContainerItemDescription">ContainerItemDescription</a>; <a href="../../campaign-ext/ContainerType">ContainerType</a>; <a href="../../campaign-ext/EditorAttribute">EditorAttribute</a>; <a href="../../campaign-ext/EmptyGamepadNavigationContext">EmptyGamepadNavigationContext</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="../../campaign-ext/EventManager">EventManager</a>; <a href="../../campaign-ext/FontFactory">FontFactory</a>; <a href="../../campaign-ext/Function">Function</a>; <a href="../../gui/GauntletEvent">GauntletEvent</a>; <a href="../../campaign-ext/GauntletExtensions">GauntletExtensions</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="../../campaign-ext/GauntletGamepadNavigationContext">GauntletGamepadNavigationContext</a>; <a href="../../campaign-ext/GuiEventResult">GuiEventResult</a>; <a href="../../campaign-ext/GuiEventType">GuiEventType</a>; <a href="../../campaign-ext/HorizontalAlignment">HorizontalAlignment</a>; <a href="../../campaign-ext/IBrushAnimationState">IBrushAnimationState</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="../../campaign-ext/IBrushLayerData">IBrushLayerData</a>; <a href="../../campaign-ext/IDataSource">IDataSource</a>; <a href="../../campaign-ext/IDropContainer">IDropContainer</a>; <a href="../../campaign-ext/IGamepadNavigationContext">IGamepadNavigationContext</a>; <a href="../../campaign-ext/ImageFit">ImageFit</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="../../gui/ImageFitResult">ImageFitResult</a>; <a href="../../campaign-ext/ImageFitTypes">ImageFitTypes</a>; <a href="../../campaign-ext/ImageHorizontalAlignments">ImageHorizontalAlignments</a>; <a href="../../campaign-ext/ImageVerticalAlignments">ImageVerticalAlignments</a>; <a href="../../campaign-ext/Language">Language</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="../../campaign-ext/MouseCursors">MouseCursors</a>; <a href="../../campaign-ext/PropertyOwnerObject">PropertyOwnerObject</a>; <a href="../../campaign-ext/ResourceTextureProvider">ResourceTextureProvider</a>; <a href="../../campaign-ext/SizePolicy">SizePolicy</a>; <a href="../../campaign-ext/SoundProperties">SoundProperties</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="../../campaign-ext/Style">Style</a>; <a href="../../campaign-ext/StyleAnimationMode">StyleAnimationMode</a>; <a href="../../campaign-ext/StyleLayer">StyleLayer</a>; <a href="../../campaign-ext/TextureProvider">TextureProvider</a>; <a href="../../campaign-ext/TextureProviderFactory">TextureProviderFactory</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="../../gui/Type">Type</a>; <a href="../../campaign-ext/UIContext">UIContext</a>; <a href="../../gui/UpdateAction">UpdateAction</a>; <a href="../../campaign-ext/ValueType">ValueType</a>; <a href="../../campaign-ext/VerticalAlignment">VerticalAlignment</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI</td><td><a href="../../campaign-ext/VisualDefinition">VisualDefinition</a>; <a href="../../campaign-ext/VisualState">VisualState</a>; <a href="../../campaign-ext/VisualStateAnimationState">VisualStateAnimationState</a>; <a href="../../campaign-ext/WidgetComponent">WidgetComponent</a>; <a href="../../campaign-ext/WidgetInfo">WidgetInfo</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.BaseTypes</td><td><a href="../../campaign-ext/AutoScrollParameters">AutoScrollParameters</a>; <a href="../../campaign-ext/BasicContainer">BasicContainer</a>; <a href="../../campaign-ext/BrushWidget">BrushWidget</a>; <a href="../../campaign-ext/ButtonType">ButtonType</a>; <a href="../../campaign-ext/ButtonWidget">ButtonWidget</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.BaseTypes</td><td><a href="../../campaign-ext/Container">Container</a>; <a href="../../gui/CursorMovementDirection">CursorMovementDirection</a>; <a href="../../campaign-ext/DragCarrierWidget">DragCarrierWidget</a>; <a href="../../campaign-ext/DropdownWidget">DropdownWidget</a>; <a href="../../campaign-ext/EditableTextWidget">EditableTextWidget</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.BaseTypes</td><td><a href="../../campaign-ext/FloatInputTextWidget">FloatInputTextWidget</a>; <a href="../../campaign-ext/GridWidget">GridWidget</a>; <a href="../../campaign-ext/ImageSizePolicies">ImageSizePolicies</a>; <a href="../../campaign-ext/ImageWidget">ImageWidget</a>; <a href="../../campaign-ext/IntegerInputPercentageTextWidget">IntegerInputPercentageTextWidget</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.BaseTypes</td><td><a href="../../campaign-ext/IntegerInputTextWidget">IntegerInputTextWidget</a>; <a href="../../gui/KeyboardAction">KeyboardAction</a>; <a href="../../campaign-ext/ListPanel">ListPanel</a>; <a href="../../campaign-ext/MaskedTextureWidget">MaskedTextureWidget</a>; <a href="../../gui/MouseState">MouseState</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.BaseTypes</td><td><a href="../../campaign-ext/OnlineImageTextureWidget">OnlineImageTextureWidget</a>; <a href="../../campaign-ext/RichTextWidget">RichTextWidget</a>; <a href="../../campaign-ext/ScrollablePanel">ScrollablePanel</a>; <a href="../../campaign-ext/ScrollablePanelFixedHeaderWidget">ScrollablePanelFixedHeaderWidget</a>; <a href="../../gui/ScrollbarInterpolationController">ScrollbarInterpolationController</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.BaseTypes</td><td><a href="../../campaign-ext/ScrollbarWidget">ScrollbarWidget</a>; <a href="../../campaign-ext/SelectedStateBrushWidget">SelectedStateBrushWidget</a>; <a href="../../campaign-ext/SliderWidget">SliderWidget</a>; <a href="../../gui/SpriteFromTexture">SpriteFromTexture</a>; <a href="../../campaign-ext/TabControl">TabControl</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.BaseTypes</td><td><a href="../../campaign-ext/TabToggleWidget">TabToggleWidget</a>; <a href="../../campaign-ext/TextureWidget">TextureWidget</a>; <a href="../../campaign-ext/TextWidget">TextWidget</a>; <a href="../../campaign-ext/Widget">Widget</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.Data</td><td><a href="../../campaign-ext/GauntletView">GauntletView</a>; <a href="../../campaign-ext/GeneratedGauntletMovie">GeneratedGauntletMovie</a>; <a href="../../campaign-ext/GeneratedWidgetData">GeneratedWidgetData</a>; <a href="../../campaign-ext/IGauntletMovie">IGauntletMovie</a>; <a href="../../campaign-ext/IGeneratedGauntletMovieRoot">IGeneratedGauntletMovieRoot</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.Data</td><td><a href="../../campaign-ext/ItemTemplateUsage">ItemTemplateUsage</a>; <a href="../../campaign-ext/ItemTemplateUsageWithData">ItemTemplateUsageWithData</a>; <a href="../../campaign-ext/PrefabDatabindingExtension">PrefabDatabindingExtension</a>; <a href="../../gui/ViewBindDataInfo">ViewBindDataInfo</a>; <a href="../../campaign-ext/WidgetAttributeKeyTypeCommand">WidgetAttributeKeyTypeCommand</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.Data</td><td><a href="../../campaign-ext/WidgetAttributeKeyTypeCommandParameter">WidgetAttributeKeyTypeCommandParameter</a>; <a href="../../campaign-ext/WidgetAttributeKeyTypeDataSource">WidgetAttributeKeyTypeDataSource</a>; <a href="../../campaign-ext/WidgetAttributeValueTypeBinding">WidgetAttributeValueTypeBinding</a>; <a href="../../campaign-ext/WidgetAttributeValueTypeBindingPath">WidgetAttributeValueTypeBindingPath</a>; <a href="../../campaign-ext/WidgetInstantiationResultDatabindingExtension">WidgetInstantiationResultDatabindingExtension</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.ExtraWidgets</td><td><a href="../../campaign-ext/AnimatedNumberTextWidget">AnimatedNumberTextWidget</a>; <a href="../../campaign-ext/CustomWidgetManager">CustomWidgetManager</a>; <a href="../../campaign-ext/DelayedStateChanger">DelayedStateChanger</a>; <a href="../../campaign-ext/DialogButtonsParentWidget">DialogButtonsParentWidget</a>; <a href="../../campaign-ext/DisabledAlphaChangerWidget">DisabledAlphaChangerWidget</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.ExtraWidgets</td><td><a href="../../campaign-ext/FillBar">FillBar</a>; <a href="../../campaign-ext/FillBarHorizontalWidget">FillBarHorizontalWidget</a>; <a href="../../campaign-ext/FillBarVerticalClipTierColorsWidget">FillBarVerticalClipTierColorsWidget</a>; <a href="../../campaign-ext/FillBarVerticalClipWidget">FillBarVerticalClipWidget</a>; <a href="../../campaign-ext/FillBarVerticalWidget">FillBarVerticalWidget</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.ExtraWidgets</td><td><a href="../../campaign-ext/FillBarWidget">FillBarWidget</a>; <a href="../../campaign-ext/InputKeyVisualWidget">InputKeyVisualWidget</a>; <a href="../../campaign-ext/MouseWidget">MouseWidget</a>; <a href="../../campaign-ext/ScrollingRichTextWidget">ScrollingRichTextWidget</a>; <a href="../../campaign-ext/ScrollingTextWidget">ScrollingTextWidget</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.ExtraWidgets</td><td><a href="../../campaign-ext/SiblingIndexVisibilityWidget">SiblingIndexVisibilityWidget</a>; <a href="../../campaign-ext/SmoothDecreaseIndicatorFillBar">SmoothDecreaseIndicatorFillBar</a>; <a href="../../campaign-ext/StateSyncWidget">StateSyncWidget</a>; <a href="../../campaign-ext/StringBasedVisibilityWidget">StringBasedVisibilityWidget</a>; <a href="../../campaign-ext/TooltipPositioningType">TooltipPositioningType</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.ExtraWidgets</td><td><a href="../../campaign-ext/TooltipWidget">TooltipWidget</a>; <a href="../../campaign-ext/TwoWaySliderWidget">TwoWaySliderWidget</a>; <a href="../../campaign-ext/ValueBasedVisibilityWidget">ValueBasedVisibilityWidget</a>; <a href="../../campaign-ext/WatchTypes">WatchTypes</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.ExtraWidgets.Graph</td><td><a href="../../campaign-ext/GraphLinePointWidget">GraphLinePointWidget</a>; <a href="../../campaign-ext/GraphLineWidget">GraphLineWidget</a>; <a href="../../campaign-ext/GraphWidget">GraphWidget</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.GamepadNavigation</td><td><a href="../../campaign-ext/GamepadNavigationForcedScopeCollection">GamepadNavigationForcedScopeCollection</a>; <a href="../../campaign-ext/GamepadNavigationScope">GamepadNavigationScope</a>; <a href="../../gui/GamepadNavigationScopeCollection">GamepadNavigationScopeCollection</a>; <a href="../../campaign-ext/GamepadNavigationTypes">GamepadNavigationTypes</a>; <a href="../../campaign-ext/GauntletGamepadNavigationManager">GauntletGamepadNavigationManager</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.GauntletInput</td><td><a href="../../campaign-ext/GauntletInputContext">GauntletInputContext</a>; <a href="../../campaign-ext/IReadonlyInputContext">IReadonlyInputContext</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.Layout</td><td><a href="../../campaign-ext/DefaultLayout">DefaultLayout</a>; <a href="../../campaign-ext/DragCarrierLayout">DragCarrierLayout</a>; <a href="../../campaign-ext/GridDirection">GridDirection</a>; <a href="../../campaign-ext/GridHorizontalLayoutMethod">GridHorizontalLayoutMethod</a>; <a href="../../campaign-ext/GridLayout">GridLayout</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.Layout</td><td><a href="../../campaign-ext/GridVerticalLayoutMethod">GridVerticalLayoutMethod</a>; <a href="../../campaign-ext/ILayout">ILayout</a>; <a href="../../campaign-ext/LayoutMethod">LayoutMethod</a>; <a href="../../campaign-ext/StackLayout">StackLayout</a>; <a href="../../campaign-ext/TextLayout">TextLayout</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.PrefabSystem</td><td><a href="../../campaign-ext/ConstantDefinition">ConstantDefinition</a>; <a href="../../campaign-ext/ConstantDefinitionType">ConstantDefinitionType</a>; <a href="../../campaign-ext/CustomWidgetType">CustomWidgetType</a>; <a href="../../campaign-ext/GeneratedPrefabContext">GeneratedPrefabContext</a>; <a href="../../campaign-ext/GeneratedPrefabInstantiationResult">GeneratedPrefabInstantiationResult</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.PrefabSystem</td><td><a href="../../campaign-ext/IGeneratedUIPrefabCreator">IGeneratedUIPrefabCreator</a>; <a href="../../campaign-ext/PrefabExtension">PrefabExtension</a>; <a href="../../campaign-ext/PrefabExtensionContext">PrefabExtensionContext</a>; <a href="../../campaign-ext/VisualDefinitionTemplate">VisualDefinitionTemplate</a>; <a href="../../campaign-ext/VisualStateTemplate">VisualStateTemplate</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.PrefabSystem</td><td><a href="../../campaign-ext/WidgetAttributeContext">WidgetAttributeContext</a>; <a href="../../campaign-ext/WidgetAttributeKeyType">WidgetAttributeKeyType</a>; <a href="../../campaign-ext/WidgetAttributeKeyTypeAttribute">WidgetAttributeKeyTypeAttribute</a>; <a href="../../campaign-ext/WidgetAttributeKeyTypeId">WidgetAttributeKeyTypeId</a>; <a href="../../campaign-ext/WidgetAttributeKeyTypeParameter">WidgetAttributeKeyTypeParameter</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.PrefabSystem</td><td><a href="../../campaign-ext/WidgetAttributeTemplate">WidgetAttributeTemplate</a>; <a href="../../campaign-ext/WidgetAttributeValueType">WidgetAttributeValueType</a>; <a href="../../campaign-ext/WidgetAttributeValueTypeConstant">WidgetAttributeValueTypeConstant</a>; <a href="../../campaign-ext/WidgetAttributeValueTypeDefault">WidgetAttributeValueTypeDefault</a>; <a href="../../campaign-ext/WidgetAttributeValueTypeParameter">WidgetAttributeValueTypeParameter</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.PrefabSystem</td><td><a href="../../campaign-ext/WidgetCreationData">WidgetCreationData</a>; <a href="../../campaign-ext/WidgetExtensions">WidgetExtensions</a>; <a href="../../campaign-ext/WidgetFactory">WidgetFactory</a>; <a href="../../campaign-ext/WidgetInstantiationResult">WidgetInstantiationResult</a>; <a href="../../gui/WidgetInstantiationResultExtensionData">WidgetInstantiationResultExtensionData</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.GauntletUI.PrefabSystem</td><td><a href="../../campaign-ext/WidgetPrefab">WidgetPrefab</a>; <a href="../../campaign-ext/WidgetTemplate">WidgetTemplate</a></td><td>说明 Gauntlet UI 绑定与布局；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.InputSystem</td><td><a href="../../campaign-ext/AxisType">AxisType</a>; <a href="../../campaign-ext/ControllerTypes">ControllerTypes</a>; <a href="../../campaign-ext/EmptyInputContext">EmptyInputContext</a>; <a href="../EmptyInputManager">EmptyInputManager</a>; <a href="../../campaign-ext/GameAxisKey">GameAxisKey</a></td><td>说明 输入映射与设备状态；优先使用托管入口，世界状态由所属系统拥有。</td><td>输入采样与按键查询</td></tr>
+<tr><td>TaleWorlds.InputSystem</td><td><a href="../../campaign-ext/GameKey">GameKey</a>; <a href="../../campaign-ext/GameKeyContext">GameKeyContext</a>; <a href="../../campaign-ext/GameKeyContextType">GameKeyContextType</a>; <a href="../../campaign-ext/HotKey">HotKey</a>; <a href="../../campaign-ext/HotKeyManager">HotKeyManager</a></td><td>说明 输入映射与设备状态；优先使用托管入口，世界状态由所属系统拥有。</td><td>输入采样与按键查询</td></tr>
+<tr><td>TaleWorlds.InputSystem</td><td><a href="../../campaign-ext/IInputContext">IInputContext</a>; <a href="../../campaign-ext/IInputManager">IInputManager</a>; <a href="../../campaign-ext/Input">Input</a>; <a href="../../core-extra/InputContext">InputContext</a>; <a href="../../campaign-ext/InputKey">InputKey</a></td><td>说明 输入映射与设备状态；优先使用托管入口，世界状态由所属系统拥有。</td><td>输入采样与按键查询</td></tr>
+<tr><td>TaleWorlds.InputSystem</td><td><a href="../../campaign-ext/InputState">InputState</a>; <a href="../../campaign-ext/InputType">InputType</a>; <a href="../../campaign-ext/Key">Key</a>; <a href="../../campaign-ext/Modifiers">Modifiers</a>; <a href="../../campaign-ext/VirtualKeyCode">VirtualKeyCode</a></td><td>说明 输入映射与设备状态；优先使用托管入口，世界状态由所属系统拥有。</td><td>输入采样与按键查询</td></tr>
+<tr><td>TaleWorlds.Library</td><td><a href="../../core-extra/AzureDiscovery">AzureDiscovery</a>; <a href="../../core-extra/BasePath">BasePath</a>; <a href="../../core-extra/bin">bin</a>; <a href="../../core-extra/BinaryReader">BinaryReader</a>; <a href="../../core-extra/BinaryWriter">BinaryWriter</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Library.CodeGeneration</td><td><a href="../../core-extra/ClassCode">ClassCode</a>; <a href="../../core-extra/ClassCodeAccessModifier">ClassCodeAccessModifier</a>; <a href="../../core-extra/CodeBlock">CodeBlock</a>; <a href="../../core-extra/CodeGenerationContext">CodeGenerationContext</a>; <a href="../../core-extra/CodeGenerationFile">CodeGenerationFile</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Library.CodeGeneration</td><td><a href="../../core-extra/CommentSection">CommentSection</a>; <a href="../../core-extra/ConstructorCode">ConstructorCode</a>; <a href="../../core-extra/MethodCode">MethodCode</a>; <a href="../../core-extra/MethodCodeAccessModifier">MethodCodeAccessModifier</a>; <a href="../../core-extra/MethodCodePolymorphismInfo">MethodCodePolymorphismInfo</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Library.CodeGeneration</td><td><a href="../../core-extra/NamespaceCode">NamespaceCode</a>; <a href="../../core-extra/VariableCode">VariableCode</a>; <a href="../../core-extra/VariableCodeAccessModifier">VariableCodeAccessModifier</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Library.EventSystem</td><td><a href="../../core-extra/DictionaryByType">DictionaryByType</a>; <a href="../../core-extra/EventBase">EventBase</a>; <a href="../../core-extra/EventManager">EventManager</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Library.Graph</td><td><a href="../../core-extra/GraphLinePointVM">GraphLinePointVM</a>; <a href="../../core-extra/GraphLineVM">GraphLineVM</a>; <a href="../../core-extra/GraphVM">GraphVM</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Library.Http</td><td><a href="../../core-extra/DotNetHttpDriver">DotNetHttpDriver</a>; <a href="../../core-extra/HttpDriverManager">HttpDriverManager</a>; <a href="../../core-extra/HttpGetRequest">HttpGetRequest</a>; <a href="../../core-extra/HttpPostRequest">HttpPostRequest</a>; <a href="../../core-extra/HttpRequestTaskState">HttpRequestTaskState</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Library.Http</td><td><a href="../../core-extra/IHttpDriver">IHttpDriver</a>; <a href="../../core-extra/IHttpRequestTask">IHttpRequestTask</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Library.Information</td><td><a href="../../core-extra/TooltipTriggerVM">TooltipTriggerVM</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Library.NewsManager</td><td><a href="../../core-extra/NewsItem">NewsItem</a>; <a href="../../core-extra/NewsManager">NewsManager</a>; <a href="../../core-extra/NewsType">NewsType</a>; <a href="../../core-extra/NewsTypes">NewsTypes</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.LinQuick</td><td><a href="../Error">Error</a>; <a href="../../campaign-ext/LinQuick">LinQuick</a>; <a href="../../campaign-ext/Min">Min</a></td><td>说明 集合查询工具；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.Localization</td><td><a href="../../localization/DateRange">DateRange</a>; <a href="../../localization/LanguageData">LanguageData</a>; <a href="../../localization/LocalizationException">LocalizationException</a>; <a href="../../localization/LocalizedTextManager">LocalizedTextManager</a>; <a href="../../localization/LocalizedVoiceManager">LocalizedVoiceManager</a></td><td>说明 本地化文本处理；优先使用托管入口，世界状态由所属系统拥有。</td><td>文本解析与本地化刷新</td></tr>
+<tr><td>TaleWorlds.Localization</td><td><a href="../../localization/MBTextManager">MBTextManager</a>; <a href="../../localization/SaveableLocalizationTypeDefiner">SaveableLocalizationTypeDefiner</a>; <a href="../../localization/VoiceObject">VoiceObject</a></td><td>说明 本地化文本处理；优先使用托管入口，世界状态由所属系统拥有。</td><td>文本解析与本地化刷新</td></tr>
+<tr><td>TaleWorlds.Localization.Expressions</td><td><a href="../../localization/ArithmeticExpression">ArithmeticExpression</a>; <a href="../../localization/ArithmeticOperation">ArithmeticOperation</a>; <a href="../../localization/ArrayReference">ArrayReference</a>; <a href="../../localization/BooleanOperation">BooleanOperation</a>; <a href="../../localization/ComparisonExpression">ComparisonExpression</a></td><td>说明 本地化文本处理；优先使用托管入口，世界状态由所属系统拥有。</td><td>文本解析与本地化刷新</td></tr>
+<tr><td>TaleWorlds.Localization.Expressions</td><td><a href="../../localization/ComparisonOperation">ComparisonOperation</a>; <a href="../../localization/ConditionExpression">ConditionExpression</a>; <a href="../../localization/FieldExpression">FieldExpression</a>; <a href="../../localization/FunctionCall">FunctionCall</a>; <a href="../../localization/LangaugeMarkerExpression">LangaugeMarkerExpression</a></td><td>说明 本地化文本处理；优先使用托管入口，世界状态由所属系统拥有。</td><td>文本解析与本地化刷新</td></tr>
+<tr><td>TaleWorlds.Localization.Expressions</td><td><a href="../../localization/MarkerOccuranceTextExpression">MarkerOccuranceTextExpression</a>; <a href="../../localization/MultiStatement">MultiStatement</a>; <a href="../../localization/NumeralExpression">NumeralExpression</a>; <a href="../../localization/ParameterWithAttributeExpression">ParameterWithAttributeExpression</a>; <a href="../../localization/ParanthesisExpression">ParanthesisExpression</a></td><td>说明 本地化文本处理；优先使用托管入口，世界状态由所属系统拥有。</td><td>文本解析与本地化刷新</td></tr>
+<tr><td>TaleWorlds.Localization.Expressions</td><td><a href="../../localization/QualifiedIdentifierExpression">QualifiedIdentifierExpression</a>; <a href="../../localization/SelectionExpression">SelectionExpression</a>; <a href="../../localization/SimpleExpression">SimpleExpression</a>; <a href="../../localization/SimpleNumberExpression">SimpleNumberExpression</a>; <a href="../../localization/SimpleText">SimpleText</a></td><td>说明 本地化文本处理；优先使用托管入口，世界状态由所属系统拥有。</td><td>文本解析与本地化刷新</td></tr>
+<tr><td>TaleWorlds.Localization.Expressions</td><td><a href="../../localization/SimpleToken">SimpleToken</a>; <a href="../../localization/StartsWithExpression">StartsWithExpression</a>; <a href="../../localization/TextExpression">TextExpression</a>; <a href="../../localization/TextIdExpression">TextIdExpression</a>; <a href="../../localization/VariableExpression">VariableExpression</a></td><td>说明 本地化文本处理；优先使用托管入口，世界状态由所属系统拥有。</td><td>文本解析与本地化刷新</td></tr>
+<tr><td>TaleWorlds.Localization.TextProcessor</td><td><a href="../../localization/CaseInsensitiveComparer">CaseInsensitiveComparer</a>; <a href="../../localization/DefaultTextProcessor">DefaultTextProcessor</a>; <a href="../../localization/LanguageSpecificTextProcessor">LanguageSpecificTextProcessor</a>; <a href="../../localization/MBTextModel">MBTextModel</a>; <a href="../../localization/MBTextParser">MBTextParser</a></td><td>说明 本地化文本处理；优先使用托管入口，世界状态由所属系统拥有。</td><td>文本解析与本地化刷新</td></tr>
+<tr><td>TaleWorlds.Localization.TextProcessor</td><td><a href="../../localization/MBTextToken">MBTextToken</a>; <a href="../../localization/TextGrammarProcessor">TextGrammarProcessor</a>; <a href="../../localization/TextProcessingContext">TextProcessingContext</a>; <a href="../../localization/TokenDefinition">TokenDefinition</a>; <a href="../../localization/Tokenizer">Tokenizer</a></td><td>说明 本地化文本处理；优先使用托管入口，世界状态由所属系统拥有。</td><td>文本解析与本地化刷新</td></tr>
+<tr><td>TaleWorlds.Localization.TextProcessor</td><td><a href="../../campaign-ext/TokenType">TokenType</a></td><td>说明 本地化文本处理；优先使用托管入口，世界状态由所属系统拥有。</td><td>文本解析与本地化刷新</td></tr>
+<tr><td>TaleWorlds.Localization.TextProcessor.LanguageProcessors</td><td><a href="../../localization/EnglishTextProcessor">EnglishTextProcessor</a>; <a href="../../localization/FrenchTextProcessor">FrenchTextProcessor</a>; <a href="../../localization/GermanTextProcessor">GermanTextProcessor</a>; <a href="../../localization/ItalianTextProcessor">ItalianTextProcessor</a>; <a href="../../localization/PolishTextProcessor">PolishTextProcessor</a></td><td>说明 本地化文本处理；优先使用托管入口，世界状态由所属系统拥有。</td><td>文本解析与本地化刷新</td></tr>
+<tr><td>TaleWorlds.Localization.TextProcessor.LanguageProcessors</td><td><a href="../../localization/RussianTextProcessor">RussianTextProcessor</a>; <a href="../../localization/SpanishTextProcessor">SpanishTextProcessor</a>; <a href="../../localization/TurkishTextProcessor">TurkishTextProcessor</a></td><td>说明 本地化文本处理；优先使用托管入口，世界状态由所属系统拥有。</td><td>文本解析与本地化刷新</td></tr>
+<tr><td>TaleWorlds.ModuleManager</td><td><a href="../../campaign-ext/DependedModule">DependedModule</a>; <a href="../../campaign-ext/Extensions__TaleWorlds_ModuleManager">Extensions</a>; <a href="../../campaign-ext/IPlatformModuleExtension">IPlatformModuleExtension</a>; <a href="../../campaign-ext/ModuleCategory">ModuleCategory</a>; <a href="../../campaign-ext/ModuleHelper">ModuleHelper</a></td><td>说明 模块元数据与加载；优先使用托管入口，世界状态由所属系统拥有。</td><td>模块加载或对象注册</td></tr>
+<tr><td>TaleWorlds.ModuleManager</td><td><a href="../../campaign-ext/ModuleInfo">ModuleInfo</a>; <a href="../../campaign-ext/ModuleType">ModuleType</a>; <a href="../../campaign-ext/SubModuleInfo">SubModuleInfo</a>; <a href="../../campaign-ext/SubModuleTags">SubModuleTags</a></td><td>说明 模块元数据与加载；优先使用托管入口，世界状态由所属系统拥有。</td><td>模块加载或对象注册</td></tr>
+<tr><td>TaleWorlds.Network</td><td><a href="../../campaign-ext/Authorize">Authorize</a>; <a href="../../campaign-ext/ClientsideSession">ClientsideSession</a>; <a href="../../campaign-ext/ClientWebSocketHandler">ClientWebSocketHandler</a>; <a href="../../campaign-ext/ConnectionState">ConnectionState</a>; <a href="../../campaign-ext/Coroutine">Coroutine</a></td><td>说明 网络消息与会话；优先使用托管入口，世界状态由所属系统拥有。</td><td>连接、消息分发或会话结束</td></tr>
+<tr><td>TaleWorlds.Network</td><td><a href="../../campaign-ext/CoroutineManager">CoroutineManager</a>; <a href="../../campaign-ext/CoroutineState">CoroutineState</a>; <a href="../../campaign-ext/IMessageProxyClient">IMessageProxyClient</a>; <a href="../../campaign-ext/IncomingServerSessionMessage">IncomingServerSessionMessage</a>; <a href="../../campaign-ext/INetworkMessageReader">INetworkMessageReader</a></td><td>说明 网络消息与会话；优先使用托管入口，世界状态由所属系统拥有。</td><td>连接、消息分发或会话结束</td></tr>
+<tr><td>TaleWorlds.Network</td><td><a href="../../campaign-ext/INetworkMessageWriter">INetworkMessageWriter</a>; <a href="../../campaign-ext/INetworkSerializable">INetworkSerializable</a>; <a href="../../campaign-ext/JsonSocketMessage">JsonSocketMessage</a>; <a href="../../campaign-ext/MessageBuffer">MessageBuffer</a>; <a href="../../campaign-ext/MessageContract">MessageContract</a></td><td>说明 网络消息与会话；优先使用托管入口，世界状态由所属系统拥有。</td><td>连接、消息分发或会话结束</td></tr>
+<tr><td>TaleWorlds.Network</td><td><a href="../../campaign-ext/MessageContractCreator">MessageContractCreator</a>; <a href="../../campaign-ext/MessageContractHandler">MessageContractHandler</a>; <a href="../../campaign-ext/MessageContractHandlerManager">MessageContractHandlerManager</a>; <a href="../../campaign-ext/MessageId">MessageId</a>; <a href="../../campaign-ext/MessageInfo">MessageInfo</a></td><td>说明 网络消息与会话；优先使用托管入口，世界状态由所属系统拥有。</td><td>连接、消息分发或会话结束</td></tr>
+<tr><td>TaleWorlds.Network</td><td><a href="../../campaign-ext/MessageProxy">MessageProxy</a>; <a href="../../campaign-ext/MessageServiceConnection">MessageServiceConnection</a>; <a href="../../campaign-ext/MessageTypes">MessageTypes</a>; <a href="../../campaign-ext/NetworkMessage">NetworkMessage</a>; <a href="../../campaign-ext/NetworkSession">NetworkSession</a></td><td>说明 网络消息与会话；优先使用托管入口，世界状态由所属系统拥有。</td><td>连接、消息分发或会话结束</td></tr>
+<tr><td>TaleWorlds.Network</td><td><a href="../../campaign-ext/PostBoxId">PostBoxId</a>; <a href="../../campaign-ext/RESTClient">RESTClient</a>; <a href="../../campaign-ext/ServersideSession">ServersideSession</a>; <a href="../../campaign-ext/ServersideSessionManager">ServersideSessionManager</a>; <a href="../../campaign-ext/ServiceException">ServiceException</a></td><td>说明 网络消息与会话；优先使用托管入口，世界状态由所属系统拥有。</td><td>连接、消息分发或会话结束</td></tr>
+<tr><td>TaleWorlds.Network</td><td><a href="../../campaign-ext/ServiceExceptionModel">ServiceExceptionModel</a>; <a href="../../campaign-ext/TcpSocket">TcpSocket</a>; <a href="../../campaign-ext/TcpStatus">TcpStatus</a>; <a href="../../campaign-ext/ThreadType">ThreadType</a>; <a href="../../campaign-ext/TickManager">TickManager</a></td><td>说明 网络消息与会话；优先使用托管入口，世界状态由所属系统拥有。</td><td>连接、消息分发或会话结束</td></tr>
+<tr><td>TaleWorlds.Network</td><td><a href="../../campaign-ext/WaitForSpecialCase">WaitForSpecialCase</a>; <a href="../../campaign-ext/WaitForTicks">WaitForTicks</a>; <a href="../../campaign-ext/WebSocketMessage">WebSocketMessage</a></td><td>说明 网络消息与会话；优先使用托管入口，世界状态由所属系统拥有。</td><td>连接、消息分发或会话结束</td></tr>
+<tr><td>TaleWorlds.ObjectSystem</td><td><a href="../../campaign-ext/IObjectManagerHandler">IObjectManagerHandler</a>; <a href="../IObjectTypeRecord">IObjectTypeRecord</a>; <a href="../../campaign-ext/MBCanNotCreatePresumedObjectException">MBCanNotCreatePresumedObjectException</a>; <a href="../../campaign-ext/MBGUID">MBGUID</a>; <a href="../MBGUIDBasicTypeSerializer">MBGUIDBasicTypeSerializer</a></td><td>说明 对象注册与反射；优先使用托管入口，世界状态由所属系统拥有。</td><td>模块加载或对象注册</td></tr>
+<tr><td>TaleWorlds.ObjectSystem</td><td><a href="../../campaign-ext/MBIllegalRegisterException">MBIllegalRegisterException</a>; <a href="../../campaign-ext/MBInvalidReferenceException">MBInvalidReferenceException</a>; <a href="../../campaign-ext/MbObjectXmlInformation">MbObjectXmlInformation</a>; <a href="../../campaign-ext/MBOutOfRangeException">MBOutOfRangeException</a>; <a href="../../campaign-ext/MBTooManyRegisteredTypesException">MBTooManyRegisteredTypesException</a></td><td>说明 对象注册与反射；优先使用托管入口，世界状态由所属系统拥有。</td><td>模块加载或对象注册</td></tr>
+<tr><td>TaleWorlds.ObjectSystem</td><td><a href="../../campaign-ext/MBTypeMismatchException">MBTypeMismatchException</a>; <a href="../../campaign-ext/MBTypeNotRegisteredException">MBTypeNotRegisteredException</a>; <a href="../../campaign-ext/ObjectSystemException">ObjectSystemException</a>; <a href="../ObjectTypeRecord">ObjectTypeRecord</a>; <a href="../../campaign-ext/SaveableObjectSystemTypeDefiner">SaveableObjectSystemTypeDefiner</a></td><td>说明 对象注册与反射；优先使用托管入口，世界状态由所属系统拥有。</td><td>模块加载或对象注册</td></tr>
+<tr><td>TaleWorlds.ObjectSystem</td><td><a href="../../campaign-ext/XmlResource">XmlResource</a>; <a href="../../campaign-ext/XsdElement">XsdElement</a></td><td>说明 对象注册与反射；优先使用托管入口，世界状态由所属系统拥有。</td><td>模块加载或对象注册</td></tr>
+<tr><td>TaleWorlds.SaveSystem</td><td><a href="../../save-system/ArchiveConcurrentSerializer">ArchiveConcurrentSerializer</a>; <a href="../../save-system/ArchiveDeserializer">ArchiveDeserializer</a>; <a href="../../save-system/ArchiveSerializer">ArchiveSerializer</a>; <a href="../../save-system/AsyncFileSaveDriver">AsyncFileSaveDriver</a>; <a href="../../save-system/BinaryWriterFactory">BinaryWriterFactory</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem</td><td><a href="../../save-system/ContainerType">ContainerType</a>; <a href="../../save-system/EntryId">EntryId</a>; <a href="../../save-system/FileDriver">FileDriver</a>; <a href="../../save-system/FolderId">FolderId</a>; <a href="../../save-system/GameData">GameData</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem</td><td><a href="../../save-system/IArchiveContext">IArchiveContext</a>; <a href="../../save-system/InMemDriver">InMemDriver</a>; <a href="../../save-system/ISaveDriver">ISaveDriver</a>; <a href="../../save-system/ISavedStruct">ISavedStruct</a>; <a href="../../save-system/LateLoadInitializationCallback">LateLoadInitializationCallback</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem</td><td><a href="../../save-system/LegacyGameDataDeserializer">LegacyGameDataDeserializer</a>; <a href="../../save-system/LoadData">LoadData</a>; <a href="../../save-system/LoadInitializationCallback">LoadInitializationCallback</a>; <a href="../../save-system/MetaData">MetaData</a>; <a href="../../save-system/MetaDataExtensions__TaleWorlds_SaveSystem">MetaDataExtensions</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem</td><td><a href="../../save-system/SaveableBasicTypeDefiner">SaveableBasicTypeDefiner</a>; <a href="../../save-system/SaveableInterfaceAttribute">SaveableInterfaceAttribute</a>; <a href="../../save-system/SaveableRootClassAttribute">SaveableRootClassAttribute</a>; <a href="../../save-system/SavedMemberType">SavedMemberType</a>; <a href="../../save-system/SaveEntry">SaveEntry</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem</td><td><a href="../../save-system/SaveEntryExtension">SaveEntryExtension</a>; <a href="../../save-system/SaveEntryFolder">SaveEntryFolder</a>; <a href="../../save-system/SaveFolderExtension">SaveFolderExtension</a>; <a href="../../save-system/SaveGameFileInfo">SaveGameFileInfo</a>; <a href="../../save-system/TypeExtensions">TypeExtensions</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem</td><td><a href="../../save-system/ZipExtensions">ZipExtensions</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Definition</td><td><a href="../../save-system/BasicTypeDefinition">BasicTypeDefinition</a>; <a href="../../save-system/BoolBasicTypeSerializer">BoolBasicTypeSerializer</a>; <a href="../../save-system/ByteBasicTypeSerializer">ByteBasicTypeSerializer</a>; <a href="../../save-system/ColorBasicTypeSerializer">ColorBasicTypeSerializer</a>; <a href="../../save-system/ContainerDefinition">ContainerDefinition</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Definition</td><td><a href="../../save-system/ContainerSaveId">ContainerSaveId</a>; <a href="../../save-system/CustomField">CustomField</a>; <a href="../../save-system/DefinitionContext">DefinitionContext</a>; <a href="../../save-system/DoubleBasicTypeSerializer">DoubleBasicTypeSerializer</a>; <a href="../../save-system/EnumDefinition">EnumDefinition</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Definition</td><td><a href="../../save-system/FieldDefinition">FieldDefinition</a>; <a href="../../save-system/FloatBasicTypeSerializer">FloatBasicTypeSerializer</a>; <a href="../../save-system/GenericSaveId">GenericSaveId</a>; <a href="../../save-system/GenericTypeDefinition">GenericTypeDefinition</a>; <a href="../../save-system/IBasicTypeSerializer">IBasicTypeSerializer</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Definition</td><td><a href="../../save-system/IntBasicTypeSerializer">IntBasicTypeSerializer</a>; <a href="../../save-system/InterfaceDefinition">InterfaceDefinition</a>; <a href="../../save-system/LongBasicTypeSerializer">LongBasicTypeSerializer</a>; <a href="../../save-system/Mat2BasicTypeSerializer">Mat2BasicTypeSerializer</a>; <a href="../../save-system/Mat3BasicTypeSerializer">Mat3BasicTypeSerializer</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Definition</td><td><a href="../../save-system/MatrixFrameBasicTypeSerializer">MatrixFrameBasicTypeSerializer</a>; <a href="../../save-system/MemberDefinition">MemberDefinition</a>; <a href="../../save-system/MemberTypeId">MemberTypeId</a>; <a href="../../save-system/PropertyDefinition">PropertyDefinition</a>; <a href="../../save-system/QuaternionBasicTypeSerializer">QuaternionBasicTypeSerializer</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Definition</td><td><a href="../../save-system/SaveCodeGenerationContext">SaveCodeGenerationContext</a>; <a href="../../save-system/SaveCodeGenerationContextAssembly">SaveCodeGenerationContextAssembly</a>; <a href="../../save-system/SaveId">SaveId</a>; <a href="../../save-system/SbyteBasicTypeSerializer">SbyteBasicTypeSerializer</a>; <a href="../../save-system/ShortBasicTypeSerializer">ShortBasicTypeSerializer</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Definition</td><td><a href="../../save-system/StringSerializer">StringSerializer</a>; <a href="../../save-system/StructDefinition">StructDefinition</a>; <a href="../../save-system/TypeDefinition">TypeDefinition</a>; <a href="../../save-system/TypeDefinitionBase">TypeDefinitionBase</a>; <a href="../../save-system/TypeSaveId">TypeSaveId</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Definition</td><td><a href="../../save-system/UintBasicTypeSerializer">UintBasicTypeSerializer</a>; <a href="../../save-system/UlongBasicTypeSerializer">UlongBasicTypeSerializer</a>; <a href="../../save-system/UshortBasicTypeSerializer">UshortBasicTypeSerializer</a>; <a href="../../save-system/Vec2BasicTypeSerializer">Vec2BasicTypeSerializer</a>; <a href="../../save-system/Vec2iBasicTypeSerializer">Vec2iBasicTypeSerializer</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Definition</td><td><a href="../../save-system/Vec3BasicTypeSerializer">Vec3BasicTypeSerializer</a>; <a href="../../save-system/Vec3iBasicTypeSerializer">Vec3iBasicTypeSerializer</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Load</td><td><a href="../../save-system/ContainerHeaderLoadData">ContainerHeaderLoadData</a>; <a href="../../save-system/ContainerLoadData">ContainerLoadData</a>; <a href="../../save-system/ElementLoadData">ElementLoadData</a>; <a href="../../save-system/FieldLoadData">FieldLoadData</a>; <a href="../../save-system/LoadCallbackInitializator">LoadCallbackInitializator</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Load</td><td><a href="../../save-system/LoadContext">LoadContext</a>; <a href="../../save-system/LoadError">LoadError</a>; <a href="../../save-system/LoadResult">LoadResult</a>; <a href="../../save-system/MemberLoadData">MemberLoadData</a>; <a href="../../save-system/ObjectHeaderLoadData">ObjectHeaderLoadData</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Load</td><td><a href="../../save-system/ObjectLoadData">ObjectLoadData</a>; <a href="../../save-system/PropertyLoadData">PropertyLoadData</a>; <a href="../../save-system/VariableLoadData">VariableLoadData</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Resolvers</td><td><a href="../../save-system/IConflictResolver">IConflictResolver</a>; <a href="../../save-system/IEnumResolver">IEnumResolver</a>; <a href="../../save-system/IObjectResolver">IObjectResolver</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Save</td><td><a href="../../save-system/ContainerSaveData">ContainerSaveData</a>; <a href="../../save-system/ElementSaveData">ElementSaveData</a>; <a href="../../save-system/FieldSaveData">FieldSaveData</a>; <a href="../../save-system/ISaveContext">ISaveContext</a>; <a href="../../save-system/LegacySaveContext">LegacySaveContext</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Save</td><td><a href="../../save-system/MemberSaveData">MemberSaveData</a>; <a href="../../save-system/ObjectSaveData">ObjectSaveData</a>; <a href="../../save-system/PropertySaveData">PropertySaveData</a>; <a href="../../save-system/SaveContext">SaveContext</a>; <a href="../../save-system/SaveError">SaveError</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.SaveSystem.Save</td><td><a href="../../save-system/SaveOutput">SaveOutput</a>; <a href="../../save-system/SaveStatistics">SaveStatistics</a>; <a href="../../save-system/VariableSaveData">VariableSaveData</a></td><td>说明 存档序列化与解析；优先使用托管入口，世界状态由所属系统拥有。</td><td>存档写入、读取或版本迁移</td></tr>
+<tr><td>TaleWorlds.ScreenSystem</td><td><a href="../../campaign-ext/CursorType">CursorType</a>; <a href="../../campaign-ext/GlobalLayer">GlobalLayer</a>; <a href="../../campaign-ext/InputRestrictions">InputRestrictions</a>; <a href="../../campaign-ext/IScreenManagerEngineConnection">IScreenManagerEngineConnection</a>; <a href="../../campaign-ext/ScreenComponent">ScreenComponent</a></td><td>说明 屏幕生命周期；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.ScreenSystem</td><td><a href="../../campaign-ext/ScreenLayer">ScreenLayer</a></td><td>说明 屏幕生命周期；优先使用托管入口，世界状态由所属系统拥有。</td><td>屏幕创建、绑定或销毁</td></tr>
+<tr><td>TaleWorlds.Starter.Library</td><td><a href="../MBDotNet">MBDotNet</a>; <a href="../../campaign-ext/Program__TaleWorlds_Starter_Library">Program</a></td><td>说明 managed runtime subsystem；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension</td><td><a href="../../campaign-ext/BitmapFontCharacter">BitmapFontCharacter</a>; <a href="../../campaign-ext/EditableText">EditableText</a>; <a href="../../campaign-ext/Font">Font</a>; <a href="../../campaign-ext/FontData">FontData</a>; <a href="../../campaign-ext/FontStyle">FontStyle</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension</td><td><a href="../../campaign-ext/IDrawObject">IDrawObject</a>; <a href="../../campaign-ext/ILanguage">ILanguage</a>; <a href="../../campaign-ext/ImageDrawObject">ImageDrawObject</a>; <a href="../../campaign-ext/IText">IText</a>; <a href="../../gui/ITexture">ITexture</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension</td><td><a href="../../campaign-ext/ITwoDimensionPlatform">ITwoDimensionPlatform</a>; <a href="../../campaign-ext/ITwoDimensionResourceContext">ITwoDimensionResourceContext</a>; <a href="../../gui/Material">Material</a>; <a href="../../campaign-ext/MaterialPool">MaterialPool</a>; <a href="../../campaign-ext/Mathf">Mathf</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension</td><td><a href="../../campaign-ext/MeshTopology">MeshTopology</a>; <a href="../../campaign-ext/PrimitivePolygonMaterial">PrimitivePolygonMaterial</a>; <a href="../../campaign-ext/Quad">Quad</a>; <a href="../../campaign-ext/Rectangle2D">Rectangle2D</a>; <a href="../../campaign-ext/RichText">RichText</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension</td><td><a href="../../campaign-ext/RichTextException">RichTextException</a>; <a href="../../campaign-ext/RichTextLinkGroup">RichTextLinkGroup</a>; <a href="../../campaign-ext/RichTextParser">RichTextParser</a>; <a href="../../campaign-ext/RichTextPart">RichTextPart</a>; <a href="../../campaign-ext/RichTextPartType">RichTextPartType</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension</td><td><a href="../../campaign-ext/RichTextTag">RichTextTag</a>; <a href="../../campaign-ext/RichTextTagParser">RichTextTagParser</a>; <a href="../../campaign-ext/RichTextTagType">RichTextTagType</a>; <a href="../../campaign-ext/ScissorTestInfo">ScissorTestInfo</a>; <a href="../../campaign-ext/SimpleMaterial">SimpleMaterial</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension</td><td><a href="../../campaign-ext/SimpleRectangle">SimpleRectangle</a>; <a href="../../campaign-ext/Sprite">Sprite</a>; <a href="../../campaign-ext/SpriteCategory">SpriteCategory</a>; <a href="../../campaign-ext/SpriteData">SpriteData</a>; <a href="../../campaign-ext/SpriteGeneric">SpriteGeneric</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension</td><td><a href="../../campaign-ext/SpriteNinePatchParameters">SpriteNinePatchParameters</a>; <a href="../../campaign-ext/SpritePart">SpritePart</a>; <a href="../../gui/SpriteSizeComparer">SpriteSizeComparer</a>; <a href="../../campaign-ext/StyleFontContainer">StyleFontContainer</a>; <a href="../../campaign-ext/Text">Text</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension</td><td><a href="../../campaign-ext/TextDrawObject">TextDrawObject</a>; <a href="../../campaign-ext/TextHorizontalAlignment">TextHorizontalAlignment</a>; <a href="../../gui/TextLineOutput">TextLineOutput</a>; <a href="../../campaign-ext/TextMaterial">TextMaterial</a>; <a href="../../gui/TextOutput">TextOutput</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension</td><td><a href="../../campaign-ext/TextParser">TextParser</a>; <a href="../../campaign-ext/TextPart">TextPart</a>; <a href="../../campaign-ext/TextToken">TextToken</a>; <a href="../../gui/TextTokenOutput">TextTokenOutput</a>; <a href="../../gui/Texture">Texture</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension</td><td><a href="../../campaign-ext/TextVerticalAlignment">TextVerticalAlignment</a>; <a href="../../gui/TokenType">TokenType</a>; <a href="../../campaign-ext/TwoDimensionContext">TwoDimensionContext</a>; <a href="../../campaign-ext/TwoDimensionContextObject">TwoDimensionContextObject</a>; <a href="../../campaign-ext/TwoDimensionDrawContext">TwoDimensionDrawContext</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone</td><td><a href="../../campaign-ext/FrameworkDomain">FrameworkDomain</a>; <a href="../../campaign-ext/GraphicsContext">GraphicsContext</a>; <a href="../../campaign-ext/GraphicsForm">GraphicsForm</a>; <a href="../../campaign-ext/IMessageCommunicator">IMessageCommunicator</a>; <a href="../../campaign-ext/InputData">InputData</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone</td><td><a href="../../campaign-ext/LayeredWindowController">LayeredWindowController</a>; <a href="../../campaign-ext/OpenGLTexture">OpenGLTexture</a>; <a href="../../gui/Shader">Shader</a>; <a href="../../campaign-ext/StandaloneInputManager">StandaloneInputManager</a>; <a href="../../campaign-ext/TwoDimensionPlatform">TwoDimensionPlatform</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone</td><td><a href="../../campaign-ext/VertexArrayObject">VertexArrayObject</a>; <a href="../../campaign-ext/WindowsForm">WindowsForm</a>; <a href="../../campaign-ext/WindowsFramework">WindowsFramework</a>; <a href="../../campaign-ext/WindowsFrameworkThreadConfig">WindowsFrameworkThreadConfig</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone.Native</td><td><a href="../../gui/AutoPinner">AutoPinner</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone.Native.OpenGL</td><td><a href="../../gui/ArrayType">ArrayType</a>; <a href="../../gui/AttribueMask">AttribueMask</a>; <a href="../../gui/BeginMode">BeginMode</a>; <a href="../../gui/BlendingDestinationFactor">BlendingDestinationFactor</a>; <a href="../../gui/BlendingSourceFactor">BlendingSourceFactor</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone.Native.OpenGL</td><td><a href="../../campaign-ext/BufferBindingTarget">BufferBindingTarget</a>; <a href="../../campaign-ext/ContextParameter">ContextParameter</a>; <a href="../../gui/DataType">DataType</a>; <a href="../../gui/HintMode">HintMode</a>; <a href="../../gui/MatrixMode">MatrixMode</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone.Native.OpenGL</td><td><a href="../../gui/Opengl32">Opengl32</a>; <a href="../../gui/Opengl32ARB">Opengl32ARB</a>; <a href="../../campaign-ext/OpenGlLoadException">OpenGlLoadException</a>; <a href="../../gui/PixelFormat">PixelFormat</a>; <a href="../../campaign-ext/ShaderType">ShaderType</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone.Native.OpenGL</td><td><a href="../../gui/ShadingModel">ShadingModel</a>; <a href="../../gui/Target">Target</a>; <a href="../../gui/TextureInternalFormat">TextureInternalFormat</a>; <a href="../../gui/TextureMagFilter">TextureMagFilter</a>; <a href="../../gui/TextureParameterName">TextureParameterName</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone.Native.OpenGL</td><td><a href="../../campaign-ext/TextureUnit">TextureUnit</a>; <a href="../../gui/TextureWrapParameter">TextureWrapParameter</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone.Native.Windows</td><td><a href="../../campaign-ext/AlphaFormatFlags">AlphaFormatFlags</a>; <a href="../../campaign-ext/BitmapInfo">BitmapInfo</a>; <a href="../../campaign-ext/BitmapInfoHeader">BitmapInfoHeader</a>; <a href="../../campaign-ext/BlendFunction">BlendFunction</a>; <a href="../../campaign-ext/BlurBehindConstraints">BlurBehindConstraints</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone.Native.Windows</td><td><a href="../../campaign-ext/D3D_DRIVER_TYPE">D3D_DRIVER_TYPE</a>; <a href="../../campaign-ext/D3D11">D3D11</a>; <a href="../../gui/Dwmapi">Dwmapi</a>; <a href="../../gui/DwmBlurBehind">DwmBlurBehind</a>; <a href="../../campaign-ext/DXGI">DXGI</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone.Native.Windows</td><td><a href="../../campaign-ext/DXGI_ADAPTER_DESC">DXGI_ADAPTER_DESC</a>; <a href="../../campaign-ext/DXGI_OUTPUT_DESC">DXGI_OUTPUT_DESC</a>; <a href="../../gui/Gdi32">Gdi32</a>; <a href="../../campaign-ext/GeoTypeId">GeoTypeId</a>; <a href="../../campaign-ext/IDXGIAdapter">IDXGIAdapter</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone.Native.Windows</td><td><a href="../../campaign-ext/IDXGIFactory">IDXGIFactory</a>; <a href="../../campaign-ext/IDXGIOutput">IDXGIOutput</a>; <a href="../../campaign-ext/Kernel32">Kernel32</a>; <a href="../../campaign-ext/MONITORINFOEX">MONITORINFOEX</a>; <a href="../../campaign-ext/NativeMessage">NativeMessage</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone.Native.Windows</td><td><a href="../../gui/PixelFormatDescriptor">PixelFormatDescriptor</a>; <a href="../../gui/PixelFormatDescriptorFlags">PixelFormatDescriptorFlags</a>; <a href="../../gui/PixelFormatDescriptorLayerTypes">PixelFormatDescriptorLayerTypes</a>; <a href="../../gui/PixelFormatDescriptorPixelTypes">PixelFormatDescriptorPixelTypes</a>; <a href="../../campaign-ext/Point">Point</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone.Native.Windows</td><td><a href="../../campaign-ext/RECT">RECT</a>; <a href="../../campaign-ext/User32">User32</a>; <a href="../../campaign-ext/WindowClass">WindowClass</a>; <a href="../../campaign-ext/WindowMessage">WindowMessage</a>; <a href="../../campaign-ext/WindowShowStyle">WindowShowStyle</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+<tr><td>TaleWorlds.TwoDimension.Standalone.Native.Windows</td><td><a href="../../campaign-ext/WindowStyle">WindowStyle</a></td><td>说明 二维渲染资源；优先使用托管入口，世界状态由所属系统拥有。</td><td>运行时初始化或子系统查询</td></tr>
+</tbody></table>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li><a href="..">Parent: System</a></li>
+<li><a href="../../save-system/">Related: Save System</a> · <a href="../../gui/">GUI</a> · <a href="../../engine/">Engine</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

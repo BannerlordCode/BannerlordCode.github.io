@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conversation</title>
+  <meta name="description" content="对话系统标签与 Conversation 相关类型。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/conversation/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/conversation/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="active">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Conversation</span>
+    </nav>
+  
+  <h1>Conversation</h1>
+  <h2 id="shang-ji-dao-hang">上级导航</h2>
+<ul>
+<li><a href="../">返回 campaign 目录</a></li>
+<li><a href="../../">API 目录</a></li>
+<li><a href="../../../">版本首页</a></li>
+</ul>
+<h2 id="zi-xi-tong-gai-shu">子系统概述</h2>
+<p>这里是 <strong>campaign 目录</strong> 的 <strong>Conversation</strong> 子系统。同一命名空间下的类负责相近功能，可从中找到需要的类型后再进入类页查看方法。</p>
+<p>对话系统标签与 Conversation 相关类型。</p>
+<h2 id="lei-lie-biao">类列表</h2>
+<table><thead><tr><th>类</th><th>用途</th></tr></thead><tbody>
+<tr><td><a href="../AlliedLordTag/"><code>AlliedLordTag</code></a></td><td>AlliedLordTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../AmoralTag/"><code>AmoralTag</code></a></td><td>AmoralTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../AnyNotableTypeTag/"><code>AnyNotableTypeTag</code></a></td><td>AnyNotableTypeTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../ArtisanNotableTypeTag/"><code>ArtisanNotableTypeTag</code></a></td><td>ArtisanNotableTypeTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../AseraiTag/"><code>AseraiTag</code></a></td><td>AseraiTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../AttackingTag/"><code>AttackingTag</code></a></td><td>AttackingTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../AttractedToPlayerTag/"><code>AttractedToPlayerTag</code></a></td><td>AttractedToPlayerTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../BattanianTag/"><code>BattanianTag</code></a></td><td>BattanianTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../CalculatingTag/"><code>CalculatingTag</code></a></td><td>CalculatingTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../CampaignMapConversation/"><code>CampaignMapConversation</code></a></td><td>CampaignMapConversation 是 TaleWorlds.CampaignSystem.Conversation 下的公开类型。</td></tr>
+<tr><td><a href="../CautiousTag/"><code>CautiousTag</code></a></td><td>CautiousTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../ChivalrousTag/"><code>ChivalrousTag</code></a></td><td>ChivalrousTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../CombatantTag/"><code>CombatantTag</code></a></td><td>CombatantTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../ConversationAnimationManager/"><code>ConversationAnimationManager</code></a></td><td>ConversationAnimationManager 是一个管理器，位于 TaleWorlds.CampaignSystem.Conversation，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../ConversationAnimData/"><code>ConversationAnimData</code></a></td><td>ConversationAnimData 是一个数据载体，位于 TaleWorlds.CampaignSystem.Conversation，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../ConversationCharacterData/"><code>ConversationCharacterData</code></a></td><td>ConversationCharacterData 是一个数据载体，位于 TaleWorlds.CampaignSystem.Conversation，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../ConversationHelper/"><code>ConversationHelper</code></a></td><td>ConversationHelper 是一个帮助类，位于 TaleWorlds.CampaignSystem.Conversation，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../ConversationManager/"><code>ConversationManager</code></a></td><td>ConversationManager 是一个管理器，位于 TaleWorlds.CampaignSystem.Conversation，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../ConversationSentence/"><code>ConversationSentence</code></a></td><td>ConversationSentence 是 TaleWorlds.CampaignSystem.Conversation 下的公开类型。</td></tr>
+<tr><td><a href="../ConversationSentenceOption/"><code>ConversationSentenceOption</code></a></td><td>ConversationSentenceOption 是 TaleWorlds.CampaignSystem.Conversation 下的公开类型。</td></tr>
+<tr><td><a href="../ConversationTag/"><code>ConversationTag</code></a></td><td>ConversationTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../ConversationTagHelper/"><code>ConversationTagHelper</code></a></td><td>ConversationTagHelper 是一个帮助类，位于 TaleWorlds.CampaignSystem.Conversation.Tags，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../ConversationToken/"><code>ConversationToken</code></a></td><td>ConversationToken 是 TaleWorlds.CampaignSystem.Conversation 下的公开类型。</td></tr>
+<tr><td><a href="../ConversationTokens/"><code>ConversationTokens</code></a></td><td>ConversationTokens 是 TaleWorlds.CampaignSystem.Conversation 下的公开类型。</td></tr>
+<tr><td><a href="../CruelTag/"><code>CruelTag</code></a></td><td>CruelTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../CurrentConversationIsFirst/"><code>CurrentConversationIsFirst</code></a></td><td>CurrentConversationIsFirst 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultTag/"><code>DefaultTag</code></a></td><td>DefaultTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../DeviousTag/"><code>DeviousTag</code></a></td><td>DeviousTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../DialogLineFlags/"><code>DialogLineFlags</code></a></td><td>DialogLineFlags 是 TaleWorlds.CampaignSystem.Conversation 下的公开类型。</td></tr>
+<tr><td><a href="../DrinkingInTavernTag/"><code>DrinkingInTavernTag</code></a></td><td>DrinkingInTavernTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../EmpireTag/"><code>EmpireTag</code></a></td><td>EmpireTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../EngagedToPlayerTag/"><code>EngagedToPlayerTag</code></a></td><td>EngagedToPlayerTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../FirstMeetingTag/"><code>FirstMeetingTag</code></a></td><td>FirstMeetingTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../FriendlyRelationshipTag/"><code>FriendlyRelationshipTag</code></a></td><td>FriendlyRelationshipTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNotableTypeTag/"><code>GangLeaderNotableTypeTag</code></a></td><td>GangLeaderNotableTypeTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../GenerosityTag/"><code>GenerosityTag</code></a></td><td>GenerosityTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../HeadmanNotableTypeTag/"><code>HeadmanNotableTypeTag</code></a></td><td>HeadmanNotableTypeTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../HighRegisterTag/"><code>HighRegisterTag</code></a></td><td>HighRegisterTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../HonorTag/"><code>HonorTag</code></a></td><td>HonorTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../HostileRelationshipTag/"><code>HostileRelationshipTag</code></a></td><td>HostileRelationshipTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../IConversationStateHandler/"><code>IConversationStateHandler</code></a></td><td>IConversationStateHandler 是一个处理器，位于 TaleWorlds.CampaignSystem.Conversation，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../ImpoliteTag/"><code>ImpoliteTag</code></a></td><td>ImpoliteTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../ImpulsiveTag/"><code>ImpulsiveTag</code></a></td><td>ImpulsiveTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../InHomeSettlementTag/"><code>InHomeSettlementTag</code></a></td><td>InHomeSettlementTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../KhuzaitTag/"><code>KhuzaitTag</code></a></td><td>KhuzaitTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../LowRegisterTag/"><code>LowRegisterTag</code></a></td><td>LowRegisterTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../MapConversationAgent/"><code>MapConversationAgent</code></a></td><td>MapConversationAgent 是 TaleWorlds.CampaignSystem.Conversation 下的公开类型。</td></tr>
+<tr><td><a href="../MerchantNotableTypeTag/"><code>MerchantNotableTypeTag</code></a></td><td>MerchantNotableTypeTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../MercyTag/"><code>MercyTag</code></a></td><td>MercyTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../MetBeforeTag/"><code>MetBeforeTag</code></a></td><td>MetBeforeTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../NoConflictTag/"><code>NoConflictTag</code></a></td><td>NoConflictTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../NonCombatantTag/"><code>NonCombatantTag</code></a></td><td>NonCombatantTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../NonviolentProfessionTag/"><code>NonviolentProfessionTag</code></a></td><td>NonviolentProfessionTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../NordTag/"><code>NordTag</code></a></td><td>NordTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../NpcIsFemaleTag/"><code>NpcIsFemaleTag</code></a></td><td>NpcIsFemaleTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../NPCIsInSeaTag/"><code>NPCIsInSeaTag</code></a></td><td>NPCIsInSeaTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../NpcIsLiegeTag/"><code>NpcIsLiegeTag</code></a></td><td>NpcIsLiegeTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../NpcIsMaleTag/"><code>NpcIsMaleTag</code></a></td><td>NpcIsMaleTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../NpcIsNobleTag/"><code>NpcIsNobleTag</code></a></td><td>NpcIsNobleTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../OldTag/"><code>OldTag</code></a></td><td>OldTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../OnTheRoadTag/"><code>OnTheRoadTag</code></a></td><td>OnTheRoadTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../OutlawSympathyTag/"><code>OutlawSympathyTag</code></a></td><td>OutlawSympathyTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PersonaCurtTag/"><code>PersonaCurtTag</code></a></td><td>PersonaCurtTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PersonaEarnestTag/"><code>PersonaEarnestTag</code></a></td><td>PersonaEarnestTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PersonaIronicTag/"><code>PersonaIronicTag</code></a></td><td>PersonaIronicTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PersonaSoftspokenTag/"><code>PersonaSoftspokenTag</code></a></td><td>PersonaSoftspokenTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../Persuasion/"><code>Persuasion</code></a></td><td>Persuasion 是 TaleWorlds.CampaignSystem.Conversation.Persuasion 下的公开类型。</td></tr>
+<tr><td><a href="../PersuasionArgumentStrength/"><code>PersuasionArgumentStrength</code></a></td><td>PersuasionArgumentStrength 是 TaleWorlds.CampaignSystem.Conversation.Persuasion 下的公开类型。</td></tr>
+<tr><td><a href="../PersuasionAttempt/"><code>PersuasionAttempt</code></a></td><td>PersuasionAttempt 是 TaleWorlds.CampaignSystem.Conversation.Persuasion 下的公开类型。</td></tr>
+<tr><td><a href="../PersuasionDifficulty/"><code>PersuasionDifficulty</code></a></td><td>PersuasionDifficulty 是 TaleWorlds.CampaignSystem.Conversation.Persuasion 下的公开类型。</td></tr>
+<tr><td><a href="../PersuasionOptionArgs/"><code>PersuasionOptionArgs</code></a></td><td>PersuasionOptionArgs 是 TaleWorlds.CampaignSystem.Conversation.Persuasion 下的公开类型。</td></tr>
+<tr><td><a href="../PersuasionOptionResult/"><code>PersuasionOptionResult</code></a></td><td>PersuasionOptionResult 是 TaleWorlds.CampaignSystem.Conversation.Persuasion 下的公开类型。</td></tr>
+<tr><td><a href="../PersuasionTask/"><code>PersuasionTask</code></a></td><td>PersuasionTask 是 TaleWorlds.CampaignSystem.Conversation.Persuasion 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerBesiegingTag/"><code>PlayerBesiegingTag</code></a></td><td>PlayerBesiegingTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsAffiliatedTag/"><code>PlayerIsAffiliatedTag</code></a></td><td>PlayerIsAffiliatedTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsAtSeaTag/"><code>PlayerIsAtSeaTag</code></a></td><td>PlayerIsAtSeaTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsBrotherTag/"><code>PlayerIsBrotherTag</code></a></td><td>PlayerIsBrotherTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsDaughterTag/"><code>PlayerIsDaughterTag</code></a></td><td>PlayerIsDaughterTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsEnemyTag/"><code>PlayerIsEnemyTag</code></a></td><td>PlayerIsEnemyTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsFamousTag/"><code>PlayerIsFamousTag</code></a></td><td>PlayerIsFamousTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsFatherTag/"><code>PlayerIsFatherTag</code></a></td><td>PlayerIsFatherTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsFemaleTag/"><code>PlayerIsFemaleTag</code></a></td><td>PlayerIsFemaleTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsKinTag/"><code>PlayerIsKinTag</code></a></td><td>PlayerIsKinTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsKnownButNotFamousTag/"><code>PlayerIsKnownButNotFamousTag</code></a></td><td>PlayerIsKnownButNotFamousTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsLiegeTag/"><code>PlayerIsLiegeTag</code></a></td><td>PlayerIsLiegeTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsMaleTag/"><code>PlayerIsMaleTag</code></a></td><td>PlayerIsMaleTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsMotherTag/"><code>PlayerIsMotherTag</code></a></td><td>PlayerIsMotherTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsNobleTag/"><code>PlayerIsNobleTag</code></a></td><td>PlayerIsNobleTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsRulerTag/"><code>PlayerIsRulerTag</code></a></td><td>PlayerIsRulerTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsSisterTag/"><code>PlayerIsSisterTag</code></a></td><td>PlayerIsSisterTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsSonTag/"><code>PlayerIsSonTag</code></a></td><td>PlayerIsSonTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerIsSpouseTag/"><code>PlayerIsSpouseTag</code></a></td><td>PlayerIsSpouseTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../PreacherNotableTypeTag/"><code>PreacherNotableTypeTag</code></a></td><td>PreacherNotableTypeTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../RogueSkillsTag/"><code>RogueSkillsTag</code></a></td><td>RogueSkillsTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../RomanticallyInvolvedTag/"><code>RomanticallyInvolvedTag</code></a></td><td>RomanticallyInvolvedTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../SexistTag/"><code>SexistTag</code></a></td><td>SexistTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../SturgianTag/"><code>SturgianTag</code></a></td><td>SturgianTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../TaggedString/"><code>TaggedString</code></a></td><td>TaggedString 是 TaleWorlds.CampaignSystem.Conversation 下的公开类型。</td></tr>
+<tr><td><a href="../TraitEffect/"><code>TraitEffect</code></a></td><td>TraitEffect 是 TaleWorlds.CampaignSystem.Conversation.Persuasion 下的公开类型。</td></tr>
+<tr><td><a href="../TribalRegisterTag/"><code>TribalRegisterTag</code></a></td><td>TribalRegisterTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../UncharitableTag/"><code>UncharitableTag</code></a></td><td>UncharitableTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../UnderCommandTag/"><code>UnderCommandTag</code></a></td><td>UnderCommandTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../UngratefulTag/"><code>UngratefulTag</code></a></td><td>UngratefulTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../ValorTag/"><code>ValorTag</code></a></td><td>ValorTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../VlandianTag/"><code>VlandianTag</code></a></td><td>VlandianTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../VoiceGroupPersonaCurtLowerTag/"><code>VoiceGroupPersonaCurtLowerTag</code></a></td><td>VoiceGroupPersonaCurtLowerTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../VoiceGroupPersonaCurtTribalTag/"><code>VoiceGroupPersonaCurtTribalTag</code></a></td><td>VoiceGroupPersonaCurtTribalTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../VoiceGroupPersonaCurtUpperTag/"><code>VoiceGroupPersonaCurtUpperTag</code></a></td><td>VoiceGroupPersonaCurtUpperTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../VoiceGroupPersonaEarnestLowerTag/"><code>VoiceGroupPersonaEarnestLowerTag</code></a></td><td>VoiceGroupPersonaEarnestLowerTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../VoiceGroupPersonaEarnestTribalTag/"><code>VoiceGroupPersonaEarnestTribalTag</code></a></td><td>VoiceGroupPersonaEarnestTribalTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../VoiceGroupPersonaEarnestUpperTag/"><code>VoiceGroupPersonaEarnestUpperTag</code></a></td><td>VoiceGroupPersonaEarnestUpperTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../VoiceGroupPersonaIronicLowerTag/"><code>VoiceGroupPersonaIronicLowerTag</code></a></td><td>VoiceGroupPersonaIronicLowerTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../VoiceGroupPersonaIronicTribalTag/"><code>VoiceGroupPersonaIronicTribalTag</code></a></td><td>VoiceGroupPersonaIronicTribalTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../VoiceGroupPersonaIronicUpperTag/"><code>VoiceGroupPersonaIronicUpperTag</code></a></td><td>VoiceGroupPersonaIronicUpperTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../VoiceGroupPersonaSoftspokenLowerTag/"><code>VoiceGroupPersonaSoftspokenLowerTag</code></a></td><td>VoiceGroupPersonaSoftspokenLowerTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../VoiceGroupPersonaSoftspokenTribalTag/"><code>VoiceGroupPersonaSoftspokenTribalTag</code></a></td><td>VoiceGroupPersonaSoftspokenTribalTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../VoiceGroupPersonaSoftspokenUpperTag/"><code>VoiceGroupPersonaSoftspokenUpperTag</code></a></td><td>VoiceGroupPersonaSoftspokenUpperTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../WandererTag/"><code>WandererTag</code></a></td><td>WandererTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+<tr><td><a href="../WaryTag/"><code>WaryTag</code></a></td><td>WaryTag 是 TaleWorlds.CampaignSystem.Conversation.Tags 下的公开类型。</td></tr>
+</tbody></table>
+<h2 id="ben-qu-yu-qi-ta-zi-xi-tong">本区域其他子系统</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../agentorigins/">AgentOrigins</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../bartersystem/">BarterSystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../campaignbehaviors/">CampaignBehaviors</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../charactercreationcontent/">CharacterCreationContent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../characterdevelopment/">CharacterDevelopment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../characters/">Characters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../componentinterfaces/">ComponentInterfaces</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../election/">Election</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../encounters/">Encounters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../encyclopedia/">Encyclopedia</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../extensions/">Extensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../gamecomponents/">GameComponents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../gamemenus/">GameMenus</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../gamestate/">GameState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../heroes/">Heroes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../inventory/">Inventory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../issues/">Issues</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../logentries/">LogEntries</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../map/">Map</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../mapevents/">MapEvents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../mapnotificationtypes/">MapNotificationTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../naval/">Naval</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../parties/">Parties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../party/">Party</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../quests/">Quests</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../roster/">Roster</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../savecompability/">SaveCompability</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../sceneinformationpopuptypes/">SceneInformationPopupTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../settlements/">Settlements</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../siege/">Siege</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/conversation/./../tournamentgames/">TournamentGames</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

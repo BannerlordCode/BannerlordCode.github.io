@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Helpers Family Handbook</title>
+  <meta name="description" content="Campaign calculation, navigation, UI, and content helpers in TaleWorlds.CampaignSystem.Helpers.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/helpers/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/helpers/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Helpers Family Handbook</span>
+    </nav>
+  
+  <h1>Helpers Family Handbook</h1>
+  <h1 id="helpers-family-handbook">Helpers Family Handbook</h1>
+<p><strong>Responsibility:</strong> <code>Helpers</code> is the campaign-layer utility boundary. It turns existing <code>Hero</code>, <code>MobileParty</code>, <code>Settlement</code>, <code>ItemObject</code>, or UI state into navigation, economy, presentation, and flow decisions; it normally owns none of those objects and does not replace a world-state <code>Action</code>.</p>
+<h2 id="mental-model">Mental model</h2>
+<p>Treat this namespace as calculation and flow utilities around live state, not as a service that can be registered or saved. <code>AiHelper</code>, <code>DistanceHelper</code>, <code>NavigationHelper</code>, and <code>SettlementHelper</code> read the map and models exposed by <code>Campaign.Current</code>; <code>HeroHelper</code>, <code>PartyBaseHelper</code>, <code>ItemHelper</code>, and <code>SkillHelper</code> read the entities passed to them; <code>InventoryScreenHelper</code>, <code>PartyScreenHelper</code>, <code>PortStateHelper</code>, and <code>CraftingHelper</code> move <code>Game.Current.GameStateManager</code> into a presentation state. The caller owns the campaign, map, and UI lifecycle checks.</p>
+<p>Helpers do not establish persistent ownership for you. When the mod changes a hero, party, settlement, relation, or war, return to the <a href="../actions/">Actions family</a>. When it replaces a calculation, return to the <a href="../models/">Models family</a>. When it schedules work from ticks or events, return to the <a href="../behaviors/">Behaviors family</a>. Do not retain a Helper result as a long-lived entity reference, especially for map encounters, current settlements, or UI states.</p>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><strong>Upstream:</strong> <a href="../../campaign/Campaign">Campaign</a>, <a href="../../campaign/MobileParty">MobileParty</a>, <a href="../../campaign/Hero">Hero</a>, <a href="../../campaign/Settlement">Settlement</a>, <a href="../../core/ItemObject">ItemObject</a>, and <code>Game.Current</code> provide the live inputs.</li>
+<li><strong>Map calculations:</strong> <code>AiHelper</code>, <code>DistanceHelper</code>, and <code>NavigationHelper</code> depend on <code>Campaign.Current.Models.PartyNavigationModel</code>, <code>MapDistanceModel</code>, and <code>MapSceneWrapper</code>; they require an active campaign.</li>
+<li><strong>Downstream:</strong> <a href="../CampaignEvents">CampaignEvents</a>, <a href="../CampaignBehaviorBase">CampaignBehaviorBase</a>, menu/quest UI, and the <a href="../../save-system/">save system</a> consume the results. The Helper itself is not a save root.</li>
+<li><strong>Neighbors:</strong> <a href="../actions/">Actions</a>, <a href="../models/">Models</a>, <a href="../mapevents/">MapEvents</a>, and <a href="../../../architecture/crash-boundaries">crash boundaries</a>.</li>
+</ul>
+<h2 id="when-to-use-and-when-not-to">When to use and when not to</h2>
+<p>Use Helpers for the game's existing navigation, distance, equipment comparison, skill bonus, campaign text, and presentation flows. Do not call map-model or UI-state helpers from a per-frame Mission callback, and do not call them while <code>Campaign.Current</code>, <code>Game.Current</code>, or the target entity is outside its lifecycle. A few helpers, such as <code>BuildingHelper</code>, <code>EquipmentHelper</code>, and <code>MobilePartyHelper</code>, mutate runtime state; choose the corresponding Action, Behavior, or initialization phase before calling them.</p>
+<h2 id="types-and-typical-timing">Types and typical timing</h2>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>Helpers</td><td><a href="../AIDifficulty">AIDifficulty</a></td><td>Selects Easy, Normal, or Hard AI for board games; it is a match setting, not the campaign difficulty switch.</td><td>Board-game setup</td></tr>
+<tr><td>Helpers</td><td><a href="../AiHelper">AiHelper</a></td><td>Chooses land/sea navigation capability and adjusted distance between mobile parties or a party and settlement.</td><td>Map path or AI target evaluation</td></tr>
+<tr><td>Helpers</td><td><a href="../AlleyHelper">AlleyHelper</a></td><td>Opens the alley-management screen and builds the clan-member selection for an alley.</td><td>Alley management confirmation</td></tr>
+<tr><td>Helpers</td><td><a href="../BannerHelper">BannerHelper</a></td><td>Selects banner items for heroes and adds banner effects to an explained number.</td><td>Hero equipment/effect calculation</td></tr>
+<tr><td>Helpers</td><td><a href="../BarterHelper">BarterHelper</a></td><td>Calculates barterables to add or remove when balancing an offer against faction values and a fulfilment ratio.</td><td>Barter quote calculation</td></tr>
+<tr><td>Helpers</td><td><a href="../BoardGameHelper">BoardGameHelper</a></td><td>Holds the board-game AI difficulty and Win/Loss/Draw enums.</td><td>Board-game state machine</td></tr>
+<tr><td>Helpers</td><td><a href="../BoardGameState">BoardGameState</a></td><td>Represents an unfinished board game, win, loss, or draw.</td><td>Board-game settlement</td></tr>
+<tr><td>Helpers</td><td><a href="../BuildingHelper">BuildingHelper</a></td><td>Reads building progress, tier, and completion time and exposes the official town-queue changes.</td><td>Town construction progression/UI</td></tr>
+<tr><td>Helpers</td><td><a href="../CaravanHelper">CaravanHelper</a></td><td>Selects a caravan template by culture, elite flag, and land/sea type.</td><td>Caravan creation or restore</td></tr>
+<tr><td>Helpers</td><td><a href="../CharacterHelper">CharacterHelper</a></td><td>Supplies death notification, body, pose, and facial-idle presentation helpers for characters.</td><td>Character presentation or death notification</td></tr>
+<tr><td>Helpers</td><td><a href="../CraftingHelper">CraftingHelper</a></td><td>Selects craftable heroes, changes the current template, and opens the crafting state.</td><td>Entering the crafting screen</td></tr>
+<tr><td>Helpers</td><td><a href="../DialogHelper">DialogHelper</a></td><td>Binds a dialog variable to a game-text ID for the dialog text system.</td><td>Dialog content setup</td></tr>
+<tr><td>Helpers</td><td><a href="../DiplomacyHelper">DiplomacyHelper</a></td><td>Queries war cause, faction survival, prisoner ownership, and alliance relationships.</td><td>Diplomacy condition or behavior decision</td></tr>
+<tr><td>Helpers</td><td><a href="../DistanceHelper">DistanceHelper</a></td><td>Computes reachable distances and land/sea ratios between settlements, parties, and map points.</td><td>Map range, pursuit, and AI evaluation</td></tr>
+<tr><td>Helpers</td><td><a href="../EmbarkDisembarkData">EmbarkDisembarkData</a></td><td>Carries transition validity, edge positions, and dead-zone direction returned by <code>NavigationHelper</code>.</td><td>One embark/disembark tick</td></tr>
+<tr><td>Helpers</td><td><a href="../EquipmentHelper">EquipmentHelper</a></td><td>Assigns an <code>Equipment</code>'s equipment elements to a hero.</td><td>Hero equipment initialization/replacement</td></tr>
+<tr><td>Helpers</td><td><a href="../FactionHelper">FactionHelper</a></td><td>Calculates potential strength, enemy kingdoms, stances, power ratios, and fief-grant conditions.</td><td>Kingdom decision and diplomacy UI</td></tr>
+<tr><td>Helpers</td><td><a href="../HeroHelper">HeroHelper</a></td><td>Finds last-seen text, closest settlement, command status, titles, and player-side hero ordering.</td><td>Hero list, encyclopedia, or decision UI</td></tr>
+<tr><td>Helpers</td><td><a href="../IncidentHelper">IncidentHelper</a></td><td>Selects a stable seeded element from a list using <code>MobileParty.MainParty</code>.</td><td>Reproducible incident sampling</td></tr>
+<tr><td>Helpers</td><td><a href="../InventoryCategoryType">InventoryCategoryType</a></td><td>Identifies inventory filters such as armor, weapons, shields, and goods.</td><td>Inventory-state initialization</td></tr>
+<tr><td>Helpers</td><td><a href="../InventoryItemType">InventoryItemType</a></td><td>Flags item categories so inventory filters can be combined.</td><td>Inventory item classification</td></tr>
+<tr><td>Helpers</td><td><a href="../InventoryMode">InventoryMode</a></td><td>Identifies default, trade, loot, warehouse, and stash presentation modes.</td><td><code>InventoryState</code> creation</td></tr>
+<tr><td>Helpers</td><td><a href="../InventoryScreenHelper">InventoryScreenHelper</a></td><td>Creates inventory/trade/loot screens, configures <code>InventoryLogic</code>, listeners, and the pushed game state.</td><td>Main-party inventory flow</td></tr>
+<tr><td>Helpers</td><td><a href="../ItemHelper">ItemHelper</a></td><td>Compares weapon usages and creates weapon-damage and item-count text.</td><td>Item comparison, equipment, or tooltip creation</td></tr>
+<tr><td>Helpers</td><td><a href="../MapEventHelper">MapEventHelper</a></td><td>Reads raid/retreat context, identifies naval raids, and finishes encounter conversation flow.</td><td>While a <code>MapEvent</code> is active</td></tr>
+<tr><td>Helpers</td><td><a href="../MenuHelper">MenuHelper</a></td><td>Sets campaign-menu availability, issue/quest data, and encounter conditions/consequences.</td><td>GameMenu condition and callback phase</td></tr>
+<tr><td>Helpers</td><td><a href="../MiscHelper">MiscHelper</a></td><td>Provides controlled XML loading and campaign-ID generation.</td><td>Content loading or campaign identity creation</td></tr>
+<tr><td>Helpers</td><td><a href="../MobilePartyHelper">MobilePartyHelper</a></td><td>Spawns lord parties, creates clan parties, selects strong troops, and distributes shared XP.</td><td>Party initialization and campaign rewards</td></tr>
+<tr><td>Helpers</td><td><a href="../NavigationHelper">NavigationHelper</a></td><td>Uses the scene and <code>PartyNavigationModel</code> to validate terrain, find reachable points, and calculate land/sea transitions.</td><td>Map movement tick or path setup</td></tr>
+<tr><td>Helpers</td><td><a href="../PartyBaseHelper">PartyBaseHelper</a></td><td>Sorts rosters, formats party-size text, finds captains, and prints roster summaries.</td><td>Party or inventory presentation</td></tr>
+<tr><td>Helpers</td><td><a href="../PartyScreenHelper">PartyScreenHelper</a></td><td>Creates and closes PartyScreen flows for cheat, management, ransom, and loot modes.</td><td>Main-party party-management screen</td></tr>
+<tr><td>Helpers</td><td><a href="../PartyScreenMode">PartyScreenMode</a></td><td>Identifies the business mode of the current PartyScreen.</td><td>PartyScreen state transition</td></tr>
+<tr><td>Helpers</td><td><a href="../PerkHelper">PerkHelper</a></td><td>Clears hero perks and adds character, captain, party, or town perk bonuses to an explained number.</td><td>Model-derived value calculation</td></tr>
+<tr><td>Helpers</td><td><a href="../PersuasionHelper">PersuasionHelper</a></td><td>Converts a persuasion option result into player feedback and a default reaction.</td><td>After a persuasion option resolves</td></tr>
+<tr><td>Helpers</td><td><a href="../PortStateHelper">PortStateHelper</a></td><td>Opens port states for trade, loot, story mode, or fleet management.</td><td>Port interaction confirmation</td></tr>
+<tr><td>Helpers</td><td><a href="../QuestHelper">QuestHelper</a></td><td>Checks gold, roster, and skill requirements for quest alternatives and applies generic coercion consequences.</td><td>Quest condition and resolution</td></tr>
+<tr><td>Helpers</td><td><a href="../SettlementHelper">SettlementHelper</a></td><td>Finds the nearest town, village, hideout, or fortification for a navigation capability and predicate.</td><td>Map task, movement, or spawn setup</td></tr>
+<tr><td>Helpers</td><td><a href="../ShipHelper">ShipHelper</a></td><td>Builds ship banners from a ship origin or party and orders the player's naval-raid ships.</td><td>Naval grouping and presentation</td></tr>
+<tr><td>Helpers</td><td><a href="../SkillHelper">SkillHelper</a></td><td>Adds skill-level, character, party, or town SkillEffect bonuses to an explained number.</td><td>Character/party/town model calculation</td></tr>
+<tr><td>Helpers</td><td><a href="../StringHelpers">StringHelpers</a></td><td>Fills character, settlement, and effect data into <code>TextObject</code> variables and formats names.</td><td>Before text-template rendering</td></tr>
+<tr><td>Helpers</td><td><a href="../TeleportationHelper">TeleportationHelper</a></td><td>Calculates the remaining travel hours for a teleporting hero.</td><td>Teleport progress and map notice</td></tr>
+<tr><td>Helpers</td><td><a href="../TooltipHelper">TooltipHelper</a></td><td>Builds tooltip properties for encounter and siege send-troops power contexts.</td><td>Map tooltip presentation</td></tr>
+<tr><td>Helpers</td><td><a href="../TownHelpers">TownHelpers</a></td><td>Finds heroes available for town meetings and calculates equipment price deviation data.</td><td>Town menu and trade UI</td></tr>
+</tbody></table>
+<h2 id="real-acquisition-paths">Real acquisition paths</h2>
+<h3 id="start-map-queries-from-the-active-main-party">Start map queries from the active main party</h3>
+<p><code>SettlementHelper</code> and <code>NavigationHelper</code> take real campaign objects, not service placeholders. In v1.3.15 and v1.4.5, <code>MobileParty.NavigationType.All</code> means a party can use both land and naval navigation. The town result may be <code>null</code>, so the caller keeps that branch.</p>
+<pre><code data-lang="csharp">using Helpers;
+using TaleWorlds.CampaignSystem;
+
+MobileParty party = MobileParty.MainParty;
+Town nearestTown = SettlementHelper.FindNearestTownToMobileParty(
+    party,
+    MobileParty.NavigationType.All);
+
+if (nearestTown != null)
+{
+    CampaignVec2 point = NavigationHelper.FindPointAroundPosition(
+        nearestTown.Settlement.GatePosition,
+        MobileParty.NavigationType.Default,
+        maxDistance: 5f,
+        requirePath: true);
+}
+</code></pre>
+<h3 id="text-seeded-incidents-and-town-meetings">Text, seeded incidents, and town meetings</h3>
+<p><code>IncidentHelper</code> deliberately uses the seeded random method on <code>MobileParty.MainParty</code>, so a save and seed can reproduce a choice; it is not cryptographic randomness. A town meeting starts from the main party's current settlement, and a completed <code>MapEvent</code> must not be kept as a long-lived source of campaign state.</p>
+<pre><code data-lang="csharp">using System.Linq;
+using Helpers;
+using TaleWorlds.CampaignSystem;
+
+Settlement settlement = MobileParty.MainParty.CurrentSettlement;
+if (settlement != null &amp;&amp; settlement.IsTown)
+{
+    var heroes = TownHelpers.GetHeroesToMeetInTown(settlement);
+    Hero selected = IncidentHelper.GetSeededRandomElement(
+        heroes.ToList(),
+        seed: 42L);
+}
+</code></pre>
+<h2 id="crash-save-and-thread-boundaries">Crash, save, and thread boundaries</h2>
+<ul>
+<li>Map Helpers depend on <code>Campaign.Current</code>, the map scene, and campaign Models. Calling them at the title screen, during early module loading, or after a campaign ends can produce null state or invalid <code>CampaignVec2</code> values.</li>
+<li><code>InventoryScreenHelper</code>, <code>PartyScreenHelper</code>, <code>PortStateHelper</code>, and <code>CraftingHelper</code> create or push a <code>GameState</code>. Do not push them from a background thread or repeatedly from a frame callback; let the official state manager finish the close path.</li>
+<li><code>BuildingHelper</code>, <code>EquipmentHelper</code>, <code>MobilePartyHelper</code>, and the perk/skill entry points can affect runtime state or derived caches. Cross-save state belongs to its owning Behavior/Saveable type, never to the Helper.</li>
+<li><code>MapEventHelper</code> results only make sense during the encounter lifecycle. Store stable hero, party, or settlement identity instead of retaining a transient event reference.</li>
+<li>Using a Helper result to bypass <a href="../actions/">Actions</a> and write hero, party, or settlement fields skips events, caches, and relation synchronization. The usual symptoms are stale UI, inconsistent old saves, or a later tick crash.</li>
+</ul>
+<h2 id="navigation-and-related-pages">Navigation and related pages</h2>
+<ul>
+<li><strong>Parent:</strong> <a href="../">campaign-ext API</a></li>
+<li><strong>Sibling families:</strong> <a href="../actions/">Actions</a>, <a href="../models/">Models</a>, <a href="../behaviors/">Behaviors</a>, <a href="../mapevents/">MapEvents</a></li>
+<li><strong>Upstream entities:</strong> <a href="../../campaign/Campaign">Campaign</a>, <a href="../../campaign/MobileParty">MobileParty</a>, <a href="../../campaign/Hero">Hero</a>, <a href="../../campaign/Settlement">Settlement</a></li>
+<li><strong>Risk guide:</strong> <a href="../../../architecture/crash-boundaries">Crash boundaries</a></li>
+<li><strong>Module map:</strong> <a href="../">campaign-ext overview</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

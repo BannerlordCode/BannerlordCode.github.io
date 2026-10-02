@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DiplomacyModel</title>
+  <meta name="description" content="DiplomacyModel 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/DiplomacyModel/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/DiplomacyModel/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/DiplomacyModel/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/DiplomacyModel/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="active">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">DiplomacyModel</span>
+    </nav>
+  
+  <h1>DiplomacyModel</h1>
+  <h1 id="diplomacymodel">DiplomacyModel</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.ComponentInterfaces
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public abstract class DiplomacyModel : MBGameModel&lt;DiplomacyModel&gt;</code>
+<strong>Base:</strong> <code>MBGameModel&lt;DiplomacyModel&gt;</code>
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/ComponentInterfaces/DiplomacyModel.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>DiplomacyModel</code> 是一个规则模型，通常定义“系统该如何计算”。mod 开发者最常通过替换或继承它来改规则。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>DiplomacyModel</code> 当作一个 Model 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>MaxRelationLimit</code></td><td><code>public abstract int MaxRelationLimit { get; }</code></td></tr>
+<tr><td><code>MinRelationLimit</code></td><td><code>public abstract int MinRelationLimit { get; }</code></td></tr>
+<tr><td><code>MaxNeutralRelationLimit</code></td><td><code>public abstract int MaxNeutralRelationLimit { get; }</code></td></tr>
+<tr><td><code>MinNeutralRelationLimit</code></td><td><code>public abstract int MinNeutralRelationLimit { get; }</code></td></tr>
+<tr><td><code>MinimumRelationWithConversationCharacterToJoinKingdom</code></td><td><code>public abstract int MinimumRelationWithConversationCharacterToJoinKingdom { get; }</code></td></tr>
+<tr><td><code>GiftingTownRelationshipBonus</code></td><td><code>public abstract int GiftingTownRelationshipBonus { get; }</code></td></tr>
+<tr><td><code>GiftingCastleRelationshipBonus</code></td><td><code>public abstract int GiftingCastleRelationshipBonus { get; }</code></td></tr>
+<tr><td><code>WarDeclarationScorePenaltyAgainstAllies</code></td><td><code>public abstract float WarDeclarationScorePenaltyAgainstAllies { get; }</code></td></tr>
+<tr><td><code>WarDeclarationScoreBonusAgainstEnemiesOfAllies</code></td><td><code>public abstract float WarDeclarationScoreBonusAgainstEnemiesOfAllies { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="getstrengththresholdfornonmutualwarstobeignoredtojoinkingdom">GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom</h3>
+<p><code>public abstract float GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(Kingdom kingdomToJoin)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 strength threshold for non mutual wars to be ignored to join kingdom 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(kingdomToJoin);
+</code></pre>
+<h3 id="getrelationincreasefactor">GetRelationIncreaseFactor</h3>
+<p><code>public abstract float GetRelationIncreaseFactor(Hero hero1, Hero hero2, float relationValue)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 relation increase factor 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetRelationIncreaseFactor(hero1, hero2, 0);
+</code></pre>
+<h3 id="getinfluenceawardforsettlementcapturer">GetInfluenceAwardForSettlementCapturer</h3>
+<p><code>public abstract int GetInfluenceAwardForSettlementCapturer(Settlement settlement)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 influence award for settlement capturer 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetInfluenceAwardForSettlementCapturer(settlement);
+</code></pre>
+<h3 id="gethourlyinfluenceawardforraidingenemyvillage">GetHourlyInfluenceAwardForRaidingEnemyVillage</h3>
+<p><code>public abstract float GetHourlyInfluenceAwardForRaidingEnemyVillage(MobileParty mobileParty)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hourly influence award for raiding enemy village 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetHourlyInfluenceAwardForRaidingEnemyVillage(mobileParty);
+</code></pre>
+<h3 id="gethourlyinfluenceawardforbesiegingenemyfortification">GetHourlyInfluenceAwardForBesiegingEnemyFortification</h3>
+<p><code>public abstract float GetHourlyInfluenceAwardForBesiegingEnemyFortification(MobileParty mobileParty)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hourly influence award for besieging enemy fortification 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetHourlyInfluenceAwardForBesiegingEnemyFortification(mobileParty);
+</code></pre>
+<h3 id="gethourlyinfluenceawardforbeingarmymember">GetHourlyInfluenceAwardForBeingArmyMember</h3>
+<p><code>public abstract float GetHourlyInfluenceAwardForBeingArmyMember(MobileParty mobileParty)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hourly influence award for being army member 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetHourlyInfluenceAwardForBeingArmyMember(mobileParty);
+</code></pre>
+<h3 id="getscoreofclantojoinkingdom">GetScoreOfClanToJoinKingdom</h3>
+<p><code>public abstract float GetScoreOfClanToJoinKingdom(Clan clan, Kingdom kingdom)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 score of clan to join kingdom 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetScoreOfClanToJoinKingdom(clan, kingdom);
+</code></pre>
+<h3 id="getscoreofclantoleavekingdom">GetScoreOfClanToLeaveKingdom</h3>
+<p><code>public abstract float GetScoreOfClanToLeaveKingdom(Clan clan, Kingdom kingdom)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 score of clan to leave kingdom 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetScoreOfClanToLeaveKingdom(clan, kingdom);
+</code></pre>
+<h3 id="getscoreofkingdomtogetclan">GetScoreOfKingdomToGetClan</h3>
+<p><code>public abstract float GetScoreOfKingdomToGetClan(Kingdom kingdom, Clan clan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 score of kingdom to get clan 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetScoreOfKingdomToGetClan(kingdom, clan);
+</code></pre>
+<h3 id="getscoreofkingdomtosackclan">GetScoreOfKingdomToSackClan</h3>
+<p><code>public abstract float GetScoreOfKingdomToSackClan(Kingdom kingdom, Clan clan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 score of kingdom to sack clan 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetScoreOfKingdomToSackClan(kingdom, clan);
+</code></pre>
+<h3 id="getscoreofmercenarytojoinkingdom">GetScoreOfMercenaryToJoinKingdom</h3>
+<p><code>public abstract float GetScoreOfMercenaryToJoinKingdom(Clan clan, Kingdom kingdom)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 score of mercenary to join kingdom 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetScoreOfMercenaryToJoinKingdom(clan, kingdom);
+</code></pre>
+<h3 id="getscoreofmercenarytoleavekingdom">GetScoreOfMercenaryToLeaveKingdom</h3>
+<p><code>public abstract float GetScoreOfMercenaryToLeaveKingdom(Clan clan, Kingdom kingdom)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 score of mercenary to leave kingdom 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetScoreOfMercenaryToLeaveKingdom(clan, kingdom);
+</code></pre>
+<h3 id="getscoreofkingdomtohiremercenary">GetScoreOfKingdomToHireMercenary</h3>
+<p><code>public abstract float GetScoreOfKingdomToHireMercenary(Kingdom kingdom, Clan mercenaryClan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 score of kingdom to hire mercenary 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetScoreOfKingdomToHireMercenary(kingdom, mercenaryClan);
+</code></pre>
+<h3 id="getscoreofkingdomtosackmercenary">GetScoreOfKingdomToSackMercenary</h3>
+<p><code>public abstract float GetScoreOfKingdomToSackMercenary(Kingdom kingdom, Clan mercenaryClan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 score of kingdom to sack mercenary 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetScoreOfKingdomToSackMercenary(kingdom, mercenaryClan);
+</code></pre>
+<h3 id="getscoreofdeclaringpeaceforclan">GetScoreOfDeclaringPeaceForClan</h3>
+<p><code>public abstract float GetScoreOfDeclaringPeaceForClan(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace, Clan evaluatingClan, out TextObject reason)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 score of declaring peace for clan 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetScoreOfDeclaringPeaceForClan(factionDeclaresPeace, factionDeclaredPeace, evaluatingClan, reason);
+</code></pre>
+<h3 id="getscoreofdeclaringpeace">GetScoreOfDeclaringPeace</h3>
+<p><code>public abstract float GetScoreOfDeclaringPeace(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 score of declaring peace 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetScoreOfDeclaringPeace(factionDeclaresPeace, factionDeclaredPeace);
+</code></pre>
+<h3 id="ispeacesuitable">IsPeaceSuitable</h3>
+<p><code>public abstract bool IsPeaceSuitable(IFaction factionDeclaresPeace, IFaction factionDeclaredPeace)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 peace suitable 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.IsPeaceSuitable(factionDeclaresPeace, factionDeclaredPeace);
+</code></pre>
+<h3 id="getscoreofdeclaringwar">GetScoreOfDeclaringWar</h3>
+<p><code>public abstract float GetScoreOfDeclaringWar(IFaction factionDeclaresWar, IFaction factionDeclaredWar, Clan evaluatingClan, out TextObject reason)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 score of declaring war 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetScoreOfDeclaringWar(factionDeclaresWar, factionDeclaredWar, evaluatingClan, reason);
+</code></pre>
+<h3 id="getscoreoflettingpartygo">GetScoreOfLettingPartyGo</h3>
+<p><code>public abstract float GetScoreOfLettingPartyGo(MobileParty party, MobileParty partyToLetGo)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 score of letting party go 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetScoreOfLettingPartyGo(party, partyToLetGo);
+</code></pre>
+<h3 id="getvalueofheroforfaction">GetValueOfHeroForFaction</h3>
+<p><code>public abstract float GetValueOfHeroForFaction(Hero examinedHero, IFaction targetFaction, bool forMarriage = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 value of hero for faction 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetValueOfHeroForFaction(examinedHero, targetFaction, false);
+</code></pre>
+<h3 id="getrelationcostofexpellingclanfromkingdom">GetRelationCostOfExpellingClanFromKingdom</h3>
+<p><code>public abstract int GetRelationCostOfExpellingClanFromKingdom()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 relation cost of expelling clan from kingdom 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetRelationCostOfExpellingClanFromKingdom();
+</code></pre>
+<h3 id="getinfluencecostofsupportingclan">GetInfluenceCostOfSupportingClan</h3>
+<p><code>public abstract int GetInfluenceCostOfSupportingClan()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 influence cost of supporting clan 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetInfluenceCostOfSupportingClan();
+</code></pre>
+<h3 id="getinfluencecostofexpellingclan">GetInfluenceCostOfExpellingClan</h3>
+<p><code>public abstract int GetInfluenceCostOfExpellingClan(Clan proposingClan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 influence cost of expelling clan 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetInfluenceCostOfExpellingClan(proposingClan);
+</code></pre>
+<h3 id="getinfluencecostofproposingpeace">GetInfluenceCostOfProposingPeace</h3>
+<p><code>public abstract int GetInfluenceCostOfProposingPeace(Clan proposingClan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 influence cost of proposing peace 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetInfluenceCostOfProposingPeace(proposingClan);
+</code></pre>
+<h3 id="getinfluencecostofproposingwar">GetInfluenceCostOfProposingWar</h3>
+<p><code>public abstract int GetInfluenceCostOfProposingWar(Clan proposingClan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 influence cost of proposing war 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetInfluenceCostOfProposingWar(proposingClan);
+</code></pre>
+<h3 id="getinfluencevalueofsupportingclan">GetInfluenceValueOfSupportingClan</h3>
+<p><code>public abstract int GetInfluenceValueOfSupportingClan()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 influence value of supporting clan 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetInfluenceValueOfSupportingClan();
+</code></pre>
+<h3 id="getrelationvalueofsupportingclan">GetRelationValueOfSupportingClan</h3>
+<p><code>public abstract int GetRelationValueOfSupportingClan()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 relation value of supporting clan 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetRelationValueOfSupportingClan();
+</code></pre>
+<h3 id="getinfluencecostofannexation">GetInfluenceCostOfAnnexation</h3>
+<p><code>public abstract int GetInfluenceCostOfAnnexation(Clan proposingClan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 influence cost of annexation 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetInfluenceCostOfAnnexation(proposingClan);
+</code></pre>
+<h3 id="getinfluencecostofchangingleaderofarmy">GetInfluenceCostOfChangingLeaderOfArmy</h3>
+<p><code>public abstract int GetInfluenceCostOfChangingLeaderOfArmy()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 influence cost of changing leader of army 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetInfluenceCostOfChangingLeaderOfArmy();
+</code></pre>
+<h3 id="getinfluencecostofdisbandingarmy">GetInfluenceCostOfDisbandingArmy</h3>
+<p><code>public abstract int GetInfluenceCostOfDisbandingArmy()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 influence cost of disbanding army 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetInfluenceCostOfDisbandingArmy();
+</code></pre>
+<h3 id="getrelationcostofdisbandingarmy">GetRelationCostOfDisbandingArmy</h3>
+<p><code>public abstract int GetRelationCostOfDisbandingArmy(bool isLeaderParty)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 relation cost of disbanding army 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetRelationCostOfDisbandingArmy(false);
+</code></pre>
+<h3 id="getinfluencecostofpolicyproposalanddisavowal">GetInfluenceCostOfPolicyProposalAndDisavowal</h3>
+<p><code>public abstract int GetInfluenceCostOfPolicyProposalAndDisavowal(Clan proposingClan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 influence cost of policy proposal and disavowal 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetInfluenceCostOfPolicyProposalAndDisavowal(proposingClan);
+</code></pre>
+<h3 id="getinfluencecostofabandoningarmy">GetInfluenceCostOfAbandoningArmy</h3>
+<p><code>public abstract int GetInfluenceCostOfAbandoningArmy()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 influence cost of abandoning army 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetInfluenceCostOfAbandoningArmy();
+</code></pre>
+<h3 id="geteffectiverelation">GetEffectiveRelation</h3>
+<p><code>public abstract int GetEffectiveRelation(Hero hero, Hero hero1)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 effective relation 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetEffectiveRelation(hero, hero1);
+</code></pre>
+<h3 id="getbaserelation">GetBaseRelation</h3>
+<p><code>public abstract int GetBaseRelation(Hero hero, Hero hero1)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 base relation 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetBaseRelation(hero, hero1);
+</code></pre>
+<h3 id="getheroesforeffectiverelation">GetHeroesForEffectiveRelation</h3>
+<p><code>public abstract void GetHeroesForEffectiveRelation(Hero hero1, Hero hero2, out Hero effectiveHero1, out Hero effectiveHero2)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 heroes for effective relation 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+diplomacyModel.GetHeroesForEffectiveRelation(hero1, hero2, effectiveHero1, effectiveHero2);
+</code></pre>
+<h3 id="getrelationchangeafterclanleaderisdead">GetRelationChangeAfterClanLeaderIsDead</h3>
+<p><code>public abstract int GetRelationChangeAfterClanLeaderIsDead(Hero deadLeader, Hero relationHero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 relation change after clan leader is dead 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetRelationChangeAfterClanLeaderIsDead(deadLeader, relationHero);
+</code></pre>
+<h3 id="getrelationchangeaftervotinginsettlementownerpreliminarydecision">GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision</h3>
+<p><code>public abstract int GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision(Hero supporter, bool hasHeroVotedAgainstOwner)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 relation change after voting in settlement owner preliminary decision 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetRelationChangeAfterVotingInSettlementOwnerPreliminaryDecision(supporter, false);
+</code></pre>
+<h3 id="getclanstrength">GetClanStrength</h3>
+<p><code>public abstract float GetClanStrength(Clan clan)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 clan strength 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetClanStrength(clan);
+</code></pre>
+<h3 id="getherocommandingstrengthforclan">GetHeroCommandingStrengthForClan</h3>
+<p><code>public abstract float GetHeroCommandingStrengthForClan(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hero commanding strength for clan 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetHeroCommandingStrengthForClan(hero);
+</code></pre>
+<h3 id="getherogoverningstrengthforclan">GetHeroGoverningStrengthForClan</h3>
+<p><code>public abstract float GetHeroGoverningStrengthForClan(Hero hero)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 hero governing strength for clan 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetHeroGoverningStrengthForClan(hero);
+</code></pre>
+<h3 id="getnotificationcolor">GetNotificationColor</h3>
+<p><code>public abstract uint GetNotificationColor(ChatNotificationType notificationType)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 notification color 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetNotificationColor(notificationType);
+</code></pre>
+<h3 id="getdailytributetopay">GetDailyTributeToPay</h3>
+<p><code>public abstract int GetDailyTributeToPay(Clan factionToPay, Clan factionToReceive)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 daily tribute to pay 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetDailyTributeToPay(factionToPay, factionToReceive);
+</code></pre>
+<h3 id="getdecisionmakingthreshold">GetDecisionMakingThreshold</h3>
+<p><code>public abstract float GetDecisionMakingThreshold(IFaction consideringFaction)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 decision making threshold 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetDecisionMakingThreshold(consideringFaction);
+</code></pre>
+<h3 id="getvalueofsettlementsforfaction">GetValueOfSettlementsForFaction</h3>
+<p><code>public abstract float GetValueOfSettlementsForFaction(IFaction faction)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 value of settlements for faction 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetValueOfSettlementsForFaction(faction);
+</code></pre>
+<h3 id="cansettlementbegifted">CanSettlementBeGifted</h3>
+<p><code>public abstract bool CanSettlementBeGifted(Settlement settlement)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否满足 settlement be gifted 的前置条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.CanSettlementBeGifted(settlement);
+</code></pre>
+<h3 id="isclaneligibletobecomeruler">IsClanEligibleToBecomeRuler</h3>
+<p><code>public abstract bool IsClanEligibleToBecomeRuler(Clan clan)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 clan eligible to become ruler 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.IsClanEligibleToBecomeRuler(clan);
+</code></pre>
+<h3 id="getbartergroups">GetBarterGroups</h3>
+<p><code>public abstract IEnumerable&lt;BarterGroup&gt; GetBarterGroups()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 barter groups 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetBarterGroups();
+</code></pre>
+<h3 id="getcharmexperiencefromrelationgain">GetCharmExperienceFromRelationGain</h3>
+<p><code>public abstract int GetCharmExperienceFromRelationGain(Hero hero, float relationChange, ChangeRelationAction.ChangeRelationDetail detail)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 charm experience from relation gain 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetCharmExperienceFromRelationGain(hero, 0, detail);
+</code></pre>
+<h3 id="denarstoinfluence">DenarsToInfluence</h3>
+<p><code>public abstract float DenarsToInfluence()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DenarsToInfluence 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.DenarsToInfluence();
+</code></pre>
+<h3 id="getshallowdiplomaticstance">GetShallowDiplomaticStance</h3>
+<p><code>public abstract DiplomacyModel.DiplomacyStance? GetShallowDiplomaticStance(IFaction faction1, IFaction faction2)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 shallow diplomatic stance 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetShallowDiplomaticStance(faction1, faction2);
+</code></pre>
+<h3 id="getdefaultdiplomaticstance">GetDefaultDiplomaticStance</h3>
+<p><code>public abstract DiplomacyModel.DiplomacyStance GetDefaultDiplomaticStance(IFaction faction1, IFaction faction2)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 default diplomatic stance 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.GetDefaultDiplomaticStance(faction1, faction2);
+</code></pre>
+<h3 id="isatconstantwar">IsAtConstantWar</h3>
+<p><code>public abstract bool IsAtConstantWar(IFaction faction1, IFaction faction2)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 at constant war 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DiplomacyModel 实例
+DiplomacyModel diplomacyModel = ...;
+var result = diplomacyModel.IsAtConstantWar(faction1, faction2);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常通过子系统 API 或工厂获得派生实例
+DiplomacyModel instance = ...;
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/api/campaign/SettlementMenuOverlayModel/">&larr; SettlementMenuOverlayModel</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/api/campaign/Supporter/">Supporter &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

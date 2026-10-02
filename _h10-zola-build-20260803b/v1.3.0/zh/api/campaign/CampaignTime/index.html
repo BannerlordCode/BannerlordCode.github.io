@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampaignTime</title>
+  <meta name="description" content="CampaignTime 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/CampaignTime/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/CampaignTime/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/CampaignTime/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/CampaignTime/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="active">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CampaignTime</span>
+    </nav>
+  
+  <h1>CampaignTime</h1>
+  <h1 id="campaigntime">CampaignTime</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public struct CampaignTime : IComparable&lt;CampaignTime&gt;</code>
+<strong>Base:</strong> <code>IComparable&lt;CampaignTime&gt;</code>
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/CampaignTime.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>CampaignTime</code> 位于 <code>TaleWorlds.CampaignSystem</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.CampaignSystem</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>DaysInSeason</code></td><td><code>public static int DaysInSeason { get; }</code></td></tr>
+<tr><td><code>DaysInYear</code></td><td><code>public static int DaysInYear { get; }</code></td></tr>
+<tr><td><code>DeltaTime</code></td><td><code>public static CampaignTime DeltaTime { get; }</code></td></tr>
+<tr><td><code>Now</code></td><td><code>public static CampaignTime Now { get; }</code></td></tr>
+<tr><td><code>Never</code></td><td><code>public static CampaignTime Never { get; }</code></td></tr>
+<tr><td><code>IsFuture</code></td><td><code>public bool IsFuture { get; }</code></td></tr>
+<tr><td><code>IsPast</code></td><td><code>public bool IsPast { get; }</code></td></tr>
+<tr><td><code>IsNow</code></td><td><code>public bool IsNow { get; }</code></td></tr>
+<tr><td><code>IsDayTime</code></td><td><code>public bool IsDayTime { get; }</code></td></tr>
+<tr><td><code>CurrentHourInDay</code></td><td><code>public float CurrentHourInDay { get; }</code></td></tr>
+<tr><td><code>IsNightTime</code></td><td><code>public bool IsNightTime { get; }</code></td></tr>
+<tr><td><code>ElapsedMillisecondsUntilNow</code></td><td><code>public float ElapsedMillisecondsUntilNow { get; }</code></td></tr>
+<tr><td><code>ElapsedSecondsUntilNow</code></td><td><code>public float ElapsedSecondsUntilNow { get; }</code></td></tr>
+<tr><td><code>ElapsedHoursUntilNow</code></td><td><code>public float ElapsedHoursUntilNow { get; }</code></td></tr>
+<tr><td><code>ElapsedDaysUntilNow</code></td><td><code>public float ElapsedDaysUntilNow { get; }</code></td></tr>
+<tr><td><code>ElapsedWeeksUntilNow</code></td><td><code>public float ElapsedWeeksUntilNow { get; }</code></td></tr>
+<tr><td><code>ElapsedSeasonsUntilNow</code></td><td><code>public float ElapsedSeasonsUntilNow { get; }</code></td></tr>
+<tr><td><code>ElapsedYearsUntilNow</code></td><td><code>public float ElapsedYearsUntilNow { get; }</code></td></tr>
+<tr><td><code>RemainingMillisecondsFromNow</code></td><td><code>public float RemainingMillisecondsFromNow { get; }</code></td></tr>
+<tr><td><code>RemainingSecondsFromNow</code></td><td><code>public float RemainingSecondsFromNow { get; }</code></td></tr>
+<tr><td><code>RemainingHoursFromNow</code></td><td><code>public float RemainingHoursFromNow { get; }</code></td></tr>
+<tr><td><code>RemainingDaysFromNow</code></td><td><code>public float RemainingDaysFromNow { get; }</code></td></tr>
+<tr><td><code>RemainingWeeksFromNow</code></td><td><code>public float RemainingWeeksFromNow { get; }</code></td></tr>
+<tr><td><code>RemainingSeasonsFromNow</code></td><td><code>public float RemainingSeasonsFromNow { get; }</code></td></tr>
+<tr><td><code>RemainingYearsFromNow</code></td><td><code>public float RemainingYearsFromNow { get; }</code></td></tr>
+<tr><td><code>ToMilliseconds</code></td><td><code>public double ToMilliseconds { get; }</code></td></tr>
+<tr><td><code>ToSeconds</code></td><td><code>public double ToSeconds { get; }</code></td></tr>
+<tr><td><code>ToMinutes</code></td><td><code>public double ToMinutes { get; }</code></td></tr>
+<tr><td><code>ToHours</code></td><td><code>public double ToHours { get; }</code></td></tr>
+<tr><td><code>ToDays</code></td><td><code>public double ToDays { get; }</code></td></tr>
+<tr><td><code>ToWeeks</code></td><td><code>public double ToWeeks { get; }</code></td></tr>
+<tr><td><code>ToSeasons</code></td><td><code>public double ToSeasons { get; }</code></td></tr>
+<tr><td><code>ToYears</code></td><td><code>public double ToYears { get; }</code></td></tr>
+<tr><td><code>GetHourOfDay</code></td><td><code>public int GetHourOfDay { get; }</code></td></tr>
+<tr><td><code>GetDayOfWeek</code></td><td><code>public int GetDayOfWeek { get; }</code></td></tr>
+<tr><td><code>GetDayOfSeason</code></td><td><code>public int GetDayOfSeason { get; }</code></td></tr>
+<tr><td><code>GetDayOfYear</code></td><td><code>public int GetDayOfYear { get; }</code></td></tr>
+<tr><td><code>GetWeekOfSeason</code></td><td><code>public int GetWeekOfSeason { get; }</code></td></tr>
+<tr><td><code>GetSeasonOfYear</code></td><td><code>public CampaignTime.Seasons GetSeasonOfYear { get; }</code></td></tr>
+<tr><td><code>GetYear</code></td><td><code>public int GetYear { get; }</code></td></tr>
+<tr><td><code>Zero</code></td><td><code>public static CampaignTime Zero { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="autogeneratedstaticcollectobjectscampaigntime">AutoGeneratedStaticCollectObjectsCampaignTime</h3>
+<p><code>public static void AutoGeneratedStaticCollectObjectsCampaignTime(object o, List&lt;object&gt; collectedObjects)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AutoGeneratedStaticCollectObjectsCampaignTime 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.AutoGeneratedStaticCollectObjectsCampaignTime(o, collectedObjects);
+</code></pre>
+<h3 id="initialize">Initialize</h3>
+<p><code>public static void Initialize()</code></p>
+<p><strong>用途 / Purpose:</strong> 加载当前对象所需的初始资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.Initialize();
+</code></pre>
+<h3 id="equals">Equals</h3>
+<p><code>public bool Equals(CampaignTime other)</code></p>
+<p><strong>用途 / Purpose:</strong> 比较当前对象与传入实例是否相等。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CampaignTime 实例
+CampaignTime campaignTime = ...;
+var result = campaignTime.Equals(other);
+</code></pre>
+<h3 id="equals-1">Equals</h3>
+<p><code>public override bool Equals(object obj)</code></p>
+<p><strong>用途 / Purpose:</strong> 比较当前对象与传入实例是否相等。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CampaignTime 实例
+CampaignTime campaignTime = ...;
+var result = campaignTime.Equals(obj);
+</code></pre>
+<h3 id="gethashcode">GetHashCode</h3>
+<p><code>public override int GetHashCode()</code></p>
+<p><strong>用途 / Purpose:</strong> 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CampaignTime 实例
+CampaignTime campaignTime = ...;
+var result = campaignTime.GetHashCode();
+</code></pre>
+<h3 id="compareto">CompareTo</h3>
+<p><code>public int CompareTo(CampaignTime other)</code></p>
+<p><strong>用途 / Purpose:</strong> 将当前对象与传入实例比较大小或顺序。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CampaignTime 实例
+CampaignTime campaignTime = ...;
+var result = campaignTime.CompareTo(other);
+</code></pre>
+<h3 id="milliseconds">Milliseconds</h3>
+<p><code>public static CampaignTime Milliseconds(long valueInMilliseconds)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Milliseconds 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.Milliseconds(0);
+</code></pre>
+<h3 id="millisecondsfromnow">MillisecondsFromNow</h3>
+<p><code>public static CampaignTime MillisecondsFromNow(long valueInMilliseconds)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MillisecondsFromNow 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.MillisecondsFromNow(0);
+</code></pre>
+<h3 id="seconds">Seconds</h3>
+<p><code>public static CampaignTime Seconds(long valueInSeconds)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Seconds 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.Seconds(0);
+</code></pre>
+<h3 id="secondsfromnow">SecondsFromNow</h3>
+<p><code>public static CampaignTime SecondsFromNow(long valueInSeconds)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SecondsFromNow 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.SecondsFromNow(0);
+</code></pre>
+<h3 id="minutes">Minutes</h3>
+<p><code>public static CampaignTime Minutes(long valueInMinutes)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Minutes 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.Minutes(0);
+</code></pre>
+<h3 id="minutesfromnow">MinutesFromNow</h3>
+<p><code>public static CampaignTime MinutesFromNow(long valueInMinutes)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MinutesFromNow 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.MinutesFromNow(0);
+</code></pre>
+<h3 id="hours">Hours</h3>
+<p><code>public static CampaignTime Hours(float valueInHours)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Hours 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.Hours(0);
+</code></pre>
+<h3 id="hoursfromnow">HoursFromNow</h3>
+<p><code>public static CampaignTime HoursFromNow(float valueInHours)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 HoursFromNow 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.HoursFromNow(0);
+</code></pre>
+<h3 id="days">Days</h3>
+<p><code>public static CampaignTime Days(float valueInDays)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Days 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.Days(0);
+</code></pre>
+<h3 id="daysfromnow">DaysFromNow</h3>
+<p><code>public static CampaignTime DaysFromNow(float valueInDays)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DaysFromNow 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.DaysFromNow(0);
+</code></pre>
+<h3 id="weeks">Weeks</h3>
+<p><code>public static CampaignTime Weeks(float valueInWeeks)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Weeks 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.Weeks(0);
+</code></pre>
+<h3 id="weeksfromnow">WeeksFromNow</h3>
+<p><code>public static CampaignTime WeeksFromNow(float valueInWeeks)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 WeeksFromNow 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.WeeksFromNow(0);
+</code></pre>
+<h3 id="years">Years</h3>
+<p><code>public static CampaignTime Years(float valueInYears)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Years 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.Years(0);
+</code></pre>
+<h3 id="yearsfromnow">YearsFromNow</h3>
+<p><code>public static CampaignTime YearsFromNow(float valueInYears)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 YearsFromNow 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CampaignTime.YearsFromNow(0);
+</code></pre>
+<h3 id="stringsameas">StringSameAs</h3>
+<p><code>public bool StringSameAs(CampaignTime otherTime)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 StringSameAs 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CampaignTime 实例
+CampaignTime campaignTime = ...;
+var result = campaignTime.StringSameAs(otherTime);
+</code></pre>
+<h3 id="tostring">ToString</h3>
+<p><code>public override string ToString()</code></p>
+<p><strong>用途 / Purpose:</strong> 返回当前对象的人类可读字符串表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CampaignTime 实例
+CampaignTime campaignTime = ...;
+var result = campaignTime.ToString();
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">CampaignTime.AutoGeneratedStaticCollectObjectsCampaignTime(o, collectedObjects);
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/api/campaign/GoldBarterable/">&larr; GoldBarterable</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/api/campaign/PregnancyModel/">PregnancyModel &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

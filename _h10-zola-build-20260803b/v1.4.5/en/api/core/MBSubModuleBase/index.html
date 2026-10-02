@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MBSubModuleBase</title>
+  <meta name="description" content="Entry-point base class for a Module: the engine calls its virtual methods while loading the module, starting&#x2F;loading&#x2F;ending a game, and every frame. Mods derive it to hook into the whole game lifecycle, but almost all game state lives elsewhere.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="active">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core/MBSubModuleBase/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core/MBSubModuleBase/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/core/MBSubModuleBase/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/core/MBSubModuleBase/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/core/MBSubModuleBase/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/core/MBSubModuleBase/"
+               class="active">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/en/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/en/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>v1.4.5 Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/api/" class="">Index</a><a href="/v1.4.5/en/api/core/" class="active">Core</a><a href="/v1.4.5/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/en/api/mission/" class="">Mission</a><a href="/v1.4.5/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/en/api/campaign/" class="">Campaign</a><a href="/v1.4.5/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/en/api/gui/" class="">GUI</a><a href="/v1.4.5/en/api/save-system/" class="">Save System</a><a href="/v1.4.5/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.4.5/en/api/localization/" class="">Localization</a><a href="/v1.4.5/en/api/engine/" class="">Engine</a><a href="/v1.4.5/en/api/gameplay/" class="">Gameplay</a><a href="/v1.4.5/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/en/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/en/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;core&#x2F;">Foundation &#x2F; Core API — v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MBSubModuleBase</span>
+    </nav>
+  
+  <h1>MBSubModuleBase</h1>
+  <h1 id="mbsubmodulebase">MBSubModuleBase</h1>
+<p><strong>Namespace:</strong> <code>TaleWorlds.MountAndBlade</code>
+<strong>Module:</strong> <code>TaleWorlds.MountAndBlade</code>
+<strong>Type:</strong> <code>public abstract class MBSubModuleBase</code>
+<strong>Base:</strong> none (top-level abstract class)
+<strong>Source file:</strong> <code>bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/MBSubModuleBase.cs</code></p>
+<h2 id="one-line-responsibility">One-line responsibility</h2>
+<p>It is the <em>lifecycle entry point</em> of every loadable Module: the engine calls the virtual methods you override at well-defined moments — module load, game start/load/end, and every frame — but it holds no game state itself; it only hands control to you at the right time.</p>
+<h2 id="mental-model">Mental model</h2>
+<p><strong>Lifecycle and ownership.</strong> Your derived instance is created by the engine during module load and kept alive inside <code>Module.CurrentModule</code>'s <code>_subModuleBases</code> collection until the process exits or the module unloads. <code>MBSubModuleBase</code> itself stores almost no fields — the real game state lives in <a href=".././Game">Game</a>, <a href="../../campaign/Campaign">Campaign</a> and <a href="../../mission/Mission">Mission</a>. Your subclass is better understood as a set of time-triggered hooks, not a state object.</p>
+<p><strong>Call chain (verified in source).</strong> At module load, <code>Module.InitializeSubModuleBases()</code> (<code>Module.cs:201</code>) walks <code>_subModuleBases</code> and calls <code>OnSubModuleLoad()</code> once per submodule. Every frame, <code>Module.OnApplicationTick()</code> (<code>Module.cs:463/523</code>) iterates and calls <code>OnApplicationTick(dt)</code>. When a game starts, the distributor is <code>MBGameManager</code> (the campaign game manager): it pulls every submodule via <code>Module.CurrentModule.CollectSubModules()</code> and fires the lifecycle methods in a fixed order (<code>MBGameManager.cs:102–171</code>): <code>InitializeGameStarter</code> → <code>OnGameStart</code> → <code>BeginGameStart</code>/<code>OnCampaignStart</code> → <code>OnGameInitializationFinished</code> → <code>OnAfterGameInitializationFinished</code>. Crucially, <code>OnGameInitializationFinished</code> runs <em>after</em> <code>Campaign</code> has already built its <code>CampaignBehaviorManager</code> (<code>Campaign.cs:1422</code> and <code>1452</code>).</p>
+<p><strong>Which layer.</strong> It sits at the outermost "module / application" layer: it exists earlier than <a href=".././Game">Game</a> and gets control before any <a href="../../campaign/Campaign">CampaignBehaviorBase</a>. It is the right place for one-time registration and cross-game-boundary bridging, not for in-game logic.</p>
+<p><strong>When to use / when not to.</strong></p>
+<ul>
+<li>Use it to: register conversation lines, custom types, config; hook a <a href="../../campaign/Campaign">CampaignBehaviorBase</a> during the game-start window (see Real Example below); subscribe/unsubscribe to global, cross-module events.</li>
+<li>Do <em>not</em> write campaign logic directly inside <code>OnApplicationTick</code>. Prefer <code>*Action.Apply</code> or subscribe to <code>CampaignEvents</code> from within a <a href="../../campaign/Campaign">CampaignBehaviorBase</a> instead of hand-rolling per-frame polling and field writes here. Do <em>not</em> touch <code>Campaign.Current</code>/<code>Game.Current</code> during <code>OnSubModuleLoad</code> — there is no game yet (see <a href="../../../architecture/crash-boundary">Crash boundaries</a>).</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<pre><code data-lang="mermaid">graph TD
+    SUB[MBSubModuleBase your derived] --&gt; MOD[Module / ModuleInfo load]
+    MOD --&gt; XML[SubModule.xml: SubModuleClassType]
+    SUB -. per-frame .-&gt; TICK[OnApplicationTick]
+    SUB --&gt; GAME[Game]
+    SUB --&gt; CAMP[Campaign]
+    SUB --&gt; MISS[Mission]
+    CAMP --&gt; CBM[CampaignBehaviorManager.AddBehavior]
+    SUB --&gt; CBM
+    GAME --&gt; SAVE[SaveManager save]
+    MISS --&gt; SAVE
+</code></pre>
+<ul>
+<li><strong>Upstream (who creates / holds):</strong> <code>Module</code> (in the <a href="https://bannerlordcode.github.io/v1.4.5/en/api/core/MBSubModuleBase/./">core index</a>) reads each module's <code>SubModule.xml</code> (<code>&lt;SubModuleClassType value="Namespace.ClassName"/&gt;</code>, DLL must be built into <code>bin/Win64_Shipping_Client/</code>), instantiates and holds your submodule; <code>MBGameManager</code> fires its callbacks at game start. See <a href="../../../architecture/doc-contract">doc-contract</a>.</li>
+<li><strong>Downstream (what it drives / plugs into):</strong> <a href=".././Game">Game</a>, <a href="../../campaign/Campaign">Campaign</a>, <a href="../../mission/Mission">Mission</a>. Campaign logic is attached via <code>CampaignBehaviorManager.AddBehavior</code> (non-generic) on the <a href="../../campaign/Campaign">Campaign</a>.</li>
+<li><strong>Events:</strong> you normally take the <code>IGameStarter</code> (<code>CampaignGameStarter</code>) handed to you in <code>OnGameStart</code> and <code>AddBehavior</code>; the behavior then subscribes via <code>CampaignEvents.*</code> (<code>DailyTickEvent</code>, <code>OnGameLoadedEvent</code>, …).</li>
+<li><strong>Behaviors / Actions:</strong> behaviors derive <code>CampaignBehaviorBase</code>; to mutate game state prefer the engine's <code>*Action.Apply</code> rather than writing fields directly.</li>
+<li><strong>Save points:</strong> a <a href="../../campaign/Campaign">CampaignBehaviorBase</a> registered through <code>CampaignBehaviorManager</code> is automatically pulled into the save via <code>CampaignBehaviorDataStore</code>; before <code>OnGameEnd</code> the engine fires <code>OnBeforeSave</code> to collect behavior data.</li>
+</ul>
+<h2 id="risks-can-crash-or-corrupt-saves">Risks (can crash or corrupt saves)</h2>
+<ol>
+<li><strong>Accessing <code>Campaign.Current</code> / <code>Game.Current</code> inside <code>OnSubModuleLoad</code> / <code>OnBeforeInitialModuleScreenSetAsRoot</code>.</strong> These hooks fire before any game exists; the references are <code>null</code> and dereferencing them throws <code>NullReferenceException</code>, crashing at the main-menu stage. Keep them to one-time static registration (dialogue, types, config).</li>
+<li><strong>Registering a <code>CampaignBehaviorBase</code> in the wrong place.</strong> If you <code>new</code> a behavior in <code>OnSubModuleLoad</code> but never attach it through <code>IGameStarter.AddBehavior</code> / <code>CampaignBehaviorManager.AddBehavior</code>, it is never reached by <code>RegisterEvents</code>, <code>SyncData</code> or the save flow — effectively nonexistent. Behaviors must be registered inside the game-start window (see Real Example).</li>
+<li><strong>Touching game objects in <code>OnApplicationTick</code> without guards.</strong> The main menu, campaign map and option screens all share this per-frame callback; if <code>Game.Current == null</code> or the current <code>GameState</code> is not what you expect, calling <code>Mission</code>/<code>MBActionSet</code> APIs crashes. Always check <code>if (Game.Current != null)</code> and the game state first.</li>
+<li><strong>Heavy work or exceptions in <code>OnApplicationTick</code>.</strong> It runs on the render main loop; blocking or throwing stalls or crashes the whole frame. Defer expensive work to a coroutine / background thread.</li>
+<li><strong>Subscribing to engine/global events (e.g. <code>EngineController.ConfigChange</code>) in <code>OnSubModuleLoad</code> but never unsubscribing in <code>OnSubModuleUnloaded</code>.</strong> Module hot-reload then double-subscribes and leaks methods.</li>
+<li><strong>Wrong <code>SubModuleClassType</code> in <code>SubModule.xml</code>, or DLL not built into <code>Win64_Shipping_Client</code>.</strong> The exception from <code>SubModuleInfo.LoadFrom</code> is swallowed and prints "Cannot load a submodule", so your submodule is silently never loaded and all its hooks stay dead.</li>
+<li><strong>Duplicate <code>StringId</code> on a behavior.</strong> <code>CampaignBehaviorDataStore</code> keys saved data by behavior instance; two behaviors sharing a <code>StringId</code> overwrite each other's fields on save/load, corrupting save contents.</li>
+</ol>
+<h2 id="member-notes-grouped-by-theme-not-a-signature-wall">Member notes (grouped by theme, not a signature wall)</h2>
+<h3 id="a-module-load-phase-process-module-level-before-any-game">A. Module-load phase (process / module level, before any game)</h3>
+<ul>
+<li><strong><code>OnSubModuleLoad()</code></strong> — called <strong>once</strong> when the module loads. Purpose: register conversation lines, custom <code>MBObjectBase</code> subtypes, static config. Side effect: no <a href=".././Game">Game</a> / <a href="../../campaign/Campaign">Campaign</a> yet. Override when you need something that is active merely because the module is present.</li>
+<li><strong><code>OnSubModuleUnloaded()</code></strong> — called on module unload. Purpose: unsubscribe the global/engine events you took in <code>OnSubModuleLoad</code> to avoid leaks.</li>
+<li><strong><code>OnBeforeInitialModuleScreenSetAsRoot()</code></strong> — before the initial module screen becomes root. Purpose: tweak UI/localization before the first screen; still must not assume a game exists.</li>
+<li><strong><code>OnNewModuleLoad()</code></strong> — fired when another module is loaded at runtime.</li>
+<li><strong><code>OnConfigChanged()</code></strong> — after graphics/config change. Purpose: refresh cached render/option state.</li>
+<li><strong><code>OnSubModuleActivated()</code> / <code>OnSubModuleDeactivated()</code></strong> — when this module is toggled on/off in the launcher.</li>
+</ul>
+<h3 id="b-game-start-phase-the-correct-behavior-registration-window">B. Game-start phase (the correct behavior-registration window)</h3>
+<ul>
+<li><strong><code>OnBeforeGameStart(MBGameManager, List&lt;string&gt; disabledModules)</code></strong> — before the game truly starts; you can read the disabled-modules list to adjust your behavior.</li>
+<li><strong><code>InitializeGameStarter(Game, IGameStarter)</code></strong> — when the engine builds the game starter. One of the earliest safe points to register a <code>CampaignBehaviorBase</code> (cast <code>IGameStarter</code> to <code>CampaignGameStarter</code>, then <code>AddBehavior</code>).</li>
+<li><strong><code>OnGameStart(Game game, IGameStarter gameStarterObject)</code></strong> — fired by the campaign game manager for every submodule. <strong>The most common and recommended registration point:</strong> cast <code>gameStarterObject</code> to <code>CampaignGameStarter</code> and <code>AddBehavior(new YourBehavior())</code>; that behavior flows with <code>CampaignGameStarter.CampaignBehaviors</code> into <code>CampaignBehaviorManager</code> and automatically joins events and save/load (see Real Example). Side effect: <a href="../../campaign/Campaign">Campaign</a> already exists here.</li>
+<li><strong><code>BeginGameStart(Game)</code> / <code>OnCampaignStart(Game, object)</code></strong> — around campaign start; good for reading campaign parameters.</li>
+<li><strong><code>OnMultiplayerGameStart(Game, object)</code></strong> — multiplayer start; separate from the campaign path — do not register campaign behaviors here.</li>
+<li><strong><code>RegisterSubModuleObjects(bool isSavedCampaign)</code> / <code>AfterRegisterSubModuleObjects(bool)</code></strong> — register / deserialize game objects your module needs; <code>isSavedCampaign</code> distinguishes new vs loaded save.</li>
+</ul>
+<h3 id="c-initialization-finished-and-load">C. Initialization finished and load</h3>
+<ul>
+<li><strong><code>OnGameInitializationFinished(Game game)</code></strong> — fired <em>after</em> <code>Campaign</code> has built its <code>CampaignBehaviorManager</code>. <strong>You can also register here via <code>Campaign.Current.CampaignBehaviorManager.AddBehavior(new YourBehavior())</code></strong>: that method (<code>CampaignBehaviorManager.cs:76</code>) additionally calls <code>RegisterEvents()</code>, and the behavior is included in later save/load. Caveat: in a load-game flow, <code>LoadBehaviorData()</code> (<code>Campaign.cs:1429</code>) has already run <em>before</em> this callback, so a late-added behavior has no "old save state" to load — fine for a brand-new behavior, but do not expect it to restore loaded data. For new campaigns prefer registering in <code>OnGameStart</code>.</li>
+<li><strong><code>OnAfterGameInitializationFinished(Game, object)</code></strong> — after init is fully done; good for finalization that depends on all behaviors being ready.</li>
+<li><strong><code>OnGameLoaded(Game, object)</code> / <code>OnAfterGameLoaded(Game)</code></strong> — after a save is loaded; only here is it safe to read loaded <a href="../../campaign/Campaign">Campaign</a> state.</li>
+<li><strong><code>OnNewGameCreated(Game, object)</code></strong> — after a new game is created.</li>
+<li><strong><code>DoLoading(Game) : bool</code></strong> — return <code>true</code> to drive the loading flow from this submodule.</li>
+<li><strong><code>InitializeSubModuleGameObjects(Game)</code></strong> — initialize this module's GameObjects in the game.</li>
+</ul>
+<h3 id="d-per-frame-runtime">D. Per-frame runtime</h3>
+<ul>
+<li><strong><code>OnApplicationTick(float dt)</code></strong> — called every frame; <code>dt</code> is the frame delta in seconds. Purpose: poll input, light timers; <strong>always</strong> guard with <code>Game.Current != null</code> first. Side effect: runs on the menu too — never do heavy work or touch game objects unguarded here.</li>
+<li><strong><code>AfterAsyncTickTick(float dt)</code></strong> — after the async tick.</li>
+<li><strong><code>OnNetworkTick(float dt)</code></strong> — network frame.</li>
+</ul>
+<h3 id="e-end-and-mission">E. End and Mission</h3>
+<ul>
+<li><strong><code>OnGameEnd(Game)</code></strong> — on game end; clean up global state you created (note: non-serialized listeners inside behaviors are auto-cleaned by <code>CampaignBehaviorManager</code>, no manual unsubscribe needed).</li>
+<li><strong><code>OnBeforeMissionBehaviorInitialize(Mission)</code> / <code>OnMissionBehaviorInitialize(Mission)</code></strong> — around entering a <a href="../../mission/Mission">Mission</a>; inject a custom <code>MissionBehavior</code> onto <code>mission</code> here.</li>
+<li><strong><code>OnInitialState()</code></strong> — when the initial game state is established.</li>
+</ul>
+<h2 id="real-example">Real Example</h2>
+<p>Compilable C# below: derive <code>MBSubModuleBase</code>, and in <code>OnGameStart</code> — the correct window — register a custom <code>CampaignBehaviorBase</code> via <code>CampaignGameStarter.AddBehavior</code> (real API names, checked against source).</p>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CampaignBehaviors; // namespace hint only
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+namespace MyMod
+{
+    // Declared in SubModule.xml: &lt;SubModuleClassType value=&quot;MyMod.MySubModule&quot; /&gt;
+    public class MySubModule : MBSubModuleBase
+    {
+        // Called once at module load: do NOT touch Campaign.Current / Game.Current here
+        protected override void OnSubModuleLoad()
+        {
+            // one-time static registration (dialogue, config) — left empty here
+        }
+
+        // Recommended entry: attach the behavior during game construction
+        public override void OnGameStart(Game game, IGameStarter gameStarterObject)
+        {
+            // Only for single-player campaign; multiplayer uses OnMultiplayerGameStart
+            if (game.GameType == GameType.Single)
+            {
+                var starter = (CampaignGameStarter)gameStarterObject;
+                starter.AddBehavior(new DailyGoldBehavior());
+            }
+        }
+
+        // Alternative entry (only valid once Campaign exists):
+        // register in OnGameInitializationFinished with the real non-generic API.
+        // CampaignBehaviorManager.AddBehavior also calls the behavior&#39;s RegisterEvents().
+        // public override void OnGameInitializationFinished(Game game)
+        // {
+        //     Campaign.Current.CampaignBehaviorManager.AddBehavior(new DailyGoldBehavior());
+        // }
+    }
+
+    // Real behavior: derives TaleWorlds.CampaignSystem.CampaignBehaviorBase
+    public class DailyGoldBehavior : CampaignBehaviorBase
+    {
+        private int _daysSinceBonus;
+
+        public override void RegisterEvents()
+        {
+            // Real event name (see native BanditSpawnCampaignBehavior usage)
+            CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, OnDailyTick);
+        }
+
+        public override void SyncData(IDataStore dataStore)
+        {
+            // Save/load: fields are auto-pulled into the save via CampaignBehaviorDataStore
+            dataStore.SyncData(&quot;DaysSinceBonus&quot;, ref _daysSinceBonus);
+        }
+
+        private void OnDailyTick()
+        {
+            _daysSinceBonus++;
+            if (_daysSinceBonus &gt;= 7)
+            {
+                _daysSinceBonus = 0;
+                // Prefer engine Actions over direct field writes to change state;示意 only
+                GiveGoldToMainHero(1000);
+            }
+        }
+
+        private void GiveGoldToMainHero(int amount)
+        {
+            if (Hero.MainHero != null)
+            {
+                Hero.MainHero.ChangeHeroGold(amount);
+            }
+        }
+    }
+}
+</code></pre>
+<p>Corresponding <code>SubModule.xml</code> (module root; <code>DLLName</code> points at the assembly under <code>bin/Win64_Shipping_Client</code>):</p>
+<pre><code data-lang="xml">&lt;Module&gt;
+  &lt;SubModules&gt;
+    &lt;SubModule&gt;
+      &lt;Name value=&quot;MyMod&quot; /&gt;
+      &lt;DLLName value=&quot;MyMod.dll&quot; /&gt;
+      &lt;SubModuleClassType value=&quot;MyMod.MySubModule&quot; /&gt;
+    &lt;/SubModule&gt;
+  &lt;/SubModules&gt;
+&lt;/Module&gt;
+</code></pre>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li>↑ Parent: <a href="https://bannerlordcode.github.io/v1.4.5/en/api/core/MBSubModuleBase/./">core index</a></li>
+<li>↔ Sibling: <a href=".././Game">Game</a>, <a href=".././MBObjectBase">MBObjectBase</a></li>
+<li>Related: <a href="../../../architecture/doc-contract">doc-contract</a> · <a href="../../../architecture/crash-boundary">Crash boundaries</a> · <a href="../../campaign/Campaign">Campaign</a> · <a href="../../mission/Mission">Mission</a></li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Upstream hub: <a href="../../../architecture/doc-contract">Doc contract</a> (top constraint for the submodule/behavior lifecycle entry)</li>
+<li>↓ Downstream / related: <a href=".././Game">Game</a> (the game object a submodule plugs into) · <a href="../../campaign/Campaign">Campaign</a> (where behaviors are actually attached) · <a href="../../mission/Mission">Mission</a> (mission-level behavior entry)</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/en/api/core/">Foundation &#x2F; Core API — v1.4.5</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/en/api/core/MBObjectBase/">&larr; MBObjectBase</a>
+          
+          
+            <a rel="next" href="/v1.4.5/en/api/core/Game/">Game &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

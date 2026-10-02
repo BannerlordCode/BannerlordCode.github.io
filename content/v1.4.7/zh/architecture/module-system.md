@@ -154,4 +154,5 @@ namespace MyMod
 - ↔ [SDK 总览](../sdk-overview) · [架构总览](../)
 - ↘ [存档系统](../save-system) —— `SyncData` 之外还想存更多字段时看这篇
 - ↘ [界面栈](../ui-stack) —— 战役期挂界面的正确位置
-- ↑ [Core](../../api/core/) · [Campaign-Ext](../../api/campaign-ext/) · [ModuleManager](../../api/modulemanager/)
+- ↑ [Core](../../api/core/) · [ModuleManager](../../api/modulemanager/)
+- `api/campaign-ext/` 没有桶索引页；本目录下只有两个手写页面，`MBObjectBase` 与 `MBObjectManager`。

@@ -128,4 +128,4 @@ public class MySaveableDefiner : SaveableTypeDefiner
 
 - ↔ [架构总览](../) · [模块系统](../module-system) —— 行为怎么被注册进来
 - ↘ [界面栈](../ui-stack)
-- ↑ [Save System](../../api/save-system/) · [Campaign-Ext](../../api/campaign-ext/)
+- ↑ `api/save-system/` 与 `api/campaign-ext/` 都没有桶索引页。`api/save-system/` 根本没有英文目录，它的三个页面（`SaveManager`、`SaveContext`、`LoadContext`）只有中文版；`api/campaign-ext/` 只有两个手写英文页面 `MBObjectBase` 与 `MBObjectManager`。见 [缺口清单](../../../GAPS)。

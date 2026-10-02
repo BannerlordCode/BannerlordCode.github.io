@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MissionLogic</title>
+  <meta name="description" content="Mission 的纯玩法逻辑层：承载胜负判定、撤退&#x2F;投降、额外装备与自动部署等规则；是 BehaviorType=Logic 的 MissionBehavior 子类，自动进入 Mission.MissionLogics 并被引擎轮询。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/MissionLogic/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/MissionLogic/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/MissionLogic/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/MissionLogic/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/MissionLogic/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/MissionLogic/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MissionLogic</span>
+    </nav>
+  
+  <h1>MissionLogic</h1>
+  <h1 id="missionlogic">MissionLogic</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade<br />
+<strong>Module:</strong> TaleWorlds.MountAndBlade<br />
+<strong>Type:</strong> <code>public abstract class MissionLogic : MissionBehavior</code><br />
+<strong>Base:</strong> <code>MissionBehavior</code><br />
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/MissionLogic.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>MissionLogic</code> 是挂在 <code>Mission</code>（战斗/场景实例）上的<strong>纯玩法规则层</strong>。它本质上是一个 <code>MissionBehavior</code>（因此能监听所有 Agent/Team/对象事件、每帧 Tick），但它的 <code>BehaviorType</code> 被强制固定为 <code>MissionBehaviorType.Logic</code>——这使得引擎在注册时把它额外收进 <code>Mission.MissionLogics</code> 列表，并在特定时机<strong>专门轮询</strong>这一批逻辑：</p>
+<ul>
+<li>谁来判定战斗结束？（<code>MissionEnded</code>）</li>
+<li>战斗结果是什么？（<code>OnMissionResultReady</code> / <code>ShowBattleResults</code>）</li>
+<li>玩家点了“离开”时能不能走？（<code>OnEndMissionRequest</code>）</li>
+<li>撤退 / 投降时做什么？（<code>OnRetreatMission</code> / <code>OnSurrenderMission</code>）</li>
+<li>角色生成时有没有额外装备？（<code>GetExtraEquipmentElementsForCharacter</code>）</li>
+<li>队伍是否自动部署？（<code>OnAutoDeployTeam</code>）</li>
+</ul>
+<p>换句话说，<code>MissionBehavior</code> 是“场景里能挂的所有插件”，而 <code>MissionLogic</code> 是其中被引擎当作<strong>规则裁决者</strong>来对待的子集。如果你只想加一段游戏性规则、不需要 Gauntlet UI 配对，就继承 <code>MissionLogic</code> 而不是 <code>MissionBehavior</code>。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>MissionLogic</code> 当作**“这场战斗的规则裁判”**：</p>
+<ul>
+<li>它是 <code>MissionBehavior</code> 的子类，生命周期与所在 <code>Mission</code> 完全绑定：进场景时注册、出场景时随 <code>Mission</code> 一起销毁。</li>
+<li>不要自己 <code>new MissionLogic()</code> 然后当普通对象用——它的 <code>Mission</code> 属性在 <code>AddMissionBehavior</code> 之前是 <code>null</code>，很多逻辑会因 <code>Mission == null</code> 崩。</li>
+<li>注册后，引擎会把它同时放进两个集合：通用列表 <code>Mission.MissionBehaviors</code>（每帧/每事件都轮询）和专用列表 <code>Mission.MissionLogics</code>（只在裁决类时机轮询）。</li>
+<li>一个 <code>Mission</code> 里可以挂多个 <code>MissionLogic</code>，它们之间没有直接顺序保证，但引擎对 <code>MissionLogics</code> 的轮询永远是“第一个返回终止条件者胜”（见 <code>CheckMissionEnded</code>）。</li>
+</ul>
+<h3 id="ta-he-missionbehavior-mission-de-qu-bie">它和 MissionBehavior / Mission 的区别</h3>
+<table><thead><tr><th>类型</th><th>角色</th><th>关键区别</th></tr></thead><tbody>
+<tr><td><code>Mission</code></td><td>场景本身（世界对象）</td><td>持有 Agents/Teams/MissionObjects，调用并轮询 Behavior/Logic。你是它的<strong>使用者</strong>，不是它的子类。</td></tr>
+<tr><td><code>MissionBehavior</code></td><td>通用场景插件基类</td><td>所有事件/ Tick 都能接；<code>BehaviorType</code> 由你决定（<code>Other</code>/<code>Logic</code>/<code>Battle</code> 等）。</td></tr>
+<tr><td><code>MissionLogic</code></td><td><code>BehaviorType=Logic</code> 的专用插件</td><td>继承 <code>MissionBehavior</code>，但 <code>BehaviorType</code> 被锁成 <code>Logic</code>，自动进入 <code>MissionLogics</code> 被裁决轮询。</td></tr>
+</tbody></table>
+<blockquote>
+<p>想加 UI 层（Gauntlet 面板）请用 <code>MissionView</code> / <code>MissionGauntletScreen</code> 体系，而不是把 UI 塞进 <code>MissionLogic</code>。<code>MissionLogic</code> 的本职是“规则”，不是“界面”。</p>
+</blockquote>
+<h2 id="ru-he-zhu-ce-yu-huo-qu">如何注册与获取</h2>
+<p><code>MissionLogic</code> 是通过 <code>MissionGameStarter.AddBehavior(...)</code> 在游戏启动时登记、由引擎在进入 Mission 时统一初始化的——和注册普通 <code>MissionBehavior</code> 是<strong>同一条路径</strong>，区别仅在类型：</p>
+<pre><code data-lang="csharp">public class MySubModule : MBSubModuleBase
+{
+    protected override void OnGameStart(Game game, IGameStarter starterObject)
+    {
+        base.OnGameStart(game, starterObject);
+        if (starterObject is MissionGameStarter missionStarter)
+        {
+            // 注册一个自定义 MissionLogic；引擎会把它放进 MissionLogics
+            missionStarter.AddBehavior(new CaptureFlagLogic());
+        }
+    }
+}
+</code></pre>
+<p>引擎内部流程（<code>MissionState.AddBehaviorsToMission</code> → <code>Mission.InitializeStartingBehaviors</code> → <code>Mission.AddMissionBehavior</code>）：</p>
+<ol>
+<li>所有 <code>MissionBehavior</code> 按 <code>OfType&lt;MissionLogic&gt;()</code> / <code>MissionNetwork</code> / 其它 分成三类；</li>
+<li><code>AddMissionBehavior</code> 把每个 behavior 加进 <code>MissionBehaviors</code>，并因 <code>BehaviorType == Logic</code> 同时加进 <code>MissionLogics</code>（<code>Mission.cs:4603</code>）；</li>
+<li>若中途想动态添加，也可在另一个已挂载的 logic/behavior 里调用：</li>
+</ol>
+<pre><code data-lang="csharp">// 在某个已初始化的 MissionBehavior/Logic 中，运行时挂一个新逻辑
+Mission.Current.AddMissionBehavior(new ReinforcementLogic());
+</code></pre>
+<p>获取已存在的 logic（用基类 <code>MissionBehavior</code> 提供的泛型查询）：</p>
+<pre><code data-lang="csharp">CaptureFlagLogic logic = Mission.Current.GetMissionBehavior&lt;CaptureFlagLogic&gt;();
+logic?.RegisterCapture();
+</code></pre>
+<p><code>Mission.MissionLogics</code>（<code>public List&lt;MissionLogic&gt;</code>，<code>Mission.cs:1325</code>）也可直接遍历，但多数情况用 <code>GetMissionBehavior&lt;T&gt;()</code> 更稳。</p>
+<h2 id="sheng-ming-zhou-qi-yu-diao-yong-shi-ji">生命周期与调用时机</h2>
+<p><code>MissionLogic</code> 的完整生命周期来自基类 <code>MissionBehavior</code>。引擎在 <code>Mission.AfterStart()</code>（<code>Mission.cs:3791</code>）和 <code>EndMissionInternal()</code>（<code>Mission.cs:4561</code>）里按下述顺序调用钩子。<strong>注意：<code>MissionBehaviors</code> 的 Tick 是按反向顺序（<code>Count-1</code>→<code>0</code>）遍历的</strong>（<code>Mission.cs:3724</code>、<code>3733</code>），所以“最后注册的逻辑先 Tick”。</p>
+<h3 id="qi-dong-jie-duan-afterstart-nei-zheng-xiang-shun-xu">启动阶段（AfterStart 内，正向顺序）</h3>
+<table><thead><tr><th>钩子</th><th>何时触发</th></tr></thead><tbody>
+<tr><td><code>OnBehaviorInitialize()</code></td><td>每个 behavior 初始化（此时 <code>Mission</code> 已就绪，但场景还没正式开始）。</td></tr>
+<tr><td><code>EarlyStart()</code></td><td>紧接着调用，仍属“开场前”。</td></tr>
+<tr><td><code>AfterStart()</code></td><td>场景正式开始、状态切到 <code>State.Continuing</code> 之前调用。</td></tr>
+</tbody></table>
+<h3 id="yun-xing-jie-duan-mei-zheng">运行阶段（每帧）</h3>
+<table><thead><tr><th>钩子</th><th>何时触发</th></tr></thead><tbody>
+<tr><td><code>OnPreDisplayMissionTick(float dt)</code></td><td>显示前 Tick。</td></tr>
+<tr><td><code>OnMissionTick(float dt)</code></td><td>主 Tick，每帧一次；做规则检测、计时、条件判定都放这。</td></tr>
+<tr><td><code>OnFixedMissionTick(float fixedDt)</code></td><td>固定步长 Tick（物理/确定性逻辑）。</td></tr>
+</tbody></table>
+<p><code>MissionLogic</code> 还继承了所有 Agent/Team/对象事件钩子（<code>OnAgentRemoved</code>、<code>OnAgentHit</code>、<code>OnAddTeam</code> 等），用法与 <code>MissionBehavior</code> 完全一致。</p>
+<h3 id="cai-jue-jie-duan-jin-missionlogics-hui-bei-lun-xun">裁决阶段（仅 MissionLogics 会被轮询）</h3>
+<p>这些是 <code>MissionLogic</code> 自己的成员，引擎只在 <code>MissionLogics</code> 列表上调用：</p>
+<table><thead><tr><th>钩子</th><th>引擎调用点</th><th>作用</th></tr></thead><tbody>
+<tr><td><code>bool MissionEnded(ref MissionResult missionResult)</code></td><td><code>CheckMissionEnded</code>（<code>Mission.cs:4742</code>）每帧轮询</td><td>返回 <code>true</code> 即宣告战斗结束；需自行构造 <code>MissionResult</code>。第一个返回 <code>true</code> 的 logic 决定结果。</td></tr>
+<tr><td><code>OnMissionResultReady(MissionResult missionResult)</code></td><td><code>MissionResultReady</code>（<code>Mission.cs:4759</code>）</td><td>某 logic 结束战斗后立即回调，用来读结果/做结算。</td></tr>
+<tr><td><code>ShowBattleResults()</code></td><td><code>CheckMissionEnd</code>（<code>Mission.cs:4786</code>）</td><td>战斗结束后展示战报。</td></tr>
+<tr><td><code>OnBattleEnded()</code></td><td><code>OnEndMissionResult</code>（<code>Mission.cs:4684</code>）</td><td>战斗结束的统一入口。</td></tr>
+<tr><td><code>OnEndMissionRequest(out bool canLeave)</code></td><td>玩家按离开键（<code>OnEndMissionRequest</code>，<code>Mission.cs:3830</code>）</td><td>返回 <code>canLeave = false</code> 可阻止离开（如任务未完成）；返回 <code>InquiryData</code> 可弹确认框。</td></tr>
+<tr><td><code>OnRetreatMission()</code> / <code>OnSurrenderMission()</code></td><td><code>RetreatMission()</code> / <code>SurrenderMission()</code>（<code>Mission.cs:2849</code>、<code>2865</code>）</td><td>撤退/投降时回调。</td></tr>
+<tr><td><code>OnAutoDeployTeam(Team team)</code></td><td>自动部署阶段</td><td>队伍自动部署时回调。</td></tr>
+<tr><td><code>List&lt;EquipmentElement&gt; GetExtraEquipmentElementsForCharacter(BasicCharacterObject character, bool getAllEquipments = false)</code></td><td><code>Mission.GetExtraEquipmentElementsForCharacter</code>（<code>Mission.cs:4728</code>）</td><td>给角色叠加额外装备；不叠加时返回 <code>null</code>。</td></tr>
+</tbody></table>
+<h3 id="qing-li-jie-duan-endmissioninternal-nei-zheng-xiang-shun-xu">清理阶段（EndMissionInternal 内，正向顺序）</h3>
+<table><thead><tr><th>钩子</th><th>何时触发</th></tr></thead><tbody>
+<tr><td><code>OnEndMissionInternal()</code> → <code>OnEndMission()</code></td><td>所有 Agent/Team 被销毁<strong>之前</strong>调用，是释放你自定义资源、解订阅事件的正确位置。</td></tr>
+<tr><td><code>OnRemoveBehavior()</code></td><td>被 <code>RemoveMissionBehavior</code> 移除时调用（动态卸载时）。</td></tr>
+</tbody></table>
+<h2 id="he-xin-cheng-yuan-shuo-ming">核心成员说明</h2>
+<h3 id="jie-shu-kong-zhi-de-san-ge-gou-zi-zui-chang-yong">结束控制的三个钩子（最常用）</h3>
+<ul>
+<li><strong><code>MissionEnded(ref MissionResult missionResult)</code></strong>：每帧被 <code>CheckMissionEnded</code> 轮询。返回 <code>true</code> 并把结果写进 <code>ref</code> 参数即可结束战斗。典型实现是“判断某方是否全灭 / 目标是否达成”。注意：多个 logic 都返回 <code>true</code> 时，只有<strong>先被轮询到的那个</strong>生效（<code>CheckMissionEnded</code> 一命中就 <code>return</code>）。</li>
+<li><strong><code>OnEndMissionRequest(out bool canLeave)</code></strong>：玩家尝试离场时轮询全部 logic。若返回 <code>canLeave = false</code>，离场被取消——务必同时给玩家提示，否则看起来像“按键失灵”。返回 <code>InquiryData</code> 会弹出确认对话框并暂停游戏。</li>
+<li><strong><code>OnMissionResultReady</code> / <code>ShowBattleResults</code> / <code>OnBattleEnded</code></strong>：战斗真正结束后的结算链，适合写战报、发奖励、触发剧情。</li>
+</ul>
+<h3 id="zhuang-bei-yu-bu-shu">装备与部署</h3>
+<ul>
+<li><strong><code>GetExtraEquipmentElementsForCharacter</code></strong>：引擎在生成角色时聚合所有 logic 的返回值，叠加额外装备。无额外装备必须返回 <code>null</code>（基类默认即返回 <code>null</code>），不要返回空列表以外的值去“覆盖”别人的装备。</li>
+<li><strong><code>OnAutoDeployTeam</code></strong>：自动部署阶段回调，可在此改写某队的部署。</li>
+</ul>
+<h3 id="ji-cheng-zi-missionbehavior-de-guan-jian-gou-zi-tong-yang-ke-yong">继承自 MissionBehavior 的关键钩子（同样可用）</h3>
+<p><code>MissionLogic</code> 完全继承 <code>MissionBehavior</code> 的事件体系，常用：<code>OnAgentRemoved</code>、<code>OnAgentCreated</code>、<code>OnAgentHit</code>、<code>OnAddTeam</code>、<code>OnMissionTick</code>、<code>OnMissionModeChange</code>。详细事件列表见 <a href="../../mission/MissionBehavior/">MissionBehavior</a>。</p>
+<h2 id="he-shi-yong-he-shi-bu-yao-yong">何时用 / 何时不要用</h2>
+<p><strong>用 <code>MissionLogic</code> 当：</strong></p>
+<ul>
+<li>你需要<strong>裁决战斗胜负/结果</strong>（自定义胜利条件、护送目标、限时生存）。</li>
+<li>你需要接管<strong>撤退/投降/离场</strong>逻辑。</li>
+<li>你需要给生成的单位<strong>追加装备</strong>或控制<strong>自动部署</strong>。</li>
+<li>你想写一段纯粹的玩法规则，不需要 Gauntlet UI。</li>
+</ul>
+<p><strong>不要用 <code>MissionLogic</code> 当（改用正确替代）：</strong></p>
+<ul>
+<li>你需要一个<strong>Gauntlet/UI 面板</strong> → 用 <code>MissionView</code> / <code>MissionGauntletScreen</code>，把 UI 留在视图层，<code>MissionLogic</code> 只负责数据。</li>
+<li>你只是想<strong>监听 Agent 事件做记录/统计</strong>，且完全不涉及胜负裁决 → 普通 <code>MissionBehavior</code>（<code>BehaviorType.Other</code>）足够，不必进 <code>MissionLogics</code> 列表。</li>
+<li>你想<strong>跨多场 Mission 长期存在</strong>（如战役级追踪）→ 这是 <code>CampaignBehaviorBase</code> 的活，见 <a href="../../campaign-ext/CampaignBehaviorBase/">CampaignBehaviorBase</a>。<code>MissionLogic</code> 只活在一场 Mission 内。</li>
+<li>你直接 <code>new MissionLogic()</code> 当普通对象用 → 它的 <code>Mission</code> 为 <code>null</code>，必须经由 <code>AddMissionBehavior</code> 注册。</li>
+</ul>
+<h2 id="yi-lai-tu-ke-dian-ji">依赖图（可点击）</h2>
+<p><strong>上游（谁创建/驱动它）</strong></p>
+<ul>
+<li><a href="../../mission/Mission/">Mission</a> — 持有并轮询 <code>MissionLogics</code>，在 <code>AfterStart</code>/<code>CheckMissionEnded</code>/<code>EndMissionInternal</code> 中调用其钩子。</li>
+<li><a href="../../mission/MissionBehavior/">MissionBehavior</a> — 直接基类，提供全部事件与 Tick 钩子。</li>
+<li><code>MBSubModuleBase</code> / <code>MissionGameStarter</code> — 注册入口（见 <a href="../../core/MBSubModuleBase/">MBSubModuleBase</a>）。</li>
+</ul>
+<p><strong>下游（它操作/查询的对象）</strong></p>
+<ul>
+<li><a href="../../mission/Agent/">Agent</a> — 通过 <code>Mission.Agents</code> 读取/操控单位。</li>
+<li><a href="../../mission/Team/">Team</a> / <a href="../../mission/Formation/">Formation</a> — 阵营与编队状态。</li>
+<li><code>MissionResult</code>（引擎类型，无独立页）— <code>MissionEnded</code> 写入的结果对象。</li>
+<li><a href=".././MissionObject/">MissionObject</a> — 场景交互物，可监听其事件。</li>
+</ul>
+<p><strong>相关 Events · Models · 存档</strong></p>
+<ul>
+<li>事件钩子：<code>OnAgentRemoved</code>、<code>OnAddTeam</code>、<code>OnMissionModeChange</code> 等（继承自 <code>MissionBehavior</code>）。</li>
+<li>结果展示：<code>ShowBattleResults</code> 通常配合 <code>MissionResult</code> 与战斗结算 UI。</li>
+<li>装备：<code>GetExtraEquipmentElementsForCharacter</code> 与 <code>MissionGameModels</code> 的装备/角色生成模型协作。</li>
+<li>存档：<code>MissionLogic</code> 本身<strong>不入战役存档</strong>；若需保存跨场进度，必须把状态写进战役层（<a href="../../campaign/Campaign/">Campaign</a> 或 <code>CampaignBehaviorBase</code>），不要指望 logic 实例被持久化。</li>
+</ul>
+<h2 id="feng-xian-ke-neng-dao-zhi-beng-kui-pi-dang-de-yong-fa">风险（可能导致崩溃 / 坏档的用法）</h2>
+<ol>
+<li><strong>Mission 结束后还持有 Agent/Team/Formation 引用</strong>：<code>EndMissionInternal</code> 会 <code>Agents</code> 清空、<code>Teams.Clear()</code>（<code>Mission.cs:4575-4584</code>）。在 <code>OnEndMission</code> 之后、或在离场回调里缓存的 <code>Agent</code> 引用再去访问 <code>agent.Health</code>、<code>.Team</code>，会命中已销毁对象 → <code>NullReferenceException</code> 或读到野数据。<strong>规则：进入 <code>OnEndMission</code> 就停止一切对场景对象的访问。</strong></li>
+<li><strong>在 Mission 作用域外访问 Mission 状态</strong>：<code>Mission.Current == null</code> 时（大地图、菜单）任何 <code>Mission.Current.X</code> 都会崩。所有 logic 代码必须 <code>if (Mission.Current == null) return;</code> 兜底。</li>
+<li><strong>运行时动态增删 logic 会跳过初始化钩子</strong>：<code>AddMissionBehavior</code> 只调用 <code>OnCreated()</code>，不会补跑 <code>OnBehaviorInitialize</code>/<code>EarlyStart</code>/<code>AfterStart</code>。动态加进来的 logic 若依赖这些钩子会处于半初始化状态。同理 <code>RemoveMissionBehavior</code> 会立即调用 <code>OnRemoveBehavior</code> 并把 <code>Mission</code> 置 <code>null</code>——别在它自己的钩子里再访问 <code>this.Mission</code>。</li>
+<li><strong>在 Tick/事件中修改 MissionLogics 集合本身</strong>：<code>OnMissionTick</code> 是反向遍历 <code>MissionBehaviors</code> 的，若在 Tick 内 <code>AddMissionBehavior</code> 会改列表长度，可能让新逻辑在同帧被 Tick（甚至递归）；移除自己更危险。需要增删时，攒到 <code>OnEndMission</code> 之后或下一帧再操作。</li>
+<li><strong><code>MissionEnded</code> 误返回 true</strong>：一旦某个 logic 返回 <code>true</code>，战斗立即结束并进入结算。条件判断不严谨（比如把“敌方暂无人”误判为“敌方全灭”）会导致战斗瞬间结束。</li>
+<li><strong><code>OnEndMissionRequest</code> 返回 <code>canLeave=false</code> 却不给反馈</strong>：玩家按离开没反应，像卡死。要么放行，要么弹 <code>InquiryData</code> 说明原因。</li>
+<li><strong>从 Mission 内直接改战役数据</strong>：在 logic 里直接动 <code>Campaign.Current</code> 的地图状态可能破坏存档一致性。需要影响战役时，走 <code>CampaignEventDispatcher</code> 或在 <code>OnEndMission</code> 里回调战役层，避免边打边改世界状态。</li>
+</ol>
+<h2 id="zui-xiao-zhen-shi-shi-li">最小真实示例</h2>
+<h3 id="shi-li-1-zhu-ce-yi-ge-zi-ding-yi-missionlogic-zhen-shi-huo-qu-lu-jing">示例 1：注册一个自定义 MissionLogic（真实获取路径）</h3>
+<pre><code data-lang="csharp">// SubModule 中登记；引擎进入任意 Mission 时都会挂上它
+public class CaptureTheFlagSubModule : MBSubModuleBase
+{
+    protected override void OnGameStart(Game game, IGameStarter starterObject)
+    {
+        base.OnGameStart(game, starterObject);
+        if (starterObject is MissionGameStarter missionStarter)
+        {
+            missionStarter.AddBehavior(new CaptureFlagLogic());
+        }
+    }
+}
+
+// 自定义逻辑：夺旗胜利 + 禁止未完成时离场
+public class CaptureFlagLogic : MissionLogic
+{
+    private bool _flagCaptured;
+
+    public override void OnMissionTick(float dt)
+    {
+        if (_flagCaptured) return;
+        // 真实判定：玩家队拿到了旗子（这里简化成按帧检测某个 MissionObject 状态）
+        var flag = Mission.Current.GetMissionBehavior&lt;FlagHolderBehavior&gt;();
+        if (flag != null &amp;&amp; flag.HeldByPlayerTeam)
+        {
+            _flagCaptured = true;
+        }
+    }
+
+    public override bool MissionEnded(ref MissionResult missionResult)
+    {
+        if (_flagCaptured)
+        {
+            missionResult = MissionResult.CreateSuccessful(Mission.Current);
+            return true;
+        }
+        return false;
+    }
+
+    public override InquiryData OnEndMissionRequest(out bool canLeave)
+    {
+        if (!_flagCaptured)
+        {
+            canLeave = false;
+            return new InquiryData(
+                &quot;夺旗未完成&quot;,
+                &quot;必须先夺取旗帜才能离开战斗。&quot;,
+                true,
+                false,
+                &quot;继续战斗&quot;,
+                null,
+                null,
+                null);
+        }
+        canLeave = true;
+        return null;
+    }
+}
+</code></pre>
+<h3 id="shi-li-2-zai-ling-yi-luo-ji-li-gei-jiao-se-zhui-jia-zhuang-bei-bing-ding-yue-zhan-dou-jie-shu">示例 2：在另一逻辑里给角色追加装备并订阅战斗结束</h3>
+<pre><code data-lang="csharp">public class EliteGearLogic : MissionLogic
+{
+    public override List&lt;EquipmentElement&gt; GetExtraEquipmentElementsForCharacter(
+        BasicCharacterObject character, bool getAllEquipments = false)
+    {
+        // 仅给玩家队角色追加一件装备；无额外装备返回 null（不能返回空列表覆盖他人）
+        if (Mission.Current.PlayerTeam != null &amp;&amp;
+            character is CharacterObject co &amp;&amp; co.IsPlayerCharacter)
+        {
+            var item = MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(&quot;empire_sword_2&quot;);
+            return new List&lt;EquipmentElement&gt; { new EquipmentElement(item) };
+        }
+        return null;
+    }
+
+    public override void OnMissionResultReady(MissionResult missionResult)
+    {
+        if (missionResult.PlayerVictory)
+        {
+            InformationManager.DisplayMessage(
+                new InformationMessage(&quot;战斗胜利，结算奖励。&quot;));
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p>两个示例里用到的 <code>MissionResult.CreateSuccessful</code>、<code>InquiryData</code>、<code>MBObjectManager.Instance.GetObject&lt;ItemObject&gt;</code>、<code>InformationManager.DisplayMessage</code> 均为引擎真实 API；<code>FlagHolderBehavior</code> 仅作占位示意（替换为你的真实 behavior 类型）。示例中不含 <code>// ...</code>、假数据或错误类型名。</p>
+</blockquote>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li><code>MissionLogic</code> 类在 v1.3.0 / v1.3.15 / v1.4.5 中<strong>完全一致</strong>：同样是 <code>abstract class MissionLogic : MissionBehavior</code>，<code>BehaviorType</code> 锁 <code>Logic</code>，同样的 9 个裁决钩子签名未变。</li>
+<li><strong>API 误区纠正（重要）</strong>：
+<ul>
+<li>本版本<strong>没有</strong> <code>Mission.AddMissionLogic(...)</code> 这个方法。注册逻辑统一走 <code>Mission.AddMissionBehavior(...)</code>（或 <code>MissionGameStarter.AddBehavior(...)</code>）；因为 <code>MissionLogic.BehaviorType == Logic</code>，引擎会自动把它加进 <code>MissionLogics</code>。</li>
+<li>本版本<strong>没有</strong> <code>MissionLogicCollection</code> 这个类。所谓“逻辑集合”就是 <code>Mission</code> 上的 <code>public List&lt;MissionLogic&gt; MissionLogics</code> 属性——直接遍历它即可，不要去寻找一个不存在的类。</li>
+</ul>
+</li>
+<li>v1.4.5 对 behavior 的创建/销毁顺序更严格：避免在 <code>MissionLogic</code> 构造函数里访问 <code>Mission.Current</code>（<code>Mission</code> 此时还是 <code>null</code>，要到 <code>OnBehaviorInitialize</code> 之后才就绪）。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li>↑ 父级：<a href="../">Mission 桶索引</a></li>
+<li>↔ 同级：<a href="../../mission/Mission/">Mission</a> · <a href="../../mission/MissionBehavior/">MissionBehavior</a> · <a href="../../mission/Agent/">Agent</a> · <a href="../../mission/Team/">Team</a> · <a href="../../mission/Formation/">Formation</a></li>
+<li>相关类：<a href=".././MissionObject/">MissionObject</a> · <a href=".././MissionObjective/">MissionObjective</a> · <a href="../../core/MBSubModuleBase/">MBSubModuleBase</a> · <a href="../../campaign-ext/CampaignBehaviorBase/">CampaignBehaviorBase</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/mission-ext/">mission-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/mission-ext/DebugStateDefender/">&larr; DebugStateDefender</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/mission-ext/TrebuchetAI/">TrebuchetAI &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

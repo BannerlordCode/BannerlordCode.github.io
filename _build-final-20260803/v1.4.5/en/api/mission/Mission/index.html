@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mission</title>
+  <meta name="description" content="The runtime container for battle simulation: created by MissionState, holding Agents &#x2F; Teams &#x2F; MissionBehaviors, and torn down after EndMission. This page explains its lifecycle, acquisition, dependencies, and crash boundaries.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="active">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission/Mission/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission/Mission/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission/Mission/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission/Mission/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission/Mission/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission/Mission/"
+               class="active">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/en/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/en/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>v1.4.5 Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/api/" class="">Index</a><a href="/v1.4.5/en/api/core/" class="">Core</a><a href="/v1.4.5/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/en/api/mission/" class="active">Mission</a><a href="/v1.4.5/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/en/api/campaign/" class="">Campaign</a><a href="/v1.4.5/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/en/api/gui/" class="">GUI</a><a href="/v1.4.5/en/api/save-system/" class="">Save System</a><a href="/v1.4.5/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.4.5/en/api/localization/" class="">Localization</a><a href="/v1.4.5/en/api/engine/" class="">Engine</a><a href="/v1.4.5/en/api/gameplay/" class="">Gameplay</a><a href="/v1.4.5/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/en/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/en/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;mission&#x2F;">Mission API — v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Mission</span>
+    </nav>
+  
+  <h1>Mission</h1>
+  <h1 id="mission">Mission</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public sealed class Mission : DotNetObject, IMission</code>
+<strong>Base:</strong> <code>DotNetObject</code>
+<strong>Source:</strong> <code>bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Mission.cs</code></p>
+<hr />
+<h2 id="one-line-responsibility">One-line responsibility</h2>
+<p><code>Mission</code> is the <strong>runtime container for a combat/scene simulation</strong>: it binds the native <code>Scene</code>, every participating <code>Agent</code>, the <code>Team</code> setup, and the mounted logic (<code>MissionBehavior</code> / <code>MissionLogic</code>), and drives the whole simulation frame-by-frame until <code>EndMission</code> tears it down.</p>
+<hr />
+<h2 id="mental-model">Mental Model</h2>
+<h3 id="what-it-is-which-layer">What it is / which layer</h3>
+<ul>
+<li><code>Mission</code> belongs to the <strong>Mount &amp; Blade simulation layer</strong>, not the Campaign (world map) layer. Everything that is "happening on the field right now" lives on it; Campaign only decides <em>what kind of battle to start</em> and hands control to <code>Mission</code> via entries like <code>CampaignMission.OpenBattleMission(...)</code>.</li>
+<li>It is <code>sealed</code>, so you <strong>cannot subclass it</strong>. To add logic to a battle, write a <code>MissionBehavior</code> (presentation/observation) or <code>MissionLogic</code> (rules/win-loss) subclass, which the engine registers at mission start (<code>AddMissionBehavior</code> back-sets the <code>Mission</code> reference onto the behavior).</li>
+<li>It implements <code>IMission</code>, so <code>CampaignMission</code> open methods return the <code>IMission</code> interface; cast back to <code>Mission</code> only when you need the concrete type.</li>
+</ul>
+<h3 id="lifecycle-birth-to-death">Lifecycle (birth to death)</h3>
+<ol>
+<li><strong>Creation</strong>: <code>MissionState.CreateMission</code> (<code>MissionState.cs:248</code>) does <code>new Mission(rec, this, needsMemoryCleanup)</code>, with <code>CurrentState = State.NewlyCreated</code>. <code>rec</code> is a <code>MissionInitializerRecord</code> carrying scene name, levels, damage multipliers, etc.</li>
+<li><strong>Enter GameState</strong>: <code>MissionState.OpenNew(...)</code> (<code>MissionState.cs:302</code>) creates a <code>MissionState</code> and pushes it onto the <code>GameStateManager</code>; <code>OnMissionStateActivate</code> then loads the scene and <code>CurrentState</code> moves to <code>Initializing</code>.</li>
+<li><strong>Running</strong>: once the scene is ready (<code>IsLoadingFinished</code> true), <code>CurrentState = State.Continuing</code> and each frame <code>Tick</code> drives <code>Agents</code> / <code>Teams</code> / every <code>MissionBehavior</code> callback. This is where ~99% of your logic runs.</li>
+<li><strong>Request end</strong>: calling <code>EndMission()</code> anywhere sets <code>MissionEnded = true</code> and <code>CurrentState = State.EndingNextFrame</code> — it does <strong>not</strong> destroy immediately, it schedules teardown for the next frame.</li>
+<li><strong>Real teardown</strong>: next frame <code>EndMissionInternal()</code> calls listeners' <code>OnEndMission</code>, each <code>MissionBehavior.OnEndMissionInternal()</code>, <code>OnRemove()</code> on every <code>Agent</code>, then <code>OnDelete()</code> + <code>Clear()</code> on every <code>AllAgents</code> entry, <code>Teams.Clear()</code>, <code>MissionObjects.OnEndMission()</code>, and finally <code>CurrentState = State.Over</code> before freeing resources and <code>FinalizeMission()</code>. <code>MissionResult</code> is shaped during this phase.</li>
+</ol>
+<h3 id="who-creates-who-holds">Who creates / who holds</h3>
+<ul>
+<li><strong>Creator</strong>: <code>MissionState</code> (engine layer), driven indirectly by <code>CampaignMission</code> / <code>MissionState.OpenNew</code>.</li>
+<li><strong>Holder</strong>: the live <code>Mission</code> is referenced in two places — the static <code>Mission.Current</code> (global handle to the active mission) and <code>MissionState.Current.CurrentMission</code> (GameState view). They are the same object during the mission; after it ends <code>Mission.Current</code> is nulled.</li>
+<li><strong>You</strong> generally should <strong>not</strong> <code>new Mission(...)</code>. Obtain it through <code>CampaignMission.OpenXxxMission(...)</code> or via a behavior the engine injects.</li>
+</ul>
+<h3 id="when-to-use-when-not-to">When to use / when NOT to</h3>
+<ul>
+<li><strong>Use</strong>: any logic "while the battle is running" — unit add/remove, team state, hit resolution, win/loss, camera and UI overlays. Put it in a <code>MissionBehavior</code> / <code>MissionLogic</code> mounted on <code>Mission</code>.</li>
+<li><strong>Do NOT</strong> hold a <code>Mission</code> reference from Campaign code, map logic outside <code>OnSessionLaunched</code>, or save/load code. Campaign and Mission lifecycles are completely separate: on the world map <code>Mission.Current == null</code>, and touching it there throws a null-reference crash.</li>
+<li><strong>Do NOT</strong> cache <code>Agent</code> / <code>Team</code> references as "permanent handles" outside the mission. Once the mission ends those objects are <code>Clear()</code>-ed; dangling references read freed native pointers.</li>
+</ul>
+<hr />
+<h2 id="dependency">Dependency</h2>
+<p><code>Mission</code> is the central hub; the types it directly holds or drives are around it. Linked nodes are real pages in this repo; the rest are real types not yet page-backed this cycle (described only, not linked to missing files).</p>
+<pre><code>                 CampaignMission / MissionState.OpenNew
+                          │ creates
+                          ▼
+                       Mission  ◄── Mission.Current (static handle)
+                  ┌───────┼───────────────┬──────────────┐
+                  ▼       ▼               ▼              ▼
+            MissionBehaviors   Agents          Teams        MissionLogics
+            (List&lt;Behavior&gt;)  (AgentReadOnlyList) (TeamCollection) (List&lt;MissionLogic&gt;)
+                  │               │               │              │
+                  ├──► [MissionBehavior](.././MissionBehavior)   (rules/observer)
+                  ├──► Agent (./Agent)            ├──► Team
+                  └──► Formation (./Formation)    └──► Team-internal Formation
+                  ▼
+            MissionState ── holds CurrentMission; MissionResult shaped at end
+                  ▼
+            Scene (native) / Screen (UI overlay) / Save (does NOT serialize Mission itself)
+</code></pre>
+<ul>
+<li><strong>Upstream / creator</strong>: <code>MissionState</code> (<code>: GameState</code>), <code>CampaignMission</code> (static open entry), <code>MissionInitializerRecord</code>.</li>
+<li><strong>Collection deps (held at runtime)</strong>: <a href=".././MissionBehavior"><code>MissionBehavior</code></a>, <a href=".././Agent"><code>Agent</code></a>, <code>Team</code>, <code>Formation</code> (<a href=".././Formation"><code>Formation</code></a>), <code>MissionLogic</code>, <code>MissionObject</code>.</li>
+<li><strong>Result / state</strong>: <code>MissionState.Current.CurrentMission</code>, <code>MissionResult</code>, the <code>State</code> enum (<code>NewlyCreated</code>/<code>Initializing</code>/<code>Continuing</code>/<code>EndingNextFrame</code>/<code>Over</code>).</li>
+<li><strong>Surrounding</strong>: <code>Scene</code> (native scene), <code>Screen</code> (Gauntlet UI overlay), save system (<strong>does not</strong> directly serialize a <code>Mission</code> instance — see Risks).</li>
+</ul>
+<hr />
+<h2 id="risks">Risks</h2>
+<ol>
+<li><strong>Dangling Agent references after death/removal</strong>: when <code>OnAgentRemoved</code> fires, the <code>Agent</code> is still in <code>AllAgents</code> (not yet <code>Clear()</code>-ed); but after <code>EndMissionInternal</code> every <code>AllAgents</code> entry is <code>OnDelete()</code> + <code>Clear()</code>-ed. Storing <code>Agent</code>s in static fields, event subscriptions, or cross-mission lists yields freed-pointer reads after the mission. Do: use-and-drop inside the callback, or always check <code>agent.State == AgentState.Active</code> / <code>agent.IsValid</code> first.</li>
+<li><strong>Mission lifecycle vs Campaign</strong>: <code>Mission</code> exists only during a battle. In Campaign phases like <code>OnSessionLaunched</code> or <code>DailyTick</code>, <code>Mission.Current</code> is <code>null</code>. Any map-layer code touching <code>Mission.Current</code> <code>NullReferenceException</code>s.</li>
+<li><strong>Accessing <code>Mission.Current</code> outside a mission</strong>: even when non-null, only read <code>Agents</code> / <code>Teams</code> during the <code>State.Continuing</code> phase. In <code>EndingNextFrame</code> / <code>Over</code> the collections are being cleared; iterating them yields half-destroyed state.</li>
+<li><strong>Wrong-phase logic</strong>: in <code>Initializing</code> <code>Agents</code> is not yet complete and teams are not ready; after <code>Over</code>, calling <code>EndMission()</code> again is meaningless and may re-enter teardown. Code that needs "spawn finished" should wait for <code>IsLoadingFinished</code> true or the <code>OnMissionStart</code> callback.</li>
+<li><strong>Double / premature EndMission</strong>: <code>EndMission()</code> is not strongly idempotent — calling it repeatedly flips <code>CurrentState</code> back to <code>EndingNextFrame</code> and can re-enter teardown. Guard with <code>if (!Mission.Current.MissionEnded)</code> before ending.</li>
+<li><strong>Don't put Campaign logic in the Mission layer</strong>: when writing battle results back to Campaign, do it from a <code>MissionLogic</code> during the <code>OnMissionEnd</code> phase via Campaign APIs — not by mutating the world map directly inside a tick, or save/forward simulation will desync.</li>
+</ol>
+<hr />
+<h2 id="member-notes">Member Notes</h2>
+<p>Grouped by usage frequency. Each member lists <strong>purpose + side effect + when to call</strong>.</p>
+<h3 id="acquisition-state">Acquisition &amp; state</h3>
+<ul>
+<li><strong><code>static Mission Current</code></strong>
+<ul>
+<li>Purpose: global handle to "the mission running right now."</li>
+<li>Side effect: none; but nulled when the mission ends.</li>
+<li>When to call: only when you are certain you are inside a mission (typically inside a <code>MissionBehavior</code> method body). Never from map-layer code.</li>
+</ul>
+</li>
+<li><strong><code>State CurrentState</code></strong> (enum)
+<ul>
+<li>Purpose: tells which phase — <code>NewlyCreated</code> / <code>Initializing</code> / <code>Continuing</code> / <code>EndingNextFrame</code> / <code>Over</code>.</li>
+<li>Side effect: read-only.</li>
+<li>When to call: before any phase-branching logic.</li>
+</ul>
+</li>
+<li><strong><code>bool MissionEnded</code> / <code>bool IsMissionEnding</code></strong>
+<ul>
+<li>Purpose: <code>MissionEnded</code> means <code>EndMission</code> was called; <code>IsMissionEnding</code> means teardown is pending but resources not yet cleared.</li>
+<li>When to call: check before deciding "is it still safe to touch the collections."</li>
+</ul>
+</li>
+<li><strong><code>bool IsLoadingFinished</code></strong>
+<ul>
+<li>Purpose: whether scene and units finished loading. <code>false</code> means <code>Agents</code> may be incomplete.</li>
+<li>When to call: at the top of <code>OnMissionTick</code> or before spawn logic.</li>
+</ul>
+</li>
+</ul>
+<h3 id="collections-held-at-runtime">Collections (held at runtime)</h3>
+<ul>
+<li><strong><code>AgentReadOnlyList Agents</code></strong>
+<ul>
+<li>Purpose: the currently <strong>alive/present</strong> units (excludes removed-not-yet-deleted).</li>
+<li>Side effect: changes every frame as units are added/removed; be careful enumerating while removing.</li>
+<li>When to call: ticks, hit resolution, counts — anywhere you need "who is on the field now."</li>
+</ul>
+</li>
+<li><strong><code>AgentReadOnlyList AllAgents</code></strong>
+<ul>
+<li>Purpose: includes units that were <code>OnRemove</code>-ed but not yet <code>OnDelete</code>-ed (the window between removal and true destruction).</li>
+<li>When to call: when you need to clean up / count right after a unit died but the object is still alive.</li>
+</ul>
+</li>
+<li><strong><code>TeamCollection Teams</code></strong>
+<ul>
+<li>Purpose: all teams; exposes shortcuts <code>AttackerTeam</code> / <code>DefenderTeam</code> / <code>PlayerTeam</code> / <code>PlayerEnemyTeam</code> / <code>PlayerAllyTeam</code>.</li>
+<li>When to call: team-based logic, finding the player enemy team, win/loss checks.</li>
+</ul>
+</li>
+<li><strong><code>List&lt;MissionBehavior&gt; MissionBehaviors</code></strong> / <strong><code>List&lt;MissionLogic&gt; MissionLogics</code></strong>
+<ul>
+<li>Purpose: all currently mounted behaviors / logic.</li>
+<li>When to call: cross-behavior cooperation (e.g. one logic reads another's state). Normally you do not iterate it.</li>
+</ul>
+</li>
+</ul>
+<h3 id="key-methods">Key methods</h3>
+<ul>
+<li><strong><code>void EndMission()</code></strong>
+<ul>
+<li>Purpose: request to end this mission.</li>
+<li>Side effect: sets <code>MissionEnded = true</code>, <code>CurrentState = State.EndingNextFrame</code>; teardown happens <strong>next frame</strong>. Routes through each behavior's <code>OnEndMission</code> / <code>OnEndMissionInternal</code>.</li>
+<li>When to call: when win/loss is decided or the player chooses to retreat. Guard with <code>!MissionEnded</code> first.</li>
+</ul>
+</li>
+<li><strong><code>Agent MainAgent</code></strong>
+<ul>
+<li>Purpose: the unit the player currently controls (may be <code>null</code>, e.g. spectating or hero dead).</li>
+<li>When to call: when you need "the player unit," null-check then read <code>State</code>.</li>
+</ul>
+</li>
+<li><strong>Event <code>OnBeforeAgentRemoved</code></strong> (delegate <code>OnBeforeAgentRemovedDelegate</code>)
+<ul>
+<li>Purpose: fires before behaviors' <code>OnAgentRemoved</code>, for last-moment handling before the unit is formally removed.</li>
+<li>When to call: when you must react <em>ahead</em> of behaviors (e.g. record the killing source).</li>
+</ul>
+</li>
+</ul>
+<h3 id="missionbehavior-callbacks-invoked-by-mission">MissionBehavior callbacks (invoked by Mission)</h3>
+<ul>
+<li><strong><code>OnEarlyAgentRemoved(Agent, Agent, AgentState, KillingBlow)</code></strong> and <strong><code>OnAgentRemoved(Agent, Agent, AgentState, KillingBlow)</code></strong>
+<ul>
+<li>Called by <code>Mission.OnAgentRemoved</code> (internal, <code>Mission.cs:2986</code>) while iterating <code>MissionBehaviors</code> — <code>OnEarlyAgentRemoved</code> first, then <code>OnAgentRemoved</code>.</li>
+<li>Purpose: your entry point when a unit is removed; <code>affectedAgent</code> is the removed one, <code>agentState</code> distinguishes <code>Killed</code> / <code>Unconscious</code> / <code>Routed</code>.</li>
+<li>When to call: auto-triggered after hit resolution; just override it.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="real-example">Real Example</h2>
+<h3 id="acquiring-a-mission">Acquiring a Mission</h3>
+<p>At the Campaign layer, open a battle via <code>CampaignMission</code> (returns <code>IMission</code>, cast to <code>Mission</code>); inside a behavior, use <code>Mission.Current</code> or the behavior's own <code>Mission</code> property — <strong>do not <code>new</code> it yourself</strong>.</p>
+<pre><code data-lang="csharp">// Campaign layer: open an encounter (real entry, from CampaignMission.OpenBattleMission)
+IMission opened = CampaignMission.OpenBattleMission(&quot;battle_scene_001&quot;, usesTownDecalAtlas: false);
+// Cast to the concrete type only when you need it
+if (opened is Mission mission)
+{
+    // mission is most likely still Initializing here; Agents not ready yet
+}
+</code></pre>
+<h3 id="reading-agents-and-handling-onagentremoved-inside-a-missionbehavior">Reading Agents and handling OnAgentRemoved inside a MissionBehavior</h3>
+<p>This class counts kills against the player's enemy team and recounts living enemies each tick — all using <strong>real API names</strong> (<code>Mission.Current.Agents</code>, <code>Agent.State</code>, <code>AgentState.Active</code> / <code>AgentState.Killed</code>, <code>PlayerTeam</code>, and the <code>OnAgentRemoved</code> signature matching <code>MissionBehavior.cs:81</code>).</p>
+<pre><code data-lang="csharp">using TaleWorlds.MountAndBlade;
+
+public class KillTrackingBehavior : MissionLogic
+{
+    private int _enemyKills;
+
+    // Called by Mission when a unit is removed (signature: MissionBehavior.cs:81)
+    public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent,
+                                         AgentState agentState, KillingBlow blow)
+    {
+        base.OnAgentRemoved(affectedAgent, affectorAgent, agentState, blow);
+
+        // agentState distinguishes Killed / Unconscious / Routed; count only real deaths
+        if (agentState != AgentState.Killed)
+            return;
+
+        Team playerTeam = Mission.Current.PlayerTeam;
+        if (playerTeam != null &amp;&amp; affectedAgent.Team != null &amp;&amp;
+            affectedAgent.Team.IsEnemyOf(playerTeam))
+        {
+            _enemyKills++;
+        }
+        // Note: affectedAgent is still in AllAgents here; do not cache it long-term
+    }
+
+    // Recount living enemies each frame (OnMissionTick runs only while CurrentState == Continuing)
+    public override void OnMissionTick(float dt)
+    {
+        int aliveEnemies = 0;
+        foreach (Agent agent in Mission.Current.Agents)
+        {
+            if (agent.State == AgentState.Active &amp;&amp;
+                agent.Team != null &amp;&amp;
+                agent.Team.IsEnemyOf(Mission.Current.PlayerTeam))
+            {
+                aliveEnemies++;
+            }
+        }
+        // aliveEnemies now holds the number of living enemy combatants on the field
+    }
+}
+</code></pre>
+<blockquote>
+<p>Acquisition summary: manually <code>new Mission</code> is the wrong approach; either let the engine open it via <code>CampaignMission.OpenXxxMission</code>, or access it from an already-mounted <code>MissionBehavior</code> / <code>MissionLogic</code> through <code>Mission.Current</code> or <code>this.Mission</code>.</p>
+</blockquote>
+<hr />
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Parent (module index): <a href="https://bannerlordcode.github.io/v1.4.5/en/api/mission/Mission/./">Mission module home</a></li>
+<li>↔ Siblings: <a href=".././MissionBehavior">MissionBehavior</a> · <a href=".././Agent">Agent</a> · <a href=".././Formation">Formation</a></li>
+<li>Upstream hubs: <a href="../../campaign/Campaign">Campaign</a> (decides what battle to start) · <a href="../../core/MBSubModuleBase">MBSubModuleBase</a> (behavior registration entry)</li>
+<li>Contract: <a href="../../../architecture/doc-contract">Doc Contract</a> (handwritten-doc and crash-boundary master rules)</li>
+</ul>
+<blockquote>
+<p>Note: <code>Team</code>, <code>MissionState</code>, <code>MissionResult</code>, <code>Screen</code>, and the save system do not have standalone pages this cycle, so they are not linked to missing files; their real type names and relationships are explained in the Dependency / Risks sections above.</p>
+</blockquote>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/en/api/mission/">Mission API — v1.4.5</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/en/api/mission/ThumbnailDebugUtility/">&larr; ThumbnailDebugUtility</a>
+          
+          
+            <a rel="next" href="/v1.4.5/en/api/mission/GenericMissionObjective/">GenericMissionObjective &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

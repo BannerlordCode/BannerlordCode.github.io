@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TroopRoster</title>
+  <meta name="description" content="每支部队（MobileParty &#x2F; Settlement）的成员名册与囚犯名册：以 CharacterObject 为键持有 TroopRosterElement，负责增删兵员、统计人数与战力输入，并承载英雄在队&#x2F;在押的状态回调。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/TroopRoster/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/TroopRoster/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">TroopRoster</span>
+    </nav>
+  
+  <h1>TroopRoster</h1>
+  <h1 id="trooproster">TroopRoster</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Roster<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public class TroopRoster : ISerializableObject</code><br />
+<strong>Base:</strong> <code>ISerializableObject</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Roster/TroopRoster.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>TroopRoster</code> 是<strong>一份以兵种（<code>CharacterObject</code>）为键的兵员名册</strong>：它内部用 <code>TroopRosterElement[]</code> 数组保存「某 CharacterObject 有多少兵、多少伤员、多少经验」，对外暴露增删、计数、总计与逐元素访问。一支部队有两份 <code>TroopRoster</code>：</p>
+<ul>
+<li><code>PartyBase.MemberRoster</code> —— 成员（含英雄领主、普通兵、流浪者）。</li>
+<li><code>PartyBase.PrisonRoster</code> —— 囚犯。</li>
+</ul>
+<p>它本身<strong>不包含战力数值</strong>，也不<strong>自动升级</strong>兵员：战力由 <code>PartyBase.EstimatedStrength</code>（经 <code>PartyStrengthModel</code> 计算）从名册派生，升级由 <code>PartyUpgraderCampaignBehavior</code> + <code>PartyTroopUpgradeModel</code> 驱动。把它理解成「一个有序的、带缓存统计的兵员容器」即可。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>TroopRoster</code> 当作**「部队花名册」**：</p>
+<ul>
+<li><strong>生命周期</strong>：名册随 <code>PartyBase</code> 一起创建（<code>new TroopRoster(this)</code>），几乎不会由 mod 自己 <code>new</code>。<code>OwnerParty</code> 在构造时绑定，之后不可改（只有私有 setter）。</li>
+<li><strong>谁持有它</strong>：<code>MobileParty.Party.MemberRoster</code> / <code>PrisonRoster</code>，或 <code>Settlement</code> 的驻军/囚犯名册。<code>TroopRoster</code> 只是数据，它不知道自己属于谁之外的任何世界状态。</li>
+<li><strong>所在层</strong>：Campaign 层（战役数据），不是 Mission（战斗场景）。战斗里阵亡/负伤是通过 <code>PlayerEncounter</code> / <code>MapEvent</code> 在战斗结束后回写名册，而不是在场景里直接改 <code>TroopRoster</code>。</li>
+<li><strong>增删的真相</strong>：所有人数变化最终都走 <code>AddToCounts</code> → <code>AddToCountsAtIndex</code>，它<strong>同时维护缓存总计</strong>（<code>_totalRegulars</code> 等）并触发 <code>OwnerParty</code> 回调（<code>OnHeroAdded</code> / <code>OnHeroRemoved</code> / <code>OnRosterSizeChanged</code> / <code>OnXpChanged</code>）。<code>VersionNo</code> 每次变化都会 +1，并联动 <code>MobileParty.UpdateVersionNo()</code>。</li>
+</ul>
+<h3 id="he-shi-yong">何时用</h3>
+<ul>
+<li>查询某部队成员/囚犯数量、健康/伤员分布：<code>TotalManCount</code>、<code>TotalWounded</code>、<code>GetTroopCount(c)</code>。</li>
+<li>直接增减普通兵员：<code>roster.AddToCounts(character, n, ...)</code> / <code>roster.RemoveTroop(character, n)</code>。</li>
+<li>合并两份名册：<code>roster.Add(otherRoster)</code>。</li>
+<li>需要一份<strong>临时、不归属任何部队</strong>的容器做计算：<code>TroopRoster.CreateDummyTroopRoster()</code>（<code>OwnerParty == null</code>，增删不会触发任何部队回调）。</li>
+</ul>
+<h3 id="he-shi-bu-yao-yong">何时不要用</h3>
+<ul>
+<li><strong>不要</strong>对英雄直接用 <code>SetElementNumber</code> / <code>SetElementWoundedNumber</code> / <code>SetElementXp</code> 去改人数或伤情——这三个 setter 是「裸写」，不维护缓存总计，也不触发 <code>OwnerParty</code> 回调，会悄悄破坏 <code>TotalRegulars</code> 等统计并让英雄归属状态失同步。改用 <code>AddToCounts</code> / <code>RemoveTroop</code>，英雄入队/出队请走 <code>AddHeroToPartyAction.Apply</code> / <code>TakePrisonerAction.Apply</code>。</li>
+<li><strong>不要</strong>自己 <code>new TroopRoster()</code> 再赋给某个 <code>PartyBase.MemberRoster</code> 来「替换」名册——<code>OwnerParty</code> 为 null 会让后续回调全失效；应通过 <code>Add</code> / <code>Clear</code> / <code>AddToCounts</code> 在既有名册上操作。</li>
+<li><strong>不要</strong>跨部队共享同一个 <code>TroopRoster</code> 实例——<code>OwnerParty</code> 是单一绑定，回调会指向错误的一方。</li>
+<li><strong>不要</strong>指望 <code>GetElementCopyAtIndex</code> 返回的对象能写回名册——它是值拷贝（见下「值拷贝陷阱」）。</li>
+</ul>
+<h2 id="ru-he-huo-qu-trooproster">如何获取 TroopRoster</h2>
+<pre><code data-lang="csharp">// 主队的成员名册（MobileParty.MemberRoster 是 Party.MemberRoster 的快捷属性）
+TroopRoster members = MobileParty.MainParty.MemberRoster;
+
+// 同一支部队的囚犯名册
+TroopRoster prisoners = MobileParty.MainParty.PrisonRoster;
+
+// 据点驻军 / 囚犯（Settlement 的 Party 同样持有两个名册）
+TroopRoster garrison = Settlement.CurrentSettlement.Party.MemberRoster;
+
+// 一份临时、无归属的名册（不触发任何回调，常用于计算或模板）
+TroopRoster temp = TroopRoster.CreateDummyTroopRoster();
+</code></pre>
+<h2 id="cheng-yuan-shuo-ming-an-zhu-ti">成员说明（按主题）</h2>
+<blockquote>
+<p>约定：元素数量（兵数）指 <code>data[i].Number</code>；<code>Count</code> 是「不同 CharacterObject 的条目数」，不是总人数。</p>
+</blockquote>
+<h3 id="zeng-shan-bing-yuan">增删兵员</h3>
+<h4 id="public-int-addtocounts-characterobject-character-int-count-bool-insertatfront-false-int-woundedcount-0-int-xpchange-0-bool-removedepleted-true-int-index-1"><code>public int AddToCounts(CharacterObject character, int count, bool insertAtFront = false, int woundedCount = 0, int xpChange = 0, bool removeDepleted = true, int index = -1)</code></h4>
+<p><strong>用途</strong>：名册增删的核心入口。加 <code>count</code> 个兵、其中 <code>woundedCount</code> 个伤员、并附带 <code>xpChange</code> 经验。<br />
+<strong>副作用</strong>：维护缓存总计（普通兵进 <code>_totalRegulars</code>，英雄进 <code>_totalHeroes</code>）；英雄增减会触发 <code>OwnerParty.OnHeroAdded</code> / <code>OnHeroRemoved</code> 与 <code>OnRosterSizeChanged</code>；任何数量变化都会 <code>UpdateVersion()</code>（进而 <code>MobileParty.UpdateVersionNo()</code>）。若条目人数归零且 <code>removeDepleted == true</code>，该兵种条目被移除。<br />
+<strong>调用时机</strong>：随时随地改普通兵员；加英雄也走它（但更推荐 <code>AddHeroToPartyAction.Apply</code> 以保证英雄侧状态一致）。返回该兵种在 <code>data</code> 中的索引。</p>
+<h4 id="public-void-removetroop-characterobject-troop-int-numbertoremove-1-uniquetroopdescriptor-troopseed-default-int-xp-0"><code>public void RemoveTroop(CharacterObject troop, int numberToRemove = 1, UniqueTroopDescriptor troopSeed = default, int xp = 0)</code></h4>
+<p><strong>用途</strong>：从名册移除若干兵员（含普通兵与英雄）。<br />
+<strong>副作用</strong>：对非英雄会回退 <code>xp</code>（即减经验）；<strong>在 <code>PlayerEncounter.CurrentBattleSimulation != null</code> 且非英雄时，<code>removeDepleted</code> 被强制为 <code>false</code></strong>——即战斗模拟期间普通兵只减 <code>Number</code> 不立即压缩条目，等模拟结束再统一整理。这是故意的「延迟清理」，若在战斗模拟中反复 <code>RemoveTroop</code> 到 0 却不触发压缩，名册里会残留 <code>Number==0</code> 的条目。<br />
+<strong>调用时机</strong>：日常减员、释放囚犯、战后结算。</p>
+<h4 id="public-void-woundtroop-characterobject-troop-int-numbertowound-1-uniquetroopdescriptor-troopseed-default"><code>public void WoundTroop(CharacterObject troop, int numberToWound = 1, UniqueTroopDescriptor troopSeed = default)</code></h4>
+<p><strong>用途</strong>：把若干普通兵标记为伤员（底层 <code>AddToCountsAtIndex(index, 0, numberToWound)</code>）。<br />
+<strong>陷阱</strong>：英雄的 <code>WoundedNumber</code> 由 <code>Character.HeroObject.IsWounded</code> 派生（<code>TroopRosterElement</code> 的 getter 对英雄直接返回 0 或 1），所以 <code>WoundTroop</code> 对<strong>英雄无效</strong>。要让英雄负伤请走 <code>Hero.MakeWounded(...)</code>，它会经 <code>OnHeroHealthStatusChanged</code> 回写名册的 <code>_totalWoundedHeroes</code>。</p>
+<h4 id="public-void-add-trooproster-trooproster-public-void-add-trooprosterelement-element"><code>public void Add(TroopRoster troopRoster)</code> / <code>public void Add(TroopRosterElement element)</code></h4>
+<p><strong>用途</strong>：把另一份名册（或单个元素）并入当前名册。逐个调用 <code>AddToCounts</code>，因此会正常维护缓存与回调。<br />
+<strong>注意</strong>：<code>Add</code> 用的是<strong>当前</strong>名册的 <code>OwnerParty</code>，被并入的名册归属被忽略。</p>
+<h4 id="public-void-clear"><code>public void Clear()</code></h4>
+<p><strong>用途</strong>：移除所有条目。逐条走 <code>AddToCountsAtIndex(负数)</code>，因此会为每个英雄触发 <code>OnHeroRemoved</code> 回调。<br />
+<strong>调用时机</strong>：解散部队、重置名册前（注意会触发归属回调，可能改动英雄世界状态）。</p>
+<h4 id="public-icollection-trooprosterelement-removeif-predicate-trooprosterelement-match"><code>public ICollection&lt;TroopRosterElement&gt; RemoveIf(Predicate&lt;TroopRosterElement&gt; match)</code></h4>
+<p><strong>用途</strong>：按条件批量移除，返回被移除元素的<strong>拷贝列表</strong>。从末尾向前遍历，对每个命中的条目调用 <code>AddToCountsAtIndex</code> 反向冲减，因此会正常维护统计与回调。</p>
+<h4 id="public-void-removezerocounts"><code>public void RemoveZeroCounts()</code></h4>
+<p><strong>用途</strong>：压缩 <code>data</code> 数组，丢弃所有 <code>Number == 0</code> 的条目。<br />
+<strong>风险</strong>：它直接搬移数组并只 <code>UpdateVersion()</code>，<strong>不触发 <code>OwnerParty.OnHeroRemoved</code></strong>。若用它清掉一个人数归零的英雄条目，英雄的 <code>PartyBelongedTo</code> 等归属状态不会被通知，造成失同步。移除英雄务必用 <code>RemoveTroop</code>。</p>
+<h3 id="ji-shu-yu-zong-ji-zhi-du-shu-xing">计数与总计（只读属性）</h3>
+<table><thead><tr><th>属性</th><th>含义</th><th>来源</th></tr></thead><tbody>
+<tr><td><code>Count</code></td><td>不同 CharacterObject 的条目数（不是总人数）</td><td><code>_count</code></td></tr>
+<tr><td><code>TotalRegulars</code></td><td>所有非英雄兵员的总数</td><td>缓存，由增删维护</td></tr>
+<tr><td><code>TotalHeroes</code></td><td>名册中英雄条目数（计条目，非计兵数）</td><td>缓存</td></tr>
+<tr><td><code>TotalWoundedRegulars</code> / <code>TotalWoundedHeroes</code></td><td>普通兵 / 英雄伤员数</td><td>缓存</td></tr>
+<tr><td><code>TotalWounded</code></td><td><code>TotalWoundedRegulars + TotalWoundedHeroes</code></td><td>派生</td></tr>
+<tr><td><code>TotalManCount</code></td><td><code>TotalRegulars + TotalHeroes</code>（部队总人数）</td><td>派生</td></tr>
+<tr><td><code>TotalHealthyCount</code></td><td><code>TotalManCount - TotalWounded</code></td><td>派生</td></tr>
+<tr><td><code>VersionNo</code></td><td>每次增删/改经验自增的版本号；联动 <code>MobileParty.UpdateVersionNo()</code></td><td><code>CachedData</code></td></tr>
+</tbody></table>
+<blockquote>
+<p>这些总计是<strong>缓存字段</strong>，仅在 <code>AddToCountsAtIndex</code> / <code>OnHeroHealthStatusChanged</code> / <code>CalculateCachedStatsOnLoad</code> 时刷新。若你用 <code>SetElementNumber</code> 等裸 setter 改了人数，这些属性会失准（见风险段）。</p>
+</blockquote>
+<h3 id="yuan-su-fang-wen-yu-cha-xun">元素访问与查询</h3>
+<h4 id="public-mblist-trooprosterelement-gettrooproster"><code>public MBList&lt;TroopRosterElement&gt; GetTroopRoster()</code></h4>
+<p><strong>用途</strong>：返回当前所有元素的（缓存）列表，便于 <code>foreach</code> 遍历。<br />
+<strong>陷阱</strong>：返回的是按 <code>VersionNo</code> 缓存的 <code>MBList</code>。若你<strong>持有这个引用</strong>之后名册发生增删，<code>VersionNo</code> 变化会让下一次 <code>GetTroopRoster()</code> 重建列表，但你手里那份旧引用仍是旧快照。遍历请在每次需要时现取，不要长期缓存。</p>
+<h4 id="public-trooprosterelement-getelementcopyatindex-int-index"><code>public TroopRosterElement GetElementCopyAtIndex(int index)</code></h4>
+<p><strong>用途</strong>：按索引取元素。<br />
+<strong>值拷贝陷阱</strong>：<code>TroopRosterElement</code> 是 <code>struct</code>，这里按值返回。下面这样写<strong>不会</strong>改变名册：</p>
+<pre><code data-lang="csharp">TroopRosterElement e = roster.GetElementCopyAtIndex(i);
+e.Number = 5;      // 只改了局部副本，名册不变！
+e.Xp += 100;       // 同上，无效
+</code></pre>
+<p>要真正修改请用 <code>AddToCounts</code> / <code>SetElementNumber</code> / <code>SetElementXp</code>。</p>
+<h4 id="public-characterobject-getcharacteratindex-int-index"><code>public CharacterObject GetCharacterAtIndex(int index)</code></h4>
+<p>返回索引处兵种模板；越界抛 <code>IndexOutOfRangeException</code>。</p>
+<h4 id="public-int-getelementnumber-int-index-getelementnumber-characterobject-character"><code>public int GetElementNumber(int index)</code> / <code>GetElementNumber(CharacterObject character)</code></h4>
+<p>返回某条目 / 某兵种的兵数（<code>0</code> 表示不存在）。</p>
+<h4 id="public-int-getelementwoundednumber-int-index-gettroopcount-characterobject-troop-contains-characterobject-character-findindexoftroop-characterobject-character"><code>public int GetElementWoundedNumber(int index)</code> / <code>GetTroopCount(CharacterObject troop)</code> / <code>Contains(CharacterObject character)</code> / <code>FindIndexOfTroop(CharacterObject character)</code></h4>
+<p>常规查询：<code>GetTroopCount</code> 是 <code>FindIndexOfTroop</code> + 读 <code>Number</code> 的便捷封装；<code>Contains</code> / <code>FindIndexOfTroop</code> 用 <code>==</code> 比较 <code>CharacterObject</code> 引用。</p>
+<h4 id="public-int-sum-func-trooprosterelement-int-selector"><code>public int Sum(Func&lt;TroopRosterElement, int&gt; selector)</code></h4>
+<p>对全部元素求和的便捷函数，例如 <code>roster.Sum(e =&gt; e.Number)</code> 等于 <code>TotalManCount</code>。</p>
+<h3 id="jing-yan-ban-ben-yu-fu-zhi">经验、版本与复制</h3>
+<h4 id="public-void-addxptotroop-characterobject-troop-int-xpamount-addxptotroopatindex-int-index-int-xpamount"><code>public void AddXpToTroop(CharacterObject troop, int xpAmount)</code> / <code>AddXpToTroopAtIndex(int index, int xpAmount)</code></h4>
+<p><strong>用途</strong>：给某兵种累加经验。底层经 <code>SetElementXp</code>，会触发 <code>OwnerParty.OnXpChanged</code>。<br />
+<strong>注意</strong>：它<strong>只写经验，不触发升级</strong>。兵员升级到上一阶由 <code>PartyUpgraderCampaignBehavior</code> 在每日 tick 中读取经验、经 <code>PartyTroopUpgradeModel</code> 决定并调用 <code>AddToCounts</code> 完成——<code>TroopRoster</code> 本身没有「自动升级」逻辑。</p>
+<h4 id="public-void-setelementxp-int-index-int-number-setelementnumber-int-index-int-number-setelementwoundednumber-int-index-int-number"><code>public void SetElementXp(int index, int number)</code> / <code>SetElementNumber(int index, int number)</code> / <code>SetElementWoundedNumber(int index, int number)</code></h4>
+<p><strong>用途</strong>：底层直接写元素的 <code>Xp</code> / <code>Number</code> / <code>WoundedNumber</code>。<br />
+<strong>风险（重要）</strong>：这三个 setter <strong>只改数据 + <code>UpdateVersion()</code>，不维护缓存总计，也不触发 <code>OwnerParty</code> 回调</strong>。用 <code>SetElementNumber</code> 改完人数后，<code>TotalRegulars</code> / <code>TotalHeroes</code> 等会与实际不符，且英雄的入队/出队回调不会触发，直到下次读档 <code>CalculateCachedStatsOnLoad</code> 才被整体重算。除非你在做底层/序列化相关操作，否则请一律用 <code>AddToCounts</code> / <code>RemoveTroop</code>。</p>
+<h4 id="public-void-updateversion"><code>public void UpdateVersion()</code></h4>
+<p>每次增删/改经验后自动调用；使 <code>VersionNo++</code> 并联动 <code>MobileParty.UpdateVersionNo()</code>，从而让依赖名册的缓存（兵力、工资、分层人数等）失效重建。</p>
+<h4 id="public-void-onherohealthstatuschanged-hero-hero"><code>public void OnHeroHealthStatusChanged(Hero hero)</code></h4>
+<p>英雄负伤状态变化时由英雄系统回调：刷新 <code>_totalWoundedHeroes</code>。普通兵的伤员变化不走这里，而在 <code>AddToCountsAtIndex</code> 内维护。</p>
+<h4 id="public-trooproster-clonerosterdata"><code>public TroopRoster CloneRosterData()</code></h4>
+<p><strong>用途</strong>：复制一份 <code>OwnerParty == null</code> 的新名册，仅含 <code>Character</code> / <code>Number</code> / <code>WoundedNumber</code>（<strong>不含经验</strong>）。适合做快照或合并前的暂存。</p>
+<h4 id="public-flattenedtrooproster-toflattenedroster"><code>public FlattenedTroopRoster ToFlattenedRoster()</code></h4>
+<p>返回把每个元素展开成「单兵」的 <code>FlattenedTroopRoster</code>（用于模板/UI/招募表）。</p>
+<h4 id="public-static-trooproster-createdummytrooproster"><code>public static TroopRoster CreateDummyTroopRoster()</code></h4>
+<p>返回一个 <code>OwnerParty == null</code> 的空名册。适合临时计算容器。</p>
+<h4 id="public-static-void-calculatecachedstatsonload"><code>public static void CalculateCachedStatsOnLoad()</code></h4>
+<p><strong>用途</strong>：读档后由存档系统统一调用，<strong>仅一次</strong>：遍历本会话所有刚反序列化的 <code>TroopRoster</code>，重算 <code>_totalRegulars</code> / <code>_totalHeroes</code> / 伤员等缓存（序列化只存 <code>data</code> + <code>_count</code> + <code>VersionNo</code>，总计不落盘）。mod 一般无需主动调用；但若你自己反序列化/构造名册并依赖 <code>TotalRegulars</code> 等，必须记住这些字段在载入流水线的该步骤之前是 0/过期值。</p>
+<h4 id="public-static-bool-rostersareidentical-trooproster-a-trooproster-b"><code>public static bool RostersAreIdentical(TroopRoster a, TroopRoster b)</code></h4>
+<p>比较 <code>Count</code> / <code>OwnerParty</code> / <code>VersionNo</code> 以及逐条 <code>Character</code> + <code>Number</code> 是否一致（用于存档校验/测试）。</p>
+<h2 id="zui-xiao-zhen-shi-shi-li">最小真实示例</h2>
+<h3 id="shi-li-1-gei-zhu-dui-bu-chong-xin-bing-bing-fu-jing-yan">示例 1：给主队补充新兵并附经验</h3>
+<pre><code data-lang="csharp">MobileParty party = MobileParty.MainParty;
+TroopRoster roster = party.MemberRoster; // 等同于 party.Party.MemberRoster
+
+// 通过 MBObjectManager 拿到一个真实兵种模板（以 &quot;looter&quot; 为例）
+CharacterObject recruit = MBObjectManager.Instance.GetObject&lt;CharacterObject&gt;(&quot;looter&quot;);
+if (recruit != null)
+{
+    // 加 10 人，附带 150 经验；insertAtFront=false 表示追加到队尾
+    roster.AddToCounts(recruit, 10, insertAtFront: false, woundedCount: 0, xpChange: 150);
+
+    int now = roster.GetTroopCount(recruit);      // 现在的人数
+    int xp  = roster.GetElementXp(recruit);        // 该兵种累计经验
+    InformationManager.DisplayMessage(
+        new InformationMessage($&quot;{recruit.Name}：{now} 人，经验 {xp}&quot;));
+}
+</code></pre>
+<h3 id="shi-li-2-bian-li-cheng-yuan-tong-ji-bing-shi-fang-quan-bu-mou-lei-qiu-fan">示例 2：遍历成员统计，并释放全部某类囚犯</h3>
+<pre><code data-lang="csharp">// 统计主队健康/伤员分布
+TroopRoster members = MobileParty.MainParty.MemberRoster;
+int total    = members.TotalManCount;     // 总人数
+int wounded  = members.TotalWounded;      // 伤员总数
+int healthy  = members.TotalHealthyCount; // 健康人数
+
+// 遍历每个兵种（注意 GetTroopRoster 返回的是值拷贝列表，改局部变量不影响名册）
+foreach (TroopRosterElement element in members.GetTroopRoster())
+{
+    CharacterObject c = element.Character;
+    int n  = element.Number; // 兵数（值拷贝）
+    int xp = element.Xp;     // 经验（值拷贝）
+}
+
+// 释放主队囚犯名册里的全部某一类囚犯
+TroopRoster prisoners = MobileParty.MainParty.PrisonRoster;
+CharacterObject prisoner = MBObjectManager.Instance.GetObject&lt;CharacterObject&gt;(&quot;prisoner_template&quot;);
+if (prisoner != null &amp;&amp; prisoners.Contains(prisoner))
+{
+    // 移除该类囚犯的全部数量；英雄囚犯建议改用 TakePrisonerAction 的反向流程
+    prisoners.RemoveTroop(prisoner, prisoners.GetTroopCount(prisoner));
+}
+</code></pre>
+<h2 id="yi-lai-tu-ke-dian-ji">依赖图（可点击）</h2>
+<p><strong>上游（TroopRoster 依赖）</strong></p>
+<ul>
+<li><a href="../../campaign/CharacterObject/">CharacterObject</a> —— 每个条目的兵种模板（技能、装备、阶层）。</li>
+<li><a href="../../campaign/Hero/">Hero</a> —— 英雄是特殊的 <code>CharacterObject</code>，以条目形式存放在名册中。</li>
+<li><a href="../../campaign/PartyBase/">PartyBase</a> —— <code>OwnerParty</code>；持有 <code>MemberRoster</code> 与 <code>PrisonRoster</code>，并接收增删回调。</li>
+<li><a href="../TroopRosterElement/">TroopRosterElement</a> —— 单条「兵种→数量/伤员/经验」记录（值类型）。</li>
+<li><a href="../../core-extra/UniqueTroopDescriptor/">UniqueTroopDescriptor</a> —— <code>RemoveTroop</code> / <code>WoundTroop</code> 用于标识具体英雄个体。</li>
+</ul>
+<p><strong>下游（依赖 TroopRoster）</strong></p>
+<ul>
+<li><a href="../../campaign/PartyBase/">PartyBase</a> 的 <code>EstimatedStrength</code> —— 由名册经 <code>PartyStrengthModel</code> 计算战力。</li>
+<li><a href="../PartyWageModel/">PartyWageModel</a> —— 由名册算工资（<code>MobileParty.TotalWage</code>）。</li>
+<li><a href="../PartySizeLimitModel/">PartySizeLimitModel</a> —— 队伍人数上限基于名册。</li>
+<li><a href="../PartyHealingModel/">PartyHealingModel</a> —— 伤员恢复回写 <code>WoundTroop</code> / 缓存。</li>
+<li><a href="../PartyTroopUpgradeModel/">PartyTroopUpgradeModel</a> + <a href="../PartyUpgraderCampaignBehavior/">PartyUpgraderCampaignBehavior</a> —— 读取经验完成升级。</li>
+<li>战斗/遭遇（<code>PlayerEncounter.CurrentBattleSimulation</code>）—— 影响 <code>RemoveTroop</code> 的 <code>removeDepleted</code> 行为。</li>
+</ul>
+<p><strong>相关 Action（优先用它们改英雄/囚犯）</strong></p>
+<ul>
+<li><a href="../AddHeroToPartyAction/">AddHeroToPartyAction</a> —— 把英雄加入部队（正确触发回调）。</li>
+<li><a href="../TakePrisonerAction/">TakePrisonerAction</a> —— 抓俘入 <code>PrisonRoster</code>。</li>
+<li><a href="../RecruitPrisonersCampaignBehavior/">RecruitPrisonersCampaignBehavior</a> —— 囚犯招募。</li>
+</ul>
+<p><strong>同级（Sibling）</strong></p>
+<ul>
+<li><a href="../ItemRoster/">ItemRoster</a> —— 「物品版名册」，结构与 TroopRoster 平行。</li>
+<li><a href="../FlattenedTroopRoster/">FlattenedTroopRoster</a> —— 名册的扁平化单兵视图。</li>
+</ul>
+<h2 id="feng-xian-duan-ke-neng-dao-zhi-beng-kui-pi-dang">风险段（可能导致崩溃 / 坏档）</h2>
+<ol>
+<li>
+<p><strong>经验在存读档后会丢失</strong>：<code>TroopRosterElement.SerializeTo</code> 写入 4 个字段（<code>Character</code> / <code>_number</code> / <code>_woundedNumber</code> / <code>_xp</code>），但 <code>DeserializeFrom</code> 只读回前 3 个、<strong>没有读 <code>_xp</code></strong>。因此部队名册里的兵员经验在每次存档→读档后会归零（v1.3.15 与 v1.4.5 行为一致）。不要把「经验」当作可跨存读档持久的状态来依赖；若需持久化升级进度，应在 mod 自己管理的数据里保存。</p>
+</li>
+<li>
+<p><strong><code>SetElementNumber</code> / <code>SetElementWoundedNumber</code> / <code>SetElementXp</code> 会破坏缓存总计</strong>：三者是裸写，不维护 <code>_totalRegulars</code> / <code>_totalHeroes</code> / 伤员统计，也不触发 <code>OwnerParty</code> 回调。用它们改人数后，<code>TotalManCount</code> 等会与实际不符、英雄归属状态失同步，且要等到下次 <code>CalculateCachedStatsOnLoad</code>（即下次读档）才会被整体纠正。一律改用 <code>AddToCounts</code> / <code>RemoveTroop</code>；英雄增减走 <code>AddHeroToPartyAction</code> / <code>TakePrisonerAction</code>。</p>
+</li>
+<li>
+<p><strong><code>GetElementCopyAtIndex</code> 是值拷贝</strong>：<code>TroopRosterElement</code> 为 <code>struct</code>，取到的是副本，对它赋值不会改变名册（见上文示例）。要改数据必须走 <code>AddToCounts</code> / <code>SetElement*</code>。</p>
+</li>
+<li>
+<p><strong><code>RemoveZeroCounts</code> 不发回调</strong>：它压缩数组时跳过 <code>OnHeroRemoved</code>。用它清掉人数归零的英雄条目会让英雄的 <code>PartyBelongedTo</code> 等状态残留。移除英雄用 <code>RemoveTroop</code>。</p>
+</li>
+<li>
+<p><strong>战斗模拟期间 <code>RemoveTroop</code> 不立即压缩</strong>：当 <code>PlayerEncounter.CurrentBattleSimulation != null</code> 且目标非英雄时，<code>removeDepleted</code> 被强制 <code>false</code>，条目只减 <code>Number</code> 不移除。战斗结算逻辑依赖这一延迟清理；不要在战斗模拟进行中假设「人数减到 0 的兵种已从名册消失」。</p>
+</li>
+<li>
+<p><strong>英雄伤员不能靠 <code>WoundTroop</code></strong>：英雄的伤员数由 <code>HeroObject.IsWounded</code> 派生，对英雄调用 <code>WoundTroop</code> 无效。让英雄负伤走 <code>Hero.MakeWounded(...)</code>，它会经 <code>OnHeroHealthStatusChanged</code> 正确更新 <code>_totalWoundedHeroes</code>。</p>
+</li>
+<li>
+<p><strong>不要跨部队共享 / 手动 <code>new</code> 替换名册</strong>：<code>OwnerParty</code> 构造后不可改，共享实例会让增删回调指向错误的 <code>PartyBase</code>；手动 <code>new TroopRoster()</code> 再赋给 <code>PartyBase.MemberRoster</code> 会使 <code>OwnerParty == null</code>，后续所有回调失效。</p>
+</li>
+<li>
+<p><strong>缓存列表不要长期持有</strong>：<code>GetTroopRoster()</code> 返回按 <code>VersionNo</code> 缓存的 <code>MBList</code>，名册变化后旧引用成过期快照。每次遍历现取。</p>
+</li>
+</ol>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li><strong>v1.3.15 / v1.3.0</strong>：核心 API（<code>AddToCounts</code>、<code>RemoveTroop</code>、<code>WoundTroop</code>、<code>AddXpToTroop</code>、<code>CloneRosterData</code>、<code>CreateDummyTroopRoster</code>、<code>CalculateCachedStatsOnLoad</code> 等签名与语义）与 v1.4.5 基本一致；上述「经验存读档丢失」的序列化不对称在两版中均存在。</li>
+<li><strong>v1.4.5（权威源）</strong>：以本页所述为准；若写跨版本 mod，避免依赖 <code>SetElement*</code> 系列 setter 的正确性，并假定经验无法跨存读档保留。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li>↑ 父级：<a href="../">campaign-ext 索引</a></li>
+<li>↔ 同级：<a href="../ItemRoster/">ItemRoster</a> · <a href="../TroopRosterElement/">TroopRosterElement</a> · <a href="../FlattenedTroopRoster/">FlattenedTroopRoster</a></li>
+<li>上游枢纽：<a href="../../campaign/PartyBase/">PartyBase</a> · <a href="../../campaign/CharacterObject/">CharacterObject</a> · <a href="../../campaign/Hero/">Hero</a> · <a href="../../campaign/MobileParty/">MobileParty</a></li>
+<li>相关模型/行为：<a href="../PartySizeLimitModel/">PartySizeLimitModel</a> · <a href="../PartyWageModel/">PartyWageModel</a> · <a href="../PartyHealingModel/">PartyHealingModel</a> · <a href="../PartyTroopUpgradeModel/">PartyTroopUpgradeModel</a> · <a href="../PartyUpgraderCampaignBehavior/">PartyUpgraderCampaignBehavior</a></li>
+<li>相关 Action：<a href="../AddHeroToPartyAction/">AddHeroToPartyAction</a> · <a href="../TakePrisonerAction/">TakePrisonerAction</a> · <a href="../RecruitPrisonersCampaignBehavior/">RecruitPrisonersCampaignBehavior</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign-ext/">campaign-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign-ext/CampaignOptionSelectorVM/">&larr; CampaignOptionSelectorVM</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign-ext/CharacterCreationGainedSkillItemVM/">CharacterCreationGainedSkillItemVM &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

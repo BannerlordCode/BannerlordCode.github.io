@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TutorialItemBase</title>
+  <meta name="description" content="Auto-generated class reference for TutorialItemBase.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign-ext/TutorialItemBase/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign-ext/TutorialItemBase/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign-ext/TutorialItemBase/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign-ext/TutorialItemBase/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">TutorialItemBase</span>
+    </nav>
+  
+  <h1>TutorialItemBase</h1>
+  <h1 id="tutorialitembase">TutorialItemBase</h1>
+<p><strong>Namespace:</strong> SandBox.GauntletUI.Tutorial
+<strong>Module:</strong> SandBox.GauntletUI
+<strong>Type:</strong> <code>public abstract class TutorialItemBase</code>
+<strong>Base:</strong> none
+<strong>File:</strong> <code>SandBox.GauntletUI/Tutorial/TutorialItemBase.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>TutorialItemBase</code> lives in <code>SandBox.GauntletUI.Tutorial</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>SandBox.GauntletUI.Tutorial</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>Placement</code></td><td><code>public TutorialItemVM.ItemPlacements Placement { get; set; }</code></td></tr>
+<tr><td><code>MouseRequired</code></td><td><code>public bool MouseRequired { get; set; }</code></td></tr>
+<tr><td><code>HighlightedVisualElementID</code></td><td><code>public string HighlightedVisualElementID { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="isconditionsmetforcompletion">IsConditionsMetForCompletion</h3>
+<p><code>public abstract bool IsConditionsMetForCompletion()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the conditions met for completion state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+var result = tutorialItemBase.IsConditionsMetForCompletion();
+</code></pre>
+<h3 id="isconditionsmetforactivation">IsConditionsMetForActivation</h3>
+<p><code>public abstract bool IsConditionsMetForActivation()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the conditions met for activation state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+var result = tutorialItemBase.IsConditionsMetForActivation();
+</code></pre>
+<h3 id="gettutorialsrelevantcontext">GetTutorialsRelevantContext</h3>
+<p><code>public abstract TutorialContexts GetTutorialsRelevantContext()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the tutorials relevant context value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+var result = tutorialItemBase.GetTutorialsRelevantContext();
+</code></pre>
+<h3 id="ondeactivate">OnDeactivate</h3>
+<p><code>public virtual void OnDeactivate()</code></p>
+<p><strong>Purpose:</strong> Invoked when the deactivate event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnDeactivate();
+</code></pre>
+<h3 id="isconditionsmetforvisibility">IsConditionsMetForVisibility</h3>
+<p><code>public virtual bool IsConditionsMetForVisibility()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the conditions met for visibility state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+var result = tutorialItemBase.IsConditionsMetForVisibility();
+</code></pre>
+<h3 id="oninventorytransferitem">OnInventoryTransferItem</h3>
+<p><code>public virtual void OnInventoryTransferItem(InventoryTransferItemEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the inventory transfer item event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnInventoryTransferItem(obj);
+</code></pre>
+<h3 id="ontutorialcontextchanged">OnTutorialContextChanged</h3>
+<p><code>public virtual void OnTutorialContextChanged(TutorialContextChangedEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the tutorial context changed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnTutorialContextChanged(obj);
+</code></pre>
+<h3 id="oninventoryfilterchanged">OnInventoryFilterChanged</h3>
+<p><code>public virtual void OnInventoryFilterChanged(InventoryFilterChangedEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the inventory filter changed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnInventoryFilterChanged(obj);
+</code></pre>
+<h3 id="onperkselectedbyplayer">OnPerkSelectedByPlayer</h3>
+<p><code>public virtual void OnPerkSelectedByPlayer(PerkSelectedByPlayerEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the perk selected by player event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPerkSelectedByPlayer(obj);
+</code></pre>
+<h3 id="onfocusaddedbyplayer">OnFocusAddedByPlayer</h3>
+<p><code>public virtual void OnFocusAddedByPlayer(FocusAddedByPlayerEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the focus added by player event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnFocusAddedByPlayer(obj);
+</code></pre>
+<h3 id="ongamemenuopened">OnGameMenuOpened</h3>
+<p><code>public virtual void OnGameMenuOpened(MenuCallbackArgs obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the game menu opened event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnGameMenuOpened(obj);
+</code></pre>
+<h3 id="onmainmapcameramove">OnMainMapCameraMove</h3>
+<p><code>public virtual void OnMainMapCameraMove(MapScreen.MainMapCameraMoveEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the main map camera move event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnMainMapCameraMove(obj);
+</code></pre>
+<h3 id="oncharacterportraitpopupopened">OnCharacterPortraitPopUpOpened</h3>
+<p><code>public virtual void OnCharacterPortraitPopUpOpened(CharacterObject obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the character portrait pop up opened event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnCharacterPortraitPopUpOpened(obj);
+</code></pre>
+<h3 id="onplayerstarttalkfrommenuoverlay">OnPlayerStartTalkFromMenuOverlay</h3>
+<p><code>public virtual void OnPlayerStartTalkFromMenuOverlay(Hero obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player start talk from menu overlay event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPlayerStartTalkFromMenuOverlay(obj);
+</code></pre>
+<h3 id="ongamemenuoptionselected">OnGameMenuOptionSelected</h3>
+<p><code>public virtual void OnGameMenuOptionSelected(GameMenuOption obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the game menu option selected event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnGameMenuOptionSelected(obj);
+</code></pre>
+<h3 id="onplayerstartrecruitment">OnPlayerStartRecruitment</h3>
+<p><code>public virtual void OnPlayerStartRecruitment(CharacterObject obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player start recruitment event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPlayerStartRecruitment(obj);
+</code></pre>
+<h3 id="onnewcompanionadded">OnNewCompanionAdded</h3>
+<p><code>public virtual void OnNewCompanionAdded(Hero obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the new companion added event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnNewCompanionAdded(obj);
+</code></pre>
+<h3 id="onplayerrecruitedunit">OnPlayerRecruitedUnit</h3>
+<p><code>public virtual void OnPlayerRecruitedUnit(CharacterObject obj, int count)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player recruited unit event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPlayerRecruitedUnit(obj, 0);
+</code></pre>
+<h3 id="onplayerinventoryexchange">OnPlayerInventoryExchange</h3>
+<p><code>public virtual void OnPlayerInventoryExchange(List&lt;ValueTuple&lt;ItemRosterElement, int&gt;&gt; purchasedItems, List&lt;ValueTuple&lt;ItemRosterElement, int&gt;&gt; soldItems, bool isTrading)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player inventory exchange event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPlayerInventoryExchange(list&lt;ValueTuple&lt;ItemRosterElement, 0, list&lt;ValueTuple&lt;ItemRosterElement, 0, false);
+</code></pre>
+<h3 id="onmissionnamemarkertoggled">OnMissionNameMarkerToggled</h3>
+<p><code>public virtual void OnMissionNameMarkerToggled(MissionNameMarkerToggleEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the mission name marker toggled event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnMissionNameMarkerToggled(obj);
+</code></pre>
+<h3 id="onplayertoggletracksettlementfromencyclopedia">OnPlayerToggleTrackSettlementFromEncyclopedia</h3>
+<p><code>public virtual void OnPlayerToggleTrackSettlementFromEncyclopedia(PlayerToggleTrackSettlementFromEncyclopediaEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player toggle track settlement from encyclopedia event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPlayerToggleTrackSettlementFromEncyclopedia(obj);
+</code></pre>
+<h3 id="oninventoryequipmenttypechange">OnInventoryEquipmentTypeChange</h3>
+<p><code>public virtual void OnInventoryEquipmentTypeChange(InventoryEquipmentTypeChangedEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the inventory equipment type change event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnInventoryEquipmentTypeChange(obj);
+</code></pre>
+<h3 id="onarmycohesionbyplayerboosted">OnArmyCohesionByPlayerBoosted</h3>
+<p><code>public virtual void OnArmyCohesionByPlayerBoosted(ArmyCohesionBoostedByPlayerEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the army cohesion by player boosted event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnArmyCohesionByPlayerBoosted(obj);
+</code></pre>
+<h3 id="onpartyaddedtoarmybyplayer">OnPartyAddedToArmyByPlayer</h3>
+<p><code>public virtual void OnPartyAddedToArmyByPlayer(PartyAddedToArmyByPlayerEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the party added to army by player event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPartyAddedToArmyByPlayer(obj);
+</code></pre>
+<h3 id="onplayerstartengineconstruction">OnPlayerStartEngineConstruction</h3>
+<p><code>public virtual void OnPlayerStartEngineConstruction(PlayerStartEngineConstructionEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player start engine construction event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPlayerStartEngineConstruction(obj);
+</code></pre>
+<h3 id="onplayerupgradetroop">OnPlayerUpgradeTroop</h3>
+<p><code>public virtual void OnPlayerUpgradeTroop(CharacterObject arg1, CharacterObject arg2, int arg3)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player upgrade troop event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPlayerUpgradeTroop(arg1, arg2, 0);
+</code></pre>
+<h3 id="onplayermovetroop">OnPlayerMoveTroop</h3>
+<p><code>public virtual void OnPlayerMoveTroop(PlayerMoveTroopEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player move troop event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPlayerMoveTroop(obj);
+</code></pre>
+<h3 id="onperkselectiontoggle">OnPerkSelectionToggle</h3>
+<p><code>public virtual void OnPerkSelectionToggle(PerkSelectionToggleEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the perk selection toggle event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPerkSelectionToggle(obj);
+</code></pre>
+<h3 id="onplayerinspectedpartyspeed">OnPlayerInspectedPartySpeed</h3>
+<p><code>public virtual void OnPlayerInspectedPartySpeed(PlayerInspectedPartySpeedEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player inspected party speed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPlayerInspectedPartySpeed(obj);
+</code></pre>
+<h3 id="onplayermovementflagchanged">OnPlayerMovementFlagChanged</h3>
+<p><code>public virtual void OnPlayerMovementFlagChanged(MissionPlayerMovementFlagsChangeEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player movement flag changed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPlayerMovementFlagChanged(obj);
+</code></pre>
+<h3 id="onplayertoggledupgradepopup">OnPlayerToggledUpgradePopup</h3>
+<p><code>public virtual void OnPlayerToggledUpgradePopup(PlayerToggledUpgradePopupEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player toggled upgrade popup event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPlayerToggledUpgradePopup(obj);
+</code></pre>
+<h3 id="onorderofbattleheroassignedtoformation">OnOrderOfBattleHeroAssignedToFormation</h3>
+<p><code>public virtual void OnOrderOfBattleHeroAssignedToFormation(OrderOfBattleHeroAssignedToFormationEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the order of battle hero assigned to formation event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnOrderOfBattleHeroAssignedToFormation(obj);
+</code></pre>
+<h3 id="onorderofbattleformationclasschanged">OnOrderOfBattleFormationClassChanged</h3>
+<p><code>public virtual void OnOrderOfBattleFormationClassChanged(OrderOfBattleFormationClassChangedEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the order of battle formation class changed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnOrderOfBattleFormationClassChanged(obj);
+</code></pre>
+<h3 id="onorderofbattleformationweightchanged">OnOrderOfBattleFormationWeightChanged</h3>
+<p><code>public virtual void OnOrderOfBattleFormationWeightChanged(OrderOfBattleFormationWeightChangedEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the order of battle formation weight changed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnOrderOfBattleFormationWeightChanged(obj);
+</code></pre>
+<h3 id="oncraftingweaponclassselectionopened">OnCraftingWeaponClassSelectionOpened</h3>
+<p><code>public virtual void OnCraftingWeaponClassSelectionOpened(CraftingWeaponClassSelectionOpenedEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the crafting weapon class selection opened event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnCraftingWeaponClassSelectionOpened(obj);
+</code></pre>
+<h3 id="oncraftingonweaponresultpopupopened">OnCraftingOnWeaponResultPopupOpened</h3>
+<p><code>public virtual void OnCraftingOnWeaponResultPopupOpened(CraftingWeaponResultPopupToggledEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the crafting on weapon result popup opened event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnCraftingOnWeaponResultPopupOpened(obj);
+</code></pre>
+<h3 id="oncraftingordertabopened">OnCraftingOrderTabOpened</h3>
+<p><code>public virtual void OnCraftingOrderTabOpened(CraftingOrderTabOpenedEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the crafting order tab opened event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnCraftingOrderTabOpened(obj);
+</code></pre>
+<h3 id="oncraftingorderselectionopened">OnCraftingOrderSelectionOpened</h3>
+<p><code>public virtual void OnCraftingOrderSelectionOpened(CraftingOrderSelectionOpenedEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the crafting order selection opened event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnCraftingOrderSelectionOpened(obj);
+</code></pre>
+<h3 id="oninventoryiteminspected">OnInventoryItemInspected</h3>
+<p><code>public virtual void OnInventoryItemInspected(InventoryItemInspectedEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the inventory item inspected event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnInventoryItemInspected(obj);
+</code></pre>
+<h3 id="oncrimevalueinspectedinsettlementoverlay">OnCrimeValueInspectedInSettlementOverlay</h3>
+<p><code>public virtual void OnCrimeValueInspectedInSettlementOverlay(CrimeValueInspectedInSettlementOverlayEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the crime value inspected in settlement overlay event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnCrimeValueInspectedInSettlementOverlay(obj);
+</code></pre>
+<h3 id="onclanroleassignedthroughclanscreen">OnClanRoleAssignedThroughClanScreen</h3>
+<p><code>public virtual void OnClanRoleAssignedThroughClanScreen(ClanRoleAssignedThroughClanScreenEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the clan role assigned through clan screen event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnClanRoleAssignedThroughClanScreen(obj);
+</code></pre>
+<h3 id="onplayerselectedakingdomdecisionoption">OnPlayerSelectedAKingdomDecisionOption</h3>
+<p><code>public virtual void OnPlayerSelectedAKingdomDecisionOption(PlayerSelectedAKingdomDecisionOptionEvent obj)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player selected a kingdom decision option event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of TutorialItemBase from the subsystem API first
+TutorialItemBase tutorialItemBase = ...;
+tutorialItemBase.OnPlayerSelectedAKingdomDecisionOption(obj);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically obtained from a subsystem API or factory
+TutorialItemBase instance = ...;
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/api/campaign-ext/StealthPatrolPointMissionLogic/">&larr; StealthPatrolPointMissionLogic</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/campaign-ext/MapSiegeVM/">MapSiegeVM &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

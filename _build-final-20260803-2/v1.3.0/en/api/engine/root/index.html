@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Root</title>
+  <meta name="description" content="Types located directly in this area root namespace.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/engine/root/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/engine/root/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="active">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;engine&#x2F;">engine index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Root</span>
+    </nav>
+  
+  <h1>Root</h1>
+  <h2 id="up">Up</h2>
+<ul>
+<li><a href="../">Back to engine index</a></li>
+<li><a href="../../">API Index</a></li>
+<li><a href="../../../">Version Home</a></li>
+</ul>
+<h2 id="subsystem-overview">Subsystem overview</h2>
+<p>This is the <strong>Root</strong> subsystem inside <strong>engine index</strong>. Classes in the same namespace tackle related concerns; pick a type, then open its page for methods.</p>
+<p>Types located directly in this area root namespace.</p>
+<h2 id="classes">Classes</h2>
+<table><thead><tr><th>Class</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="../AnimResult/"><code>AnimResult</code></a></td><td>AnimResult is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ApplicationHealthChecker/"><code>ApplicationHealthChecker</code></a></td><td>ApplicationHealthChecker is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ApplicationInterfaceBase/"><code>ApplicationInterfaceBase</code></a></td><td>ApplicationInterfaceBase is an abstract base class in TaleWorlds.Engine that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../AsyncTask/"><code>AsyncTask</code></a></td><td>AsyncTask is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../BillboardType/"><code>BillboardType</code></a></td><td>BillboardType is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../BodyFlags/"><code>BodyFlags</code></a></td><td>BodyFlags is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../BoundingBox/"><code>BoundingBox</code></a></td><td>BoundingBox is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Camera/"><code>Camera</code></a></td><td>Camera is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../CapsuleData/"><code>CapsuleData</code></a></td><td>CapsuleData is a data carrier in TaleWorlds.Engine that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../ClothSimulatorComponent/"><code>ClothSimulatorComponent</code></a></td><td>ClothSimulatorComponent is a component-style object in TaleWorlds.Engine, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../ColorStyle/"><code>ColorStyle</code></a></td><td>ColorStyle is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ComponentType/"><code>ComponentType</code></a></td><td>ComponentType is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../CompositeComponent/"><code>CompositeComponent</code></a></td><td>CompositeComponent is a component-style object in TaleWorlds.Engine, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../CrashInformation/"><code>CrashInformation</code></a></td><td>CrashInformation is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../CrashInformationCollector/"><code>CrashInformationCollector</code></a></td><td>CrashInformationCollector is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../CrashInformationProvider/"><code>CrashInformationProvider</code></a></td><td>CrashInformationProvider is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Decal/"><code>Decal</code></a></td><td>Decal is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../DecalAtlasGroup/"><code>DecalAtlasGroup</code></a></td><td>DecalAtlasGroup is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../EditDataPolicy/"><code>EditDataPolicy</code></a></td><td>EditDataPolicy is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../EditorVisibleScriptComponentVariable/"><code>EditorVisibleScriptComponentVariable</code></a></td><td>EditorVisibleScriptComponentVariable is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../EngineApplicationInterface/"><code>EngineApplicationInterface</code></a></td><td>EngineApplicationInterface is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../EngineCallback/"><code>EngineCallback</code></a></td><td>EngineCallback is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../EngineController/"><code>EngineController</code></a></td><td>EngineController is a controller in TaleWorlds.Engine whose job is to drive the subsystem to its next state after receiving input.</td></tr>
+<tr><td><a href="../EngineExtensions/"><code>EngineExtensions</code></a></td><td>EngineExtensions is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../EngineFilePaths/"><code>EngineFilePaths</code></a></td><td>EngineFilePaths is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../EngineManaged/"><code>EngineManaged</code></a></td><td>EngineManaged is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../EngineRenderDisplayMode/"><code>EngineRenderDisplayMode</code></a></td><td>EngineRenderDisplayMode is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../EngineScreenManager/"><code>EngineScreenManager</code></a></td><td>EngineScreenManager is a manager in TaleWorlds.Engine that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../EntityFlags/"><code>EntityFlags</code></a></td><td>EntityFlags is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../EntityVisibilityFlags/"><code>EntityVisibilityFlags</code></a></td><td>EntityVisibilityFlags is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Face/"><code>Face</code></a></td><td>Face is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../FaceCorner/"><code>FaceCorner</code></a></td><td>FaceCorner is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../FloaterVolumeDynamicUpAxis/"><code>FloaterVolumeDynamicUpAxis</code></a></td><td>FloaterVolumeDynamicUpAxis is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ForceMode/"><code>ForceMode</code></a></td><td>ForceMode is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../FtlCapsuleData/"><code>FtlCapsuleData</code></a></td><td>FtlCapsuleData is a data carrier in TaleWorlds.Engine that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../GameEntity/"><code>GameEntity</code></a></td><td>GameEntity is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../GameEntityComponent/"><code>GameEntityComponent</code></a></td><td>GameEntityComponent is a component-style object in TaleWorlds.Engine, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../GameEntityPhysicsExtensions/"><code>GameEntityPhysicsExtensions</code></a></td><td>GameEntityPhysicsExtensions is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../GameEntityWithWorldPosition/"><code>GameEntityWithWorldPosition</code></a></td><td>GameEntityWithWorldPosition is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../HasTableauCache/"><code>HasTableauCache</code></a></td><td>HasTableauCache is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Highlights/"><code>Highlights</code></a></td><td>Highlights is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IAsyncTask/"><code>IAsyncTask</code></a></td><td>IAsyncTask is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IBodyPart/"><code>IBodyPart</code></a></td><td>IBodyPart is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ICamera/"><code>ICamera</code></a></td><td>ICamera is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IClothSimulatorComponent/"><code>IClothSimulatorComponent</code></a></td><td>IClothSimulatorComponent is a component-style object in TaleWorlds.Engine, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../ICompositeComponent/"><code>ICompositeComponent</code></a></td><td>ICompositeComponent is a component-style object in TaleWorlds.Engine, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../IConfig/"><code>IConfig</code></a></td><td>IConfig is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IDebug/"><code>IDebug</code></a></td><td>IDebug is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IDecal/"><code>IDecal</code></a></td><td>IDecal is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IEngineSizeChecker/"><code>IEngineSizeChecker</code></a></td><td>IEngineSizeChecker is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IGameEntity/"><code>IGameEntity</code></a></td><td>IGameEntity is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IGameEntityComponent/"><code>IGameEntityComponent</code></a></td><td>IGameEntityComponent is a component-style object in TaleWorlds.Engine, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../IHighlights/"><code>IHighlights</code></a></td><td>IHighlights is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IImgui/"><code>IImgui</code></a></td><td>IImgui is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IInput/"><code>IInput</code></a></td><td>IInput is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ILight/"><code>ILight</code></a></td><td>ILight is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ILoadingWindowHandler/"><code>ILoadingWindowHandler</code></a></td><td>ILoadingWindowHandler is a handler in TaleWorlds.Engine that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../ILoadingWindowManager/"><code>ILoadingWindowManager</code></a></td><td>ILoadingWindowManager is a manager in TaleWorlds.Engine that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../IManagedMeshEditOperations/"><code>IManagedMeshEditOperations</code></a></td><td>IManagedMeshEditOperations is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IMaterial/"><code>IMaterial</code></a></td><td>IMaterial is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IMesh/"><code>IMesh</code></a></td><td>IMesh is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IMeshBuilder/"><code>IMeshBuilder</code></a></td><td>IMeshBuilder is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IMetaMesh/"><code>IMetaMesh</code></a></td><td>IMetaMesh is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Imgui/"><code>Imgui</code></a></td><td>Imgui is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IMouseManager/"><code>IMouseManager</code></a></td><td>IMouseManager is a manager in TaleWorlds.Engine that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../IMusic/"><code>IMusic</code></a></td><td>IMusic is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../InputLayout/"><code>InputLayout</code></a></td><td>InputLayout is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Intersection/"><code>Intersection</code></a></td><td>Intersection is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IntersectionDetails/"><code>IntersectionDetails</code></a></td><td>IntersectionDetails is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IntersectionType/"><code>IntersectionType</code></a></td><td>IntersectionType is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IParticleSystem/"><code>IParticleSystem</code></a></td><td>IParticleSystem is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IPath/"><code>IPath</code></a></td><td>IPath is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IPhysicsMaterial/"><code>IPhysicsMaterial</code></a></td><td>IPhysicsMaterial is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IPhysicsShape/"><code>IPhysicsShape</code></a></td><td>IPhysicsShape is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IScene/"><code>IScene</code></a></td><td>IScene is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ISceneView/"><code>ISceneView</code></a></td><td>ISceneView is a view-layer object in TaleWorlds.Engine responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../IScreen/"><code>IScreen</code></a></td><td>IScreen is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IScriptComponent/"><code>IScriptComponent</code></a></td><td>IScriptComponent is a component-style object in TaleWorlds.Engine, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../IShader/"><code>IShader</code></a></td><td>IShader is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ISkeleton/"><code>ISkeleton</code></a></td><td>ISkeleton is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ISoundEvent/"><code>ISoundEvent</code></a></td><td>ISoundEvent is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ISoundManager/"><code>ISoundManager</code></a></td><td>ISoundManager is a manager in TaleWorlds.Engine that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../ITableauView/"><code>ITableauView</code></a></td><td>ITableauView is a view-layer object in TaleWorlds.Engine responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../ITexture/"><code>ITexture</code></a></td><td>ITexture is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ITextureView/"><code>ITextureView</code></a></td><td>ITextureView is a view-layer object in TaleWorlds.Engine responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../IThumbnailCreatorView/"><code>IThumbnailCreatorView</code></a></td><td>IThumbnailCreatorView is a view-layer object in TaleWorlds.Engine responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../ITime/"><code>ITime</code></a></td><td>ITime is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ITwoDimensionView/"><code>ITwoDimensionView</code></a></td><td>ITwoDimensionView is a view-layer object in TaleWorlds.Engine responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../IUtil/"><code>IUtil</code></a></td><td>IUtil is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../IVideoPlayerView/"><code>IVideoPlayerView</code></a></td><td>IVideoPlayerView is a view-layer object in TaleWorlds.Engine responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../IView/"><code>IView</code></a></td><td>IView is a view-layer object in TaleWorlds.Engine responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../Job/"><code>Job</code></a></td><td>Job is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../JobManager/"><code>JobManager</code></a></td><td>JobManager is a manager in TaleWorlds.Engine that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../Light/"><code>Light</code></a></td><td>Light is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../LoadingWindow/"><code>LoadingWindow</code></a></td><td>LoadingWindow is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../LoadingWindowHandler/"><code>LoadingWindowHandler</code></a></td><td>LoadingWindowHandler is a handler in TaleWorlds.Engine that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../MainThreadPerformanceQuery/"><code>MainThreadPerformanceQuery</code></a></td><td>MainThreadPerformanceQuery is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ManagedExtensions/"><code>ManagedExtensions</code></a></td><td>ManagedExtensions is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ManagedMeshEditOperations/"><code>ManagedMeshEditOperations</code></a></td><td>ManagedMeshEditOperations is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ManagedScriptComponent/"><code>ManagedScriptComponent</code></a></td><td>ManagedScriptComponent is a component-style object in TaleWorlds.Engine, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../ManagedScriptHolder/"><code>ManagedScriptHolder</code></a></td><td>ManagedScriptHolder is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Material/"><code>Material</code></a></td><td>Material is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../MaterialFlags/"><code>MaterialFlags</code></a></td><td>MaterialFlags is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../MBAlphaBlendMode/"><code>MBAlphaBlendMode</code></a></td><td>MBAlphaBlendMode is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../MBDebug/"><code>MBDebug</code></a></td><td>MBDebug is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../MBMeshCullingMode/"><code>MBMeshCullingMode</code></a></td><td>MBMeshCullingMode is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../MBMouseButtonState/"><code>MBMouseButtonState</code></a></td><td>MBMouseButtonState is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../MBTextureType/"><code>MBTextureType</code></a></td><td>MBTextureType is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Mesh/"><code>Mesh</code></a></td><td>Mesh is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../MeshBuilder/"><code>MeshBuilder</code></a></td><td>MeshBuilder is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../MessageBoxTypeFlag/"><code>MessageBoxTypeFlag</code></a></td><td>MessageBoxTypeFlag is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../MessageManagerBase/"><code>MessageManagerBase</code></a></td><td>MessageManagerBase is an abstract base class in TaleWorlds.Engine that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../MetaMesh/"><code>MetaMesh</code></a></td><td>MetaMesh is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Mobility/"><code>Mobility</code></a></td><td>Mobility is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../MouseManager/"><code>MouseManager</code></a></td><td>MouseManager is a manager in TaleWorlds.Engine that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../Music/"><code>Music</code></a></td><td>Music is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../NativeConfig/"><code>NativeConfig</code></a></td><td>NativeConfig is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../NativeParallelDriver/"><code>NativeParallelDriver</code></a></td><td>NativeParallelDriver is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../NativeScriptComponent/"><code>NativeScriptComponent</code></a></td><td>NativeScriptComponent is a component-style object in TaleWorlds.Engine, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../ParticleSystem/"><code>ParticleSystem</code></a></td><td>ParticleSystem is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ParticleSystemManager/"><code>ParticleSystemManager</code></a></td><td>ParticleSystemManager is a manager in TaleWorlds.Engine that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../Path/"><code>Path</code></a></td><td>Path is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../PerformanceAnalyzer/"><code>PerformanceAnalyzer</code></a></td><td>PerformanceAnalyzer is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../PhysicsContact/"><code>PhysicsContact</code></a></td><td>PhysicsContact is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../PhysicsContactInfo/"><code>PhysicsContactInfo</code></a></td><td>PhysicsContactInfo is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../PhysicsContactPair/"><code>PhysicsContactPair</code></a></td><td>PhysicsContactPair is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../PhysicsEventType/"><code>PhysicsEventType</code></a></td><td>PhysicsEventType is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../PhysicsJoint/"><code>PhysicsJoint</code></a></td><td>PhysicsJoint is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../PhysicsMaterial/"><code>PhysicsMaterial</code></a></td><td>PhysicsMaterial is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../PhysicsMaterialFlags/"><code>PhysicsMaterialFlags</code></a></td><td>PhysicsMaterialFlags is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../PhysicsShape/"><code>PhysicsShape</code></a></td><td>PhysicsShape is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../PostfxConfig/"><code>PostfxConfig</code></a></td><td>PostfxConfig is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../RagdollState/"><code>RagdollState</code></a></td><td>RagdollState is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../RenderTargetComponent/"><code>RenderTargetComponent</code></a></td><td>RenderTargetComponent is a component-style object in TaleWorlds.Engine, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../Resource/"><code>Resource</code></a></td><td>Resource is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../RglScriptFieldType/"><code>RglScriptFieldType</code></a></td><td>RglScriptFieldType is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Scene/"><code>Scene</code></a></td><td>Scene is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../SceneInitializationData/"><code>SceneInitializationData</code></a></td><td>SceneInitializationData is a data carrier in TaleWorlds.Engine that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../SceneProblemChecker/"><code>SceneProblemChecker</code></a></td><td>SceneProblemChecker is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../SceneView/"><code>SceneView</code></a></td><td>SceneView is a view-layer object in TaleWorlds.Engine responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../Screen/"><code>Screen</code></a></td><td>Screen is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ScreenManagerEngineConnection/"><code>ScreenManagerEngineConnection</code></a></td><td>ScreenManagerEngineConnection is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ScriptComponent/"><code>ScriptComponent</code></a></td><td>ScriptComponent is a component-style object in TaleWorlds.Engine, typically attached to an Agent or entity to hold localized behavior.</td></tr>
+<tr><td><a href="../ScriptComponentBehavior/"><code>ScriptComponentBehavior</code></a></td><td>ScriptComponentBehavior is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ScriptComponentFieldHolder/"><code>ScriptComponentFieldHolder</code></a></td><td>ScriptComponentFieldHolder is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Shader/"><code>Shader</code></a></td><td>Shader is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ShadowType/"><code>ShadowType</code></a></td><td>ShadowType is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Significance/"><code>Significance</code></a></td><td>Significance is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../SimpleButton/"><code>SimpleButton</code></a></td><td>SimpleButton is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Skeleton/"><code>Skeleton</code></a></td><td>Skeleton is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../SoundEvent/"><code>SoundEvent</code></a></td><td>SoundEvent is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../SoundEventParameter/"><code>SoundEventParameter</code></a></td><td>SoundEventParameter is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../SoundManager/"><code>SoundManager</code></a></td><td>SoundManager is a manager in TaleWorlds.Engine that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../SphereData/"><code>SphereData</code></a></td><td>SphereData is a data carrier in TaleWorlds.Engine that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../TableauView/"><code>TableauView</code></a></td><td>TableauView is a view-layer object in TaleWorlds.Engine responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../TextFlags/"><code>TextFlags</code></a></td><td>TextFlags is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Texture/"><code>Texture</code></a></td><td>Texture is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../TextureSaveFormat/"><code>TextureSaveFormat</code></a></td><td>TextureSaveFormat is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../TextureView/"><code>TextureView</code></a></td><td>TextureView is a view-layer object in TaleWorlds.Engine responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../ThumbnailCreatorView/"><code>ThumbnailCreatorView</code></a></td><td>ThumbnailCreatorView is a view-layer object in TaleWorlds.Engine responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../ThumbnailRenderRequest/"><code>ThumbnailRenderRequest</code></a></td><td>ThumbnailRenderRequest is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../TickRequirement/"><code>TickRequirement</code></a></td><td>TickRequirement is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Time/"><code>Time</code></a></td><td>Time is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../TransformedBoundingBoxPointsContainer/"><code>TransformedBoundingBoxPointsContainer</code></a></td><td>TransformedBoundingBoxPointsContainer is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../TwoDimensionMeshDrawData/"><code>TwoDimensionMeshDrawData</code></a></td><td>TwoDimensionMeshDrawData is a data carrier in TaleWorlds.Engine that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../TwoDimensionTextMeshDrawData/"><code>TwoDimensionTextMeshDrawData</code></a></td><td>TwoDimensionTextMeshDrawData is a data carrier in TaleWorlds.Engine that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../TwoDimensionView/"><code>TwoDimensionView</code></a></td><td>TwoDimensionView is a view-layer object in TaleWorlds.Engine responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../UpgradeLevelMask/"><code>UpgradeLevelMask</code></a></td><td>UpgradeLevelMask is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../Utilities/"><code>Utilities</code></a></td><td>Utilities is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../VideoPlayerView/"><code>VideoPlayerView</code></a></td><td>VideoPlayerView is a view-layer object in TaleWorlds.Engine responsible for projecting game state onto a screen or scene.</td></tr>
+<tr><td><a href="../View/"><code>View</code></a></td><td>View is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ViewRenderOptions/"><code>ViewRenderOptions</code></a></td><td>ViewRenderOptions is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../VisibilityMaskFlags/"><code>VisibilityMaskFlags</code></a></td><td>VisibilityMaskFlags is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../VolumeDataForSubmergeComputation/"><code>VolumeDataForSubmergeComputation</code></a></td><td>VolumeDataForSubmergeComputation is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../WeakGameEntity/"><code>WeakGameEntity</code></a></td><td>WeakGameEntity is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../WorldFrame/"><code>WorldFrame</code></a></td><td>WorldFrame is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../WorldPosition/"><code>WorldPosition</code></a></td><td>WorldPosition is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../WorldPositionEnforcedCache/"><code>WorldPositionEnforcedCache</code></a></td><td>WorldPositionEnforcedCache is a public type in TaleWorlds.Engine.</td></tr>
+<tr><td><a href="../ZValidityState/"><code>ZValidityState</code></a></td><td>ZValidityState is a public type in TaleWorlds.Engine.</td></tr>
+</tbody></table>
+<h2 id="other-subsystems-in-this-area">Other subsystems in this area</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/engine/root/./../gauntletui/">GauntletUI</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/engine/root/./../inputsystem/">InputSystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/engine/root/./../options/">Options</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

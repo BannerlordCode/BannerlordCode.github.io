@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MissionLogic</title>
+  <meta name="description" content="MissionBehavior subclass for win&#x2F;lose and end-of-mission: MissionEnded, leave confirmation, battle results. Agent-death hooks come from the base class.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/MissionLogic/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/MissionLogic/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/MissionLogic/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/MissionLogic/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/MissionLogic/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/MissionLogic/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MissionLogic</span>
+    </nav>
+  
+  <h1>MissionLogic</h1>
+  <h1 id="missionlogic">MissionLogic</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade<br />
+<strong>Module:</strong> TaleWorlds.MountAndBlade<br />
+<strong>Type:</strong> <code>public abstract class MissionLogic : MissionBehavior</code><br />
+<strong>Base:</strong> <a href="../../mission/MissionBehavior">MissionBehavior</a><br />
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/MissionLogic.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>MissionLogic</code> is the <strong>logic subclass</strong> of <code>MissionBehavior</code>. It owns "when does this Mission end, what is the result, can the player leave?" style duties.</p>
+<p>The source itself is thin (a set of empty <code>virtual</code>s). Real win/lose rules live in subclasses, for example vanilla <a href="../BattleEndLogic">BattleEndLogic</a>. In <code>Mission.CheckMissionEnded</code> the engine walks <code>Mission.MissionLogics</code> and calls <code>MissionEnded(ref MissionResult)</code> on each. The first <code>true</code> marks <code>MissionEnded</code> and raises <code>OnMissionResultReady</code>.</p>
+<p><strong>Agent death, Tick, create</strong> hooks are <strong>not</strong> new on <code>MissionLogic</code>. They come from <code>MissionBehavior</code> (<code>OnAgentRemoved</code>, <code>OnMissionTick</code>, and friends). You pick <code>MissionLogic</code> because you need the <code>MissionLogics</code> list and the end protocol. If you only count kills, a plain <code>MissionBehavior</code> (<code>BehaviorType.Other</code>) is usually the better fit.</p>
+<h2 id="mental-model">Mental Model</h2>
+<pre><code>MissionBehavior                    ← general scene plugin (Tick / Agent events)
+       │
+       └── MissionLogic            ← BehaviorType = Logic
+              │                    ← enters Mission.MissionLogics
+              ├── BattleEndLogic   ← vanilla field-battle end
+              ├── BasicLeaveMissionLogic
+              └── your custom end conditions
+</code></pre>
+<table><thead><tr><th>Dimension</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Lifetime</td><td>One Mission; <code>AddMissionBehavior</code> also adds to <code>MissionLogics</code> when <code>BehaviorType == Logic</code></td></tr>
+<tr><td>Who creates</td><td>Mission start path / <code>MissionGameStarter</code> / runtime <code>Mission.Current.AddMissionBehavior</code></td></tr>
+<tr><td>Layer</td><td>Mission</td></tr>
+<tr><td>End protocol</td><td><code>MissionEnded</code> → write <code>MissionResult</code> → <code>OnMissionResultReady</code> → optional <code>ShowBattleResults</code> / <code>OnBattleEnded</code></td></tr>
+</tbody></table>
+<h3 id="when-to-use">When to use</h3>
+<ul>
+<li>Custom win/lose conditions (kill a boss, hold a point, timeout)</li>
+<li>Intercept "player presses leave": <code>OnEndMissionRequest</code> returns a confirm dialog or <code>canLeave = false</code></li>
+<li>Retreat / surrender campaign write-back hooks (<code>OnRetreatMission</code> / <code>OnSurrenderMission</code>)</li>
+<li>You need <code>Mission.GetMissionBehavior&lt;YourLogic&gt;()</code> and to be scanned by the end check</li>
+</ul>
+<h3 id="when-not-to-use">When not to use</h3>
+<table><thead><tr><th>Don't</th><th>Use instead</th></tr></thead><tbody>
+<tr><td>Only listen for kills, no end decision</td><td>Inherit <code>MissionBehavior</code>, <code>BehaviorType = Other</code></td></tr>
+<tr><td>Heavy kingdom/hero mutation inside <code>OnAgentRemoved</code> and assume it's safe</td><td>Put campaign Actions in post-battle write-back; see <a href="../../../architecture/crash-boundaries">crash boundaries</a></td></tr>
+<tr><td>Multiple Logics all return <code>MissionEnded == true</code> with conflicting results</td><td>One authoritative end Logic, or coordinate <code>MissionResult</code></td></tr>
+<tr><td>Treat it like <code>CampaignBehaviorBase</code> (long-lived save state)</td><td>Campaign behavior + <code>SyncData</code>; MissionLogic is not saved</td></tr>
+<tr><td>Forget to register, yet expect <code>CheckMissionEnded</code> to call you</td><td>Must <code>AddMissionBehavior</code>; base already fixes <code>BehaviorType.Logic</code></td></tr>
+</tbody></table>
+<h2 id="dependencies">Dependencies</h2>
+<pre><code>Mission
+  ├── MissionBehaviors (all behaviors)
+  ├── MissionLogics (MissionLogic only)
+  │     └── CheckMissionEnded() polls MissionEnded(ref result)
+  └── MissionResult / MissionEnded flag
+</code></pre>
+<table><thead><tr><th>Direction</th><th>Type</th><th>Relationship</th></tr></thead><tbody>
+<tr><td>Upstream</td><td><a href="../../mission/Mission">Mission</a></td><td><code>AddMissionBehavior</code>, <code>MissionLogics</code>, <code>CheckMissionEnded</code></td></tr>
+<tr><td>Base</td><td><a href="../../mission/MissionBehavior">MissionBehavior</a></td><td>Agent / Tick / lifecycle hooks</td></tr>
+<tr><td>Downstream example</td><td><a href="../BattleEndLogic">BattleEndLogic</a></td><td>Vanilla field-battle end</td></tr>
+<tr><td>Collaborators</td><td><a href="../../mission/Team">Team</a> / <a href="../../mission/Agent">Agent</a></td><td>End conditions often read team and unit state</td></tr>
+<tr><td>Write-back</td><td>Campaign / MapEvent (via SandBox mission controllers)</td><td>Battle results return to the map; don't thrash the world mid-fight</td></tr>
+</tbody></table>
+<h2 id="risks-and-crash-boundaries">Risks and crash boundaries</h2>
+<ol>
+<li><strong>Mission-only:</strong> the <code>Mission</code> property is <code>null</code> after <code>RemoveMissionBehavior</code>.</li>
+<li><strong><code>MissionEnded</code> is the authority switch:</strong> returning <code>true</code> sets <code>Mission.MissionEnded</code> and dispatches the result; false positives end the fight early.</li>
+<li><strong>Agent hook timing:</strong> in <code>OnAgentRemoved</code> the Agent is already leaving. Don't cache the reference long-term; persist Hero ids across battles. See <a href="../../../architecture/crash-boundaries">crash boundaries §4</a>.</li>
+<li><strong>No unguarded <code>ChangeKingdomAction</code> / map reshuffles in death callbacks:</strong> re-entrancy and bad saves. Push campaign consequences to <code>OnMissionResultReady</code> / map-side events.</li>
+<li><strong><code>OnEndMissionRequest</code>:</strong> <code>canLeave = false</code> blocks leave; forgetting to restore traps the player in the scene.</li>
+<li><strong>Coexistence with <code>BattleEndLogic</code>:</strong> vanilla fights already have an end Logic. If you add another, decide who returns <code>true</code> first, or disable/replace the default (advanced, easy to break compat).</li>
+</ol>
+<h2 id="how-to-register">How to register</h2>
+<h3 id="path-a-mission-starter-preferred-before-combat">Path A: Mission starter (preferred, before combat)</h3>
+<pre><code data-lang="csharp">// In the factory or MissionGameStarter path that builds/opens the Mission:
+missionStarter.AddBehavior(new MyBossFightLogic());
+</code></pre>
+<h3 id="path-b-attach-at-runtime-to-the-current-mission">Path B: Attach at runtime to the current Mission</h3>
+<pre><code data-lang="csharp">Mission mission = Mission.Current;
+if (mission == null)
+{
+    return;
+}
+
+if (mission.GetMissionBehavior&lt;MyBossFightLogic&gt;() == null)
+{
+    mission.AddMissionBehavior(new MyBossFightLogic());
+}
+</code></pre>
+<p><code>AddMissionBehavior</code> source outline: sets <code>behavior.Mission = this</code>, if <code>BehaviorType == Logic</code> then <code>MissionLogics.Add</code>, then <code>OnCreated()</code>.</p>
+<h3 id="path-c-query-an-existing-logic">Path C: Query an existing Logic</h3>
+<pre><code data-lang="csharp">BattleEndLogic endLogic = Mission.Current?.GetMissionBehavior&lt;BattleEndLogic&gt;();
+bool playerWon = endLogic != null &amp;&amp; endLogic.PlayerVictory;
+</code></pre>
+<h2 id="key-members">Key members</h2>
+<blockquote>
+<p><code>MissionLogic.cs</code> only defines the virtuals below. <strong>Tick / OnAgentRemoved and friends live on the base class.</strong></p>
+</blockquote>
+<table><thead><tr><th>Member</th><th>Purpose and timing</th></tr></thead><tbody>
+<tr><td><code>BehaviorType</code></td><td>Always <code>MissionBehaviorType.Logic</code> (don't change to Other in a subclass or you leave <code>MissionLogics</code>)</td></tr>
+<tr><td><code>MissionEnded(ref MissionResult missionResult)</code></td><td><strong>Core.</strong> Return <code>true</code> when the mission should end and fill the result via <code>ref</code>; default <code>false</code></td></tr>
+<tr><td><code>OnMissionResultReady(MissionResult)</code></td><td>After the result is written on Mission; prep UI or cache the result</td></tr>
+<tr><td><code>OnBattleEnded()</code></td><td>Battle flow wrap-up (subclass as needed)</td></tr>
+<tr><td><code>ShowBattleResults()</code></td><td>Moment to show battle-result UI</td></tr>
+<tr><td><code>OnEndMissionRequest(out bool canLeave)</code></td><td>Player asked to leave; return <code>InquiryData</code> for a confirm; default <code>canLeave = true</code>, return <code>null</code></td></tr>
+<tr><td><code>OnRetreatMission()</code></td><td>Retreat path</td></tr>
+<tr><td><code>OnSurrenderMission()</code></td><td>Surrender path</td></tr>
+<tr><td><code>OnAutoDeployTeam(Team)</code></td><td>When a Team auto-deploys</td></tr>
+<tr><td><code>GetExtraEquipmentElementsForCharacter(...)</code></td><td>Extra equipment elements for a character; default <code>null</code></td></tr>
+</tbody></table>
+<h3 id="inherited-from-missionbehavior-useful-for-end-logic">Inherited from MissionBehavior, useful for end logic</h3>
+<table><thead><tr><th>Hook</th><th>Typical use</th></tr></thead><tbody>
+<tr><td><code>OnBehaviorInitialize</code> / <code>AfterStart</code></td><td>Grab <code>IMissionAgentSpawnLogic</code>, cache Teams</td></tr>
+<tr><td><code>OnMissionTick</code></td><td>Poll custom objectives (watch performance)</td></tr>
+<tr><td><code>OnAgentRemoved</code></td><td>Record kills, flag boss death; still return the real end from <code>MissionEnded</code></td></tr>
+<tr><td><code>OnEndMission</code></td><td>Clear Agent caches</td></tr>
+</tbody></table>
+<h2 id="real-examples">Real examples</h2>
+<h3 id="example-1-custom-logic-that-wins-when-a-boss-dies">Example 1: Custom Logic that wins when a boss dies</h3>
+<pre><code data-lang="csharp">using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public sealed class BossKillMissionLogic : MissionLogic
+{
+    private bool _bossDead;
+    private bool _resultSent;
+
+    public override void OnAgentRemoved(
+        Agent affectedAgent,
+        Agent affectorAgent,
+        AgentState agentState,
+        KillingBlow blow)
+    {
+        // Use Character string id; don&#39;t keep Agent refs past mission end
+        if (affectedAgent?.Character != null
+            &amp;&amp; affectedAgent.Character.StringId == &quot;my_mod_boss&quot;)
+        {
+            _bossDead = true;
+        }
+    }
+
+    public override bool MissionEnded(ref MissionResult missionResult)
+    {
+        if (!_bossDead || _resultSent)
+        {
+            return false;
+        }
+
+        _resultSent = true;
+        // Prefer the factory over hand-building BattleState
+        missionResult = MissionResult.CreateSuccessful(Mission.Current, enemyRetreated: false);
+        return true;
+    }
+
+    public override void OnMissionResultReady(MissionResult missionResult)
+    {
+        InformationManager.DisplayMessage(
+            new InformationMessage(missionResult.PlayerVictory
+                ? &quot;Boss defeated. Mission complete.&quot;
+                : &quot;Mission ended.&quot;));
+    }
+
+    protected override void OnEndMission()
+    {
+        _bossDead = false;
+        _resultSent = false;
+    }
+}
+</code></pre>
+<p>Register:</p>
+<pre><code data-lang="csharp">Mission.Current?.AddMissionBehavior(new BossKillMissionLogic());
+</code></pre>
+<h3 id="example-2-confirm-before-leave-stop-accidental-exit">Example 2: Confirm before leave (stop accidental exit)</h3>
+<pre><code data-lang="csharp">public sealed class ConfirmLeaveLogic : MissionLogic
+{
+    public override InquiryData OnEndMissionRequest(out bool canLeave)
+    {
+        if (Mission.Current != null
+            &amp;&amp; Mission.Current.MainAgent != null
+            &amp;&amp; Mission.Current.MainAgent.Health &lt; Mission.Current.MainAgent.HealthLimit * 0.3f)
+        {
+            canLeave = false;
+            return new InquiryData(
+                &quot;Confirm leave&quot;,
+                &quot;You are badly wounded. Leave the battlefield anyway?&quot;,
+                true,
+                true,
+                &quot;Leave&quot;,
+                &quot;Stay&quot;,
+                () =&gt; { canLeave = true; Mission.Current.EndMission(); },
+                null);
+        }
+
+        canLeave = true;
+        return null;
+    }
+}
+</code></pre>
+<blockquote>
+<p>In real projects, match <code>EndMission</code> / confirm callback signatures to your target version's <code>InquiryData</code> and Mission API. The point: <strong>drive leave with <code>canLeave</code> and Inquiry, don't silently swallow input.</strong></p>
+</blockquote>
+<h3 id="example-3-kill-feed-only-don-t-force-missionlogic">Example 3: Kill feed only. Don't force MissionLogic</h3>
+<pre><code data-lang="csharp">public sealed class KillFeedBehavior : MissionBehavior
+{
+    public override MissionBehaviorType BehaviorType =&gt; MissionBehaviorType.Other;
+
+    public override void OnAgentRemoved(
+        Agent affectedAgent,
+        Agent affectorAgent,
+        AgentState agentState,
+        KillingBlow blow)
+    {
+        if (affectorAgent != null &amp;&amp; affectorAgent.IsMainAgent &amp;&amp; affectedAgent != null)
+        {
+            InformationManager.DisplayMessage(
+                new InformationMessage($&quot;Killed {affectedAgent.Name}&quot;));
+        }
+    }
+}
+</code></pre>
+<h2 id="cross-version-notes">Cross-version notes</h2>
+<ul>
+<li>The <code>MissionLogic</code> abstract surface is stable from 1.3.x through 1.4.5: <code>MissionEnded</code> / <code>OnMissionResultReady</code> / <code>OnEndMissionRequest</code>.</li>
+<li><code>MissionResult</code> constructor parameters can shift by version; for cross-version mods check the target assembly, or reuse vanilla <code>BattleEndLogic</code>'s result path.</li>
+<li>Sandbox campaign fights usually end via SandBox mission controllers plus <code>BattleEndLogic</code>. If you replace that, test MapEvent settlement after return to the map.</li>
+</ul>
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/mission-ext/MissionLogic/./">mission-ext index</a></li>
+<li><a href="../">API root</a></li>
+<li><a href="../../../architecture/crash-boundaries">Crash and save boundaries</a></li>
+</ul>
+<h2 id="twisted-rightwards-arrows-sibling-navigation">🔀 Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>Relationship</th></tr></thead><tbody>
+<tr><td><a href="../../mission/MissionBehavior">MissionBehavior</a></td><td>Base: Agent/Tick hooks</td></tr>
+<tr><td><a href="../BattleEndLogic">BattleEndLogic</a></td><td>Vanilla end implementation</td></tr>
+<tr><td><a href="../../mission/Mission">Mission</a></td><td><code>AddMissionBehavior</code> / <code>MissionLogics</code></td></tr>
+<tr><td><a href="../../mission/Team">Team</a></td><td>Team state end conditions often read</td></tr>
+<tr><td><a href="../../mission/Agent">Agent</a></td><td>Death and alive checks</td></tr>
+</tbody></table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../../../guide/mission-system">Mission system guide</a></li>
+<li><a href="../../../architecture/module-system">Module system</a> — when behaviors register</li>
+<li><a href="../../../architecture/sdk-overview">SDK overview</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/mission-ext/">mission-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/mission-ext/ApplyWeatherEffectsModel/">&larr; ApplyWeatherEffectsModel</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/mission-ext/LadderState/">LadderState &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

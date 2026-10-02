@@ -640,4 +640,4 @@ public sealed class Warden : MissionBehavior
 - Behavior 基类：[MissionBehavior](../MissionBehavior) — 所有战斗逻辑的官方扩展点。
 - 战役侧对应物：[Hero](../../campaign/Hero) — `IsHero` 为真时对应的那个人。
 - 事件桥：[CampaignEvents](../../campaign/CampaignEvents) — `OnMissionStartedEvent` / `OnMissionEndedEvent` 把任务与战役接起来。
-- 父级：mission API 目录导览位于版本根 `../../../`。
+- 父级：[mission API 目录导览](../)

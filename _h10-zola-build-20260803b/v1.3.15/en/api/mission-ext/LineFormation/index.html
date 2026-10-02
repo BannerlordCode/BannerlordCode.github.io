@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LineFormation</title>
+  <meta name="description" content="Auto-generated class reference for LineFormation.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/LineFormation/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/LineFormation/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/LineFormation/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/LineFormation/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/LineFormation/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/LineFormation/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">LineFormation</span>
+    </nav>
+  
+  <h1>LineFormation</h1>
+  <h1 id="lineformation">LineFormation</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public class LineFormation : IFormationArrangement</code>
+<strong>Base:</strong> <code>IFormationArrangement</code>
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/LineFormation.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>LineFormation</code> lives in <code>TaleWorlds.MountAndBlade</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.MountAndBlade</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>RankCount</code></td><td><code>public int RankCount { get; set; }</code></td></tr>
+<tr><td><code>AreLocalPositionsDirty</code></td><td><code>public bool AreLocalPositionsDirty { get; set; }</code></td></tr>
+<tr><td><code>IntervalMultiplier</code></td><td><code>public virtual float IntervalMultiplier { get; }</code></td></tr>
+<tr><td><code>DistanceMultiplier</code></td><td><code>public virtual float DistanceMultiplier { get; }</code></td></tr>
+<tr><td><code>Width</code></td><td><code>public virtual float Width { get; set; }</code></td></tr>
+<tr><td><code>Depth</code></td><td><code>public virtual float Depth { get; set; }</code></td></tr>
+<tr><td><code>FlankWidth</code></td><td><code>public float FlankWidth { get; set; }</code></td></tr>
+<tr><td><code>RankDepth</code></td><td><code>public float RankDepth { get; }</code></td></tr>
+<tr><td><code>MinimumFlankWidth</code></td><td><code>public float MinimumFlankWidth { get; }</code></td></tr>
+<tr><td><code>MinimumWidth</code></td><td><code>public virtual float MinimumWidth { get; }</code></td></tr>
+<tr><td><code>MaximumWidth</code></td><td><code>public virtual float MaximumWidth { get; }</code></td></tr>
+<tr><td><code>IsStaggered</code></td><td><code>public bool IsStaggered { get; set; }</code></td></tr>
+<tr><td><code>IsLoose</code></td><td><code>public virtual bool? IsLoose { get; set; }</code></td></tr>
+<tr><td><code>PostponeReconstructUnitsFromUnits2D</code></td><td><code>public bool PostponeReconstructUnitsFromUnits2D { get; set; }</code></td></tr>
+<tr><td><code>UnitCount</code></td><td><code>public int UnitCount { get; }</code></td></tr>
+<tr><td><code>PositionedUnitCount</code></td><td><code>public int PositionedUnitCount { get; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="getfilecountfromwidth">GetFileCountFromWidth</h3>
+<p><code>public int GetFileCountFromWidth(float width)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the file count from width value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetFileCountFromWidth(0);
+</code></pre>
+<h3 id="clone">Clone</h3>
+<p><code>public virtual IFormationArrangement Clone(IFormation formation)</code></p>
+<p><strong>Purpose:</strong> Duplicates the this instance's state and returns a new instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.Clone(formation);
+</code></pre>
+<h3 id="deepcopyfrom">DeepCopyFrom</h3>
+<p><code>public virtual void DeepCopyFrom(IFormationArrangement arrangement)</code></p>
+<p><strong>Purpose:</strong> Executes the DeepCopyFrom logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.DeepCopyFrom(arrangement);
+</code></pre>
+<h3 id="reset">Reset</h3>
+<p><code>public void Reset()</code></p>
+<p><strong>Purpose:</strong> Returns the this instance to its default or initial condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.Reset();
+</code></pre>
+<h3 id="isunitpositionavailable">IsUnitPositionAvailable</h3>
+<p><code>public bool IsUnitPositionAvailable(int fileIndex, int rankIndex)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the unit position available state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.IsUnitPositionAvailable(0, 0);
+</code></pre>
+<h3 id="getlocalpositionofunitordefault">GetLocalPositionOfUnitOrDefault</h3>
+<p><code>public Vec2? GetLocalPositionOfUnitOrDefault(int unitIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local position of unit or default value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetLocalPositionOfUnitOrDefault(0);
+</code></pre>
+<h3 id="getlocaldirectionofunitordefault">GetLocalDirectionOfUnitOrDefault</h3>
+<p><code>public Vec2? GetLocalDirectionOfUnitOrDefault(int unitIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local direction of unit or default value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetLocalDirectionOfUnitOrDefault(0);
+</code></pre>
+<h3 id="getworldpositionofunitordefault">GetWorldPositionOfUnitOrDefault</h3>
+<p><code>public WorldPosition? GetWorldPositionOfUnitOrDefault(int unitIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the world position of unit or default value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetWorldPositionOfUnitOrDefault(0);
+</code></pre>
+<h3 id="getunavailableunitpositions">GetUnavailableUnitPositions</h3>
+<p><code>public IEnumerable&lt;Vec2&gt; GetUnavailableUnitPositions()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the unavailable unit positions value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetUnavailableUnitPositions();
+</code></pre>
+<h3 id="addunit">AddUnit</h3>
+<p><code>public bool AddUnit(IFormationUnit unit)</code></p>
+<p><strong>Purpose:</strong> Adds unit to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.AddUnit(unit);
+</code></pre>
+<h3 id="removeunit">RemoveUnit</h3>
+<p><code>public void RemoveUnit(IFormationUnit unit)</code></p>
+<p><strong>Purpose:</strong> Removes unit from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.RemoveUnit(unit);
+</code></pre>
+<h3 id="getunit">GetUnit</h3>
+<p><code>public IFormationUnit GetUnit(int fileIndex, int rankIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the unit value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetUnit(0, 0);
+</code></pre>
+<h3 id="onbatchremovestart">OnBatchRemoveStart</h3>
+<p><code>public void OnBatchRemoveStart()</code></p>
+<p><strong>Purpose:</strong> Invoked when the batch remove start event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.OnBatchRemoveStart();
+</code></pre>
+<h3 id="onbatchremoveend">OnBatchRemoveEnd</h3>
+<p><code>public void OnBatchRemoveEnd()</code></p>
+<p><strong>Purpose:</strong> Invoked when the batch remove end event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.OnBatchRemoveEnd();
+</code></pre>
+<h3 id="getunitstopop">GetUnitsToPop</h3>
+<p><code>public List&lt;IFormationUnit&gt; GetUnitsToPop(int count)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the units to pop value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetUnitsToPop(0);
+</code></pre>
+<h3 id="getunitstopopwithcondition">GetUnitsToPopWithCondition</h3>
+<p><code>public IEnumerable&lt;IFormationUnit&gt; GetUnitsToPopWithCondition(int count, Func&lt;IFormationUnit, bool&gt; currentCondition)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the units to pop with condition value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetUnitsToPopWithCondition(0, func&lt;IFormationUnit, false);
+</code></pre>
+<h3 id="getunitstopop-1">GetUnitsToPop</h3>
+<p><code>public List&lt;IFormationUnit&gt; GetUnitsToPop(int count, Vec3 targetPosition)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the units to pop value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetUnitsToPop(0, targetPosition);
+</code></pre>
+<h3 id="getlocalpositionofunitordefault-1">GetLocalPositionOfUnitOrDefault</h3>
+<p><code>public Vec2? GetLocalPositionOfUnitOrDefault(IFormationUnit unit)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local position of unit or default value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetLocalPositionOfUnitOrDefault(unit);
+</code></pre>
+<h3 id="getlocalpositionofunitordefaultwithadjustment">GetLocalPositionOfUnitOrDefaultWithAdjustment</h3>
+<p><code>public Vec2? GetLocalPositionOfUnitOrDefaultWithAdjustment(IFormationUnit unit, float distanceBetweenAgentsAdjustment)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local position of unit or default with adjustment value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetLocalPositionOfUnitOrDefaultWithAdjustment(unit, 0);
+</code></pre>
+<h3 id="getlocaldirectionofunitordefault-1">GetLocalDirectionOfUnitOrDefault</h3>
+<p><code>public virtual Vec2? GetLocalDirectionOfUnitOrDefault(IFormationUnit unit)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local direction of unit or default value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetLocalDirectionOfUnitOrDefault(unit);
+</code></pre>
+<h3 id="getworldpositionofunitordefault-1">GetWorldPositionOfUnitOrDefault</h3>
+<p><code>public WorldPosition? GetWorldPositionOfUnitOrDefault(IFormationUnit unit)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the world position of unit or default value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetWorldPositionOfUnitOrDefault(unit);
+</code></pre>
+<h3 id="getplayerunit">GetPlayerUnit</h3>
+<p><code>public IFormationUnit GetPlayerUnit()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the player unit value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetPlayerUnit();
+</code></pre>
+<h3 id="getallunits">GetAllUnits</h3>
+<p><code>public MBReadOnlyList&lt;IFormationUnit&gt; GetAllUnits()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the all units value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetAllUnits();
+</code></pre>
+<h3 id="getallunits-1">GetAllUnits</h3>
+<p><code>public void GetAllUnits(in MBList&lt;IFormationUnit&gt; allUnitsListToBeFilledIn)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the all units value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.GetAllUnits(allUnitsListToBeFilledIn);
+</code></pre>
+<h3 id="getunpositionedunits">GetUnpositionedUnits</h3>
+<p><code>public MBList&lt;IFormationUnit&gt; GetUnpositionedUnits()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the unpositioned units value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetUnpositionedUnits();
+</code></pre>
+<h3 id="getlocaldirectionofrelativeformationlocation">GetLocalDirectionOfRelativeFormationLocation</h3>
+<p><code>public Vec2? GetLocalDirectionOfRelativeFormationLocation(IFormationUnit unit)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local direction of relative formation location value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetLocalDirectionOfRelativeFormationLocation(unit);
+</code></pre>
+<h3 id="getlocalwalldirectionofrelativeformationlocation">GetLocalWallDirectionOfRelativeFormationLocation</h3>
+<p><code>public Vec2? GetLocalWallDirectionOfRelativeFormationLocation(IFormationUnit unit)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local wall direction of relative formation location value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetLocalWallDirectionOfRelativeFormationLocation(unit);
+</code></pre>
+<h3 id="getformationinfo">GetFormationInfo</h3>
+<p><code>public void GetFormationInfo(out int fileCount, out int rankCount)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the formation info value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.GetFormationInfo(fileCount, rankCount);
+</code></pre>
+<h3 id="getunitsdistancetofrontline">GetUnitsDistanceToFrontLine</h3>
+<p><code>public float GetUnitsDistanceToFrontLine(IFormationUnit unit)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the units distance to front line value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetUnitsDistanceToFrontLine(unit);
+</code></pre>
+<h3 id="getneighborunitofleftside">GetNeighborUnitOfLeftSide</h3>
+<p><code>public IFormationUnit GetNeighborUnitOfLeftSide(IFormationUnit unit)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the neighbor unit of left side value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetNeighborUnitOfLeftSide(unit);
+</code></pre>
+<h3 id="getneighborunitofrightside">GetNeighborUnitOfRightSide</h3>
+<p><code>public IFormationUnit GetNeighborUnitOfRightSide(IFormationUnit unit)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the neighbor unit of right side value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetNeighborUnitOfRightSide(unit);
+</code></pre>
+<h3 id="switchunitlocationswithunpositionedunit">SwitchUnitLocationsWithUnpositionedUnit</h3>
+<p><code>public void SwitchUnitLocationsWithUnpositionedUnit(IFormationUnit firstUnit, IFormationUnit secondUnit)</code></p>
+<p><strong>Purpose:</strong> Executes the SwitchUnitLocationsWithUnpositionedUnit logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.SwitchUnitLocationsWithUnpositionedUnit(firstUnit, secondUnit);
+</code></pre>
+<h3 id="switchunitlocations">SwitchUnitLocations</h3>
+<p><code>public void SwitchUnitLocations(IFormationUnit firstUnit, IFormationUnit secondUnit)</code></p>
+<p><strong>Purpose:</strong> Executes the SwitchUnitLocations logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.SwitchUnitLocations(firstUnit, secondUnit);
+</code></pre>
+<h3 id="switchunitlocationswithbackmostunit">SwitchUnitLocationsWithBackMostUnit</h3>
+<p><code>public void SwitchUnitLocationsWithBackMostUnit(IFormationUnit unit)</code></p>
+<p><strong>Purpose:</strong> Executes the SwitchUnitLocationsWithBackMostUnit logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.SwitchUnitLocationsWithBackMostUnit(unit);
+</code></pre>
+<h3 id="beforeformationframechange">BeforeFormationFrameChange</h3>
+<p><code>public void BeforeFormationFrameChange()</code></p>
+<p><strong>Purpose:</strong> Executes the BeforeFormationFrameChange logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.BeforeFormationFrameChange();
+</code></pre>
+<h3 id="batchunitpositionavailabilities">BatchUnitPositionAvailabilities</h3>
+<p><code>public void BatchUnitPositionAvailabilities(bool isUpdatingCachedOrderedLocalPositions = true)</code></p>
+<p><strong>Purpose:</strong> Executes the BatchUnitPositionAvailabilities logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.BatchUnitPositionAvailabilities(false);
+</code></pre>
+<h3 id="onformationframechanged">OnFormationFrameChanged</h3>
+<p><code>public void OnFormationFrameChanged(bool updateCachedOrderedLocalPositions = false)</code></p>
+<p><strong>Purpose:</strong> Invoked when the formation frame changed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.OnFormationFrameChanged(false);
+</code></pre>
+<h3 id="updatelocalpositionerrors">UpdateLocalPositionErrors</h3>
+<p><code>public void UpdateLocalPositionErrors(bool recalculateErrors)</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of local position errors.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.UpdateLocalPositionErrors(false);
+</code></pre>
+<h3 id="onformationdispersed">OnFormationDispersed</h3>
+<p><code>public void OnFormationDispersed()</code></p>
+<p><strong>Purpose:</strong> Invoked when the formation dispersed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.OnFormationDispersed();
+</code></pre>
+<h3 id="onunitlostmount">OnUnitLostMount</h3>
+<p><code>public void OnUnitLostMount(IFormationUnit unit)</code></p>
+<p><strong>Purpose:</strong> Invoked when the unit lost mount event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.OnUnitLostMount(unit);
+</code></pre>
+<h3 id="isturnbackwardsnecessary">IsTurnBackwardsNecessary</h3>
+<p><code>public bool IsTurnBackwardsNecessary(Vec2 previousPosition, WorldPosition? newPosition, Vec2 previousDirection, bool hasNewDirection, Vec2? newDirection)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the turn backwards necessary state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.IsTurnBackwardsNecessary(previousPosition, newPosition, previousDirection, false, newDirection);
+</code></pre>
+<h3 id="turnbackwards">TurnBackwards</h3>
+<p><code>public virtual void TurnBackwards()</code></p>
+<p><strong>Purpose:</strong> Executes the TurnBackwards logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.TurnBackwards();
+</code></pre>
+<h3 id="getoccupationwidth">GetOccupationWidth</h3>
+<p><code>public float GetOccupationWidth(int unitCount)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the occupation width value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetOccupationWidth(0);
+</code></pre>
+<h3 id="invalidatecacheofunitaux">InvalidateCacheOfUnitAux</h3>
+<p><code>public void InvalidateCacheOfUnitAux(Vec2 roundedLocalPosition)</code></p>
+<p><strong>Purpose:</strong> Executes the InvalidateCacheOfUnitAux logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.InvalidateCacheOfUnitAux(roundedLocalPosition);
+</code></pre>
+<h3 id="createnewposition">CreateNewPosition</h3>
+<p><code>public Vec2? CreateNewPosition(int unitIndex)</code></p>
+<p><strong>Purpose:</strong> Constructs a new new position entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.CreateNewPosition(0);
+</code></pre>
+<h3 id="rearrangefrom">RearrangeFrom</h3>
+<p><code>public virtual void RearrangeFrom(IFormationArrangement arrangement)</code></p>
+<p><strong>Purpose:</strong> Executes the RearrangeFrom logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.RearrangeFrom(arrangement);
+</code></pre>
+<h3 id="rearrangeto">RearrangeTo</h3>
+<p><code>public virtual void RearrangeTo(IFormationArrangement arrangement)</code></p>
+<p><strong>Purpose:</strong> Executes the RearrangeTo logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.RearrangeTo(arrangement);
+</code></pre>
+<h3 id="rearrangetransferunits">RearrangeTransferUnits</h3>
+<p><code>public virtual void RearrangeTransferUnits(IFormationArrangement arrangement)</code></p>
+<p><strong>Purpose:</strong> Executes the RearrangeTransferUnits logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.RearrangeTransferUnits(arrangement);
+</code></pre>
+<h3 id="calculatewidth">CalculateWidth</h3>
+<p><code>public static float CalculateWidth(float interval, float unitDiameter, int unitCountOnLine)</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of width.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+LineFormation.CalculateWidth(0, 0, 0);
+</code></pre>
+<h3 id="formfromflankwidth">FormFromFlankWidth</h3>
+<p><code>public void FormFromFlankWidth(int unitCountOnLine, bool skipSingleFileChangesForPerformance = false)</code></p>
+<p><strong>Purpose:</strong> Executes the FormFromFlankWidth logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.FormFromFlankWidth(0, false);
+</code></pre>
+<h3 id="reservemiddlefrontunitposition">ReserveMiddleFrontUnitPosition</h3>
+<p><code>public void ReserveMiddleFrontUnitPosition(IFormationUnit vanguard)</code></p>
+<p><strong>Purpose:</strong> Executes the ReserveMiddleFrontUnitPosition logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.ReserveMiddleFrontUnitPosition(vanguard);
+</code></pre>
+<h3 id="releasemiddlefrontunitposition">ReleaseMiddleFrontUnitPosition</h3>
+<p><code>public void ReleaseMiddleFrontUnitPosition()</code></p>
+<p><strong>Purpose:</strong> Executes the ReleaseMiddleFrontUnitPosition logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.ReleaseMiddleFrontUnitPosition();
+</code></pre>
+<h3 id="getlocalpositionofreservedunitposition">GetLocalPositionOfReservedUnitPosition</h3>
+<p><code>public Vec2 GetLocalPositionOfReservedUnitPosition()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local position of reserved unit position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetLocalPositionOfReservedUnitPosition();
+</code></pre>
+<h3 id="ontickoccasionallyofunit">OnTickOccasionallyOfUnit</h3>
+<p><code>public virtual void OnTickOccasionallyOfUnit(IFormationUnit unit, bool arrangementChangeAllowed)</code></p>
+<p><strong>Purpose:</strong> Invoked when the tick occasionally of unit event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+lineFormation.OnTickOccasionallyOfUnit(unit, false);
+</code></pre>
+<h3 id="getdirectionchangetendencyofunit">GetDirectionChangeTendencyOfUnit</h3>
+<p><code>public virtual float GetDirectionChangeTendencyOfUnit(IFormationUnit unit)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the direction change tendency of unit value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetDirectionChangeTendencyOfUnit(unit);
+</code></pre>
+<h3 id="getcachedorderedandavailableunitpositionindicescount">GetCachedOrderedAndAvailableUnitPositionIndicesCount</h3>
+<p><code>public int GetCachedOrderedAndAvailableUnitPositionIndicesCount()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the cached ordered and available unit position indices count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetCachedOrderedAndAvailableUnitPositionIndicesCount();
+</code></pre>
+<h3 id="getcachedorderedandavailableunitpositionindexat">GetCachedOrderedAndAvailableUnitPositionIndexAt</h3>
+<p><code>public Vec2i GetCachedOrderedAndAvailableUnitPositionIndexAt(int i)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the cached ordered and available unit position index at value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetCachedOrderedAndAvailableUnitPositionIndexAt(0);
+</code></pre>
+<h3 id="getglobalpositionatindex">GetGlobalPositionAtIndex</h3>
+<p><code>public WorldPosition GetGlobalPositionAtIndex(int indexX, int indexY)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the global position at index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of LineFormation from the subsystem API first
+LineFormation lineFormation = ...;
+var result = lineFormation.GetGlobalPositionAtIndex(0, 0);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+LineFormation lineFormation = ...;
+lineFormation.GetFileCountFromWidth(0);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/mission-ext/">mission-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/mission-ext/MBMusicManager/">&larr; MBMusicManager</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/mission-ext/ClanPlayerRole/">ClanPlayerRole &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

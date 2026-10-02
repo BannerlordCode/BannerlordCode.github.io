@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gauntlet UI 系统 &#x2F; Gauntlet UI System</title>
+  <meta name="description" content="使用 GauntletMovie、GauntletSystem、ScreenManager 创建自定义 UI &#x2F; Creating custom UI with GauntletMovie, GauntletSystem, ScreenManager">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/guide/gauntlet-ui/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/guide/gauntlet-ui/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="active">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;guide&#x2F;">入门指南 &#x2F; Getting Started Guide</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Gauntlet UI 系统 &#x2F; Gauntlet UI System</span>
+    </nav>
+  
+  <h1>Gauntlet UI 系统 &#x2F; Gauntlet UI System</h1>
+  <h1 id="gauntlet-ui-xi-tong-gauntlet-ui-system">Gauntlet UI 系统 / Gauntlet UI System</h1>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先把 <code>Gauntlet UI 系统</code> 当作这个子系统的入口或数据节点来理解：先看属性代表什么状态，再看方法允许你做什么。</p>
+<p><strong>Namespace</strong>: TaleWorlds.MountAndBlade.Gauntlet
+<strong>Related APIs</strong>: <code>GauntletMovie</code>, <code>GauntletSystem</code>, <code>ScreenManager</code>, <code>ViewModel</code></p>
+<h2 id="gai-shu-overview">概述 / Overview</h2>
+<p>Bannerlord 使用 <strong>Gauntlet</strong> 作为其 UI 框架。Gauntlet 是一个数据驱动的 UI 系统，基于 XAML 风格的 XML 定义和 MVVM 模式的数据绑定。</p>
+<p>Bannerlord uses <strong>Gauntlet</strong> as its UI framework. Gauntlet is a data-driven UI system based on XAML-style XML definitions and MVVM pattern data binding.</p>
+<h2 id="he-xin-zu-jian-core-components">核心组件 / Core Components</h2>
+<table><thead><tr><th>组件</th><th>类</th><th>职责</th></tr></thead><tbody>
+<tr><td>电影/屏幕</td><td><code>GauntletMovie</code></td><td>UI 逻辑基类</td></tr>
+<tr><td>UI 系统</td><td><code>GauntletSystem</code></td><td>全局 UI 管理器</td></tr>
+<tr><td>屏幕管理</td><td><code>ScreenManager</code></td><td>屏幕栈管理</td></tr>
+<tr><td>数据绑定</td><td><code>ViewModel</code></td><td>UI 数据载体</td></tr>
+</tbody></table>
+<h2 id="mu-lu-contents">目录 / Contents</h2>
+<ol>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/gauntlet-ui/#chuang-jian-gauntletmovie">创建 GauntletMovie</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/gauntlet-ui/#gauntletmovie-sheng-ming-zhou-qi">GauntletMovie 生命周期</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/gauntlet-ui/#screenmanager-yong-fa">ScreenManager 用法</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/gauntlet-ui/#viewmodel-shu-ju-bang-ding">ViewModel 数据绑定</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/gauntlet-ui/#chang-jian-ui-mo-shi">常见 UI 模式</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/gauntlet-ui/#wan-zheng-shi-li">完整示例</a></li>
+</ol>
+<hr />
+<h2 id="chuang-jian-gauntletmovie">创建 GauntletMovie</h2>
+<h3 id="ji-ben-bu-zou">基本步骤</h3>
+<ol>
+<li><strong>创建继承类</strong></li>
+</ol>
+<pre><code data-lang="csharp">using TaleWorlds.MountAndBlade.Gauntlet;
+
+namespace MyModule.UI
+{
+    public class MyGauntletMovie : GauntletMovie
+    {
+        // 自定义逻辑
+    }
+}
+</code></pre>
+<ol start="2">
+<li><strong>重写 OnCreate()</strong></li>
+</ol>
+<pre><code data-lang="csharp">public override void OnCreate()
+{
+    base.OnCreate();
+    
+    // 注册 UI 资源
+    // 初始化数据
+}
+</code></pre>
+<ol start="3">
+<li><strong>重写 OnInvisible() / OnVisible()</strong></li>
+</ol>
+<pre><code data-lang="csharp">public override void OnInvisible()
+{
+    // 屏幕不可见时调用
+    // 暂停动画、释放资源
+}
+
+public override void OnVisible()
+{
+    // 屏幕可见时调用
+    // 恢复动画、刷新数据
+}
+</code></pre>
+<h3 id="zhu-ce-movie">注册 Movie</h3>
+<p>在 <code>SubModule</code> 中注册：</p>
+<pre><code data-lang="csharp">protected override void OnGameStart(Game game, IGameStarter gameStarter)
+{
+    base.OnGameStart(game, gameStarter);
+    
+    // 注册 Movie
+    GauntletSystem.RegisterMovie&lt;MyGauntletMovie&gt;();
+}
+</code></pre>
+<h3 id="cong-xml-jia-zai-ui">从 XML 加载 UI</h3>
+<p>UI 定义文件 (.gui) 放在 <code>Guis/gauntlet/</code> 目录下：</p>
+<pre><code data-lang="xml">&lt;!-- MyUI.gui --&gt;
+&lt;GauntletMovie&gt;
+  &lt;Canvas Width=&quot;1920&quot; Height=&quot;1080&quot;&gt;
+    &lt;Widget Width=&quot;400&quot; Height=&quot;300&quot; 
+            HorizontalAlignment=&quot;Center&quot; 
+            VerticalAlignment=&quot;Center&quot;&gt;
+      &lt;TextWidget Text=&quot;@MyText&quot; /&gt;
+      &lt;ButtonWidget Id=&quot;MyButton&quot; 
+                    DoNotPassEventsToChildren=&quot;true&quot;
+                    OnClick=&quot;@OnButtonClick&quot; /&gt;
+    &lt;/Widget&gt;
+  &lt;/Canvas&gt;
+&lt;/GauntletMovie&gt;
+</code></pre>
+<p>加载 XML：</p>
+<pre><code data-lang="csharp">public override void OnCreate()
+{
+    base.OnCreate();
+    
+    // 加载 XML 定义
+    LoadMovie(&quot;MyUI&quot;, &quot;MyModule.Guis.gauntlet.MyUI&quot;);
+}
+</code></pre>
+<hr />
+<h2 id="gauntletmovie-sheng-ming-zhou-qi">GauntletMovie 生命周期</h2>
+<pre><code>ScreenManager.PushScreen&lt;GauntletScreen&gt;()
+    │
+    ├─► OnCreate()           ← 第一次创建时调用
+    │
+    ├─► OnInitialState()     ← 初始化状态
+    │
+    ├─► OnInvisible()        ← 不可见时（反复）
+    │
+    ├─► OnVisible()          ← 可见时（反复）
+    │
+    └─► OnFinalize()         ← 销毁时调用
+</code></pre>
+<h3 id="sheng-ming-zhou-qi-fang-fa">生命周期方法</h3>
+<table><thead><tr><th>方法</th><th>调用时机</th></tr></thead><tbody>
+<tr><td><code>OnCreate()</code></td><td>Movie 第一次创建</td></tr>
+<tr><td><code>OnInitialState()</code></td><td>设置初始 UI 状态</td></tr>
+<tr><td><code>OnReadMediaFinished()</code></td><td>媒体加载完成</td></tr>
+<tr><td><code>OnInvisible()</code></td><td>Movie 变为不可见</td></tr>
+<tr><td><code>OnVisible()</code></td><td>Movie 变为可见</td></tr>
+<tr><td><code>OnFinalize()</code></td><td>Movie 销毁</td></tr>
+</tbody></table>
+<hr />
+<h2 id="screenmanager-yong-fa">ScreenManager 用法</h2>
+<h3 id="ping-mu-zhan-cao-zuo">屏幕栈操作</h3>
+<pre><code data-lang="csharp">// 获取 ScreenManager 实例
+GauntletSystem gauntletSystem = GauntletSystem.Get();
+
+// 压入新屏幕
+GauntletScreen&lt;MyGauntletMovie&gt; screen = 
+    gauntletSystem.PushScreen&lt;GauntletScreen&lt;MyGauntletMovie&gt;&gt;();
+
+// 弹出屏幕
+gauntletSystem.PopScreen();
+
+// 替换当前屏幕
+gauntletSystem.ReplaceTopScreen&lt;AnotherScreen&gt;();
+</code></pre>
+<h3 id="ping-mu-lei-ding-yi">屏幕类定义</h3>
+<pre><code data-lang="csharp">public class MyScreen : GauntletScreen&lt;MyGauntletMovie&gt;
+{
+    public MyScreen()
+    {
+        // 构造函数中加载 Movie
+        LoadMovie();
+    }
+}
+</code></pre>
+<hr />
+<h2 id="viewmodel-shu-ju-bang-ding">ViewModel 数据绑定</h2>
+<h3 id="chuang-jian-viewmodel">创建 ViewModel</h3>
+<pre><code data-lang="csharp">using TaleWorlds.MountAndBlade.ViewModel;
+
+namespace MyModule.UI
+{
+    public class MyViewModel : ViewModel
+    {
+        private string _myText;
+        
+        [DataSourceProperty]
+        public string MyText
+        {
+            get =&gt; _myText;
+            set
+            {
+                if (_myText != value)
+                {
+                    _myText = value;
+                    OnPropertyChanged(nameof(MyText));
+                }
+            }
+        }
+        
+        public MyViewModel()
+        {
+            _myText = &quot;Hello, Bannerlord!&quot;;
+        }
+        
+        public void OnButtonClick()
+        {
+            MyText = &quot;Button clicked!&quot;;
+        }
+    }
+}
+</code></pre>
+<h3 id="bang-ding-viewmodel-dao-movie">绑定 ViewModel 到 Movie</h3>
+<pre><code data-lang="csharp">public override void OnCreate()
+{
+    base.OnCreate();
+    
+    // 创建 ViewModel
+    MyViewModel viewModel = new MyViewModel();
+    
+    // 设置数据源
+    SetViewModel(viewModel);
+    
+    // 或使用泛型版本
+    // SetViewModel&lt;MyViewModel&gt;();
+}
+</code></pre>
+<h3 id="datasourceproperty-te-xing">DataSourceProperty 特性</h3>
+<pre><code data-lang="csharp">[DataSourceProperty]
+public int Score { get; set; }
+
+[DataSourceProperty]
+public bool IsEnabled { get; set; }
+
+[DataSourceProperty]
+public List&lt;string&gt; Items { get; set; }
+</code></pre>
+<hr />
+<h2 id="chang-jian-ui-mo-shi">常见 UI 模式</h2>
+<h3 id="an-niu-dian-ji-chu-li">按钮点击处理</h3>
+<pre><code data-lang="csharp">// 在 .gui XML 中
+&lt;ButtonWidget Id=&quot;MyButton&quot; 
+              OnClick=&quot;@OnMyButtonClicked&quot; /&gt;
+
+// 在 Movie 中
+public override void OnCreated()
+{
+    base.OnCreated();
+    
+    // 获取按钮
+    ButtonWidget button = GetWidget&lt;ButtonWidget&gt;(&quot;MyButton&quot;);
+    
+    // 添加点击事件（替代 XML 绑定）
+    button.ClickEventHandlers.Add(OnMyButtonClicked);
+}
+
+private void OnMyButtonClicked(ButtonWidget widget)
+{
+    // 处理点击
+}
+</code></pre>
+<h3 id="lie-biao-wang-ge">列表/网格</h3>
+<pre><code data-lang="csharp">// ViewModel 中
+[DataSourceProperty]
+public List&lt;ItemVM&gt; Items { get; set; }
+
+// 在 .gui 中
+&lt;ItemListWidget DataSource=&quot;@Items&quot;&gt;
+  &lt;ItemTemplate&gt;
+    &lt;TextWidget Text=&quot;@ItemName&quot; /&gt;
+  &lt;/ItemTemplate&gt;
+&lt;/ItemListWidget&gt;
+</code></pre>
+<h3 id="dan-chu-dui-hua-kuang">弹出对话框</h3>
+<pre><code data-lang="csharp">InformationExtension.ShowPopup(
+    &quot;Title&quot;,                    // 标题
+    &quot;Are you sure?&quot;,            // 内容
+    &quot;Confirm&quot;,                  // 确定按钮
+    &quot;Cancel&quot;,                   // 取消按钮
+    new Callback&lt;&gt;((arg) =&gt; {   // 确定回调
+        // 处理确认
+    }),
+    new Callback&lt;&gt;((arg) =&gt; {   // 取消回调
+        // 处理取消
+    })
+);
+</code></pre>
+<hr />
+<h2 id="wan-zheng-shi-li">完整示例</h2>
+<h3 id="mymodule-ui-myscreen-cs">MyModule.UI/MyScreen.cs</h3>
+<pre><code data-lang="csharp">using TaleWorlds.MountAndBlade;
+using TaleWorlds.MountAndBlade.Gauntlet;
+using TaleWorlds.MountAndBlade.ViewModel;
+
+namespace MyModule.UI
+{
+    public class MyScreen : GauntletScreen&lt;MyMovie&gt;
+    {
+        public MyScreen()
+        {
+            LoadMovie();
+        }
+    }
+}
+</code></pre>
+<h3 id="mymodule-ui-mymovie-cs">MyModule.UI/MyMovie.cs</h3>
+<pre><code data-lang="csharp">using TaleWorlds.MountAndBlade.Gauntlet;
+
+namespace MyModule.UI
+{
+    public class MyMovie : GauntletMovie
+    {
+        public override void OnCreate()
+        {
+            base.OnCreate();
+            
+            // 加载 XML 定义
+            LoadMovie(&quot;MyUI&quot;, &quot;MyModule.Guis.gauntlet.MyUI&quot;);
+            
+            // 设置 ViewModel
+            SetViewModel(new MyViewModel());
+        }
+        
+        public override void OnVisible()
+        {
+            base.OnVisible();
+            
+            // 刷新数据
+            RefreshBindings();
+        }
+    }
+}
+</code></pre>
+<h3 id="mymodule-ui-myviewmodel-cs">MyModule.UI/MyViewModel.cs</h3>
+<pre><code data-lang="csharp">using TaleWorlds.MountAndBlade.ViewModel;
+
+namespace MyModule.UI
+{
+    public class MyViewModel : ViewModel
+    {
+        private string _welcomeText;
+        private int _clickCount;
+        
+        [DataSourceProperty]
+        public string WelcomeText
+        {
+            get =&gt; _welcomeText;
+            set =&gt; SetField(ref _welcomeText, value, nameof(WelcomeText));
+        }
+        
+        [DataSourceProperty]
+        public int ClickCount
+        {
+            get =&gt; _clickCount;
+            set =&gt; SetField(ref _clickCount, value, nameof(ClickCount));
+        }
+        
+        public MyViewModel()
+        {
+            _welcomeText = &quot;Welcome to My Module!&quot;;
+            _clickCount = 0;
+        }
+        
+        public void OnIncrementClicked()
+        {
+            ClickCount++;
+        }
+        
+        public void OnDecrementClicked()
+        {
+            ClickCount--;
+        }
+    }
+}
+</code></pre>
+<h3 id="mymodule-ui-myui-guidata">MyModule.UI/MyUI.guidata</h3>
+<pre><code data-lang="xml">&lt;MyUI&gt;
+  &lt;Canvas Width=&quot;800&quot; Height=&quot;600&quot;&gt;
+    &lt;Widget Width=&quot;Size.FitChildren&quot; 
+            Height=&quot;Size.FitChildren&quot;
+            HorizontalAlignment=&quot;Center&quot;
+            VerticalAlignment=&quot;Center&quot;&gt;
+      
+      &lt;!-- Welcome Text --&gt;
+      &lt;TextWidget Id=&quot;WelcomeText&quot;
+                  Text=&quot;@WelcomeText&quot;
+                  Width=&quot;300&quot;
+                  Height=&quot;50&quot; /&gt;
+      
+      &lt;!-- Click Counter --&gt;
+      &lt;TextWidget Id=&quot;Counter&quot;
+                  Text=&quot;Count: @ClickCount&quot;
+                  Width=&quot;200&quot;
+                  Height=&quot;40&quot;
+                  PositionY=&quot;60&quot; /&gt;
+      
+      &lt;!-- Buttons --&gt;
+      &lt;ButtonWidget Id=&quot;IncrementBtn&quot;
+                    Width=&quot;100&quot;
+                    Height=&quot;40&quot;
+                    PositionY=&quot;120&quot;
+                    Text=&quot;+&quot;
+                    OnClick=&quot;@OnIncrementClicked&quot; /&gt;
+      
+      &lt;ButtonWidget Id=&quot;DecrementBtn&quot;
+                    Width=&quot;100&quot;
+                    Height=&quot;40&quot;
+                    PositionX=&quot;110&quot;
+                    PositionY=&quot;120&quot;
+                    Text=&quot;-&quot;
+                    OnClick=&quot;@OnDecrementClicked&quot; /&gt;
+      
+    &lt;/Widget&gt;
+  &lt;/Canvas&gt;
+&lt;/MyUI&gt;
+</code></pre>
+<hr />
+<h2 id="xiang-guan-wen-dang-related-documentation">相关文档 / Related Documentation</h2>
+<ul>
+<li><a href="../../api/gui/GauntletMovie/">GauntletMovie API</a></li>
+<li><a href="../../api/gui/">UI / Gauntlet 区域</a></li>
+<li><a href="../../api/gui/ScreenManager/">ScreenManager API</a></li>
+<li><a href="../../api/viewmodel/">ViewModel 区域</a></li>
+</ul>
+<hr />
+<h2 id="xia-yi-jie-next-section">下一节 / Next Section</h2>
+<ul>
+<li><a href="../mission-system/">任务系统</a> - 学习 Mission、MissionBehavior</li>
+<li><a href="../campaign-system/">战役系统</a> - 学习 Campaign 游戏世界</li>
+</ul>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">var example = new Gauntlet UI 系统();
+</code></pre>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/guide/">入门指南 &#x2F; Getting Started Guide</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/guide/troubleshooting/">&larr; 故障排除 &#x2F; Troubleshooting</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/guide/mission-system/">任务系统 &#x2F; Mission System &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

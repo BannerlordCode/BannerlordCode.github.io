@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SandBoxMissions</title>
+  <meta name="description" content="Auto-generated class reference for SandBoxMissions.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign-ext/SandBoxMissions/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign-ext/SandBoxMissions/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign-ext/SandBoxMissions/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign-ext/SandBoxMissions/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">SandBoxMissions</span>
+    </nav>
+  
+  <h1>SandBoxMissions</h1>
+  <h1 id="sandboxmissions">SandBoxMissions</h1>
+<p><strong>Namespace:</strong> SandBox
+<strong>Module:</strong> SandBox
+<strong>Type:</strong> <code>public static class SandBoxMissions</code>
+<strong>Base:</strong> none
+<strong>File:</strong> <code>SandBox/SandBoxMissions.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>SandBoxMissions</code> lives in <code>SandBox</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>SandBox</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="createsandboxmissioninitializerrecord">CreateSandBoxMissionInitializerRecord</h3>
+<p><code>public static MissionInitializerRecord CreateSandBoxMissionInitializerRecord(string sceneName, string sceneLevels = "", bool doNotUseLoadingScreen = false, DecalAtlasGroup decalAtlasGroup = 0)</code></p>
+<p><strong>Purpose:</strong> Constructs a new sand box mission initializer record entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.CreateSandBoxMissionInitializerRecord(&quot;example&quot;, &quot;example&quot;, false, 0);
+</code></pre>
+<h3 id="createsandboxtrainingmissioninitializerrecord">CreateSandBoxTrainingMissionInitializerRecord</h3>
+<p><code>public static MissionInitializerRecord CreateSandBoxTrainingMissionInitializerRecord(string sceneName, string sceneLevels = "", bool doNotUseLoadingScreen = false)</code></p>
+<p><strong>Purpose:</strong> Constructs a new sand box training mission initializer record entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.CreateSandBoxTrainingMissionInitializerRecord(&quot;example&quot;, &quot;example&quot;, false);
+</code></pre>
+<h3 id="opentowncentermission">OpenTownCenterMission</h3>
+<p><code>public static Mission OpenTownCenterMission(string scene, int townUpgradeLevel, Location location, CharacterObject talkToChar, string playerSpawnTag)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with town center mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenTownCenterMission(&quot;example&quot;, 0, location, talkToChar, &quot;example&quot;);
+</code></pre>
+<h3 id="opentowncentermission-1">OpenTownCenterMission</h3>
+<p><code>public static Mission OpenTownCenterMission(string scene, string sceneLevels, Location location, CharacterObject talkToChar, string playerSpawnTag)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with town center mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenTownCenterMission(&quot;example&quot;, &quot;example&quot;, location, talkToChar, &quot;example&quot;);
+</code></pre>
+<h3 id="opentowncentershadowatargetmission">OpenTownCenterShadowATargetMission</h3>
+<p><code>public static Mission OpenTownCenterShadowATargetMission(string scene, string sceneLevels, Location location, CharacterObject talkToChar, string playerSpawnTag)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with town center shadow a target mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenTownCenterShadowATargetMission(&quot;example&quot;, &quot;example&quot;, location, talkToChar, &quot;example&quot;);
+</code></pre>
+<h3 id="opencastlecourtyardmission">OpenCastleCourtyardMission</h3>
+<p><code>public static Mission OpenCastleCourtyardMission(string scene, int castleUpgradeLevel, Location location, CharacterObject talkToChar)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with castle courtyard mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenCastleCourtyardMission(&quot;example&quot;, 0, location, talkToChar);
+</code></pre>
+<h3 id="opencastlecourtyardmission-1">OpenCastleCourtyardMission</h3>
+<p><code>public static Mission OpenCastleCourtyardMission(string scene, string sceneLevels, Location location, CharacterObject talkToChar)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with castle courtyard mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenCastleCourtyardMission(&quot;example&quot;, &quot;example&quot;, location, talkToChar);
+</code></pre>
+<h3 id="openindoormission">OpenIndoorMission</h3>
+<p><code>public static Mission OpenIndoorMission(string scene, int townUpgradeLevel, Location location, CharacterObject talkToChar)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with indoor mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenIndoorMission(&quot;example&quot;, 0, location, talkToChar);
+</code></pre>
+<h3 id="openindoormission-1">OpenIndoorMission</h3>
+<p><code>public static Mission OpenIndoorMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = "")</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with indoor mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenIndoorMission(&quot;example&quot;, location, null, &quot;example&quot;);
+</code></pre>
+<h3 id="openprisonbreakmission">OpenPrisonBreakMission</h3>
+<p><code>public static Mission OpenPrisonBreakMission(string scene, Location location, CharacterObject prisonerCharacter)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with prison break mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenPrisonBreakMission(&quot;example&quot;, location, prisonerCharacter);
+</code></pre>
+<h3 id="openvillagemission">OpenVillageMission</h3>
+<p><code>public static Mission OpenVillageMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = null)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with village mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenVillageMission(&quot;example&quot;, location, null, &quot;example&quot;);
+</code></pre>
+<h3 id="openarenastartmission">OpenArenaStartMission</h3>
+<p><code>public static Mission OpenArenaStartMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = "")</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with arena start mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenArenaStartMission(&quot;example&quot;, location, null, &quot;example&quot;);
+</code></pre>
+<h3 id="openretirementmission">OpenRetirementMission</h3>
+<p><code>public static Mission OpenRetirementMission(string scene, Location location, CharacterObject talkToChar = null, string sceneLevels = null, string unconsciousMenuId = "")</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with retirement mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenRetirementMission(&quot;example&quot;, location, null, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="openarenaduelmission">OpenArenaDuelMission</h3>
+<p><code>public static Mission OpenArenaDuelMission(string scene, Location location, CharacterObject duelCharacter, bool requireCivilianEquipment, bool spawnBOthSidesWithHorse, Action&lt;CharacterObject&gt; onDuelEnd, float customAgentHealth, string sceneLevels = "")</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with arena duel mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenArenaDuelMission(&quot;example&quot;, location, duelCharacter, false, false, onDuelEnd, 0, &quot;example&quot;);
+</code></pre>
+<h3 id="openarenaduelmission-1">OpenArenaDuelMission</h3>
+<p><code>public static Mission OpenArenaDuelMission(string scene, Location location)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with arena duel mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenArenaDuelMission(&quot;example&quot;, location);
+</code></pre>
+<h3 id="openbattlemission">OpenBattleMission</h3>
+<p><code>public static Mission OpenBattleMission(MissionInitializerRecord rec)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with battle mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenBattleMission(rec);
+</code></pre>
+<h3 id="opencaravanbattlemission">OpenCaravanBattleMission</h3>
+<p><code>public static Mission OpenCaravanBattleMission(MissionInitializerRecord rec, bool isCaravan)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with caravan battle mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenCaravanBattleMission(rec, false);
+</code></pre>
+<h3 id="openalleyfightmission">OpenAlleyFightMission</h3>
+<p><code>public static Mission OpenAlleyFightMission(MissionInitializerRecord rec, Location location, TroopRoster playerSideTroops, TroopRoster rivalSideTroops)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with alley fight mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenAlleyFightMission(rec, location, playerSideTroops, rivalSideTroops);
+</code></pre>
+<h3 id="opencombatmissionwithdialogue">OpenCombatMissionWithDialogue</h3>
+<p><code>public static Mission OpenCombatMissionWithDialogue(MissionInitializerRecord rec, CharacterObject characterToTalkTo)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with combat mission with dialogue.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenCombatMissionWithDialogue(rec, characterToTalkTo);
+</code></pre>
+<h3 id="openbattlemissionwhileenteringsettlement">OpenBattleMissionWhileEnteringSettlement</h3>
+<p><code>public static Mission OpenBattleMissionWhileEnteringSettlement(string scene, int upgradeLevel, int numberOfMaxTroopToBeSpawnedForPlayer, int numberOfMaxTroopToBeSpawnedForOpponent)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with battle mission while entering settlement.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenBattleMissionWhileEnteringSettlement(&quot;example&quot;, 0, 0, 0);
+</code></pre>
+<h3 id="openbattlemission-1">OpenBattleMission</h3>
+<p><code>public static Mission OpenBattleMission(string scene, bool usesTownDecalAtlas)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with battle mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenBattleMission(&quot;example&quot;, false);
+</code></pre>
+<h3 id="openalleyfightmission-1">OpenAlleyFightMission</h3>
+<p><code>public static Mission OpenAlleyFightMission(string scene, int upgradeLevel, Location location, TroopRoster playerSideTroops, TroopRoster rivalSideTroops)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with alley fight mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenAlleyFightMission(&quot;example&quot;, 0, location, playerSideTroops, rivalSideTroops);
+</code></pre>
+<h3 id="opencombatmissionwithdialogue-1">OpenCombatMissionWithDialogue</h3>
+<p><code>public static Mission OpenCombatMissionWithDialogue(string scene, CharacterObject characterToTalkTo, int upgradeLevel)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with combat mission with dialogue.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenCombatMissionWithDialogue(&quot;example&quot;, characterToTalkTo, 0);
+</code></pre>
+<h3 id="openhideoutbattlemission">OpenHideoutBattleMission</h3>
+<p><code>public static Mission OpenHideoutBattleMission(string scene, FlattenedTroopRoster playerTroops)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with hideout battle mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenHideoutBattleMission(&quot;example&quot;, playerTroops);
+</code></pre>
+<h3 id="openhideoutambushmission">OpenHideoutAmbushMission</h3>
+<p><code>public static Mission OpenHideoutAmbushMission(string sceneName, FlattenedTroopRoster playerTroops, Location location)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with hideout ambush mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenHideoutAmbushMission(&quot;example&quot;, playerTroops, location);
+</code></pre>
+<h3 id="opencampmission">OpenCampMission</h3>
+<p><code>public static Mission OpenCampMission(string scene)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with camp mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenCampMission(&quot;example&quot;);
+</code></pre>
+<h3 id="opensiegemissionwithdeployment">OpenSiegeMissionWithDeployment</h3>
+<p><code>public static Mission OpenSiegeMissionWithDeployment(string scene, float wallHitPointPercentages, bool hasAnySiegeTower, List&lt;MissionSiegeWeapon&gt; siegeWeaponsOfAttackers, List&lt;MissionSiegeWeapon&gt; siegeWeaponsOfDefenders, bool isPlayerAttacker, int sceneUpgradeLevel = 0, bool isSallyOut = false, bool isReliefForceAttack = false)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with siege mission with deployment.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenSiegeMissionWithDeployment(&quot;example&quot;, 0, false, siegeWeaponsOfAttackers, siegeWeaponsOfDefenders, false, 0, false, false);
+</code></pre>
+<h3 id="opensiegemissionnodeployment">OpenSiegeMissionNoDeployment</h3>
+<p><code>public static Mission OpenSiegeMissionNoDeployment(string scene, bool isSallyOut = false, bool isReliefForceAttack = false)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with siege mission no deployment.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenSiegeMissionNoDeployment(&quot;example&quot;, false, false);
+</code></pre>
+<h3 id="opensiegelordshallfightmission">OpenSiegeLordsHallFightMission</h3>
+<p><code>public static Mission OpenSiegeLordsHallFightMission(string scene, FlattenedTroopRoster attackerPriorityList)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with siege lords hall fight mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenSiegeLordsHallFightMission(&quot;example&quot;, attackerPriorityList);
+</code></pre>
+<h3 id="openvillagebattlemission">OpenVillageBattleMission</h3>
+<p><code>public static Mission OpenVillageBattleMission(string scene)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with village battle mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenVillageBattleMission(&quot;example&quot;);
+</code></pre>
+<h3 id="openconversationmission">OpenConversationMission</h3>
+<p><code>public static Mission OpenConversationMission(ConversationCharacterData playerCharacterData, ConversationCharacterData conversationPartnerData, string specialScene = "", string sceneLevels = "")</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with conversation mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenConversationMission(playerCharacterData, conversationPartnerData, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="openmeetingmission">OpenMeetingMission</h3>
+<p><code>public static Mission OpenMeetingMission(string scene, CharacterObject character)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with meeting mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenMeetingMission(&quot;example&quot;, character);
+</code></pre>
+<h3 id="opendisguisemission">OpenDisguiseMission</h3>
+<p><code>public static Mission OpenDisguiseMission(string scene, bool willSetUpContact, Location fromLocation, string sceneLevels = null)</code></p>
+<p><strong>Purpose:</strong> Opens the resource or UI associated with disguise mission.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+SandBoxMissions.OpenDisguiseMission(&quot;example&quot;, false, fromLocation, &quot;example&quot;);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">SandBoxMissions.CreateSandBoxMissionInitializerRecord(&quot;example&quot;, &quot;example&quot;, false, 0);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/api/campaign-ext/LoginResult/">&larr; LoginResult</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/campaign-ext/GauntletMapCameraFadeView/">GauntletMapCameraFadeView &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

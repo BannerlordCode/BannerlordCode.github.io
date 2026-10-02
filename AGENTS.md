@@ -58,6 +58,61 @@ BannerlordCode.github.io/
 | `tools/validate-build.ps1` | Full-site build validation with memory evidence |
 | `tools/class-version-diff.mjs` | Diff one class's API across versions; powers `content/versions/` |
 
+## TEAM LIFECYCLE — close workers when they finish
+
+- **A worker that has delivered and been verified is closed immediately.** Do not leave a
+  finished worker holding a slot.
+- **If every worker under a Lead is idle, close the whole Lead team.**
+- **A single idle Lead with no remaining work is normal** — that is not a reason to keep
+  anything alive, and not a reason to invent work.
+- Before closing, the Lead must have independently verified the delivery (artifacts on
+  disk, gates re-run). Closing is not a substitute for verification.
+- Nothing should still be "running" merely because it was started.
+
+## 🔴 HARD PREMISE — documentation is HAND-WRITTEN, never code-generated
+
+This is a **premise of the project, not a guideline**. It outranks any task brief, any
+schedule pressure, and any "it is only scaffolding" reasoning.
+
+- **Every documentation page under `content/` must be written by a human (or an agent
+  reading the C# source and writing prose), one page at a time.**
+- **No script may emit a documentation page.** A generator emitting a `.md` under
+  `content/` is a defect, not a shortcut — regardless of whether the output is accurate,
+  whether it is labelled "auto-generated", or whether the brief authorised it.
+- **Authorising generation in a brief does not make it acceptable.** If you are handed a
+  brief that permits generated pages, refuse it and escalate.
+
+### Acceptance MUST check this premise explicitly
+
+Every acceptance report must state, per tree and per language, how many pages are
+hand-written versus generated, with the detection method. A report that lists only
+`deep_pass` counts, broken-link counts or coverage numbers has **not** checked the premise.
+
+Current detection fingerprints (a page matching any of these is generated until proven
+otherwise):
+
+| Fingerprint | Meaning |
+|---|---|
+| `<!-- v*-skeleton -->` | emitted by a skeleton generator |
+| `自动生成` / `Auto-generated stub` / `Auto-generated placeholder` | self-declared generated |
+| `是 TaleWorlds.X 下的公开类型` | templated Overview sentence |
+| `is a public type (in\|under) TaleWorlds` | templated Overview sentence |
+| `阅读时先通过属性了解状态` / `Read properties first to understand state` | templated Mental Model |
+
+A page that trips a fingerprint **and** has no real per-member prose is generated content
+and must be withdrawn, not "improved".
+
+### Enforcement
+
+- **Concealed generation is a serious failure.** Presenting generated output as
+  documentation, or letting a generated page overwrite a hand-written one, is grounds for
+  immediate withdrawal of that output and a written incident in the evidence pack.
+- **A generator may never overwrite a hand-written page.** Generated output must not enter
+  `content/` at all; if scaffolding is needed for tooling, keep it outside `content/`.
+- Signatures and metadata copied from source are fine — **prose that explains anything is
+  not**. The line: transcribing a declaration is transcription; writing why, when, and how
+  to use it is authorship. Only the second kind is documentation.
+
 ## SOURCE CODE (sibling folders, read-only reference)
 | Folder | Contents |
 |--------|----------|

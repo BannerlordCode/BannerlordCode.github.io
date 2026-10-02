@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formation</title>
+  <meta name="description" content="Mission 中一支队伍（Team）按兵种划分的战术编队：承载排兵布阵与移动&#x2F;冲锋&#x2F;阵型指令，并把命令下发给其中的每个 Agent。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission/Formation/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission/Formation/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission/Formation/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission/Formation/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission/Formation/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission/Formation/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="active">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;">mission 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Formation</span>
+    </nav>
+  
+  <h1>Formation</h1>
+  <h1 id="formation">Formation</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public sealed class Formation : IFormation</code>
+<strong>Base:</strong> <code>IFormation</code>
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/Formation.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>Formation</code> 是 Mission 里一支 <code>Team</code> 按兵种（步兵/弓箭手/骑兵……）划分出来的<strong>战术编队单元</strong>。它不是一个“实体”，而是把一批 <code>Agent</code> 聚成一个整体、统一下达移动、冲锋、阵型、骑乘、开火等指令的<strong>控制面</strong>。</p>
+<p>与 <code>Agent</code>（场景里具体的单个士兵）不同：<code>Agent</code> 是“被指挥的人”，<code>Formation</code> 是“指挥这群人的命令板”。同一时刻一个 <code>Agent</code> 只属于一个 <code>Formation</code>；一个 <code>Team</code> 拥有多个 <code>Formation</code>（每个 <code>FormationClass</code> 一个，外加若干特殊编队）。你几乎不会 <code>new Formation()</code>——它由 <code>Team</code> 在初始化时按兵种索引创建并持有。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>Formation</code> 想成 <strong>“队伍里按兵种分组的、可被统一下令的小队”</strong>：</p>
+<ul>
+<li><strong>生命周期</strong>：随 <code>Mission</code> 一起存在。<code>Team</code> 构造时为其每个兵种创建一个 <code>Formation</code>（<code>new Formation(team, index)</code>，<code>Formation.cs:605</code>），<code>Mission</code> 结束时随 <code>Team</code> 一起销毁。</li>
+<li><strong>谁创建 / 持有</strong>：<code>Team</code> 拥有并持有（<code>Team.FormationsIncludingSpecialAndEmpty</code> / <code>Team.FormationsIncludingEmpty</code>，均为 <code>MBList&lt;Formation&gt;</code>）。编队本身不负责创建单位，单位由刷兵系统（见 <a href=".././FormationSpawnData/">FormationSpawnData</a>）经 <code>Team.AddAgentToTeam</code> → <code>Formation.AddUnit</code> 分配进来。</li>
+<li><strong>所在层</strong>：纯运行时战斗层（<code>TaleWorlds.MountAndBlade</code>），不参与战役存档。它读 <code>Mission.Current</code>、<code>Mission.Current.Mode</code>、<code>Mission.Current.IsFormationUnitPositionAvailableMT</code> 等运行时状态——<strong>脱离了 Mission 上下文，<code>Formation</code> 等于零</strong>。</li>
+<li><strong>如何驱动</strong>：命令以“Order 对象”形式写入（<code>MovementOrder</code>、<code>ArrangementOrder</code>、<code>FormOrder</code>、<code>RidingOrder</code>、<code>FiringOrder</code>、<code>FacingOrder</code>），再由 <code>Formation.Tick</code> 每帧把这些 Order 翻译成对每个 <code>Agent</code> 的底层设置（<code>agent.SetRidingOrder</code> / <code>agent.SetFiringOrder</code> / <code>agent.SetTargetFormationIndex</code> 等）。</li>
+</ul>
+<h2 id="ru-he-huo-qu-yi-ge-formation">如何获取一个 Formation</h2>
+<p>你永远从一支 <code>Team</code> 上取，而不是自己构造。取编队有两种等价方式：</p>
+<pre><code data-lang="csharp">// 方式一（推荐）：按兵种直接取，内部就是 FormationsIncludingSpecialAndEmpty[(int)cls]
+Team playerTeam = Mission.Current.PlayerTeam;
+Formation infantry = playerTeam.GetFormation(FormationClass.Infantry);
+Formation archers  = playerTeam.GetFormation(FormationClass.Ranged);
+
+// 方式二：遍历 Team 持有所有编队的列表
+foreach (Formation f in playerTeam.FormationsIncludingSpecialAndEmpty)
+{
+    if (f.CountOfUnits &gt; 0)
+    {
+        // 该编队有单位
+    }
+}
+
+// 只想要“非空”的常规编队时用 FormationsIncludingEmpty
+foreach (Formation f in playerTeam.FormationsIncludingEmpty) { /* ... */ }
+</code></pre>
+<blockquote>
+<p>注意：<code>GetFormation</code> 的实参是 <code>FormationClass</code> 枚举值（见下），它的整数值正好就是该编队在列表中的下标。<code>Team</code> 上<strong>没有</strong>名为 <code>Formations</code> 的属性、也没有 <code>Formations.GetFormation(...)</code> 这种写法——直接调用 <code>team.GetFormation(...)</code>。</p>
+</blockquote>
+<h2 id="bian-dui-lei-bie-formationclass">编队类别 FormationClass</h2>
+<p><code>FormationClass</code>（<code>TaleWorlds.Core</code>）是编队的“兵种槽位”，同时是 <code>Team</code> 内编队数组的下标：</p>
+<table><thead><tr><th>值</th><th>含义</th></tr></thead><tbody>
+<tr><td><code>Infantry = 0</code></td><td>步兵</td></tr>
+<tr><td><code>Ranged = 1</code></td><td>弓/弩手</td></tr>
+<tr><td><code>Cavalry = 2</code></td><td>骑兵</td></tr>
+<tr><td><code>HorseArcher = 3</code></td><td>弓骑兵</td></tr>
+<tr><td><code>Skirmisher = 4</code></td><td>游击兵（投矛等）</td></tr>
+<tr><td><code>HeavyInfantry = 5</code></td><td>重步兵</td></tr>
+<tr><td><code>LightCavalry = 6</code></td><td>轻骑兵</td></tr>
+<tr><td><code>HeavyCavalry = 7</code></td><td>重骑兵</td></tr>
+<tr><td><code>NumberOfAllFormations = 10</code> / <code>Unset = 10</code></td><td>哨兵值，表示“无/未分配”</td></tr>
+</tbody></table>
+<p>一个编队有 <code>LogicalClass</code>（它“应该”是什么兵种，由当前单位构成推算）和 <code>PhysicalClass</code>（实际占多数的兵种，<code>QuerySystem.MainClass</code>）。<code>RepresentativeClass</code> / <code>SecondaryLogicalClasses</code> / <code>SecondaryPhysicalClasses</code> 让你在不遍历单位的情况下快速知道“这队里混了什么兵”。</p>
+<h2 id="he-shi-yong-he-shi-bu-yao-yong">何时用 / 何时不要用</h2>
+<p><strong>用 <code>Formation</code> 当：</strong></p>
+<ul>
+<li>你想<strong>整队下达战术指令</strong>：让某队移动到某点、冲锋、变换阵型、下马/上马、停火/开火。</li>
+<li>你想<strong>批量查询/操作一队人</strong>：统计人数、按条件筛选单位、对全队每个 <code>Agent</code> 执行同一动作（<code>ApplyActionOnEachUnit</code>）。</li>
+<li>你想<strong>读取队伍态势</strong>：平均位置、最近敌队、阵型宽度、单位数、是否全骑兵等（<code>QuerySystem</code> + 各 <code>CountOf*</code> 属性）。</li>
+</ul>
+<p><strong>不要用 <code>Formation</code> 当：</strong></p>
+<ul>
+<li>你想改某个<strong>单独士兵</strong>的瞬时状态——直接操作那个 <code>Agent</code>，不要为一个人去碰编队 Order。</li>
+<li>你想在<strong>战役（Campaign）层</strong>、即 <code>Mission</code> 不存在时持有或下令 <code>Formation</code>。正确做法：把决策存成 <code>FormationClass</code> + 队内下标或 <code>OrderType</code>，等进入 Mission 后再通过 <code>MissionBehavior</code> 下发。</li>
+<li>你想<strong>序列化/存档一个 <code>Formation</code> 引用</strong>。它是纯运行时对象，Mission 结束后实例失效；存档里应保存“兵种 + 队伍”这类可重建的键，而非对象引用。</li>
+<li>你假设<strong>同一个 <code>Formation</code> 实例跨 Mission 仍然有效</strong>。每次开局都是全新实例。</li>
+</ul>
+<h2 id="yi-lai-tu-ke-dian-ji">依赖图（可点击）</h2>
+<ul>
+<li><strong>上游（创建 / 拥有 / 驱动）</strong>
+<ul>
+<li><a href=".././Team/">Team</a> — 创建并持有所有编队；<code>GetFormation</code>、<code>FormationsIncludingSpecialAndEmpty</code>。</li>
+<li><a href=".././Mission/">Mission</a> — 提供 <code>Mission.Current</code>、运行 <code>Formation.Tick</code>、决定 <code>Mode</code>（部署/战斗）。</li>
+<li><a href="../../mission-ext/OrderController/">OrderController</a> — <code>Team.MasterOrderController</code> / <code>PlayerOrderController</code> 实际执行 <code>Split</code> / <code>TransferUnits</code> / 玩家下令。</li>
+</ul>
+</li>
+<li><strong>下游（被指挥 / 被查询）</strong>
+<ul>
+<li><a href=".././Agent/">Agent</a> — 编队内的单位；编队通过 <code>AddUnit</code> 纳入，并通过 <code>agent.SetTargetFormationIndex</code> / <code>SetRidingOrder</code> / <code>SetFiringOrder</code> 下发命令。</li>
+<li><code>FormationQuerySystem</code>（<code>QuerySystem</code>）— 每编队的态势缓存（敌我距离、兵种比例、平均位置）。</li>
+<li><code>FormationAI</code>（<code>AI</code>）— 该编队的 AI 行为（由 <code>Team.TeamAI</code> 驱动）。</li>
+</ul>
+</li>
+<li><strong>相关 Events</strong>
+<ul>
+<li>编队自身：<code>OnUnitAdded</code> / <code>OnUnitRemoved</code> / <code>OnUnitAttached</code> / <code>OnUnitCountChanged</code> / <code>OnUnitSpacingChanged</code> / <code>OnTick</code> / <code>OnWidthChanged</code> / <code>OnBeforeMovementOrderApplied</code> / <code>OnAfterArrangementOrderApplied</code>。</li>
+<li>队伍层：<a href=".././Team/">Team</a> 的 <code>OnFormationsChanged</code>、<code>OnOrderIssued</code>；<a href="../../mission-ext/OrderController/">OrderController</a> 的 <code>OnOrderIssued</code>。</li>
+</ul>
+</li>
+<li><strong>相关 Behaviors / Models</strong>
+<ul>
+<li><code>BehaviorGeneral</code>、<code>BehaviorCharge</code>、<code>TeamAIGeneral</code> 等战斗 AI 会读写编队 Order。</li>
+<li><code>BattleBannerBearersModel</code>（在 <code>TransferUnits</code> 中用于搬运旗手）、<code>AgentStatCalculateModel</code>（按 Order 攻防性刷新 <code>DrivenProperty</code>）。</li>
+</ul>
+</li>
+<li><strong>存档点</strong>
+<ul>
+<li><code>Formation</code> 本身<strong>不进存档</strong>。但 <code>OrderController</code> 会记录当前 Order 状态；若你的 <code>MissionLogic</code> 把 <code>Formation</code>/<code>Team</code> 引用塞进可被序列化的字段，会在读档时得到悬空/错误引用（见风险段）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="feng-xian-beng-kui-yu-pi-dang">风险（崩溃与坏档）</h2>
+<p><code>Formation</code> 是最容易“拿了就崩”的类型之一，因为它深度绑定当前 <code>Mission</code>：</p>
+<ol>
+<li>
+<p><strong>在 Mission 之外调用会空引用崩溃。</strong> 大量成员读取 <code>Mission.Current</code>：<code>Reset()</code>、<code>Tick()</code>、<code>IsDeployment =&gt; Mission.Current.Mode</code>、<code>IsConvenientForTransfer =&gt; Mission.Current.MissionTeamAIType</code>、<code>CreateNewOrderWorldPosition</code> 等。在任何 <code>Mission == null</code> 的作用域（战役地图 tick、菜单、存档读入早期）调用 <code>formation.Xxx</code> 会直接 <code>NullReferenceException</code>。<strong>只在 <code>Mission.Current != null</code> 且 Mission 活跃时操作。</strong></p>
+</li>
+<li>
+<p><strong>Mission 结束后持有旧 <code>Formation</code> 引用 = 悬空引用。</strong> Mission 结束时 <code>Team</code> 与它的编队一起作废；你缓存的字段会变成指向已失效对象的引用。再次调用会读到 <code>Mission.Current</code> 为 null 或错误 Mission 的状态。使用事件/局部变量，不要长期持有。</p>
+</li>
+<li>
+<p><strong>部署阶段 vs 战斗阶段下错指令会“静默无效或被改写”。</strong> <code>SetMovementOrder</code> 在 <code>Tick</code> 里有 <code>while (!_movementOrder.IsApplicable(this))</code> 的自动替换循环：在部署阶段下达不适用于当时的 Order（如 <code>Charge</code> 缺少有效目标位）会被悄悄换成 <code>Move</code> 或 <code>Stop</code>。需要玩家在部署阶段摆位时，用 <code>MovementOrder.MovementOrderMove(pos)</code>；真正“冲锋”应在 <code>OnDeploymentFinished</code> 之后或战斗逻辑里下发。</p>
+</li>
+<li>
+<p><strong><code>Split</code> / <code>TransferUnits</code> 会重排单位并触发 <code>OnFormationsChanged</code>。</strong> 在遍历 <code>FormationsIncludingSpecialAndEmpty</code> 的 <code>foreach</code> 中途调用它们会修改正在遍历的列表，可能导致跳过/重复。先收集目标再操作，或在 <code>MissionLogic</code> 的合适回调里做。</p>
+</li>
+<li>
+<p><strong><code>SetControlledByAI(false)</code> 会把编队交给玩家，并可能重新触发 AI 行为激活。</strong> 把原本 AI 控制的编队切到手动、又同时被 <code>TeamAI</code> 接管，会造成指令“打架”。混合控制前先明确 <code>PlayerOwner</code> 与 <code>IsAIOwned</code> 的语义（<code>SetControlledByAI</code> 内部会调用 <code>AI.ActiveBehavior.OnLostAIControl()</code> / 重新 <code>OnBehaviorActivated()</code>）。</p>
+</li>
+<li>
+<p><strong>不要把 <code>Formation</code>/<code>Team</code> 写进可序列化字段（坏档风险）。</strong> 它们是运行时瞬态对象，存档再读会得到错误/空引用，严重时破坏 Mission 初始化。改用 <code>FormationClass</code> + 队内枚举等可重建键。</p>
+</li>
+<li>
+<p><strong>多人游戏下 <code>BannerCode</code> 赋值会广播网络消息。</strong> 设 <code>formation.BannerCode</code> 时若在服务端会 <code>GameNetwork.BeginBroadcastModuleEvent</code> 发出 <code>InitializeFormation</code>；在客户端-only 上下文赋值不会同步。修改旗号请走服务端权威路径。</p>
+</li>
+</ol>
+<h2 id="he-xin-shu-xing">核心属性</h2>
+<table><thead><tr><th>属性</th><th>类型</th><th>含义与注意</th></tr></thead><tbody>
+<tr><td><code>Team</code></td><td><code>Team</code>（<code>readonly</code>）</td><td>拥有该编队的队伍。</td></tr>
+<tr><td><code>Index</code></td><td><code>int</code>（<code>readonly</code>）</td><td>编队在队伍中的下标，等于 <code>(int)FormationIndex</code>。</td></tr>
+<tr><td><code>FormationIndex</code></td><td><code>FormationClass</code>（<code>readonly</code>）</td><td>该编队对应的兵种槽位。</td></tr>
+<tr><td><code>CountOfUnits</code></td><td><code>int</code></td><td>在编单位 + 脱离（detached）单位总数。</td></tr>
+<tr><td><code>CountOfUnitsWithoutDetachedOnes</code></td><td><code>int</code></td><td>仅排列中的单位数（不含 detached）。</td></tr>
+<tr><td><code>DetachedUnits</code> / <code>LooseDetachedUnits</code></td><td><code>MBReadOnlyList&lt;Agent&gt;</code></td><td>被 <code>DetachUnit</code> 抽离出阵型的单位。</td></tr>
+<tr><td><code>QuerySystem</code></td><td><code>FormationQuerySystem</code></td><td>态势缓存：兵种比例、最近敌队、平均/中位位置、移动速度。</td></tr>
+<tr><td><code>AI</code></td><td><code>FormationAI</code></td><td>该编队的 AI 控制器。</td></tr>
+<tr><td><code>OrderPosition</code> / <code>OrderGroundPosition</code> / <code>OrderPositionIsValid</code></td><td><code>Vec2</code> / <code>Vec3</code> / <code>bool</code></td><td>当前指令目标点；无效时 <code>CreateNewOrderWorldPosition</code> 会打印黄色警告。</td></tr>
+<tr><td><code>CurrentPosition</code></td><td><code>Vec2</code></td><td>编队当前实际中心（平均位置 + 朝向换算）。</td></tr>
+<tr><td><code>Direction</code> / <code>CurrentDirection</code></td><td><code>Vec2</code></td><td>编队正面朝向。</td></tr>
+<tr><td><code>LogicalClass</code> / <code>PhysicalClass</code></td><td><code>FormationClass</code></td><td>逻辑兵种 / 物理主兵种。</td></tr>
+<tr><td><code>ArrangementOrder</code> / <code>FormOrder</code> / <code>RidingOrder</code> / <code>FiringOrder</code> / <code>FacingOrder</code></td><td>对应 Order 类型</td><td>当前阵型/成形/骑乘/开火/朝向指令（只读；改它们要走 <code>Set*</code> 方法）。</td></tr>
+<tr><td><code>IsDeployment</code></td><td><code>bool</code></td><td><code>Mission.Current.Mode == MissionMode.Deployment</code>。</td></tr>
+<tr><td><code>IsAIControlled</code></td><td><code>bool</code></td><td>是否由 AI 接管。</td></tr>
+<tr><td><code>Captain</code></td><td><code>Agent</code></td><td>编队队长；赋值会触发 <code>OnCaptainChanged</code>。</td></tr>
+<tr><td><code>PlayerOwner</code></td><td><code>Agent</code></td><td>玩家指挥官；赋值时<strong>自动</strong> <code>SetControlledByAI(value == null)</code>。</td></tr>
+<tr><td><code>IsSpawning</code></td><td><code>bool</code></td><td>是否处于刷兵阶段（<code>BeginSpawn</code>/<code>EndSpawn</code> 之间）。</td></tr>
+<tr><td><code>TargetFormation</code></td><td><code>Formation</code></td><td>锁定的敌方/友方目标编队；赋值会把 <code>agent.SetTargetFormationIndex</code> 下发到全队。</td></tr>
+</tbody></table>
+<h2 id="zhi-ling-xi-tong-xia-da-ming-ling">指令系统（下达命令）</h2>
+<p>所有“下令”都先构造一个对应的 Order 对象，再交给 <code>Set*</code> 方法。Order 在 <code>Tick</code> 中落实为对各单位的具体行为。</p>
+<h3 id="public-void-setmovementorder-movementorder-input"><code>public void SetMovementOrder(MovementOrder input)</code></h3>
+<p>设置移动/冲锋指令。<strong>副作用</strong>：触发 <code>OnBeforeMovementOrderApplied</code>；若新旧指令“攻防性”不同会刷新全队 <code>DrivenProperty</code>；最后 <code>SetTargetFormation(null)</code> 清空锁定目标；若新指令当前不适用会在 <code>Tick</code> 里被自动替换为可用指令。<strong>何时调用</strong>：战斗中或部署摆位时，作为统一指挥入口。</p>
+<pre><code data-lang="csharp">// 移动到指定世界坐标
+WorldPosition pos = new WorldPosition(Mission.Current.Scene, new Vec3(120f, 40f, 0f));
+formation.SetMovementOrder(MovementOrder.MovementOrderMove(pos));
+
+// 直接冲锋（无参静态只读实例）
+formation.SetMovementOrder(MovementOrder.MovementOrderCharge);
+
+// 冲向某个敌队
+formation.SetMovementOrder(MovementOrder.MovementOrderChargeToTarget(enemyFormation));
+
+// 跟随某个 Agent / 某个场景实体 / 攻击某个实体
+formation.SetMovementOrder(MovementOrder.MovementOrderFollow(someAgent));
+formation.SetMovementOrder(MovementOrder.MovementOrderFollowEntity(someGameEntity));
+formation.SetMovementOrder(MovementOrder.MovementOrderAttackEntity(someGameEntity, surroundEntity: true));
+</code></pre>
+<p>可用的静态工厂/只读实例（<code>MovementOrder</code>，位于 <a href="../../mission-ext/MovementOrder/">mission-ext</a>）：<code>MovementOrderCharge</code>、<code>MovementOrderStop</code>、<code>MovementOrderRetreat</code>、<code>MovementOrderAdvance</code>、<code>MovementOrderFallBack</code>（均为只读实例），以及 <code>MovementOrderMove(WorldPosition)</code>、<code>MovementOrderChargeToTarget(Formation)</code>、<code>MovementOrderFollow(Agent)</code>、<code>MovementOrderFollowEntity(GameEntity)</code>、<code>MovementOrderAttackEntity(GameEntity, bool)</code>。</p>
+<blockquote>
+<p>没有 <code>Formation.MoveTo(...)</code> / <code>Formation.Charge()</code> 这种直接方法——必须经由 <code>MovementOrder</code> + <code>SetMovementOrder</code>。</p>
+</blockquote>
+<h3 id="public-void-setarrangementorder-arrangementorder-order"><code>public void SetArrangementOrder(ArrangementOrder order)</code></h3>
+<p>设置阵型：线 <code>ArrangementOrderLine</code>、纵列 <code>ArrangementOrderColumn</code>、圆 <code>ArrangementOrderCircle</code>、方阵 <code>ArrangementOrderSquare</code>、盾墙 <code>ArrangementOrderShieldWall</code>、散兵 <code>ArrangementOrderScatter</code>、松散 <code>ArrangementOrderLoose</code>、楔形 <code>ArrangementOrderSkein</code>。<strong>副作用</strong>：切换会重算 <code>Width</code>/防御系数、使 <code>QuerySystem</code> 失效并 <code>ForceCalculateCaches</code>。详见 <a href="../../mission-ext/ArrangementOrder/">ArrangementOrder</a>。</p>
+<pre><code data-lang="csharp">formation.SetArrangementOrder(ArrangementOrder.ArrangementOrderLine);
+formation.SetArrangementOrder(ArrangementOrder.ArrangementOrderShieldWall);
+</code></pre>
+<h3 id="public-void-setformorder-formorder-order-bool-updatedesiredfilecount-true"><code>public void SetFormOrder(FormOrder order, bool updateDesiredFileCount = true)</code></h3>
+<p>设置“成形”方式（如 <code>FormOrder.FormOrderCustom(width)</code> 自定义宽度）。<strong>副作用</strong>：触发 <code>FormOrder.OnApply</code>、使 <code>QuerySystem</code> 失效。</p>
+<h3 id="public-void-setridingorder-ridingorder-order"><code>public void SetRidingOrder(RidingOrder order)</code></h3>
+<p>上马/下马。<strong>副作用</strong>：遍历全队调用 <code>agent.SetRidingOrder(order.OrderEnum)</code>，并触发阵型形状变化。</p>
+<h3 id="public-void-setfiringorder-firingorder-order"><code>public void SetFiringOrder(FiringOrder order)</code></h3>
+<p>开火/停火。<strong>副作用</strong>：遍历全队调用 <code>agent.SetFiringOrder(order.OrderEnum)</code>。</p>
+<h3 id="public-void-setfacingorder-facingorder-order"><code>public void SetFacingOrder(FacingOrder order)</code></h3>
+<p>设置正面朝向指令（如 <code>FacingOrderLookAtEnemy</code>、<code>FacingOrderLookAtDirection</code>）。</p>
+<h3 id="public-void-settargetformation-formation-targetformation"><code>public void SetTargetFormation(Formation targetFormation)</code></h3>
+<p>锁定一个目标编队（用于冲锋/交战）。<strong>副作用</strong>：写 <code>TargetFormation</code>，进而把 <code>agent.SetTargetFormationIndex</code> 下发到全队；传 <code>null</code> 即取消锁定。</p>
+<h3 id="public-void-setcontrolledbyai-bool-iscontrolledbyai-bool-enforcenotsplittablebyai-false"><code>public void SetControlledByAI(bool isControlledByAI, bool enforceNotSplittableByAI = false)</code></h3>
+<p>切换 AI 接管。<strong>副作用</strong>：由 AI 接管且已有单位时会立即 <code>AI.Tick()</code> 并把当前 <code>AI.ActiveBehavior.CurrentOrder</code> 作为移动指令下发；交还玩家时调用 <code>AI.ActiveBehavior.OnLostAIControl()</code>。与 <code>PlayerOwner</code> 赋值联动。</p>
+<h2 id="cha-xun-yu-pi-liang-cao-zuo">查询与批量操作</h2>
+<h3 id="public-int-countofunits-countofunitswithoutdetachedones-countofdetachedunits"><code>public int CountOfUnits</code> / <code>CountOfUnitsWithoutDetachedOnes</code> / <code>CountOfDetachedUnits</code></h3>
+<p>当前单位规模，区分“是否含被脱离的单位”。</p>
+<h3 id="public-int-getcountofunitswithcondition-func-agent-bool-function"><code>public int GetCountOfUnitsWithCondition(Func&lt;Agent, bool&gt; function)</code></h3>
+<p>统计满足条件的单位（排列中 + detached 都算）。</p>
+<pre><code data-lang="csharp">int mounted = formation.GetCountOfUnitsWithCondition(a =&gt; a.HasMount);
+</code></pre>
+<h3 id="public-bool-hasunitswithcondition-func-agent-bool-function-out-agent-result"><code>public bool HasUnitsWithCondition(Func&lt;Agent, bool&gt; function, out Agent result)</code></h3>
+<p>是否存在满足条件的单位；有则通过 <code>out</code> 返回其中一个。</p>
+<h3 id="public-void-applyactiononeachunit-action-agent-action-agent-ignoreagent-null"><code>public void ApplyActionOnEachUnit(Action&lt;Agent&gt; action, Agent ignoreAgent = null)</code></h3>
+<p>对编队内每个 <code>Agent</code> 执行同一动作（不含 detached）。还有 <code>ApplyActionOnEachAttachedUnit</code>、<code>ApplyActionOnEachDetachedUnit</code>、<code>ApplyActionOnEachUnitViaBackupList</code> 变体，分别覆盖“附着单位/脱离单位/用备份列表避免遍历中被改”。</p>
+<pre><code data-lang="csharp">formation.ApplyActionOnEachUnit(a =&gt;
+{
+    if (a.Health &lt; a.HealthLimit)
+        a.Health = Math.Min(a.Health + 10f, a.HealthLimit);
+});
+</code></pre>
+<h3 id="public-agent-getfirstunit-public-agent-getunitwithindex-int-unitindex"><code>public Agent GetFirstUnit()</code> / <code>public Agent GetUnitWithIndex(int unitIndex)</code></h3>
+<p>按下标取单位（先排列中、后 detached）。下标不跨 Mission 稳定。</p>
+<h3 id="public-formationquerysystem-querysystem"><code>public FormationQuerySystem QuerySystem</code></h3>
+<p>态势查询入口：兵种比例（<code>CavalryUnitRatioReadOnly</code> 等）、最近敌队、平均/中位位置、移动速度、城堡内外单位数等。读取前若数据可能过期，调用 <code>QuerySystem.Expire()</code> 使其重算。</p>
+<h2 id="bian-dui-nei-de-dan-wei-guan-li">编队内的单位管理</h2>
+<h3 id="public-void-transferunits-formation-target-int-unitcount"><code>public void TransferUnits(Formation target, int unitCount)</code></h3>
+<p>把一个编队的 <code>unitCount</code> 个单位转移给另一个编队。<strong>副作用</strong>：经 <code>Team.MasterOrderController.TransferUnits</code> 实际搬移；双方 <code>CalculateLogicalClass</code>、失效 <code>QuerySystem</code>、触发 <code>Team.QuerySystem.ExpireAfterUnitAddRemove</code>。被转移单位会带上原编队的 Order 与摆位（当目标原本为空时）。注意 <code>TransferUnitsAux</code> 有 <code>IsSplittableByAI</code> 守卫。</p>
+<h3 id="public-ienumerable-formation-split-int-count-2"><code>public IEnumerable&lt;Formation&gt; Split(int count = 2)</code></h3>
+<p>把当前编队拆成 <code>count</code> 个（经 <code>Team.MasterOrderController.SplitFormation</code>）。<strong>副作用</strong>：拆分期间 <code>PostponeCostlyOperations = true</code>，拆分后各新编队 <code>QuerySystem.Expire()</code>、重算 <code>LogicalClass</code>。返回拆分出的编队枚举。</p>
+<h3 id="public-void-detachunit-agent-unit-bool-isloose-public-void-attachunit-agent-unit"><code>public void DetachUnit(Agent unit, bool isLoose)</code> / <code>public void AttachUnit(Agent unit)</code></h3>
+<p>把单个单位临时脱离/重新归队（脱离后仍属该 <code>Team</code>，但不参与阵型排列，可单独下令）。</p>
+<h3 id="public-void-beginspawn-int-unitcount-bool-ismounted-public-void-endspawn"><code>public void BeginSpawn(int unitCount, bool isMounted)</code> / <code>public void EndSpawn()</code></h3>
+<p>标记刷兵开始/结束，<code>IsSpawning</code> 在两者之间为 <code>true</code>。刷兵期间单位陆续经 <code>AddUnit</code> 进入编队，<code>EndSpawn</code> 后认为编制齐整。</p>
+<h3 id="public-void-addunit-agent-unit-public-void-removeunit-agent-unit"><code>public void AddUnit(Agent unit)</code> / <code>public void RemoveUnit(Agent unit)</code></h3>
+<p>把单位加入/移出编队；会触发 <code>OnUnitAdded</code> / <code>OnUnitRemoved</code> 与 <code>OnUnitCountChanged</code>。</p>
+<h2 id="sheng-ming-zhou-qi-yu-mei-zheng">生命周期与每帧</h2>
+<h3 id="public-void-tick-float-dt"><code>public void Tick(float dt)</code></h3>
+<p><code>Mission</code> 每帧调用，驱动整个编队：刷新平均/中位位置与速度缓存、推进 <code>AI.Tick()</code>（若 <code>Team.HasTeamAi</code> 且由 AI 或玩家军士控制）、把当前 <code>MovementOrder</code> 落实为摆位（<code>SetPositioning</code>）、清理已空的目标编队、触发 <code>OnTick</code>。<strong>不要手动频繁调用</strong>——它由引擎在战斗循环中调用；你通常只在自定义 <code>MissionBehavior</code> 的 <code>OnMissionTick</code> 里读取状态或下达 Order。</p>
+<h3 id="public-void-reset"><code>public void Reset()</code></h3>
+<p>复位为初始状态（<code>LineFormation</code>、默认朝向 <code>FacingOrderLookAtEnemy</code>、清空玩家拥有等）。构造时调用一次；一般不会由 mod 再调。</p>
+<h3 id="public-void-ondeploymentfinished"><code>public void OnDeploymentFinished()</code></h3>
+<p>部署阶段结束的钩子：<strong>副作用</strong>：<code>AI.OnDeploymentFinished()</code> 并 <code>OrderController.TryCancelStopOrder(this)</code> 取消部署期的停步指令。由部署控制器在切战斗时调用。</p>
+<h3 id="public-void-setpositioning-worldposition-position-null-vec2-direction-null-int-unitspacing-null"><code>public void SetPositioning(WorldPosition? position = null, Vec2? direction = null, int? unitSpacing = null)</code></h3>
+<p>设置编队的指令点与朝向/间距。<strong>副作用</strong>：越界时夹到 <code>Mission.Current.GetClosestBoundaryPosition</code>；离原位置过远会触发 <code>Arrangement.UpdateLocalPositionErrors</code>；写 <code>OrderPosition</code>/<code>Direction</code>/<code>UnitSpacing</code>，必要时翻转阵型。多由 <code>MovementOrder.Tick</code> 内部调用，mod 也可直接用来摆位。</p>
+<h3 id="public-void-rearrange-iformationarrangement-arrangement"><code>public void Rearrange(IFormationArrangement arrangement)</code></h3>
+<p>整体替换底层排列算法（如 <code>LineFormation</code>/<code>ColumnFormation</code>），切换 <code>Arrangement</code> 会重订阅 <code>OnWidthChanged</code>/<code>OnShapeChanged</code>。</p>
+<h2 id="zhen-shi-shi-li">真实示例</h2>
+<h3 id="shi-li-1-rang-wan-jia-de-bu-bing-dui-yi-dong-dao-mou-dian-zhen-shi-huo-qu-lu-jing">示例 1：让玩家的步兵队移动到某点（真实获取路径）</h3>
+<pre><code data-lang="csharp">// 在自定义 MissionBehavior / MissionLogic 内、Mission 活跃时调用
+if (Mission.Current?.PlayerTeam == null) return;
+
+// 从 Team 按兵种取出编队（不要自己 new）
+Formation infantry = Mission.Current.PlayerTeam.GetFormation(FormationClass.Infantry);
+if (infantry == null || infantry.CountOfUnits == 0) return;
+
+// 构造一个世界坐标作为移动目标
+WorldPosition target = new WorldPosition(Mission.Current.Scene, new Vec3(120f, 40f, 0f));
+infantry.SetMovementOrder(MovementOrder.MovementOrderMove(target));
+</code></pre>
+<h3 id="shi-li-2-ming-ling-quan-jun-lie-cheng-dun-qiang-bing-chong-feng-zai-bu-shu-jie-shu-zhan-dou-kai-shi-shi">示例 2：命令全军列成盾墙并冲锋（在部署结束/战斗开始时）</h3>
+<pre><code data-lang="csharp">public override void OnMissionTick(float dt)
+{
+    Mission mission = Mission.Current;
+    if (mission == null || mission.PlayerTeam == null) return;
+
+    foreach (Formation f in mission.PlayerTeam.FormationsIncludingSpecialAndEmpty)
+    {
+        if (f.CountOfUnits == 0) continue;
+
+        // 步兵/重步兵列盾墙，骑兵直接冲锋
+        if (f.LogicalClass == FormationClass.Infantry || f.LogicalClass == FormationClass.HeavyInfantry)
+        {
+            f.SetArrangementOrder(ArrangementOrder.ArrangementOrderShieldWall);
+        }
+        f.SetMovementOrder(MovementOrder.MovementOrderCharge);
+    }
+}
+</code></pre>
+<blockquote>
+<p>关键：示例全部经由 <code>Mission.Current.PlayerTeam.GetFormation(...)</code> + <code>MovementOrder</code> 工厂，没有任何省略号占位或虚拟取值名。</p>
+</blockquote>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li>本页以 <code>bannerlord-1.4.5</code> 源码为准核对；<code>1.3.15</code> 的 <code>Team.GetFormation</code> / <code>FormationsIncludingSpecialAndEmpty</code> / <code>MovementOrder.MovementOrderMove</code> / <code>MovementOrder.MovementOrderCharge</code> 等 API 一致，可直接套用。</li>
+<li><code>1.3.15</code> 中 <code>MovementOrder</code> 同样提供 <code>MovementOrderCharge</code> 等静态只读实例与 <code>MovementOrderMove(WorldPosition)</code> 工厂，命名与 1.4.5 相同。</li>
+<li>各 Order 子类型（<code>ArrangementOrder</code>/<code>FormOrder</code>/<code>RidingOrder</code>/<code>FiringOrder</code>/<code>FacingOrder</code>）的静态工厂形态在 1.3.15→1.4.5 间保持稳定，详见各自的 <a href="../../mission-ext/MovementOrder/">mission-ext</a> 页面。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href=".././Mission/">↑ Mission</a> — Formation 所在场景与驱动者</li>
+<li><a href=".././Team/">↔ Team</a> — 拥有并创建所有编队</li>
+<li><a href=".././Agent/">↔ Agent</a> — 编队内的单位</li>
+<li><a href=".././MissionBehavior/">↔ MissionBehavior</a> — 在战斗中读取/下发编队指令的回调入口</li>
+<li><a href=".././FormationSpawnData/">↔ FormationSpawnData</a> — 单位如何被刷入编队</li>
+<li><a href="../../mission-ext/OrderController/">相关 OrderController</a> — 实际执行 Split/Transfer/玩家下令</li>
+<li><a href="../../mission-ext/MovementOrder/">相关 MovementOrder</a> — 移动/冲锋指令工厂</li>
+<li><a href="../../mission-ext/ArrangementOrder/">相关 ArrangementOrder</a> — 阵型指令</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/mission/">mission 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/mission/IMBBannerlordChecker/">&larr; IMBBannerlordChecker</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/mission/IMBBannerlordTableauManager/">IMBBannerlordTableauManager &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

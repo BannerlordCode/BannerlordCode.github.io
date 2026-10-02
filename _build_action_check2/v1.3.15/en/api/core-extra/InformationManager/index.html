@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InformationManager</title>
+  <meta name="description" content="Static facade for player-facing messages, confirm dialogs, and tooltips: DisplayMessage &#x2F; ShowInquiry. Not a log or debug sink.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core-extra/InformationManager/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core-extra/InformationManager/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/core-extra/InformationManager/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/core-extra/InformationManager/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/core-extra/InformationManager/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/core-extra/InformationManager/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="active">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;">core-extra index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">InformationManager</span>
+    </nav>
+  
+  <h1>InformationManager</h1>
+  <h1 id="informationmanager">InformationManager</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Library<br />
+<strong>Module:</strong> TaleWorlds.Library<br />
+<strong>Type:</strong> <code>public static class InformationManager</code><br />
+<strong>Base:</strong> —<br />
+<strong>File:</strong> <code>TaleWorlds.Library/InformationManager.cs</code><br />
+<strong>Authority source:</strong> 1.4.5 (semantics match 1.3.15)</p>
+<h2 id="overview">Overview</h2>
+<p><code>InformationManager</code> is Bannerlord's static facade for <strong>player-visible</strong> feedback: screen float text, system notifications, modal confirms (<code>Inquiry</code>), text-input dialogs (<code>TextInquiry</code>), and hover tooltips.</p>
+<p>It does <strong>not</strong> render UI itself. Public methods only raise internal <code>event</code>s / <code>Func</code>s. The real Gauntlet layer in View assemblies subscribes and draws. So:</p>
+<ul>
+<li>With UI subscribers: the player sees the message</li>
+<li>Without subscribers (pure tests, too-early lifecycle): the call is a no-op. No throw, and <strong>no</strong> log file write</li>
+</ul>
+<p><strong>It is not:</strong></p>
+<table><thead><tr><th>Misuse</th><th>Correct alternative</th></tr></thead><tbody>
+<tr><td>Dev logs / crash diagnostics</td><td><code>Debug.Print</code>, your own file log, Harmony debugging</td></tr>
+<tr><td>Campaign map notification strip (clickable MapNotification)</td><td><code>Campaign.Current</code> notification system / the matching MapNotification type</td></tr>
+<tr><td>In-mission kill feed / chat</td><td>Mission / multiplayer-specific VM paths</td></tr>
+</tbody></table>
+<h2 id="mental-model">Mental Model</h2>
+<pre><code>Mod / logic layer
+    │  InformationManager.DisplayMessage / ShowInquiry / ...
+    ▼
+Static event bus (Library, no render state)
+    │  DisplayMessageInternal / OnShowInquiry / ...
+    ▼
+View / Gauntlet subscribers (actual popups and float text)
+</code></pre>
+<p>Three levels of player feedback, pick by how interruptive they are:</p>
+<table><thead><tr><th>Level</th><th>API</th><th>Scene</th></tr></thead><tbody>
+<tr><td>Light</td><td><code>DisplayMessage</code></td><td>"Gained 50 denars", "Cannot do that". Does not block input</td></tr>
+<tr><td>Medium</td><td><code>AddSystemNotification</code></td><td>Short system notification string</td></tr>
+<tr><td>Heavy</td><td><code>ShowInquiry</code> / <code>ShowTextInquiry</code></td><td>Must confirm/cancel or type text; can pause game logic</td></tr>
+</tbody></table>
+<p><strong>When to use</strong></p>
+<ul>
+<li>Behavior / VM / SubModule needs the <strong>player to see feedback right now</strong></li>
+<li>Confirm before a dangerous action (disband, abandon quest, overwrite-style prompts)</li>
+<li>Register custom tooltip types (<code>RegisterTooltip</code>)</li>
+</ul>
+<p><strong>When not to use</strong></p>
+<ul>
+<li>High-frequency every-frame output (spam)</li>
+<li>As assert / logging</li>
+<li>Expecting messages after <code>Clear()</code> or after View unload</li>
+<li>Need a durable, clickable map event → Map Notification, not <code>DisplayMessage</code></li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<table><thead><tr><th>Direction</th><th>Type / system</th><th>Relationship</th></tr></thead><tbody>
+<tr><td>Payload</td><td><a href="../InformationMessage">InformationMessage</a></td><td><code>DisplayMessage</code> arg: text, color, sound, category</td></tr>
+<tr><td>Payload</td><td><a href="../InquiryData">InquiryData</a></td><td>Confirm title/body/button callbacks</td></tr>
+<tr><td>Payload</td><td><code>TextInquiryData</code></td><td>Inquiry with text input</td></tr>
+<tr><td>Downstream</td><td>Gauntlet Information / Inquiry UI</td><td>Subscribes to <code>*Internal</code> / <code>OnShow*</code> events</td></tr>
+<tr><td>Parallel</td><td>Campaign MapNotification</td><td>Map-side durable notifications; different API</td></tr>
+<tr><td>Callers</td><td><a href="../../campaign-ext/CampaignBehaviorBase">CampaignBehaviorBase</a>, ViewModel, <a href="../../core/MBSubModuleBase">MBSubModuleBase</a></td><td>Most common trigger points</td></tr>
+<tr><td>Tooltip</td><td><code>TooltipBaseVM</code> + <code>RegisterTooltip&lt;TRegistered, TTooltip&gt;</code></td><td>Type → refresh delegate + movie name</td></tr>
+</tbody></table>
+<h2 id="risks-and-crash-boundaries">Risks and crash boundaries</h2>
+<table><thead><tr><th>Risk</th><th>Consequence</th><th>Mitigation</th></tr></thead><tbody>
+<tr><td>Treat this as a logger</td><td>Player spam; no diagnostic value in release</td><td>Logs go through <code>Debug</code> / your own channel</td></tr>
+<tr><td>Nested <code>ShowInquiry</code> from a callback without queue discipline</td><td>Stacked dialogs, broken state</td><td>Finish work in the callback first; <code>HideInquiry</code> if needed; check <code>IsAnyInquiryActive()</code></td></tr>
+<tr><td><code>pauseGameActiveState: true</code> at the wrong time</td><td>Map/mission logic paused; feels frozen</td><td>Only for modal confirms; cancel path must restore</td></tr>
+<tr><td>Affirmative/Negative <code>Action</code> captures large objects</td><td>Leaks or stale refs after load</td><td>Callbacks should only touch stable singletons (<code>Hero.MainHero</code>, etc.) or weak holds</td></tr>
+<tr><td>Rely on visibility in headless / too-early stages</td><td>Silent no-op; logic ran, player saw nothing</td><td>Critical confirms must not depend on UI alone; decouple logic from display</td></tr>
+<tr><td>Call display after engine <code>Clear()</code></td><td>Events nulled; no effect</td><td>Engine lifecycle only; mods should not casually <code>Clear</code></td></tr>
+<tr><td>Tooltip registration type clashes</td><td>Later registration overwrites or movie not found</td><td>Unique registration types; <code>UnregisterTooltip</code> on unload</td></tr>
+</tbody></table>
+<h2 id="key-members">Key members</h2>
+<h3 id="messages">Messages</h3>
+<table><thead><tr><th>Member</th><th>Purpose and timing</th></tr></thead><tbody>
+<tr><td><code>DisplayMessage(InformationMessage message)</code></td><td>Screen info bar. Most common.</td></tr>
+<tr><td><code>HideAllMessages()</code></td><td>Hide currently visible messages (does not roll back logic).</td></tr>
+<tr><td><code>ClearAllMessages()</code></td><td>Clear message queue/display.</td></tr>
+<tr><td><code>AddSystemNotification(string message)</code></td><td>System notification string.</td></tr>
+</tbody></table>
+<h3 id="inquiries">Inquiries</h3>
+<table><thead><tr><th>Member</th><th>Purpose and timing</th></tr></thead><tbody>
+<tr><td><code>ShowInquiry(InquiryData, pauseGameActiveState = false, prioritize = false)</code></td><td>Yes/no (or single-button) modal.</td></tr>
+<tr><td><code>ShowTextInquiry(TextInquiryData, ...)</code></td><td>Modal with text input.</td></tr>
+<tr><td><code>HideInquiry()</code></td><td>Close the current inquiry.</td></tr>
+<tr><td><code>IsAnyInquiryActive()</code></td><td>Whether an inquiry is already up (internal Func may be null → false).</td></tr>
+</tbody></table>
+<h3 id="tooltips">Tooltips</h3>
+<table><thead><tr><th>Member</th><th>Purpose and timing</th></tr></thead><tbody>
+<tr><td><code>ShowTooltip(Type type, params object[] args)</code></td><td>Show hover tip by registered type.</td></tr>
+<tr><td><code>HideTooltip()</code></td><td>Hide.</td></tr>
+<tr><td><code>GetIsAnyTooltipActive()</code> / <code>GetIsAnyTooltipActiveAndExtended()</code></td><td>Query tooltip state.</td></tr>
+<tr><td><code>RegisterTooltip&lt;TRegistered, TTooltip&gt;(...)</code></td><td>Register type → VM refresh + Gauntlet movie.</td></tr>
+<tr><td><code>UnregisterTooltip&lt;TRegistered&gt;()</code></td><td>Unregister.</td></tr>
+<tr><td><code>RegisteredTypes</code></td><td>Read-only registry.</td></tr>
+</tbody></table>
+<h3 id="lifecycle">Lifecycle</h3>
+<table><thead><tr><th>Member</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>Clear()</code></td><td>Detach all events and delegates; engine calls this on session/module teardown.</td></tr>
+</tbody></table>
+<p>Public events (<code>DisplayMessageInternal</code>, <code>OnShowInquiry</code>, …) are for the <strong>View layer</strong>. Gameplay mods should <strong>call methods</strong>, not attach their own render handlers.</p>
+<h2 id="real-examples">Real examples</h2>
+<h3 id="example-1-light-player-feedback">Example 1: Light player feedback</h3>
+<pre><code data-lang="csharp">using TaleWorlds.Library;
+
+// Default white text
+InformationManager.DisplayMessage(
+    new InformationMessage(&quot;Recruited 5 troops.&quot;));
+
+// With color (green-ish success, red-ish failure; match your project Color conventions)
+InformationManager.DisplayMessage(
+    new InformationMessage(&quot;Not enough gold.&quot;, new Color(1f, 0.2f, 0.2f)));
+
+// Category (some UI filters by Category)
+InformationManager.DisplayMessage(
+    new InformationMessage(&quot;Inventory full.&quot;, new Color(1f, 0.8f, 0.2f), &quot;Inventory&quot;));
+</code></pre>
+<h3 id="example-2-confirm-dialog-campaign-any-logic-layer">Example 2: Confirm dialog (Campaign / any logic layer)</h3>
+<pre><code data-lang="csharp">using System;
+using TaleWorlds.Library;
+
+public static void ConfirmDisbandParty(Action onConfirm)
+{
+    if (InformationManager.IsAnyInquiryActive())
+        return; // avoid stacked dialogs
+
+    var data = new InquiryData(
+        titleText: &quot;Disband party&quot;,
+        text: &quot;Disband the current party? This cannot be undone.&quot;,
+        isAffirmativeOptionShown: true,
+        isNegativeOptionShown: true,
+        affirmativeText: &quot;Confirm&quot;,
+        negativeText: &quot;Cancel&quot;,
+        affirmativeAction: () =&gt; onConfirm?.Invoke(),
+        negativeAction: () =&gt; { /* close only */ });
+
+    // pauseGameActiveState: true only when the map needs a pause
+    InformationManager.ShowInquiry(data, pauseGameActiveState: true, prioritize: false);
+}
+</code></pre>
+<h3 id="example-3-feedback-from-a-campaignbehavior">Example 3: Feedback from a CampaignBehavior</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.Library;
+
+public class MyRewardBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        CampaignEvents.HeroPrisonerReleased.AddNonSerializedListener(this, OnReleased);
+    }
+
+    public override void SyncData(IDataStore dataStore) { }
+
+    private void OnReleased(
+        Hero prisoner,
+        PartyBase party,
+        IFaction capturer,
+        EndCaptivityDetail detail,
+        bool showNotification)
+    {
+        if (prisoner != Hero.MainHero)
+            return;
+
+        InformationManager.DisplayMessage(
+            new InformationMessage($&quot;{prisoner.Name} is free again.&quot;));
+        InformationManager.AddSystemNotification(&quot;You left captivity.&quot;);
+    }
+}
+</code></pre>
+<h3 id="example-4-register-a-custom-tooltip-ui-mod">Example 4: Register a custom tooltip (UI mod)</h3>
+<pre><code data-lang="csharp">using TaleWorlds.Library;
+// TTooltip must inherit TooltipBaseVM; movieName maps to a Gauntlet XML
+// InformationManager.RegisterTooltip&lt;MyHoverTarget, MyTooltipVM&gt;(
+//     onRefreshData: (vm, args) =&gt; vm.UpdateFrom(args),
+//     movieName: &quot;MyTooltipMovie&quot;);
+</code></pre>
+<h2 id="cross-version-notes">Cross-version notes</h2>
+<ul>
+<li><strong>1.3.x / 1.4.5:</strong> <code>DisplayMessage</code> / <code>ShowInquiry</code> / tooltip registration APIs are stable.</li>
+<li>In 1.4.5, <code>TooltipRegistry</code> is a struct with a primary constructor; gameplay code still only uses <code>RegisterTooltip</code>.</li>
+<li>Map notifications, encyclopedia, and quest log each have their own channel. Don't dump every "tell the player" into <code>DisplayMessage</code>.</li>
+</ul>
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core-extra/InformationManager/./">core-extra index</a> — module for this page</li>
+<li><a href="../../../architecture/sdk-overview">SDK overview</a></li>
+<li><a href="../Game">Game</a> — session context</li>
+</ul>
+<h2 id="sibling-navigation">↔ Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>Relationship</th></tr></thead><tbody>
+<tr><td><a href="../InformationMessage">InformationMessage</a></td><td>Float-text payload</td></tr>
+<tr><td><a href="../InquiryData">InquiryData</a></td><td>Confirm payload</td></tr>
+<tr><td><a href="../Game">Game</a></td><td>Current session</td></tr>
+<tr><td><a href="../../core/MBSubModuleBase">MBSubModuleBase</a></td><td>Startup-time prompts</td></tr>
+<tr><td><a href="../../campaign-ext/CampaignBehaviorBase">CampaignBehaviorBase</a></td><td>Campaign logic feedback</td></tr>
+<tr><td><a href="../../campaign-ext/CampaignTime">CampaignTime</a></td><td>Often paired with "due soon" reminders</td></tr>
+</tbody></table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../../../architecture/doc-contract">Doc contract</a></li>
+<li><a href="../../../architecture/module-system">Module system</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/core-extra/">core-extra index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/core-extra/ApplicationVersion/">&larr; ApplicationVersion</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/core-extra/PropertyChangedWithColorValueEventArgs/">PropertyChangedWithColorValueEventArgs &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

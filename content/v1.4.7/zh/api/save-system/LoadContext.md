@@ -169,5 +169,5 @@ if (!LoadContext.TryConvertType(raw.GetType(), typeof(int), ref value))
 
 ## 参见
 
-- ↑ 父级：[save-system 索引](../)
+- ↑ 父级：save-system 目录下没有索引页；同目录的另外两个页面是 [SaveManager](../SaveManager) 与 [SaveContext](../SaveContext)，两者也都只有中文页（见 [缺口清单](../../../../GAPS)）。
 - ↔ 相关：[SaveManager](../SaveManager) · [SaveContext](../SaveContext) · [Game](../../core-extra/Game) · [Campaign](../../campaign/Campaign) · [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase)

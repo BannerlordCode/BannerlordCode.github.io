@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>mission 目录</title>
+  <meta name="description" content="TaleWorlds.MountAndBlade 战斗系统类参考目录">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="active">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">mission 目录</span>
+    </nav>
+  
+  <h1>mission 目录</h1>
+  <h2 id="mo-kuai-xin-zhi-mo-xing">模块心智模型</h2>
+<p><code>mission</code> 桶承载的是 Bannerlord 的<strong>实时战斗/场景层</strong>——它和战役层（<code>campaign</code>）是同一枚硬币的两面：战役层决定“势力在地图上如何演变”，<code>mission</code> 层负责“进入战场后，每一个士兵、每一支编队、每一次挥砍到底怎么动”。</p>
+<p>这个桶属于 <code>TaleWorlds.MountAndBlade</code> 模块，顶层对象是 <code>Mission</code>：一场正在运行的战斗或场景实例，持有 <code>Scene</code>、运行状态，以及三大类运行时实体——<code>Team</code>（阵营）、<code>Formation</code>（编队）和 <code>Agent</code>（单个士兵/玩家/坐骑）。<code>Mission</code> 由引擎在加载场景时创建，是可通过 <code>Mission.Current</code> 全局访问的实时单例；切换场景（进入战斗、返回大地图）会销毁旧实例并新建实例。</p>
+<p>理解本桶的关键是<strong>层级归属关系</strong>：<code>Mission</code> 管一堆 <code>Team</code>，<code>Team</code> 持有若干 <code>Formation</code> 与成百上千个 <code>Agent</code>，<code>Formation</code> 再把“移动/冲锋/阵型”命令翻译为对每个 <code>Agent</code> 的底层设置。它不参与战役存档——所有对象只在 Mission 存活期间存在，战斗结束即销毁。换言之，<code>mission</code> 是游戏的“实时模拟心脏”，而 <code>campaign</code> 是它的“世界状态记忆”。</p>
+<h2 id="he-xin-ru-kou-lei-xing">核心入口类型</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./Mission">Mission</a>：当前战斗/场景实例的协调中心，通过 <code>Mission.Current</code> 访问。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./Agent">Agent</a>：场景中的单个实体（玩家、AI 士兵、马匹），承载位置、血量、装备与动画等实时状态。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./Team">Team</a>：Mission 内的一方阵营，持有 <code>Formation</code> 与 <code>Agent</code>，挂载 <code>OrderController</code> 与 <code>TeamAI</code>。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./Formation">Formation</a>：按兵种划分的战术编队，把移动/冲锋/阵型指令下发给每个 <code>Agent</code>。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./MissionBehavior">MissionBehavior</a>：挂载到 Mission 上的行为模块基类，用于扩展或改写战斗逻辑。</li>
+<li><a href="../mission-ext/MissionLogic/">MissionLogic</a>：<strong>跨桶</strong>，位于 <code>mission-ext</code>；<code>MissionLogic : MissionBehavior</code>，是玩法/战役逻辑接入战斗现场的核心扩展点。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./FormationSpawnData">FormationSpawnData</a>：描述一支编队如何被刷入战场的数据结构。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./GenericMissionObjective">GenericMissionObjective</a>：Mission 的通用目标/胜负条件载体。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./AgentHelper">AgentHelper</a>：Agent 相关的工具与辅助方法集合。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./Target">Target</a>：战斗中选择/锁定的目标实体抽象。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./MBNetworkPeer">MBNetworkPeer</a>：多人模式下代表一个网络玩家的对等端，连接 Agent 与联网状态。</li>
+</ul>
+<h2 id="yu-qi-ta-mo-kuai-de-guan-xi">与其他模块的关系</h2>
+<p><code>mission</code> 并非孤立：玩法和逻辑扩展（如 <code>MissionLogic</code>、各类 <code>AgentComponent</code>）放在相邻的 <code>../mission-ext/</code> 桶里，它们以 <code>MissionBehavior</code> 子类形式挂载进当前 Mission，是 mod 接入战斗现场的主要入口。战斗本身由 <code>../campaign/</code> 桶触发——战役系统在大地图上决定遭遇并发起一场 Mission，战斗结果再回写战役状态。</p>
+<p>由于 <code>Agent</code>/<code>Mission</code> 是高频实时对象，其生命周期极易成为崩溃源头（如 <code>Mission.Current</code> 为空时访问、Agent 已销毁仍持有引用）；相关崩溃边界与最佳实践见 <code>../../architecture/crash-boundaries/</code>。</p>
+<!-- BEGIN SECTION INDEX -->
+<h2 id="shang-ji-dao-hang">↑ 上级导航</h2>
+<ul>
+<li><a href="../">API 参考</a></li>
+<li><a href="../../">版本首页</a></li>
+</ul>
+<h2 id="zi-lei-lie-biao-an-zi-mu-fen-zu">↓ 子类列表 — 按字母分组</h2>
+<h3 id="a">A</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./ActionIndexCache">ActionIndexCache</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./Agent">Agent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./AgentCreationResult">AgentCreationResult</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./AgentHelper">AgentHelper</a></li>
+</ul>
+<h3 id="d">D</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./DefineGameNetworkMessageType">DefineGameNetworkMessageType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./DefineSynchedMissionObjectType">DefineSynchedMissionObjectType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./DropExtraWeaponOnStopUsageComponent">DropExtraWeaponOnStopUsageComponent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./DynamicNavmeshLocalIds">DynamicNavmeshLocalIds</a></li>
+</ul>
+<h3 id="f">F</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./Formation">Formation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./FormationSpawnData">FormationSpawnData</a></li>
+</ul>
+<h3 id="g">G</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./GenericMissionObjective">GenericMissionObjective</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./GenericMissionObjectiveTarget">GenericMissionObjectiveTarget</a></li>
+</ul>
+<h3 id="i">I</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBActionSet">IMBActionSet</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBAgent">IMBAgent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBAgentVisuals">IMBAgentVisuals</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBAnimation">IMBAnimation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBBannerlordChecker">IMBBannerlordChecker</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBBannerlordConfig">IMBBannerlordConfig</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBBannerlordTableauManager">IMBBannerlordTableauManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBDebugExtensions">IMBDebugExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBDelegate">IMBDelegate</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBEditor">IMBEditor</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBFaceGen">IMBFaceGen</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBGame">IMBGame</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBGameEntityExtensions">IMBGameEntityExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBItem">IMBItem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBMapScene">IMBMapScene</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBMessageManager">IMBMessageManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBMission">IMBMission</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBMultiplayerData">IMBMultiplayerData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBNetwork">IMBNetwork</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBPeer">IMBPeer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBScreen">IMBScreen</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBSkeletonExtensions">IMBSkeletonExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBSoundEvent">IMBSoundEvent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBTeam">IMBTeam</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBTestRun">IMBTestRun</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBVoiceManager">IMBVoiceManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBWindowManager">IMBWindowManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./IMBWorld">IMBWorld</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./ItemInnerData">ItemInnerData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./ItemList">ItemList</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./ItemType">ItemType</a></li>
+</ul>
+<h3 id="m">M</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./MBNetworkPeer">MBNetworkPeer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./Mission">Mission</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./MissionBehavior">MissionBehavior</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./MultiplayerBattleColors">MultiplayerBattleColors</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./MultiplayerCultureColorInfo">MultiplayerCultureColorInfo</a></li>
+</ul>
+<h3 id="o">O</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./OnPlatformRequestedMultiplayerJob">OnPlatformRequestedMultiplayerJob</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./OnSessionInvitationAcceptedJob">OnSessionInvitationAcceptedJob</a></li>
+</ul>
+<h3 id="p">P</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./PerkAssemblyCollection">PerkAssemblyCollection</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./PlayerTypes">PlayerTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./ProximityMapSearchStructInternal">ProximityMapSearchStructInternal</a></li>
+</ul>
+<h3 id="s">S</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./ScriptingInterfaceBase">ScriptingInterfaceBase</a></li>
+</ul>
+<h3 id="t">T</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./TacticOption">TacticOption</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./Target">Target</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./Team">Team</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/mission/./ToolDebugManager">ToolDebugManager</a></li>
+</ul>
+<!-- END SECTION INDEX -->
+
+</article>
+<hr>
+<ul>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBSoundEvent&#x2F;">IMBSoundEvent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;ActionIndexCache&#x2F;">ActionIndexCache</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;ItemList&#x2F;">ItemList</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBAgentVisuals&#x2F;">IMBAgentVisuals</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBBannerlordConfig&#x2F;">IMBBannerlordConfig</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;Team&#x2F;">Team</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;MultiplayerBattleColors&#x2F;">MultiplayerBattleColors</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBScreen&#x2F;">IMBScreen</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBMultiplayerData&#x2F;">IMBMultiplayerData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;Target&#x2F;">Target</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBPeer&#x2F;">IMBPeer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBDebugExtensions&#x2F;">IMBDebugExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBWindowManager&#x2F;">IMBWindowManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBBannerlordChecker&#x2F;">IMBBannerlordChecker</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;AgentHelper&#x2F;">AgentHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;MBNetworkPeer&#x2F;">MBNetworkPeer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBTeam&#x2F;">IMBTeam</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;Formation&#x2F;">Formation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBSkeletonExtensions&#x2F;">IMBSkeletonExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBActionSet&#x2F;">IMBActionSet</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;FormationSpawnData&#x2F;">FormationSpawnData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;PerkAssemblyCollection&#x2F;">PerkAssemblyCollection</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;MissionBehavior&#x2F;">MissionBehavior</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBDelegate&#x2F;">IMBDelegate</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;DefineSynchedMissionObjectType&#x2F;">DefineSynchedMissionObjectType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;ProximityMapSearchStructInternal&#x2F;">ProximityMapSearchStructInternal</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBVoiceManager&#x2F;">IMBVoiceManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBGame&#x2F;">IMBGame</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;DropExtraWeaponOnStopUsageComponent&#x2F;">DropExtraWeaponOnStopUsageComponent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;TacticOption&#x2F;">TacticOption</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;MultiplayerCultureColorInfo&#x2F;">MultiplayerCultureColorInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBWorld&#x2F;">IMBWorld</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;ItemType&#x2F;">ItemType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBAnimation&#x2F;">IMBAnimation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBEditor&#x2F;">IMBEditor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBFaceGen&#x2F;">IMBFaceGen</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;DynamicNavmeshLocalIds&#x2F;">DynamicNavmeshLocalIds</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;AgentCreationResult&#x2F;">AgentCreationResult</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBItem&#x2F;">IMBItem</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBAgent&#x2F;">IMBAgent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;OnPlatformRequestedMultiplayerJob&#x2F;">OnPlatformRequestedMultiplayerJob</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;GenericMissionObjective&#x2F;">GenericMissionObjective</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;Mission&#x2F;">Mission</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;GenericMissionObjectiveTarget&#x2F;">GenericMissionObjectiveTarget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;PlayerTypes&#x2F;">PlayerTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;Agent&#x2F;">Agent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBGameEntityExtensions&#x2F;">IMBGameEntityExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;OnSessionInvitationAcceptedJob&#x2F;">OnSessionInvitationAcceptedJob</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBTestRun&#x2F;">IMBTestRun</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBMapScene&#x2F;">IMBMapScene</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBBannerlordTableauManager&#x2F;">IMBBannerlordTableauManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBNetwork&#x2F;">IMBNetwork</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;ItemInnerData&#x2F;">ItemInnerData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBMission&#x2F;">IMBMission</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;ToolDebugManager&#x2F;">ToolDebugManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;DefineGameNetworkMessageType&#x2F;">DefineGameNetworkMessageType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;IMBMessageManager&#x2F;">IMBMessageManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;ScriptingInterfaceBase&#x2F;">ScriptingInterfaceBase</a></li>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

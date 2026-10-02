@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MapEventSide</title>
+  <meta name="description" content="MapEventSide 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/MapEventSide/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/MapEventSide/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/MapEventSide/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/MapEventSide/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="active">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">战役 API — v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MapEventSide</span>
+    </nav>
+  
+  <h1>MapEventSide</h1>
+  <h1 id="mapeventside">MapEventSide</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.MapEvents
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class MapEventSide</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapEvents/MapEventSide.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>MapEventSide</code> 位于 <code>TaleWorlds.CampaignSystem.MapEvents</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.CampaignSystem.MapEvents</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>SimulationShipList</code></td><td><code>public MBList&lt;Ship&gt; SimulationShipList { get; }</code></td></tr>
+<tr><td><code>WeightedShipCombatFactor</code></td><td><code>public float WeightedShipCombatFactor { get; }</code></td></tr>
+<tr><td><code>LeaderParty</code></td><td><code>public PartyBase LeaderParty { get; }</code></td></tr>
+<tr><td><code>MissionSide</code></td><td><code>public BattleSideEnum MissionSide { get; }</code></td></tr>
+<tr><td><code>CasualtyStrength</code></td><td><code>public float CasualtyStrength { get; }</code></td></tr>
+<tr><td><code>HasReadyTroops</code></td><td><code>public bool HasReadyTroops { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="gettroops">GetTroops</h3>
+<p><code>public IReadOnlyList&lt;UniqueTroopDescriptor&gt; GetTroops()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 troops 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetTroops();
+</code></pre>
+<h3 id="gettotalhealthyherocountofside">GetTotalHealthyHeroCountOfSide</h3>
+<p><code>public int GetTotalHealthyHeroCountOfSide()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 total healthy hero count of side 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetTotalHealthyHeroCountOfSide();
+</code></pre>
+<h3 id="counttroops">CountTroops</h3>
+<p><code>public int CountTroops(Func&lt;FlattenedTroopRosterElement, bool&gt; pred)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CountTroops 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.CountTroops(func&lt;FlattenedTroopRosterElement, false);
+</code></pre>
+<h3 id="gettotalhealthytroopcountofside">GetTotalHealthyTroopCountOfSide</h3>
+<p><code>public int GetTotalHealthyTroopCountOfSide()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 total healthy troop count of side 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetTotalHealthyTroopCountOfSide();
+</code></pre>
+<h3 id="recalculatemembercountofside">RecalculateMemberCountOfSide</h3>
+<p><code>public int RecalculateMemberCountOfSide()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算member count of side以反映最新状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.RecalculateMemberCountOfSide();
+</code></pre>
+<h3 id="recalculatestrengthofside">RecalculateStrengthOfSide</h3>
+<p><code>public float RecalculateStrengthOfSide()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算strength of side以反映最新状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.RecalculateStrengthOfSide();
+</code></pre>
+<h3 id="ismainpartyamongparties">IsMainPartyAmongParties</h3>
+<p><code>public bool IsMainPartyAmongParties()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 main party among parties 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.IsMainPartyAmongParties();
+</code></pre>
+<h3 id="calculaterenownandinfluencevaluesonpartyinvolved">CalculateRenownAndInfluenceValuesOnPartyInvolved</h3>
+<p><code>public void CalculateRenownAndInfluenceValuesOnPartyInvolved(float strengthOfSide)</code></p>
+<p><strong>用途 / Purpose:</strong> 计算renown and influence values on party involved的当前值或结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.CalculateRenownAndInfluenceValuesOnPartyInvolved(0);
+</code></pre>
+<h3 id="getsidemorale">GetSideMorale</h3>
+<p><code>public float GetSideMorale()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 side morale 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetSideMorale();
+</code></pre>
+<h3 id="handlemapeventend">HandleMapEventEnd</h3>
+<p><code>public void HandleMapEventEnd()</code></p>
+<p><strong>用途 / Purpose:</strong> 响应 map event end 事件，执行对应的处理逻辑。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.HandleMapEventEnd();
+</code></pre>
+<h3 id="addherodamage">AddHeroDamage</h3>
+<p><code>public static void AddHeroDamage(Hero character, int damage)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 hero damage 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MapEventSide.AddHeroDamage(character, 0);
+</code></pre>
+<h3 id="allocateships">AllocateShips</h3>
+<p><code>public void AllocateShips()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AllocateShips 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.AllocateShips();
+</code></pre>
+<h3 id="allocatesiegeengines">AllocateSiegeEngines</h3>
+<p><code>public void AllocateSiegeEngines()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AllocateSiegeEngines 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.AllocateSiegeEngines();
+</code></pre>
+<h3 id="allocatetroops">AllocateTroops</h3>
+<p><code>public void AllocateTroops(ref List&lt;UniqueTroopDescriptor&gt; troopsList, int numberToAllocate, Func&lt;UniqueTroopDescriptor, MapEventParty, bool&gt; customAllocationConditions = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AllocateTroops 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.AllocateTroops(troopsList, 0, func&lt;UniqueTroopDescriptor, mapEventParty, false);
+</code></pre>
+<h3 id="getalltroops">GetAllTroops</h3>
+<p><code>public void GetAllTroops(ref List&lt;UniqueTroopDescriptor&gt; troopsList)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 all troops 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.GetAllTroops(troopsList);
+</code></pre>
+<h3 id="getallocatedtroop">GetAllocatedTroop</h3>
+<p><code>public CharacterObject GetAllocatedTroop(UniqueTroopDescriptor troopDesc0)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 allocated troop 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetAllocatedTroop(troopDesc0);
+</code></pre>
+<h3 id="getreadytroop">GetReadyTroop</h3>
+<p><code>public CharacterObject GetReadyTroop(UniqueTroopDescriptor troopDesc0)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 ready troop 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetReadyTroop(troopDesc0);
+</code></pre>
+<h3 id="getallocatedtroopparty">GetAllocatedTroopParty</h3>
+<p><code>public PartyBase GetAllocatedTroopParty(UniqueTroopDescriptor troopDescriptor)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 allocated troop party 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetAllocatedTroopParty(troopDescriptor);
+</code></pre>
+<h3 id="getreadytroopparty">GetReadyTroopParty</h3>
+<p><code>public PartyBase GetReadyTroopParty(UniqueTroopDescriptor troopDescriptor)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 ready troop party 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetReadyTroopParty(troopDescriptor);
+</code></pre>
+<h3 id="ontroopwounded">OnTroopWounded</h3>
+<p><code>public void OnTroopWounded(UniqueTroopDescriptor troopDesc1)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 troop wounded 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.OnTroopWounded(troopDesc1);
+</code></pre>
+<h3 id="ontroopkilled">OnTroopKilled</h3>
+<p><code>public void OnTroopKilled(UniqueTroopDescriptor troopDesc1)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 troop killed 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.OnTroopKilled(troopDesc1);
+</code></pre>
+<h3 id="ontrooprouted">OnTroopRouted</h3>
+<p><code>public void OnTroopRouted(UniqueTroopDescriptor troopDesc1, bool isOrderRetreat)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 troop routed 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.OnTroopRouted(troopDesc1, false);
+</code></pre>
+<h3 id="ontroopscorehit">OnTroopScoreHit</h3>
+<p><code>public void OnTroopScoreHit(UniqueTroopDescriptor troopDesc1, CharacterObject attackedTroop, int damage, bool isFatal, bool isTeamKill, WeaponComponentData attackerWeapon, bool isSimulatedHit)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 troop score hit 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.OnTroopScoreHit(troopDesc1, attackedTroop, 0, false, false, attackerWeapon, false);
+</code></pre>
+<h3 id="onshipscorehit">OnShipScoreHit</h3>
+<p><code>public void OnShipScoreHit(Ship strikerShip, Ship struckShip, SiegeEngineType siegeEngine, int damage, bool isFinishingStrike)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 ship score hit 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.OnShipScoreHit(strikerShip, struckShip, siegeEngine, 0, false);
+</code></pre>
+<h3 id="onshipdamaged">OnShipDamaged</h3>
+<p><code>public void OnShipDamaged(Ship struckShip, SiegeEngineType siegeEngine, int damage)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 ship damaged 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.OnShipDamaged(struckShip, siegeEngine, 0);
+</code></pre>
+<h3 id="makereadyforsimulation">MakeReadyForSimulation</h3>
+<p><code>public void MakeReadyForSimulation(FlattenedTroopRoster priorTroops, int sizeOfSide)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MakeReadyForSimulation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.MakeReadyForSimulation(priorTroops, 0);
+</code></pre>
+<h3 id="makereadyformission">MakeReadyForMission</h3>
+<p><code>public void MakeReadyForMission(FlattenedTroopRoster priorTroops)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MakeReadyForMission 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.MakeReadyForMission(priorTroops);
+</code></pre>
+<h3 id="endsimulation">EndSimulation</h3>
+<p><code>public void EndSimulation()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndSimulation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.EndSimulation();
+</code></pre>
+<h3 id="clear">Clear</h3>
+<p><code>public void Clear()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的内容。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.Clear();
+</code></pre>
+<h3 id="selectrandomsimulationtroop">SelectRandomSimulationTroop</h3>
+<p><code>public UniqueTroopDescriptor SelectRandomSimulationTroop()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SelectRandomSimulationTroop 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.SelectRandomSimulationTroop();
+</code></pre>
+<h3 id="getrandomsimulationship">GetRandomSimulationShip</h3>
+<p><code>public Ship GetRandomSimulationShip()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 random simulation ship 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+var result = mapEventSide.GetRandomSimulationShip();
+</code></pre>
+<h3 id="surrender">Surrender</h3>
+<p><code>public void Surrender()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Surrender 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.Surrender();
+</code></pre>
+<h3 id="route">Route</h3>
+<p><code>public void Route()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Route 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.Route();
+</code></pre>
+<h3 id="commitxpgains">CommitXpGains</h3>
+<p><code>public void CommitXpGains()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CommitXpGains 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.CommitXpGains();
+</code></pre>
+<h3 id="commitrenownchanges">CommitRenownChanges</h3>
+<p><code>public void CommitRenownChanges()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CommitRenownChanges 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.CommitRenownChanges();
+</code></pre>
+<h3 id="commitinfluencechanges">CommitInfluenceChanges</h3>
+<p><code>public void CommitInfluenceChanges()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CommitInfluenceChanges 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.CommitInfluenceChanges();
+</code></pre>
+<h3 id="commitmoralechanges">CommitMoraleChanges</h3>
+<p><code>public void CommitMoraleChanges()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CommitMoraleChanges 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.CommitMoraleChanges();
+</code></pre>
+<h3 id="commitgoldchanges">CommitGoldChanges</h3>
+<p><code>public void CommitGoldChanges()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CommitGoldChanges 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapEventSide 实例
+MapEventSide mapEventSide = ...;
+mapEventSide.CommitGoldChanges();
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+MapEventSide mapEventSide = ...;
+mapEventSide.GetTroops();
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/zh/api/campaign/">战役 API — v1.4.5</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/zh/api/campaign/ReferenceIMBEvent/">&larr; ReferenceIMBEvent</a>
+          
+          
+            <a rel="next" href="/v1.4.5/zh/api/campaign/InventoryLogic/">InventoryLogic &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

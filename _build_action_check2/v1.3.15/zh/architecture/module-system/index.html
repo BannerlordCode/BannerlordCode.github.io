@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>模块系统详解 &#x2F; Module System</title>
+  <meta name="description" content="MBSubModuleBase 生命周期、模块加载机制、战役&#x2F;Mission&#x2F;ViewModel 注册、SubModule.xml 详解">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/architecture/module-system/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/architecture/module-system/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/architecture/module-system/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/architecture/module-system/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="active">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;architecture&#x2F;">架构总览 &#x2F; Architecture</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">模块系统详解 &#x2F; Module System</span>
+    </nav>
+  
+  <h1>模块系统详解 &#x2F; Module System</h1>
+  <h1 id="mo-kuai-xi-tong-xiang-jie-module-system">模块系统详解 / Module System</h1>
+<blockquote>
+<p>模块系统回答 mod 的第一个工程问题：<strong>我的代码什么时候被执行？</strong>  答案是：<code>MBSubModuleBase</code> 生命周期钩子 + <code>SubModule.xml</code> 配置。</p>
+</blockquote>
+<p><strong>Namespace</strong>: <code>TaleWorlds.MountAndBlade</code><br />
+<strong>Depends On</strong>: <code>TaleWorlds.ModuleManager</code>, <code>TaleWorlds.Core</code></p>
+<hr />
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="../../">🏠 首页 / Home</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/module-system/./">🏗️ 架构总览 / Architecture</a></li>
+<li><a href="../sdk-overview/">⭐ SDK 总览</a></li>
+<li><a href="../../api/">📚 API 目录</a></li>
+</ul>
+<h2 id="twisted-rightwards-arrows-sibling-navigation">🔀 Sibling Navigation</h2>
+<table><thead><tr><th>页面</th><th>解决什么问题</th></tr></thead><tbody>
+<tr><td><a href="../sdk-overview/">SDK 总览</a></td><td>全部模块地图</td></tr>
+<tr><td><a href="../save-system/">存档系统</a></td><td>自定义数据如何持久化</td></tr>
+<tr><td><a href="../version-delta/">版本差异</a></td><td>不同版本模块差异</td></tr>
+</tbody></table>
+<h2 id="child-downstream-links">↓ Child / Downstream Links</h2>
+<ul>
+<li>战役入口：<a href="../../../../versions/CampaignBehaviorBase/"><code>CampaignBehaviorBase</code></a> · <a href="../../api/campaign/Campaign/"><code>Campaign</code></a></li>
+<li>战斗入口：<a href="../../../../versions/MissionBehavior/"><code>MissionBehavior</code></a> · <a href="../../../../versions/Mission/"><code>Mission*</code></a></li>
+<li>UI 入口：<a href="../../api/core-extra/ViewModel/"><code>ViewModel</code></a> · <a href="../../api/gui/GauntletMovie/"><code>GauntletMovie</code></a></li>
+<li>其他：<a href="../../../../versions/QuestBase/"><code>QuestBase*</code></a> · <a href="../../../../versions/IssueBase/"><code>IssueBase*</code></a></li>
+</ul>
+<hr />
+<h2 id="sheng-ming-zhou-qi-de-san-ge-jie-duan">生命周期的三个阶段</h2>
+<p>把 <code>MBSubModuleBase</code> 的方法分成三组记忆：</p>
+<ol>
+<li><strong>启动阶段</strong>（一次）：游戏启动 → <code>OnSubModuleLoad</code> → 主菜单出现。</li>
+<li><strong>游戏阶段</strong>（每次开始新游戏或读档）：<code>OnGameStart</code> → <code>InitializeGameStarter</code> → <code>OnNewGameCreated</code> / <code>OnGameLoaded</code>。</li>
+<li><strong>运行时阶段</strong>（每帧）：<code>OnApplicationTick</code> → 战斗/战役钩子。</li>
+</ol>
+<pre><code>游戏启动
+   │
+   ▼
+OnSubModuleLoad()            ← 注册 Harmony、配置文件、全局事件
+   │
+   ▼
+OnBeforeInitialModuleScreenSetAsRoot()  ← 主菜单出现前最后一次干预
+   │
+   ▼
+        主菜单循环
+        │
+        ▼
+OnGameStart(game, starter)   ← 注册 Campaign / Mission Behavior
+   │
+   ▼
+InitializeGameStarter(game, starter)
+   │
+   ├── OnNewGameCreated()    ← 新游戏初始化
+   └── OnGameLoaded()        ← 读档恢复
+        │
+        ▼
+OnApplicationTick(dt)        ← 每帧更新
+</code></pre>
+<hr />
+<h2 id="guan-jian-gou-zi-wo-gai-zen-me-yong">关键钩子：我该怎么用？</h2>
+<table><thead><tr><th>钩子</th><th>典型用途</th><th>示例</th></tr></thead><tbody>
+<tr><td><code>OnSubModuleLoad</code></td><td>加载配置、Harmony patch、注册自定义 XML hotload</td><td>修改游戏全局行为的 mod</td></tr>
+<tr><td><code>OnGameStart</code></td><td>获取 <code>CampaignGameStarter</code>，注册 <code>CampaignBehavior</code> 与 <code>MissionBehavior</code></td><td>战役/任务逻辑 mod</td></tr>
+<tr><td><code>OnNewGameCreated</code> / <code>OnGameLoaded</code></td><td>在行为注册后做一次性初始化</td><td>给新建英雄加自定义属性的 mod</td></tr>
+<tr><td><code>OnApplicationTick</code></td><td>罕见；尽量用 Behavior 的 <code>OnHourlyTick</code> 等替代</td><td>日志、快捷键轮询</td></tr>
+<tr><td><code>OnBeforeMissionBehaviorInitialize</code></td><td>在 Mission 行为初始化前注入设置</td><td>自定义战斗规则</td></tr>
+</tbody></table>
+<hr />
+<h2 id="zhu-ce-zhan-yi-ren-wu-yu-viewmodel">注册战役、任务与 ViewModel</h2>
+<h3 id="zhu-ce-campaignbehavior">注册 CampaignBehavior</h3>
+<pre><code data-lang="csharp">protected override void OnGameStart(Game game, IGameStarter starter)
+{
+    base.OnGameStart(game, starter);
+    if (starter is CampaignGameStarter campaignStarter)
+    {
+        campaignStarter.AddBehavior(new MyCampaignBehavior());
+    }
+}
+</code></pre>
+<p>入口类：<a href="../../../../versions/CampaignBehaviorBase/"><code>CampaignBehaviorBase</code></a>。</p>
+<h3 id="zhu-ce-missionbehavior">注册 MissionBehavior</h3>
+<pre><code data-lang="csharp">public override void OnMissionBehaviorInitialize(Mission mission)
+{
+    base.OnMissionBehaviorInitialize(mission);
+    mission.AddMissionBehavior(new MyMissionBehavior());
+}
+</code></pre>
+<p>入口类：<a href="../../../../versions/MissionBehavior/"><code>MissionBehavior</code></a>。</p>
+<h3 id="zhu-ce-viewmodel-ping-mu-ding-bu-hud-cai-dan">注册 ViewModel（屏幕顶部 HUD/菜单）</h3>
+<p>Gauntlet UI 通过 <code>GauntletMovie</code> + <code>ViewModel</code> 加载。通常你不需要在 <code>MBSubModuleBase</code> 里注册 ViewModel，而是在 <code>ScreenBase</code> 子类或 <code>OnSubModuleLoad</code> 里用 <code>ScreenManager.PushScreen</code> / <code>GauntletSystem</code> 打开。详见 <a href="../../guide/gauntlet-ui/">Gauntlet 指南</a> 与 <a href="../../api/core-extra/ViewModel/"><code>ViewModel</code></a>。</p>
+<hr />
+<h2 id="submodule-xml-mod-de-shen-fen-zheng">SubModule.xml — mod 的身份证</h2>
+<pre><code data-lang="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;Module&gt;
+    &lt;Name value=&quot;MyMod&quot; /&gt;
+    &lt;Id value=&quot;MyMod&quot; /&gt;
+    &lt;Version value=&quot;v1.0.0&quot; /&gt;
+    &lt;DefaultModule value=&quot;true&quot; /&gt;
+    &lt;SingleplayerModule value=&quot;true&quot; /&gt;
+    &lt;MultiplayerModule value=&quot;false&quot; /&gt;
+    &lt;Url value=&quot;https://...&quot; /&gt;
+    &lt;DependedModules&gt;
+        &lt;DependedModule Id=&quot;Native&quot; /&gt;
+-                       &lt;DependedModule Id=&quot;SandboxCore&quot; Optional=&quot;false&quot; /&gt;
+    &lt;/DependedModules&gt;
+    &lt;SubModules&gt;
+        &lt;SubModule&gt;
+            &lt;Name value=&quot;MyMod&quot; /&gt;
+            &lt;DLLName value=&quot;MyMod.dll&quot; /&gt;
+            &lt;SubModuleClassType value=&quot;MyMod.MySubModule&quot; /&gt;
+            &lt;Assemblies&gt;
+                &lt;Assembly value=&quot;MyMod.dll&quot; /&gt;
+            &lt;/Assemblies&gt;
+            &lt;Tags&gt;
+                &lt;Tag key=&quot;DedicatedServerType&quot; value=&quot;none&quot; /&gt;
+                &lt;Tag key=&quot;IsNoRenderModeElement&quot; value=&quot;false&quot; /&gt;
+            &lt;/Tags&gt;
+        &lt;/SubModule&gt;
+    &lt;/SubModules&gt;
+&lt;/Module&gt;
+</code></pre>
+<h3 id="guan-jian-zi-duan">关键字段</h3>
+<table><thead><tr><th>字段</th><th>含义</th><th>调试提示</th></tr></thead><tbody>
+<tr><td><code>Id</code> / <code>Name</code></td><td>模块唯一标识与显示名</td><td>模块未显示先检查这两个字段</td></tr>
+<tr><td><code>DependedModules</code></td><td>依赖排序；缺少依赖会导致模块被禁用</td><td>查看 launcher 日志</td></tr>
+<tr><td><code>SubModuleClassType</code></td><td>继承 <code>MBSubModuleBase</code> 的完整类名</td><td>大小写/命名空间必须完全一致</td></tr>
+<tr><td><code>DLLName</code></td><td>相对 <code>bin/</code> 的 DLL 名称</td><td>确认 DLL 已生成到模块 <code>bin</code> 目录</td></tr>
+<tr><td><code>Tags</code></td><td>平台/模式过滤</td><td>错误的 ExclusivePlatform 会导致 DLL 不加载</td></tr>
+</tbody></table>
+<hr />
+<h2 id="jia-zai-liu-cheng">加载流程</h2>
+<pre><code>Module.Initialize()
+   ├── ModuleHelper.InitializeModules()   ← 解析所有 SubModule.xml
+   ├── LoadSubModules()                   ← 按拓扑排序加载 DLL
+   │       └── 创建 MBSubModuleBase 实例
+   ├── FindMissions()
+   └── SaveManager.InitializeGlobalDefinitionContext()
+   │
+   ▼
+SetInitialModuleScreenAsRoot()
+   └── 调用 OnBeforeInitialModuleScreenSetAsRoot()
+</code></pre>
+<p><strong>调试启动失败</strong>：从 <code>rgl_log.txt</code> 查看 <code>Module</code>/<code>ModuleHelper</code> 相关错误，通常是依赖缺失或 <code>SubModuleClassType</code> 不匹配。</p>
+<hr />
+<h2 id="guan-jian-lei-su-cha">关键类速查</h2>
+<table><thead><tr><th>类</th><th>职责</th><th>高频场景</th></tr></thead><tbody>
+<tr><td><code>MBSubModuleBase</code></td><td>mod 生命周期入口</td><td>写任何 mod 的第一步</td></tr>
+<tr><td><code>Module</code></td><td>中央协调器</td><td>排查启动失败</td></tr>
+<tr><td><code>ModuleHelper</code></td><td>模块查找、拓扑排序</td><td>了解加载顺序</td></tr>
+<tr><td><code>ModuleInfo</code></td><td>单个模块元数据</td><td>运行时读取依赖</td></tr>
+<tr><td><code>CampaignGameStarter</code></td><td>战役启动器</td><td>注册 <code>CampaignBehaviorBase</code></td></tr>
+<tr><td><code>CampaignBehaviorBase</code></td><td>战役每日逻辑</td><td><a href="../../../../versions/CampaignBehaviorBase/">跨版本页</a></td></tr>
+<tr><td><code>MissionBehavior</code></td><td>战斗逻辑</td><td><a href="../../../../versions/MissionBehavior/">跨版本页</a></td></tr>
+<tr><td><code>ViewModel</code></td><td>UI 数据绑定</td><td><a href="../../api/viewmodel/">API 目录</a></td></tr>
+</tbody></table>
+<hr />
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../sdk-overview/">SDK 总览</a> — 模块地图</li>
+<li><a href="../save-system/">存档系统</a> — 行为对象的持久化</li>
+<li><a href="../../guide/campaign-system/">战役指南</a> · <a href="../../guide/mission-system/">任务指南</a> · <a href="../../guide/gauntlet-ui/">Gauntlet 指南</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/architecture/">架构总览 &#x2F; Architecture</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/architecture/save-system/">&larr; 存档系统 &#x2F; Save System</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/architecture/doc-contract/">文档契约 — 仅手写政策与验收标准（v1.3.15） &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/zh/architecture/doc-contract/">Doc Contract</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/architecture/sdk-overview/">SDK Overview</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/architecture/module-system/">Module System</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/architecture/save-system/">Save System</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/architecture/version-delta/">Version Delta</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/architecture/native-interop/">Managed-Native Interop</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/architecture/developer-roadmap/">Developer Roadmap</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/architecture/crash-boundaries/">Crash Boundaries</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/architecture/noise-policy/">Noise Policy</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/architecture/sandbox-native-policy/">SandBox&#x2F;StoryMode&#x2F;Native Policy</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

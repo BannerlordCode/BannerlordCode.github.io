@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TextObject</title>
+  <meta name="description" content="Bannerlord&#x27;s unified container for a piece of localizable text — hero names, item names, quest descriptions, system messages, and UI strings are all TextObjects under the hood. It holds a localization id plus a named variable table, and the real translation and token substitution happen at ToString() call time.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/localization/TextObject/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/localization/TextObject/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/localization/TextObject/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/localization/TextObject/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/localization/TextObject/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/localization/TextObject/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="active">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;localization&#x2F;">localization index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">TextObject</span>
+    </nav>
+  
+  <h1>TextObject</h1>
+  <h1 id="textobject">TextObject</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Localization
+<strong>Module:</strong> TaleWorlds.Localization
+<strong>Type:</strong> <code>public class TextObject</code>
+<strong>Base:</strong> <code>System.Object</code>
+<strong>Source:</strong> TaleWorlds.Localization/TaleWorlds.Localization/TextObject.cs</p>
+<h2 id="overview">Overview</h2>
+<p><code>TextObject</code> is the single, uniform carrier for "a piece of text" everywhere in the game: hero names, item names, quest descriptions, system messages, and UI strings are all <code>TextObject</code> underneath. Internally it holds exactly two things — a <code>string Value</code> field (the raw template) and a <code>Dictionary&lt;string, object&gt; Attributes</code> (the variable-substitution table). The actual "translation" and "variable fill" does <strong>not</strong> happen inside <code>TextObject</code>; it happens when <code>ToString()</code> is called, driven by <code>MBTextManager</code>: <code>MBTextManager.GetLocalizedText</code> first resolves any <code>{=id}</code> in <code>Value</code> to the current language's text, then <code>MBTextManager.Process</code> replaces the <code>{token}</code> placeholders with the values from <code>Attributes</code>. Think of it as a <em>text template awaiting resolution</em> rather than a finished string — the final result is produced only at the moment <code>ToString()</code> runs. Nearly every mod that shows text to the player (notifications, menus, dialogue, tooltips) uses it directly or indirectly.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Treat <code>TextObject</code> as a <strong>"localization string template with placeholders"</strong>, not as a <code>string</code>:</p>
+<ul>
+<li>Its <code>Value</code> usually looks like <code>"{=abc1234}Hello {NAME}"</code>. The <code>{=abc1234}</code> is the localization id, <code>Hello</code> is the English fallback text, and <code>{NAME}</code> is a runtime variable.</li>
+<li>It <strong>does not store language data itself</strong>. The language packs live in <code>LocalizedTextManager</code> (official/mod XML) and <code>GameTextManager</code> (the <code>GameText</code> XML table); <code>TextObject</code> merely <em>references and fills</em> them.</li>
+<li>In most cases you <strong>do not need to <code>new</code> one yourself</strong>: read a hero name via <code>Hero.MainHero.Name</code>, an item name via <code>ItemObject.Name</code>, and a module's custom string via <code>GameTexts.FindText("your_id")</code>. Only write an inline <code>{=...}</code> template when you need to build a one-off message with variables.</li>
+<li><strong>Do not take the shortcut of storing a raw <code>string</code></strong>. If you later need translation, per-language pluralization, or injected links, <code>TextObject</code> reuses the whole localization pipeline for free; a raw <code>string</code> bypasses all of it.</li>
+<li>Resolution happens at <code>ToString()</code> call time, against the <strong>currently active language</strong> (<code>MBTextManager.ActiveTextLanguage</code>). Calling <code>GameTexts.FindText</code> before the game/language data is loaded returns wrong text rather than crashing.</li>
+<li><code>TextObject</code> is <strong>not immutable</strong>: <code>SetTextVariable</code> mutates in place and returns <code>this</code>. Reusing the same instance as a template and filling it repeatedly will clobber variables — <code>CopyTextObject()</code> before sharing or caching.</li>
+</ul>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p><strong>Use <code>TextObject</code> when:</strong></p>
+<ul>
+<li>Displaying any player-facing text: notifications (<code>InformationManager.DisplayMessage</code>), tooltips, menu entries, quest logs, dialogue lines.</li>
+<li>You have variables to inject (<code>{HERO}</code>, <code>{GOLD}</code>) or want language fallback for free.</li>
+<li>You want to reference a <code>GameText</code> entry by id via <code>GameTexts.FindText</code> so the mod stays translatable.</li>
+</ul>
+<p><strong>Do NOT use <code>TextObject</code> (or prefer another path):</strong></p>
+<ul>
+<li><strong>Do not store raw <code>string</code></strong> for UI/encyclopedia text. A raw <code>string</code> skips <code>{=id}</code> lookup and <code>{token}</code> substitution, so it can never be translated and silently keeps whatever literal you typed. Always wrap in <code>TextObject</code> / <code>GameTexts.FindText</code>.</li>
+<li><strong>Do not <code>new TextObject("str_my_id")</code></strong> by passing the bare id as the value. A string that does not begin with <code>{=</code> is treated as literal text and is never looked up in the library. Acquire library text via <code>GameTexts.FindText("str_my_id")</code> instead.</li>
+<li><strong>Do not mutate a shared template in place.</strong> If a <code>TextObject</code> is cached or shared (e.g. a tooltip label rebuilt every frame), call <code>CopyTextObject()</code> before <code>SetTextVariable</code>, otherwise every consumer overwrites the same <code>Attributes</code>.</li>
+<li><strong>Do not use <code>TextObject</code> as a dictionary key.</strong> <code>GetHashCode</code> is based on a per-instance internal id (<code>CopyTextObject</code> assigns a fresh one), so two content-equal objects hash differently and <code>Equals</code> also compares <code>Attributes</code>.</li>
+</ul>
+<h2 id="how-to-obtain">How to Obtain</h2>
+<pre><code data-lang="csharp">// 1) Look up by module localization-library id (safest, most common) —
+//    the string is defined in the module&#39;s GameText XML under ModuleData
+TextObject greeting = GameTexts.FindText(&quot;str_my_message&quot;);
+TextObject lordVariant = GameTexts.FindText(&quot;str_my_message&quot;, &quot;lord&quot;); // a specific variation
+
+// 2) Pull from an existing object (hero/clan/item names are already TextObjects)
+TextObject heroName = Hero.MainHero.Name;
+TextObject itemName = MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(&quot;item_sword_1&quot;).Name;
+
+// 3) Construct an empty text placeholder
+TextObject empty = TextObject.GetEmpty();
+</code></pre>
+<p>The constructor <code>TextObject(string value, Dictionary&lt;string,object&gt; attributes = null)</code> (plus <code>int</code> / <code>float</code> overloads) does exist, so you can inline <code>new TextObject("{=yourid}English fallback {TAG}")</code> to build a template directly. <strong>Key rule:</strong> the string must start with <code>{=</code> to enter the localization library, otherwise it is stored as literal text. In day-to-day mod code, prefer <code>GameTexts.FindText</code> / existing objects over scattering inline ids.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Property</th><th>Type</th><th>Notes</th></tr></thead><tbody>
+<tr><td><code>Value</code></td><td><code>string</code> (public field, <code>[SaveableField(1)]</code>)</td><td>The raw template. Starting with <code>{=id}</code> denotes a localization entry; otherwise it is literal text. <code>Value == null</code> means the object is empty.</td></tr>
+<tr><td><code>Attributes</code></td><td><code>Dictionary&lt;string, object&gt;</code> (<code>[SaveableProperty(2)]</code>, read-only getter)</td><td>The text variable table. Keys are placeholder tags like <code>NAME</code>/<code>FACTION</code>; values are <code>string</code>, <code>int</code>, <code>float</code>, or another <code>TextObject</code>, written via <code>SetTextVariable</code>.</td></tr>
+<tr><td><code>Length</code></td><td><code>int</code></td><td>Character length of <code>Value</code>; returns 0 when <code>Value</code> is <code>null</code>.</td></tr>
+<tr><td><code>IsLink</code></td><td><code>bool</code></td><td>True only when <code>Value</code> starts with <code>"{=!}{.link}"</code>, marking the text as a clickable link (e.g. a reference inside an item tooltip).</td></tr>
+</tbody></table>
+<h2 id="key-members">Key Members</h2>
+<h3 id="creating-and-empty-checks">Creating and Empty Checks</h3>
+<h4 id="public-static-textobject-getempty"><code>public static TextObject GetEmpty()</code></h4>
+<p><strong>Purpose:</strong> Produces a <code>TextObject</code> whose <code>Value</code> is <code>null</code>, used as a safe "no text yet" placeholder before a query or conditional render, avoiding null references.</p>
+<pre><code data-lang="csharp">TextObject t = TextObject.GetEmpty();
+bool isBlank = TextObject.IsNullOrEmpty(t); // true
+</code></pre>
+<h4 id="public-bool-isempty-public-static-bool-isnullorempty-textobject-obj"><code>public bool IsEmpty()</code> / <code>public static bool IsNullOrEmpty(TextObject obj)</code></h4>
+<p><strong>Purpose:</strong> Decides whether the object truly has no content — <code>IsEmpty</code> is true when <code>Value</code> is the empty string and <code>Attributes</code> is empty; <code>IsNullOrEmpty</code> additionally treats a <code>null</code> <code>obj</code> as empty. Commonly used in dialogue/quests to decide whether a piece of text is worth showing.</p>
+<pre><code data-lang="csharp">if (!TextObject.IsNullOrEmpty(questLogText))
+{
+    InformationManager.DisplayMessage(new InformationMessage(questLogText.ToString()));
+}
+</code></pre>
+<h3 id="resolving-to-the-final-string-core">Resolving to the Final String (core)</h3>
+<h4 id="public-override-string-tostring"><code>public override string ToString()</code></h4>
+<p><strong>Purpose:</strong> Resolves the template under the active language into the final display string: first translates via <code>{=id}</code>, then replaces <code>{TOKEN}</code> placeholders with the <code>Attributes</code> values. On resolution failure it returns <code>"Error at id: &lt;id&gt;. Lang: &lt;language&gt;"</code> and logs — it does not crash the caller. An empty object returns <code>""</code>.</p>
+<pre><code data-lang="csharp">TextObject t = GameTexts.FindText(&quot;str_you_met&quot;); // module GameText: &quot;{=xyz}You met {HERO}&quot;
+t.SetTextVariable(&quot;HERO&quot;, Hero.MainHero.Name);
+InformationManager.DisplayMessage(new InformationMessage(t.ToString()));
+</code></pre>
+<h4 id="public-string-tostringwithoutclear"><code>public string ToStringWithoutClear()</code></h4>
+<p><strong>Purpose:</strong> Resolves the same way as <code>ToString</code>, but passes <code>shouldClear: false</code> to the language processor. Used by internal pipelines that need to <code>Process</code> repeatedly within one resolution flow. For ordinary UI display, use <code>ToString()</code>.</p>
+<pre><code data-lang="csharp">TextObject log = GameTexts.FindText(&quot;str_battle_result&quot;); // &quot;{=b}{HERO} won the field&quot;
+log.SetTextVariable(&quot;HERO&quot;, Hero.MainHero.Name);
+string rendered = log.ToStringWithoutClear(); // does not clear the global processor, so it can Process again later the same frame
+</code></pre>
+<h4 id="public-void-cachetokens"><code>public void CacheTokens()</code></h4>
+<p><strong>Purpose:</strong> Pre-tokenizes and caches the current language's localization text into <code>cachedTokens</code> (recording <code>cachedTextLanguageId</code>) — a warm-up for frequently refreshed <code>ViewModel</code>/HUD paths so every <code>ToString()</code> does not re-run <code>Tokenizer.Tokenize</code>. The cache auto-expires when the language changes because <code>cachedTextLanguageId</code> no longer matches.</p>
+<pre><code data-lang="csharp">TextObject label = GameTexts.FindText(&quot;str_scoreboard_title&quot;);
+label.CacheTokens(); // warm up before entering a per-frame HUD loop
+</code></pre>
+<h4 id="public-string-format-float-p1"><code>public string Format(float p1)</code></h4>
+<p><strong>Purpose:</strong> One-shot formatting of a single float: writes <code>p1</code> (rounded to 1 decimal) into the <strong>global</strong> variable <code>A0</code>, then returns <code>ToString()</code> of a fresh <code>TextObject</code> built from the current <code>Value</code>. Note it operates on the <code>MBTextManager</code> global context, not this object's <code>Attributes</code>.</p>
+<h3 id="text-variables">Text Variables</h3>
+<h4 id="settextvariable-string-tag-textobject-variable-string-tag-string-variable-string-tag-float-variable-int-decimaldigits-2-string-tag-int-variable"><code>SetTextVariable(string tag, TextObject variable)</code> / <code>(string tag, string variable)</code> / <code>(string tag, float variable, int decimalDigits = 2)</code> / <code>(string tag, int variable)</code></h4>
+<p><strong>Purpose:</strong> Binds a <code>{TOKEN}</code> placeholder in the text to a concrete value and writes it into <code>Attributes</code>. The <code>float</code> overload rounds to <code>decimalDigits</code> (default 2) before storing. A <code>TextObject</code> value such as <code>Name</code> is expanded recursively during resolution. It <strong>mutates in place and returns itself</strong> — it does not produce a new copy.</p>
+<pre><code data-lang="csharp">TextObject title = GameTexts.FindText(&quot;str_kingdom_wealth&quot;); // &quot;{=k}Warchest of {KINGDOM}: {GOLD}{GOLD_ICON}&quot;
+title.SetTextVariable(&quot;KINGDOM&quot;, Hero.MainHero.MapFaction.Name)
+     .SetTextVariable(&quot;GOLD&quot;, Hero.MainHero.Gold)
+     .SetTextVariable(&quot;GOLD_ICON&quot;, &quot;{=!}&lt;img src=\&quot;General\\Icons\\Coin@2x\&quot; extend=\&quot;8\&quot;&gt;&quot;);
+</code></pre>
+<blockquote>
+<p>Real reference: <code>TaleWorlds.CampaignSystem</code>'s <code>AllianceCampaignBehavior</code> fills diplomatic documents with exactly this pattern — <code>textObject.SetTextVariable("KINGDOM_NAME", offeringKingdom.Name)</code>.</p>
+</blockquote>
+<h4 id="public-bool-getvariablevalue-string-tag-out-textobject-variable"><code>public bool GetVariableValue(string tag, out TextObject variable)</code></h4>
+<p><strong>Purpose:</strong> Reads a previously set variable from <code>Attributes</code> by <code>tag</code>; returns <code>false</code> and sets <code>variable</code> to an empty <code>TextObject("")</code> if not found. When the value is a <code>TextObject</code> with its own sub-variables, it drills down recursively — handy for checking whether a variable is set before substitution.</p>
+<pre><code data-lang="csharp">TextObject msg = GameTexts.FindText(&quot;str_greet&quot;); // already SetTextVariable(&quot;HERO&quot;, ...)
+if (msg.GetVariableValue(&quot;HERO&quot;, out TextObject heroVar) &amp;&amp; heroVar != null)
+{
+    InformationManager.DisplayMessage(new InformationMessage(heroVar.ToString()));
+}
+</code></pre>
+<h4 id="public-void-addidtovalue-string-id"><code>public void AddIDToValue(string id)</code></h4>
+<p><strong>Purpose:</strong> Only when <code>Value</code> is literal text (does not start with <code>{=</code>) and does not already contain the <code>id</code>, rewrites <code>Value</code> to <code>"{=id}" + originalText</code> so <code>GetID()</code> can trace back to the library source id (<code>GameTextManager.TryGetText</code> calls this internally to brand the result with the library id).</p>
+<h3 id="copy-and-compare">Copy and Compare</h3>
+<h4 id="public-textobject-copytextobject"><code>public TextObject CopyTextObject()</code></h4>
+<p><strong>Purpose:</strong> Returns a shallow copy (<code>Value</code> shares the reference; the <code>Attributes</code> dictionary is freshly <code>new</code>-ed). <strong>Always <code>CopyTextObject()</code> before filling variables on a shared/cached template</strong>, or you pollute the original template.</p>
+<pre><code data-lang="csharp">TextObject template = GameTexts.FindText(&quot;str_war_progress&quot;); // &quot;{=wp}War of {FACTION1} vs {FACTION2}&quot;
+string titleA = template.CopyTextObject()
+                        .SetTextVariable(&quot;FACTION1&quot;, factionA.Name)
+                        .SetTextVariable(&quot;FACTION2&quot;, factionB.Name)
+                        .ToString();
+string titleB = template.CopyTextObject()
+                        .SetTextVariable(&quot;FACTION1&quot;, factionC.Name)
+                        .SetTextVariable(&quot;FACTION2&quot;, factionD.Name)
+                        .ToString();
+</code></pre>
+<h4 id="public-string-getid"><code>public string GetID()</code></h4>
+<p><strong>Purpose:</strong> Parses the id out of <code>Value</code>'s <code>{=id}</code> (e.g. <code>"{abc}Hi"</code> returns <code>"abc"</code>; returns <code>""</code> when there is no <code>{=</code> prefix). Useful for debugging which localization entry a piece of text came from.</p>
+<h4 id="public-bool-hassamevalue-textobject-to-public-override-bool-equals-object-other-public-bool-equals-textobject-other-public-override-int-gethashcode"><code>public bool HasSameValue(TextObject to)</code> / <code>public override bool Equals(object other)</code> / <code>public bool Equals(TextObject other)</code> / <code>public override int GetHashCode()</code></h4>
+<p><strong>Purpose:</strong> <code>HasSameValue</code> compares only the <code>Value</code> string; <code>Equals(TextObject)</code> is true when <code>Value</code> matches and <code>Attributes</code> are sequence-equal; <code>GetHashCode</code> is based on a per-construction <code>_internalId</code> (<code>CopyTextObject</code> assigns a new one), so two content-equal objects hash differently — <strong>do not</strong> rely on content equality to use <code>TextObject</code> as a dictionary key.</p>
+<h4 id="public-static-list-string-converttostringlist-list-textobject-to"><code>public static List&lt;string&gt; ConvertToStringList(List&lt;TextObject&gt; to)</code></h4>
+<p><strong>Purpose:</strong> Maps a batch of <code>TextObject</code> to their <code>Value</code> strings (no localization resolution) — handy for bulk logging or serialized export.</p>
+<h4 id="public-bool-contains-textobject-to-public-bool-contains-string-text"><code>public bool Contains(TextObject to)</code> / <code>public bool Contains(string text)</code></h4>
+<p><strong>Purpose:</strong> Checks whether <code>Value</code> contains another <code>Value</code> or a substring; returns <code>false</code> when <code>Value</code> is <code>null</code>. Good for simple text matching/filtering.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="example-1-send-a-localized-system-message-with-a-hero-name">Example 1: Send a localized system message with a hero name</h3>
+<pre><code data-lang="csharp">// Text defined in the module GameText XML: id=str_greet, text=&quot;{=xyz}Greetings, {HERO}!&quot;
+TextObject message = GameTexts.FindText(&quot;str_greet&quot;);
+message.SetTextVariable(&quot;HERO&quot;, Hero.MainHero.Name); // Name is itself a TextObject, expanded recursively
+InformationManager.DisplayMessage(new InformationMessage(message.ToString()));
+</code></pre>
+<h3 id="example-2-reuse-a-template-for-different-factions-must-copy">Example 2: Reuse a template for different factions (must copy)</h3>
+<pre><code data-lang="csharp">TextObject template = GameTexts.FindText(&quot;str_war_progress&quot;); // &quot;{=wp}War of {FACTION1} vs {FACTION2}&quot;
+string titleA = template.CopyTextObject()
+                        .SetTextVariable(&quot;FACTION1&quot;, factionA.Name)
+                        .SetTextVariable(&quot;FACTION2&quot;, factionB.Name)
+                        .ToString();
+string titleB = template.CopyTextObject()
+                        .SetTextVariable(&quot;FACTION1&quot;, factionC.Name)
+                        .SetTextVariable(&quot;FACTION2&quot;, factionD.Name)
+                        .ToString();
+</code></pre>
+<h3 id="example-3-read-an-item-name-and-display-it-directly">Example 3: Read an item name and display it directly</h3>
+<pre><code data-lang="csharp">// An item&#39;s name is already a TextObject — show it or substitute into it directly
+ItemObject sword = MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(&quot;item_sword_1&quot;);
+TextObject name = sword.Name;                 // e.g. &quot;{=abc}Aserai Sword&quot;
+InformationManager.DisplayMessage(new InformationMessage(name.ToString()));
+</code></pre>
+<h2 id="risks-crash-boundaries">Risks / Crash Boundaries</h2>
+<ul>
+<li><strong>A bare id is never looked up (the most common pitfall):</strong> if the string does not start with <code>{=</code>, <code>ToString()</code> emits the whole text verbatim and never consults the localization library. To fetch by id you must use <code>GameTexts.FindText("str_my_id")</code> — do not drop the id in as the <code>Value</code>.</li>
+<li><strong><code>FindText</code> returns error text, not null, when missing:</strong> <code>GameTexts.FindText("nonexistent_id")</code> returns <code>Value = "{=!}ERROR: Text with id nonexistent_id doesn't exist!"</code>, which renders as an English error line, not an empty string. When debugging a custom id's spelling, this line is the most direct clue.</li>
+<li><strong>Missing translation falls back to English, never empties:</strong> an inline entry like <code>{=abc}Hello</code>, in a non-English environment without a translation for that id, makes <code>GetLocalizedText</code> fall back to the inline English after <code>}</code> (here <code>"Hello"</code>). So an inline string always shows at least English and never silently vanishes.</li>
+<li><strong><code>SetTextVariable</code> mutates in place and returns itself:</strong> it is not immutable. Reusing one <code>TextObject</code> as a template and calling <code>SetTextVariable</code> repeatedly clobbers variables; <code>CopyTextObject()</code> before caching/sharing. If the variable value is another shared <code>TextObject</code> (e.g. <code>Hero.Name</code>), edits to its properties also reflect at the reference site.</li>
+<li><strong>Resolving before localization data loads yields error text:</strong> <code>GameTexts.FindText</code> depends on an initialized <code>GameTextManager</code> (only present after the game starts). Calling it before <code>Game</code> launches or when <code>GameTextManager</code> is <code>null</code> throws <code>NullReferenceException</code>; an inline <code>{=...}</code> string does not depend on the library and can <code>ToString()</code> any time.</li>
+<li><strong>Misspelled placeholders fail silently:</strong> write <code>{NAME}</code> in the text but call <code>SetTextVariable("NAM", ...)</code> (missing the E) and the resolved output still contains the literal <code>{NAME}</code> with no error — proofread tag vs placeholder character by character.</li>
+<li><strong>Do not use it as a dictionary key:</strong> <code>GetHashCode</code> is instance-id based, so two content-equal objects hash differently, and <code>Equals</code> compares <code>Attributes</code> too; putting it in a <code>HashSet&lt;TextObject&gt;</code> or as a <code>Dictionary</code> key gives counter-intuitive results.</li>
+<li><strong>Token cache is language-bound:</strong> <code>cachedTokens</code> is valid only while <code>cachedTextLanguageId</code> equals the current language index; after a language switch the first <code>ToString()</code> re-tokenizes automatically. After manually <code>CacheTokens()</code>, switching language again requires re-warming.</li>
+</ul>
+<h2 id="cross-version-notes">Cross-Version Notes</h2>
+<ul>
+<li>The public API of <code>TextObject</code> in v1.3.15 and v1.4.5 is <strong>essentially identical</strong>; all of <code>SetTextVariable</code>, <code>ToString</code>, <code>CopyTextObject</code>, <code>GetID</code>, <code>IsNullOrEmpty</code> behave the same across both versions.</li>
+<li>v1.4.5 additions: <code>GetDepth(int maxDepth)</code> / private <code>GetDepthInternal</code> compute the recursive depth of nested <code>TextObject</code>s in <code>Attributes</code> (to guard against overly deep circular references); <code>Format(float)</code> dropped an internal <code>false</code> argument to <code>MBTextManager.SetTextVariable</code> (behavior unchanged); <code>TryGetOrCreateFromObject</code> no longer passes an explicit <code>null</code> <code>attributes</code> (same result).</li>
+<li>Neither version folds "look up by id" into the <code>TextObject</code> constructor — library text is always acquired via <code>GameTexts.FindText</code> / <code>Game.Current.GameTextManager.FindText</code>.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><a href="../MBTextManager/">MBTextManager</a> — the processor behind <code>ToString()</code> that actually performs translation and <code>{token}</code> substitution.</li>
+<li><a href="../LocalizedTextManager/">LocalizedTextManager</a> — the source of official/mod XML language packs that <code>TextObject</code> references.</li>
+<li><a href="../../core-extra/GameTextManager/">GameTextManager</a> / <a href="../../core-extra/GameTexts/">GameTexts</a> — <code>GameTexts.FindText</code> is the normal acquisition path for library text.</li>
+<li><a href="../../core-extra/Game/">Game</a> — <code>Game.Current.GameTextManager</code> is the host that carries the localization library (<code>GameText</code>).</li>
+<li><a href="../../campaign/Hero/">Hero</a> — <code>Name</code> / <code>FirstName</code> are <code>TextObject</code>s, the most common text source.</li>
+<li><a href="../../core/ItemObject/">ItemObject</a> — an item's <code>Name</code> is also a <code>TextObject</code>.</li>
+<li><a href="../../core-extra/InformationManager/">InformationManager</a> — display text via <code>InformationMessage(textObject.ToString())</code>.</li>
+<li><a href="../../core-extra/ViewModel/">ViewModel</a> — <code>CacheTokens()</code> warm-up targets frequently refreshed HUD/UI bindings.</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ <a href="../">Localization bucket index</a> — entry point for all types in this (localization) area.</li>
+<li>↔ <a href="../MBTextManager/">MBTextManager</a> · <a href="../LocalizedTextManager/">LocalizedTextManager</a> — the text resolution pipeline.</li>
+<li>↔ <a href="../../campaign/Hero/">Hero</a> · <a href="../../core/ItemObject/">ItemObject</a> — common <code>TextObject</code> sources.</li>
+<li>↔ <a href="../../core-extra/InformationManager/">InformationManager</a> · <a href="../../core-extra/ViewModel/">ViewModel</a> · <a href="../../core-extra/Game/">Game</a> — where text is shown and where the library lives.</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/localization/">localization index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/localization/TextProcessingContext/">&larr; TextProcessingContext</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/localization/SimpleToken/">SimpleToken &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

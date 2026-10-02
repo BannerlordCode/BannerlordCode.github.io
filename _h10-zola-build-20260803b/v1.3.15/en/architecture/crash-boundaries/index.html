@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crash &amp; Save Boundaries</title>
+  <meta name="description" content="Common Bannerlord mod crash and save-corruption boundaries — SaveId, Action.Apply, Campaign vs Mission timing, Agent lifetime, MBObjectManager, SubModule, Models, ViewModels">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/architecture/crash-boundaries/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/architecture/crash-boundaries/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="active">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;architecture&#x2F;">Architecture</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Crash &amp; Save Boundaries</span>
+    </nav>
+  
+  <h1>Crash &amp; Save Boundaries</h1>
+  <h1 id="crash-save-boundaries">Crash &amp; Save Boundaries</h1>
+<blockquote>
+<p>Most "random crashes" and "load and die" bugs are not random. They sit on fixed boundaries: wrong lifecycle, wrong API shape. This page lists <strong>symptoms / correct practice / docs / anti-patterns</strong> with real type names.</p>
+</blockquote>
+<p>Use with the <a href="../developer-roadmap">Developer Task Roadmap</a>: the roadmap shows the path; this page shows where shortcuts break.</p>
+<hr />
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="../../">🏠 Version home</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/crash-boundaries/./">🏗️ Architecture</a></li>
+<li><a href="../sdk-overview">⭐ SDK Overview</a></li>
+<li><a href="../../api/">📚 API Reference</a></li>
+<li><a href="../../guide/">📖 Guides</a></li>
+</ul>
+<h2 id="twisted-rightwards-arrows-sibling-navigation">🔀 Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>What it solves</th></tr></thead><tbody>
+<tr><td><a href="../developer-roadmap">Developer Task Roadmap</a></td><td>I want X → dependency chain</td></tr>
+<tr><td><a href="../module-system">Module System</a></td><td>SubModule / behavior registration timing</td></tr>
+<tr><td><a href="../save-system">Save System</a></td><td>SaveManager and marked fields</td></tr>
+<tr><td><a href="../sdk-overview">SDK Overview</a></td><td>Layer and module map</td></tr>
+<tr><td><a href="../doc-contract">Doc Contract</a></td><td>Quality bar for class docs</td></tr>
+</tbody></table>
+<hr />
+<h2 id="boundary-map">Boundary map</h2>
+<pre><code>Wrong SubModule phase     → NRE / boot failure
+MBObject not registered   → nulls, missing troops/items
+Mutate world by fields    → logic drift, UI desync, hard-to-repro corrupt state
+SaveId / Sync mistakes    → load crash, field swap, silent data loss
+Agent outside Mission     → use-after-free style failures
+Model / UI lifetime wrong → wrong scores, black screens, double subscriptions
+</code></pre>
+<hr />
+<h2 id="1-saves-saveid-sync-vs-saveablefield-load-order">1. Saves: SaveId, Sync vs SaveableField, load order</h2>
+<h3 id="symptoms-risk">Symptoms / risk</h3>
+<ul>
+<li>Crash on load, or values "swap channels" (field A reads as B)</li>
+<li>Removing the mod breaks old saves; version bumps fail without a clear message</li>
+<li>Behavior state exists in memory but not on disk (or garbage fields do)</li>
+</ul>
+<h3 id="correct-practice">Correct practice</h3>
+<ol>
+<li><strong>SaveIds are a contract.</strong> Once <code>[SaveableClass(id)]</code> / <code>[SaveableField(id)]</code> ships, <strong>do not change meaning</strong>. Retire ids; never reuse them for a new type layout.</li>
+<li><strong>One source of truth:</strong>
+<ul>
+<li>Private behavior state → <code>CampaignBehaviorBase.SyncData(IDataStore)</code></li>
+<li>Types in the object graph → <code>[Saveable*]</code> and a path from a root</li>
+</ul>
+</li>
+<li><strong>Load order:</strong> type definitions must be in <code>DefinitionContext</code> before fields are read. Do not assume custom collections are full before <code>OnGameLoaded</code> / behavior restore finishes.</li>
+<li>Split new game vs load: <code>OnNewGameCreated</code> vs <code>OnGameLoaded</code> (and matching behavior hooks).</li>
+</ol>
+<h3 id="related-docs">Related docs</h3>
+<ul>
+<li><a href="../save-system">Save architecture</a></li>
+<li><a href="../../guide/save-system-guide">Save guide</a></li>
+<li><a href="../../api/save-system/SaveManager"><code>SaveManager</code></a></li>
+<li><a href="../../api/campaign-ext/CampaignBehaviorBase"><code>CampaignBehaviorBase</code></a> (<code>SyncData</code>)</li>
+<li><a href="../../api/save-system/SaveableFieldAttribute"><code>SaveableFieldAttribute</code></a></li>
+</ul>
+<h3 id="anti-patterns">Anti-patterns</h3>
+<pre><code data-lang="csharp">// Wrong: ship field 3 as int, later change it to List&lt;Hero&gt; with the same id
+[SaveableField(3)]
+public List&lt;Hero&gt; Allies; // old saves read int layout → crash or silent corruption
+
+// Wrong: both SyncData and SaveableField own the same logical state
+// Wrong: touch Campaign.Current in OnSubModuleLoad and write &quot;save data&quot; there
+</code></pre>
+<pre><code data-lang="csharp">// Right: private counters via SyncData; stable keys
+public override void SyncData(IDataStore dataStore)
+{
+    dataStore.SyncData(&quot;MyMod_Reputation&quot;, ref _reputation);
+}
+</code></pre>
+<hr />
+<h2 id="2-world-changes-must-go-through-action-apply">2. World changes: must go through Action.Apply</h2>
+<h3 id="symptoms-risk-1">Symptoms / risk</h3>
+<ul>
+<li>Gold / relations / kingdom membership change, but logs, quests, UI, and AI never hear about it</li>
+<li>Breaks only after hours (armies, captivity, succession)</li>
+<li>Save loads, world is inconsistent (dead lords still in lists)</li>
+</ul>
+<h3 id="correct-practice-1">Correct practice</h3>
+<p>Ownership and state transitions in the campaign world go through <code>TaleWorlds.CampaignSystem.Actions</code>:</p>
+<ul>
+<li>Gold: <code>GiveGoldAction.ApplyBetweenCharacters(...)</code> (use the real overloads)</li>
+<li>Death: <code>KillCharacterAction.ApplyBy...</code></li>
+<li>Kingdom change: <code>ChangeKingdomAction.ApplyBy...</code></li>
+</ul>
+<p><strong>Apply owns the side-effect chain</strong> (events, caches, messages). Your mod owns <em>when / who / why</em>, not a half-written side-effect fork.</p>
+<h3 id="related-docs-1">Related docs</h3>
+<ul>
+<li><a href="../../api/campaign-ext/actions-index">Actions index</a></li>
+<li><a href="../../api/campaign-ext/GiveGoldAction"><code>GiveGoldAction</code></a> · <a href="../../api/campaign-ext/KillCharacterAction"><code>KillCharacterAction</code></a> · <a href="../../api/campaign-ext/ChangeKingdomAction"><code>ChangeKingdomAction</code></a></li>
+<li><a href="../../api/campaign/Hero"><code>Hero</code></a> · <a href="../../guide/campaign-system">Campaign guide</a> · <a href="../../guide/common-patterns">Common patterns</a></li>
+<li><a href="../developer-roadmap">Roadmap §2</a></li>
+</ul>
+<h3 id="anti-patterns-1">Anti-patterns</h3>
+<pre><code data-lang="csharp">// Wrong: looks fine once; drops events and related state
+hero.Gold += 1000;
+hero.Clan = otherClan;
+party.MemberRoster.AddToCounts(character, -1); // hard-edit when an Action/API is required
+
+// Right: clear intent, official entry
+GiveGoldAction.ApplyBetweenCharacters(null, hero, 1000);
+// Same idea for KillCharacterAction / ChangeKingdomAction: call Apply*, do not assign
+</code></pre>
+<hr />
+<h2 id="3-campaign-event-timing-vs-inside-outside-mission">3. Campaign event timing vs inside / outside Mission</h2>
+<h3 id="symptoms-risk-2">Symptoms / risk</h3>
+<ul>
+<li><code>Campaign.Current</code> is null</li>
+<li>Map state mutated mid-battle; load or tick order goes weird after the fight</li>
+<li><code>CampaignEvents</code> handlers re-enter when a mission ends</li>
+</ul>
+<h3 id="correct-practice-2">Correct practice</h3>
+<table><thead><tr><th>Context</th><th>OK to do</th><th>Avoid</th></tr></thead><tbody>
+<tr><td>Main menu / <code>OnSubModuleLoad</code></td><td>Config, Harmony, global services</td><td>Touching <code>Campaign</code> / live <code>Hero</code> world</td></tr>
+<tr><td>Campaign map tick / behavior events</td><td>Actions, model queries, map logic</td><td>Holding stale <code>Mission</code> / <code>Agent</code></td></tr>
+<tr><td>Inside Mission</td><td><code>MissionBehavior</code>, agents, formations</td><td>Rebuilding kingdoms / unguarded hero kills</td></tr>
+</tbody></table>
+<p>Decide on the map; present in the mission. Cross layers with <strong>explicit result write-back</strong> (battle-end callbacks, battle-related campaign events). Do not run a full kingdom transfer inside <code>OnAgentRemoved</code>.</p>
+<h3 id="related-docs-2">Related docs</h3>
+<ul>
+<li><a href="../module-system">Module System</a> · <a href="../sdk-overview">SDK Overview</a></li>
+<li><a href="../../api/campaign/Campaign"><code>Campaign</code></a> · <a href="../../api/mission/Mission"><code>Mission</code></a></li>
+<li><a href="../../guide/campaign-system">Campaign guide</a> · <a href="../../guide/mission-system">Mission guide</a></li>
+</ul>
+<h3 id="anti-patterns-2">Anti-patterns</h3>
+<pre><code data-lang="csharp">// Wrong: during SubModule load
+protected override void OnSubModuleLoad()
+{
+    var gold = Hero.MainHero.Gold; // campaign not ready → NRE
+}
+
+// Wrong: unconstrained world edit from a mission callback
+public override void OnAgentRemoved(Agent affected, Agent affector, AgentState state, KillingBlow blow)
+{
+    ChangeKingdomAction.ApplyByJoinToKingdom(...); // timing and re-entrancy risk
+}
+</code></pre>
+<hr />
+<h2 id="4-agent-mission-lifecycle">4. Agent / Mission lifecycle</h2>
+<h3 id="symptoms-risk-3">Symptoms / risk</h3>
+<ul>
+<li>Touching <code>Agent</code> after battle → NRE or native-side faults</li>
+<li>Caching <code>Mission.Current</code> and reusing it next fight</li>
+<li>Editing equipment / AI after the agent is removed</li>
+</ul>
+<h3 id="correct-practice-3">Correct practice</h3>
+<ol>
+<li><strong>An Agent is only valid for its Mission lifetime.</strong></li>
+<li>Keep logic in <code>MissionBehavior</code> hooks (<code>OnAgentBuild</code>, <code>OnAgentRemoved</code>, <code>OnMissionTick</code>, ...). Do not store agents in long-lived static maps.</li>
+<li>Clear caches when the mission ends. For cross-battle memory, store <strong>Hero / character string ids / campaign objects</strong>, never <code>Agent</code> references.</li>
+<li>Battlefield death ≠ automatic campaign death. Use <code>KillCharacterAction</code> at a safe campaign moment if a lord must leave the map.</li>
+</ol>
+<h3 id="related-docs-3">Related docs</h3>
+<ul>
+<li><a href="../../api/mission/Mission"><code>Mission</code></a> · <a href="../../api/mission/Agent"><code>Agent</code></a> · <a href="../../api/mission/MissionBehavior"><code>MissionBehavior</code></a></li>
+<li><a href="../../guide/mission-system">Mission guide</a> · <a href="../module-system">Module System</a></li>
+</ul>
+<h3 id="anti-patterns-3">Anti-patterns</h3>
+<pre><code data-lang="csharp">// Wrong: long-lived field
+private Agent _boss;
+public override void OnAgentBuild(Agent agent, Banner b) { _boss = agent; }
+// After mission end, other code still calls _boss.Health
+
+// Right: query from Mission when needed, or store campaign ids only
+private string _bossHeroId;
+// In OnAgentRemoved, write back via Hero.FindFirst / string id
+</code></pre>
+<hr />
+<h2 id="5-mbobjectmanager-registration">5. MBObjectManager registration</h2>
+<h3 id="symptoms-risk-4">Symptoms / risk</h3>
+<ul>
+<li><code>GetObject&lt;ItemObject&gt;("MyItem")</code> returns null</li>
+<li>Troop tables reference a missing <code>CharacterObject</code></li>
+<li>"Works sometimes" because of load order / hot load</li>
+</ul>
+<h3 id="correct-practice-4">Correct practice</h3>
+<ol>
+<li>XML- or code-created <code>ItemObject</code> / <code>CharacterObject</code> must be in <strong><code>MBObjectManager</code> before consumers run</strong>.</li>
+<li>String ids are globally unique and stable; renaming is a hard break.</li>
+<li>Register during SubModule / object load phases, not on first combat.</li>
+<li>Use official Get APIs and handle null (missing dependency should fail loudly).</li>
+</ol>
+<h3 id="related-docs-4">Related docs</h3>
+<ul>
+<li><a href="../../api/campaign-ext/MBObjectManager"><code>MBObjectManager</code></a></li>
+<li><a href="../../api/core/ItemObject"><code>ItemObject</code></a> · <a href="../../api/campaign/CharacterObject"><code>CharacterObject</code></a></li>
+<li><a href="../sdk-overview">SDK Overview L2</a> · <a href="../../guide/asset-pipeline">Asset pipeline</a> · <a href="../module-system">Module System</a></li>
+</ul>
+<h3 id="anti-patterns-4">Anti-patterns</h3>
+<pre><code data-lang="csharp">// Wrong: assume the object exists
+var item = MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(&quot;my_mod_sword&quot;);
+hero.CivilianEquipment.AddEquipmentToSlotWithoutAgent(EquipmentIndex.Weapon0, new EquipmentElement(item));
+// item == null → cascade crash
+
+// Right: validate; ensure XML/registration runs before the use site
+if (item == null) { /* log and abort this equip */ return; }
+</code></pre>
+<hr />
+<h2 id="6-submodule-load-phases">6. SubModule load phases</h2>
+<h3 id="symptoms-risk-5">Symptoms / risk</h3>
+<ul>
+<li>Mod appears in the module list but behaviors never run</li>
+<li>Black screen / crash before main menu</li>
+<li>Missing dependency modules → type load failure</li>
+</ul>
+<h3 id="correct-practice-5">Correct practice</h3>
+<p>Remember the phases:</p>
+<pre><code>OnSubModuleLoad
+  → main menu
+  → OnGameStart / InitializeGameStarter   ← register behaviors / models
+  → OnNewGameCreated or OnGameLoaded
+  → runtime ticks / missions
+</code></pre>
+<ul>
+<li><strong>Register</strong> in <code>OnGameStart</code> / <code>InitializeGameStarter</code></li>
+<li><strong>Harmony / config</strong> may live in <code>OnSubModuleLoad</code></li>
+<li>Fill <code>DependedModules</code> in <code>SubModule.xml</code>; DLL name and entry class must match</li>
+</ul>
+<h3 id="related-docs-5">Related docs</h3>
+<ul>
+<li><a href="../module-system">Module System</a></li>
+<li><a href="../../api/core/MBSubModuleBase"><code>MBSubModuleBase</code></a></li>
+<li><a href="../../guide/mod-workflow">Mod workflow</a> · <a href="../../guide/troubleshooting">Troubleshooting</a></li>
+<li><a href="../developer-roadmap">Roadmap §1</a></li>
+</ul>
+<h3 id="anti-patterns-5">Anti-patterns</h3>
+<pre><code data-lang="csharp">// Wrong: construct only
+protected override void OnGameStart(Game game, IGameStarter starter)
+{
+    new MyCampaignBehavior(); // never enters CampaignBehaviorManager
+}
+
+// Right
+if (starter is CampaignGameStarter cs)
+    cs.AddBehavior(new MyCampaignBehavior());
+</code></pre>
+<hr />
+<h2 id="7-model-replacement">7. Model replacement</h2>
+<h3 id="symptoms-risk-6">Symptoms / risk</h3>
+<ul>
+<li>Your <code>GameModel</code> methods never run</li>
+<li>Diplomacy / war scores look vanilla (or like another mod)</li>
+<li>Constructor cached a <code>base</code> model; later starter replacement is ignored</li>
+</ul>
+<h3 id="correct-practice-6">Correct practice</h3>
+<ol>
+<li><code>AddModel</code> / replace in <strong><code>InitializeGameStarter</code></strong> (or the documented equivalent).</li>
+<li>At runtime, read <code>Campaign.Current.Models</code> (and specific properties). Do not treat <code>new DefaultXxxModel()</code> as authority.</li>
+<li>Override only the calculations you change; know whether <code>base</code> is still on the vanilla chain.</li>
+<li>Multi-mod: later load wins; detect and log when you care.</li>
+</ol>
+<h3 id="related-docs-6">Related docs</h3>
+<ul>
+<li><a href="../../api/campaign-ext/GameModels"><code>GameModels</code></a> · <a href="../../api/core-extra/GameModelsManager"><code>GameModelsManager</code></a></li>
+<li><a href="../module-system">Module System</a> · <a href="../../guide/game-systems-overview">Game systems overview</a></li>
+<li><a href="../developer-roadmap">Roadmap §5</a></li>
+</ul>
+<h3 id="anti-patterns-6">Anti-patterns</h3>
+<pre><code data-lang="csharp">// Wrong: static new that the game never queries
+public static readonly DiplomacyModel Mine = new MyDiplomacyModel();
+
+// Wrong: initialize too late (campaign already built caches on default models)
+// Right: AddModel in InitializeGameStarter; confirm Campaign resolves your type
+</code></pre>
+<hr />
+<h2 id="8-ui-viewmodel-lifetime">8. UI / ViewModel lifetime</h2>
+<h3 id="symptoms-risk-7">Symptoms / risk</h3>
+<ul>
+<li>UI closed but still ticking / still subscribed → leaks or broken reopen</li>
+<li>Bound properties never refresh, or refresh destroyed widgets</li>
+<li>Mission HUD still alive on the campaign map</li>
+</ul>
+<h3 id="correct-practice-7">Correct practice</h3>
+<ol>
+<li>A <code>ViewModel</code> lives and dies with its <strong>Screen / GauntletLayer / MissionView</strong>.</li>
+<li>On close, call <code>OnFinalize</code> (or your project's dispose path) and unsubscribe.</li>
+<li><code>[DataSourceProperty]</code> changes go through the official notification path; do not only mutate backing fields.</li>
+<li>Do not park a VM on a <code>CampaignBehavior</code> as a forever service unless you own a strict open/close session.</li>
+</ol>
+<h3 id="related-docs-7">Related docs</h3>
+<ul>
+<li><a href="../../api/core-extra/ViewModel"><code>ViewModel</code></a> · <a href="../../api/gui/">GUI API</a></li>
+<li><a href="../../guide/gauntlet-ui">Gauntlet guide</a> · <a href="../sdk-overview">SDK Overview L4</a></li>
+<li><a href="../developer-roadmap">Roadmap §6</a></li>
+</ul>
+<h3 id="anti-patterns-7">Anti-patterns</h3>
+<pre><code data-lang="csharp">// Wrong: behavior owns a VM forever
+private MyVM _vm = new MyVM();
+// UI closed; _vm still listens to CampaignEvents.OnHero...
+
+// Right: create on open, finalize and null on close
+public void Open() { _vm = new MyVM(); /* push layer */ }
+public void Close() { _vm?.OnFinalize(); _vm = null; }
+</code></pre>
+<hr />
+<h2 id="quick-checklist">Quick checklist</h2>
+<p>Before shipping or trusting a save:</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+No SaveId reuse / silent type change</li>
+<li><input disabled="" type="checkbox"/>
+World mutations go through <code>*Action.Apply*</code></li>
+<li><input disabled="" type="checkbox"/>
+No <code>Campaign.Current</code> in <code>OnSubModuleLoad</code></li>
+<li><input disabled="" type="checkbox"/>
+No cross-mission <code>Agent</code> caches</li>
+<li><input disabled="" type="checkbox"/>
+Objects resolve from <code>MBObjectManager</code></li>
+<li><input disabled="" type="checkbox"/>
+Behaviors / models registered at starter time</li>
+<li><input disabled="" type="checkbox"/>
+ViewModels have a close/dispose path</li>
+</ul>
+<hr />
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../developer-roadmap">Developer Task Roadmap</a></li>
+<li><a href="../save-system">Save System</a> · <a href="../module-system">Module System</a> · <a href="../sdk-overview">SDK Overview</a></li>
+<li><a href="../../guide/troubleshooting">Troubleshooting</a> · <a href="../../guide/common-patterns">Common patterns</a></li>
+<li>Gold class pages: <a href="../../api/save-system/SaveManager"><code>SaveManager</code></a> · <a href="../../api/campaign/Hero"><code>Hero</code></a> · <a href="../../api/mission/Mission"><code>Mission</code></a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/architecture/">Architecture</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/architecture/save-system/">&larr; Save System</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/architecture/sdk-overview/">SDK Overview — Module Map &amp; Developer Roadmap &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/architecture/doc-contract/">Doc Contract</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/sdk-overview/">SDK Overview</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/module-system/">Module System</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/save-system/">Save System</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/version-delta/">Version Delta</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/native-interop/">Managed-Native Interop</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/developer-roadmap/">Developer Roadmap</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/crash-boundaries/">Crash Boundaries</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/noise-policy/">Noise Policy</a>
+            
+          
+            
+              <a href="/v1.3.15/en/architecture/sandbox-native-policy/">SandBox&#x2F;StoryMode&#x2F;Native Policy</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

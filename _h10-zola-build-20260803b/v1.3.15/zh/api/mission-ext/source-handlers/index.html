@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Source Mission Handlers 源码家族</title>
+  <meta name="description" content="MountAndBlade.Source 的真实 Mission 处理器索引；用于追踪官方调用顺序，不把易变实现当作稳定 SDK。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/source-handlers/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/source-handlers/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Source Mission Handlers 源码家族</span>
+    </nav>
+  
+  <h1>Source Mission Handlers 源码家族</h1>
+  <h1 id="source-mission-handlers-yuan-ma-jia-zu">Source Mission Handlers 源码家族</h1>
+<h2 id="mental-model">Mental Model</h2>
+<p>这些类型属于 MountAndBlade 源码模块的 Mission 实现层。Mission 通过
+<code>Mission</code>、<code>MissionBehavior</code> 和各种控制器创建并调度它们；它们适合追踪官方
+调用顺序，但具体实现可能随游戏版本变化。v1.4.5 的来源是
+<code>bannerlord-1.4.5/Bannerlord.Source/Modules.Native</code> 及其 source mission 目录，
+下表链接的是库存中的 v1.3.15 托管类型页面。</p>
+<p>先读 <a href="../../mission/Mission">Mission</a>、<a href="../../mission/MissionBehavior">MissionBehavior</a> 和
+<a href="../MissionState">MissionState</a>。控制器不能直接改写战役持久状态；持久变更必须回到
+Campaign Action，并在 Mission 结束时释放 Agent、Scene 和计时器引用。</p>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><a href="../../mission/Mission">Mission</a> 拥有场景生命周期并分发 Mission Behavior 回调。</li>
+<li><a href="../../mission/MissionBehavior">MissionBehavior</a> 是 Mission 实例的扩展点。</li>
+<li><a href="../../mission/Agent">Agent</a>、<a href="../../mission/Team">Team</a>、<a href="../../mission/Formation">Formation</a> 暴露实时战场状态。</li>
+<li><a href="../../campaign-ext/actions-index">Actions</a> 仍是战役世界变更的边界。</li>
+</ul>
+<h2 id="source-backed-entries">Source-backed entries</h2>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions</td><td><a href="../BaseBattleMissionController">BaseBattleMissionController</a></td><td>协调通用战斗 Mission 初始化，并把事件交给已配置的控制器。</td><td>Mission 创建与战斗收尾</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions</td><td><a href="../BattleSpawnLogic">BattleSpawnLogic</a></td><td>选择战场出生点并处理进行中的增援决定。</td><td>首次出生与增援波次</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions</td><td><a href="../CaravanBattleMissionHandler">CaravanBattleMissionHandler</a></td><td>将商队遭遇数据接入战斗 Mission，并处理退出路径。</td><td>商队战斗创建与完成</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions</td><td><a href="../DebugAgentTeleporterMissionController">DebugAgentTeleporterMissionController</a></td><td>提供源码模块的调试 Agent 传送控制，不写入战役状态。</td><td>仅调试 Mission</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions</td><td><a href="../DebugObjectDestroyerMissionController">DebugObjectDestroyerMissionController</a></td><td>为源码诊断和测试场景移除选中的 Mission 对象。</td><td>Mission 内显式调试输入</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions</td><td><a href="../EquipmentTestMissionController">EquipmentTestMissionController</a></td><td>组织装备测试 Mission，并让测试 Actor 留在 Mission 生命周期内。</td><td>测试 Mission 启动与重置</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions</td><td><a href="../HideoutPhasedMissionController">HideoutPhasedMissionController</a></td><td>驱动藏身处阶段切换以及各阶段的 Mission 控制器交接。</td><td>阶段变化与 Mission 结束</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions</td><td><a href="../MissionOptionsComponent">MissionOptionsComponent</a></td><td>向 Mission 控制器和选项 UI 提供选项状态。</td><td>选项创建与刷新</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions</td><td><a href="../SimpleMountedPlayerMissionController">SimpleMountedPlayerMissionController</a></td><td>提供聚焦流程使用的最小骑乘玩家控制器。</td><td>玩家出生至 Mission 收尾</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions.Handlers</td><td><a href="../BasicMissionHandler">BasicMissionHandler</a></td><td>安装源码 Mission 入口共用的基础处理器集合。</td><td>Mission 初始化</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions.Handlers</td><td><a href="../IBoardGameHandler">IBoardGameHandler</a></td><td>把桌游 Mission 接到处理器回调和结果交接。</td><td>桌游 Mission 设置与结果</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions.Handlers</td><td><a href="../LordsHallFightMissionController">LordsHallFightMissionController</a></td><td>控制领主大厅战斗场景及其 Mission 完成路径。</td><td>场景进入、战斗和退出</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions.Handlers</td><td><a href="../MissionFacialAnimationHandler">MissionFacialAnimationHandler</a></td><td>为当前 Mission 的 Actor 注册面部动画工作。</td><td>Actor 出生与动画更新</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic</td><td><a href="../AgentMoraleInteractionLogic">AgentMoraleInteractionLogic</a></td><td>在不改变战斗所有权的前提下处理 Agent 间士气互动。</td><td>战斗事件与士气 tick</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic</td><td><a href="../AmmoSupplyLogic">AmmoSupplyLogic</a></td><td>按 Mission 规则供应并刷新战斗弹药。</td><td>出生、补给与 Mission 重置</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Missions.Handlers.Logic</td><td><a href="../BattleMissionAgentInteractionLogic">BattleMissionAgentInteractionLogic</a></td><td>解析战斗 Mission 专属的 Agent 互动回调。</td><td>战斗中的 Agent 互动事件</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Objects</td><td><a href="../NavigationMeshDeactivator">NavigationMeshDeactivator</a></td><td>当源码 Mission 对象改变通行区域时停用选定导航网格区域。</td><td>场景设置与对象生命周期</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Objects</td><td><a href="../SceneLeveler">SceneLeveler</a></td><td>应用源码场景对象设置所需的场景高度调整。</td><td>Agent 出生前的场景加载</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Objects.Siege</td><td><a href="../AgentPathNavMeshChecker">AgentPathNavMeshChecker</a></td><td>为诊断和布置检查 Agent 路径与攻城导航网格。</td><td>攻城场景设置与路径检查</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.Source.Objects.Siege</td><td><a href="../Direction">Direction</a></td><td>编码攻城对象布置逻辑所消费的方向值。</td><td>攻城对象创建与布置</td></tr>
+</tbody></table>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li><a href="..">Parent: Mission extensions</a></li>
+<li><a href="../../mission/Mission">Related: Mission</a> · <a href="../../mission/MissionBehavior">Mission behaviors</a></li>
+<li><a href="../../../architecture/sandbox-native-policy">Policy: SandBox / StoryMode / Native</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

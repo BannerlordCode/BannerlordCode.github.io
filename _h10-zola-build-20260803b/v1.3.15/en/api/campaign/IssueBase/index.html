@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IssueBase</title>
+  <meta name="description" content="Auto-generated class reference for IssueBase.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/IssueBase/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/IssueBase/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/IssueBase/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/IssueBase/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/IssueBase/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/IssueBase/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">IssueBase</span>
+    </nav>
+  
+  <h1>IssueBase</h1>
+  <h1 id="issuebase">IssueBase</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Issues
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public abstract class IssueBase : MBObjectBase</code>
+<strong>Base:</strong> <code>MBObjectBase</code>
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Issues/IssueBase.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>IssueBase</code> lives in <code>TaleWorlds.CampaignSystem.Issues</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.CampaignSystem.Issues</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>RelationshipChangeWithIssueOwner</code></td><td><code>public virtual int RelationshipChangeWithIssueOwner { get; set; }</code></td></tr>
+<tr><td><code>IssueBriefByIssueGiver</code></td><td><code>public abstract TextObject IssueBriefByIssueGiver { get; }</code></td></tr>
+<tr><td><code>IssueAcceptByPlayer</code></td><td><code>public abstract TextObject IssueAcceptByPlayer { get; }</code></td></tr>
+<tr><td><code>IssuePlayerResponseAfterLordExplanation</code></td><td><code>public virtual TextObject IssuePlayerResponseAfterLordExplanation { get; }</code></td></tr>
+<tr><td><code>IssuePlayerResponseAfterAlternativeExplanation</code></td><td><code>public virtual TextObject IssuePlayerResponseAfterAlternativeExplanation { get; }</code></td></tr>
+<tr><td><code>IssueQuestSolutionExplanationByIssueGiver</code></td><td><code>public abstract TextObject IssueQuestSolutionExplanationByIssueGiver { get; }</code></td></tr>
+<tr><td><code>IssueAlternativeSolutionExplanationByIssueGiver</code></td><td><code>public virtual TextObject IssueAlternativeSolutionExplanationByIssueGiver { get; }</code></td></tr>
+<tr><td><code>IssueLordSolutionExplanationByIssueGiver</code></td><td><code>public virtual TextObject IssueLordSolutionExplanationByIssueGiver { get; }</code></td></tr>
+<tr><td><code>IssueQuestSolutionAcceptByPlayer</code></td><td><code>public abstract TextObject IssueQuestSolutionAcceptByPlayer { get; }</code></td></tr>
+<tr><td><code>IssueAlternativeSolutionAcceptByPlayer</code></td><td><code>public virtual TextObject IssueAlternativeSolutionAcceptByPlayer { get; }</code></td></tr>
+<tr><td><code>IssueAlternativeSolutionResponseByIssueGiver</code></td><td><code>public virtual TextObject IssueAlternativeSolutionResponseByIssueGiver { get; }</code></td></tr>
+<tr><td><code>IssueLordSolutionAcceptByPlayer</code></td><td><code>public virtual TextObject IssueLordSolutionAcceptByPlayer { get; }</code></td></tr>
+<tr><td><code>IssueLordSolutionResponseByIssueGiver</code></td><td><code>public virtual TextObject IssueLordSolutionResponseByIssueGiver { get; }</code></td></tr>
+<tr><td><code>IssueLordSolutionCounterOfferBriefByOtherNpc</code></td><td><code>public virtual TextObject IssueLordSolutionCounterOfferBriefByOtherNpc { get; }</code></td></tr>
+<tr><td><code>IssueLordSolutionCounterOfferExplanationByOtherNpc</code></td><td><code>public virtual TextObject IssueLordSolutionCounterOfferExplanationByOtherNpc { get; }</code></td></tr>
+<tr><td><code>IssueLordSolutionCounterOfferAcceptByPlayer</code></td><td><code>public virtual TextObject IssueLordSolutionCounterOfferAcceptByPlayer { get; }</code></td></tr>
+<tr><td><code>IssueLordSolutionCounterOfferDeclineByPlayer</code></td><td><code>public virtual TextObject IssueLordSolutionCounterOfferDeclineByPlayer { get; }</code></td></tr>
+<tr><td><code>IssueLordSolutionCounterOfferAcceptResponseByOtherNpc</code></td><td><code>public virtual TextObject IssueLordSolutionCounterOfferAcceptResponseByOtherNpc { get; }</code></td></tr>
+<tr><td><code>IssueLordSolutionCounterOfferDeclineResponseByOtherNpc</code></td><td><code>public virtual TextObject IssueLordSolutionCounterOfferDeclineResponseByOtherNpc { get; }</code></td></tr>
+<tr><td><code>IssueAsRumorInSettlement</code></td><td><code>public virtual TextObject IssueAsRumorInSettlement { get; }</code></td></tr>
+<tr><td><code>AlternativeSolutionBaseNeededMenCount</code></td><td><code>public virtual int AlternativeSolutionBaseNeededMenCount { get; }</code></td></tr>
+<tr><td><code>AlternativeSolutionReturnTimeForTroops</code></td><td><code>public CampaignTime AlternativeSolutionReturnTimeForTroops { get; }</code></td></tr>
+<tr><td><code>IsThereAlternativeSolution</code></td><td><code>public abstract bool IsThereAlternativeSolution { get; }</code></td></tr>
+<tr><td><code>IsThereDiscussDialogFlow</code></td><td><code>public bool IsThereDiscussDialogFlow { get; }</code></td></tr>
+<tr><td><code>AlternativeSolutionIssueEffectClearTime</code></td><td><code>public CampaignTime AlternativeSolutionIssueEffectClearTime { get; }</code></td></tr>
+<tr><td><code>AlternativeSolutionHero</code></td><td><code>public Hero AlternativeSolutionHero { get; }</code></td></tr>
+<tr><td><code>IssueDiscussAlternativeSolution</code></td><td><code>public virtual TextObject IssueDiscussAlternativeSolution { get; }</code></td></tr>
+<tr><td><code>IssueAlternativeSolutionSuccessLog</code></td><td><code>public virtual TextObject IssueAlternativeSolutionSuccessLog { get; }</code></td></tr>
+<tr><td><code>IssueAlternativeSolutionFailLog</code></td><td><code>public virtual TextObject IssueAlternativeSolutionFailLog { get; }</code></td></tr>
+<tr><td><code>IsThereLordSolution</code></td><td><code>public abstract bool IsThereLordSolution { get; }</code></td></tr>
+<tr><td><code>NeededInfluenceForLordSolution</code></td><td><code>public virtual int NeededInfluenceForLordSolution { get; set; }</code></td></tr>
+<tr><td><code>CounterOfferHero</code></td><td><code>public virtual Hero CounterOfferHero { get; set; }</code></td></tr>
+<tr><td><code>JournalEntries</code></td><td><code>public MBReadOnlyList&lt;JournalLog&gt; JournalEntries { get; set; }</code></td></tr>
+<tr><td><code>IssueOwner</code></td><td><code>public Hero IssueOwner { get; set; }</code></td></tr>
+<tr><td><code>Title</code></td><td><code>public abstract TextObject Title { get; }</code></td></tr>
+<tr><td><code>IssueQuest</code></td><td><code>public QuestBase IssueQuest { get; }</code></td></tr>
+<tr><td><code>IssueSettlement</code></td><td><code>public Settlement IssueSettlement { get; }</code></td></tr>
+<tr><td><code>Description</code></td><td><code>public abstract TextObject Description { get; }</code></td></tr>
+<tr><td><code>IsTriedToSolveBefore</code></td><td><code>public bool IsTriedToSolveBefore { get; }</code></td></tr>
+<tr><td><code>IsOngoingWithoutQuest</code></td><td><code>public bool IsOngoingWithoutQuest { get; }</code></td></tr>
+<tr><td><code>IsSolvingWithQuest</code></td><td><code>public bool IsSolvingWithQuest { get; }</code></td></tr>
+<tr><td><code>IsSolvingWithAlternative</code></td><td><code>public bool IsSolvingWithAlternative { get; }</code></td></tr>
+<tr><td><code>IsSolvingWithLordSolution</code></td><td><code>public bool IsSolvingWithLordSolution { get; }</code></td></tr>
+<tr><td><code>AlternativeSolutionScaleFlags</code></td><td><code>public virtual IssueBase.AlternativeSolutionScaleFlag AlternativeSolutionScaleFlags { get; }</code></td></tr>
+<tr><td><code>AlternativeSolutionHasCasualties</code></td><td><code>public bool AlternativeSolutionHasCasualties { get; }</code></td></tr>
+<tr><td><code>AlternativeSolutionHasScaledRequiredTroops</code></td><td><code>public bool AlternativeSolutionHasScaledRequiredTroops { get; }</code></td></tr>
+<tr><td><code>AlternativeSolutionHasScaledDuration</code></td><td><code>public bool AlternativeSolutionHasScaledDuration { get; }</code></td></tr>
+<tr><td><code>AlternativeSolutionHasFailureRisk</code></td><td><code>public bool AlternativeSolutionHasFailureRisk { get; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="gettotalalternativesolutionneededmencount">GetTotalAlternativeSolutionNeededMenCount</h3>
+<p><code>public int GetTotalAlternativeSolutionNeededMenCount()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the total alternative solution needed men count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetTotalAlternativeSolutionNeededMenCount();
+</code></pre>
+<h3 id="gettotalalternativesolutiondurationindays">GetTotalAlternativeSolutionDurationInDays</h3>
+<p><code>public int GetTotalAlternativeSolutionDurationInDays()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the total alternative solution duration in days value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetTotalAlternativeSolutionDurationInDays();
+</code></pre>
+<h3 id="getbasealternativesolutiondurationindays">GetBaseAlternativeSolutionDurationInDays</h3>
+<p><code>public int GetBaseAlternativeSolutionDurationInDays()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the base alternative solution duration in days value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetBaseAlternativeSolutionDurationInDays();
+</code></pre>
+<h3 id="alternativesolutioncondition">AlternativeSolutionCondition</h3>
+<p><code>public virtual bool AlternativeSolutionCondition(out TextObject explanation)</code></p>
+<p><strong>Purpose:</strong> Executes the AlternativeSolutionCondition logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.AlternativeSolutionCondition(explanation);
+</code></pre>
+<h3 id="alternativesolutionstartconsequence">AlternativeSolutionStartConsequence</h3>
+<p><code>public virtual void AlternativeSolutionStartConsequence()</code></p>
+<p><strong>Purpose:</strong> Executes the AlternativeSolutionStartConsequence logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.AlternativeSolutionStartConsequence();
+</code></pre>
+<h3 id="dotroopssatisfyalternativesolution">DoTroopsSatisfyAlternativeSolution</h3>
+<p><code>public virtual bool DoTroopsSatisfyAlternativeSolution(TroopRoster troopRoster, out TextObject explanation)</code></p>
+<p><strong>Purpose:</strong> Executes the DoTroopsSatisfyAlternativeSolution logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.DoTroopsSatisfyAlternativeSolution(troopRoster, explanation);
+</code></pre>
+<h3 id="istrooptypeneededbyalternativesolution">IsTroopTypeNeededByAlternativeSolution</h3>
+<p><code>public virtual bool IsTroopTypeNeededByAlternativeSolution(CharacterObject character)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the troop type needed by alternative solution state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.IsTroopTypeNeededByAlternativeSolution(character);
+</code></pre>
+<h3 id="lordsolutioncondition">LordSolutionCondition</h3>
+<p><code>public virtual bool LordSolutionCondition(out TextObject explanation)</code></p>
+<p><strong>Purpose:</strong> Executes the LordSolutionCondition logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.LordSolutionCondition(explanation);
+</code></pre>
+<h3 id="getname">GetName</h3>
+<p><code>public override TextObject GetName()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetName();
+</code></pre>
+<h3 id="getactiveissueeffectamount">GetActiveIssueEffectAmount</h3>
+<p><code>public float GetActiveIssueEffectAmount(IssueEffect issueEffect)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the active issue effect amount value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetActiveIssueEffectAmount(issueEffect);
+</code></pre>
+<h3 id="getalternativesolutionskill">GetAlternativeSolutionSkill</h3>
+<p><code>public virtual ValueTuple&lt;SkillObject, int&gt; GetAlternativeSolutionSkill(Hero hero)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the alternative solution skill value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetAlternativeSolutionSkill(hero);
+</code></pre>
+<h3 id="tostring">ToString</h3>
+<p><code>public override string ToString()</code></p>
+<p><strong>Purpose:</strong> Returns a human-readable string representation of the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.ToString();
+</code></pre>
+<h3 id="initializeissuebaseonload">InitializeIssueBaseOnLoad</h3>
+<p><code>public void InitializeIssueBaseOnLoad()</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings required by issue base on load.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.InitializeIssueBaseOnLoad();
+</code></pre>
+<h3 id="getfrequency">GetFrequency</h3>
+<p><code>public abstract IssueBase.IssueFrequency GetFrequency()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the frequency value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.GetFrequency();
+</code></pre>
+<h3 id="issuestayaliveconditions">IssueStayAliveConditions</h3>
+<p><code>public abstract bool IssueStayAliveConditions()</code></p>
+<p><strong>Purpose:</strong> Creates or raises stay alive conditions.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.IssueStayAliveConditions();
+</code></pre>
+<h3 id="canbecompletedbyai">CanBeCompletedByAI</h3>
+<p><code>public virtual bool CanBeCompletedByAI()</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for be completed by a i.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.CanBeCompletedByAI();
+</code></pre>
+<h3 id="onherocanhavecampaignissuesinfoisrequested">OnHeroCanHaveCampaignIssuesInfoIsRequested</h3>
+<p><code>public virtual void OnHeroCanHaveCampaignIssuesInfoIsRequested(Hero hero, ref bool result)</code></p>
+<p><strong>Purpose:</strong> Invoked when the hero can have campaign issues info is requested event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanHaveCampaignIssuesInfoIsRequested(hero, result);
+</code></pre>
+<h3 id="onherocanleadpartyinfoisrequested">OnHeroCanLeadPartyInfoIsRequested</h3>
+<p><code>public virtual void OnHeroCanLeadPartyInfoIsRequested(Hero hero, ref bool result)</code></p>
+<p><strong>Purpose:</strong> Invoked when the hero can lead party info is requested event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanLeadPartyInfoIsRequested(hero, result);
+</code></pre>
+<h3 id="onherocanhavepartyroleorbegovernorinfoisrequested">OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested</h3>
+<p><code>public virtual void OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(Hero hero, ref bool result)</code></p>
+<p><strong>Purpose:</strong> Invoked when the hero can have party role or be governor info is requested event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanHavePartyRoleOrBeGovernorInfoIsRequested(hero, result);
+</code></pre>
+<h3 id="onherocandieinfoisrequested">OnHeroCanDieInfoIsRequested</h3>
+<p><code>public virtual void OnHeroCanDieInfoIsRequested(Hero hero, KillCharacterAction.KillCharacterActionDetail causeOfDeath, ref bool result)</code></p>
+<p><strong>Purpose:</strong> Invoked when the hero can die info is requested event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanDieInfoIsRequested(hero, causeOfDeath, result);
+</code></pre>
+<h3 id="onherocanbecomeprisonerinfoisrequested">OnHeroCanBecomePrisonerInfoIsRequested</h3>
+<p><code>public virtual void OnHeroCanBecomePrisonerInfoIsRequested(Hero hero, ref bool result)</code></p>
+<p><strong>Purpose:</strong> Invoked when the hero can become prisoner info is requested event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanBecomePrisonerInfoIsRequested(hero, result);
+</code></pre>
+<h3 id="onherocanbeselectedininventoryinfoisrequested">OnHeroCanBeSelectedInInventoryInfoIsRequested</h3>
+<p><code>public virtual void OnHeroCanBeSelectedInInventoryInfoIsRequested(Hero hero, ref bool result)</code></p>
+<p><strong>Purpose:</strong> Invoked when the hero can be selected in inventory info is requested event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanBeSelectedInInventoryInfoIsRequested(hero, result);
+</code></pre>
+<h3 id="onherocanmovetosettlementinfoisrequested">OnHeroCanMoveToSettlementInfoIsRequested</h3>
+<p><code>public virtual void OnHeroCanMoveToSettlementInfoIsRequested(Hero hero, ref bool result)</code></p>
+<p><strong>Purpose:</strong> Invoked when the hero can move to settlement info is requested event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanMoveToSettlementInfoIsRequested(hero, result);
+</code></pre>
+<h3 id="onherocanmarryinfoisrequested">OnHeroCanMarryInfoIsRequested</h3>
+<p><code>public virtual void OnHeroCanMarryInfoIsRequested(Hero hero, ref bool result)</code></p>
+<p><strong>Purpose:</strong> Invoked when the hero can marry info is requested event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnHeroCanMarryInfoIsRequested(hero, result);
+</code></pre>
+<h3 id="issettlementbusy">IsSettlementBusy</h3>
+<p><code>public virtual void IsSettlementBusy(Settlement settlement, object asker, ref int priority)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the settlement busy state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.IsSettlementBusy(settlement, asker, priority);
+</code></pre>
+<h3 id="startissuewithquest">StartIssueWithQuest</h3>
+<p><code>public bool StartIssueWithQuest()</code></p>
+<p><strong>Purpose:</strong> Starts the issue with quest flow or state machine.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+var result = issueBase.StartIssueWithQuest();
+</code></pre>
+<h3 id="startissuewithalternativesolution">StartIssueWithAlternativeSolution</h3>
+<p><code>public void StartIssueWithAlternativeSolution()</code></p>
+<p><strong>Purpose:</strong> Starts the issue with alternative solution flow or state machine.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.StartIssueWithAlternativeSolution();
+</code></pre>
+<h3 id="onalternativesolutionsolvedandtroopsarereturning">OnAlternativeSolutionSolvedAndTroopsAreReturning</h3>
+<p><code>public void OnAlternativeSolutionSolvedAndTroopsAreReturning()</code></p>
+<p><strong>Purpose:</strong> Invoked when the alternative solution solved and troops are returning event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.OnAlternativeSolutionSolvedAndTroopsAreReturning();
+</code></pre>
+<h3 id="issuefinalized">IssueFinalized</h3>
+<p><code>public void IssueFinalized()</code></p>
+<p><strong>Purpose:</strong> Creates or raises finalized.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.IssueFinalized();
+</code></pre>
+<h3 id="completeissuewithquest">CompleteIssueWithQuest</h3>
+<p><code>public void CompleteIssueWithQuest()</code></p>
+<p><strong>Purpose:</strong> Executes the CompleteIssueWithQuest logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithQuest();
+</code></pre>
+<h3 id="completeissuewithtimedout">CompleteIssueWithTimedOut</h3>
+<p><code>public void CompleteIssueWithTimedOut()</code></p>
+<p><strong>Purpose:</strong> Executes the CompleteIssueWithTimedOut logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithTimedOut();
+</code></pre>
+<h3 id="completeissuewithstayaliveconditionsfailed">CompleteIssueWithStayAliveConditionsFailed</h3>
+<p><code>public void CompleteIssueWithStayAliveConditionsFailed()</code></p>
+<p><strong>Purpose:</strong> Executes the CompleteIssueWithStayAliveConditionsFailed logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithStayAliveConditionsFailed();
+</code></pre>
+<h3 id="completeissuewithbetrayal">CompleteIssueWithBetrayal</h3>
+<p><code>public void CompleteIssueWithBetrayal()</code></p>
+<p><strong>Purpose:</strong> Executes the CompleteIssueWithBetrayal logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithBetrayal();
+</code></pre>
+<h3 id="completeissuewithfail">CompleteIssueWithFail</h3>
+<p><code>public void CompleteIssueWithFail(TextObject log = null)</code></p>
+<p><strong>Purpose:</strong> Executes the CompleteIssueWithFail logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithFail(null);
+</code></pre>
+<h3 id="completeissuewithcancel">CompleteIssueWithCancel</h3>
+<p><code>public void CompleteIssueWithCancel(TextObject log = null)</code></p>
+<p><strong>Purpose:</strong> Executes the CompleteIssueWithCancel logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithCancel(null);
+</code></pre>
+<h3 id="completeissuewithailord">CompleteIssueWithAiLord</h3>
+<p><code>public void CompleteIssueWithAiLord(Hero issueSolver)</code></p>
+<p><strong>Purpose:</strong> Executes the CompleteIssueWithAiLord logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithAiLord(issueSolver);
+</code></pre>
+<h3 id="startissuewithlordsolution">StartIssueWithLordSolution</h3>
+<p><code>public void StartIssueWithLordSolution()</code></p>
+<p><strong>Purpose:</strong> Starts the issue with lord solution flow or state machine.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.StartIssueWithLordSolution();
+</code></pre>
+<h3 id="completeissuewithalternativesolution">CompleteIssueWithAlternativeSolution</h3>
+<p><code>public void CompleteIssueWithAlternativeSolution()</code></p>
+<p><strong>Purpose:</strong> Executes the CompleteIssueWithAlternativeSolution logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithAlternativeSolution();
+</code></pre>
+<h3 id="completeissuewithlordsolutionwithrefusecounteroffer">CompleteIssueWithLordSolutionWithRefuseCounterOffer</h3>
+<p><code>public void CompleteIssueWithLordSolutionWithRefuseCounterOffer()</code></p>
+<p><strong>Purpose:</strong> Executes the CompleteIssueWithLordSolutionWithRefuseCounterOffer logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithLordSolutionWithRefuseCounterOffer();
+</code></pre>
+<h3 id="completeissuewithlordsolutionwithacceptcounteroffer">CompleteIssueWithLordSolutionWithAcceptCounterOffer</h3>
+<p><code>public void CompleteIssueWithLordSolutionWithAcceptCounterOffer()</code></p>
+<p><strong>Purpose:</strong> Executes the CompleteIssueWithLordSolutionWithAcceptCounterOffer logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.CompleteIssueWithLordSolutionWithAcceptCounterOffer();
+</code></pre>
+<h3 id="initializeissueonsettlementownerchange">InitializeIssueOnSettlementOwnerChange</h3>
+<p><code>public void InitializeIssueOnSettlementOwnerChange()</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings required by issue on settlement owner change.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.InitializeIssueOnSettlementOwnerChange();
+</code></pre>
+<h3 id="addlog">AddLog</h3>
+<p><code>public void AddLog(JournalLog log)</code></p>
+<p><strong>Purpose:</strong> Adds log to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.AddLog(log);
+</code></pre>
+<h3 id="addtrackedobject">AddTrackedObject</h3>
+<p><code>public void AddTrackedObject(ITrackableCampaignObject o)</code></p>
+<p><strong>Purpose:</strong> Adds tracked object to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.AddTrackedObject(o);
+</code></pre>
+<h3 id="toggletrackedobjects">ToggleTrackedObjects</h3>
+<p><code>public void ToggleTrackedObjects(bool enableTrack)</code></p>
+<p><strong>Purpose:</strong> Executes the ToggleTrackedObjects logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of IssueBase from the subsystem API first
+IssueBase issueBase = ...;
+issueBase.ToggleTrackedObjects(false);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically obtained from a subsystem API or factory
+IssueBase instance = ...;
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign/">campaign index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign/CampaignBehaviorDataStore/">&larr; CampaignBehaviorDataStore</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign/CraftedItemInitializationData/">CraftedItemInitializationData &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MobileParty</title>
+  <meta name="description" content="战役地图上移动的部队：玩家部队、领主部队、商队、村民、强盗等。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/MobileParty/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/MobileParty/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MobileParty</span>
+    </nav>
+  
+  <h1>MobileParty</h1>
+  <h1 id="mobileparty">MobileParty</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Party<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public class MobileParty : PartyBase, ILocatable</code><br />
+<strong>Base:</strong> <code>PartyBase</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Party/MobileParty.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>MobileParty</code> 是 Bannerlord 战役地图上<strong>所有移动部队的抽象</strong>：玩家的军队、领主巡逻队、商队、村民队伍、强盗窝、驻军等。它是连接 <code>Hero</code>（领主）、<code>Settlement</code>（据点）、<code>Army</code>（军团）和 <code>ItemObject</code>（物品/贸易）的枢纽。</p>
+<p>Core responsibilities:</p>
+<ul>
+<li>在战役地图上移动、寻路、改变目标。</li>
+<li>管理成员名册（<code>MemberRoster</code>）、囚犯（<code>PrisonerRoster</code>）、士气、食物、金币。</li>
+<li>提供移动命令 API：<code>SetMoveEngageParty</code>、<code>SetMoveRaidSettlement</code>、<code>SetMovePatrolAroundSettlement</code> 等。</li>
+<li>追踪 AI 目标与短期行为（<code>AiBehavior</code>、<code>ShortTermBehavior</code>）。</li>
+</ul>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>MobileParty</code> 看作**“地图上的一个可移动容器”**：</p>
+<ul>
+<li><code>MobileParty.MainParty</code> 就是玩家自己。</li>
+<li>每个 <code>MobileParty</code> 内部有一个 <code>PartyBase</code>（更底层的数据与名册）。</li>
+<li>不要直接 <code>new MobileParty()</code>；通常用 <code>MobileParty.CreateParty(...)</code> 或让引擎从 <code>PartyTemplateObject</code> 生成。</li>
+<li>改变位置用 <code>SetPositionAfterMapChange</code>；改变目标用 <code>SetMove*</code> 系列方法；改变 AI 用 <code>Ai</code> 属性。</li>
+<li>部队状态由 <code>PartyComponent</code> 包装（领主、商队、强盗等），通过 <code>Component</code> 访问具体行为。</li>
+</ul>
+<h2 id="ru-he-huo-qu-mobileparty">如何获取 MobileParty</h2>
+<pre><code data-lang="csharp">MobileParty main = MobileParty.MainParty;
+
+foreach (MobileParty party in MobileParty.All)
+{
+    if (party.IsLordParty &amp;&amp; party.MapFaction == Hero.MainHero.MapFaction)
+    {
+        // 我方领主部队
+    }
+}
+</code></pre>
+<h2 id="he-xin-shu-xing">核心属性</h2>
+<table><thead><tr><th>属性</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>MainParty</code></td><td>玩家部队。</td></tr>
+<tr><td><code>All</code></td><td>所有活跃部队。</td></tr>
+<tr><td><code>AllCaravanParties</code> / <code>AllBanditParties</code> / <code>AllLordParties</code> / <code>AllVillagerParties</code> / <code>AllGarrisonParties</code></td><td>按类型分类的队伍集合。</td></tr>
+<tr><td><code>Party</code></td><td>底层 <code>PartyBase</code>，包含名册、物品、金币。</td></tr>
+<tr><td><code>Ai</code></td><td><code>MobilePartyAi</code>，控制 AI 目标与寻路。</td></tr>
+<tr><td><code>LeaderHero</code></td><td>部队领主英雄。</td></tr>
+<tr><td><code>Army</code></td><td>所属军团（若有）。</td></tr>
+<tr><td><code>CurrentSettlement</code></td><td>当前所在的据点（如果在据点内）。</td></tr>
+<tr><td><code>TargetSettlement</code></td><td>AI 正在前往的据点。</td></tr>
+<tr><td><code>IsActive</code></td><td>是否仍然活跃。</td></tr>
+<tr><td><code>IsLordParty</code> / <code>IsCaravan</code> / <code>IsBandit</code> / <code>IsVillager</code> / <code>IsGarrison</code> / <code>IsCustomParty</code></td><td>部队类型判断。</td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="public-static-mobileparty-createparty-string-stringid-partycomponent-component"><code>public static MobileParty CreateParty(string stringId, PartyComponent component)</code></h3>
+<p>创建一支新部队。需要提供一个 <code>PartyComponent</code> 来决定部队类型与行为。</p>
+<pre><code data-lang="csharp">var component = new LordPartyComponent(myHero, myHero.HomeSettlement);
+MobileParty party = MobileParty.CreateParty(&quot;my_mod_party&quot;, component);
+party.InitializeMobilePartyAtPosition(new CampaignVec2(500f, 800f));
+</code></pre>
+<h3 id="public-void-setmovegotosettlement-settlement-settlement-navigationtype-navigationtype-bool-istargetingtheport"><code>public void SetMoveGoToSettlement(Settlement settlement, NavigationType navigationType, bool isTargetingThePort)</code></h3>
+<p>命令部队前往据点。</p>
+<pre><code data-lang="csharp">party.SetMoveGoToSettlement(targetTown, NavigationType.Default, false);
+</code></pre>
+<h3 id="public-void-setmoveengageparty-mobileparty-party-navigationtype-navigationtype"><code>public void SetMoveEngageParty(MobileParty party, NavigationType navigationType)</code></h3>
+<p>追击并交战指定部队。</p>
+<pre><code data-lang="csharp">MobileParty enemy = FindNearestEnemy(party);
+party.SetMoveEngageParty(enemy, NavigationType.Default);
+</code></pre>
+<h3 id="public-void-setmoveraidsettlement-settlement-settlement-navigationtype-navigationtype"><code>public void SetMoveRaidSettlement(Settlement settlement, NavigationType navigationType)</code></h3>
+<p>设置劫掠据点。</p>
+<pre><code data-lang="csharp">party.SetMoveRaidSettlement(enemyVillage, NavigationType.Default);
+</code></pre>
+<h3 id="public-void-setmovepatrolaroundsettlement-settlement-settlement-navigationtype-navigationtype-bool-istargetingport"><code>public void SetMovePatrolAroundSettlement(Settlement settlement, NavigationType navigationType, bool isTargetingPort)</code></h3>
+<p>在据点周围巡逻。</p>
+<pre><code data-lang="csharp">party.SetMovePatrolAroundSettlement(friendlyTown, NavigationType.Default, false);
+</code></pre>
+<h3 id="public-void-setmovemodehold"><code>public void SetMoveModeHold()</code></h3>
+<p>停止移动，原地驻扎。</p>
+<pre><code data-lang="csharp">party.SetMoveModeHold();
+</code></pre>
+<h3 id="public-void-setpositionaftermapchange-campaignvec2-newposition"><code>public void SetPositionAfterMapChange(CampaignVec2 newPosition)</code></h3>
+<p>在切换地图场景（如从海战返回）后恢复位置。</p>
+<pre><code data-lang="csharp">party.SetPositionAfterMapChange(new CampaignVec2(100f, 200f));
+</code></pre>
+<h3 id="public-void-addelementtomemberroster-characterobject-element-int-numbertoadd-bool-insertatfront-false"><code>public void AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)</code></h3>
+<p>向成员名册添加士兵。</p>
+<pre><code data-lang="csharp">CharacterObject recruit = MBObjectManager.Instance.GetObject&lt;CharacterObject&gt;(&quot;imperial_recruit&quot;);
+party.MemberRoster.AddToCounts(recruit, 10);
+</code></pre>
+<h3 id="public-void-addprisoner-characterobject-element-int-numbertoadd"><code>public void AddPrisoner(CharacterObject element, int numberToAdd)</code></h3>
+<p>添加囚犯。</p>
+<pre><code data-lang="csharp">party.PrisonerRoster.AddToCounts(enemyTroop.Character, 5);
+</code></pre>
+<h3 id="public-void-setpartyscout-hero-hero-setpartyquartermaster-hero-hero-setpartyengineer-hero-hero-setpartysurgeon-hero-hero"><code>public void SetPartyScout(Hero hero)</code> / <code>SetPartyQuartermaster(Hero hero)</code> / <code>SetPartyEngineer(Hero hero)</code> / <code>SetPartySurgeon(Hero hero)</code></h3>
+<p>为部队分配角色英雄，影响侦察、医术、工程、军需等技能。</p>
+<pre><code data-lang="csharp">party.SetPartySurgeon(mySurgeonHero);
+</code></pre>
+<h3 id="public-int-getnumdaysforfoodtolast"><code>public int GetNumDaysForFoodToLast()</code></h3>
+<p>计算当前粮食还能支撑几天。</p>
+<pre><code data-lang="csharp">int days = party.GetNumDaysForFoodToLast();
+</code></pre>
+<h3 id="public-bool-computeiswaiting"><code>public bool ComputeIsWaiting()</code></h3>
+<p>判断部队是否处于等待/休息状态。</p>
+<pre><code data-lang="csharp"> bool waiting = party.ComputeIsWaiting();
+</code></pre>
+<h3 id="public-void-ignoreforhours-float-hours"><code>public void IgnoreForHours(float hours)</code></h3>
+<p>让部队在指定小时内不被 AI 打扰，常用于任务脚本控制。</p>
+<pre><code data-lang="csharp">party.IgnoreForHours(12f);
+</code></pre>
+<h2 id="dian-xing-yong-fa-shi-li">典型用法示例</h2>
+<h3 id="shi-li-1-chuang-jian-yi-zhi-gen-sui-wan-jia-de-you-jun-xun-luo-dui">示例 1：创建一支跟随玩家的友军巡逻队</h3>
+<pre><code data-lang="csharp">var lordComponent = new LordPartyComponent(friendlyHero, friendlyHero.HomeSettlement);
+MobileParty escort = MobileParty.CreateParty(&quot;my_mod_escort&quot;, lordComponent);
+escort.InitializeMobilePartyAtPosition(MobileParty.MainParty.Position2D);
+escort.Ai.SetMoveEscortParty(MobileParty.MainParty);
+</code></pre>
+<h3 id="shi-li-2-gei-wan-jia-bu-dui-jia-man-shi-wu">示例 2：给玩家部队加满食物</h3>
+<pre><code data-lang="csharp">ItemObject grain = MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(&quot;grain&quot;);
+MobileParty.MainParty.ItemRoster.AddToCounts(grain, 100);
+</code></pre>
+<h3 id="shi-li-3-rang-yi-zhi-bu-dui-li-ji-chuan-song-dao-mou-cheng-zhen">示例 3：让一支部队立即传送到某城镇</h3>
+<pre><code data-lang="csharp">party.SetMoveGoToSettlement(targetTown, NavigationType.Default, false);
+party.Position2D = targetTown.GatePosition;
+</code></pre>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li>v1.3.0 / v1.3.15 / v1.4.5 核心移动命令 API 一致。</li>
+<li>v1.4.5 对海军航行和海战的支持增强；注意 <code>IsNavalVisualDirty</code>、<code>SetSailAtPosition</code> 等方法在 v1.4.5 中更完整。</li>
+<li><code>NavigationType</code> 在较新版本中可能有新枚举值。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../Settlement/">Settlement</a> — 部队可以进入、防御或劫掠的地点</li>
+<li><a href="../../campaign-ext/Army/">Army</a> — 多支部队组成的军团</li>
+<li><a href="../../campaign-ext/CampaignBehaviorBase/">CampaignBehaviorBase</a> — 监听部队事件</li>
+<li><a href="../Hero/">Hero</a> — 部队领主</li>
+<li><a href="../PartyBase/">PartyBase</a> — 底层名册与物品</li>
+<li><a href="../../campaign-ext/MobilePartyAi/">MobilePartyAi</a> — AI 行为控制</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign/TeleportationData/">&larr; TeleportationData</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign/Grievance/">Grievance &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

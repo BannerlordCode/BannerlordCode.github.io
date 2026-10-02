@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campaign behavior long-tail family</title>
+  <meta name="description" content="Source-backed long-tail references for official Campaign behavior implementations and their lifecycle boundaries.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/campaign-behaviors-tail/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/campaign-behaviors-tail/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Campaign behavior long-tail family</span>
+    </nav>
+  
+  <h1>Campaign behavior long-tail family</h1>
+  <h1 id="campaign-behavior-long-tail-family">Campaign behavior long-tail family</h1>
+<h2 id="mental-model">Mental Model</h2>
+<p>This is the long-tail index for official Campaign behavior implementations. CampaignGameStarter registers them; they subscribe to CampaignEvents and persist their own state in SyncData. Read them for call order, not as reusable singletons.</p>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><a href="../CampaignGameStarter">CampaignGameStarter</a>, <a href="../CampaignEvents">CampaignEvents</a>, and <a href="../CampaignBehaviorBase">CampaignBehaviorBase</a> define registration and lifecycle.</li>
+<li>Persistent changes return to <a href="../actions-index">Actions</a>; save boundaries are controlled by <a href="../IDataStore">IDataStore</a>.</li>
+</ul>
+<h2 id="qualified-entries">Qualified entries</h2>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CharacterDevelopmentCampaignBehavior">CharacterDevelopmentCampaignBehavior</a>; <a href="../CharacterRelationCampaignBehavior">CharacterRelationCampaignBehavior</a>; <a href="../ClanVariablesCampaignBehavior">ClanVariablesCampaignBehavior</a>; <a href="../CompanionGrievanceBehavior">CompanionGrievanceBehavior</a>; <a href="../CompanionGrievanceBehaviorTypeDefiner">CompanionGrievanceBehaviorTypeDefiner</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CompanionRolesCampaignBehavior">CompanionRolesCampaignBehavior</a>; <a href="../CompanionsCampaignBehavior">CompanionsCampaignBehavior</a>; <a href="../../campaign/CraftedItemInitializationData">CraftedItemInitializationData</a>; <a href="../CraftingCampaignBehavior">CraftingCampaignBehavior</a>; <a href="../CraftingCampaignBehaviorTypeDefiner">CraftingCampaignBehaviorTypeDefiner</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CraftingOrderSlots">CraftingOrderSlots</a>; <a href="../CrimeCampaignBehavior">CrimeCampaignBehavior</a>; <a href="../DefaultLogsCampaignBehavior">DefaultLogsCampaignBehavior</a>; <a href="../DesertersCampaignBehavior">DesertersCampaignBehavior</a>; <a href="../DesertionCampaignBehavior">DesertionCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../DisbandPartyCampaignBehavior">DisbandPartyCampaignBehavior</a>; <a href="../DiscardItemsCampaignBehavior">DiscardItemsCampaignBehavior</a>; <a href="../../campaign/DisorganizedStateCampaignBehavior">DisorganizedStateCampaignBehavior</a>; <a href="../DynamicBodyCampaignBehavior">DynamicBodyCampaignBehavior</a>; <a href="../EducationCampaignBehavior">EducationCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../EducationCharacterProperties">EducationCharacterProperties</a>; <a href="../EmissarySystemCampaignBehavior">EmissarySystemCampaignBehavior</a>; <a href="../FactionDiscontinuationCampaignBehavior">FactionDiscontinuationCampaignBehavior</a>; <a href="../FindingItemOnMapBehavior">FindingItemOnMapBehavior</a>; <a href="../FoodConsumptionBehavior">FoodConsumptionBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../GarrisonRecruitmentCampaignBehavior">GarrisonRecruitmentCampaignBehavior</a>; <a href="../GarrisonTroopsCampaignBehavior">GarrisonTroopsCampaignBehavior</a>; <a href="../GovernorCampaignBehavior">GovernorCampaignBehavior</a>; <a href="../../campaign/Grievance">Grievance</a>; <a href="../../campaign/GrievanceType">GrievanceType</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../HeroAgentSpawnCampaignBehavior">HeroAgentSpawnCampaignBehavior</a>; <a href="../../campaign/HeroCraftingRecord">HeroCraftingRecord</a>; <a href="../HeroKnownInformationCampaignBehavior">HeroKnownInformationCampaignBehavior</a>; <a href="../HeroSpawnCampaignBehavior">HeroSpawnCampaignBehavior</a>; <a href="../HideoutCampaignBehavior">HideoutCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../IAlleyCampaignBehavior">IAlleyCampaignBehavior</a>; <a href="../IAllianceCampaignBehavior">IAllianceCampaignBehavior</a>; <a href="../ICaptivityCampaignBehavior">ICaptivityCampaignBehavior</a>; <a href="../ICraftingCampaignBehavior">ICraftingCampaignBehavior</a>; <a href="../IDisbandPartyCampaignBehavior">IDisbandPartyCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../IEducationLogic">IEducationLogic</a>; <a href="../IFacegenCampaignBehavior">IFacegenCampaignBehavior</a>; <a href="../IGarrisonRecruitmentBehavior">IGarrisonRecruitmentBehavior</a>; <a href="../IHideoutCampaignBehavior">IHideoutCampaignBehavior</a>; <a href="../IMapTracksCampaignBehavior">IMapTracksCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../IMarriageOfferCampaignBehavior">IMarriageOfferCampaignBehavior</a>; <a href="../IncidentsCampaignBehaviour">IncidentsCampaignBehaviour</a>; <a href="../IncidentTrigger">IncidentTrigger</a>; <a href="../IncidentType">IncidentType</a>; <a href="../InfluenceGainCampaignBehavior">InfluenceGainCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../InitialChildGenerationCampaignBehavior">InitialChildGenerationCampaignBehavior</a>; <a href="../INonReadyObjectHandler">INonReadyObjectHandler</a>; <a href="../IParleyCampaignBehavior">IParleyCampaignBehavior</a>; <a href="../IPatrolPartiesCampaignBehavior">IPatrolPartiesCampaignBehavior</a>; <a href="../IRetrainOutlawPartyMembersCampaignBehavior">IRetrainOutlawPartyMembersCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../IStatisticsCampaignBehavior">IStatisticsCampaignBehavior</a>; <a href="../ITeleportationCampaignBehavior">ITeleportationCampaignBehavior</a>; <a href="../ItemConsumptionBehavior">ItemConsumptionBehavior</a>; <a href="../../campaign/ItemTradeData">ItemTradeData</a>; <a href="../ITradeAgreementsCampaignBehavior">ITradeAgreementsCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../ITradeRumorCampaignBehavior">ITradeRumorCampaignBehavior</a>; <a href="../IVassalAndMercenaryOfferCampaignBehavior">IVassalAndMercenaryOfferCampaignBehavior</a>; <a href="../IWorkshopWarehouseCampaignBehavior">IWorkshopWarehouseCampaignBehavior</a>; <a href="../JournalLogsCampaignBehavior">JournalLogsCampaignBehavior</a>; <a href="../KingdomDecisionProposalBehavior">KingdomDecisionProposalBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../LordConversationsCampaignBehavior">LordConversationsCampaignBehavior</a>; <a href="../LordDefectionCampaignBehavior">LordDefectionCampaignBehavior</a>; <a href="../LordDefectionCampaignBehaviorTypeDefiner">LordDefectionCampaignBehaviorTypeDefiner</a>; <a href="../MapTracksCampaignBehavior">MapTracksCampaignBehavior</a>; <a href="../MapWeatherCampaignBehavior">MapWeatherCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../MarriageOfferCampaignBehavior">MarriageOfferCampaignBehavior</a>; <a href="../MilitiasCampaignBehavior">MilitiasCampaignBehavior</a>; <a href="../MobilePartyTrainingBehavior">MobilePartyTrainingBehavior</a>; <a href="../NotableHelperCharacterCampaignBehavior">NotableHelperCharacterCampaignBehavior</a>; <a href="../NotablePowerManagementBehavior">NotablePowerManagementBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../NotablesCampaignBehavior">NotablesCampaignBehavior</a>; <a href="../NotableSupportersCampaignBehavior">NotableSupportersCampaignBehavior</a>; <a href="../NPCEquipmentsCampaignBehavior">NPCEquipmentsCampaignBehavior</a>; <a href="../Number">Number</a>; <a href="../OrderOfBattleCampaignBehavior">OrderOfBattleCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../OrderOfBattleFormationData">OrderOfBattleFormationData</a>; <a href="../ParleyCampaignBehavior">ParleyCampaignBehavior</a>; <a href="../PartiesBuyFoodCampaignBehavior">PartiesBuyFoodCampaignBehavior</a>; <a href="../PartiesBuyHorseCampaignBehavior">PartiesBuyHorseCampaignBehavior</a>; <a href="../PartiesSellLootCampaignBehavior">PartiesSellLootCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../PartiesSellPrisonerCampaignBehavior">PartiesSellPrisonerCampaignBehavior</a>; <a href="../PartyDiplomaticHandlerCampaignBehavior">PartyDiplomaticHandlerCampaignBehavior</a>; <a href="../PartyHealCampaignBehavior">PartyHealCampaignBehavior</a>; <a href="../PartyRolesCampaignBehavior">PartyRolesCampaignBehavior</a>; <a href="../PartyUpgraderCampaignBehavior">PartyUpgraderCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../PatrolPartiesCampaignBehavior">PatrolPartiesCampaignBehavior</a>; <a href="../PeaceOfferCampaignBehavior">PeaceOfferCampaignBehavior</a>; <a href="../PerkActivationHandlerCampaignBehavior">PerkActivationHandlerCampaignBehavior</a>; <a href="../PerkResetCampaignBehavior">PerkResetCampaignBehavior</a>; <a href="../PlayerArmyWaitBehavior">PlayerArmyWaitBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../PlayerCaptivityCampaignBehavior">PlayerCaptivityCampaignBehavior</a>; <a href="../PlayerTownVisitCampaignBehavior">PlayerTownVisitCampaignBehavior</a>; <a href="../PlayerTrackCompanionBehavior">PlayerTrackCompanionBehavior</a>; <a href="../PlayerVariablesBehavior">PlayerVariablesBehavior</a>; <a href="../PoliticalStagnationAndBorderIncidentCampaignBehavior">PoliticalStagnationAndBorderIncidentCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../../campaign/Pregnancy">Pregnancy</a>; <a href="../PregnancyCampaignBehavior">PregnancyCampaignBehavior</a>; <a href="../PregnancyCampaignBehaviorTypeDefiner">PregnancyCampaignBehaviorTypeDefiner</a>; <a href="../PrisonerCaptureCampaignBehavior">PrisonerCaptureCampaignBehavior</a>; <a href="../PrisonerRecruitCampaignBehavior">PrisonerRecruitCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../PrisonerReleaseCampaignBehavior">PrisonerReleaseCampaignBehavior</a>; <a href="../RansomOfferCampaignBehavior">RansomOfferCampaignBehavior</a>; <a href="../RebellionsCampaignBehavior">RebellionsCampaignBehavior</a>; <a href="../RecruitingDetail">RecruitingDetail</a>; <a href="../RecruitmentCampaignBehavior">RecruitmentCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../RecruitmentCampaignBehaviorTypeDefiner">RecruitmentCampaignBehaviorTypeDefiner</a>; <a href="../RecruitPrisonersCampaignBehavior">RecruitPrisonersCampaignBehavior</a>; <a href="../RetrainOutlawPartyMembersBehavior">RetrainOutlawPartyMembersBehavior</a>; <a href="../RomanceCampaignBehavior">RomanceCampaignBehavior</a>; <a href="../RomanticPreference">RomanticPreference</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../SallyOutsCampaignBehavior">SallyOutsCampaignBehavior</a>; <a href="../SettlementClaimantCampaignBehavior">SettlementClaimantCampaignBehavior</a>; <a href="../SettlementVariablesBehavior">SettlementVariablesBehavior</a>; <a href="../SiegeAftermathCampaignBehavior">SiegeAftermathCampaignBehavior</a>; <a href="../SiegeAmbushCampaignBehavior">SiegeAmbushCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../SiegeEventCampaignBehavior">SiegeEventCampaignBehavior</a>; <a href="../TeleportationCampaignBehavior">TeleportationCampaignBehavior</a>; <a href="../TeleportationCampaignBehaviorTypeDefiner">TeleportationCampaignBehaviorTypeDefiner</a>; <a href="../../campaign/TeleportationData">TeleportationData</a>; <a href="../TownMercenaryData">TownMercenaryData</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../TownSecurityCampaignBehavior">TownSecurityCampaignBehavior</a>; <a href="../../campaign/TradeActionLog">TradeActionLog</a>; <a href="../../campaign/TradeActionLogPool">TradeActionLogPool</a>; <a href="../../campaign/TradeAgreement">TradeAgreement</a>; <a href="../TradeAgreementsCampaignBehavior">TradeAgreementsCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../TradeAgreementsCampaignBehaviorTypeDefiner">TradeAgreementsCampaignBehaviorTypeDefiner</a>; <a href="../TradeCampaignBehavior">TradeCampaignBehavior</a>; <a href="../TradeGoodType">TradeGoodType</a>; <a href="../TradeRumorsCampaignBehavior">TradeRumorsCampaignBehavior</a>; <a href="../TradeSkillCampaignBehavior">TradeSkillCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../TradeSkillCampaignBehaviorTypeDefiner">TradeSkillCampaignBehaviorTypeDefiner</a>; <a href="../TributesCampaignBehaviour">TributesCampaignBehaviour</a>; <a href="../VassalAndMercenaryOfferCampaignBehavior">VassalAndMercenaryOfferCampaignBehavior</a>; <a href="../ViewDataTrackerCampaignBehavior">ViewDataTrackerCampaignBehavior</a>; <a href="../VillageGoodProductionCampaignBehavior">VillageGoodProductionCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../VillageHealCampaignBehavior">VillageHealCampaignBehavior</a>; <a href="../VillageHostileActionCampaignBehavior">VillageHostileActionCampaignBehavior</a>; <a href="../VillagerCampaignBehavior">VillagerCampaignBehavior</a>; <a href="../VillagerCampaignBehaviorTypeDefiner">VillagerCampaignBehaviorTypeDefiner</a>; <a href="../VillageTradeBoundCampaignBehavior">VillageTradeBoundCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../VolunteerTroop">VolunteerTroop</a>; <a href="../../campaign/WorkshopData">WorkshopData</a>; <a href="../WorkshopsCampaignBehavior">WorkshopsCampaignBehavior</a>; <a href="../WorkshopsCampaignBehaviorTypeDefiner">WorkshopsCampaignBehaviorTypeDefiner</a>; <a href="../WorkshopsCharactersCampaignBehavior">WorkshopsCharactersCampaignBehavior</a></td><td>These behaviors subscribe to CampaignEvents, schedule campaign work, and synchronize their own save state; world mutation still goes through Actions.</td><td>Campaign initialization, event callback, or daily tick</td></tr>
+</tbody></table>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li><a href="..">Parent: Campaign-Ext</a></li>
+<li><a href="../behaviors">Related: Behaviors</a> · <a href="../issues">Issues</a> · <a href="../quests">Quests</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

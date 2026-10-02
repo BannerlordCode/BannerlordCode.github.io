@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentVisuals</title>
+  <meta name="description" content="AgentVisuals 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/AgentVisuals/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/AgentVisuals/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/AgentVisuals/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/AgentVisuals/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">AgentVisuals</span>
+    </nav>
+  
+  <h1>AgentVisuals</h1>
+  <h1 id="agentvisuals">AgentVisuals</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade.View
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public class AgentVisuals : IAgentVisual</code>
+<strong>Base:</strong> <code>IAgentVisual</code>
+<strong>File:</strong> <code>Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>AgentVisuals</code> 位于 <code>TaleWorlds.MountAndBlade.View</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.MountAndBlade.View</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>IsFemale</code></td><td><code>public bool IsFemale { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="getvisuals">GetVisuals</h3>
+<p><code>public MBAgentVisuals GetVisuals()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 visuals 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetVisuals();
+</code></pre>
+<h3 id="reset">Reset</h3>
+<p><code>public void Reset()</code></p>
+<p><strong>用途 / Purpose:</strong> 将当前对象重置为默认或初始状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.Reset();
+</code></pre>
+<h3 id="resetnextframe">ResetNextFrame</h3>
+<p><code>public void ResetNextFrame()</code></p>
+<p><strong>用途 / Purpose:</strong> 将 next frame 重置回默认或初始状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.ResetNextFrame();
+</code></pre>
+<h3 id="getframe">GetFrame</h3>
+<p><code>public MatrixFrame GetFrame()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 frame 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetFrame();
+</code></pre>
+<h3 id="getbodyproperties">GetBodyProperties</h3>
+<p><code>public BodyProperties GetBodyProperties()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 body properties 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetBodyProperties();
+</code></pre>
+<h3 id="setbodyproperties">SetBodyProperties</h3>
+<p><code>public void SetBodyProperties(BodyProperties bodyProperties)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 body properties 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetBodyProperties(bodyProperties);
+</code></pre>
+<h3 id="getisfemale">GetIsFemale</h3>
+<p><code>public bool GetIsFemale()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 is female 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetIsFemale();
+</code></pre>
+<h3 id="getcharacterobjectid">GetCharacterObjectID</h3>
+<p><code>public string GetCharacterObjectID()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 character object i d 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetCharacterObjectID();
+</code></pre>
+<h3 id="setcharacterobjectid">SetCharacterObjectID</h3>
+<p><code>public void SetCharacterObjectID(string id)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 character object i d 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetCharacterObjectID(&quot;example&quot;);
+</code></pre>
+<h3 id="getequipment">GetEquipment</h3>
+<p><code>public Equipment GetEquipment()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 equipment 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetEquipment();
+</code></pre>
+<h3 id="getcopyagentvisualsdata">GetCopyAgentVisualsData</h3>
+<p><code>public AgentVisualsData GetCopyAgentVisualsData()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 copy agent visuals data 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetCopyAgentVisualsData();
+</code></pre>
+<h3 id="getentity">GetEntity</h3>
+<p><code>public GameEntity GetEntity()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 entity 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetEntity();
+</code></pre>
+<h3 id="getweakentity">GetWeakEntity</h3>
+<p><code>public WeakGameEntity GetWeakEntity()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 weak entity 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetWeakEntity();
+</code></pre>
+<h3 id="setvisible">SetVisible</h3>
+<p><code>public void SetVisible(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 visible 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetVisible(false);
+</code></pre>
+<h3 id="getglobalstableeyepoint">GetGlobalStableEyePoint</h3>
+<p><code>public Vec3 GetGlobalStableEyePoint(bool isHumanoid)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 global stable eye point 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetGlobalStableEyePoint(false);
+</code></pre>
+<h3 id="getglobalstableneckpoint">GetGlobalStableNeckPoint</h3>
+<p><code>public Vec3 GetGlobalStableNeckPoint(bool isHumanoid)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 global stable neck point 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetGlobalStableNeckPoint(false);
+</code></pre>
+<h3 id="addprefabtoagentvisualbonebybonetype">AddPrefabToAgentVisualBoneByBoneType</h3>
+<p><code>public CompositeComponent AddPrefabToAgentVisualBoneByBoneType(string prefabName, HumanBone boneType)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 prefab to agent visual bone by bone type 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.AddPrefabToAgentVisualBoneByBoneType(&quot;example&quot;, boneType);
+</code></pre>
+<h3 id="addprefabtoagentvisualbonebyrealboneindex">AddPrefabToAgentVisualBoneByRealBoneIndex</h3>
+<p><code>public CompositeComponent AddPrefabToAgentVisualBoneByRealBoneIndex(string prefabName, sbyte realBoneIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 prefab to agent visual bone by real bone index 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.AddPrefabToAgentVisualBoneByRealBoneIndex(&quot;example&quot;, 0);
+</code></pre>
+<h3 id="setagentlodzeroormax">SetAgentLodZeroOrMax</h3>
+<p><code>public void SetAgentLodZeroOrMax(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 agent lod zero or max 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetAgentLodZeroOrMax(false);
+</code></pre>
+<h3 id="getscale">GetScale</h3>
+<p><code>public float GetScale()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 scale 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetScale();
+</code></pre>
+<h3 id="setaction">SetAction</h3>
+<p><code>public void SetAction(in ActionIndexCache actionIndex, float startProgress = 0f, bool forceFaceMorphRestart = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 action 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetAction(actionIndex, 0, false);
+</code></pre>
+<h3 id="doesactioncontinuewithcurrentaction">DoesActionContinueWithCurrentAction</h3>
+<p><code>public bool DoesActionContinueWithCurrentAction(in ActionIndexCache actionIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断action continue with current action这一条件在当前对象上是否成立。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.DoesActionContinueWithCurrentAction(actionIndex);
+</code></pre>
+<h3 id="getanimationparameteratchannel">GetAnimationParameterAtChannel</h3>
+<p><code>public float GetAnimationParameterAtChannel(int channelIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 animation parameter at channel 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+var result = agentVisuals.GetAnimationParameterAtChannel(0);
+</code></pre>
+<h3 id="refresh">Refresh</h3>
+<p><code>public void Refresh(bool needBatchedVersionForWeaponMeshes, AgentVisualsData data, bool forceUseFaceCache = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 刷新当前对象的显示或缓存，使其与底层状态保持一致。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.Refresh(false, data, false);
+</code></pre>
+<h3 id="setclothwindtoweaponatindex">SetClothWindToWeaponAtIndex</h3>
+<p><code>public void SetClothWindToWeaponAtIndex(Vec3 localWindVector, bool isLocal, EquipmentIndex weaponIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 cloth wind to weapon at index 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetClothWindToWeaponAtIndex(localWindVector, false, weaponIndex);
+</code></pre>
+<h3 id="tickvisuals">TickVisuals</h3>
+<p><code>public void TickVisuals()</code></p>
+<p><strong>用途 / Purpose:</strong> 在每一帧或每个更新周期内推进visuals的状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.TickVisuals();
+</code></pre>
+<h3 id="tick">Tick</h3>
+<p><code>public void Tick(AgentVisuals parentAgentVisuals, float dt, bool isEntityMoving = false, float speed = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 推进当前对象一帧/一个更新周期的状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.Tick(parentAgentVisuals, 0, false, 0);
+</code></pre>
+<h3 id="create">Create</h3>
+<p><code>public static AgentVisuals Create(AgentVisualsData data, string name, bool isRandomProgress, bool needBatchedVersionForWeaponMeshes, bool forceUseFaceCache)</code></p>
+<p><strong>用途 / Purpose:</strong> 创建当前对象的新实例或相关实体。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+AgentVisuals.Create(data, &quot;example&quot;, false, false, false);
+</code></pre>
+<h3 id="getrandomglossfactor">GetRandomGlossFactor</h3>
+<p><code>public static float GetRandomGlossFactor(Random randomGenerator)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 random gloss factor 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+AgentVisuals.GetRandomGlossFactor(randomGenerator);
+</code></pre>
+<h3 id="getrandomclothingcolors">GetRandomClothingColors</h3>
+<p><code>public static void GetRandomClothingColors(int seed, Color inputColor1, Color inputColor2, out Color color1, out Color color2)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 random clothing colors 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+AgentVisuals.GetRandomClothingColors(0, inputColor1, inputColor2, color1, color2);
+</code></pre>
+<h3 id="setfacegenerationparams">SetFaceGenerationParams</h3>
+<p><code>public void SetFaceGenerationParams(FaceGenerationParams faceGenerationParams)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 face generation params 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetFaceGenerationParams(faceGenerationParams);
+</code></pre>
+<h3 id="setvoicedefinitionindex">SetVoiceDefinitionIndex</h3>
+<p><code>public void SetVoiceDefinitionIndex(int voiceDefinitionIndex, float voicePitch)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 voice definition index 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetVoiceDefinitionIndex(0, 0);
+</code></pre>
+<h3 id="startrhubarbrecord">StartRhubarbRecord</h3>
+<p><code>public void StartRhubarbRecord(string path, int soundId)</code></p>
+<p><strong>用途 / Purpose:</strong> 启动rhubarb record流程或状态机。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.StartRhubarbRecord(&quot;example&quot;, 0);
+</code></pre>
+<h3 id="setagentlodzeroormaxexternal">SetAgentLodZeroOrMaxExternal</h3>
+<p><code>public void SetAgentLodZeroOrMaxExternal(bool makeZero)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 agent lod zero or max external 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetAgentLodZeroOrMaxExternal(false);
+</code></pre>
+<h3 id="setagentlocalspeed">SetAgentLocalSpeed</h3>
+<p><code>public void SetAgentLocalSpeed(Vec2 speed)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 agent local speed 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetAgentLocalSpeed(speed);
+</code></pre>
+<h3 id="setlookdirection">SetLookDirection</h3>
+<p><code>public void SetLookDirection(Vec3 direction)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 look direction 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetLookDirection(direction);
+</code></pre>
+<h3 id="addarmormultimeshestoagententity">AddArmorMultiMeshesToAgentEntity</h3>
+<p><code>public unsafe void AddArmorMultiMeshesToAgentEntity(uint teamColor1, uint teamColor2)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 armor multi meshes to agent entity 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.AddArmorMultiMeshesToAgentEntity(0, 0);
+</code></pre>
+<h3 id="makerandomvoiceforfacegen">MakeRandomVoiceForFacegen</h3>
+<p><code>public void MakeRandomVoiceForFacegen()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MakeRandomVoiceForFacegen 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.MakeRandomVoiceForFacegen();
+</code></pre>
+<h3 id="addteamcolortomesh">AddTeamColorToMesh</h3>
+<p><code>public static void AddTeamColorToMesh(MetaMesh metaMesh, uint color1, uint color2)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 team color to mesh 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+AgentVisuals.AddTeamColorToMesh(metaMesh, 0, 0);
+</code></pre>
+<h3 id="setclothingcolors">SetClothingColors</h3>
+<p><code>public void SetClothingColors(uint color1, uint color2)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 clothing colors 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetClothingColors(0, 0);
+</code></pre>
+<h3 id="getclothingcolors">GetClothingColors</h3>
+<p><code>public void GetClothingColors(out uint color1, out uint color2)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 clothing colors 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.GetClothingColors(color1, color2);
+</code></pre>
+<h3 id="setentity">SetEntity</h3>
+<p><code>public void SetEntity(GameEntity entity)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 entity 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 AgentVisuals 实例
+AgentVisuals agentVisuals = ...;
+agentVisuals.SetEntity(entity);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+AgentVisuals agentVisuals = ...;
+agentVisuals.GetVisuals();
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/zh/api/mission-ext/">mission-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/zh/api/mission-ext/QuestProgressVisualWidget/">&larr; QuestProgressVisualWidget</a>
+          
+          
+            <a rel="next" href="/v1.4.5/zh/api/mission-ext/MissionGauntletBoundaryCrossingView/">MissionGauntletBoundaryCrossingView &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

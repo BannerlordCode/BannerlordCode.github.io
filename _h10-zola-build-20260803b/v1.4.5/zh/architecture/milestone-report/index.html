@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>里程碑报告 M0–M2（手写文档重建 · 周期 1）</title>
+  <meta name="description" content="BannerlordCode 手写开发者手册重建项目的第 1 个周期交付物与验收证据包：M0 契约与生成器退役、M1 架构导航与崩溃边界、M2 种子深度页。覆盖 H0–H4 波次。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/architecture/milestone-report/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/architecture/milestone-report/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="active">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;architecture&#x2F;">架构 — v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">里程碑报告 M0–M2（手写文档重建 · 周期 1）</span>
+    </nav>
+  
+  <h1>里程碑报告 M0–M2（手写文档重建 · 周期 1）</h1>
+  <h1 id="li-cheng-bei-bao-gao-m0-m2-zhou-qi-1">里程碑报告 M0–M2（周期 1）</h1>
+<blockquote>
+<p>范围：BannerlordCode.github.io（Zola 静态站）v1.4.5 手写开发者手册重建。
+本轮交付目标：建立不可绕过的契约与质量门禁、打通导航骨架、产出 5 篇可被覆盖率门禁判为 <code>deep_pass</code> 的种子深度页，作为后续所有波次的范本。
+这是<strong>多周期循环</strong>的第 1 个周期。剩余波次 H5–H10（M3–M5）留给后续周期。</p>
+</blockquote>
+<h2 id="1-li-cheng-bei-zhuang-tai-zong-lan">1. 里程碑状态总览</h2>
+<table><thead><tr><th>里程碑</th><th>目标</th><th>本轮状态</th><th>关键交付</th></tr></thead><tbody>
+<tr><td><strong>M0</strong></td><td>契约 + 退役生成器 + 盘点和覆盖工具</td><td>✅ 完成</td><td><code>doc-contract.md</code>(zh/en)、<code>RETIRED_BODY_GENERATORS.md</code>、覆盖率门禁、类型清单</td></tr>
+<tr><td><strong>M1</strong></td><td>导航树 + 模块心智地图 + 路线图 + 崩溃边界</td><td>✅ 完成</td><td><code>architecture/_index</code>、<code>roadmap</code>、<code>crash-boundary</code>(zh/en)、core/campaign/mission 模块 <code>_index</code></td></tr>
+<tr><td><strong>M2</strong></td><td>种子深度页（L0–L1 真实手写范本）</td><td>✅ 完成</td><td>5 篇 <code>deep_pass</code> 种子页（zh+en，共 10 篇）</td></tr>
+<tr><td><strong>M3</strong></td><td>高频类型批量手写（按模块波次）</td><td>⏳ 后续周期</td><td>—</td></tr>
+<tr><td><strong>M4</strong></td><td>家族/模块枢纽页补全</td><td>⏳ 后续周期</td><td>—</td></tr>
+<tr><td><strong>M5</strong></td><td>全量验收 + 发布</td><td>⏳ 后续周期</td><td>—</td></tr>
+</tbody></table>
+<h2 id="2-bo-ci-jin-du-h0-h10">2. 波次进度（H0–H10）</h2>
+<table><thead><tr><th>波次</th><th>内容</th><th>状态</th></tr></thead><tbody>
+<tr><td>H0</td><td>退役签名→散文生成器，断产品路径</td><td>✅ 完成（硬失败守卫已接入 10 个 CLI）</td></tr>
+<tr><td>H1</td><td>移植并冻结文档契约（H1–H9）到 v1.4.5</td><td>✅ 完成</td></tr>
+<tr><td>H2</td><td>发现/盘点：类型清单 + 覆盖基线与缺口</td><td>✅ 完成（7,144 类型，0 缺失页）</td></tr>
+<tr><td>H3</td><td>覆盖率门禁 <code>handwritten-coverage.mjs</code></td><td>✅ 完成（deep_pass 强判据）</td></tr>
+<tr><td>H4</td><td>种子 L0–L1 深度页（5/5 达 <code>deep_pass</code>）</td><td>✅ 完成</td></tr>
+<tr><td>H5</td><td>高频 API 类型批量手写</td><td>⏳ 后续</td></tr>
+<tr><td>H6</td><td>行为/模型家族页</td><td>⏳ 后续</td></tr>
+<tr><td>H7</td><td>模块枢纽与跨模块依赖图</td><td>🟡 部分（3 个模块 <code>_index</code> 已建，待补齐其余）</td></tr>
+<tr><td>H8</td><td>真实用例与采集路径补全</td><td>⏳ 后续</td></tr>
+<tr><td>H9</td><td>双向导航树贯通 + 链接审计</td><td>🟡 部分（24 篇手写页 0 断链；全站审计待后续）</td></tr>
+<tr><td>H10</td><td>发布前全量验收</td><td>⏳ 后续</td></tr>
+</tbody></table>
+<h2 id="3-yan-shou-zheng-ju-bao">3. 验收证据包</h2>
+<h3 id="3-1-fu-gai-lu-men-jin-jie-guo-tools-data-handwritten-coverage-json">3.1 覆盖率门禁结果（<code>tools/data/handwritten-coverage.json</code>）</h3>
+<p>扫描根：<code>content/v1.4.5/zh/api</code>（7,123 个 md 文件）</p>
+<table><thead><tr><th>状态</th><th>数量</th></tr></thead><tbody>
+<tr><td><code>deep_pass</code></td><td><strong>5</strong></td></tr>
+<tr><td><code>family_entry_pass</code></td><td>13</td></tr>
+<tr><td><code>stub</code></td><td>7,091</td></tr>
+<tr><td><code>noise</code></td><td>14</td></tr>
+<tr><td><code>missing</code></td><td>0</td></tr>
+</tbody></table>
+<p><code>deep_pass</code> 强判据（全部满足才算通过）：真实心智模型（&gt;80 字符、非模板）、<code>依赖/参见</code> 段含 ≥2 个链接、含一个真实 <code>csharp</code> 示例、非模板化概述。</p>
+<h3 id="3-2-chong-zi-shen-du-ye-5-5-deep-pass-zh-en">3.2 种子深度页（5/5 <code>deep_pass</code>，zh+en）</h3>
+<table><thead><tr><th>页面</th><th>路径（zh）</th><th>层级</th></tr></thead><tbody>
+<tr><td><code>MBSubModuleBase</code></td><td><code>content/v1.4.5/zh/api/core/MBSubModuleBase.md</code></td><td>生命周期根</td></tr>
+<tr><td><code>Game</code></td><td><code>content/v1.4.5/zh/api/core/Game.md</code></td><td>运行期根容器</td></tr>
+<tr><td><code>MBObjectBase</code></td><td><code>content/v1.4.5/zh/api/core/MBObjectBase.md</code></td><td>对象根基类</td></tr>
+<tr><td><code>Campaign</code></td><td><code>content/v1.4.5/zh/api/campaign/Campaign.md</code></td><td>战役层</td></tr>
+<tr><td><code>Mission</code></td><td><code>content/v1.4.5/zh/api/mission/Mission.md</code></td><td>战斗层</td></tr>
+</tbody></table>
+<p>每篇均含：真实心智模型、依赖/风险清单、按用途分组的成员笔记（非签名墙）、真实 <code>csharp</code> 示例、双向导航（父/兄弟/子/相关）。en 版同路径 <code>en/</code> 下。</p>
+<h3 id="3-3-lei-xing-qing-dan-tools-data-type-inventory-json">3.3 类型清单（<code>tools/data/type-inventory.json</code>）</h3>
+<ul>
+<li>v1.4.5 公开类型总数：<strong>7,144</strong>（zh 与 en 各 7,144）</li>
+<li>已有对应页面的类型：<strong>7,144</strong>（hasDoc=true）</li>
+<li><strong>缺失页面：0</strong></li>
+</ul>
+<p>结论：缺口不是"缺页"，而是 <strong>7,091 个 stub 需要被手写深度化</strong>（stub→handwritten 转换）。</p>
+<h3 id="3-4-sheng-cheng-qi-tui-yi-tools-retired-body-generators-md">3.4 生成器退役（<code>tools/RETIRED_BODY_GENERATORS.md</code>）</h3>
+<ul>
+<li>政策：产品文档 <code>content/**</code> 仅手写；自动化工具不得编造或批量重写页面散文。</li>
+<li>紧急覆盖环境变量 <code>BANNERLORD_ALLOW_RETIRED_BODY_GEN=1</code> <strong>禁止用于产品构建 / CI / 任何触碰 <code>content/**</code> 的提交</strong>。</li>
+<li>硬失败守卫（每个退役 CLI 顶部）：非常量 <code>1</code> 时直接 <code>process.exit(1)</code>。已接入 10 个 CLI；其余 12 个被点名的脚本在磁盘上不存在（产品路径已实际断开）。</li>
+<li>已列入退役清单的脚本：<code>generate-class-docs.mjs</code>、<code>gen-class-ref.mjs</code>、<code>batch-gen-stubs.mjs</code>、<code>enhance-stubs.mjs</code>、<code>regenerate-method-purposes.mjs</code>、<code>normalize-method-purposes.mjs</code>、<code>doc-fragments.mjs</code>（body 路径）、<code>populate-curated-content.mjs</code>、<code>bulk-fix-mental-models.mjs</code> 等。</li>
+</ul>
+<h3 id="3-5-lian-jie-shen-ji-t7">3.5 链接审计（T7）</h3>
+<ul>
+<li>检查范围：本轮撰写的 24 个手写文件（架构页 + 模块 <code>_index</code> + 5 篇种子页，zh+en）。</li>
+<li>内部链接检查：<strong>335</strong> 条</li>
+<li><strong>断链：0</strong></li>
+</ul>
+<p>修复记录：Campaign.md（zh/en）原链接 <code>../../save-system/SaveManager</code> 深度错误，已改为 <code>../save-system/SaveManager</code>（SaveManager 实际位于 <code>api/save-system/</code>）。</p>
+<h3 id="3-6-beng-kui-bian-jie-content-v1-4-5-zh-en-architecture-crash-boundary-md">3.6 崩溃边界（<code>content/v1.4.5/{zh,en}/architecture/crash-boundary.md</code>）</h3>
+<p>已文档化 8 类崩溃/存档失败模式与正确模式，覆盖：世界状态变更必须走 <code>*Action.Apply</code>、SubModule 加载阶段约束、Agent 生命周期、MBObjectManager 注册、SaveId/SaveableField 一致性等。此页是 H4/H8 波次所有类型页"风险"段落的事实来源。</p>
+<h3 id="3-7-shuang-xiang-dao-hang-gu-jia">3.7 双向导航骨架</h3>
+<ul>
+<li>架构层序：Foundation（<code>api/core</code>、<code>api/engine</code>）→ Campaign（<code>api/campaign</code>）→ Mission（<code>api/mission</code>）→ UI（<code>api/viewmodel</code>、<code>api/gui</code>）→ Save（<code>api/save-system</code>）。</li>
+<li>模块 <code>_index</code>：core / campaign / mission 已建立心智地图（枢纽条目表 + 依赖图 + 阅读顺序）。</li>
+<li>种子页均含 <code>## 导航</code> 段：父级 / 兄弟 / 子类型 / 相关页，满足 H5 双向树要求。</li>
+</ul>
+<h2 id="4-yi-zhi-feng-xian-yu-hou-xu-zhou-qi">4. 已知风险与后续周期</h2>
+<ol>
+<li><strong>规模</strong>：7,091 个 stub 待手写深度化；单周期无法完成，须按模块波次（H5–H8）推进。</li>
+<li><strong>全站链接审计</strong>：本轮仅审计了 24 篇手写页。整站 36k+ 页的历史断链需在 H9 做全量 <code>audit-links.mjs</code>（默认扫全 <code>content</code> 树，成本较高，建议按模块分批）。</li>
+<li><strong>en 种子页一致性</strong>：en 版与 zh 版同步撰写，但覆盖率门禁当前仅在 <code>zh/api</code> 上运行；需在 H3 扩展为双语双跑。</li>
+<li><strong>模块枢纽补齐</strong>：除 core/campaign/mission 外，engine/viewmodel/gui/save-system 等模块的 <code>_index</code> 尚未建，属 H7。</li>
+</ol>
+<h2 id="5-ru-he-fu-pao-yan-shou">5. 如何复跑验收</h2>
+<pre><code data-lang="bash"># 覆盖率门禁（zh/api）
+node tools/handwritten-coverage.mjs --root content/v1.4.5/zh/api
+
+# 类型清单构建
+node tools/generate-inventory.mjs
+
+# 全站链接审计（默认扫 content/ 全树）
+node tools/audit-links.mjs
+</code></pre>
+<p>证据文件位置：</p>
+<ul>
+<li>覆盖率：<code>tools/data/handwritten-coverage.json</code></li>
+<li>类型清单：<code>tools/data/type-inventory.json</code></li>
+<li>生成器退役政策：<code>tools/RETIRED_BODY_GENERATORS.md</code></li>
+<li>契约与路线图：<code>content/v1.4.5/{zh,en}/architecture/</code></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/zh/architecture/">架构 — v1.4.5</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <span class="page-navigation-disabled" aria-disabled="true">&larr; First item</span>
+          
+          
+            <a rel="next" href="/v1.4.5/zh/architecture/crash-boundary/">崩溃与存档边界 — v1.4.5 &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

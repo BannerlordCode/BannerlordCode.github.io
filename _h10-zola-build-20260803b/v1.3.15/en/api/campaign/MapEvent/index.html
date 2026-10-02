@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MapEvent</title>
+  <meta name="description" content="The runtime carrier for one in-progress hostile encounter on the campaign map: it holds the attacker and defender MapEventSide, drives the per-tick combat simulation and the settlement of loot, prisoners, and captured settlements, and is the shared base for field battles, raids, sieges, and hideout fights.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/MapEvent/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/MapEvent/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/MapEvent/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/MapEvent/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/MapEvent/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/MapEvent/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MapEvent</span>
+    </nav>
+  
+  <h1>MapEvent</h1>
+  <h1 id="mapevent">MapEvent</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.MapEvents
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public sealed class MapEvent : MBObjectBase</code>
+<strong>Base:</strong> <code>MBObjectBase</code>
+<strong>Source:</strong> <code>TaleWorlds.CampaignSystem/MapEvents/MapEvent.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>MapEvent</code> is the runtime carrier for a <strong>single hostile encounter currently playing out on the campaign map</strong>. When two (or two groups of) <a href="../MobileParty/"><code>MobileParty</code></a>/<a href="../PartyBase/"><code>PartyBase</code></a> meet and start fighting, the engine creates a <code>MapEvent</code>, sorts the participants into an attacker side (<code>AttackerSide</code>) and a defender side (<code>DefenderSide</code>) — each modelled by a <a href="../../campaign-ext/MapEventSide/"><code>MapEventSide</code></a> — and then, on every campaign tick, runs a combat simulation via <code>CombatSimulationModel</code> until one side wins or retreats. Afterwards it finalizes the distribution of loot, prisoners, renown, influence, and captured settlements (for sieges).</p>
+<p>It is <strong>not</strong> the battle scene itself: the actual 3-D fight is a <code>Mission</code>. <code>MapEvent</code> always lives in the campaign (Campaign/Map) layer. The two are bridged by a <code>BattleObserver</code> (<code>IBattleObserver</code>): the battle scene reports per-round casualties back to the <code>MapEvent</code>, which applies them to rosters and hero state.</p>
+<h2 id="mental-model">Mental Model</h2>
+<h3 id="what-it-is-is-not">What it is / is not</h3>
+<ul>
+<li><strong>Is:</strong> a snapshot of one map-layer encounter plus a state machine that advances it (<code>MapEventState.Begin → Wait → WaitingRemoval</code>).</li>
+<li><strong>Is not:</strong> a renderable 3-D battle, a plain class you are free to <code>new</code>, or a persistent "battle history" container. It only ever describes the encounter that is <strong>happening right now</strong>.</li>
+</ul>
+<h3 id="lifecycle-engine-driven-do-not-replay-manually">Lifecycle (engine-driven — do not replay manually)</h3>
+<ol>
+<li><strong>Creation.</strong> The engine internally calls <code>new MapEvent()</code> and then <code>Initialize(attacker, defender, component, battleType)</code>. Sieges, sally-outs, and blockades are started by <a href="../../campaign-ext/MapEventManager/"><code>MapEventManager</code></a> through <code>StartSiegeMapEvent</code> / <code>StartSallyOutMapEvent</code> / <code>StartSiegeOutsideMapEvent</code> / <code>StartBlockadeBattleMapEvent</code>. The player's field/raid/hideout encounters are created by <a href="../../campaign-ext/PlayerEncounter/"><code>PlayerEncounter</code></a><code>StartBattle()</code> via <code>StartBattleInternal</code>. After creation <code>State = Wait</code> and <code>OnMapEventStarted</code> fires.</li>
+<li><strong>Both sides enter.</strong> Each party is routed into a side through <code>party.MapEventSide = ...</code> (<code>AddInvolvedPartyInternal</code>); the <code>Parties</code> lists of <code>AttackerSide</code> / <code>DefenderSide</code> grow. Garrison and nearby friendly troops get pulled in too.</li>
+<li><strong>Simulation advances.</strong> Every campaign tick, <code>MapEventManager.Tick()</code> walks the active events and calls <code>Update()</code> — running combat simulation (<code>SimulateBattleSessionForMapEvent</code>) on non-player and raid events, judging <code>BattleState</code> from troops reaching zero, morale collapse, or retreat, then computing the result in <code>OnBattleWon</code> once a winner is decided.</li>
+<li><strong>Settlement and teardown.</strong> Once a side wins, a ceasefire/peace is reached, or a retreat happens, <code>FinalizeEvent()</code> runs, <code>State</code> becomes <code>WaitingRemoval</code>, <code>OnMapEventEnded</code> fires, and the engine distributes loot/prisoners/ships, applies <code>KillCharacterAction</code> (dead heroes), <code>DestroyPartyAction</code> (defeated party dissolves), and <code>SiegeCompleted</code> / <code>AfterSiegeCompleted</code> for sieges.</li>
+<li><strong>Removal.</strong> On the next tick <code>MapEventManager.Tick()</code> sees <code>IsFinalized</code> and removes the event from its <code>MBList</code>.</li>
+</ol>
+<h3 id="who-creates-who-holds">Who creates / who holds</h3>
+<ul>
+<li><strong>Creator:</strong> the engine only (<code>MapEventManager</code> + <code>PlayerEncounter</code>). The constructor is <code>internal</code>; <strong>mods cannot <code>new MapEvent()</code></strong>.</li>
+<li><strong>Holder:</strong> <code>Campaign.Current.MapEventManager</code> keeps all active events in an <code>MBReadOnlyList&lt;MapEvent&gt;</code> (<code>MapEvents</code>). Because <code>MapEvent</code> derives from <code>MBObjectBase</code>, it is also registered in the <a href="../../campaign-ext/MBObjectManager/"><code>MBObjectManager</code></a> object system and is serializable into saves. The player's encounter is additionally referenced by <code>PlayerEncounter.Current</code>.</li>
+</ul>
+<h3 id="layer">Layer</h3>
+<p>Campaign (Campaign)/map layer, parallel to <code>Mission</code> (the battle scene). Every public member is "map-state" data and does not depend on a concrete battle instance.</p>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p><strong>Use <code>MapEvent</code> when</strong></p>
+<ul>
+<li>You subscribe to <a href="../../campaign-ext/CampaignEvents/"><code>CampaignEvents</code></a> such as <code>OnMapEventStarted</code> / <code>OnMapEventEnded</code> / <code>OnPartyAddedToMapEvent</code> and want to read or react inside an encounter's lifecycle (statistics, notifications, quest triggers).</li>
+<li>At a legal moment (player decision, menu logic) you read <code>MapEvent.PlayerMapEvent</code> / <code>MobileParty.MapEvent</code> state: both sides' troop counts, strength, winner, settlement, whether it is a naval fight, etc.</li>
+<li>You drive an engine-hosted "ending": <code>MapEventManager.FinalizePlayerMapEvent()</code> (for the player event — it also calls <code>PlayerEncounter.Finish()</code> internally), <code>MapEvent.DoSurrender(side)</code>, or <code>MapEvent.SetOverrideWinner(...)</code> (to force a quest/scripted result).</li>
+</ul>
+<p><strong>Do NOT use / dangerous usage</strong></p>
+<ul>
+<li>Do not <code>new MapEvent()</code> or call the <code>internal Initialize(...)</code>. Events must be built by the engine through the standard flow; otherwise <code>MapEventManager</code> never registers it and simulation/teardown never run.</li>
+<li>Do not rewrite <code>_sides</code>, the <code>Parties</code> of <code>AttackerSide</code>/<code>DefenderSide</code>, or hand-assign <code>party.MapEventSide</code> to "pull troops in". Let the engine manage sides via the standard <code>PartyBase.MapEventSide</code> path; forcing it breaks simulation and loot attribution.</li>
+<li>Do not access the concrete <code>MapEventParty</code> entries of either side after the event is <code>IsFinalized</code> (it has entered <code>WaitingRemoval</code>) — see Risks below.</li>
+<li>To <em>start</em> a battle, go through <a href="../../campaign-ext/PlayerEncounter/"><code>PlayerEncounter</code></a> and the encounter model, not by constructing a <code>MapEvent</code>.</li>
+</ul>
+<h2 id="detecting-and-resolving-map-events-and-the-myth-of-getmapeventatposition">Detecting and resolving map events (and the myth of <code>GetMapEventAtPosition</code>)</h2>
+<p>There is <strong>no built-in <code>GetMapEventAtPosition</code> method</strong> in the Bannerlord API (checked across 1.3.0 / 1.3.15 / 1.4.5). To find "the event at a position" you enumerate the active events and compare <code>Position</code> yourself. The supported detection paths are:</p>
+<ul>
+<li><strong>The player's own event:</strong> <code>MapEvent.PlayerMapEvent</code> (a static property returning <code>MobileParty.MainParty?.MapEvent</code>).</li>
+<li><strong>Any specific party's event:</strong> read <code>party.MapEvent</code> on a <a href="../MobileParty/"><code>MobileParty</code></a> or <a href="../PartyBase/"><code>PartyBase</code></a>.</li>
+<li><strong>All active events:</strong> iterate <code>Campaign.Current.MapEventManager.MapEvents</code> (<code>MBReadOnlyList&lt;MapEvent&gt;</code>); filter by <code>mapEvent.Position</code> (a <code>CampaignVec2</code>) when you need the event near a map coordinate, and skip <code>mapEvent.IsFinalized</code> before touching either side.</li>
+<li><strong>Reactive instead of polling:</strong> subscribe to <code>CampaignEvents.OnMapEventStarted</code> / <code>OnMapEventEnded</code> / <code>OnPartyAddedToMapEvent</code> from a <a href="../../campaign-ext/CampaignBehaviorBase/"><code>CampaignBehaviorBase</code></a>.</li>
+</ul>
+<p>The engine decides the winner and resolves loot/prisoners; mods should read the result, not re-run the simulation. To <em>force</em> an outcome, use <code>SetOverrideWinner</code> / <code>DoSurrender</code> (see below), not a hand-rolled settlement.</p>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><strong>Upstream (create / supply data)</strong>
+<ul>
+<li><a href="../MobileParty/"><code>MobileParty</code></a> / <a href="../PartyBase/"><code>PartyBase</code></a>: the participating parties, aggregated through <code>MapEventSide.Parties</code>.</li>
+<li><a href="../../campaign-ext/PlayerEncounter/"><code>PlayerEncounter</code></a>: drives the creation and ending of the player's encounter.</li>
+<li><a href="../../campaign-ext/MapEventManager/"><code>MapEventManager</code></a> (internal to the campaign system): registers, ticks, and removes all active events.</li>
+<li><a href="../../campaign-ext/MBObjectManager/"><code>MBObjectManager</code></a>: the registration and save container for <code>MapEvent</code> as an <code>MBObjectBase</code>.</li>
+</ul>
+</li>
+<li><strong>Downstream (driven / result sinks)</strong>
+<ul>
+<li><a href="../../campaign-ext/MapEventSide/"><code>MapEventSide</code></a>: the concrete per-side faction data and simulation.</li>
+<li><a href="../../campaign-ext/SiegeEvent/"><code>SiegeEvent</code></a>: the parent abstraction for siege events; <code>MapEventSettlement.SiegeEvent</code> is linked during teardown.</li>
+<li>Settlements being raided (<a href="../Settlement/"><code>Settlement</code></a>) or captured towns.</li>
+<li><code>*Action</code> classes applied during settlement: <code>KillCharacterAction</code>, <code>TakePrisonerAction</code>, <code>DestroyPartyAction</code>, <code>ChangeShipOwnerAction</code>, <code>EndCaptivityAction</code>, <code>LeaveSettlementAction</code>.</li>
+</ul>
+</li>
+<li><strong>Related events (the <a href="../../campaign-ext/CampaignEvents/"><code>CampaignEvents</code></a> family)</strong>
+<ul>
+<li><code>OnMapEventStarted(MapEvent, PartyBase, PartyBase)</code>, <code>OnMapEventEnded(MapEvent)</code></li>
+<li><code>OnPartyAddedToMapEvent(PartyBase)</code>, <code>OnNearbyPartyAddedToPlayerMapEvent(MobileParty)</code></li>
+<li><code>OnCollectLootItems(PartyBase, ItemRoster)</code>, <code>OnLootDistributedToParty(PartyBase, PartyBase, ItemRoster)</code>, <code>OnPlayerPartyKnockedOrKilledTroop(CharacterObject)</code></li>
+<li><code>SiegeCompleted(Settlement, MobileParty, bool, BattleTypes)</code>, <code>AfterSiegeCompleted(Settlement, MobileParty, bool, BattleTypes)</code></li>
+</ul>
+</li>
+<li><strong>Related models (via <code>Campaign.Current.Models</code>)</strong>
+<ul>
+<li><code>CombatSimulationModel</code> (battle simulation &amp; rounds), <code>BattleRewardModel</code> (loot/renown/influence/ships), <code>EncounterModel</code> (retreat/join checks), <code>MilitaryPowerModel</code>, <code>MapDistanceModel</code>, <code>PartyMoraleModel</code>, <code>PartyHealingModel</code>, <code>DifficultyModel</code>, <code>ShipCostModel</code>, <code>TroopSupplierProbabilityModel</code>.</li>
+</ul>
+</li>
+<li><strong>Save points:</strong> serialized with the campaign save as a whole (<code>MapEvent</code> itself + the <code>MBList</code> inside <code>MapEventManager</code>); <code>OnLateLoad</code> / <code>OnAfterLoad</code> rebuild older saves (e.g. v1.2.0 / v1.3.0 / v1.4.1 field migration).</li>
+</ul>
+<h2 id="risks">Risks</h2>
+<ol>
+<li><strong>Accessing sides after the event has ended.</strong> <code>FinalizeEvent()</code> → <code>FinalizeEventAux()</code> calls <code>sides[i].Clear()</code>, emptying each side's <code>MapEventParty</code> list. Once <code>State == WaitingRemoval</code>, <code>AttackerSide.Parties</code> / <code>DefenderSide.Parties</code> are empty and <code>LeaderParty</code> may be <code>null</code>. Inside <code>OnMapEventEnded</code>, iterating <code>InvolvedParties</code> or reading <code>LeaderParty.Name</code> yields empty data or a <code>NullReferenceException</code>. Cache any result you need (winner, settlement) before finalize or at the top of the callback.</li>
+<li><strong>Holding stale <code>MobileParty</code> / <code>PartyBase</code> references.</strong> The loser may be destroyed by <code>DestroyPartyAction.Apply</code> during teardown, and the winning leader may be swapped by <code>RemovePartyLeader()</code>. Storing a party reference taken from a <code>MapEvent</code> into a cross-event / cross-day structure points at an already-dead object. Always use the current fields on <code>Hero</code>/<code>PartyBase</code>, or null-check and test <code>IsActive</code> before use.</li>
+<li><strong>Mutating state in the wrong phase.</strong> <code>SetOverrideWinner</code> / <code>SetDefenderPulledBack</code> / <code>ResetBattleState</code> / <code>DoSurrender</code> only make sense in specific battle phases. Calling them on an already-<code>IsFinalized</code> event, or before it has really started, produces states that conflict with the simulation or triggers a double settlement.</li>
+<li><strong>Player events must use the dedicated teardown.</strong> Calling <code>MapEvent.FinalizeEvent()</code> directly only cleans up the event itself; the player's encounter still needs <code>PlayerEncounter.Finish()</code> to close the encounter state, or <code>PlayerEncounter.Current</code> stays set and the menu / subsequent encounter logic goes wrong. Prefer <code>MapEventManager.FinalizePlayerMapEvent()</code>.</li>
+<li><strong>Dangling references / bad saves.</strong> <code>MapEvent</code> references <code>PartyBase</code>, settlements, and <code>MapEventComponent</code> through <code>SaveableField</code>. If your mod keeps a long-lived <code>MapEvent</code> reference in its own save data, and that event was <code>FinalizeEvent()</code>-ed during load because of a version migration (see the v1.2.0 cleanup branch in <code>OnAfterLoad</code>), the reference points at a discarded, waiting-for-removal object. Never keep a <code>MapEvent</code> reference in save data — store the <code>stringId</code> or a stable <code>PartyBase</code> identifier instead.</li>
+<li><strong>Do not hand-write <code>party.MapEventSide</code>.</strong> It is maintained uniformly by the engine inside <code>Initialize</code> / <code>AddInvolvedPartyInternal</code> / <code>RemoveInvolvedPartyInternal</code>. Manual assignment bypasses the strength recalculation (<code>RecalculateRenownAndInfluenceValuesOnPartyInvolved</code>) and the visual/AI update, corrupting battle results or map presentation.</li>
+<li><strong>Mutating map-event state outside its lifecycle.</strong> Because the event only reflects the <em>currently active</em> encounter, any mutation you perform outside <code>Wait</code>/<code>Begin</code> (e.g. while <code>IsFinalized</code>, or on an event you re-fetched from save data) is orphaned: the manager will not tick it, no settlement runs, and other systems reading <code>PartyBase.MapEventSide</code> see inconsistent data. Treat every <code>MapEvent</code> as read-mostly except for the narrow control methods below, called only while the event is live.</li>
+</ol>
+<h2 id="key-members-grouped-by-theme">Key Members (grouped by theme)</h2>
+<h3 id="sides-and-factions">Sides and factions</h3>
+<ul>
+<li><code>MapEventSide AttackerSide</code> / <code>MapEventSide DefenderSide</code>: the attacker/defender aggregate views, backed by <code>_sides[1]</code> / <code>_sides[0]</code>. <strong>Side effect:</strong> their <code>Parties</code> are cleared after finalize. <strong>When:</strong> read participants, troop counts, strength; do not rewrite them.</li>
+<li><code>MapEventSide GetMapEventSide(BattleSideEnum side)</code>: fetch a side by enum, equivalent to <code>(side == Attacker ? AttackerSide : DefenderSide)</code>. <strong>When:</strong> generic access; avoids hard-coding the index.</li>
+<li><code>MBReadOnlyList&lt;MapEventParty&gt; PartiesOnSide(BattleSideEnum side)</code>: read-only list of that side's participating <code>MapEventParty</code>. <strong>When:</strong> iterate each side's troops and contribution.</li>
+<li><code>PartyBase GetLeaderParty(BattleSideEnum side)</code>: the leader party of that side (usually the first to join). <strong>When:</strong> get the opponent's name / check a clan; may be <code>null</code> after finalize.</li>
+<li><code>IEnumerable&lt;PartyBase&gt; InvolvedParties</code>: flattens both sides' participants. <strong>When:</strong> act on all participants (e.g. notifications); empty after finalize.</li>
+<li><code>BattleSideEnum GetOtherSide(BattleSideEnum side)</code>: get the opposite side's enum.</li>
+<li><code>bool CanPartyJoinBattle(PartyBase party, BattleSideEnum side)</code>: can this party join as that side (same side must be at peace, opposite side at war)? <strong>When:</strong> read-only probe of "will nearby AI get pulled in"; do not use it to pull troops in manually.</li>
+</ul>
+<h3 id="outcome-and-battle-state">Outcome and battle state</h3>
+<ul>
+<li><code>BattleState BattleState</code> (<code>None</code>/<code>AttackerVictory</code>/<code>DefenderVictory</code>/<code>DefenderPullBack</code>, …): the current outcome. <strong>Side effect:</strong> setting victory triggers <code>OnBattleWon</code> → result computation. <strong>When:</strong> observe read-only; to force a result use <code>SetOverrideWinner</code>.</li>
+<li><code>bool HasWinner</code> / <code>BattleSideEnum WinningSide</code> / <code>MapEventSide Winner</code> / <code>BattleSideEnum DefeatedSide</code>: derived outcome info. <strong>When:</strong> read during settlement / notifications.</li>
+<li><code>MapEventState State</code> (<code>Begin</code>/<code>Wait</code>/<code>WaitingRemoval</code>); <code>bool IsFinalized =&gt; State == WaitingRemoval</code>. <strong>Always check <code>IsFinalized</code> before touching either side's members.</strong></li>
+<li><code>BattleTypes EventType</code> and the predicates <code>IsFieldBattle</code> / <code>IsRaid</code> / <code>IsSiegeAssault</code> / <code>IsSallyOut</code> / <code>IsSiegeOutside</code> / <code>IsBlockade</code> / <code>IsHideoutBattle</code> / <code>IsForcingVolunteers</code> / <code>IsForcingSupplies</code> / <code>IsSiegeAmbush</code>: the event type and per-subtype tests. <strong>When:</strong> branch logic by type (e.g. only process villages for <code>Raid</code>).</li>
+<li><code>BattleSideEnum RetreatingSide</code> / <code>bool EndedByRetreat</code> / <code>int PursuitRoundNumber</code>: retreat and pursuit info (stable from v1.3.0). <strong>When:</strong> detect "ended by being driven off".</li>
+<li><code>bool IsPlayerMapEvent</code> (<code>this == MapEvent.PlayerMapEvent</code>), <code>BattleSideEnum PlayerSide</code> (<code>PartyBase.MainParty.Side</code>), <code>static MapEvent PlayerMapEvent</code> (<code>MobileParty.MainParty?.MapEvent</code>): player-related shortcuts. <strong>When:</strong> scope logic to the player's encounter.</li>
+<li><code>float[] StrengthOfSide</code> (length 2, attacker/defender strength), <code>void RecalculateStrengthOfSides()</code>: a snapshot of both sides' strength. <strong>When:</strong> pre-battle estimate, UI display; <code>RecalculateStrengthOfSides</code> refreshes after side changes.</li>
+<li><code>MBList&lt;BattleSideEnum&gt; WonRounds</code>; <code>int UpdateCount =&gt; WonRounds.Count</code>: the winner of each simulated round. <strong>When:</strong> replay a single battle's progress.</li>
+</ul>
+<h3 id="map-position-and-settlement">Map position and settlement</h3>
+<ul>
+<li><code>CampaignVec2 Position</code>: the event's map coordinate. <strong>When:</strong> rendering, distance checks; <code>SetPositionAfterMapChange</code> / <code>CheckPositionsForMapChangeAndUpdateIfNeeded</code> are called on map switches.</li>
+<li><code>Settlement MapEventSettlement</code>: the related settlement (raided village, besieged town, or a nearby village). May be <code>null</code> for a pure field battle. <strong>When:</strong> read the raided/besieged target; siege teardown uses <code>MapEventSettlement.SiegeEvent</code>.</li>
+<li><code>TerrainType EventTerrainType</code>, <code>PowerCalculationContext SimulationContext</code>: terrain and simulation context (affect strength models). <strong>When:</strong> custom simulation or display.</li>
+<li><code>bool IsNavalMapEvent =&gt; !Position.IsOnLand</code>: whether the fight is at sea. <strong>When:</strong> branch ship logic.</li>
+<li><code>CampaignTime BattleStartTime</code>: when the fight started. <strong>When:</strong> measure duration.</li>
+</ul>
+<h3 id="participant-enumeration-and-contribution">Participant enumeration and contribution</h3>
+<ul>
+<li><code>int GetNumberOfInvolvedMen()</code> / <code>int GetNumberOfInvolvedMen(BattleSideEnum side)</code>: total / per-side troop count. <strong>When:</strong> strength hints, quest conditions.</li>
+<li><code>bool HasTroopsOnBothSides()</code>: both sides still have living troops. <strong>When:</strong> decide whether the fight can continue.</li>
+<li><code>void GetStrengthsRelativeToParty(BattleSideEnum partySide, out float partySideStrength, out float opposingSideStrength)</code>: relative strength based on <code>SimulationContext</code>. <strong>When:</strong> show the player "us vs. them".</li>
+<li><code>float GetPlayerBattleContributionRate()</code>: the player's share of their own side's contribution (0–1). <strong>When:</strong> loot-distribution display.</li>
+<li><code>bool IsPlayerSergeant()</code>: whether the player fights as an attached troop (not the leader). <strong>When:</strong> distinguish "lord leads in person" from "a army subordinate".</li>
+</ul>
+<h3 id="control-use-with-care">Control (use with care)</h3>
+<ul>
+<li><code>void FinalizeEvent()</code>: finalize immediately (sets <code>WaitingRemoval</code> and runs settlement). For the player event, prefer <code>MapEventManager.FinalizePlayerMapEvent()</code>.</li>
+<li><code>void DoSurrender(BattleSideEnum side)</code>: make a side surrender, equivalent to the opponent winning. <strong>When:</strong> quest / story forced result.</li>
+<li><code>void SetOverrideWinner(BattleSideEnum winner)</code> / <code>void SetDefenderPulledBack()</code> / <code>void ResetBattleState()</code>: override or reset the outcome. <strong>When:</strong> scripted battles; must be called while the event is live and not yet finalized.</li>
+</ul>
+<h2 id="example">Example</h2>
+<h3 id="example-1-subscribe-to-campaign-events-and-observe-the-player-s-encounter-start-end">Example 1: subscribe to campaign events and observe the player's encounter start/end</h3>
+<pre><code data-lang="csharp">// In a CampaignBehaviorBase.RegisterEvents override, attach listeners
+CampaignEvents.OnMapEventStarted.AddNonSerializedListener(this, OnMapEventStarted);
+CampaignEvents.OnMapEventEnded.AddNonSerializedListener(this, OnMapEventEnded);
+
+private void OnMapEventStarted(MapEvent mapEvent, PartyBase attacker, PartyBase defender)
+{
+    if (!mapEvent.IsPlayerMapEvent)
+        return;
+
+    // EventType is the BattleTypes enum; use the IsRaid / IsSiegeAssault predicates to branch
+    string typeName = mapEvent.IsRaid ? &quot;raid&quot;
+        : (mapEvent.IsSiegeAssault ? &quot;siege&quot; : &quot;field battle&quot;);
+    InformationManager.DisplayMessage(new InformationMessage(
+        $&quot;Player drawn into {typeName}: {attacker.Name} vs {defender.Name}&quot;));
+}
+
+private void OnMapEventEnded(MapEvent mapEvent)
+{
+    // The event may already be in WaitingRemoval and its sides cleared; only read safe scalar fields
+    if (mapEvent.EventType == MapEvent.BattleTypes.Raid &amp;&amp; mapEvent.HasWinner)
+    {
+        Settlement raided = mapEvent.MapEventSettlement; // the raided village (not cleared)
+        if (raided != null)
+        {
+            // e.g. record how many times this village has been raided
+        }
+    }
+}
+</code></pre>
+<h3 id="example-2-read-the-player-s-current-mapevent-at-a-legal-moment">Example 2: read the player's current MapEvent at a legal moment</h3>
+<pre><code data-lang="csharp">// Grab the event the player is currently in through the static property
+MapEvent playerEvent = MapEvent.PlayerMapEvent;
+if (playerEvent == null)
+    return;
+
+BattleSideEnum mySide = playerEvent.PlayerSide;
+MapEventSide mySideData = playerEvent.GetMapEventSide(mySide);
+int involvedMen = playerEvent.GetNumberOfInvolvedMen(mySide);
+float myStrength = playerEvent.StrengthOfSide[(int)mySide];
+bool enemyStillFighting = playerEvent.HasTroopsOnBothSides();
+
+InformationManager.DisplayMessage(new InformationMessage(
+    $&quot;Our troops in fight: {involvedMen}, strength {myStrength:F0}, enemy still resisting: {enemyStillFighting}&quot;));
+
+// You can also reach an event from any party in reverse
+MobileParty someParty = MobileParty.MainParty;
+MapEvent partyEvent = someParty.MapEvent; // also works for non-player parties
+</code></pre>
+<h3 id="example-3-enumerate-all-active-events-debug-statistics">Example 3: enumerate all active events (debug / statistics)</h3>
+<pre><code data-lang="csharp">// Campaign.Current.MapEventManager holds every active event
+foreach (MapEvent mapEvent in Campaign.Current.MapEventManager.MapEvents)
+{
+    if (mapEvent.IsFinalized)
+        continue; // skip finalized ones to avoid touching cleared sides
+
+    int attackers = mapEvent.GetNumberOfInvolvedMen(BattleSideEnum.Attacker);
+    int defenders = mapEvent.GetNumberOfInvolvedMen(BattleSideEnum.Defender);
+    // ...
+}
+</code></pre>
+<h2 id="cross-version-notes">Cross-version notes</h2>
+<ul>
+<li>This page treats the <strong>v1.4.5</strong> source as authoritative; the document lives under the <code>v1.3.15</code> subtree. The core lifecycle was already stable in 1.3.x.</li>
+<li><code>WonRounds</code>, <code>RetreatingSide</code>, <code>PursuitRoundNumber</code> became stable fields in <strong>v1.3.0</strong> (there is a compatibility rebuild for <code>&lt; v1.3.0</code> saves in <code>OnAfterLoad</code>); null/ default-guard these fields when writing cross-version mods.</li>
+<li><strong>v1.4.1:</strong> in a raid, if <code>MapEventSettlement.LastAttackerParty != MobileParty.MainParty</code>, loading an old save force-calls <code>PlayerEncounter.Finish()</code>. If your mod touches raid events during old-save loading, watch that teardown branch.</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Parent: <a href="../Campaign/">Campaign hub</a></li>
+<li>↑ Bucket index: <a href="../">api index</a></li>
+<li>↔ Siblings / related types
+<ul>
+<li><a href="../../campaign-ext/MapEventSide/">MapEventSide</a> — concrete per-side faction data</li>
+<li><a href="../../campaign-ext/SiegeEvent/">SiegeEvent</a> — parent abstraction for siege events</li>
+<li><a href="../../campaign-ext/PlayerEncounter/">PlayerEncounter</a> — creation and ending of the player's encounter</li>
+<li><a href="../../campaign-ext/MapEventManager/">MapEventManager</a> — registers, ticks, and removes map events</li>
+<li><a href="../../campaign-ext/CampaignEvents/">CampaignEvents</a> — the map-event event family</li>
+</ul>
+</li>
+<li>Same bucket
+<ul>
+<li><a href="../MobileParty/">MobileParty</a> — participant (moving party)</li>
+<li><a href="../PartyBase/">PartyBase</a> — participant (garrison / settlement party)</li>
+<li><a href="../Settlement/">Settlement</a> — raided / besieged settlement</li>
+<li><a href="../Hero/">Hero</a> — participating heroes and death settlement</li>
+<li><a href="../../campaign-ext/Army/">Army</a> — multi-party army a participant may belong to</li>
+</ul>
+</li>
+<li>Infrastructure
+<ul>
+<li><a href="../../campaign-ext/MBObjectBase/">MBObjectBase</a> — <code>MapEvent</code>'s base, registered in the object manager</li>
+<li><a href="../../campaign-ext/MBObjectManager/">MBObjectManager</a> — registration and save container for <code>MapEvent</code></li>
+</ul>
+</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign/">campaign index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign/PeriodicTicker/">&larr; PeriodicTicker</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign/TradeActionLog/">TradeActionLog &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

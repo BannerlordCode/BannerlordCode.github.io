@@ -233,16 +233,16 @@ protected override void OnApplicationTick(float dt)
 ## Dependencies
 
 - Upstream / providers:
-  - [Module](../Module) collects the SubModule instances of every loaded module and drives their hooks; `Module.CurrentModule` is the global access point.
-  - [Game](../../core-extra/Game) drives `OnGameStart`, `OnGameLoaded`, `OnAfterGameLoaded`, `OnGameEnd` and the rest.
+  - `Module` collects the SubModule instances of every loaded module and drives their hooks; `Module.CurrentModule` is the global access point. It has no English page — the Chinese [zh `Module`](../../../../zh/api/core/Module) is the only one on disk.
+  - `Game` drives `OnGameStart`, `OnGameLoaded`, `OnAfterGameLoaded`, `OnGameEnd` and the rest (no English page; [zh `Game`](../../../../zh/api/core-extra/Game)).
 - Peers / downstream:
   - [MBObjectManager](../../campaign-ext/MBObjectManager) is where `RegisterSubModuleTypes` lands its type registrations; [MBObjectBase](../../campaign-ext/MBObjectBase) is the base of those types.
   - [CampaignGameStarter](../../campaign/CampaignGameStarter) arrives through `OnGameStart`'s `IGameStarter` parameter and is the campaign registration console.
-  - [MissionState](../../mission/MissionState) and [Mission](../../mission/Mission) are reached through `OnBeforeMissionBehaviorInitialize` / `OnMissionBehaviorInitialize`.
-  - [ViewModel](../../core-extra/ViewModel) is the UI data-binding base class, usually used after `InitializeSubModuleGameObjects`.
-  - [ScreenManager](../../gui/ScreenManager) and [ScreenBase](../../gui/ScreenBase) are the objects UI hooks cooperate with.
+  - `MissionState` and `Mission` are reached through `OnBeforeMissionBehaviorInitialize` / `OnMissionBehaviorInitialize`. Neither has an English page: [zh `MissionState`](../../../../zh/api/mission/MissionState) · [zh `Mission`](../../../../zh/api/mission/Mission).
+  - `ViewModel` is the UI data-binding base class, usually used after `InitializeSubModuleGameObjects` (no English page; [zh `ViewModel`](../../../../zh/api/core-extra/ViewModel)).
+  - `ScreenManager` and `ScreenBase` are the objects UI hooks cooperate with. Neither has an English page: [zh `ScreenManager`](../../../../zh/api/gui/ScreenManager) · [zh `ScreenBase`](../../../../zh/api/gui/ScreenBase).
 
 ## See Also
 
 - ↑ Parent: [core index](../)
-- ↔ Related: [Module](../Module) · [Game](../../core-extra/Game) · [MBObjectManager](../../campaign-ext/MBObjectManager) · [CampaignGameStarter](../../campaign/CampaignGameStarter) · [MissionState](../../mission/MissionState) · [ScreenManager](../../gui/ScreenManager)
+- ↔ Related: [MBObjectManager](../../campaign-ext/MBObjectManager) · [CampaignGameStarter](../../campaign/CampaignGameStarter) · zh [Module](../../../../zh/api/core/Module) · zh [Game](../../../../zh/api/core-extra/Game) · zh [MissionState](../../../../zh/api/mission/MissionState) · zh [ScreenManager](../../../../zh/api/gui/ScreenManager) (the four `zh` entries have no English pages; see [the gap list](../../../../GAPS))

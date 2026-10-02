@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Priority Behavior Types</title>
+  <meta name="description" content="Priority CampaignBehaviors for lifecycle, diplomacy, bandits, caravans, and save boundaries.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/behaviors-priority/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/behaviors-priority/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Priority Behavior Types</span>
+    </nav>
+  
+  <h1>Priority Behavior Types</h1>
+  <h1 id="priority-behavior-types">Priority Behavior Types</h1>
+<p><strong>Responsibility:</strong> These <code>CampaignBehaviorBase</code> implementations bind event subscriptions, daily progression, dialog registration, and <code>SyncData</code> persistence to the campaign lifecycle. They are not utilities to construct from a tick callback.</p>
+<h2 id="mental-model">Mental model</h2>
+<p><code>CampaignGameStarter</code> adds behaviors while the campaign is being assembled; <code>Campaign</code> then exposes the registered instance through <code>GetCampaignBehavior&lt;T&gt;()</code>. The campaign owns the instance, <code>RegisterEvents</code> performs one-time subscription, and <code>SyncData</code> connects behavior state to the save. <code>CampaignBehaviorManager</code> collects each behavior before saving and restores it after loading, so fields, SaveableTypeDefiners, and event order form one contract.</p>
+<p>This page covers the first priority set: aging and character creation, alliances and war, bandits and caravans, banners and buildings, battle recovery, and management. Return to <a href="../actions/">Actions</a> for world-state mutations and <a href="../models/">Models</a> for formula replacement. The <code>TypeDefiner</code> rows only describe save type registration; they are not business behaviors.</p>
+<h2 id="dependencies-and-boundaries">Dependencies and boundaries</h2>
+<ul>
+<li><strong>Upstream:</strong> <a href="../../campaign/Campaign">Campaign</a>, <a href="../CampaignGameStarter">CampaignGameStarter</a>, <a href="../CampaignEvents">CampaignEvents</a>, and <code>Campaign.Current</code>.</li>
+<li><strong>Downstream:</strong> <a href="../actions/">Actions</a>, <a href="../models/">Models</a>, campaign events, dialog/quest systems, and the <a href="../../save-system/">save system</a>.</li>
+<li><strong>Siblings:</strong> <a href="../behaviors/">Behaviors family</a>, <a href="../actions/">Actions</a>, <a href="../issues/">Issues</a>, and <a href="../quests/">Quests</a>.</li>
+<li><strong>Do not:</strong> subscribe repeatedly outside <code>RegisterEvents</code>, assume <code>Campaign.Current</code> during module loading, or remove a behavior with save fields without a compatibility migration.</li>
+</ul>
+<h2 id="first-priority-types-and-typical-timing">First priority types and typical timing</h2>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../AgingCampaignBehavior">AgingCampaignBehavior</a></td><td>Processes hero age, coming of age, growth, death, and extra lives, saving the underage and extra-life dictionaries.</td><td>Daily hero tick, load, and character-creation completion</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../../campaign/Alliance">Alliance</a></td><td>Stores two kingdoms and the alliance end time as a lightweight saveable struct.</td><td>Alliance creation, daily expiry, and save serialization</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../AllianceCampaignBehavior">AllianceCampaignBehavior</a></td><td>Maintains alliances and call-to-war agreements, reacting to war, peace, and kingdom destruction.</td><td>Daily clan tick, diplomacy events, and campaign assembly</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../AllianceCampaignBehaviorTypeDefiner">AllianceCampaignBehaviorTypeDefiner</a></td><td>Registers save definitions for <code>Alliance</code>, <code>CallToWarAgreement</code>, and their containers.</td><td>Save type-definition construction</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BackstoryCampaignBehavior">BackstoryCampaignBehavior</a></td><td>Connects character backstory and opening narrative choices to the campaign behavior layer.</td><td>Character-creation completion and new-campaign startup</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BanditInteractionsCampaignBehavior">BanditInteractionsCampaignBehavior</a></td><td>Registers bandit dialogs and records friendly, paid-off, or hostile player interactions, clearing them when a party is destroyed.</td><td>Session launch, encounter dialog, and party destruction</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BanditInteractionsCampaignBehaviorTypeDefiner">BanditInteractionsCampaignBehaviorTypeDefiner</a></td><td>Registers the interaction enum and <code>MobileParty</code>-keyed container for saves.</td><td>Save type-definition construction</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BanditSpawnCampaignBehavior">BanditSpawnCampaignBehavior</a></td><td>Spawns and maintains bandit parties according to campaign map and settlement state.</td><td>Daily map progression and campaign assembly</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BannerCampaignBehavior">BannerCampaignBehavior</a></td><td>Connects banner effects, hero banners, and related campaign events to the behavior lifecycle.</td><td>Banner initialization, hero changes, and event notification</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BattleCampaignBehavior">BattleCampaignBehavior</a></td><td>Receives map-battle results and drives campaign rewards, notices, and follow-up processing.</td><td>MapEvent completion and battle-result broadcast</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BuildingsCampaignBehavior">BuildingsCampaignBehavior</a></td><td>Advances town building queues and connects daily building changes to events and saves.</td><td>Daily town tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../../campaign/CallToWarAgreement">CallToWarAgreement</a></td><td>Stores the calling kingdom, called kingdom, enemy target, and agreement expiry.</td><td>Alliance decision and agreement expiry</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CampaignBattleRecoveryBehavior">CampaignBattleRecoveryBehavior</a></td><td>Applies the campaign-side recovery phase for parties and characters after a battle.</td><td>After a MapEvent ends</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CampaignBehaviorManager">CampaignBehaviorManager</a></td><td>Owns registered behaviors and coordinates event registration, pre-save collection, and post-load restoration.</td><td>Campaign initialization, save, and load</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CampaignFactionManagerBehaviour">CampaignFactionManagerBehaviour</a></td><td>Connects the faction manager's initialization and lifecycle to the campaign behavior set.</td><td>Campaign construction and faction restoration</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CampaignWarManagerBehavior">CampaignWarManagerBehavior</a></td><td>Maintains campaign-level war-manager state and responds to diplomacy and war events.</td><td>War, peace, and daily diplomacy progression</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CaravanConversationsCampaignBehavior">CaravanConversationsCampaignBehavior</a></td><td>Registers conversation, trade, and leave conditions for caravan encounters.</td><td>Caravan encounter startup</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CaravansCampaignBehavior">CaravansCampaignBehavior</a></td><td>Spawns and manages caravans, trade logs, player interactions, and trade-related save containers.</td><td>Daily caravan progression, trade events, and load</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CaravansCampaignBehaviorTypeDefiner">CaravansCampaignBehaviorTypeDefiner</a></td><td>Registers save definitions for caravan interactions, trade logs, and log containers.</td><td>Save type-definition construction</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CharacterCreationCampaignBehavior">CharacterCreationCampaignBehavior</a></td><td>Connects character-creation occupations, culture, and opening behavior to the campaign lifecycle.</td><td>Character-creation completion and opening setup</td></tr>
+</tbody></table>
+<h2 id="real-lookup-and-registration-path">Real lookup and registration path</h2>
+<p>After the campaign exists, obtain an interface or behavior from <code>Campaign.Current</code>; do not construct an official instance yourself or repeat its registration logic from <code>RegisterEvents</code>.</p>
+<pre><code data-lang="csharp">using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
+
+IAllianceCampaignBehavior alliances =
+    Campaign.Current.GetCampaignBehavior&lt;IAllianceCampaignBehavior&gt;();
+Kingdom firstKingdom = Kingdom.All.FirstOrDefault();
+Kingdom secondKingdom = Kingdom.All.Skip(1).FirstOrDefault();
+if (alliances != null &amp;&amp; firstKingdom != null &amp;&amp; secondKingdom != null)
+{
+    bool hasAlliance = alliances.IsAllyWithKingdom(firstKingdom, secondKingdom);
+}
+</code></pre>
+<p><code>GetCampaignBehavior&lt;T&gt;()</code> returns the instance assembled by the campaign. Check the actual interface and null conditions in the source before calling a member. A custom behavior belongs in <code>CampaignGameStarter.AddBehavior</code>, with its state synchronized in <code>SyncData(IDataStore)</code> rather than a static field.</p>
+<h2 id="crash-and-corrupt-save-boundaries">Crash and corrupt-save boundaries</h2>
+<ul>
+<li>The <code>CampaignBehaviorManager</code> list, event registration, and save/load order are coupled. Adding the same behavior twice duplicates rewards, dialogs, and event reactions.</li>
+<li><code>Alliance</code>, <code>CallToWarAgreement</code>, bandit interactions, and caravan trade logs depend on stable <code>SaveableTypeDefiner</code> IDs. Changing field order or IDs can make old saves unreadable.</li>
+<li><code>AgingCampaignBehavior</code>, <code>BuildingsCampaignBehavior</code>, and <code>CaravansCampaignBehavior</code> run from daily ticks; do not replay daily progression manually from a UI callback.</li>
+<li>Behavior callbacks can receive destroyed parties, completed encounters, or no active campaign. Keep the lifecycle checks used by the source implementation.</li>
+</ul>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li><strong>Parent:</strong> <a href="../behaviors/">Behaviors family</a></li>
+<li><strong>Siblings:</strong> <a href="../actions/">Actions</a>, <a href="../models/">Models</a>, <a href="../issues/">Issues</a>, <a href="../quests/">Quests</a></li>
+<li><strong>Related:</strong> <a href="../CampaignBehaviorBase">CampaignBehaviorBase</a>, <a href="../CampaignEvents">CampaignEvents</a>, <a href="../CampaignGameStarter">CampaignGameStarter</a></li>
+<li><strong>Risk guide:</strong> <a href="../../../architecture/crash-boundaries">Crash boundaries</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

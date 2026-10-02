@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engine Core</title>
+  <meta name="description" content="TaleWorlds.Native.dll engine core class reference">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="active">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/native-1.3.15-src/engine-core/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/native-1.3.15-src/engine-core/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" open>
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="active">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;native-1.3.15-src&#x2F;">Native 1.3.15 Source Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Engine Core</span>
+    </nav>
+  
+  <h1>Engine Core</h1>
+  <h1 id="engine-core">Engine Core</h1>
+<h2 id="overview">Overview</h2>
+<p>The engine core module contains core interfaces and implementations for TaleWorlds.Native.dll.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Treat <code>Engine Core</code> as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.</p>
+<h2 id="core-classes">Core Classes</h2>
+<h3 id="core">Core</h3>
+<p>Engine core interface.</p>
+<pre><code data-lang="cpp">Core::vftable
+</code></pre>
+<p><strong>Main Methods:</strong></p>
+<ul>
+<li><code>Initialize()</code> - Initialize engine</li>
+<li><code>Tick()</code> - Per-frame update</li>
+<li><code>Shutdown()</code> - Shutdown engine</li>
+</ul>
+<h3 id="coreimpl">CoreImpl</h3>
+<p>Engine core implementation class.</p>
+<pre><code data-lang="cpp">CoreImpl::vftable
+</code></pre>
+<h3 id="managed-engine-callbacks">Managed_engine_callbacks</h3>
+<p>Managed engine callbacks interface. Handles communication between C# managed code and native engine.</p>
+<pre><code data-lang="cpp">Managed_engine_callbacks::vftable
+</code></pre>
+<p><strong>Purpose:</strong> Manage communication between managed code and engine</p>
+<h3 id="managed-library-callbacks">Managed_library_callbacks</h3>
+<p>Managed library callbacks interface.</p>
+<pre><code data-lang="cpp">Managed_library_callbacks::vftable
+</code></pre>
+<h3 id="managed-interface">Managed_interface</h3>
+<p>Managed interface base class.</p>
+<pre><code data-lang="cpp">Managed_interface::vftable
+</code></pre>
+<h3 id="managed-core-callbacks">Managed_core_callbacks</h3>
+<p>Core callbacks interface.</p>
+<pre><code data-lang="cpp">Managed_core_callbacks::vftable
+</code></pre>
+<h3 id="rgllibrary-interface">rglLibrary_interface</h3>
+<p>rgl library interface.</p>
+<pre><code data-lang="cpp">rglLibrary_interface::vftable
+</code></pre>
+<h3 id="rglmanaged-interface">rglManaged_interface</h3>
+<p>rgl managed interface.</p>
+<pre><code data-lang="cpp">rglManaged_interface::vftable
+</code></pre>
+<h3 id="rglmanaged-message-interface">rglManaged_message_interface</h3>
+<p>rgl managed message interface.</p>
+<pre><code data-lang="cpp">rglManaged_message_interface::vftable
+</code></pre>
+<h3 id="rglmessage-interface">rglMessage_interface</h3>
+<p>Message interface.</p>
+<pre><code data-lang="cpp">rglMessage_interface::vftable
+</code></pre>
+<h3 id="rglapplication-base">rglApplication_base</h3>
+<p>Application base class.</p>
+<pre><code data-lang="cpp">rglApplication_base::vftable
+</code></pre>
+<h3 id="rglapp-window-base">rglApp_window_base</h3>
+<p>Application window base class.</p>
+<pre><code data-lang="cpp">rglApp_window_base::vftable
+</code></pre>
+<h3 id="rglapp-window-winapi">rglApp_window_winapi</h3>
+<p>Windows API application window.</p>
+<pre><code data-lang="cpp">rglApp_window_winapi::vftable
+</code></pre>
+<h2 id="ftdn-interfaces">FTDN Interfaces</h2>
+<p>FTDN (Foreign Type Description Network) is TaleWorlds' cross-language type system.</p>
+<h3 id="ftdnmanaged-interface">ftdnManaged_interface</h3>
+<p>Managed interface.</p>
+<pre><code data-lang="cpp">ftdnManaged_interface::vftable
+</code></pre>
+<h3 id="ftdnnative-array">ftdnNative_array</h3>
+<p>Native array interface. Provides ability to interact with C# NativeArray.</p>
+<pre><code data-lang="cpp">ftdnNative_array::vftable
+</code></pre>
+<h3 id="ftdnnative-string">ftdnNative_string</h3>
+<p>Native string interface. Provides ability to interact with C# NativeString.</p>
+<pre><code data-lang="cpp">ftdnNative_string::vftable
+</code></pre>
+<h3 id="ftdnnative-object-array">ftdnNative_object_array</h3>
+<p>Native object array interface. Provides ability to interact with C# NativeObjectArray.</p>
+<pre><code data-lang="cpp">ftdnNative_object_array::vftable
+</code></pre>
+<h2 id="key-functions">Key Functions</h2>
+<p>For more exported functions, startup entry points, and managed callback registration details, see <a href="../exports-and-bridge/">Exports and Managed Bridge</a>.</p>
+<h3 id="pass-managed-library-callback-method-pointers">pass_managed_library_callback_method_pointers</h3>
+<pre><code data-lang="c">void pass_managed_library_callback_method_pointers(undefined8 param_1)
+</code></pre>
+<p><strong>Description:</strong> DLL entry point function, registers managed callback function pointers</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>param_1</code> - Callback function pointer array</li>
+</ul>
+<p><strong>Called when:</strong> Called by C# runtime when DLL is loaded</p>
+<h2 id="memory-management">Memory Management</h2>
+<h3 id="rglreference-counted-object">rglReference_counted_object</h3>
+<p>Reference counted object base class.</p>
+<pre><code data-lang="cpp">rglReference_counted_object::vftable
+</code></pre>
+<h3 id="rglreference-counted-atomic">rglReference_counted_atomic</h3>
+<p>Atomic reference counted object.</p>
+<pre><code data-lang="cpp">rglReference_counted_atomic::vftable
+</code></pre>
+<h3 id="blockbasedallocator">BlockBasedAllocator</h3>
+<p>Block memory allocator.</p>
+<pre><code data-lang="cpp">BlockBasedAllocator::vftable
+</code></pre>
+<h3 id="heap-allocator">Heap_allocator</h3>
+<p>Heap memory allocator.</p>
+<pre><code data-lang="cpp">Heap_allocator::vftable
+</code></pre>
+<h2 id="thread-management">Thread Management</h2>
+<h3 id="rglworker-thread">rglWorker_thread</h3>
+<p>Worker thread.</p>
+<pre><code data-lang="cpp">rglWorker_thread::vftable
+</code></pre>
+<h3 id="rglworker-thread-block-task">rglWorker_thread_block_task</h3>
+<p>Worker thread block task.</p>
+<pre><code data-lang="cpp">rglWorker_thread_block_task::vftable
+</code></pre>
+<h3 id="rglpersistent-background-thread">rglPersistent_background_thread</h3>
+<p>Persistent background thread.</p>
+<pre><code data-lang="cpp">rglPersistent_background_thread::vftable
+</code></pre>
+<h2 id="task-system">Task System</h2>
+<h3 id="rglsimpletask">rglSimpleTask</h3>
+<p>Simple task.</p>
+<pre><code data-lang="cpp">rglSimpleTask::vftable
+</code></pre>
+<h3 id="rglsimpletask-unwaitable">rglSimpleTask_unwaitable</h3>
+<p>Unwaitable simple task.</p>
+<pre><code data-lang="cpp">rglSimpleTask_unwaitable::vftable
+</code></pre>
+<h3 id="rglmanaged-concurrent-task">rglManaged_concurrent_task</h3>
+<p>Managed concurrent task.</p>
+<pre><code data-lang="cpp">rglManaged_concurrent_task::vftable
+</code></pre>
+<h3 id="rglconcurrent-task-base">rglConcurrent_task_base</h3>
+<p>Concurrent task base class.</p>
+<pre><code data-lang="cpp">rglConcurrent_task_base::vftable
+</code></pre>
+<h3 id="rglconcurrent-unwaitable-task-base">rglConcurrent_unwaitable_task_base</h3>
+<p>Unwaitable concurrent task base class.</p>
+<pre><code data-lang="cpp">rglConcurrent_unwaitable_task_base::vftable
+</code></pre>
+<h2 id="callback-interfaces">Callback Interfaces</h2>
+<h3 id="ilocker">ILocker</h3>
+<p>Locker interface.</p>
+<h3 id="ilogger">ILogger</h3>
+<p>Logger interface.</p>
+<pre><code data-lang="cpp">ILogger::vftable
+</code></pre>
+<h3 id="ijobscheduler">IJobScheduler</h3>
+<p>Job scheduler interface.</p>
+<pre><code data-lang="cpp">IJobScheduler::vftable
+</code></pre>
+<h2 id="module-extensions">Module Extensions</h2>
+<h3 id="ftmmmodule-extension">ftmmModule_extension</h3>
+<p>Module extension base class.</p>
+<pre><code data-lang="cpp">ftmmModule_extension::vftable
+</code></pre>
+<h3 id="ftmmsteam-module-extension">ftmmSteam_module_extension</h3>
+<p>Steam module extension.</p>
+<pre><code data-lang="cpp">ftmmSteam_module_extension::vftable
+</code></pre>
+<h3 id="ftmmepic-module-extension">ftmmEpic_module_extension</h3>
+<p>Epic module extension.</p>
+<pre><code data-lang="cpp">ftmmEpic_module_extension::vftable
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Example: check native export signatures before using P/Invoke.
+</code></pre>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/native-1.3.15-src/">Native 1.3.15 Source Reference</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/native-1.3.15-src/exports-and-bridge/">&larr; Exports and Managed Bridge</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES/">COMPLETE-TYPES &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

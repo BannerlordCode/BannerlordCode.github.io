@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CharacterObject</title>
+  <meta name="description" content="CharacterObject 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/CharacterObject/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="active">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">战役 API — v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CharacterObject</span>
+    </nav>
+  
+  <h1>CharacterObject</h1>
+  <h1 id="characterobject">CharacterObject</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public sealed class CharacterObject : BasicCharacterObject, ICharacterData</code>
+<strong>Base:</strong> <code>BasicCharacterObject</code>
+<strong>File:</strong> <code>bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CharacterObject.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>CharacterObject</code> 位于 <code>TaleWorlds.CampaignSystem</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.CampaignSystem</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>Name</code></td><td><code>public override TextObject Name { get; }</code></td></tr>
+<tr><td><code>EncyclopediaLink</code></td><td><code>public string EncyclopediaLink { get; }</code></td></tr>
+<tr><td><code>EncyclopediaLinkWithName</code></td><td><code>public TextObject EncyclopediaLinkWithName { get; }</code></td></tr>
+<tr><td><code>HiddenInEncyclopedia</code></td><td><code>public bool HiddenInEncyclopedia { get; set; }</code></td></tr>
+<tr><td><code>HeroObject</code></td><td><code>public Hero HeroObject { get; set; }</code></td></tr>
+<tr><td><code>Equipment</code></td><td><code>public override Equipment Equipment { get; }</code></td></tr>
+<tr><td><code>BattleEquipments</code></td><td><code>public override IEnumerable&lt;Equipment&gt; BattleEquipments { get; }</code></td></tr>
+<tr><td><code>CivilianEquipments</code></td><td><code>public override IEnumerable&lt;Equipment&gt; CivilianEquipments { get; }</code></td></tr>
+<tr><td><code>StealthEquipments</code></td><td><code>public IEnumerable&lt;Equipment&gt; StealthEquipments { get; }</code></td></tr>
+<tr><td><code>FirstBattleEquipment</code></td><td><code>public override Equipment FirstBattleEquipment { get; }</code></td></tr>
+<tr><td><code>FirstCivilianEquipment</code></td><td><code>public override Equipment FirstCivilianEquipment { get; }</code></td></tr>
+<tr><td><code>FirstStealthEquipment</code></td><td><code>public Equipment FirstStealthEquipment { get; }</code></td></tr>
+<tr><td><code>RandomBattleEquipment</code></td><td><code>public override Equipment RandomBattleEquipment { get; }</code></td></tr>
+<tr><td><code>RandomCivilianEquipment</code></td><td><code>public override Equipment RandomCivilianEquipment { get; }</code></td></tr>
+<tr><td><code>HitPoints</code></td><td><code>public override int HitPoints { get; }</code></td></tr>
+<tr><td><code>RandomStealthEquipment</code></td><td><code>public Equipment RandomStealthEquipment { get; }</code></td></tr>
+<tr><td><code>Level</code></td><td><code>public override int Level { get; }</code></td></tr>
+<tr><td><code>Culture</code></td><td><code>public new CultureObject Culture { get; }</code></td></tr>
+<tr><td><code>IsFemale</code></td><td><code>public override bool IsFemale { get; }</code></td></tr>
+<tr><td><code>IsBasicTroop</code></td><td><code>public bool IsBasicTroop { get; }</code></td></tr>
+<tr><td><code>IsTemplate</code></td><td><code>public bool IsTemplate { get; }</code></td></tr>
+<tr><td><code>IsChildTemplate</code></td><td><code>public bool IsChildTemplate { get; }</code></td></tr>
+<tr><td><code>Occupation</code></td><td><code>public Occupation Occupation { get; }</code></td></tr>
+<tr><td><code>UpgradeTargets</code></td><td><code>public CharacterObject UpgradeTargets { get; }</code></td></tr>
+<tr><td><code>UpgradeRequiresItemFromCategory</code></td><td><code>public ItemCategory UpgradeRequiresItemFromCategory { get; }</code></td></tr>
+<tr><td><code>IsMounted</code></td><td><code>public override bool IsMounted { get; }</code></td></tr>
+<tr><td><code>IsRanged</code></td><td><code>public override bool IsRanged { get; }</code></td></tr>
+<tr><td><code>TroopWage</code></td><td><code>public int TroopWage { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="tostring">ToString</h3>
+<p><code>public override string ToString()</code></p>
+<p><strong>用途 / Purpose:</strong> 返回当前对象的人类可读字符串表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.ToString();
+</code></pre>
+<h3 id="maxhitpoints">MaxHitPoints</h3>
+<p><code>public override int MaxHitPoints()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MaxHitPoints 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.MaxHitPoints();
+</code></pre>
+<h3 id="createfrom">CreateFrom</h3>
+<p><code>public static CharacterObject CreateFrom(CharacterObject character, StaticBodyProperties? staticBodyProperties = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 from 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CharacterObject.CreateFrom(character, null);
+</code></pre>
+<h3 id="afterregister">AfterRegister</h3>
+<p><code>public override void AfterRegister()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AfterRegister 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+characterObject.AfterRegister();
+</code></pre>
+<h3 id="getbodypropertiesmin">GetBodyPropertiesMin</h3>
+<p><code>public override BodyProperties GetBodyPropertiesMin(bool returnBaseValue = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 body properties min 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetBodyPropertiesMin(false);
+</code></pre>
+<h3 id="getbodypropertiesmax">GetBodyPropertiesMax</h3>
+<p><code>public override BodyProperties GetBodyPropertiesMax(bool returnBaseValue = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 body properties max 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetBodyPropertiesMax(false);
+</code></pre>
+<h3 id="updateplayercharacterbodyproperties">UpdatePlayerCharacterBodyProperties</h3>
+<p><code>public override void UpdatePlayerCharacterBodyProperties(BodyProperties properties, int race, bool isFemale)</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 player character body properties 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+characterObject.UpdatePlayerCharacterBodyProperties(properties, 0, false);
+</code></pre>
+<h3 id="getdefaultoccupation">GetDefaultOccupation</h3>
+<p><code>public Occupation GetDefaultOccupation()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 default occupation 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetDefaultOccupation();
+</code></pre>
+<h3 id="hasthrowingweapon">HasThrowingWeapon</h3>
+<p><code>public bool HasThrowingWeapon()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 throwing weapon。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.HasThrowingWeapon();
+</code></pre>
+<h3 id="getupgradexpcost">GetUpgradeXpCost</h3>
+<p><code>public int GetUpgradeXpCost(PartyBase party, int index)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 upgrade xp cost 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetUpgradeXpCost(party, 0);
+</code></pre>
+<h3 id="getupgradegoldcost">GetUpgradeGoldCost</h3>
+<p><code>public int GetUpgradeGoldCost(PartyBase party, int index)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 upgrade gold cost 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetUpgradeGoldCost(party, 0);
+</code></pre>
+<h3 id="initializeherocharacteronafterload">InitializeHeroCharacterOnAfterLoad</h3>
+<p><code>public void InitializeHeroCharacterOnAfterLoad()</code></p>
+<p><strong>用途 / Purpose:</strong> 为 hero character on after load 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+characterObject.InitializeHeroCharacterOnAfterLoad();
+</code></pre>
+<h3 id="deserialize">Deserialize</h3>
+<p><code>public override void Deserialize(MBObjectManager objectManager, XmlNode node)</code></p>
+<p><strong>用途 / Purpose:</strong> 从序列化数据还原当前对象。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+characterObject.Deserialize(objectManager, node);
+</code></pre>
+<h3 id="getpower">GetPower</h3>
+<p><code>public override float GetPower()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 power 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetPower();
+</code></pre>
+<h3 id="getbattlepower">GetBattlePower</h3>
+<p><code>public override float GetBattlePower()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 battle power 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetBattlePower();
+</code></pre>
+<h3 id="getmoraleresistance">GetMoraleResistance</h3>
+<p><code>public override float GetMoraleResistance()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 morale resistance 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetMoraleResistance();
+</code></pre>
+<h3 id="getsimulationattackpower">GetSimulationAttackPower</h3>
+<p><code>public void GetSimulationAttackPower(out float attackPoints, out float defencePoints, Equipment equipment = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 simulation attack power 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+characterObject.GetSimulationAttackPower(attackPoints, defencePoints, null);
+</code></pre>
+<h3 id="getheadarmorsum">GetHeadArmorSum</h3>
+<p><code>public float GetHeadArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 head armor sum 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetHeadArmorSum(equipment.EquipmentType.Battle);
+</code></pre>
+<h3 id="getbodyarmorsum">GetBodyArmorSum</h3>
+<p><code>public float GetBodyArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 body armor sum 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetBodyArmorSum(equipment.EquipmentType.Battle);
+</code></pre>
+<h3 id="getlegarmorsum">GetLegArmorSum</h3>
+<p><code>public float GetLegArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 leg armor sum 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetLegArmorSum(equipment.EquipmentType.Battle);
+</code></pre>
+<h3 id="getarmarmorsum">GetArmArmorSum</h3>
+<p><code>public float GetArmArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 arm armor sum 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetArmArmorSum(equipment.EquipmentType.Battle);
+</code></pre>
+<h3 id="gethorsearmorsum">GetHorseArmorSum</h3>
+<p><code>public float GetHorseArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 horse armor sum 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetHorseArmorSum(equipment.EquipmentType.Battle);
+</code></pre>
+<h3 id="gettotalarmorsum">GetTotalArmorSum</h3>
+<p><code>public float GetTotalArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 total armor sum 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetTotalArmorSum(equipment.EquipmentType.Battle);
+</code></pre>
+<h3 id="getbodyproperties">GetBodyProperties</h3>
+<p><code>public override BodyProperties GetBodyProperties(Equipment equipment, int seed = -1)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 body properties 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetBodyProperties(equipment, 0);
+</code></pre>
+<h3 id="settransferableinpartyscreen">SetTransferableInPartyScreen</h3>
+<p><code>public void SetTransferableInPartyScreen(bool isTransferable)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 transferable in party screen 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+characterObject.SetTransferableInPartyScreen(false);
+</code></pre>
+<h3 id="settransferableinhideouts">SetTransferableInHideouts</h3>
+<p><code>public void SetTransferableInHideouts(bool isTransferable)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 transferable in hideouts 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+characterObject.SetTransferableInHideouts(false);
+</code></pre>
+<h3 id="clearattributes">ClearAttributes</h3>
+<p><code>public void ClearAttributes()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的attributes。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+characterObject.ClearAttributes();
+</code></pre>
+<h3 id="gettraitlevel">GetTraitLevel</h3>
+<p><code>public int GetTraitLevel(TraitObject trait)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 trait level 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetTraitLevel(trait);
+</code></pre>
+<h3 id="getperkvalue">GetPerkValue</h3>
+<p><code>public bool GetPerkValue(PerkObject perk)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 perk value 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetPerkValue(perk);
+</code></pre>
+<h3 id="getskillvalue">GetSkillValue</h3>
+<p><code>public override int GetSkillValue(SkillObject skill)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 skill value 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetSkillValue(skill);
+</code></pre>
+<h3 id="getpersona">GetPersona</h3>
+<p><code>public TraitObject GetPersona()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 persona 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetPersona();
+</code></pre>
+<h3 id="getmountkeyseed">GetMountKeySeed</h3>
+<p><code>public override int GetMountKeySeed()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 mount key seed 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetMountKeySeed();
+</code></pre>
+<h3 id="getformationclass">GetFormationClass</h3>
+<p><code>public override FormationClass GetFormationClass()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 formation class 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 CharacterObject 实例
+CharacterObject characterObject = ...;
+var result = characterObject.GetFormationClass();
+</code></pre>
+<h3 id="find">Find</h3>
+<p><code>public static CharacterObject Find(string idString)</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找匹配项。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CharacterObject.Find(&quot;example&quot;);
+</code></pre>
+<h3 id="findfirst">FindFirst</h3>
+<p><code>public static CharacterObject FindFirst(Predicate&lt;CharacterObject&gt; predicate)</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找满足条件的first。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CharacterObject.FindFirst(predicate);
+</code></pre>
+<h3 id="findall">FindAll</h3>
+<p><code>public static IEnumerable&lt;CharacterObject&gt; FindAll(Predicate&lt;CharacterObject&gt; predicate)</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找满足条件的all。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+CharacterObject.FindAll(predicate);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+CharacterObject characterObject = ...;
+characterObject.ToString();
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/zh/api/campaign/">战役 API — v1.4.5</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/zh/api/campaign/AllianceOfferMapNotification/">&larr; AllianceOfferMapNotification</a>
+          
+          
+            <a rel="next" href="/v1.4.5/zh/api/campaign/DefaultEncounterGameMenuModel/">DefaultEncounterGameMenuModel &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

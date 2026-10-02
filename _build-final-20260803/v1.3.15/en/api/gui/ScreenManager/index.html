@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ScreenManager</title>
+  <meta name="description" content="The static facade of Bannerlord&#x27;s GUI layer: it owns the screen stack, tracks the active top screen, manages global layers, and forwards the engine&#x27;s per-frame Tick&#x2F;LateTick&#x2F;Update to the active ScreenBase and its ScreenLayers.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/gui/ScreenManager/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/gui/ScreenManager/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/gui/ScreenManager/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/gui/ScreenManager/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="active">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;gui&#x2F;">gui index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">ScreenManager</span>
+    </nav>
+  
+  <h1>ScreenManager</h1>
+  <h1 id="screenmanager">ScreenManager</h1>
+<p><strong>Namespace:</strong> TaleWorlds.ScreenSystem
+<strong>Module:</strong> TaleWorlds.ScreenSystem
+<strong>Type:</strong> <code>public static class ScreenManager</code>
+<strong>Source:</strong> <code>TaleWorlds.ScreenSystem/ScreenManager.cs</code></p>
+<blockquote>
+<p>This is a hand-written, source-backed page. It is based on a direct reading of <code>TaleWorlds.ScreenSystem/ScreenManager.cs</code> (identical in shape across 1.3.15 and 1.4.5) together with <code>TaleWorlds.Engine/EngineScreenManager.cs</code> and <code>ScreenManagerEngineConnection.cs</code>. It is not a signature-dump.</p>
+</blockquote>
+<h2 id="overview">Overview</h2>
+<p><code>ScreenManager</code> is the <strong>static facade</strong> of Bannerlord's UI (GUI) system and the single public entry point modders use to touch the screen/interface layer. It maintains a screen stack (<code>ObservableCollection&lt;ScreenBase&gt;</code>) and selects the <strong>last-added, topmost</strong> screen as the current — and only interactable — screen, <code>TopScreen</code>. Every frame the engine pumps <code>Tick</code> / <code>LateTick</code> / <code>EarlyUpdate</code> / <code>Update</code> into <code>ScreenManager</code> via <code>EngineScreenManager</code>, and <code>ScreenManager</code> dispatches them to <code>TopScreen</code> and its <code>ScreenLayer</code>s (plus all <code>GlobalLayer</code>s). For almost every UI need a mod has, the answer is one of two things: <strong>push your own <code>ScreenBase</code></strong>, or <strong>add a <code>GauntletLayer</code> to the current <code>TopScreen</code></strong>.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of <code>ScreenManager</code> as the <strong>"screen stack + current screen + input/render dispatcher"</strong> for the whole UI layer:</p>
+<ul>
+<li><strong>A screen is a unit of game state.</strong> Bannerlord has no separate <code>GameStateManager</code> layer; a <code>ScreenBase</code> (the main menu, the campaign map, a conversation) <em>is</em> a chunk of interface/game state. Pushing a screen (<code>PushScreen</code>) means "enter this state"; popping (<code>PopScreen</code>) means "return to the previous one". The stack is ordered oldest-to-newest from bottom to top, and <code>TopScreen</code> is always the one being interacted with.</li>
+<li><strong>Who creates and holds it.</strong> <code>ScreenManager</code> is a static class with no instance. The engine injects the low-level connection through <code>Initialize(IScreenManagerEngineConnection)</code> at startup and it lives for the whole session. The stack <code>_screenList</code> is privately held; modders only ever touch it through <code>PushScreen</code> / <code>PopScreen</code> / <code>TopScreen</code>.</li>
+<li><strong>How the active screen is chosen.</strong> Whenever <code>_screenList</code> changes (<code>CollectionChanged</code>), <code>ScreenManager</code> takes the <strong>last</strong> element as <code>TopScreen</code> and wires up its <code>OnAddLayer</code> / <code>OnRemoveLayer</code> events so <code>SortedLayers</code> reflects the current screen's layers. In other words: the screen you push automatically becomes <code>TopScreen</code> — you never name it explicitly.</li>
+<li><strong>The per-frame heartbeat comes from the engine, not from you.</strong> <code>EngineScreenManager.Tick</code> → <code>ScreenManager.Tick(dt)</code> → <code>TopScreen.FrameTick</code> + each <code>ScreenLayer.Tick/RenderTick</code>. Modders should <strong>not</strong> call <code>Tick</code> / <code>LateTick</code> / <code>Update</code> / <code>EarlyUpdate</code> themselves; those are engine-driven. You write your logic in the screen/layer lifecycle hooks (<code>OnInitialize</code> / <code>OnTick</code> / <code>OnFrameTick</code>, etc.).</li>
+<li><strong>Global layers coexist with screen layers.</strong> Besides the screen stack there is a <code>GlobalLayer</code> collection (a persistent hint layer, debug overlay, etc.) that ticks independently <em>above</em> all screens and participates in <code>SortedLayers</code> ordering and input hit-testing alongside <code>TopScreen.Layers</code>.</li>
+</ul>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p><strong>Use <code>ScreenManager</code> when:</strong></p>
+<ul>
+<li>You need to enter a whole new interface state: write a <code>ScreenBase</code> subclass, then <code>ScreenManager.PushScreen(new MyScreen())</code>.</li>
+<li>You want to overlay a Gauntlet UI on the <strong>already-existing</strong> screen (the most common case): grab <code>ScreenManager.TopScreen</code> and <code>AddLayer(gauntletLayer)</code> to it.</li>
+<li>You want to read or test which screen is active: <code>ScreenManager.TopScreen</code>.</li>
+<li>You need a UI that stays on top of <em>every</em> screen: <code>ScreenManager.AddGlobalLayer(globalLayer, isFocusable)</code>.</li>
+<li>You want to be notified on screen transitions: subscribe to <code>ScreenManager.OnPushScreen</code> / <code>ScreenManager.OnPopScreen</code>.</li>
+</ul>
+<p><strong>Do NOT use <code>ScreenManager</code> (and the correct alternative):</strong></p>
+<ul>
+<li><strong>Do not</strong> call <code>Tick</code> / <code>LateTick</code> / <code>Update</code> / <code>EarlyUpdate</code> manually — they are driven by the engine every frame; manual calls break frame timing and can crash.</li>
+<li><strong>Do not</strong> <code>new</code> or hold <code>EngineScreenManager</code> / <code>ScreenManagerEngineConnection</code>. They are engine-internal plumbing (<code>EngineScreenManager</code> is <code>internal</code>; <code>ScreenManagerEngineConnection</code> is constructed and injected by the engine inside <code>EngineScreenManager.Initialize()</code>). Always go through the static <code>ScreenManager</code> API.</li>
+<li><strong>Do not</strong> assume there are <code>AddScreen</code> / <code>RemoveScreen</code> / <code>CurrentScreen</code> members — they <strong>do not exist</strong> in the source. Pushing is <code>PushScreen</code> / <code>CleanAndPushScreen</code>, popping is <code>PopScreen</code> / <code>CleanScreens</code>, and the current screen is <strong><code>TopScreen</code></strong> (not <code>Current</code> / <code>CurrentScreen</code>).</li>
+<li><strong>Do not</strong> switch screens off the UI thread: <code>PushScreen</code> / <code>PopScreen</code> / <code>CleanScreens</code> / <code>CleanAndPushScreen</code> carry a main-thread <code>FailedAssert</code> guard in 1.4.5, and even in 1.3.15 (no assert) they may only be called on the <strong>main/UI thread</strong>, or you corrupt <code>_screenList</code> and the layer state and crash.</li>
+</ul>
+<h2 id="screenmanager-vs-enginescreenmanager-vs-screenmanagerengineconnection">ScreenManager vs EngineScreenManager vs ScreenManagerEngineConnection</h2>
+<p>These three names are close but have completely different jobs. Modders only touch the first:</p>
+<table><thead><tr><th>Type</th><th>Namespace / Assembly</th><th>Visibility</th><th>Role</th></tr></thead><tbody>
+<tr><td><code>ScreenManager</code></td><td><code>TaleWorlds.ScreenSystem</code></td><td><code>public static</code></td><td><strong>The facade you use</strong>: owns the screen stack, global layers, and current screen; exposes <code>PushScreen</code> / <code>PopScreen</code> / <code>TopScreen</code>.</td></tr>
+<tr><td><code>EngineScreenManager</code></td><td><code>TaleWorlds.Engine</code></td><td><code>internal</code></td><td><strong>The engine bridge</strong>: marked with <code>[EngineCallback]</code>, it receives the native engine's per-frame callbacks and forwards them to <code>ScreenManager.Tick/LateTick/EarlyUpdate/Update</code>, and at startup calls <code>ScreenManager.Initialize(new ScreenManagerEngineConnection())</code>. Invisible and uncallable from mods.</td></tr>
+<tr><td><code>ScreenManagerEngineConnection</code> (implements <code>IScreenManagerEngineConnection</code>)</td><td><code>TaleWorlds.Engine</code> / interface in <code>TaleWorlds.ScreenSystem</code></td><td><code>public class</code> / <code>public interface</code></td><td><strong>The low-level connection</strong>: translates <code>ScreenManager</code>'s requests for mouse cursor, resolution, and debug panel (ImGui) into native <code>Screen</code> / <code>MouseManager</code> / <code>Imgui</code> calls. Injected by the engine; mods do not construct it.</td></tr>
+</tbody></table>
+<p>In one line: <code>ScreenManager</code> is the dispatcher you call, <code>EngineScreenManager</code> is the bridge that drives it, and <code>ScreenManagerEngineConnection</code> is its plug into the native render backend.</p>
+<h2 id="dependencies">Dependencies</h2>
+<p><strong>Upstream (creates / drives / injects):</strong></p>
+<ul>
+<li><a href="../../engine/EngineScreenManager/">EngineScreenManager</a> — the engine's per-frame callback entry into <code>ScreenManager</code> (<code>internal</code>, not used directly by mods).</li>
+<li><code>IScreenManagerEngineConnection</code> / <code>ScreenManagerEngineConnection</code> (same family as <a href="../../engine/EngineScreenManager/">EngineScreenManager</a>) — injected via <code>Initialize(...)</code>, providing the cursor/resolution/debug-panel backend.</li>
+<li><a href="../../campaign-ext/ScreenBase/">ScreenBase</a> — the unit pushed onto the stack; <code>ScreenManager</code> owns and drives it.</li>
+</ul>
+<p><strong>Downstream (driven by it / what you overlay on it):</strong></p>
+<ul>
+<li><a href="../../campaign-ext/ScreenLayer/">ScreenLayer</a> — the inputtable/renderable layer inside screens and global layers; <code>SortedLayers</code> is built from these.</li>
+<li><a href="../../engine/GauntletLayer/">GauntletLayer</a> — the concrete <code>ScreenLayer</code> that hosts Gauntlet UI (XAML + ViewModel), usually overlaid via <code>TopScreen.AddLayer(...)</code>.</li>
+<li><a href="../../core-extra/ViewModel/">ViewModel</a> — the data-binding source for Gauntlet UI, attached to a <code>GauntletLayer</code>.</li>
+<li><a href="../../core-extra/Game/">Game</a> — the running game session that drives the overall screen lifecycle (e.g. which root screen is activated).</li>
+</ul>
+<h2 id="members">Members</h2>
+<p>The members modders use most, each confirmed line-by-line against the source. Each entry gives <strong>purpose + side effect + when to call</strong>. The non-existent <code>AddScreen</code> / <code>RemoveScreen</code> / <code>CurrentScreen</code> are explicitly absent — do not use them.</p>
+<h3 id="stack-management-push-pop-clear">Stack management (push / pop / clear)</h3>
+<h4 id="public-static-void-pushscreen-screenbase-screen"><code>public static void PushScreen(ScreenBase screen)</code></h4>
+<p>Pushes <code>screen</code> onto the screen stack, making it the new <code>TopScreen</code>.</p>
+<ul>
+<li><strong>Side effect</strong>: pauses the old <code>TopScreen</code> (<code>HandlePause</code>) and <code>HandleDeactivate</code>s it if still active; then on the new screen runs <code>HandleInitialize</code> → <code>HandleActivate</code> → <code>HandleResume</code>; raises <code>OnPushScreen</code>; marks the global layer order dirty (<code>_globalOrderDirty</code>).</li>
+<li><strong>When to call</strong>: when you need to enter a new interface state — e.g. leaving the main menu for the campaign map, or opening a full-screen custom panel. Equivalent to "enter a new game state". <strong>Main thread only.</strong></li>
+<li><strong>Note</strong>: the old screen is merely paused/hidden and stays in the stack; a later <code>PopScreen()</code> returns to it.</li>
+</ul>
+<pre><code data-lang="csharp">// Enter a custom full-screen interface state
+ScreenManager.PushScreen(new RecruitmentScreen());
+</code></pre>
+<h4 id="public-static-void-popscreen"><code>public static void PopScreen()</code></h4>
+<p>Pops the current <code>TopScreen</code> off the top of the stack, returning to the previous screen.</p>
+<ul>
+<li><strong>Side effect</strong>: on the old <code>TopScreen</code> runs <code>HandlePause</code> → <code>HandleDeactivate</code> → <code>HandleFinalize</code> (<strong>this destroys the screen and its layers</strong>), raises <code>OnPopScreen</code>; if more screens remain, re-<code>HandleActivate</code>s the previous one (or <code>HandleResume</code>s it if it is the same instance).</li>
+<li><strong>When to call</strong>: when the screen you <code>PushScreen</code>ed should exit. <strong>Only pop a screen you yourself pushed</strong> — do not pop a system screen you did not push, or you break the engine's expected screen sequence and can corrupt the previous screen's state or crash.</li>
+<li><strong>Risk</strong>: <code>HandleFinalize</code> releases the screen's layers and resources; any <code>GauntletLayer</code> you added on it is destroyed too.</li>
+</ul>
+<pre><code data-lang="csharp">// Close the current custom screen and return to the previous one
+ScreenManager.PopScreen();
+</code></pre>
+<h4 id="public-static-void-cleanscreens"><code>public static void CleanScreens()</code></h4>
+<p><strong>Empties the entire screen stack</strong>: loops <code>HandlePause</code> → <code>HandleDeactivate</code> → <code>HandleFinalize</code> on each <code>TopScreen</code> and raises <code>OnPopScreen</code> until the stack is empty.</p>
+<ul>
+<li><strong>Side effect</strong>: destroys every screen. Normally only called by the engine/system when returning to the main menu or hard-switching game state.</li>
+<li><strong>When to call</strong>: modders generally <strong>should not</strong> call this unless you deliberately want to discard all interface state (e.g. force back to the main menu). Misuse wipes the engine's own screens and causes a black screen or crash.</li>
+</ul>
+<h4 id="public-static-void-cleanandpushscreen-screenbase-screen"><code>public static void CleanAndPushScreen(ScreenBase screen)</code></h4>
+<p>First <code>DeactivateAndFinalizeAllScreens()</code> to clear all existing screens, then pushes <code>screen</code> as the only screen (again <code>HandleInitialize</code> → <code>HandleActivate</code> → <code>HandleResume</code> and raising <code>OnPushScreen</code>).</p>
+<ul>
+<li><strong>Side effect</strong>: equivalent to "<code>CleanScreens()</code> + <code>PushScreen(screen)</code>" but fires <code>OnPushScreen</code> only once.</li>
+<li><strong>When to call</strong>: when you need to completely <em>replace</em> the current interface context (rather than overlay on it) — e.g. jumping from the campaign map straight into a standalone module's full-screen UI. Discarding everything in the stack, so use with care.</li>
+</ul>
+<pre><code data-lang="csharp">// Fully replace the current interface context, keeping only the new screen
+ScreenManager.CleanAndPushScreen(new ArenaScreen());
+</code></pre>
+<h4 id="public-static-void-replacetopscreen-screenbase-screen"><code>public static void ReplaceTopScreen(ScreenBase screen)</code></h4>
+<p>When the stack is non-empty: pause/deactivate/finalize the current <code>TopScreen</code>, then activate <code>screen</code> as the new <code>TopScreen</code>.</p>
+<ul>
+<li><strong>Side effect</strong>: like <code>PopScreen</code> + <code>PushScreen</code>, but does <strong>not</strong> keep the replaced old screen (direct <code>HandleFinalize</code>). If the stack is empty, <code>screen</code> is added as the root screen directly.</li>
+<li><strong>When to call</strong>: when you want to replace the current screen <strong>in place</strong> (rather than return to the previous one).</li>
+</ul>
+<h4 id="public-static-void-setandactivaterootscreen-screenbase-screen"><code>public static void SetAndActivateRootScreen(ScreenBase screen)</code></h4>
+<p>Activates <code>screen</code> as the <strong>root screen</strong> (first screen in the stack).</p>
+<ul>
+<li><strong>Side effect</strong>: if <code>TopScreen</code> is not <code>null</code> it throws <code>new Exception("TopScreen is not null.")</code>. On success: <code>HandleInitialize</code> → <code>HandleActivate</code> → <code>HandleResume</code> and raises <code>OnPushScreen</code>.</li>
+<li><strong>When to call</strong>: the engine uses this when starting up and entering the first real interface from the launch screen. Mods almost never need it; calling it while a screen already exists throws.</li>
+</ul>
+<h4 id="public-static-bool-screentypeexistsatlist-screenbase-screen"><code>public static bool ScreenTypeExistsAtList(ScreenBase screen)</code></h4>
+<p>Checks whether a screen of the <strong>same <code>Type</code></strong> as <code>screen</code> already exists in the stack.</p>
+<ul>
+<li><strong>Purpose</strong>: avoid pushing the same kind of screen twice (e.g. prevent opening the same panel repeatedly).</li>
+<li><strong>When to call</strong>: a de-duplication check before <code>PushScreen</code>.</li>
+</ul>
+<pre><code data-lang="csharp">if (!ScreenManager.ScreenTypeExistsAtList(myScreen))
+{
+    ScreenManager.PushScreen(myScreen);
+}
+</code></pre>
+<h3 id="current-screen-and-global-layers">Current screen and global layers</h3>
+<h4 id="public-static-screenbase-topscreen-get"><code>public static ScreenBase TopScreen { get; }</code></h4>
+<p>The current active screen — the last element of the screen stack. This is the real name of "current screen" in the source (<strong>not</strong> <code>Current</code> / <code>CurrentScreen</code>).</p>
+<ul>
+<li><strong>Purpose</strong>: grab the current screen to overlay a layer on it (the most common use), or test which interface state you are in.</li>
+<li><strong>Note</strong>: the setter is <code>private</code>; you <strong>cannot</strong> assign it — only <code>PushScreen</code> / <code>PopScreen</code> change it. Returns <code>null</code> when no screen is active.</li>
+</ul>
+<pre><code data-lang="csharp">// Overlay a Gauntlet UI layer on the current active screen (the most common UI injection)
+GauntletLayer layer = new GauntletLayer(&quot;GauntletUI&quot;, 0);
+layer.LoadMovie(&quot;MyWidget&quot;, myViewModel);
+ScreenManager.TopScreen.AddLayer(layer);
+</code></pre>
+<h4 id="public-static-void-addgloballayer-globallayer-layer-bool-isfocusable"><code>public static void AddGlobalLayer(GlobalLayer layer, bool isFocusable)</code></h4>
+<p>Adds a <code>GlobalLayer</code> to the global layer collection (stays on top of all screens).</p>
+<ul>
+<li><strong>Side effect</strong>: inserts at the right position by <code>layer.Layer.InputRestrictions.Order</code>, calls <code>layer.Layer.HandleActivate()</code>, and marks the global order dirty.</li>
+<li><strong>When to call</strong>: for UI that must persist across screens (a global input hint, a persistent minimap, a debug overlay). Do <strong>not</strong> use this for UI belonging to a single screen — that belongs on a specific <code>ScreenBase</code>.</li>
+</ul>
+<h4 id="public-static-void-removegloballayer-globallayer-layer"><code>public static void RemoveGlobalLayer(GlobalLayer layer)</code></h4>
+<p>Removes a <code>GlobalLayer</code> from the global collection and <code>HandleDeactivate</code>s it.</p>
+<ul>
+<li><strong>When to call</strong>: when a layer you previously <code>AddGlobalLayer</code>ed should be destroyed. Only remove your own layers.</li>
+</ul>
+<h3 id="input-routing-and-focus">Input routing and focus</h3>
+<h4 id="public-static-void-trysetfocus-screenlayer-layer"><code>public static void TrySetFocus(ScreenLayer layer)</code></h4>
+<p>Attempts to hand input focus to <code>layer</code>. Only succeeds if <code>layer</code> is the focus layer or passes the focus test, and the current <code>FocusedLayer</code>'s <code>InputRestrictions.Order</code> is not higher.</p>
+<ul>
+<li><strong>When to call</strong>: when your layer needs to grab input focus (e.g. opening a modal dialog).</li>
+</ul>
+<h4 id="public-static-void-trylosefocus-screenlayer-layer"><code>public static void TryLoseFocus(ScreenLayer layer)</code></h4>
+<p>If <code>layer</code> is the <code>FocusedLayer</code>, releases focus and tries to return it to the highest-order still-active <code>IsFocusLayer</code> layer; if none, <code>FocusedLayer = null</code>.</p>
+<h4 id="public-static-bool-islayerblockedatposition-screenlayer-layer-vector2-position"><code>public static bool IsLayerBlockedAtPosition(ScreenLayer layer, Vector2 position)</code></h4>
+<p>Hit-tests from the top layer downward to decide whether, at <code>position</code>, <code>layer</code> is blocked by a higher layer that consumes mouse buttons/wheel.</p>
+<ul>
+<li><strong>Purpose</strong>: decide whether a click/scroll should pass through to your layer.</li>
+</ul>
+<h4 id="public-static-bool-getmousevisibility-iscontrolleractive-ismousecursoractive-ismousecursorhidden"><code>public static bool GetMouseVisibility()</code> / <code>IsControllerActive()</code> / <code>IsMouseCursorActive()</code> / <code>IsMouseCursorHidden()</code></h4>
+<p>Query the current input device and mouse-cursor visibility state. Commonly used to decide whether the UI should show a virtual cursor based on the current screen.</p>
+<h3 id="engine-heartbeat-and-lifecycle">Engine heartbeat and lifecycle</h3>
+<p>These members are called by the engine every frame; <strong>modders usually should not call them manually</strong>. They are documented here to explain what they do and who drives them.</p>
+<h4 id="public-static-void-initialize-iscreenmanagerengineconnection-engineinterface"><code>public static void Initialize(IScreenManagerEngineConnection engineInterface)</code></h4>
+<p>Injects the low-level engine connection. The engine calls <code>ScreenManager.Initialize(new ScreenManagerEngineConnection())</code> inside <code>EngineScreenManager.Initialize()</code>; mods do not call it.</p>
+<h4 id="public-static-void-tick-float-dt"><code>public static void Tick(float dt)</code></h4>
+<p>The main per-frame update: ticks all <code>GlobalLayer.EarlyTick</code>, then <code>Update()</code>, then <code>TopScreen.FrameTick</code> + the predecessor screen's <code>IdleTick</code>, each <code>ScreenLayer.Tick</code>, <code>LateUpdate</code>, global-layer <code>Tick</code> / <code>LateTick</code>, <code>TopScreen.PostFrameTick</code>, and finally draws debug info. Driven by <code>EngineScreenManager.Tick</code>.</p>
+<h4 id="public-static-void-latetick-float-dt"><code>public static void LateTick(float dt)</code></h4>
+<p>The render phase: <code>RenderTick(dt)</code> on every active, not-finalized layer in <code>SortedLayers</code>. Driven by <code>EngineScreenManager.LateTick</code>.</p>
+<h4 id="public-static-void-update-ireadonlylist-int-lastkeyspressed"><code>public static void Update(IReadOnlyList&lt;int&gt; lastKeysPressed)</code></h4>
+<p>Dispatches this frame's key presses to <code>TopScreen.Update</code> and each active global layer. Driven by <code>EngineScreenManager.Update</code>.</p>
+<h4 id="public-static-void-earlyupdate-vec2-usablearea"><code>public static void EarlyUpdate(Vec2 usableArea)</code></h4>
+<p>Sets the usable area, refreshes global layer order, does hit-testing and pre-dispatches input events (<code>EarlyProcessEvents</code>). Driven by <code>EngineScreenManager.PreTick</code>.</p>
+<h4 id="public-static-void-onfinalize"><code>public static void OnFinalize()</code></h4>
+<p>Unregisters all collection/layer events, clears the screen stack and global layers, and releases <code>FocusedLayer</code>. Called by the engine on game shutdown.</p>
+<h4 id="public-static-void-ongamewindowfocuschange-bool-focusgained"><code>public static void OnGameWindowFocusChange(bool focusGained)</code></h4>
+<p>Called by the engine when the window gains/loses focus: updates <code>_isWindowFocused</code>, notifies <code>TopScreen.OnFocusChangeOnGameWindow</code>, raises <code>FocusGained</code> on focus gain, and resets the focused layer's keys.</p>
+<h4 id="public-static-void-onconstrainstatechanged-bool-isconstrained"><code>public static void OnConstrainStateChanged(bool isConstrained)</code></h4>
+<p>Called when the system constrain state changes (e.g. ALT+TAB lock), equivalent to <code>OnGameWindowFocusChange(!isConstrained)</code>.</p>
+<h3 id="events">Events</h3>
+<h4 id="public-static-event-onpushscreenevent-onpushscreen"><code>public static event OnPushScreenEvent OnPushScreen</code></h4>
+<p>Raised after a screen is pushed (becoming <code>TopScreen</code>); the argument is that screen. Good for "after screen switch" initialization or telemetry.</p>
+<h4 id="public-static-event-onpopscreenevent-onpopscreen"><code>public static event OnPopScreenEvent OnPopScreen</code></h4>
+<p>Raised when a screen is popped (before finalize); the argument is the popped screen. Good for cleaning up layers/resources you attached to it.</p>
+<pre><code data-lang="csharp">// Listen for screen pops to clean up a layer you overlaid
+ScreenManager.OnPopScreen += screen =&gt;
+{
+    foreach (ScreenLayer layer in screen.Layers)
+    {
+        if (layer is GauntletLayer gauntlet &amp;&amp; gauntlet.MovieName == &quot;MyWidget&quot;)
+        {
+            // Resources are already destroyed with the screen; do logging/telemetry here only
+        }
+    }
+};
+</code></pre>
+<h2 id="risks">Risks</h2>
+<ul>
+<li><strong>Switch screens only on the main (UI) thread.</strong> <code>PushScreen</code> / <code>PopScreen</code> / <code>CleanScreens</code> / <code>CleanAndPushScreen</code> carry a <code>TWParallel.IsMainThread()</code> <code>FailedAssert</code> guard in 1.4.5; 1.3.15 has no assert but is equally not thread-safe. Calling from a background thread (network callback, async task) corrupts <code>_screenList</code> and the layer state and crashes. Always switch from a UI-thread moment (a screen lifecycle hook, <code>OnTick</code>, an event callback).</li>
+<li><strong>Do not pop a screen you did not push.</strong> <code>PopScreen()</code> always finalizes the <strong>current</strong> <code>TopScreen</code>. If you pushed one custom screen but accidentally call <code>PopScreen()</code> twice, the second call finalizes a system screen (e.g. the campaign map screen), returning to the wrong state or even a black screen. Pairing rule: what you <code>PushScreen</code>, you <code>PopScreen</code>.</li>
+<li><strong>Screen transitions also destroy the layers and ViewModels on them.</strong> <code>PopScreen</code> / <code>CleanScreens</code> / <code>ReplaceTopScreen</code> all <code>HandleFinalize</code> the current screen, freeing any <code>GauntletLayer</code> and its <code>ViewModel</code> with it. If you overlaid a <code>GauntletLayer</code> on a screen, do not keep a reference to its <code>ViewModel</code> and update it after the screen is destroyed — that touches a freed object.</li>
+<li><strong>Do not call <code>Tick</code> / <code>LateTick</code> / <code>Update</code> / <code>EarlyUpdate</code> as ordinary methods.</strong> They are the engine's per-frame heartbeat; manual calls scramble frame order and double-tick layers, causing input/render glitches. Put your logic in the screen/layer <code>OnTick</code> / <code>OnFrameTick</code> / <code>OnLateTick</code> hooks.</li>
+<li><strong><code>TopScreen</code> can be <code>null</code>.</strong> With no active screen (theoretically only at the very start/end of the session) <code>ScreenManager.TopScreen</code> returns <code>null</code>, and <code>TopScreen.AddLayer(...)</code> is a null reference. Null-check before overlaying, or make sure you are actually inside a screen.</li>
+<li><strong>Global layer order is decided by <code>InputRestrictions.Order</code>.</strong> <code>AddGlobalLayer</code> inserts by order; a wrong order leaves your global layer blocked for input by other layers or never able to take focus.</li>
+</ul>
+<h2 id="example">Example</h2>
+<h3 id="example-1-overlay-a-gauntlet-ui-layer-on-the-current-screen-the-most-common-ui-injection">Example 1: Overlay a Gauntlet UI layer on the current screen (the most common UI injection)</h3>
+<pre><code data-lang="csharp">// Assume myViewModel is some ViewModel instance
+GauntletLayer gauntletLayer = new GauntletLayer(&quot;GauntletUI&quot;, 0);
+gauntletLayer.LoadMovie(&quot;MyPanel&quot;, myViewModel);
+
+// The real &quot;current screen&quot; is TopScreen, not Current / CurrentScreen
+ScreenBase current = ScreenManager.TopScreen;
+if (current != null)
+{
+    current.AddLayer(gauntletLayer);
+}
+</code></pre>
+<h3 id="example-2-push-a-custom-full-screen-screenbase-and-return-on-exit">Example 2: Push a custom full-screen ScreenBase and return on exit</h3>
+<pre><code data-lang="csharp">// RecruitmentScreen is your own ScreenBase subclass
+ScreenManager.PushScreen(new RecruitmentScreen());
+
+// Inside RecruitmentScreen, when deciding to exit:
+// only pop the screen you pushed, returning to the previous one
+ScreenManager.PopScreen();
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Parent: <a href="../">gui index</a> · <a href="../../">API reference</a></li>
+<li>↔ Siblings / related:
+<ul>
+<li><a href="../../campaign-ext/ScreenBase/">ScreenBase</a> — the screen/game-state unit pushed onto the stack</li>
+<li><a href="../../campaign-ext/ScreenLayer/">ScreenLayer</a> — the inputtable/renderable layer inside screens and global layers</li>
+<li><a href="../../engine/EngineScreenManager/">EngineScreenManager</a> — the engine bridge (incl. <code>ScreenManagerEngineConnection</code>), not used directly by mods</li>
+<li><a href="../../engine/GauntletLayer/">GauntletLayer</a> — the <code>ScreenLayer</code> that hosts Gauntlet UI</li>
+<li><a href="../../core-extra/ViewModel/">ViewModel</a> — the data-binding source for Gauntlet UI</li>
+<li><a href="../../core-extra/Game/">Game</a> — the running game session driving overall screen lifecycle</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Cross-version: the core screen-stack API is the same shape in 1.3.15 and 1.4.5; 1.4.5 adds a main-thread <code>FailedAssert</code> guard to <code>PushScreen</code> / <code>PopScreen</code> / <code>CleanScreens</code> / <code>CleanAndPushScreen</code> (1.3.15 has no assert but is still main-thread-only). 1.4.5 removed the <code>IsWindowFocused</code> property that 1.3.15 publicly exposed.</p>
+</blockquote>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/gui/">gui index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/gui/DwmBlurBehind/">&larr; DwmBlurBehind</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/gui/PixelFormatDescriptorFlags/">PixelFormatDescriptorFlags &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -70,19 +70,24 @@ core / core-extra          基础层：Module 加载、事件总线、集合、�
 
 | 目录 | 页数 | 目录 | 页数 |
 | --- | ---: | --- | ---: |
-| [Mission-Ext](../../api/mission-ext/) | 1,669 | [Save System](../../api/save-system/) | 110 |
+| [Mission-Ext](../../api/mission-ext/) | 1,669 | Save System | 110 |
 | [Core-Extra](../../api/core-extra/) | 1,099 | [Network](../../api/network/) | 41 |
-| [Campaign-Ext](../../api/campaign-ext/) | 601 | [CustomBattle](../../api/custombattle/) | 40 |
-| [Campaign](../../api/campaign/) | 589 | [Localization](../../api/localization/) | 53 |
+| Campaign-Ext | 601 | [CustomBattle](../../api/custombattle/) | 40 |
+| [Campaign](../../api/campaign/) | 589 | Localization | 53 |
 | [SandBox](../../api/sandbox/) | 554 | [System](../../api/system/) | 15 |
 | [ViewModel](../../api/viewmodel/) | 538 | [ModuleManager](../../api/modulemanager/) | 8 |
 | [GUI](../../api/gui/) | 271 | [ActivitySystem](../../api/activitysystem/) | 6 |
 | [Engine](../../api/engine/) | 250 | [Mission](../../api/mission/) | 5 |
-| [StoryMode](../../api/storymode/) | 168 | [AchievementSystem](../../api/achievementsystem/) | 4 |
+| StoryMode | 168 | [AchievementSystem](../../api/achievementsystem/) | 4 |
 | | | [Core](../../api/core/) | 2 |
 
+「页数」一列是文档生成器在被撤下的目录树中为该目录生成的页面数量，不是当前站上可以点击的页面数。
+上表中有四个目录没有桶索引页，因此它们在表里是纯文本而不是链接：`api/save-system/` 根本没有英文目录，
+`api/localization/` 与 `api/storymode/` 在两种语言下都没有页面，`api/campaign-ext/` 只有两个手写页面。
+具体路径见 [缺口清单](../../../GAPS)。
+
 **没有 `gameplay/` 目录，也没有 `navigationsystem/` 目录。** 原因见
-[版本差异](../version-delta) 与本页末尾的"已知缺口"。
+[版本差异](../version-delta) 与 [缺口清单](../../../GAPS)。
 
 ## 一个类型在四个地方出现，是正常的
 

@@ -1,129 +1,37 @@
 ---
-title: "Sandbox — SandBox module: content, AI and map events"
-description: "`SandBox` and its `GauntletUI`, `View` and `ViewModelCollection` sub-directories: 78 namespaces, 554 pages. Sandbox camp"
+title: "Sandbox — the SandBox module: content, AI and map events"
+description: "Where the SandBox namespace lives: the campaign module shipped with the game. Roughly 321 types and no pages."
 ---
-# Sandbox — SandBox module: content, AI and map events
+# Sandbox — the SandBox module
 
-`SandBox` and its `GauntletUI`, `View` and `ViewModelCollection` sub-directories: 78 namespaces, 554 pages. Sandbox campaign behaviours, sandbox mission logic, sandbox AI, tournaments, hideouts and their screens.
+This bucket is the `SandBox` namespace — the campaign module that ships with the game, 37 `.cs` files under `bannerlord-1.4.7/SandBox/`. It owns what actually happens on the map: map events, AI decisions, and content definitions.
 
-The 1.4.5 tree scattered this under a directory named `gameplay`. That directory was itself mixed (it held `SandBox`, `StoryMode.*` *and* bare `TaleWorlds.MountAndBlade` types), so v1.4.7 splits it by real namespace and **there is no `gameplay` directory** — see [Version Delta](../../architecture/version-delta).
+The difference from [campaign](../campaign/) is division of labour, not size. `campaign/` is the data (`Hero`, `Party`, `Clan`); `sandbox/` is the rules for what happens to that data. When a player runs into bandits on the map, the logic that runs is here, and changing it changes map behaviour.
 
-## Pages in this area (321)
+This is one of the two largest empty buckets in the tree: roughly 321 documented types, no pages.
 
-[Add1000GoldCheat](Add1000GoldCheat) · [Add100InfluenceCheat](Add100InfluenceCheat) · [Add100RenownCheat](Add100RenownCheat)
-[AgentBehavior](AgentBehavior) · [AgentBehaviorGroup](AgentBehaviorGroup) · [AgentBehaviorManager](AgentBehaviorManager)
-[AlarmedBehaviorGroup](AlarmedBehaviorGroup) · [AlleyCampaignBehavior](AlleyCampaignBehavior) · [AlleyFightMissionHandler](AlleyFightMissionHandler)
-[AnimatedBasicAreaIndicator](AnimatedBasicAreaIndicator) · [AnimationPoint](AnimationPoint) · [ArcheryTournamentAgentController](ArcheryTournamentAgentController)
-[ArenaAgentStateDeciderLogic](ArenaAgentStateDeciderLogic) · [ArenaDuelMissionBehavior](ArenaDuelMissionBehavior) · [ArenaDuelMissionController](ArenaDuelMissionController)
-[ArenaDuelQuestTask](ArenaDuelQuestTask) · [ArenaMasterCampaignBehavior](ArenaMasterCampaignBehavior) · [ArenaPracticeFightMissionController](ArenaPracticeFightMissionController)
-[ArenaPreloadView](ArenaPreloadView) · [BannerEditorView](BannerEditorView) · [BarberCampaignBehavior](BarberCampaignBehavior)
-[BasicAreaIndicator](BasicAreaIndicator) · [BattleAgentLogic](BattleAgentLogic) · [BattleSimulationMapView](BattleSimulationMapView)
-[BattleSurgeonLogic](BattleSurgeonLogic) · [BeginConversationInitiatedByAIQuestTask](BeginConversationInitiatedByAIQuestTask) · [BehaviorSets](BehaviorSets)
-[BoardGameAIBaghChal](BoardGameAIBaghChal) · [BoardGameAIBase](BoardGameAIBase) · [BoardGameAIKonane](BoardGameAIKonane)
-[BoardGameAIMuTorere](BoardGameAIMuTorere) · [BoardGameAIPuluc](BoardGameAIPuluc) · [BoardGameAgentBehavior](BoardGameAgentBehavior)
-[BoardGameBaghChal](BoardGameBaghChal) · [BoardGameCampaignBehavior](BoardGameCampaignBehavior) · [BoardGameDecal](BoardGameDecal)
-[BoardGameInstructionVM](BoardGameInstructionVM) · [BoardGameInstructionsVM](BoardGameInstructionsVM) · [BoardGameKonane](BoardGameKonane)
-[BoardGameMuTorere](BoardGameMuTorere) · [BoardGamePuluc](BoardGamePuluc) · [BoardGameSeega](BoardGameSeega)
-[BoardGameTablut](BoardGameTablut) · [BoardGameVM](BoardGameVM) · [BoostSkillCheatGroup](BoostSkillCheatGroup)
-[CameraJumpScript](CameraJumpScript) · [CampaignMissionComponent](CampaignMissionComponent) · [CampaignMusicHandler](CampaignMusicHandler)
-[CaravanTransactionNotificationItemVM](CaravanTransactionNotificationItemVM) · [CautiousBehavior](CautiousBehavior) · [Chair](Chair)
-[ChairUsePoint](ChairUsePoint) · [ChangeLightIntensityScript](ChangeLightIntensityScript) · [CharacterCreationBannerEditorView](CharacterCreationBannerEditorView)
-[CharacterCreationClanNamingStageView](CharacterCreationClanNamingStageView) · [CharacterCreationCultureStageView](CharacterCreationCultureStageView) · [CharacterCreationFaceGeneratorView](CharacterCreationFaceGeneratorView)
-[CharacterCreationNarrativeStageView](CharacterCreationNarrativeStageView) · [CharacterCreationOptionsStageView](CharacterCreationOptionsStageView) · [CharacterCreationScreen](CharacterCreationScreen)
-[CharacterCreationStageViewAttribute](CharacterCreationStageViewAttribute) · [CharacterCreationStageViewBase](CharacterCreationStageViewBase) · [CharacterDeveloperNavigationElement](CharacterDeveloperNavigationElement)
-[CheatActionItemVM](CheatActionItemVM) · [CheatGroupItemVM](CheatGroupItemVM) · [CheatItemBaseVM](CheatItemBaseVM)
-[CheckpointArea](CheckpointArea) · [CheckpointCampaignBehavior](CheckpointCampaignBehavior) · [CheckpointLoadedMissionEvent](CheckpointLoadedMissionEvent)
-[CheckpointMissionLogic](CheckpointMissionLogic) · [CheckpointUsePoint](CheckpointUsePoint) · [CinematicBurningArrow](CinematicBurningArrow)
-[CivilianPortShipSpawnMissionLogic](CivilianPortShipSpawnMissionLogic) · [ClanNavigationElement](ClanNavigationElement) · [ClanScreenPermissionEvent](ClanScreenPermissionEvent)
-[ClearTheMainCampObjective](ClearTheMainCampObjective) · [CommonAreaMarker](CommonAreaMarker) · [ConversationMission](ConversationMission)
-[ConversationMissionLogic](ConversationMissionLogic) · [ConversationViewEventHandler](ConversationViewEventHandler) · [ConversationViewEventHandlerDelegate](ConversationViewEventHandlerDelegate)
-[ConversationViewManager](ConversationViewManager) · [DefaultGameMenuOverlayProvider](DefaultGameMenuOverlayProvider) · [DefaultMissionNameMarkerHandler](DefaultMissionNameMarkerHandler)
-[DefaultMusicInstrumentData](DefaultMusicInstrumentData) · [DefeatHideoutBossObjective](DefeatHideoutBossObjective) · [DisguiseMissionLogic](DisguiseMissionLogic)
-[DisguiseMissionUsePoint](DisguiseMissionUsePoint) · [DynamicObjectAnimationPoint](DynamicObjectAnimationPoint) · [DynamicPatrolAreaParent](DynamicPatrolAreaParent)
-[EavesdroppingMissionCameraView](EavesdroppingMissionCameraView) · [EavesdroppingMissionLogic](EavesdroppingMissionLogic) · [EncyclopediaData](EncyclopediaData)
-[EncyclopediaListViewDataController](EncyclopediaListViewDataController) · [EntityVisualManagerBase](EntityVisualManagerBase) · [EscapeMenuNavigationElement](EscapeMenuNavigationElement)
-[FamilyFeudIssueBehavior](FamilyFeudIssueBehavior) · [FleeBehavior](FleeBehavior) · [FollowAgentQuestTask](FollowAgentQuestTask)
-[GameOverStatCategoryVM](GameOverStatCategoryVM) · [GameOverStatItemVM](GameOverStatItemVM) · [GameOverStatsProvider](GameOverStatsProvider)
-[GameOverVM](GameOverVM) · [GameplayCheatsVM](GameplayCheatsVM) · [GauntletBannerEditorScreen](GauntletBannerEditorScreen)
-[GauntletBarberScreen](GauntletBarberScreen) · [GauntletCharacterDeveloperScreen](GauntletCharacterDeveloperScreen) · [GauntletClanScreen](GauntletClanScreen)
-[GauntletCraftingScreen](GauntletCraftingScreen) · [GauntletEducationScreen](GauntletEducationScreen) · [GauntletGameOverScreen](GauntletGameOverScreen)
-[GauntletHeirSelectionPopupView](GauntletHeirSelectionPopupView) · [GauntletMapBarGlobalLayer](GauntletMapBarGlobalLayer) · [GauntletMapBarView](GauntletMapBarView)
-[GauntletMapBasicView](GauntletMapBasicView) · [GauntletMapBattleSimulationView](GauntletMapBattleSimulationView) · [GauntletMapCampaignOptionsView](GauntletMapCampaignOptionsView)
-[GauntletMapEncyclopediaView](GauntletMapEncyclopediaView) · [GauntletMenuBackground](GauntletMenuBackground) · [GauntletMenuBaseView](GauntletMenuBaseView)
-[GauntletMenuOverlayBaseView](GauntletMenuOverlayBaseView) · [GauntletMenuRecruitVolunteersView](GauntletMenuRecruitVolunteersView) · [GauntletMenuTournamentLeaderboardView](GauntletMenuTournamentLeaderboardView)
-[GauntletMenuTownManagementView](GauntletMenuTownManagementView) · [GauntletTutorialSystem](GauntletTutorialSystem) · [GenericMissionEventBox](GenericMissionEventBox)
-[GroupSpawnPoint](GroupSpawnPoint) · [HideoutAmbushBossFightCinematicController](HideoutAmbushBossFightCinematicController) · [HideoutAmbushMissionController](HideoutAmbushMissionController)
-[HideoutBossFightBehavior](HideoutBossFightBehavior) · [HideoutCinematicController](HideoutCinematicController) · [HideoutMissionController](HideoutMissionController)
-[HideoutVisualOrderProvider](HideoutVisualOrderProvider) · [IChangeableScreen](IChangeableScreen) · [IMissionPlayerFollowerHandler](IMissionPlayerFollowerHandler)
-[ITournamentGameBehavior](ITournamentGameBehavior) · [InputKeyItemVM](InputKeyItemVM) · [InstrumentData](InstrumentData)
-[InventoryNavigationElement](InventoryNavigationElement) · [IssueSolvedByLordNotificationItemVM](IssueSolvedByLordNotificationItemVM) · [ItemSoldNotificationItemVM](ItemSoldNotificationItemVM)
-[JoustingAgentController](JoustingAgentController) · [KingdomNavigationElement](KingdomNavigationElement) · [LocateTheMainCampObjective](LocateTheMainCampObjective)
-[MainAgentDetectionVM](MainAgentDetectionVM) · [MainHeroSaveVisualSupplier](MainHeroSaveVisualSupplier) · [MapArmyTrackItemVM](MapArmyTrackItemVM)
-[MapAudioManager](MapAudioManager) · [MapCameraView](MapCameraView) · [MapConversationTableau](MapConversationTableau)
-[MapConversationView](MapConversationView) · [MapEntityVisual](MapEntityVisual) · [MapEventVisualItemVM](MapEventVisualItemVM)
-[MapEventVisualsVM](MapEventVisualsVM) · [MapIncidentOptionVM](MapIncidentOptionVM) · [MapIncidentVM](MapIncidentVM)
-[MapMarkerTrackerItemVM](MapMarkerTrackerItemVM) · [MapMobilePartyTrackItemVM](MapMobilePartyTrackItemVM) · [MapNavigationElementBase](MapNavigationElementBase)
-[MapNavigationHandler](MapNavigationHandler) · [MapNavigationHelper](MapNavigationHelper) · [MapSaveVM](MapSaveVM)
-[MapScreen](MapScreen) · [MapSiegePOIVM](MapSiegePOIVM) · [MapSiegeProductionMachineVM](MapSiegeProductionMachineVM)
-[MapSiegeProductionVM](MapSiegeProductionVM) · [MapSiegeVM](MapSiegeVM) · [MapTrackerCollectionVM](MapTrackerCollectionVM)
-[MapTrackerProvider](MapTrackerProvider) · [MapTracksVisualManager](MapTracksVisualManager) · [MapWeatherVisual](MapWeatherVisual)
-[MapWeatherVisualManager](MapWeatherVisualManager) · [MenuBackgroundView](MenuBackgroundView) · [MenuBaseView](MenuBaseView)
-[MenuOverlayBaseView](MenuOverlayBaseView) · [MenuRecruitVolunteersView](MenuRecruitVolunteersView) · [MenuTournamentLeaderboardView](MenuTournamentLeaderboardView)
-[MenuTownManagementView](MenuTownManagementView) · [MissionAIActivationDeactivationEventListenerLogic](MissionAIActivationDeactivationEventListenerLogic) · [MissionAgentAlarmStateVM](MissionAgentAlarmStateVM)
-[MissionAgentAlarmStateView](MissionAgentAlarmStateView) · [MissionAgentAlarmTargetVM](MissionAgentAlarmTargetVM) · [MissionAgentLookHandler](MissionAgentLookHandler)
-[MissionAgentMarkerTargetVM](MissionAgentMarkerTargetVM) · [MissionAnimatedBasicAreaIndicatorMarkerTargetVM](MissionAnimatedBasicAreaIndicatorMarkerTargetVM) · [MissionArenaPracticeFightVM](MissionArenaPracticeFightVM)
-[MissionArenaPracticeFightView](MissionArenaPracticeFightView) · [MissionAudienceHandler](MissionAudienceHandler) · [MissionBasicAreaIndicatorMarkerTargetVM](MissionBasicAreaIndicatorMarkerTargetVM)
-[MissionBoardGameDebugHandler](MissionBoardGameDebugHandler) · [MissionBoardGameLogic](MissionBoardGameLogic) · [MissionCampaignBattleSpectatorView](MissionCampaignBattleSpectatorView)
-[MissionCommonAreaMarkerTargetVM](MissionCommonAreaMarkerTargetVM) · [MissionConversationLogic](MissionConversationLogic) · [MissionDisguiseMarkerItemVM](MissionDisguiseMarkerItemVM)
-[MissionDisguiseMarkersVM](MissionDisguiseMarkersVM) · [MissionEquipItemToolView](MissionEquipItemToolView) · [MissionGauntletAgentAlarmStateView](MissionGauntletAgentAlarmStateView)
-[MissionGauntletArenaPracticeFightView](MissionGauntletArenaPracticeFightView) · [MissionGauntletBarterView](MissionGauntletBarterView) · [MissionGauntletBoardGameView](MissionGauntletBoardGameView)
-[MissionGauntletEavesdroppingCameraView](MissionGauntletEavesdroppingCameraView) · [MissionGauntletHideoutAmbushCinematicView](MissionGauntletHideoutAmbushCinematicView) · [MissionGenericMarkerTargetVM](MissionGenericMarkerTargetVM)
-[MissionLosingTargetVM](MissionLosingTargetVM) · [MissionNameMarkerFactory](MissionNameMarkerFactory) · [MissionNameMarkerHelper](MissionNameMarkerHelper)
-[MissionNameMarkerProvider](MissionNameMarkerProvider) · [MissionNameMarkerTargetBaseVM](MissionNameMarkerTargetBaseVM) · [MissionNameMarkerTargetVM](MissionNameMarkerTargetVM)
-[MissionNameMarkerUIHandler](MissionNameMarkerUIHandler) · [MissionNameMarkerVM](MissionNameMarkerVM) · [MissionPassageUsePointNameMarkerTargetVM](MissionPassageUsePointNameMarkerTargetVM)
-[MissionPathGenerationLogic](MissionPathGenerationLogic) · [MissionQuestBarVM](MissionQuestBarVM) · [MissionStealthAreaNameMarkerTargetVM](MissionStealthAreaNameMarkerTargetVM)
-[MissionStealthAreaUsePointNameMarkerTargetVM](MissionStealthAreaUsePointNameMarkerTargetVM) · [MissionStealthFailCounterVM](MissionStealthFailCounterVM) · [MissionStealthSentryNameMarkerTargetVM](MissionStealthSentryNameMarkerTargetVM)
-[MissionTournamentJoustingView](MissionTournamentJoustingView) · [MissionTournamentView](MissionTournamentView) · [MobilePartyVisual](MobilePartyVisual)
-[MobilePartyVisualManager](MobilePartyVisualManager) · [MusicArenaPracticeMissionView](MusicArenaPracticeMissionView) · [MusicTournamentMissionView](MusicTournamentMissionView)
-[MusicianGroup](MusicianGroup) · [NameplateVM](NameplateVM) · [NotableWantsDaughterFoundIssueBehavior](NotableWantsDaughterFoundIssueBehavior)
-[OpenInventoryWithGivenItemsEventListenerLogic](OpenInventoryWithGivenItemsEventListenerLogic) · [PartyNameplateVM](PartyNameplateVM) · [PartyNameplatesVM](PartyNameplatesVM)
-[PartyPlayerNameplateVM](PartyPlayerNameplateVM) · [Passage](Passage) · [PassageAI](PassageAI)
-[PatrolArea](PatrolArea) · [PawnBaghChal](PawnBaghChal) · [PawnBase](PawnBase)
-[PawnKonane](PawnKonane) · [PawnMuTorere](PawnMuTorere) · [PawnPuluc](PawnPuluc)
-[PawnSeega](PawnSeega) · [PerkObjectComparer](PerkObjectComparer) · [PlayMusicPoint](PlayMusicPoint)
-[PlayerStartEngineConstructionEvent](PlayerStartEngineConstructionEvent) · [PreloadScreen](PreloadScreen) · [PrisonBreakMissionController](PrisonBreakMissionController)
-[PrisonerSoldNotificationItemVM](PrisonerSoldNotificationItemVM) · [ProdigalSonIssueBehavior](ProdigalSonIssueBehavior) · [RivalGangMovingInIssueBehavior](RivalGangMovingInIssueBehavior)
-[SPOrderOfBattleVM](SPOrderOfBattleVM) · [SPScoreboardVM](SPScoreboardVM) · [SandBoxGauntletUISubModule](SandBoxGauntletUISubModule)
-[SandBoxHelpers](SandBoxHelpers) · [SandBoxSaveHelper](SandBoxSaveHelper) · [SandBoxSubModule](SandBoxSubModule)
-[SandBoxUIHelper](SandBoxUIHelper) · [SandBoxViewCheats](SandBoxViewCheats) · [SandBoxViewCreator](SandBoxViewCreator)
-[SandBoxViewSubModule](SandBoxViewSubModule) · [SandboxAgentApplyDamageModel](SandboxAgentApplyDamageModel) · [SandboxAgentDecideKilledOrUnconsciousModel](SandboxAgentDecideKilledOrUnconsciousModel)
-[SandboxAgentStatCalculateModel](SandboxAgentStatCalculateModel) · [SandboxApplyWeatherEffectsModel](SandboxApplyWeatherEffectsModel) · [SandboxBattleSpawnModel](SandboxBattleSpawnModel)
-[SandboxMissionBattleScoreContext](SandboxMissionBattleScoreContext) · [SandboxSimulationBattleScoreContext](SandboxSimulationBattleScoreContext) · [SaveLoadVM](SaveLoadVM)
-[SavedGameGroupVM](SavedGameGroupVM) · [SavedGameModuleInfoVM](SavedGameModuleInfoVM) · [SavedGamePropertyVM](SavedGamePropertyVM)
-[SavedGameVM](SavedGameVM) · [SettlementNameplateEventItemVM](SettlementNameplateEventItemVM) · [SettlementNameplateNotificationsVM](SettlementNameplateNotificationsVM)
-[SettlementNameplatePartyMarkersVM](SettlementNameplatePartyMarkersVM) · [SettlementNotificationItemBaseVM](SettlementNotificationItemBaseVM) · [SettlementPositionScript](SettlementPositionScript)
-[SettlementVisual](SettlementVisual) · [SettlementVisualManager](SettlementVisualManager) · [ShipSoldNotificationItemVM](ShipSoldNotificationItemVM)
-[ShowQuickInformationEventListenerLogic](ShowQuickInformationEventListenerLogic) · [SkeletonAnimatedCamera](SkeletonAnimatedCamera) · [SnareTheWealthyIssueBehavior](SnareTheWealthyIssueBehavior)
-[SpawnPointDebugView](SpawnPointDebugView) · [SpawnPointUnits](SpawnPointUnits) · [StatCategory](StatCategory)
-[StatItem](StatItem) · [StatisticsCampaignBehavior](StatisticsCampaignBehavior) · [StealthAreaMarker](StealthAreaMarker)
-[StealthNameMarkerProvider](StealthNameMarkerProvider) · [TheSpyPartyIssueQuestBehavior](TheSpyPartyIssueQuestBehavior) · [Tile](Tile)
-[Tile1D](Tile1D) · [Tile2D](Tile2D) · [TileBase](TileBase)
-[TileMuTorere](TileMuTorere) · [TilePuluc](TilePuluc) · [TournamentArcheryMissionController](TournamentArcheryMissionController)
-[TournamentBehavior](TournamentBehavior) · [TournamentFightMissionController](TournamentFightMissionController) · [TournamentJoustingMissionController](TournamentJoustingMissionController)
-[TournamentMatchVM](TournamentMatchVM) · [TournamentMissionStarter](TournamentMissionStarter) · [TournamentMissionViews](TournamentMissionViews)
-[TournamentParticipantVM](TournamentParticipantVM) · [TournamentRewardVM](TournamentRewardVM) · [TournamentRoundVM](TournamentRoundVM)
-[TournamentTeamVM](TournamentTeamVM) · [TournamentVM](TournamentVM) · [TownCenterMissionController](TownCenterMissionController)
-[TownHorseRaceAgentController](TownHorseRaceAgentController) · [TownHorseRaceMissionController](TownHorseRaceMissionController) · [TrackVisual](TrackVisual)
-[TreeNodeTablut](TreeNodeTablut) · [TutorialAttribute](TutorialAttribute) · [TutorialHelper](TutorialHelper)
-[TutorialItemBase](TutorialItemBase) · [TutorialItemVM](TutorialItemVM) · [TutorialVM](TutorialVM)
-[UsablePlaceAI](UsablePlaceAI) · [WorkshopAreaMarker](WorkshopAreaMarker) · [WorkshopMissionHandler](WorkshopMissionHandler)
+## Pages in this area (0)
+
+There are no pages in this bucket.
+
+## Not yet written
+
+Everything the namespace rule puts here:
+
+- **Managers**: `SandBoxGameManager`, `SandBoxManager`, `SandBox`, `CampaignAgentComponent`, `CampaignMissionManager`, `CampaignMapSiegePrefabEntityCache`.
+- **Map events**: `MapEventSide`, `MapEvent`, `VillageLottery` and the map-event trigger family — the layer where the player encounters things on the map.
+- **AI and cheats**: most of the 37 root `.cs` files are cheats (`GameplayCheatsManager`, `BoostSkillCheatGroup`, `Add1000GoldCheat`, `FillCraftingStaminaCheat`, and so on); the rest are `AgentNavigator`, `EditorSceneMissionManager` and similar. The cheat family is excluded from the documentation tree on purpose.
+- **Content definitions**: settlement, village and notable content, and how it is loaded.
+
+The bucket is empty. If you want to know how the sandbox campaign actually behaves, the pages here will not tell you — start from the layering conclusions in the [architecture overview](../../architecture/) and the source under `bannerlord-1.4.7/SandBox/`.
 
 ## Sibling areas
 
-[core](../core/) · [core-extra](../core-extra/) · [mission](../mission/) · [mission-ext](../mission-ext/) · [campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [gui](../gui/) · [save-system](../save-system/) · [viewmodel](../viewmodel/) · [localization](../localization/) · [engine](../engine/) · [system](../system/) · [custombattle](../custombattle/) · [modulemanager](../modulemanager/) · [network](../network/) · [storymode](../storymode/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
+[campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [mission](../mission/) · [mission-ext](../mission-ext/) · [core](../core/) · [core-extra](../core-extra/) · [gui](../gui/) · [viewmodel](../viewmodel/) · [engine](../engine/) · [custombattle](../custombattle/) · [system](../system/) · [network](../network/) · [modulemanager](../modulemanager/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
 
 ## See also
 
 - ↑ [Version home](../../)
 - ↑ [API reference](../)
 - ↔ [Architecture overview](../../architecture/)
+- ↘ [SDK Overview](../../architecture/sdk-overview)

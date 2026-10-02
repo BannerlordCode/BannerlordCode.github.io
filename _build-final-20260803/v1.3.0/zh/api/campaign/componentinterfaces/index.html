@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ComponentInterfaces</title>
+  <meta name="description" content="系统使用的组件接口契约。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/componentinterfaces/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/componentinterfaces/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="active">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">ComponentInterfaces</span>
+    </nav>
+  
+  <h1>ComponentInterfaces</h1>
+  <h2 id="shang-ji-dao-hang">上级导航</h2>
+<ul>
+<li><a href="../">返回 campaign 目录</a></li>
+<li><a href="../../">API 目录</a></li>
+<li><a href="../../../">版本首页</a></li>
+</ul>
+<h2 id="zi-xi-tong-gai-shu">子系统概述</h2>
+<p>这里是 <strong>campaign 目录</strong> 的 <strong>ComponentInterfaces</strong> 子系统。同一命名空间下的类负责相近功能，可从中找到需要的类型后再进入类页查看方法。</p>
+<p>系统使用的组件接口契约。</p>
+<h2 id="lei-lie-biao">类列表</h2>
+<table><thead><tr><th>类</th><th>用途</th></tr></thead><tbody>
+<tr><td><a href="../AccessDetails/"><code>AccessDetails</code></a></td><td>AccessDetails 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../AccessLevel/"><code>AccessLevel</code></a></td><td>AccessLevel 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../AccessLimitationReason/"><code>AccessLimitationReason</code></a></td><td>AccessLimitationReason 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../AccessMethod/"><code>AccessMethod</code></a></td><td>AccessMethod 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../AgeModel/"><code>AgeModel</code></a></td><td>AgeModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../AlleyModel/"><code>AlleyModel</code></a></td><td>AlleyModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../AllianceModel/"><code>AllianceModel</code></a></td><td>AllianceModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../ArmyManagementCalculationModel/"><code>ArmyManagementCalculationModel</code></a></td><td>ArmyManagementCalculationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../BanditDensityModel/"><code>BanditDensityModel</code></a></td><td>BanditDensityModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../BannerItemModel/"><code>BannerItemModel</code></a></td><td>BannerItemModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../BarterModel/"><code>BarterModel</code></a></td><td>BarterModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../BattleCaptainModel/"><code>BattleCaptainModel</code></a></td><td>BattleCaptainModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../BattleRewardModel/"><code>BattleRewardModel</code></a></td><td>BattleRewardModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../BodyPropertiesModel/"><code>BodyPropertiesModel</code></a></td><td>BodyPropertiesModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../BribeCalculationModel/"><code>BribeCalculationModel</code></a></td><td>BribeCalculationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../BuildingConstructionModel/"><code>BuildingConstructionModel</code></a></td><td>BuildingConstructionModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../BuildingEffectModel/"><code>BuildingEffectModel</code></a></td><td>BuildingEffectModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../BuildingModel/"><code>BuildingModel</code></a></td><td>BuildingModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../BuildingScoreCalculationModel/"><code>BuildingScoreCalculationModel</code></a></td><td>BuildingScoreCalculationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CampaignShipDamageModel/"><code>CampaignShipDamageModel</code></a></td><td>CampaignShipDamageModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CampaignShipParametersModel/"><code>CampaignShipParametersModel</code></a></td><td>CampaignShipParametersModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CampaignTimeModel/"><code>CampaignTimeModel</code></a></td><td>CampaignTimeModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CaravanModel/"><code>CaravanModel</code></a></td><td>CaravanModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CharacterDevelopmentModel/"><code>CharacterDevelopmentModel</code></a></td><td>CharacterDevelopmentModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CharacterStatsModel/"><code>CharacterStatsModel</code></a></td><td>CharacterStatsModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../ClanFinanceModel/"><code>ClanFinanceModel</code></a></td><td>ClanFinanceModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../ClanPoliticsModel/"><code>ClanPoliticsModel</code></a></td><td>ClanPoliticsModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../ClanTierModel/"><code>ClanTierModel</code></a></td><td>ClanTierModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CombatSimulationModel/"><code>CombatSimulationModel</code></a></td><td>CombatSimulationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CombatXpModel/"><code>CombatXpModel</code></a></td><td>CombatXpModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CompanionHiringPriceCalculationModel/"><code>CompanionHiringPriceCalculationModel</code></a></td><td>CompanionHiringPriceCalculationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CrimeModel/"><code>CrimeModel</code></a></td><td>CrimeModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../CutsceneSelectionModel/"><code>CutsceneSelectionModel</code></a></td><td>CutsceneSelectionModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DailyTroopXpBonusModel/"><code>DailyTroopXpBonusModel</code></a></td><td>DailyTroopXpBonusModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DefectionModel/"><code>DefectionModel</code></a></td><td>DefectionModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DelayedTeleportationModel/"><code>DelayedTeleportationModel</code></a></td><td>DelayedTeleportationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DifficultyModel/"><code>DifficultyModel</code></a></td><td>DifficultyModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DiplomacyModel/"><code>DiplomacyModel</code></a></td><td>DiplomacyModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DiplomacyStance/"><code>DiplomacyStance</code></a></td><td>DiplomacyStance 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../DisguiseDetectionModel/"><code>DisguiseDetectionModel</code></a></td><td>DisguiseDetectionModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../EmissaryModel/"><code>EmissaryModel</code></a></td><td>EmissaryModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../EncounterGameMenuModel/"><code>EncounterGameMenuModel</code></a></td><td>EncounterGameMenuModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../EncounterModel/"><code>EncounterModel</code></a></td><td>EncounterModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../EquipmentSelectionModel/"><code>EquipmentSelectionModel</code></a></td><td>EquipmentSelectionModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../ExecutionRelationModel/"><code>ExecutionRelationModel</code></a></td><td>ExecutionRelationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../FleetManagementModel/"><code>FleetManagementModel</code></a></td><td>FleetManagementModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../GenericXpModel/"><code>GenericXpModel</code></a></td><td>GenericXpModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../HeirSelectionCalculationModel/"><code>HeirSelectionCalculationModel</code></a></td><td>HeirSelectionCalculationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../HeroAgentLocationModel/"><code>HeroAgentLocationModel</code></a></td><td>HeroAgentLocationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../HeroCreationModel/"><code>HeroCreationModel</code></a></td><td>HeroCreationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../HeroDeathProbabilityCalculationModel/"><code>HeroDeathProbabilityCalculationModel</code></a></td><td>HeroDeathProbabilityCalculationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../HeroLocationDetail/"><code>HeroLocationDetail</code></a></td><td>HeroLocationDetail 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../HideoutModel/"><code>HideoutModel</code></a></td><td>HideoutModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../INavigationCache/"><code>INavigationCache</code></a></td><td>INavigationCache 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../IncidentModel/"><code>IncidentModel</code></a></td><td>IncidentModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../InformationRestrictionModel/"><code>InformationRestrictionModel</code></a></td><td>InformationRestrictionModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../InventoryCapacityModel/"><code>InventoryCapacityModel</code></a></td><td>InventoryCapacityModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../IssueModel/"><code>IssueModel</code></a></td><td>IssueModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../ItemDiscardModel/"><code>ItemDiscardModel</code></a></td><td>ItemDiscardModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../KingdomCreationModel/"><code>KingdomCreationModel</code></a></td><td>KingdomCreationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../KingdomDecisionPermissionModel/"><code>KingdomDecisionPermissionModel</code></a></td><td>KingdomDecisionPermissionModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../LimitedAccessSolution/"><code>LimitedAccessSolution</code></a></td><td>LimitedAccessSolution 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../LocationModel/"><code>LocationModel</code></a></td><td>LocationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MapDistanceModel/"><code>MapDistanceModel</code></a></td><td>MapDistanceModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MapTrackModel/"><code>MapTrackModel</code></a></td><td>MapTrackModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MapVisibilityModel/"><code>MapVisibilityModel</code></a></td><td>MapVisibilityModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MapWeatherModel/"><code>MapWeatherModel</code></a></td><td>MapWeatherModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MarriageModel/"><code>MarriageModel</code></a></td><td>MarriageModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MilitaryPowerModel/"><code>MilitaryPowerModel</code></a></td><td>MilitaryPowerModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MinorFactionsModel/"><code>MinorFactionsModel</code></a></td><td>MinorFactionsModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MissionTypeEnum/"><code>MissionTypeEnum</code></a></td><td>MissionTypeEnum 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../MobilePartyAIModel/"><code>MobilePartyAIModel</code></a></td><td>MobilePartyAIModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MobilePartyFoodConsumptionModel/"><code>MobilePartyFoodConsumptionModel</code></a></td><td>MobilePartyFoodConsumptionModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MobilePartyMoraleModel/"><code>MobilePartyMoraleModel</code></a></td><td>MobilePartyMoraleModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../NotablePowerModel/"><code>NotablePowerModel</code></a></td><td>NotablePowerModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../NotableSpawnModel/"><code>NotableSpawnModel</code></a></td><td>NotableSpawnModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartyDesertionModel/"><code>PartyDesertionModel</code></a></td><td>PartyDesertionModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartyFoodBuyingModel/"><code>PartyFoodBuyingModel</code></a></td><td>PartyFoodBuyingModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartyHealingModel/"><code>PartyHealingModel</code></a></td><td>PartyHealingModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartyImpairmentModel/"><code>PartyImpairmentModel</code></a></td><td>PartyImpairmentModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartyMoraleModel/"><code>PartyMoraleModel</code></a></td><td>PartyMoraleModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartyNavigationModel/"><code>PartyNavigationModel</code></a></td><td>PartyNavigationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartyShipLimitModel/"><code>PartyShipLimitModel</code></a></td><td>PartyShipLimitModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartySizeLimitModel/"><code>PartySizeLimitModel</code></a></td><td>PartySizeLimitModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartySpeedModel/"><code>PartySpeedModel</code></a></td><td>PartySpeedModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartyTradeModel/"><code>PartyTradeModel</code></a></td><td>PartyTradeModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartyTrainingModel/"><code>PartyTrainingModel</code></a></td><td>PartyTrainingModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartyTransitionModel/"><code>PartyTransitionModel</code></a></td><td>PartyTransitionModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartyTroopUpgradeModel/"><code>PartyTroopUpgradeModel</code></a></td><td>PartyTroopUpgradeModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PartyWageModel/"><code>PartyWageModel</code></a></td><td>PartyWageModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PaymentMethod/"><code>PaymentMethod</code></a></td><td>PaymentMethod 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../PersuasionModel/"><code>PersuasionModel</code></a></td><td>PersuasionModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PlayerProgressionModel/"><code>PlayerProgressionModel</code></a></td><td>PlayerProgressionModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PregnancyModel/"><code>PregnancyModel</code></a></td><td>PregnancyModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PreliminaryActionObligation/"><code>PreliminaryActionObligation</code></a></td><td>PreliminaryActionObligation 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../PreliminaryActionType/"><code>PreliminaryActionType</code></a></td><td>PreliminaryActionType 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../PrisonBreakModel/"><code>PrisonBreakModel</code></a></td><td>PrisonBreakModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PrisonerDonationModel/"><code>PrisonerDonationModel</code></a></td><td>PrisonerDonationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../PrisonerRecruitmentCalculationModel/"><code>PrisonerRecruitmentCalculationModel</code></a></td><td>PrisonerRecruitmentCalculationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../RaidModel/"><code>RaidModel</code></a></td><td>RaidModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../RansomValueCalculationModel/"><code>RansomValueCalculationModel</code></a></td><td>RansomValueCalculationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../RomanceModel/"><code>RomanceModel</code></a></td><td>RomanceModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SceneModel/"><code>SceneModel</code></a></td><td>SceneModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SettlementAccessModel/"><code>SettlementAccessModel</code></a></td><td>SettlementAccessModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SettlementAction/"><code>SettlementAction</code></a></td><td>SettlementAction 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementEconomyModel/"><code>SettlementEconomyModel</code></a></td><td>SettlementEconomyModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SettlementFoodModel/"><code>SettlementFoodModel</code></a></td><td>SettlementFoodModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SettlementGarrisonModel/"><code>SettlementGarrisonModel</code></a></td><td>SettlementGarrisonModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SettlementLoyaltyModel/"><code>SettlementLoyaltyModel</code></a></td><td>SettlementLoyaltyModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SettlementMenuOverlayModel/"><code>SettlementMenuOverlayModel</code></a></td><td>SettlementMenuOverlayModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SettlementMilitiaModel/"><code>SettlementMilitiaModel</code></a></td><td>SettlementMilitiaModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SettlementPatrolModel/"><code>SettlementPatrolModel</code></a></td><td>SettlementPatrolModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SettlementProsperityModel/"><code>SettlementProsperityModel</code></a></td><td>SettlementProsperityModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SettlementSecurityModel/"><code>SettlementSecurityModel</code></a></td><td>SettlementSecurityModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SettlementTaxModel/"><code>SettlementTaxModel</code></a></td><td>SettlementTaxModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SettlementValueModel/"><code>SettlementValueModel</code></a></td><td>SettlementValueModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../ShipCostModel/"><code>ShipCostModel</code></a></td><td>ShipCostModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../ShipStatModel/"><code>ShipStatModel</code></a></td><td>ShipStatModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SiegeAction/"><code>SiegeAction</code></a></td><td>SiegeAction 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeAftermathModel/"><code>SiegeAftermathModel</code></a></td><td>SiegeAftermathModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SiegeEventModel/"><code>SiegeEventModel</code></a></td><td>SiegeEventModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SiegeLordsHallFightModel/"><code>SiegeLordsHallFightModel</code></a></td><td>SiegeLordsHallFightModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SiegeStrategyActionModel/"><code>SiegeStrategyActionModel</code></a></td><td>SiegeStrategyActionModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SmithingModel/"><code>SmithingModel</code></a></td><td>SmithingModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../TargetScoreCalculatingModel/"><code>TargetScoreCalculatingModel</code></a></td><td>TargetScoreCalculatingModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../TavernMercenaryTroopsModel/"><code>TavernMercenaryTroopsModel</code></a></td><td>TavernMercenaryTroopsModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../TournamentModel/"><code>TournamentModel</code></a></td><td>TournamentModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../TradeAgreementModel/"><code>TradeAgreementModel</code></a></td><td>TradeAgreementModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../TradeItemPriceFactorModel/"><code>TradeItemPriceFactorModel</code></a></td><td>TradeItemPriceFactorModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../TroopSacrificeModel/"><code>TroopSacrificeModel</code></a></td><td>TroopSacrificeModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../TroopSupplierProbabilityModel/"><code>TroopSupplierProbabilityModel</code></a></td><td>TroopSupplierProbabilityModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../ValuationModel/"><code>ValuationModel</code></a></td><td>ValuationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../VassalRewardsModel/"><code>VassalRewardsModel</code></a></td><td>VassalRewardsModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../VillageProductionCalculatorModel/"><code>VillageProductionCalculatorModel</code></a></td><td>VillageProductionCalculatorModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../VillageTradeModel/"><code>VillageTradeModel</code></a></td><td>VillageTradeModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../VoiceOverModel/"><code>VoiceOverModel</code></a></td><td>VoiceOverModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../VolunteerModel/"><code>VolunteerModel</code></a></td><td>VolunteerModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../WallHitPointCalculationModel/"><code>WallHitPointCalculationModel</code></a></td><td>WallHitPointCalculationModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../WeatherEvent/"><code>WeatherEvent</code></a></td><td>WeatherEvent 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../WeatherEventEffectOnTerrain/"><code>WeatherEventEffectOnTerrain</code></a></td><td>WeatherEventEffectOnTerrain 是 TaleWorlds.CampaignSystem.ComponentInterfaces 下的公开类型。</td></tr>
+<tr><td><a href="../WorkshopModel/"><code>WorkshopModel</code></a></td><td>WorkshopModel 是一个规则模型，位于 TaleWorlds.CampaignSystem.ComponentInterfaces，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+</tbody></table>
+<h2 id="ben-qu-yu-qi-ta-zi-xi-tong">本区域其他子系统</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../agentorigins/">AgentOrigins</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../bartersystem/">BarterSystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../campaignbehaviors/">CampaignBehaviors</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../charactercreationcontent/">CharacterCreationContent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../characterdevelopment/">CharacterDevelopment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../characters/">Characters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../conversation/">Conversation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../election/">Election</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../encounters/">Encounters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../encyclopedia/">Encyclopedia</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../extensions/">Extensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../gamecomponents/">GameComponents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../gamemenus/">GameMenus</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../gamestate/">GameState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../heroes/">Heroes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../inventory/">Inventory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../issues/">Issues</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../logentries/">LogEntries</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../map/">Map</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../mapevents/">MapEvents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../mapnotificationtypes/">MapNotificationTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../naval/">Naval</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../parties/">Parties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../party/">Party</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../quests/">Quests</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../roster/">Roster</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../savecompability/">SaveCompability</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../sceneinformationpopuptypes/">SceneInformationPopupTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../settlements/">Settlements</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../siege/">Siege</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/componentinterfaces/./../tournamentgames/">TournamentGames</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

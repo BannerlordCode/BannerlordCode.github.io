@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameNetwork</title>
+  <meta name="description" content="GameNetwork 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/GameNetwork/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/GameNetwork/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/GameNetwork/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/GameNetwork/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/GameNetwork/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/GameNetwork/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">GameNetwork</span>
+    </nav>
+  
+  <h1>GameNetwork</h1>
+  <h1 id="gamenetwork">GameNetwork</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public static class GameNetwork</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/GameNetwork.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>GameNetwork</code> 位于 <code>TaleWorlds.MountAndBlade</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.MountAndBlade</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>IsServer</code></td><td><code>public static bool IsServer { get; }</code></td></tr>
+<tr><td><code>IsServerOrRecorder</code></td><td><code>public static bool IsServerOrRecorder { get; }</code></td></tr>
+<tr><td><code>IsClient</code></td><td><code>public static bool IsClient { get; }</code></td></tr>
+<tr><td><code>IsReplay</code></td><td><code>public static bool IsReplay { get; }</code></td></tr>
+<tr><td><code>IsClientOrReplay</code></td><td><code>public static bool IsClientOrReplay { get; }</code></td></tr>
+<tr><td><code>IsDedicatedServer</code></td><td><code>public static bool IsDedicatedServer { get; }</code></td></tr>
+<tr><td><code>MultiplayerDisabled</code></td><td><code>public static bool MultiplayerDisabled { get; }</code></td></tr>
+<tr><td><code>IsMultiplayer</code></td><td><code>public static bool IsMultiplayer { get; }</code></td></tr>
+<tr><td><code>IsMultiplayerOrReplay</code></td><td><code>public static bool IsMultiplayerOrReplay { get; }</code></td></tr>
+<tr><td><code>IsSessionActive</code></td><td><code>public static bool IsSessionActive { get; }</code></td></tr>
+<tr><td><code>NetworkPeersIncludingDisconnectedPeers</code></td><td><code>public static IEnumerable&lt;NetworkCommunicator&gt; NetworkPeersIncludingDisconnectedPeers { get; }</code></td></tr>
+<tr><td><code>VirtualPlayers</code></td><td><code>public static VirtualPlayer VirtualPlayers { get; }</code></td></tr>
+<tr><td><code>NetworkPeers</code></td><td><code>public static List&lt;NetworkCommunicator&gt; NetworkPeers { get; }</code></td></tr>
+<tr><td><code>DisconnectedNetworkPeers</code></td><td><code>public static List&lt;NetworkCommunicator&gt; DisconnectedNetworkPeers { get; }</code></td></tr>
+<tr><td><code>NetworkPeerCount</code></td><td><code>public static int NetworkPeerCount { get; }</code></td></tr>
+<tr><td><code>NetworkPeersValid</code></td><td><code>public static bool NetworkPeersValid { get; }</code></td></tr>
+<tr><td><code>NetworkComponents</code></td><td><code>public static List&lt;UdpNetworkComponent&gt; NetworkComponents { get; }</code></td></tr>
+<tr><td><code>NetworkHandlers</code></td><td><code>public static List&lt;IUdpNetworkHandler&gt; NetworkHandlers { get; }</code></td></tr>
+<tr><td><code>MyPeer</code></td><td><code>public static NetworkCommunicator MyPeer { get; }</code></td></tr>
+<tr><td><code>IsMyPeerReady</code></td><td><code>public static bool IsMyPeerReady { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="clearallpeers">ClearAllPeers</h3>
+<p><code>public static void ClearAllPeers()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的all peers。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.ClearAllPeers();
+</code></pre>
+<h3 id="findnetworkpeer">FindNetworkPeer</h3>
+<p><code>public static NetworkCommunicator FindNetworkPeer(int index)</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找满足条件的network peer。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.FindNetworkPeer(0);
+</code></pre>
+<h3 id="initialize">Initialize</h3>
+<p><code>public static void Initialize(IGameNetworkHandler handler)</code></p>
+<p><strong>用途 / Purpose:</strong> 加载当前对象所需的初始资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.Initialize(handler);
+</code></pre>
+<h3 id="endmultiplayer">EndMultiplayer</h3>
+<p><code>public static void EndMultiplayer()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndMultiplayer 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.EndMultiplayer();
+</code></pre>
+<h3 id="startreplay">StartReplay</h3>
+<p><code>public static void StartReplay()</code></p>
+<p><strong>用途 / Purpose:</strong> 启动replay流程或状态机。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.StartReplay();
+</code></pre>
+<h3 id="endreplay">EndReplay</h3>
+<p><code>public static void EndReplay()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndReplay 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.EndReplay();
+</code></pre>
+<h3 id="prestartmultiplayeronserver">PreStartMultiplayerOnServer</h3>
+<p><code>public static void PreStartMultiplayerOnServer()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PreStartMultiplayerOnServer 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.PreStartMultiplayerOnServer();
+</code></pre>
+<h3 id="startmultiplayeronserver">StartMultiplayerOnServer</h3>
+<p><code>public static void StartMultiplayerOnServer(int port)</code></p>
+<p><strong>用途 / Purpose:</strong> 启动multiplayer on server流程或状态机。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.StartMultiplayerOnServer(0);
+</code></pre>
+<h3 id="handleconsolecommand">HandleConsoleCommand</h3>
+<p><code>public static void HandleConsoleCommand(string command)</code></p>
+<p><strong>用途 / Purpose:</strong> 响应 console command 事件，执行对应的处理逻辑。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.HandleConsoleCommand(&quot;example&quot;);
+</code></pre>
+<h3 id="getactiveudpsessionsipaddress">GetActiveUdpSessionsIpAddress</h3>
+<p><code>public static string GetActiveUdpSessionsIpAddress()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 active udp sessions ip address 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.GetActiveUdpSessionsIpAddress();
+</code></pre>
+<h3 id="addnewplayeronserver">AddNewPlayerOnServer</h3>
+<p><code>public static ICommunicator AddNewPlayerOnServer(PlayerConnectionInfo playerConnectionInfo, bool serverPeer, bool isAdmin)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 new player on server 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.AddNewPlayerOnServer(playerConnectionInfo, false, false);
+</code></pre>
+<h3 id="addnewplayersonserver">AddNewPlayersOnServer</h3>
+<p><code>public static GameNetwork.AddPlayersResult AddNewPlayersOnServer(PlayerConnectionInfo playerConnectionInfos, bool serverPeer)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 new players on server 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.AddNewPlayersOnServer(playerConnectionInfos, false);
+</code></pre>
+<h3 id="clientfinishedloading">ClientFinishedLoading</h3>
+<p><code>public static void ClientFinishedLoading(NetworkCommunicator networkPeer)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ClientFinishedLoading 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.ClientFinishedLoading(networkPeer);
+</code></pre>
+<h3 id="beginmoduleeventasclient">BeginModuleEventAsClient</h3>
+<p><code>public static void BeginModuleEventAsClient()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BeginModuleEventAsClient 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.BeginModuleEventAsClient();
+</code></pre>
+<h3 id="endmoduleeventasclient">EndModuleEventAsClient</h3>
+<p><code>public static void EndModuleEventAsClient()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndModuleEventAsClient 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.EndModuleEventAsClient();
+</code></pre>
+<h3 id="beginmoduleeventasclientunreliable">BeginModuleEventAsClientUnreliable</h3>
+<p><code>public static void BeginModuleEventAsClientUnreliable()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BeginModuleEventAsClientUnreliable 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.BeginModuleEventAsClientUnreliable();
+</code></pre>
+<h3 id="endmoduleeventasclientunreliable">EndModuleEventAsClientUnreliable</h3>
+<p><code>public static void EndModuleEventAsClientUnreliable()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndModuleEventAsClientUnreliable 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.EndModuleEventAsClientUnreliable();
+</code></pre>
+<h3 id="beginmoduleeventasserver">BeginModuleEventAsServer</h3>
+<p><code>public static void BeginModuleEventAsServer(NetworkCommunicator communicator)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BeginModuleEventAsServer 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.BeginModuleEventAsServer(communicator);
+</code></pre>
+<h3 id="beginmoduleeventasserverunreliable">BeginModuleEventAsServerUnreliable</h3>
+<p><code>public static void BeginModuleEventAsServerUnreliable(NetworkCommunicator communicator)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BeginModuleEventAsServerUnreliable 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.BeginModuleEventAsServerUnreliable(communicator);
+</code></pre>
+<h3 id="beginmoduleeventasserver-1">BeginModuleEventAsServer</h3>
+<p><code>public static void BeginModuleEventAsServer(VirtualPlayer peer)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BeginModuleEventAsServer 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.BeginModuleEventAsServer(peer);
+</code></pre>
+<h3 id="endmoduleeventasserver">EndModuleEventAsServer</h3>
+<p><code>public static void EndModuleEventAsServer()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndModuleEventAsServer 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.EndModuleEventAsServer();
+</code></pre>
+<h3 id="beginmoduleeventasserverunreliable-1">BeginModuleEventAsServerUnreliable</h3>
+<p><code>public static void BeginModuleEventAsServerUnreliable(VirtualPlayer peer)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BeginModuleEventAsServerUnreliable 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.BeginModuleEventAsServerUnreliable(peer);
+</code></pre>
+<h3 id="endmoduleeventasserverunreliable">EndModuleEventAsServerUnreliable</h3>
+<p><code>public static void EndModuleEventAsServerUnreliable()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndModuleEventAsServerUnreliable 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.EndModuleEventAsServerUnreliable();
+</code></pre>
+<h3 id="beginbroadcastmoduleevent">BeginBroadcastModuleEvent</h3>
+<p><code>public static void BeginBroadcastModuleEvent()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BeginBroadcastModuleEvent 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.BeginBroadcastModuleEvent();
+</code></pre>
+<h3 id="endbroadcastmoduleevent">EndBroadcastModuleEvent</h3>
+<p><code>public static void EndBroadcastModuleEvent(GameNetwork.EventBroadcastFlags broadcastFlags, NetworkCommunicator targetPlayer = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndBroadcastModuleEvent 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.EndBroadcastModuleEvent(broadcastFlags, null);
+</code></pre>
+<h3 id="elapsedtimesincelastudppacketarrived">ElapsedTimeSinceLastUdpPacketArrived</h3>
+<p><code>public static double ElapsedTimeSinceLastUdpPacketArrived()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ElapsedTimeSinceLastUdpPacketArrived 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.ElapsedTimeSinceLastUdpPacketArrived();
+</code></pre>
+<h3 id="endbroadcastmoduleeventunreliable">EndBroadcastModuleEventUnreliable</h3>
+<p><code>public static void EndBroadcastModuleEventUnreliable(GameNetwork.EventBroadcastFlags broadcastFlags, NetworkCommunicator targetPlayer = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndBroadcastModuleEventUnreliable 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.EndBroadcastModuleEventUnreliable(broadcastFlags, null);
+</code></pre>
+<h3 id="unsynchronizeeveryone">UnSynchronizeEveryone</h3>
+<p><code>public static void UnSynchronizeEveryone()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 UnSynchronizeEveryone 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.UnSynchronizeEveryone();
+</code></pre>
+<h3 id="addremovemessagehandlers">AddRemoveMessageHandlers</h3>
+<p><code>public static void AddRemoveMessageHandlers(GameNetwork.NetworkMessageHandlerRegisterer.RegisterMode mode)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 remove message handlers 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.AddRemoveMessageHandlers(mode);
+</code></pre>
+<h3 id="startmultiplayeronclient">StartMultiplayerOnClient</h3>
+<p><code>public static void StartMultiplayerOnClient(string serverAddress, int port, int sessionKey, int playerIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 启动multiplayer on client流程或状态机。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.StartMultiplayerOnClient(&quot;example&quot;, 0, 0, 0);
+</code></pre>
+<h3 id="handlenewclientconnect">HandleNewClientConnect</h3>
+<p><code>public static NetworkCommunicator HandleNewClientConnect(PlayerConnectionInfo playerConnectionInfo, bool isAdmin)</code></p>
+<p><strong>用途 / Purpose:</strong> 响应 new client connect 事件，执行对应的处理逻辑。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.HandleNewClientConnect(playerConnectionInfo, false);
+</code></pre>
+<h3 id="handlenewclientsconnect">HandleNewClientsConnect</h3>
+<p><code>public static GameNetwork.AddPlayersResult HandleNewClientsConnect(PlayerConnectionInfo playerConnectionInfos, bool isAdmin)</code></p>
+<p><strong>用途 / Purpose:</strong> 响应 new clients connect 事件，执行对应的处理逻辑。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.HandleNewClientsConnect(playerConnectionInfos, false);
+</code></pre>
+<h3 id="addnetworkpeertodisconnectasserver">AddNetworkPeerToDisconnectAsServer</h3>
+<p><code>public static void AddNetworkPeerToDisconnectAsServer(NetworkCommunicator networkPeer)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 network peer to disconnect as server 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.AddNetworkPeerToDisconnectAsServer(networkPeer);
+</code></pre>
+<h3 id="initializeclientside">InitializeClientSide</h3>
+<p><code>public static void InitializeClientSide(string serverAddress, int port, int sessionKey, int playerIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 client side 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.InitializeClientSide(&quot;example&quot;, 0, 0, 0);
+</code></pre>
+<h3 id="terminateclientside">TerminateClientSide</h3>
+<p><code>public static void TerminateClientSide()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TerminateClientSide 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.TerminateClientSide();
+</code></pre>
+<h3 id="getsynchedmissionobjectreadablerecordtypefromindex">GetSynchedMissionObjectReadableRecordTypeFromIndex</h3>
+<p><code>public static Type GetSynchedMissionObjectReadableRecordTypeFromIndex(int typeIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 synched mission object readable record type from index 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.GetSynchedMissionObjectReadableRecordTypeFromIndex(0);
+</code></pre>
+<h3 id="getsynchedmissionobjectreadablerecordindexfromtype">GetSynchedMissionObjectReadableRecordIndexFromType</h3>
+<p><code>public static int GetSynchedMissionObjectReadableRecordIndexFromType(Type type)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 synched mission object readable record index from type 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.GetSynchedMissionObjectReadableRecordIndexFromType(type);
+</code></pre>
+<h3 id="destroycomponent">DestroyComponent</h3>
+<p><code>public static void DestroyComponent(UdpNetworkComponent udpNetworkComponent)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DestroyComponent 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.DestroyComponent(udpNetworkComponent);
+</code></pre>
+<h3 id="addnetworkhandler">AddNetworkHandler</h3>
+<p><code>public static void AddNetworkHandler(IUdpNetworkHandler handler)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 network handler 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.AddNetworkHandler(handler);
+</code></pre>
+<h3 id="removenetworkhandler">RemoveNetworkHandler</h3>
+<p><code>public static void RemoveNetworkHandler(IUdpNetworkHandler handler)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 network handler。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.RemoveNetworkHandler(handler);
+</code></pre>
+<h3 id="writemessage">WriteMessage</h3>
+<p><code>public static void WriteMessage(GameNetworkMessage message)</code></p>
+<p><strong>用途 / Purpose:</strong> 将message写入目标位置。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.WriteMessage(message);
+</code></pre>
+<h3 id="setserverbandwidthlimitinmbps">SetServerBandwidthLimitInMbps</h3>
+<p><code>public static void SetServerBandwidthLimitInMbps(double value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 server bandwidth limit in mbps 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.SetServerBandwidthLimitInMbps(0);
+</code></pre>
+<h3 id="setservertickrate">SetServerTickRate</h3>
+<p><code>public static void SetServerTickRate(double value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 server tick rate 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.SetServerTickRate(0);
+</code></pre>
+<h3 id="setserverframerate">SetServerFrameRate</h3>
+<p><code>public static void SetServerFrameRate(double value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 server frame rate 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.SetServerFrameRate(0);
+</code></pre>
+<h3 id="resetdebugvariables">ResetDebugVariables</h3>
+<p><code>public static void ResetDebugVariables()</code></p>
+<p><strong>用途 / Purpose:</strong> 将 debug variables 重置回默认或初始状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.ResetDebugVariables();
+</code></pre>
+<h3 id="printdebugstats">PrintDebugStats</h3>
+<p><code>public static void PrintDebugStats()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PrintDebugStats 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.PrintDebugStats();
+</code></pre>
+<h3 id="getaveragepacketlossratio">GetAveragePacketLossRatio</h3>
+<p><code>public static float GetAveragePacketLossRatio()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 average packet loss ratio 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.GetAveragePacketLossRatio();
+</code></pre>
+<h3 id="getdebuguploadsinbits">GetDebugUploadsInBits</h3>
+<p><code>public static void GetDebugUploadsInBits(ref GameNetwork.DebugNetworkPacketStatisticsStruct networkStatisticsStruct, ref GameNetwork.DebugNetworkPositionCompressionStatisticsStruct posStatisticsStruct)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 debug uploads in bits 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.GetDebugUploadsInBits(networkStatisticsStruct, posStatisticsStruct);
+</code></pre>
+<h3 id="printreplicationtablestatistics">PrintReplicationTableStatistics</h3>
+<p><code>public static void PrintReplicationTableStatistics()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PrintReplicationTableStatistics 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.PrintReplicationTableStatistics();
+</code></pre>
+<h3 id="clearreplicationtablestatistics">ClearReplicationTableStatistics</h3>
+<p><code>public static void ClearReplicationTableStatistics()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的replication table statistics。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.ClearReplicationTableStatistics();
+</code></pre>
+<h3 id="resetdebuguploads">ResetDebugUploads</h3>
+<p><code>public static void ResetDebugUploads()</code></p>
+<p><strong>用途 / Purpose:</strong> 将 debug uploads 重置回默认或初始状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.ResetDebugUploads();
+</code></pre>
+<h3 id="resetmissiondata">ResetMissionData</h3>
+<p><code>public static void ResetMissionData()</code></p>
+<p><strong>用途 / Purpose:</strong> 将 mission data 重置回默认或初始状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.ResetMissionData();
+</code></pre>
+<h3 id="initializecompressioninfos">InitializeCompressionInfos</h3>
+<p><code>public static void InitializeCompressionInfos()</code></p>
+<p><strong>用途 / Purpose:</strong> 为 compression infos 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+GameNetwork.InitializeCompressionInfos();
+</code></pre>
+<h3 id="registermessages">RegisterMessages</h3>
+<p><code>public void RegisterMessages()</code></p>
+<p><strong>用途 / Purpose:</strong> 将messages注册到当前系统，以便后续监听或分发。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 GameNetwork 实例
+GameNetwork gameNetwork = ...;
+gameNetwork.RegisterMessages();
+</code></pre>
+<h3 id="unregistermessages">UnregisterMessages</h3>
+<p><code>public void UnregisterMessages()</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前系统中注销messages。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 GameNetwork 实例
+GameNetwork gameNetwork = ...;
+gameNetwork.UnregisterMessages();
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">GameNetwork.ClearAllPeers();
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/mission-ext/">mission-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/mission-ext/IDetachment/">&larr; IDetachment</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/mission-ext/ScoreboardShipsNavigatableGridWidget/">ScoreboardShipsNavigatableGridWidget &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

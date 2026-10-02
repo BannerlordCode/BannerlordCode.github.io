@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dialogs 对话家族</title>
+  <meta name="description" content="战役对话注册、token 流转、说服、标签谓词，以及安全交给世界 Action 的边界。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/dialogs/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/dialogs/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Dialogs 对话家族</span>
+    </nav>
+  
+  <h1>Dialogs 对话家族</h1>
+  <h1 id="dialogs-dui-hua-jia-zu">Dialogs 对话家族</h1>
+<p><strong>一句话职责：</strong> 对话 API 是一张短寿命决策图：战役启动时注册句子，活动对话反复按当前参与者测试它们，玩家选中后才把持久世界变更交给 Action、Quest 或 Encounter 流程。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p><code>CampaignGameStarter</code> 所有注册过程，<code>Campaign.Current.ConversationManager</code> 所有活动图和当前 token。一条对话行不是命令：每次重建选项都可能调用其条件，只有被选中后才调用 consequence。说服是附着的微型状态机，结果通过 <code>PersuasionModel</code> 计算；标签是可复用谓词，用当前角色上下文选择文本和语音变体。</p>
+<p>为战役或对话任务中的分支对话使用本家族。地图级导航用 <code>GameMenu</code>，长期目标用 <code>QuestBase</code>，战役世界变更用 <code>*Action.Apply</code>。对话关闭后，不要缓存 <code>ConversationSentenceOption</code>、<code>MapConversationAgent</code> 或 <code>CharacterObject.OneToOneConversationCharacter</code>。</p>
+<h2 id="yi-lai-guan-xi">依赖关系</h2>
+<ul>
+<li>上游：<code>CampaignGameStarter</code>、Campaign Behavior、<code>Campaign.Current</code> 与两名当前 <code>ConversationCharacterData</code> 参与者。</li>
+<li>运行时：<code>ConversationManager</code> 解析 token、调用条件、构造 <code>ConversationSentenceOption</code>，再调用已选句子的 consequence。</li>
+<li>下游：<a href="../actions">Actions</a>、<a href="../quests">Quests</a>、<a href="../gamemenus">GameMenus</a>、<a href="../encounters">Encounters</a> 与 Mission 对话视图。</li>
+<li>共用策略：<code>Campaign.Current.Models.PersuasionModel</code> 计算目标、初始进度、难度和概率；标签只读取英雄、文化、关系和遭遇状态，不拥有它们。</li>
+</ul>
+<h2 id="zhen-shi-zhu-ce-ru-kou">真实注册入口</h2>
+<p>Campaign Behavior 在战役启动时添加对话行。以下是战役行为实际使用的 v1.3.15 重载形状：条件只读状态，consequence 是唯一的选择边界。</p>
+<pre><code data-lang="csharp">protected void AddDialogs(CampaignGameStarter starter)
+{
+    starter.AddPlayerLine(
+        &quot;my_caravan_question&quot;,
+        &quot;hero_main_options&quot;,
+        &quot;my_caravan_answer&quot;,
+        &quot;{=my_caravan_question}商队近来如何？&quot;,
+        () =&gt; CharacterObject.OneToOneConversationCharacter?.HeroObject != null,
+        () =&gt; Campaign.Current.ConversationManager.ConversationEndOneShot += OnConversationEnded);
+}
+
+private void OnConversationEnded()
+{
+    // 持久战役变更归入 Action 或所属 Behavior 的状态。
+}
+</code></pre>
+<p>每个 <code>CampaignGameStarter</code> 只注册一次，不能在重复的战役 tick 中添加对话行。回调等待管理器的结束事件，因此不会把 Mission 局部 Agent 留到对话生命周期之后。</p>
+<h2 id="shi-ji-yu-feng-xian-bian-jie">时机与风险边界</h2>
+<p><code>ConversationManager.GetPlayerSentenceOptions</code> 在重建可见选项时调用句子条件，priority 决定合格句子的优先级。因此，发放金币、移除部队或推进任务的条件即使没有点击也可能重复执行。<code>Persuasion.CommitProgress</code> 后会阻塞该选项，复用相同 option 对象或重复提交会让 UI 与战役结果失步。管理器和已保存说服尝试属于 Campaign 状态；自定义后续数据应由 <code>CampaignBehaviorBase.SyncData</code> 所有，而不是由瞬态句子或标签保存。</p>
+<h2 id="dui-hua-shuo-fu-yu-biao-qian-tiao-mu">对话、说服与标签条目</h2>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../CampaignMapConversation">CampaignMapConversation</a></td><td>用战役参与者打开和关闭地图对话，而不是普通 UI 弹窗。</td><td>遭遇或地图交互进入对话时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../ConversationManager">ConversationManager</a></td><td>持有已注册句子、token 状态、选项、说话者与结束回调。</td><td>从 Campaign 构造到当前对话结束。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../ConversationSentence">ConversationSentence</a></td><td>定义一条带条件、consequence、优先级和可选说服数据的 token 边。</td><td>管理器寻找匹配行时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../ConversationSentenceOption">ConversationSentenceOption</a></td><td>携带当前 UI 帧中已选出的文本、可点击性、重复对象和说服数据。</td><td>玩家选择回复之前重建。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../ConversationToken">ConversationToken</a></td><td>命名 start、close-window 等内建流程状态。</td><td>句子推进活动 token 时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../ConversationTokens">ConversationTokens</a></td><td>暴露注册共用的标准 token 字符串。</td><td>注册时及组织 token 跳转时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../ConversationCharacterData">ConversationCharacterData</a></td><td>打包对话参与者的角色、部队、装备和生成意图。</td><td>打开地图或 Mission 对话之前。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../MapConversationAgent">MapConversationAgent</a></td><td>把战役角色适配为地图上的对话 Agent。</td><td>地图对话参与者仍存活期间。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../IConversationStateHandler">IConversationStateHandler</a></td><td>从对话宿主接收继续和结束通知。</td><td>流程转换时，不是长期 Campaign 事件总线。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../ConversationAnimationManager">ConversationAnimationManager</a></td><td>为活动交谈解析说话、待机和反应动画数据。</td><td>句子成为显示文本时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../ConversationAnimData">ConversationAnimData</a></td><td>存放对话展示对应的动画标识。</td><td>对话视图准备说话者反应时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../ConversationHelper">ConversationHelper</a></td><td>提供选择和格式化对话上下文的战役辅助逻辑。</td><td>注册和对话准备期间。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Persuasion</td><td><a href="../Persuasion">Persuasion</a></td><td>所有一次说服序列的进度、已选项、阈值和随机结果应用。</td><td><code>ConversationManager.StartPersuasion</code> 后且序列结算前。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Persuasion</td><td><a href="../PersuasionTask">PersuasionTask</a></td><td>把一个说服阶段的选项和失败文本组织在一起。</td><td>对话暴露新的说服阶段时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Persuasion</td><td><a href="../PersuasionOptionArgs">PersuasionOptionArgs</a></td><td>描述选项的技能、特质、保留值和可用性输入。</td><td>模型计算点击概率之前。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Persuasion</td><td><a href="../PersuasionOptionResult">PersuasionOptionResult</a></td><td>区分成功、暴击成功、失败、暴击失败和未命中。</td><td>投掷出选项结果之后立刻。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Persuasion</td><td><a href="../PersuasionAttempt">PersuasionAttempt</a></td><td>为英雄、游戏时间、选项、保留类型和结果保存一次尝试。</td><td>为冷却或历史检查提交说服选择时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Persuasion</td><td><a href="../PersuasionDifficulty">PersuasionDifficulty</a></td><td>选择模型难度倍率，而不是硬编码概率。</td><td>说服序列开始时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Persuasion</td><td><a href="../PersuasionArgumentStrength">PersuasionArgumentStrength</a></td><td>标记展示给玩家的说服论点强度。</td><td>UI 解释可用论点时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Persuasion</td><td><a href="../TraitEffect">TraitEffect</a></td><td>表示说服展示和求值使用的特质调整信息。</td><td>选项求值及结果反馈期间。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../ConversationTag">ConversationTag</a></td><td>定义针对当前角色的具名谓词，供选择文本变体。</td><td>管理器寻找带标签文本或语音变体时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../ConversationTagHelper">ConversationTagHelper</a></td><td>计算语体、部族语音组、教育程度与特质兼容等共用谓词。</td><td>标签子类判断适用性时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../AlliedLordTag">AlliedLordTag</a>, <a href="../FriendlyRelationshipTag">FriendlyRelationshipTag</a>, <a href="../HostileRelationshipTag">HostileRelationshipTag</a>, <a href="../NoConflictTag">NoConflictTag</a></td><td>从实时关系和战争上下文选择外交措辞。</td><td>每次为领主对话解析文本变体时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../AseraiTag">AseraiTag</a>, <a href="../BattanianTag">BattanianTag</a>, <a href="../EmpireTag">EmpireTag</a>, <a href="../KhuzaitTag">KhuzaitTag</a>, <a href="../NordTag">NordTag</a>, <a href="../SturgianTag">SturgianTag</a>, <a href="../VlandianTag">VlandianTag</a></td><td>选择文化特定语言或语音材料，不修改战役文化数据。</td><td>对话已知角色文化时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../AnyNotableTypeTag">AnyNotableTypeTag</a>, <a href="../ArtisanNotableTypeTag">ArtisanNotableTypeTag</a>, <a href="../GangLeaderNotableTypeTag">GangLeaderNotableTypeTag</a>, <a href="../HeadmanNotableTypeTag">HeadmanNotableTypeTag</a>, <a href="../MerchantNotableTypeTag">MerchantNotableTypeTag</a>, <a href="../PreacherNotableTypeTag">PreacherNotableTypeTag</a>, <a href="../WandererTag">WandererTag</a></td><td>按要人社会角色筛选台词，不依赖脆弱的角色 id。</td><td>求值一对一参与者时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../AmoralTag">AmoralTag</a>, <a href="../CalculatingTag">CalculatingTag</a>, <a href="../CautiousTag">CautiousTag</a>, <a href="../ChivalrousTag">ChivalrousTag</a>, <a href="../CruelTag">CruelTag</a>, <a href="../DeviousTag">DeviousTag</a>, <a href="../GenerosityTag">GenerosityTag</a>, <a href="../HonorTag">HonorTag</a>, <a href="../ImpulsiveTag">ImpulsiveTag</a>, <a href="../MercyTag">MercyTag</a>, <a href="../ValorTag">ValorTag</a>, <a href="../WaryTag">WaryTag</a></td><td>把英雄特质倾向转为对话语气谓词。</td><td>每次为说话角色查找变体时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../HighRegisterTag">HighRegisterTag</a>, <a href="../LowRegisterTag">LowRegisterTag</a>, <a href="../TribalRegisterTag">TribalRegisterTag</a>, <a href="../PersonaCurtTag">PersonaCurtTag</a>, <a href="../PersonaEarnestTag">PersonaEarnestTag</a>, <a href="../PersonaIronicTag">PersonaIronicTag</a>, <a href="../PersonaSoftspokenTag">PersonaSoftspokenTag</a></td><td>在检查教育、文化和 persona 后选择语体与人格变体。</td><td>选择语音和本地化文本变体时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../FirstMeetingTag">FirstMeetingTag</a>, <a href="../MetBeforeTag">MetBeforeTag</a>, <a href="../CurrentConversationIsFirst">CurrentConversationIsFirst</a>, <a href="../InHomeSettlementTag">InHomeSettlementTag</a>, <a href="../OnTheRoadTag">OnTheRoadTag</a>, <a href="../DrinkingInTavernTag">DrinkingInTavernTag</a></td><td>按会面历史和即时地点控制措辞。</td><td>台词资格检查期间，不能把结果持久化。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../AttackingTag">AttackingTag</a>, <a href="../CombatantTag">CombatantTag</a>, <a href="../NonCombatantTag">NonCombatantTag</a>, <a href="../NonviolentProfessionTag">NonviolentProfessionTag</a>, <a href="../PlayerBesiegingTag">PlayerBesiegingTag</a>, <a href="../UnderCommandTag">UnderCommandTag</a></td><td>描述当前军事姿态，不创建或结算战斗。</td><td>遭遇或部队上下文活动期间。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../NpcIsFemaleTag">NpcIsFemaleTag</a>, <a href="../NpcIsMaleTag">NpcIsMaleTag</a>, <a href="../NpcIsNobleTag">NpcIsNobleTag</a>, <a href="../NpcIsLiegeTag">NpcIsLiegeTag</a>, <a href="../OldTag">OldTag</a>, <a href="../AttractedToPlayerTag">AttractedToPlayerTag</a>, <a href="../EngagedToPlayerTag">EngagedToPlayerTag</a>, <a href="../RomanticallyInvolvedTag">RomanticallyInvolvedTag</a></td><td>从参与者当前英雄数据控制社会和恋爱文本。</td><td>解析直接角色对话时。</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsAffiliatedTag">PlayerIsAffiliatedTag</a>, <a href="../PlayerIsEnemyTag">PlayerIsEnemyTag</a>, <a href="../PlayerIsFamousTag">PlayerIsFamousTag</a>, <a href="../PlayerIsKinTag">PlayerIsKinTag</a>, <a href="../PlayerIsNobleTag">PlayerIsNobleTag</a>, <a href="../PlayerIsRulerTag">PlayerIsRulerTag</a>, <a href="../PlayerIsAtSeaTag">PlayerIsAtSeaTag</a></td><td>在对方条件行中反映玩家身份。</td><td>依据当前玩家英雄和部队求值选项时。</td></tr>
+</tbody></table>
+<h2 id="dan-du-biao-qian-tiao-mu">单独标签条目</h2>
+<p>标签子类按独立身份列出，避免一个合并单元格掩盖可单独使用的条件。</p>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../DialogLineFlags">DialogLineFlags</a></td><td>Encodes line presentation flags and click behavior.</td><td>Registration and rendering.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation</td><td><a href="../TaggedString">TaggedString</a></td><td>Carries localized text with its formatting tag identity.</td><td>Formatting a displayed line.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../AlliedLordTag">AlliedLordTag</a></td><td>Matches an allied lord relation.</td><td>Relation-sensitive line selection.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../AmoralTag">AmoralTag</a></td><td>Matches an amoral hero trait.</td><td>Trait variation lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../AnyNotableTypeTag">AnyNotableTypeTag</a></td><td>Accepts any supported notable role.</td><td>Notable participant checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../ArtisanNotableTypeTag">ArtisanNotableTypeTag</a></td><td>Matches an artisan notable role.</td><td>Social-role filtering.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../AseraiTag">AseraiTag</a></td><td>Selects the Aserai culture branch.</td><td>Culture resolution.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../AttackingTag">AttackingTag</a></td><td>Matches an attacking participant state.</td><td>Encounter posture checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../AttractedToPlayerTag">AttractedToPlayerTag</a></td><td>Detects attraction toward the player.</td><td>Romance line checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../BattanianTag">BattanianTag</a></td><td>Selects the Battanian culture branch.</td><td>Culture tag evaluation.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../CalculatingTag">CalculatingTag</a></td><td>Matches a calculating trait.</td><td>Trait variation lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../CautiousTag">CautiousTag</a></td><td>Matches a cautious trait.</td><td>Dialogue variant selection.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../ChivalrousTag">ChivalrousTag</a></td><td>Matches a chivalrous trait.</td><td>Trait tag evaluation.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../CombatantTag">CombatantTag</a></td><td>Identifies a current combatant.</td><td>Battle dialogue construction.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../CruelTag">CruelTag</a></td><td>Matches a cruel trait.</td><td>Personality variation lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../CurrentConversationIsFirst">CurrentConversationIsFirst</a></td><td>Tests whether this is the first meeting.</td><td>First-meeting condition evaluation.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../DefaultTag">DefaultTag</a></td><td>Provides the fallback tag branch.</td><td>Tagged-text fallback selection.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../DeviousTag">DeviousTag</a></td><td>Matches a devious trait.</td><td>Personality variant selection.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../DrinkingInTavernTag">DrinkingInTavernTag</a></td><td>Detects a tavern drinking context.</td><td>Tavern conversation checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../EmpireTag">EmpireTag</a></td><td>Selects the Empire culture branch.</td><td>Culture tag resolution.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../EngagedToPlayerTag">EngagedToPlayerTag</a></td><td>Detects an engagement with the player.</td><td>Romance-state checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../FirstMeetingTag">FirstMeetingTag</a></td><td>Matches a participant not met before.</td><td>Introductory line filtering.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../FriendlyRelationshipTag">FriendlyRelationshipTag</a></td><td>Matches a friendly relation level.</td><td>Relation branch selection.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../GangLeaderNotableTypeTag">GangLeaderNotableTypeTag</a></td><td>Matches a gang-leader notable role.</td><td>Social-role checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../GenerosityTag">GenerosityTag</a></td><td>Matches a generous trait.</td><td>Trait variation lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../HeadmanNotableTypeTag">HeadmanNotableTypeTag</a></td><td>Matches a village headman role.</td><td>Village participant checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../HighRegisterTag">HighRegisterTag</a></td><td>Selects formal high-register speech.</td><td>Text variant resolution.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../HonorTag">HonorTag</a></td><td>Matches an honorable trait.</td><td>Personality tag evaluation.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../HostileRelationshipTag">HostileRelationshipTag</a></td><td>Matches a hostile relation.</td><td>Diplomatic line selection.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../ImpoliteTag">ImpoliteTag</a></td><td>Matches an impolite persona.</td><td>Persona selection.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../ImpulsiveTag">ImpulsiveTag</a></td><td>Matches an impulsive trait.</td><td>Trait tag evaluation.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../InHomeSettlementTag">InHomeSettlementTag</a></td><td>Detects the participant's home settlement.</td><td>Location line filtering.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../KhuzaitTag">KhuzaitTag</a></td><td>Selects the Khuzait culture branch.</td><td>Culture tag resolution.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../LowRegisterTag">LowRegisterTag</a></td><td>Selects informal low-register speech.</td><td>Text variant resolution.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../MerchantNotableTypeTag">MerchantNotableTypeTag</a></td><td>Matches a merchant notable role.</td><td>Participant role checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../MercyTag">MercyTag</a></td><td>Matches a merciful trait.</td><td>Personality variant lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../MetBeforeTag">MetBeforeTag</a></td><td>Detects prior contact history.</td><td>Follow-up greeting checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../NoConflictTag">NoConflictTag</a></td><td>Matches a relation without active conflict.</td><td>Diplomatic line selection.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../NonCombatantTag">NonCombatantTag</a></td><td>Identifies a non-combatant participant.</td><td>Encounter dialogue construction.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../NonviolentProfessionTag">NonviolentProfessionTag</a></td><td>Matches a nonviolent profession.</td><td>Profession condition checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../NordTag">NordTag</a></td><td>Selects the Nord culture branch.</td><td>Culture tag resolution.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../NpcIsFemaleTag">NpcIsFemaleTag</a></td><td>Tests the NPC female hero state.</td><td>Gender line filtering.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../NPCIsInSeaTag">NPCIsInSeaTag</a></td><td>Detects an NPC at sea.</td><td>Map-state checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../NpcIsLiegeTag">NpcIsLiegeTag</a></td><td>Detects an NPC who is a liege.</td><td>Hierarchy line selection.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../NpcIsMaleTag">NpcIsMaleTag</a></td><td>Tests the NPC male hero state.</td><td>Gender line filtering.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../NpcIsNobleTag">NpcIsNobleTag</a></td><td>Detects an NPC noble status.</td><td>Social-rank checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../OldTag">OldTag</a></td><td>Matches an age category.</td><td>Participant descriptor checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../OnTheRoadTag">OnTheRoadTag</a></td><td>Detects a road conversation context.</td><td>Map dialogue selection.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../OutlawSympathyTag">OutlawSympathyTag</a></td><td>Matches sympathy toward outlaws.</td><td>Relation and trait checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PersonaCurtTag">PersonaCurtTag</a></td><td>Selects a curt persona variant.</td><td>Persona resolution.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PersonaEarnestTag">PersonaEarnestTag</a></td><td>Selects an earnest persona variant.</td><td>Line presentation lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PersonaIronicTag">PersonaIronicTag</a></td><td>Selects an ironic persona variant.</td><td>Persona-sensitive rendering.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PersonaSoftspokenTag">PersonaSoftspokenTag</a></td><td>Selects a soft-spoken persona variant.</td><td>Line variant resolution.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerBesiegingTag">PlayerBesiegingTag</a></td><td>Detects the player besieging a settlement.</td><td>Siege option checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsAffiliatedTag">PlayerIsAffiliatedTag</a></td><td>Detects player faction affiliation.</td><td>Faction line checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsAtSeaTag">PlayerIsAtSeaTag</a></td><td>Detects the player party at sea.</td><td>Map-state evaluation.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsBrotherTag">PlayerIsBrotherTag</a></td><td>Detects a brother relationship.</td><td>Kinship line checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsDaughterTag">PlayerIsDaughterTag</a></td><td>Detects a daughter relationship.</td><td>Kinship line checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsEnemyTag">PlayerIsEnemyTag</a></td><td>Detects an enemy relation.</td><td>Hostile option evaluation.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsFamousTag">PlayerIsFamousTag</a></td><td>Detects the player's fame threshold.</td><td>Reputation line checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsFatherTag">PlayerIsFatherTag</a></td><td>Detects a father relationship.</td><td>Kinship line checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsFemaleTag">PlayerIsFemaleTag</a></td><td>Tests the player's female state.</td><td>Gender line filtering.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsKinTag">PlayerIsKinTag</a></td><td>Detects any supported kinship relation.</td><td>Family option checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsKnownButNotFamousTag">PlayerIsKnownButNotFamousTag</a></td><td>Distinguishes known but not famous status.</td><td>Reputation variant selection.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsLiegeTag">PlayerIsLiegeTag</a></td><td>Detects the player as the participant's liege.</td><td>Fealty line checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsMaleTag">PlayerIsMaleTag</a></td><td>Tests the player's male state.</td><td>Gender line filtering.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsMotherTag">PlayerIsMotherTag</a></td><td>Detects a mother relationship.</td><td>Kinship line checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsNobleTag">PlayerIsNobleTag</a></td><td>Detects the player's noble status.</td><td>Social-rank checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsRulerTag">PlayerIsRulerTag</a></td><td>Detects the player ruling a kingdom.</td><td>Ruler dialogue evaluation.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsSisterTag">PlayerIsSisterTag</a></td><td>Detects a sister relationship.</td><td>Kinship line checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsSonTag">PlayerIsSonTag</a></td><td>Detects a son relationship.</td><td>Kinship line checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PlayerIsSpouseTag">PlayerIsSpouseTag</a></td><td>Detects a spouse relationship.</td><td>Romance and family checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../PreacherNotableTypeTag">PreacherNotableTypeTag</a></td><td>Matches a preacher notable role.</td><td>Participant role filtering.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../RogueSkillsTag">RogueSkillsTag</a></td><td>Matches a rogue-oriented skill profile.</td><td>Skill and persona checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../RomanticallyInvolvedTag">RomanticallyInvolvedTag</a></td><td>Detects an active romantic relation.</td><td>Romance option checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../SexistTag">SexistTag</a></td><td>Matches a sexist trait profile.</td><td>Trait tag evaluation.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../SturgianTag">SturgianTag</a></td><td>Selects the Sturgian culture branch.</td><td>Culture tag resolution.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../TribalRegisterTag">TribalRegisterTag</a></td><td>Selects tribal-register speech.</td><td>Voice and text selection.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../UncharitableTag">UncharitableTag</a></td><td>Matches an uncharitable trait.</td><td>Personality variant lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../UnderCommandTag">UnderCommandTag</a></td><td>Detects operation under another commander.</td><td>Party hierarchy checks.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../UngratefulTag">UngratefulTag</a></td><td>Matches an ungrateful trait.</td><td>Trait tag evaluation.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../ValorTag">ValorTag</a></td><td>Matches a valorous trait.</td><td>Personality variant lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../VlandianTag">VlandianTag</a></td><td>Selects the Vlandian culture branch.</td><td>Culture tag resolution.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../VoiceGroupPersonaCurtLowerTag">VoiceGroupPersonaCurtLowerTag</a></td><td>Selects the lower curt voice group.</td><td>Voice asset lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../VoiceGroupPersonaCurtTribalTag">VoiceGroupPersonaCurtTribalTag</a></td><td>Selects the tribal curt voice group.</td><td>Voice asset lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../VoiceGroupPersonaCurtUpperTag">VoiceGroupPersonaCurtUpperTag</a></td><td>Selects the upper curt voice group.</td><td>Voice asset lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../VoiceGroupPersonaEarnestLowerTag">VoiceGroupPersonaEarnestLowerTag</a></td><td>Selects the lower earnest voice group.</td><td>Voice asset lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../VoiceGroupPersonaEarnestTribalTag">VoiceGroupPersonaEarnestTribalTag</a></td><td>Selects the tribal earnest voice group.</td><td>Voice asset lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../VoiceGroupPersonaEarnestUpperTag">VoiceGroupPersonaEarnestUpperTag</a></td><td>Selects the upper earnest voice group.</td><td>Voice asset lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../VoiceGroupPersonaIronicLowerTag">VoiceGroupPersonaIronicLowerTag</a></td><td>Selects the lower ironic voice group.</td><td>Voice asset lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../VoiceGroupPersonaIronicTribalTag">VoiceGroupPersonaIronicTribalTag</a></td><td>Selects the tribal ironic voice group.</td><td>Voice asset lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../VoiceGroupPersonaIronicUpperTag">VoiceGroupPersonaIronicUpperTag</a></td><td>Selects the upper ironic voice group.</td><td>Voice asset lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../VoiceGroupPersonaSoftspokenLowerTag">VoiceGroupPersonaSoftspokenLowerTag</a></td><td>Selects the lower soft-spoken voice group.</td><td>Voice asset lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../VoiceGroupPersonaSoftspokenTribalTag">VoiceGroupPersonaSoftspokenTribalTag</a></td><td>Selects the tribal soft-spoken voice group.</td><td>Voice asset lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../VoiceGroupPersonaSoftspokenUpperTag">VoiceGroupPersonaSoftspokenUpperTag</a></td><td>Selects the upper soft-spoken voice group.</td><td>Voice asset lookup.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../WandererTag">WandererTag</a></td><td>Matches a wanderer notable role.</td><td>Participant role filtering.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.Conversation.Tags</td><td><a href="../WaryTag">WaryTag</a></td><td>Matches a wary hero trait.</td><td>Personality variant lookup.</td></tr>
+</tbody></table>
+<h2 id="dao-hang">导航</h2>
+<ul>
+<li><a href="..">父级：Campaign-Ext</a></li>
+<li><a href="../gamemenus">同级：GameMenus</a> 与 <a href="../mapevents">MapEvents</a></li>
+<li><a href="../quests">相关：Quests</a>、<a href="../actions">Actions</a> 与 <a href="../CampaignEvents">Campaign events</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

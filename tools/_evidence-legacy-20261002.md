@@ -840,3 +840,31 @@ Render-layer evidence was recovered from a throwaway copy **outside the reposito
 **Deliberately do not "fix" either one.** In the v1.4.6 case the marker's only purpose is to declare *this page is generated* — relocating it out of the front matter, or rewriting it as a YAML comment, would polish something that should not be published at all. Withdrawal removes the blocker with **zero** front-matter edits, and is the only disposition consistent with the HARD PREMISE that generated pages are reverted rather than improved.
 
 Note the second blocker is a *different* defect from a *different* generator (worker-3's sentinel mechanism), so the two must not be bundled under one diagnosis just because they both break the build.
+
+## 14. Two acceptances withdrawn — verifying an artifact is not verifying that it works
+
+### 14.1 The three `(b)` intermediate `_index.md` are empty shells
+
+§9.3 recorded these as "real section pages, not stubs", with 44/44, 24/24 and 1/1 sub-buckets enumerated from the real on-disk directory list and 69/69 children resolving. **That acceptance is withdrawn.**
+
+Rendered-output evidence from the probe build shows the pages exist but contain **zero** sub-bucket links:
+
+| page | sub-buckets on disk | linked in rendered output |
+|---|---|---|
+| `v1.4.5/en/api/final` | 44 | **0** |
+| `v1.4.5/zh/api/final` | 24 | **0** |
+| `v1.4.5/zh/api/perks` | 1 | **0** |
+
+The 404 they were created to fix is genuinely gone. But they do not yet function as directory pages, and the original verification only confirmed that link text existed in the markdown — never that the links resolved in rendered output. **69 pages are neither 404-reachable nor directory-reachable.** Same defect family as the sidebar finding below.
+
+### 14.2 The sidebar recursion has never executed once
+
+`MAX_DEPTH=4` was reported delivered with the caveat "per-page cost unverified" (§9.6), and §12.1 already recorded that as a mislabelling. The measurement now exists: across a 121-page sample the maximum observed nesting is **1** — no page renders a second level. The recursion has never executed.
+
+Root cause, isolated in a 45 ms minimal repro: **Tera `self::` macro calls inherit nothing from the caller's context** — not locals, not `set_global` — and top-level `set_global` statements in an imported macro file never execute at all, because importing a macro file imports only its `{% macro %}` definitions. So `nav`, `tree`, `MAX_DEPTH` and `emitted_routes` are all undefined inside `render_branch`. **Do not "fix" this by raising `MAX_DEPTH`.** The real fix is threading the data through macro parameters plus regenerating `data/section-tree.json` — a redesign, not a hotfix.
+
+An honest note on the patch itself: the guard added to satisfy the parse error converts that hard failure into **silent emptiness**, which is why the sidebar renders blank rather than crashing. The parse error is genuinely fixed; the guard also *hides* the real bug. That trade should be visible to whoever picks it up.
+
+### 14.3 The generalisable form
+
+Across this wave the same shape recurred: a check confirmed an artifact **existed and parsed**, and that was recorded as "works". It is not. Link text present ≠ link reachable. Template parses ≠ template renders the feature. Page classified `deep_pass` ≠ page is hand-written (§15). In every instance the gate returned a confident answer because it was answering a narrower question than the one being asked.

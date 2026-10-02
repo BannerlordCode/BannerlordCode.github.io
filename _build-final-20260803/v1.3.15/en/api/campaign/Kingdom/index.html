@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kingdom</title>
+  <meta name="description" content="Kingdom: top political entity of multiple clans; entry for war, policy, armies, and decisions. Diplomacy changes must go through Actions.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/Kingdom/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/Kingdom/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/Kingdom/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/Kingdom/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/Kingdom/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/Kingdom/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Kingdom</span>
+    </nav>
+  
+  <h1>Kingdom</h1>
+  <h1 id="kingdom">Kingdom</h1>
+<p><strong>Namespace:</strong> <code>TaleWorlds.CampaignSystem</code><br />
+<strong>Module:</strong> <code>TaleWorlds.CampaignSystem</code><br />
+<strong>Type:</strong> <code>public class Kingdom : MBObjectBase, IFaction</code><br />
+<strong>Base:</strong> <code>MBObjectBase</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Kingdom.cs</code></p>
+<h2 id="one-line-job">One-line job</h2>
+<p>Top-level map faction made of multiple <code>Clan</code>s: aggregates holdings and strength, holds war/ally stances, policy lists, open <code>KingdomDecision</code>s, and strategic entry points such as <code>CreateArmy</code>.</p>
+<h2 id="mental-model">Mental Model</h2>
+<pre><code>Kingdom (political alliance / map faction)
+   │
+   ├── Clans[] ── RulingClan / Leader(Ruler)
+   ├── Settlements / Fiefs / Villages   ← rolled up from member clans
+   ├── Armies[]                        ← temporary strategic groups
+   ├── Policies / UnresolvedDecisions
+   └── Stance (vs other IFaction)      ← war / peace / tribute
+</code></pre>
+<p>Treat <code>Kingdom</code> as a <strong>political alliance of clans under one contract</strong>:</p>
+<table><thead><tr><th>Dimension</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Who creates</td><td><code>Kingdom.CreateKingdom</code> + <code>InitializeKingdom</code>; player founding uses <code>ChangeKingdomAction.ApplyByCreateKingdom</code></td></tr>
+<tr><td>Who holds</td><td><code>Campaign</code> global; reverse link <code>Clan.Kingdom</code></td></tr>
+<tr><td>Layer</td><td>Campaign politics; does not run Mission combat</td></tr>
+<tr><td>Lifetime</td><td>Can be destroyed by <code>DestroyKingdomAction</code> (<code>IsEliminated</code>)</td></tr>
+<tr><td>vs Clan</td><td>Diplomacy / declare-war subject is usually Kingdom; clanless or kingdom-less clans can still act as <code>IFaction</code></td></tr>
+</tbody></table>
+<p>Individuals do not "declare war alone": a hero enters the <code>IsAtWarWith</code> graph through <code>Clan</code> → <code>Kingdom</code> (or the clan itself as map faction).</p>
+<h3 id="when-to-use">When to use</h3>
+<ul>
+<li>Two blocs at war: <code>kingdomA.IsAtWarWith(kingdomB)</code> or <code>faction.IsAtWarWith(Hero.MainHero.MapFaction)</code>.</li>
+<li>Walk a kingdom's clans / fiefs: <code>kingdom.Clans</code>, <code>kingdom.Settlements</code>, <code>kingdom.Fiefs</code>.</li>
+<li>Create an army: <code>kingdom.CreateArmy(leader, target, ArmyTypes, parties)</code>.</li>
+<li>Policy and decisions: <code>AddPolicy</code> / <code>HasPolicy</code> / <code>AddDecision</code>.</li>
+<li>Read ruler: <code>Leader</code>, <code>RulingClan</code>.</li>
+</ul>
+<h3 id="when-not-to-use-do-not-write-fields-directly">When not to use / do not write fields directly</h3>
+<table><thead><tr><th>Don't</th><th>Why</th><th>Do instead</th></tr></thead><tbody>
+<tr><td>Hand-write stance fields or a fake "SetStance"</td><td>War graph, notices, quest hooks incomplete</td><td><code>DeclareWarAction</code> / <code>MakePeaceAction</code></td></tr>
+<tr><td>Only assign <code>clan.Kingdom = newKingdom</code></td><td>Both-side lists and timestamps desync</td><td><code>ChangeKingdomAction.ApplyBy*</code></td></tr>
+<tr><td>Force an army with no war and expect normal AI</td><td>Cohesion / target / gather logic depends on campaign state</td><td><code>CreateArmy</code> + <code>GatherArmyAction</code> / official gather flow</td></tr>
+<tr><td>Use Kingdom APIs to change a single settlement owner</td><td>Ownership lives on Clan / Settlement</td><td><code>ChangeOwnerOfSettlementAction</code></td></tr>
+<tr><td><code>new Kingdom()</code> without <code>InitializeKingdom</code></td><td>Name / culture / banner / colors not ready</td><td><code>CreateKingdom</code> → <code>InitializeKingdom</code> → Action to bind ruling clan</td></tr>
+<tr><td>Assume <code>IsAllyWith</code> equals "same culture"</td><td>Alliance is an explicit stance</td><td>Read <code>AlliedKingdoms</code> / <code>IsAllyWith</code></td></tr>
+</tbody></table>
+<h2 id="dependencies">Dependencies</h2>
+<h3 id="upstream">Upstream</h3>
+<table><thead><tr><th>Type</th><th>Relation</th></tr></thead><tbody>
+<tr><td><a href="../Campaign"><code>Campaign</code></a></td><td>Kingdom list and daily tick</td></tr>
+<tr><td><a href="../Clan"><code>Clan</code></a></td><td>Building block; <code>RulingClan</code></td></tr>
+<tr><td><code>CultureObject</code> / <code>Banner</code></td><td><code>InitializeKingdom</code> parameters</td></tr>
+<tr><td><a href="../Settlement"><code>Settlement</code></a></td><td><code>initialHomeSettlement</code> and rolled-up holdings</td></tr>
+</tbody></table>
+<h3 id="downstream">Downstream</h3>
+<table><thead><tr><th>Type</th><th>Relation</th></tr></thead><tbody>
+<tr><td><a href="../../campaign-ext/Army"><code>Army</code></a></td><td><code>kingdom.Armies</code>; <code>CreateArmy</code> output</td></tr>
+<tr><td><a href="../MobileParty"><code>MobileParty</code></a></td><td><code>AllParties</code> / <code>WarPartyComponents</code></td></tr>
+<tr><td><a href="../Hero"><code>Hero</code></a></td><td><code>Heroes</code> / <code>AliveLords</code>; ruler</td></tr>
+<tr><td>Policy / decision types</td><td><code>PolicyObject</code>, <code>KingdomDecision</code> subclasses</td></tr>
+</tbody></table>
+<h3 id="events-actions-models-save">Events / Actions / Models / Save</h3>
+<table><thead><tr><th>Channel</th><th>Relation</th></tr></thead><tbody>
+<tr><td>Actions</td><td><code>DeclareWarAction</code>, <code>MakePeaceAction</code>, <code>ChangeKingdomAction</code>, <code>DestroyKingdomAction</code>, <code>ChangeRulingClanAction</code>, <code>GainKingdomInfluenceAction</code>, <code>DisbandArmyAction</code></td></tr>
+<tr><td>Events</td><td>Declare war / make peace, decision finished, clan join/leave, and related <code>CampaignEvents</code></td></tr>
+<tr><td>Models</td><td>Influence, war score, policy effects via GameModels</td></tr>
+<tr><td>Save</td><td>Name, culture, banner, wallets, stagnation, policy and decision lists, and more; <strong>stance graph saves with FactionManager</strong></td></tr>
+</tbody></table>
+<h2 id="risks-and-crash-boundaries">Risks and crash boundaries</h2>
+<table><thead><tr><th>Risk</th><th>Result</th><th>Mitigation</th></tr></thead><tbody>
+<tr><td>Fake diplomacy (local bool only)</td><td>AI still fights under old war state</td><td>Only DeclareWar / MakePeace Actions</td></tr>
+<tr><td>Cache old refs after kingdom destruction</td><td>NRE / wrong UI</td><td><code>IsEliminated</code>; clear Behavior caches</td></tr>
+<tr><td><code>CreateArmy</code> with leader without a party or wrong kingdom</td><td>Broken army or instant disband</td><td>Check <code>armyLeader.PartyBelongedTo</code> and <code>Clan.Kingdom</code></td></tr>
+<tr><td><code>AddDecision</code> mid-load</td><td>Decision queue corruption</td><td>After session launch</td></tr>
+<tr><td>Treat <code>MercenaryWallet</code> / <code>KingdomBudgetWallet</code> as player purse</td><td>Those are kingdom public books</td><td>Player money: <code>Hero</code> / <code>GiveGoldAction</code></td></tr>
+<tr><td>Assume player is in a kingdom when <code>PlayerClan.Kingdom == null</code></td><td>NRE in wanderer / mercenary phase</td><td>Null-check first</td></tr>
+</tbody></table>
+<h2 id="key-members-purpose-timing">Key members (purpose + timing)</h2>
+<h3 id="lookup-and-init">Lookup and init</h3>
+<table><thead><tr><th>Member</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td><code>All</code></td><td>Every kingdom</td><td>In campaign</td></tr>
+<tr><td><code>CreateKingdom(string stringID)</code></td><td>Empty shell</td><td>Mod / scenario</td></tr>
+<tr><td><code>InitializeKingdom(name, informalName, culture, banner, color1, color2, home, encyclopedia…)</code></td><td>Fill display and culture</td><td>Right after Create</td></tr>
+<tr><td><code>ChangeKingdomName</code></td><td>Rename at runtime</td><td>Runtime</td></tr>
+<tr><td><code>ReactivateKingdom</code></td><td>Revival logic</td><td>Special events</td></tr>
+</tbody></table>
+<pre><code data-lang="csharp">Kingdom k = Kingdom.CreateKingdom(&quot;mod_kingdom_north&quot;);
+k.InitializeKingdom(
+    new TextObject(&quot;{=mod_k}North Realm&quot;),
+    new TextObject(&quot;{=mod_k_inf}Northmen&quot;),
+    CultureObject.GetCulture(&quot;sturgia&quot;),
+    Banner.CreateRandomClanBanner(seed: 42),
+    0xFF1A3A5C,
+    0xFFE8E0D0,
+    Settlement.Find(&quot;town_S1&quot;),
+    new TextObject(&quot;{=mod_k_enc}A realm of the north.&quot;),
+    new TextObject(&quot;{=mod_k_title}Realm of the North&quot;),
+    new TextObject(&quot;{=mod_k_ruler}High King&quot;));
+// Bind ruling clan: ChangeKingdomAction.ApplyByCreateKingdom(rulingClan, k);
+</code></pre>
+<h3 id="composition-and-assets">Composition and assets</h3>
+<table><thead><tr><th>Member</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>Clans</code> / <code>RulingClan</code> / <code>Leader</code></td><td>Political structure</td></tr>
+<tr><td><code>Settlements</code> / <code>Fiefs</code> / <code>Villages</code></td><td>Holdings rollup</td></tr>
+<tr><td><code>Heroes</code> / <code>AliveLords</code> / <code>DeadLords</code></td><td>People rollup</td></tr>
+<tr><td><code>WarPartyComponents</code> / <code>AllParties</code></td><td>Military force</td></tr>
+<tr><td><code>Armies</code> / <code>LastArmyCreationDay</code></td><td>Armies</td></tr>
+<tr><td><code>CurrentTotalStrength</code></td><td>Strength estimate</td></tr>
+<tr><td><code>Culture</code> / <code>Banner</code> / color fields</td><td>Display and map tint</td></tr>
+<tr><td><code>MercenaryWallet</code> / <code>KingdomBudgetWallet</code> / <code>TributeWallet</code> / <code>CallToWarWallet</code></td><td>Kingdom books</td></tr>
+</tbody></table>
+<h3 id="diplomacy-and-policy">Diplomacy and policy</h3>
+<table><thead><tr><th>Member</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>IsAtWarWith</code> / <code>IsAtConstantWarWith</code></td><td>War</td></tr>
+<tr><td><code>IsAllyWith</code> / <code>AlliedKingdoms</code> / <code>HasCalledToWar</code></td><td>Allies and call-to-war</td></tr>
+<tr><td><code>FactionsAtWarWith</code></td><td>Hostile list</td></tr>
+<tr><td><code>UpdateFactionsAtWarWith</code> / <code>UpdateAlliedKingdoms</code></td><td>Internal refresh (usually Action-triggered)</td></tr>
+<tr><td><code>AddPolicy</code> / <code>RemovePolicy</code> / <code>HasPolicy</code></td><td>Policies</td></tr>
+<tr><td><code>AddDecision</code> / <code>RemoveDecision</code> / <code>UnresolvedDecisions</code> / <code>OnKingdomDecisionConcluded</code></td><td>Decision queue</td></tr>
+</tbody></table>
+<h3 id="armies">Armies</h3>
+<pre><code data-lang="csharp">// Official entry: kingdom creates army (leader must be a suitable lord)
+Kingdom playerKingdom = Clan.PlayerClan.Kingdom;
+if (playerKingdom != null &amp;&amp; Hero.MainHero.PartyBelongedTo != null)
+{
+    Settlement target = Settlement.FindFirst(s =&gt;
+        s.IsFortification &amp;&amp; s.MapFaction != null &amp;&amp;
+        s.MapFaction.IsAtWarWith(playerKingdom));
+    if (target != null)
+    {
+        playerKingdom.CreateArmy(
+            Hero.MainHero,
+            target,
+            Army.ArmyTypes.Besieger,
+            partiesToCallToArmy: null);
+    }
+}
+</code></pre>
+<h2 id="real-examples">Real examples</h2>
+<h3 id="example-1-force-peace-between-two-kingdoms">Example 1: Force peace between two kingdoms</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+using System.Linq;
+
+public void ForcePeace(string kingdomIdA, string kingdomIdB)
+{
+    Kingdom a = Kingdom.All.FirstOrDefault(k =&gt; k.StringId == kingdomIdA);
+    Kingdom b = Kingdom.All.FirstOrDefault(k =&gt; k.StringId == kingdomIdB);
+    if (a == null || b == null || a.IsEliminated || b.IsEliminated)
+    {
+        return;
+    }
+    if (a.IsAtWarWith(b))
+    {
+        MakePeaceAction.Apply(a, b);
+    }
+}
+</code></pre>
+<h3 id="example-2-declare-war-on-another-kingdom-default-path">Example 2: Declare war on another kingdom (default path)</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+
+public void DeclareWarOn(Kingdom enemy)
+{
+    Kingdom mine = Clan.PlayerClan.Kingdom;
+    if (mine == null || enemy == null || mine == enemy)
+    {
+        return;
+    }
+    if (!mine.IsAtWarWith(enemy))
+    {
+        DeclareWarAction.ApplyByDefault(mine, enemy);
+    }
+}
+</code></pre>
+<h3 id="example-3-pay-gold-to-every-vassal-clan-leader">Example 3: Pay gold to every vassal clan leader</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+
+public void PayVassals(int goldEach)
+{
+    Kingdom k = Clan.PlayerClan.Kingdom;
+    if (k == null)
+    {
+        return;
+    }
+    foreach (Clan clan in k.Clans)
+    {
+        if (clan.IsEliminated || clan.Leader == null || !clan.Leader.IsAlive)
+        {
+            continue;
+        }
+        GiveGoldAction.ApplyBetweenCharacters(null, clan.Leader, goldEach);
+    }
+}
+</code></pre>
+<h3 id="example-4-is-this-fortification-enemy-territory">Example 4: Is this fortification enemy territory?</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Settlements;
+
+public bool IsEnemyFortification(Settlement s)
+{
+    if (s == null || !s.IsFortification || s.MapFaction == null)
+    {
+        return false;
+    }
+    IFaction playerFaction = Hero.MainHero.MapFaction;
+    return playerFaction != null &amp;&amp; s.MapFaction.IsAtWarWith(playerFaction);
+}
+</code></pre>
+<h2 id="cross-version-notes">Cross-version notes</h2>
+<ul>
+<li><strong>1.3.x:</strong> <code>CreateKingdom</code> / <code>InitializeKingdom</code> / <code>CreateArmy</code> / policy and decision main paths are stable.</li>
+<li><strong>1.4.5:</strong> More diplomacy AI and <code>KingdomDecision</code> subclasses; wallets such as <code>CallToWarWallet</code> and naval capability are more visible. Cross-version mods should declare war / make peace via Actions, not private AI fields.</li>
+<li>Prefer <code>StringId</code> or <code>Kingdom.All</code> predicates when looking up kingdoms; avoid hard-coded list indices.</li>
+</ul>
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/campaign/Kingdom/./">campaign section</a></li>
+<li><a href="../">API section</a></li>
+<li><a href="../../../architecture/sdk-overview">SDK overview</a></li>
+<li><a href="../../../guide/campaign-system">Campaign system guide</a></li>
+</ul>
+<h2 id="sibling-navigation">Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>Relation</th></tr></thead><tbody>
+<tr><td><a href="../Clan">Clan</a></td><td>Building block of a kingdom</td></tr>
+<tr><td><a href="../Hero">Hero</a></td><td>Ruler and lords</td></tr>
+<tr><td><a href="../Settlement">Settlement</a></td><td>Kingdom holdings</td></tr>
+<tr><td><a href="../MobileParty">MobileParty</a></td><td>Kingdom parties</td></tr>
+<tr><td><a href="../../campaign-ext/Army">Army</a></td><td>Temporary armies</td></tr>
+<tr><td><a href="../Campaign">Campaign</a></td><td>World root</td></tr>
+</tbody></table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../../campaign-ext/DeclareWarAction">DeclareWarAction</a> / <a href="../../campaign-ext/MakePeaceAction">MakePeaceAction</a></li>
+<li><a href="../../campaign-ext/ChangeKingdomAction">ChangeKingdomAction</a></li>
+<li><a href="../../campaign-ext/PolicyObject">PolicyObject</a> / <a href="../../campaign-ext/KingdomDecision">KingdomDecision</a></li>
+<li><a href="../../campaign-ext/CampaignBehaviorBase">CampaignBehaviorBase</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign/">campaign index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign/MobileParty/">&larr; MobileParty</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign/FactionManagerStancesData/">FactionManagerStancesData &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

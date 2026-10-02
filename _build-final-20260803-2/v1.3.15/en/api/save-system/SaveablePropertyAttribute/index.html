@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SaveablePropertyAttribute</title>
+  <meta name="description" content="Property-level save contract: [SaveableProperty(localSaveId)] writes via getter and restores via setter. Requires a set method, stable LocalSaveId, clear Field&#x2F;SyncData split. Setter side effects corrupt loads.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/save-system/SaveablePropertyAttribute/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/save-system/SaveablePropertyAttribute/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/save-system/SaveablePropertyAttribute/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/save-system/SaveablePropertyAttribute/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="active">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;save-system&#x2F;">save-system index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">SaveablePropertyAttribute</span>
+    </nav>
+  
+  <h1>SaveablePropertyAttribute</h1>
+  <h1 id="saveablepropertyattribute">SaveablePropertyAttribute</h1>
+<p><strong>Namespace:</strong> <code>TaleWorlds.SaveSystem</code><br />
+<strong>Module:</strong> <code>TaleWorlds.SaveSystem</code><br />
+<strong>Type:</strong> <code>public class SaveablePropertyAttribute : Attribute</code><br />
+<strong>Base:</strong> <code>Attribute</code><br />
+<strong>File:</strong> <code>TaleWorlds.SaveSystem/SaveablePropertyAttribute.cs</code><br />
+<strong>AttributeUsage:</strong> <code>AttributeTargets.Property</code> (properties only; fields use <a href="../SaveableFieldAttribute"><code>SaveableFieldAttribute</code></a>)</p>
+<h2 id="one-line-job">One-line job</h2>
+<p>Mark an <strong>instance property on a saveable type</strong> with a numeric slot <code>LocalSaveId</code>: save goes through the <strong>getter</strong>, load goes through the <strong>setter</strong>, so <a href="../SaveManager"><code>SaveManager</code></a> can put public or semi-public state into the object graph by <strong>id (not property name)</strong>.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p><code>[SaveableProperty(n)]</code> and <code>[SaveableField(n)]</code> are <strong>two entry points into the same member-layout contract</strong>. The key is always <code>LocalSaveId</code>. The difference is the read/write channel:</p>
+<table><thead><tr><th>Dimension</th><th>Fact</th></tr></thead><tbody>
+<tr><td><strong>Lifetime</strong></td><td>Fixed at compile time. <code>TypeDefinition.CollectProperties</code> finds attributed instance properties → <code>PropertyDefinition</code> → <code>MemberDefinitions</code>.</td></tr>
+<tr><td><strong>Who creates / who holds</strong></td><td>You (mod or official type) declare it on the property. The engine holds <code>PropertyDefinition</code> / <code>MemberTypeId</code>. The save file sees ids and values, not C# property names.</td></tr>
+<tr><td><strong>Layer</strong></td><td><strong>Save</strong>: global object-graph serialization. Does <strong>not</strong> replace a Campaign Behavior's private bucket via <a href="../../campaign-ext/IDataStore"><code>IDataStore</code></a>.</td></tr>
+<tr><td><strong>Read/write path</strong></td><td>Save: <code>PropertyDefinition.GetValue</code> → <code>GetMethod</code> (or auto-generated <code>GetPropertyValueDelegate</code>). Load: <code>PropertyLoadData.FillObject</code> → <strong><code>SetMethod.Invoke</code></strong>.</td></tr>
+<tr><td><strong>What is the key?</strong></td><td><code>short LocalSaveId</code> + declaring type <strong>class level</strong> → <code>MemberTypeId</code>. <strong>Not the property name.</strong> Renaming is safe. Changing id or type semantics of that id is not.</td></tr>
+<tr><td><strong>Hard gate</strong></td><td>Must have <strong>both getter and setter</strong> (<code>private set</code> is enough; <code>PropertyDefinition</code> resolves with <code>GetSetMethod(nonPublic: true)</code>). Get-only properties <strong>cannot</strong> use SaveableProperty.</td></tr>
+</tbody></table>
+<h3 id="what-happens-on-save-load">What happens on save/load</h3>
+<pre><code>[SaveableProperty(6)] public Town Town { get; private set; }
+         │
+         ▼
+TypeDefinition.CollectProperties
+  → MemberTypeId(classLevel, LocalSaveId=6)
+  → new PropertyDefinition(PropertyInfo, id)
+       · Resolve SetMethod / GetMethod (including non-public)
+       · Missing set or get → throw Exception (fails at definition time)
+         │
+         ▼
+Save  : PropertySaveData.Initialize → GetValue(target) write out
+Load  : PropertyLoadData.FillObject → setMethod.Invoke(target, data)
+</code></pre>
+<p>Compared with Field:</p>
+<pre><code>[SaveableField(n)]     → CollectFields → FieldDefinition → direct field access
+[SaveableProperty(n)]  → CollectProperties → PropertyDefinition → get/set methods
+</code></pre>
+<p>Both land in the same type's <code>MemberDefinitions</code> list. On save, <code>ObjectSaveData.CollectMembers</code> builds <code>PropertySaveData</code> or <code>FieldSaveData</code> from the definition branch.</p>
+<h3 id="field-vs-property-two-entry-mental-model">Field vs Property (two-entry mental model)</h3>
+<table><thead><tr><th>Prefer Property</th><th>Prefer Field</th></tr></thead><tbody>
+<tr><td>State already is a property API (<code>MBObjectBase.StringId</code>, <code>Workshop.Capital</code>)</td><td>Private implementation detail, <code>_amount</code>-style backing</td></tr>
+<tr><td>Publicly get-only, but load must still write via <code>private set</code></td><td>No set surface at all; load should only assign</td></tr>
+<tr><td>Official type is property-style and you continue its id table</td><td>Custom POD / data bags are often all Field</td></tr>
+<tr><td>Want AutoGenerated <code>GetPropertyValueDelegate</code></td><td>Field delegates / direct <code>FieldInfo</code></td></tr>
+</tbody></table>
+<p><strong>Official mixed samples (Field + Property share one id table on the same type):</strong></p>
+<ul>
+<li><code>Building</code>: <code>[SaveableField(0..3,5)]</code> + <code>[SaveableProperty(6)] Town</code> (<code>CurrentLevel</code>'s public set has world side effects, so it is <strong>intentionally not</strong> Saveable; the saved member is <code>_currentLevel</code>).</li>
+<li><code>Workshop</code>: fields <code>100-104</code>, properties <code>105</code> / <code>111</code> / <code>112</code> / <code>115</code>.</li>
+<li><code>ItemRosterElement</code>: <code>[SaveableField(11)] _amount</code> + <code>[SaveableProperty(21)] EquipmentElement</code>; public <code>Amount</code> set throws on underflow and <strong>must not</strong> be SaveableProperty.</li>
+<li><code>MBObjectBase</code>: pure properties <code>StringId</code> / <code>Id</code> / <code>IsRegistered</code>.</li>
+</ul>
+<h3 id="when-to-use">When to use</h3>
+<ul>
+<li>Data lives on a type the <strong>object graph will walk</strong>: custom data classes, class/struct registered via <a href="../SaveableTypeDefiner"><code>SaveableTypeDefiner</code></a>, property slots on official saveable entities.</li>
+<li>Value must survive save/load, and the property type is SaveSystem-supported (primitives, <code>string</code>, enums, saveable references, <code>List&lt;T&gt;</code> / <code>Dictionary&lt;K,V&gt;</code>, etc.). Containers often need <code>ConstructContainerDefinition</code>.</li>
+<li>Combined with Behavior: <strong>outer</strong> <code>IDataStore.SyncData("key", ref _root)</code>, <strong>inner</strong> <code>_root</code> properties use <code>[SaveableProperty]</code> (or Field).</li>
+</ul>
+<h3 id="when-not-to-use">When not to use</h3>
+<table><thead><tr><th>Scenario</th><th>Correct alternative</th></tr></thead><tbody>
+<tr><td>Getter only, no setter (including init-only if set cannot be resolved)</td><td>Mark backing field with <code>[SaveableField]</code>, or add <code>private set</code></td></tr>
+<tr><td>Private counters/dicts owned only by a <code>CampaignBehaviorBase</code></td><td><a href="../../campaign-ext/IDataStore"><code>IDataStore.SyncData</code></a> + stable string key</td></tr>
+<tr><td>Computed / derived / rebuildable cache</td><td>Do not save; store raw fields; recompute in <code>OnGameLoaded</code> / <code>LoadInitializationCallback</code></td></tr>
+<tr><td>Setter fires events, dirties Town, triggers quests</td><td>Save raw value with Field; put logic in load callbacks or explicit APIs (see <code>Building.CurrentLevel</code>)</td></tr>
+<tr><td>Static properties</td><td>Not in the instance graph</td></tr>
+<tr><td>Same logic both <code>SyncData</code> and <code>[SaveableProperty]</code></td><td><strong>No double-write</strong> (see <a href="../../../architecture/crash-boundaries">Crash Boundaries §1</a>)</td></tr>
+</tbody></table>
+<h3 id="vs-idatastore-syncdata-required-reading">vs <code>IDataStore.SyncData</code> (required reading)</h3>
+<pre><code>SyncData(IDataStore)        → Behavior private bucket (StringId cabinet, key = string)
+[SaveableProperty(n)]       → Global saveable object graph (layout = numeric LocalSaveId + get/set)
+[SaveableField(n)]          → Same object graph (layout = numeric LocalSaveId + field)
+</code></pre>
+<ul>
+<li><strong>Behavior-private state</strong> → override <code>SyncData</code>, <code>dataStore.SyncData("stableKey", ref field)</code>.</li>
+<li><strong>Members on world/custom objects</strong> → <code>[SaveableProperty]</code> / <code>[SaveableField]</code>; type must be rooted or Definer-registered.</li>
+<li>Nested is fine as <strong>outer SyncData, inner Saveable*</strong>; do not open a second parallel key for the same scalar.</li>
+</ul>
+<h3 id="do-field-and-property-share-one-localsaveid-space">Do Field and Property share one LocalSaveId space?</h3>
+<ul>
+<li>In <code>TypeDefinition</code>, <strong><code>_properties</code> and <code>_fields</code> are two dictionaries</strong>. <code>CollectProperties</code> / <code>CollectFields</code> only check "id already defined" inside their own dictionary.</li>
+<li>So "field id=3 + property id=3" may <strong>not</strong> report <em>already defined</em> at collect time. Official types <strong>never</strong> do that (<code>Building</code> / <code>Workshop</code> / <code>ItemRosterElement</code> use one ascending table).</li>
+<li><strong>Discipline:</strong> treat Field + Property LocalSaveId as <strong>one slot table per type</strong>. Only add, never reuse retired ids, never collide across kinds. The binary finds members by <code>MemberTypeId</code>; colliding ids is a fast path to corrupt saves.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<table><thead><tr><th>Direction</th><th>Type / system</th><th>Relationship</th></tr></thead><tbody>
+<tr><td><strong>Upstream</strong></td><td>Your saveable type + <a href="../SaveableTypeDefiner"><code>SaveableTypeDefiner</code></a></td><td>Type must enter <code>DefinitionContext</code>; member ids only matter after that</td></tr>
+<tr><td><strong>Upstream</strong></td><td><a href="../SaveableRootClassAttribute"><code>SaveableRootClassAttribute</code></a> / class definition id</td><td>Type-level SaveId and member LocalSaveId are two contract layers</td></tr>
+<tr><td><strong>Downstream</strong></td><td><a href="../PropertyDefinition"><code>PropertyDefinition</code></a></td><td>Forces get/set resolution; missing either throws <code>Exception</code>; optional <code>GetPropertyValueDelegate</code></td></tr>
+<tr><td><strong>Downstream</strong></td><td><code>PropertySaveData</code> / <code>PropertyLoadData</code></td><td>Save calls get, load calls set; limited conversion via <code>LoadContext.TryConvertType</code></td></tr>
+<tr><td><strong>Save</strong></td><td><a href="../SaveManager"><code>SaveManager</code></a></td><td><code>InitializeGlobalDefinitionContext</code>, real Save/Load I/O</td></tr>
+<tr><td><strong>Save</strong></td><td><a href="../AutoGeneratedSaveManager"><code>AutoGeneratedSaveManager</code></a></td><td>May generate get delegates for properties; still needs your ids and a set method</td></tr>
+<tr><td><strong>Sibling</strong></td><td><a href="../SaveableFieldAttribute"><code>SaveableFieldAttribute</code></a></td><td>Field slots; same-type id discipline</td></tr>
+<tr><td><strong>Sibling</strong></td><td><a href="../../campaign-ext/IDataStore"><code>IDataStore</code></a> / <a href="../../campaign-ext/CampaignBehaviorBase"><code>CampaignBehaviorBase</code></a></td><td>Behavior bucket vs object graph; often combined</td></tr>
+<tr><td><strong>Risk docs</strong></td><td><a href="../../../architecture/crash-boundaries">Crash Boundaries §1</a></td><td>Id stability, load order, double-write</td></tr>
+</tbody></table>
+<h2 id="risks-and-crash-boundaries">Risks and crash boundaries</h2>
+<blockquote>
+<p>Authoritative summary: <a href="../../../architecture/crash-boundaries">Crash Boundaries §1</a> (SaveId, SyncData vs Saveable*, load order). Property adds one extra rule: <strong>load always invokes the setter</strong>.</p>
+</blockquote>
+<table><thead><tr><th>Risk</th><th>Symptom</th><th>Correct practice</th></tr></thead><tbody>
+<tr><td><strong>No setter / no getter</strong></td><td>Definition-time <code>Property … does not have setter/getter method</code>; <code>Debug.FailedAssert</code> + <code>Exception</code></td><td>Ensure get + set (<code>private set</code> ok); or mark Field instead</td></tr>
+<tr><td><strong>Change LocalSaveId after release</strong></td><td>Old saves misaligned, silent cross-wiring, load crash</td><td>Id is a contract: only add; never change semantics; retired ids <strong>never reused</strong></td></tr>
+<tr><td><strong>Same id, new type</strong> (<code>int</code> → <code>List&lt;Hero&gt;</code> still id <code>3</code>)</td><td>Read as old type → crash or bad data</td><td>New semantics get a <strong>new id</strong>; old id stays retired</td></tr>
+<tr><td><strong>Duplicate LocalSaveId within same kind</strong></td><td><em>SaveId … of property … is already defined</em></td><td>Unique property id per class level (same for field dictionary)</td></tr>
+<tr><td><strong>Field and Property share the same id</strong></td><td>Collect may not error; layout hard to reason about</td><td>Unified numbering table; official mixed types keep ids apart</td></tr>
+<tr><td><strong>Setter has world side effects</strong></td><td>Load triggers dirty flags, events, second Actions, UI</td><td>Setter only assigns; side effects in <code>LoadInitializationCallback</code> / explicit methods (see <code>Building</code>)</td></tr>
+<tr><td><strong>Type unregistered / not serializable</strong></td><td>Save/load fails</td><td>Definer registers class/struct/container; only store supported types</td></tr>
+<tr><td><strong>Read property before load finishes</strong></td><td>NRE, null refs, default 0 treated as truth</td><td>Wait for Behavior <code>SyncData</code> / <code>OnGameLoaded</code> / object <code>LoadInitializationCallback</code></td></tr>
+<tr><td><strong>Double-write</strong></td><td>Half in bucket, half in graph</td><td>One path per piece of state</td></tr>
+<tr><td><strong>Migrate Field ↔ Property</strong></td><td>Same name and same numeric id still change member identity</td><td>Treat as migration: validate old saves or use new id + backfill branch</td></tr>
+</tbody></table>
+<p>Engine points (<code>TypeDefinition.CollectProperties</code> + <code>PropertyDefinition</code> + <code>PropertyLoadData</code>):</p>
+<ul>
+<li>Scans <code>BindingFlags.Instance | Public | NonPublic</code> properties; only those with <code>[SaveableProperty]</code> enter definitions.</li>
+<li><code>MemberTypeId(GetClassLevel(DeclaringType), LocalSaveId)</code>; duplicate in same dictionary → <code>_errors</code>, no silent overwrite.</li>
+<li>Set/Get may be non-public; both must still resolve.</li>
+<li>Load: <code>setMethod.Invoke</code>; write only if <code>data == null</code>, types match, or <code>TryConvertType</code> succeeds.</li>
+</ul>
+<h2 id="key-members">Key members</h2>
+<p>The attribute type is tiny. The whole contract sits on the constructor argument:</p>
+<h3 id="constructor">Constructor</h3>
+<h4 id="public-saveablepropertyattribute-short-localsaveid"><code>public SaveablePropertyAttribute(short localSaveId)</code></h4>
+<ul>
+<li><strong>Purpose:</strong> Declare this property's member slot <strong>within the declaring type (class level)</strong>.</li>
+<li><strong>When:</strong> On the property, e.g. <code>[SaveableProperty(1)] public int Score { get; private set; }</code> (you may omit the <code>Attribute</code> suffix).</li>
+<li><strong>Constraint:</strong> <code>localSaveId</code> is <code>short</code>; plan it with Field/Property on the same type; stable after release.</li>
+</ul>
+<h3 id="property">Property</h3>
+<h4 id="public-short-localsaveid-get-set"><code>public short LocalSaveId { get; set; }</code></h4>
+<ul>
+<li><strong>Purpose:</strong> Slot number read at definition time (normally set only by the constructor).</li>
+<li><strong>When:</strong> You almost always pass it only as the attribute argument. Do not change it at runtime hoping to change save layout.</li>
+</ul>
+<h2 id="real-examples">Real examples</h2>
+<h3 id="example-1-official-style-data-class-properties-definer-behavior-outer-syncdata">Example 1: Official style -  data-class properties + Definer + Behavior outer SyncData</h3>
+<pre><code data-lang="csharp">using System.Collections.Generic;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.SaveSystem;
+
+namespace MyMod
+{
+    public class MyItem
+    {
+        [SaveableProperty(1)]
+        public string Id { get; private set; }
+
+        [SaveableProperty(2)]
+        public int Count { get; private set; }
+
+        public MyItem() { }
+
+        public MyItem(string id, int count)
+        {
+            Id = id;
+            Count = count;
+        }
+    }
+
+    public class MyModData
+    {
+        [SaveableProperty(1)]
+        public int Score { get; set; }
+
+        [SaveableProperty(2)]
+        public List&lt;MyItem&gt; Items { get; set; } = new List&lt;MyItem&gt;();
+
+        // Retired id 3: never reuse
+    }
+
+    public class MyModTypeDefiner : SaveableTypeDefiner
+    {
+        public MyModTypeDefiner() : base(900000) { }
+
+        protected override void DefineClassTypes()
+        {
+            AddClassDefinition(typeof(MyModData), 1);
+            AddClassDefinition(typeof(MyItem), 2);
+        }
+
+        protected override void DefineContainerDefinitions()
+        {
+            ConstructContainerDefinition(typeof(List&lt;MyItem&gt;));
+        }
+    }
+
+    public class ScoreBehavior : CampaignBehaviorBase
+    {
+        private MyModData _data = new MyModData();
+
+        public override void RegisterEvents() { }
+
+        public override void SyncData(IDataStore dataStore)
+        {
+            dataStore.SyncData(&quot;MyMod_ScoreRoot&quot;, ref _data);
+            if (dataStore.IsLoading &amp;&amp; _data == null)
+                _data = new MyModData();
+        }
+
+        public void AddScore(int delta) =&gt; _data.Score += delta;
+    }
+}
+</code></pre>
+<p>Outer key <code>"MyMod_ScoreRoot"</code> stays stable; inner property ids <code>1</code>/<code>2</code> stay stable. Upgrades only <strong>add</strong> ids; they do not change old id semantics.</p>
+<h3 id="example-2-mix-field-property-aligned-with-building-itemrosterelement">Example 2: Mix Field + Property (aligned with Building / ItemRosterElement)</h3>
+<pre><code data-lang="csharp">using TaleWorlds.SaveSystem;
+
+namespace MyMod
+{
+    public class ProgressNode
+    {
+        [SaveableField(0)]
+        private int _rawLevel;
+
+        [SaveableField(1)]
+        public float Progress;
+
+        // Public set has side effects → do not mark SaveableProperty; persist _rawLevel
+        public int Level
+        {
+            get =&gt; _rawLevel;
+            set
+            {
+                _rawLevel = value;
+                // If load ran this path it would dirty UI / fire events → dangerous
+                MarkDirty();
+            }
+        }
+
+        [SaveableProperty(2)]
+        public string OwnerId { get; private set; }
+
+        private void MarkDirty() { /* UI / cache */ }
+
+        public void SetOwner(string id) =&gt; OwnerId = id;
+    }
+}
+</code></pre>
+<h3 id="example-3-wrong-get-only-setter-side-effects-double-write-id-reuse">Example 3: Wrong -  get-only, setter side effects, double-write, id reuse</h3>
+<pre><code data-lang="csharp">// Wrong: PropertyDefinition requires a setter; collect throws
+[SaveableProperty(1)]
+public int Score { get; }
+
+// Wrong: load Invokes set → replays side effects
+[SaveableProperty(2)]
+public int Reputation
+{
+    get =&gt; _rep;
+    set
+    {
+        _rep = value;
+        CampaignEventDispatcher.Instance /* hypothetical */.OnRepChanged(); // load explosion
+    }
+}
+
+// Wrong: same counter both SyncData and SaveableProperty
+public override void SyncData(IDataStore dataStore)
+{
+    dataStore.SyncData(&quot;Rep&quot;, ref _rep);
+}
+[SaveableProperty(0)]
+public int Rep { get =&gt; _rep; set =&gt; _rep = value; }
+
+// Wrong: after release, id 3 was int; now List
+// [SaveableProperty(3)] public int OldScore;
+[SaveableProperty(3)]
+public List&lt;string&gt; Allies; // corrupt save
+</code></pre>
+<pre><code data-lang="csharp">// Right: private set only assigns; side effects run after load
+[SaveableProperty(1)]
+public int Score { get; private set; }
+
+[SaveableProperty(4)] // new id; old 3 stays retired forever
+public List&lt;string&gt; AllyIds { get; private set; }
+
+[LoadInitializationCallback]
+private void OnLoad()
+{
+    // Rebuild caches / validate here, not inside set
+}
+</code></pre>
+<h2 id="cross-version-notes">Cross-version notes</h2>
+<ul>
+<li><strong>v1.3.x / v1.4.x:</strong> Attribute surface is stable (<code>LocalSaveId</code>, Property-only).</li>
+<li>Auto-generated save managers improve property get delegates over time; <strong>the id contract does not change</strong>.</li>
+<li>Moving Field ↔ Property changes <strong>member identity</strong>: same name and same numeric id still need a migration plan; do not assume a silent upgrade.</li>
+<li>Primary semantics follow 1.4.5 source (<code>CollectProperties</code> / <code>PropertyDefinition</code> / <code>PropertyLoadData</code>); this page URL stays fixed at <code>save-system/SaveablePropertyAttribute</code>.</li>
+</ul>
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/save-system/SaveablePropertyAttribute/./">save-system area</a> -  module index for this page</li>
+<li><a href="../">API directory</a> -  full API entry</li>
+<li><a href="../../../architecture/save-system">Save system architecture</a> -  SaveManager and saveable data</li>
+<li><a href="../../../architecture/crash-boundaries">Crash Boundaries §1</a> -  SaveId / SyncData boundaries</li>
+<li><a href="../../../architecture/doc-contract">Doc contract</a> -  deep-page quality standard</li>
+</ul>
+<h2 id="sibling-navigation">↔ Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>Relationship</th></tr></thead><tbody>
+<tr><td><a href="../SaveableFieldAttribute">SaveableFieldAttribute</a></td><td>Field slots; no setter requirement; dual entry with this page</td></tr>
+<tr><td><a href="../SaveableTypeDefiner">SaveableTypeDefiner</a></td><td>Register types and containers; id ranges</td></tr>
+<tr><td><a href="../SaveableRootClassAttribute">SaveableRootClassAttribute</a></td><td>Root / type-level SaveId</td></tr>
+<tr><td><a href="../SaveManager">SaveManager</a></td><td>Top-level save API</td></tr>
+<tr><td><a href="../PropertyDefinition">PropertyDefinition</a></td><td>get/set wrapper and failure conditions</td></tr>
+<tr><td><a href="../../campaign-ext/IDataStore">IDataStore</a></td><td>Behavior string-key channel</td></tr>
+<tr><td><a href="../../campaign-ext/CampaignBehaviorBase">CampaignBehaviorBase</a></td><td><code>SyncData</code> hook</td></tr>
+<tr><td><a href="../FieldDefinition">FieldDefinition</a></td><td>Field definition wrapper (contrast)</td></tr>
+</tbody></table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../../../guide/save-system-guide">Save system practical guide</a></li>
+<li><a href="../AutoGeneratedSaveManager">AutoGeneratedSaveManager</a></li>
+<li><a href="../../../architecture/module-system">Module system</a> -  when Definers / Behaviors register</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/save-system/">save-system index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/save-system/IBasicTypeSerializer/">&larr; IBasicTypeSerializer</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/save-system/ByteBasicTypeSerializer/">ByteBasicTypeSerializer &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

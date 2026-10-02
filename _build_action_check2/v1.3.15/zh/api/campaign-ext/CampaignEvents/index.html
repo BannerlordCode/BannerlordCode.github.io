@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampaignEvents</title>
+  <meta name="description" content="Bannerlord 战役层的中央发布&#x2F;订阅事件总线：mod 通过订阅静态事件，在世界发生英雄死亡、据点易主、开战、家族易主等变更时安全做出反应，而不必轮询或改动内部字段。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/CampaignEvents/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/CampaignEvents/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CampaignEvents</span>
+    </nav>
+  
+  <h1>CampaignEvents</h1>
+  <h1 id="campaignevents">CampaignEvents</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class CampaignEvents : CampaignEventReceiver</code>
+<strong>Base:</strong> <code>CampaignEventReceiver</code>
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/CampaignEvents.cs</code>（权威语义来自 bannerlord-1.4.5 源码；本页所列事件均已核对在 1.3.15 中以相同签名存在）</p>
+<h2 id="yi-ju-hua-zhi-ze">一句话职责</h2>
+<p>战役层全部重要世界变更的「中央通知中心」：当英雄死亡、据点易主、开战、家族易主、金流发生等事情发生时，它把带载荷的通知广播给所有订阅者，让你无需每秒轮询整个世界就能对世界变化做出反应。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>CampaignEvents</code> 想成战役地图的 <strong>广播喇叭</strong>，而不是一个装着数据的盒子。它本身不持有「英雄列表」「据点列表」这种业务状态——它只持有约 200 个 <code>MbEvent&lt;T&gt;</code> 委托容器，以及一个把 <code>*Action</code> 的调用翻译成广播的转发逻辑。</p>
+<h3 id="ta-zai-na-yi-ceng-shui-chi-you-ta">它在哪一层、谁持有它</h3>
+<ul>
+<li><strong>层</strong>：纯战役（Campaign）层。它和 <code>Mission</code> 层的 <code>IMissionListener</code> 体系互不相关——在战斗场景里发生的事件走 Mission 那套，不在本页范围内。</li>
+<li><strong>持有者</strong>：由 <code>Campaign</code> 在战役启动时创建并保存为 <code>Campaign.Current.CampaignEvents</code>，与战役同生共死，全档唯一实例。</li>
+<li><strong>双重身份</strong>：它既是一个 <code>CampaignEventReceiver</code>（能被事件分发器回调），又通过一堆 <code>public static IMbEvent&lt;T&gt;</code> 属性把底层的 <code>MbEvent&lt;T&gt;</code> 暴露给 mod 去订阅。</li>
+<li><strong>你永远不会 <code>new CampaignEvents()</code></strong>：也没有公共构造函数。那个私有的静态 <code>Instance =&gt; Campaign.Current.CampaignEvents</code> 只是给内部静态属性用的，mod 直接访问 <code>CampaignEvents.HeroKilledEvent</code> 这样的静态属性即可。</li>
+</ul>
+<h3 id="fa-bu-ding-yue-pub-sub-quan-lian-lu">发布 / 订阅（pub/sub）全链路</h3>
+<p>一次「英雄被杀」从发生到你的代码被调用，要经过四步：</p>
+<ol>
+<li><strong>触发方</strong>：游戏内核的某个 <code>*Action</code> 在改完世界状态后，调用 <code>CampaignEventDispatcher.Instance.OnHeroKilled(victim, killer, detail, showNotification)</code>（真实代码见 <code>KillCharacterAction.cs:144</code>）。</li>
+<li><strong>分发</strong>：<code>CampaignEventDispatcher</code> 把这次调用<strong>扇出</strong>给所有已注册的 <code>CampaignEventReceiver</code>（一个数组，包含中央 <code>CampaignEvents</code> hub，以及原生的 SandBox 行为接收器）。</li>
+<li><strong>投递</strong>：<code>CampaignEvents</code> 重写的 <code>OnHeroKilled(...)</code> 调用底层 <code>Instance._heroKilled.Invoke(victim, killer, detail, showNotification)</code>，从而触发所有通过 <code>AddNonSerializedListener</code> 注册的 lambda。</li>
+<li><strong>订阅方</strong>：你的 mod 在 <code>CampaignBehaviorBase.RegisterEvents()</code> 里写 <code>CampaignEvents.HeroKilledEvent.AddNonSerializedListener(this, OnHeroKilled)</code>，于是 lambda 被执行。</li>
+</ol>
+<h3 id="liang-chong-ding-yue-feng-ge">两种订阅风格</h3>
+<table><thead><tr><th>风格</th><th>怎么做</th><th>谁用</th></tr></thead><tbody>
+<tr><td><strong>lambda 监听（推荐）</strong></td><td>在 <code>CampaignBehaviorBase.RegisterEvents()</code> 里调用 <code>CampaignEvents.XEvent.AddNonSerializedListener(this, handler)</code></td><td>绝大多数 mod</td></tr>
+<tr><td><strong>receiver 重写</strong></td><td>自己的行为继承 <code>CampaignEventReceiver</code> 并重写 <code>OnXxx</code> 虚方法</td><td>原生 SandBox 行为；mod 很少需要</td></tr>
+</tbody></table>
+<blockquote>
+<p><strong>关于「序列化 vs 非序列化」</strong>：本版本（<code>IMbEvent</code> 接口只声明 <code>AddNonSerializedListener</code>）中，委托闭包本身<strong>不会被写入存档</strong>。但承载它的行为（<code>CampaignBehaviorBase</code>）是战役对象的一部分——<code>CampaignBehaviorManager</code> 在读档后会重建行为并再次调用 <code>RegisterEvents()</code>，于是 lambda 会被重新挂上。所以真正要关心的是 <strong>owner 的生命周期</strong>：若 owner 是临时对象（UI / 菜单），读档后该 lambda 既不会恢复、也不会被自动清理，容易泄漏或重复添加（详见风险段）。</p>
+</blockquote>
+<h2 id="he-shi-yong-he-shi-bu-yao-yong">何时用 / 何时不要用</h2>
+<p><strong>用事件</strong>，当你需要「当 X 发生时做某事」：弹通知、记日志、调整某个关联数值、解锁功能、触发自定义逻辑。</p>
+<p><strong>不要用事件</strong>：</p>
+<ul>
+<li>不要把事件当成「主动改变世界」的入口。事件只是<strong>通知</strong>，改变世界应当走对应的 <code>*Action.Apply</code>（例如领主死亡后想给玩家加钱，在 <code>HeroKilledEvent</code> 的 handler 里调用 <code>ChangeHeroGold</code> / <code>GoldGainAction</code>，而不是自己写字段）。</li>
+<li>不要试图「手动触发一个事件」来骗过其他系统。<code>CampaignEvents</code> 没有供 mod 调用的 <code>Fire</code> / <code>Trigger</code> 公共 API；想让世界发生变化，就调用对应的 <code>*Action</code>，它会自己把事件广播出去。</li>
+<li>不要在 handler 里做耗时 / 阻塞操作——它<strong>同步跑在触发它的那次战役 tick 内</strong>，拖慢或抛异常会卡住整个 tick（见风险段）。</li>
+<li>不要用「每小时扫描所有 <code>Hero</code> 看谁死了」这种轮询代替事件订阅。</li>
+</ul>
+<h2 id="yi-lai-tu-ke-dian-ji">依赖图（可点击）</h2>
+<p><strong>上游（谁触发 / 谁持有）</strong></p>
+<ul>
+<li><a href="../../campaign/Campaign/">Campaign</a> — 持有 <code>CampaignEvents</code> 的唯一实例，随战役创建与销毁</li>
+<li><a href="../CampaignEventDispatcher/">CampaignEventDispatcher</a> — 把每个 <code>OnXxx</code> 调用扇出到本 hub 与所有 receiver</li>
+<li>各类 <code>*Action</code>（行动索引见 <a href="../actions-index/">actions-index</a>）：<code>KillCharacterAction</code>、<code>ChangeOwnerOfSettlementAction</code>、<code>ChangeKingdomAction</code>、<code>ChangeRelationAction</code>、<code>MakePeaceAction</code>、<code>DeclareWarAction</code>、<code>TakePrisonerAction</code>、<code>RemoveCompanionAction</code>、<code>StartMercenaryServiceAction</code>、<code>EndMercenaryServiceAction</code>、<code>TeleportHeroAction</code>、<code>SiegeAftermathAction</code> 等，在改完状态后触发对应事件</li>
+</ul>
+<p><strong>下游（谁消费）</strong></p>
+<ul>
+<li><a href="../CampaignBehaviorBase/">CampaignBehaviorBase</a> — mod 行为在 <code>RegisterEvents()</code> 里订阅</li>
+<li><a href="../CampaignEventReceiver/">CampaignEventReceiver</a> — 定义全部 <code>OnXxx</code> 虚方法的抽象基类</li>
+<li>游戏内各原生 <code>CampaignBehavior</code>（如 <code>DefaultLogsCampaignBehavior</code> 监听 <code>BattleStarted</code>）</li>
+</ul>
+<p><strong>相关 / 实现</strong></p>
+<ul>
+<li><a href="../MbEvent/">MbEvent</a> 与 <a href="../IMbEvent/">IMbEvent</a> — 底层委托容器与接口（<code>AddNonSerializedListener</code> / <code>ClearListeners</code>）</li>
+<li><a href="../ReferenceMBEvent/">ReferenceMBEvent</a> — 带 <code>ref</code>/<code>out</code> 参数的「引用型」事件（如 <code>CanHeroDieEvent</code>），允许监听者投票/改写返回值</li>
+<li><a href="../CampaignGameStarter/">CampaignGameStarter</a> — 注册行为的入口</li>
+<li><a href="../CampaignBehaviorManager/">CampaignBehaviorManager</a> — 管理行为生命周期，读档后重建并复订阅</li>
+<li><a href="../../save-system/SaveManager/">SaveManager</a> — 存档点：行为随档重建，事件闭包不序列化</li>
+</ul>
+<h2 id="warning-feng-xian-yu-beng-kui-bian-jie">⚠ 风险与崩溃边界</h2>
+<ol>
+<li><strong>在战役 tick 之外手动「触发」事件</strong>：没有公共触发 API；直接调用底层 <code>MbEvent.Invoke</code> 会绕过一致性检查，破坏其他系统的假设。要通知世界，调用对应的 <code>*Action</code>。</li>
+<li><strong>handler 闭包捕获了未注册 / 已销毁的 <code>MBObject</code> 引用</strong>：如果你的 lambda 持有 <code>Hero</code> / <code>Settlement</code> 等对象，并在读档后引用了已不存在的实例，它仍可能在 tick 时被调用 → <code>NullReferenceException</code> 甚至坏档。尽量在 handler 内现取现用，或先判空。</li>
+<li><strong>生命周期 / 序列化错位</strong>：<code>AddNonSerializedListener</code> 的闭包不写入存档。若 owner 是临时对象（一次性 UI、菜单），读档后 handler 不会恢复且不会被自动清理——可能泄漏，或在下次 <code>RegisterEvents()</code> 时重复叠加。</li>
+<li><strong>重复订阅</strong>：<code>RegisterEvents()</code> 可能在会话中被多次调用（例如运行期 <code>CampaignBehaviorManager.AddBehavior</code>）。若不做去重，同一逻辑会被触发多次。可在 <code>RegisterEvents()</code> 开头用 <code>CampaignEvents.XEvent.ClearListeners(this)</code>（底层由 <code>CampaignEventDispatcher.RemoveListeners(obj)</code> 统一清除某 owner 的全部监听）来去重，或在卸载行为时 <code>RemoveBehavior</code>。</li>
+<li><strong>handler 内抛未捕获异常</strong>：它同步跑在 tick 中，异常会打断整条 tick 链路，可能连锁导致坏档。handler 内务必 try/catch 关键路径。</li>
+<li><strong>在 handler 内增删同一事件的监听</strong>：<code>MbEvent</code> 在 <code>Invoke</code> 时正遍历单链表，运行期增删可能导致跳过或重复执行。不要在回调里订阅/退订自己。</li>
+<li><strong>过早假设世界已初始化</strong>：<code>OnNewGameCreated</code> / <code>OnGameLoaded</code> 之后世界才完整；不要在 <code>RegisterEvents()</code> 里直接访问尚未就绪的世界数据。</li>
+</ol>
+<h2 id="cheng-yuan-shuo-ming-an-ling-yu-fen-lei-de-shi-jian-suo-yin">成员说明：按领域分类的事件索引</h2>
+<p>下面只列出 mod 最常订阅、最容易误用的事件（完整约 200+ 个静态事件见源文件 <code>CampaignEvents.cs</code>）。每个事件给出 <code>IMbEvent</code> 载荷类型与「何时触发」。带 ★ 的在下方有深潜。</p>
+<h3 id="hero-ying-xiong">Hero（英雄）</h3>
+<table><thead><tr><th>事件属性</th><th>载荷类型</th><th>触发时机</th></tr></thead><tbody>
+<tr><td><code>HeroKilledEvent</code> ★</td><td><code>IMbEvent&lt;Hero, Hero, KillCharacterAction.KillCharacterActionDetail, bool&gt;</code></td><td>任意英雄死亡（含主角），由 <code>KillCharacterAction</code> 触发</td></tr>
+<tr><td><code>BeforeHeroKilledEvent</code> ★</td><td><code>IMbEvent&lt;Hero, Hero, KillCharacterAction.KillCharacterActionDetail, bool&gt;</code></td><td>死亡结算应用<strong>之前</strong>，适合抢救战利品 / 记录临终状态</td></tr>
+<tr><td><code>HeroWounded</code></td><td><code>IMbEvent&lt;Hero&gt;</code></td><td>英雄负伤（不致死）</td></tr>
+<tr><td><code>HeroCreated</code></td><td><code>IMbEvent&lt;Hero, bool&gt;</code></td><td>英雄被创建（<code>bool</code> 表示是否自然出生）</td></tr>
+<tr><td><code>HeroComesOfAgeEvent</code> / <code>HeroReachesTeenAgeEvent</code> / <code>HeroGrowsOutOfInfancyEvent</code></td><td><code>IMbEvent&lt;Hero&gt;</code></td><td>成长阶段切换</td></tr>
+<tr><td><code>HeroPrisonerTaken</code> ★</td><td><code>IMbEvent&lt;PartyBase, Hero&gt;</code></td><td>英雄被俘，由 <code>TakePrisonerAction</code> 触发</td></tr>
+<tr><td><code>HeroPrisonerReleased</code></td><td><code>IMbEvent&lt;Hero, PartyBase, IFaction, EndCaptivityDetail, bool&gt;</code></td><td>英雄结束囚禁</td></tr>
+<tr><td><code>HeroRelationChanged</code></td><td><code>IMbEvent&lt;Hero, Hero, int, bool, ChangeRelationAction.ChangeRelationDetail, Hero, Hero&gt;</code></td><td>两人关系值变化</td></tr>
+<tr><td><code>HeroLevelledUp</code></td><td><code>IMbEvent&lt;Hero, bool&gt;</code></td><td>升级（<code>bool</code> 是否弹通知）</td></tr>
+<tr><td><code>OnPlayerMetHeroEvent</code> / <code>OnPlayerLearnsAboutHeroEvent</code></td><td><code>IMbEvent&lt;Hero&gt;</code></td><td>玩家结识 / 得知某英雄</td></tr>
+<tr><td><code>RenownGained</code></td><td><code>IMbEvent&lt;Hero, int, bool&gt;</code></td><td>声望增加</td></tr>
+<tr><td><code>OnHeroChangedClan</code></td><td><code>IMbEvent&lt;Hero, Clan&gt;</code></td><td>英雄换家族（如成为同伴）</td></tr>
+<tr><td><code>OnBeforeMainCharacterDiedEvent</code></td><td><code>IMbEvent&lt;Hero, Hero, KillCharacterAction.KillCharacterActionDetail, bool&gt;</code></td><td>主角濒死前（游戏结束流程相关）</td></tr>
+</tbody></table>
+<h3 id="settlement-ju-dian">Settlement（据点）</h3>
+<table><thead><tr><th>事件属性</th><th>载荷类型</th><th>触发时机</th></tr></thead><tbody>
+<tr><td><code>OnSettlementOwnerChangedEvent</code> ★</td><td><code>IMbEvent&lt;Settlement, bool, Hero, Hero, Hero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail&gt;</code></td><td>城镇/城堡易主，由 <code>ChangeOwnerOfSettlementAction</code> 触发</td></tr>
+<tr><td><code>OnGovernorChangedEvent</code></td><td><code>IMbEvent&lt;Town, Hero, Hero&gt;</code></td><td>总督更换（旧/新）</td></tr>
+<tr><td><code>SettlementEntered</code> / <code>AfterSettlementEntered</code> / <code>BeforeSettlementEnteredEvent</code></td><td><code>IMbEvent&lt;MobileParty, Settlement, Hero&gt;</code></td><td>部队进出据点</td></tr>
+<tr><td><code>OnSettlementLeftEvent</code></td><td><code>IMbEvent&lt;MobileParty, Settlement&gt;</code></td><td>部队离开据点</td></tr>
+<tr><td><code>VillageStateChanged</code></td><td><code>IMbEvent&lt;Village, Village.VillageStates, Village.VillageStates, MobileParty&gt;</code></td><td>村庄状态切换（如被劫掠）</td></tr>
+<tr><td><code>RebellionFinished</code> / <code>RebelliousClanDisbandedAtSettlement</code></td><td><code>IMbEvent&lt;Settlement, Clan&gt;</code></td><td>叛乱平息 / 叛乱家族解散</td></tr>
+<tr><td><code>TownRebelliosStateChanged</code></td><td><code>IMbEvent&lt;Town, bool&gt;</code></td><td>城镇进入/脱离叛乱态</td></tr>
+<tr><td><code>AlleyOwnerChanged</code> / <code>AlleyOccupiedByPlayer</code> / <code>AlleyClearedByPlayer</code></td><td><code>IMbEvent&lt;Alley, …&gt;</code></td><td>小巷所有权/被占/被清</td></tr>
+<tr><td><code>MercenaryTroopChangedInTown</code> / <code>MercenaryNumberChangedInTown</code></td><td><code>IMbEvent&lt;Town, …&gt;</code></td><td>城镇雇佣兵变动</td></tr>
+</tbody></table>
+<h3 id="party-mobileparty-bu-dui">Party &amp; MobileParty（部队）</h3>
+<table><thead><tr><th>事件属性</th><th>载荷类型</th><th>触发时机</th></tr></thead><tbody>
+<tr><td><code>OnPartyRemovedEvent</code> ★</td><td><code>IMbEvent&lt;PartyBase&gt;</code></td><td>部队从地图移除（解散/被歼）</td></tr>
+<tr><td><code>MobilePartyCreated</code> / <code>MobilePartyDestroyed</code></td><td><code>IMbEvent&lt;MobileParty&gt;</code> / <code>IMbEvent&lt;MobileParty, PartyBase&gt;</code></td><td>部队创建 / 被摧毁</td></tr>
+<tr><td><code>OnPartySizeChangedEvent</code></td><td><code>IMbEvent&lt;PartyBase&gt;</code></td><td>部队规模变化</td></tr>
+<tr><td><code>OnPartyLeaderChangedEvent</code></td><td><code>IMbEvent&lt;MobileParty, Hero&gt;</code></td><td>部队领袖更换</td></tr>
+<tr><td><code>OnHeroJoinedPartyEvent</code></td><td><code>IMbEvent&lt;Hero, MobileParty&gt;</code></td><td>英雄加入部队</td></tr>
+<tr><td><code>BanditPartyRecruited</code></td><td><code>IMbEvent&lt;MobileParty&gt;</code></td><td>匪帮被招募</td></tr>
+<tr><td><code>OnPartyJoinedArmyEvent</code> / <code>OnPartyRemovedFromArmyEvent</code> / <code>OnPartyLeftArmyEvent</code></td><td><code>IMbEvent&lt;MobileParty&gt;</code> / <code>IMbEvent&lt;MobileParty, Army&gt;</code></td><td>加入/离开军团</td></tr>
+<tr><td><code>OnPartyDisbandStartedEvent</code> / <code>OnPartyDisbandedEvent</code> / <code>OnPartyDisbandCanceledEvent</code></td><td><code>IMbEvent&lt;MobileParty&gt;</code> / <code>IMbEvent&lt;MobileParty, Settlement&gt;</code></td><td>部队解散流程</td></tr>
+<tr><td><code>ItemsLooted</code> / <code>OnTroopsDesertedEvent</code></td><td><code>IMbEvent&lt;MobileParty, ItemRoster&gt;</code> / <code>IMbEvent&lt;MobileParty, TroopRoster&gt;</code></td><td>战利品 / 逃兵</td></tr>
+<tr><td><code>OnMobilePartyRaftStateChanged</code> / <code>OnMobilePartyNavigationStateChangedEvent</code></td><td><code>IMbEvent&lt;MobileParty&gt;</code></td><td>渡筏 / 导航状态</td></tr>
+</tbody></table>
+<h3 id="war-diplomacy-zhan-zheng-yu-wai-jiao">War &amp; Diplomacy（战争与外交）</h3>
+<table><thead><tr><th>事件属性</th><th>载荷类型</th><th>触发时机</th></tr></thead><tbody>
+<tr><td><code>WarDeclared</code> ★</td><td><code>IMbEvent&lt;IFaction, IFaction, DeclareWarAction.DeclareWarDetail&gt;</code></td><td>两阵营宣战，由 <code>DeclareWarAction</code> 触发</td></tr>
+<tr><td><code>MakePeace</code></td><td><code>IMbEvent&lt;IFaction, IFaction, MakePeaceAction.MakePeaceDetail&gt;</code></td><td>两阵营议和</td></tr>
+<tr><td><code>OnClanChangedKingdomEvent</code> ★</td><td><code>IMbEvent&lt;Clan, Kingdom, Kingdom, ChangeKingdomAction.ChangeKingdomActionDetail, bool&gt;</code></td><td>家族换王国，由 <code>ChangeKingdomAction</code> 触发</td></tr>
+<tr><td><code>OnClanDefectedEvent</code> / <code>OnClanCreatedEvent</code> / <code>OnClanDestroyedEvent</code></td><td><code>IMbEvent&lt;Clan, …&gt;</code></td><td>家族叛变 / 新建 / 覆灭</td></tr>
+<tr><td><code>KingdomDecisionAdded</code> / <code>KingdomDecisionCancelled</code> / <code>KingdomDecisionConcluded</code></td><td><code>IMbEvent&lt;KingdomDecision, …&gt;</code></td><td>王国决议流程</td></tr>
+<tr><td><code>RulingClanChanged</code> / <code>OnClanLeaderChangedEvent</code></td><td><code>IMbEvent&lt;Kingdom, Clan&gt;</code> / <code>IMbEvent&lt;Hero, Hero&gt;</code></td><td>统治家族 / 家族领袖更换</td></tr>
+<tr><td><code>KingdomCreated</code> / <code>KingdomDestroyed</code></td><td><code>IMbEvent&lt;Kingdom&gt;</code></td><td>王国创建 / 覆灭</td></tr>
+<tr><td><code>OnAllianceStartedEvent</code> / <code>OnAllianceEndedEvent</code></td><td><code>IMbEvent&lt;Kingdom, Kingdom&gt;</code></td><td>同盟建立 / 解除</td></tr>
+<tr><td><code>OnTradeAgreementSignedEvent</code></td><td><code>IMbEvent&lt;Kingdom, Kingdom&gt;</code></td><td>贸易协定签署</td></tr>
+<tr><td><code>OnMercenaryServiceStartedEvent</code> / <code>OnMercenaryServiceEndedEvent</code></td><td><code>IMbEvent&lt;Clan, …&gt;</code></td><td>雇佣兵服务开始 / 结束</td></tr>
+<tr><td><code>ClanTierIncrease</code> / <code>OnClanInfluenceChangedEvent</code> / <code>OnClanEarnedGoldFromTributeEvent</code></td><td><code>IMbEvent&lt;Clan, …&gt;</code></td><td>家族升级 / 影响力 / 贡金</td></tr>
+</tbody></table>
+<h3 id="economy-trade-jing-ji-yu-mao-yi">Economy &amp; Trade（经济与贸易）</h3>
+<table><thead><tr><th>事件属性</th><th>载荷类型</th><th>触发时机</th></tr></thead><tbody>
+<tr><td><code>HeroOrPartyTradedGold</code> ★</td><td><code>IMbEvent&lt;(Hero, PartyBase), (Hero, PartyBase), (int, string), bool&gt;</code></td><td>英雄/部队间转账</td></tr>
+<tr><td><code>HeroOrPartyGaveItem</code></td><td><code>IMbEvent&lt;(Hero, PartyBase), (Hero, PartyBase), ItemRosterElement, bool&gt;</code></td><td>赠与物品</td></tr>
+<tr><td><code>OnItemSoldEvent</code> / <code>OnPrisonerSoldEvent</code></td><td><code>IMbEvent&lt;PartyBase, PartyBase, …&gt;</code></td><td>售卖物品 / 囚犯</td></tr>
+<tr><td><code>OnCaravanTransactionCompletedEvent</code></td><td><code>IMbEvent&lt;MobileParty, Town, List&lt;(EquipmentElement, int)&gt;&gt;</code></td><td>商队交易完成</td></tr>
+<tr><td><code>ItemProducedEvent</code> / <code>ItemConsumedEvent</code></td><td><code>IMbEvent&lt;ItemObject, Settlement, int&gt;</code></td><td>城镇生产 / 消耗</td></tr>
+<tr><td><code>OnPlayerTradeProfit</code> / <code>OnPlayerEarnedGoldFromAssetEvent</code></td><td><code>IMbEvent&lt;int&gt;</code> / <code>IMbEvent&lt;DefaultClanFinanceModel.AssetIncomeType, int&gt;</code></td><td>玩家贸易/资产收益</td></tr>
+<tr><td><code>OnNewItemCraftedEvent</code> / <code>OnItemsRefined</code> / <code>OnCraftingOrderCompleted</code></td><td><code>IMbEvent&lt;…&gt;</code></td><td>锻造相关</td></tr>
+<tr><td><code>OnWorkshopInitializedEvent</code> / <code>OnWorkshopOwnerChangedEvent</code> / <code>OnWorkshopTypeChangedEvent</code></td><td><code>IMbEvent&lt;Workshop, …&gt;</code></td><td>工坊变动</td></tr>
+<tr><td><code>OnTradeRumorIsTakenEvent</code> / <code>PlayerInventoryExchangeEvent</code></td><td><code>IMbEvent&lt;…&gt;</code></td><td>贸易传闻 / 库存交换</td></tr>
+</tbody></table>
+<h3 id="recruitment-volunteer-zhao-mu-yu-zhi-yuan-bing">Recruitment &amp; Volunteer（招募与志愿兵）</h3>
+<table><thead><tr><th>事件属性</th><th>载荷类型</th><th>触发时机</th></tr></thead><tbody>
+<tr><td><code>OnUnitRecruitedEvent</code> / <code>OnTroopRecruitedEvent</code></td><td><code>IMbEvent&lt;CharacterObject, int&gt;</code> / <code>IMbEvent&lt;Hero, Settlement, Hero, CharacterObject, int&gt;</code></td><td>单位/部队招募</td></tr>
+<tr><td><code>OnTroopGivenToSettlementEvent</code></td><td><code>IMbEvent&lt;Hero, Settlement, TroopRoster&gt;</code></td><td>把兵交给据点</td></tr>
+<tr><td><code>OnMainPartyPrisonerRecruitedEvent</code> / <code>OnPrisonerDonatedToSettlementEvent</code></td><td><code>IMbEvent&lt;FlattenedTroopRoster, …&gt;</code></td><td>主队招募囚犯 / 捐囚</td></tr>
+<tr><td><code>OnPrisonerTakenEvent</code> / <code>OnPrisonerReleasedEvent</code> / <code>OnPrisonerChangeInSettlement</code></td><td><code>IMbEvent&lt;FlattenedTroopRoster, …&gt;</code></td><td>普通（非英雄）囚犯变动</td></tr>
+<tr><td><code>PlayerStartRecruitmentEvent</code></td><td><code>IMbEvent&lt;CharacterObject&gt;</code></td><td>玩家开始招募</td></tr>
+<tr><td><code>OnPlayerCharacterChangedEvent</code> / <code>OnBeforePlayerCharacterChangedEvent</code></td><td><code>IMbEvent&lt;Hero, Hero, MobileParty, bool&gt;</code> / <code>IMbEvent&lt;Hero, Hero&gt;</code></td><td>玩家角色更换（继承/变身等）</td></tr>
+</tbody></table>
+<h3 id="romance-pregnancy-lian-ai-yu-sheng-yu">Romance &amp; Pregnancy（恋爱与生育）</h3>
+<table><thead><tr><th>事件属性</th><th>载荷类型</th><th>触发时机</th></tr></thead><tbody>
+<tr><td><code>RomanticStateChanged</code></td><td><code>IMbEvent&lt;Hero, Hero, Romance.RomanceLevelEnum&gt;</code></td><td>浪漫关系等级变化</td></tr>
+<tr><td><code>BeforeHeroesMarried</code></td><td><code>IMbEvent&lt;Hero, Hero, bool&gt;</code></td><td>结婚前</td></tr>
+<tr><td><code>OnMarriageOfferedToPlayerEvent</code> / <code>OnMarriageOfferCanceledEvent</code></td><td><code>IMbEvent&lt;Hero, Hero&gt;</code></td><td>向玩家提亲 / 撤回</td></tr>
+<tr><td><code>OnChildConceived</code> / <code>OnGivenBirthEvent</code></td><td><code>IMbEvent&lt;Hero&gt;</code> / <code>IMbEvent&lt;Hero, List&lt;Hero&gt;, int&gt;</code></td><td>受孕 / 生育</td></tr>
+<tr><td><code>ChildEducationCompletedEvent</code></td><td><code>IMbEvent&lt;Hero, int&gt;</code></td><td>子女教育完成</td></tr>
+<tr><td><code>OnHeroTeleportationRequestedEvent</code></td><td><code>IMbEvent&lt;Hero, Settlement, MobileParty, TeleportHeroAction.TeleportationDetail&gt;</code></td><td>请求传送英雄</td></tr>
+</tbody></table>
+<h3 id="siege-wei-cheng">Siege（围城）</h3>
+<table><thead><tr><th>事件属性</th><th>载荷类型</th><th>触发时机</th></tr></thead><tbody>
+<tr><td><code>OnSiegeEventStartedEvent</code> / <code>OnSiegeEventEndedEvent</code> / <code>OnPlayerSiegeStartedEvent</code></td><td><code>IMbEvent&lt;SiegeEvent&gt;</code> / <code>IMbEvent</code></td><td>围城开始 / 结束</td></tr>
+<tr><td><code>SiegeCompletedEvent</code> / <code>AfterSiegeCompletedEvent</code></td><td><code>IMbEvent&lt;Settlement, MobileParty, bool, MapEvent.BattleTypes&gt;</code></td><td>围城结算（前/后）</td></tr>
+<tr><td><code>SiegeAftermathAppliedEvent</code></td><td><code>IMbEvent&lt;MobileParty, Settlement, SiegeAftermathAction.SiegeAftermath, Clan, Dictionary&lt;MobileParty, float&gt;&gt;</code></td><td>围城善后应用</td></tr>
+<tr><td><code>OnSiegeBombardmentHitEvent</code> / <code>OnSiegeBombardmentWallHitEvent</code> / <code>OnSiegeEngineDestroyedEvent</code></td><td><code>IMbEvent&lt;MobileParty, Settlement, BattleSideEnum, SiegeEngineType, …&gt;</code></td><td>轰击命中 / 城墙 / 引擎被毁</td></tr>
+<tr><td><code>SiegeEngineBuiltEvent</code> / <code>OnBlockadeActivatedEvent</code> / <code>OnBlockadeDeactivatedEvent</code></td><td><code>IMbEvent&lt;…&gt;</code></td><td>引擎建造 / 封锁</td></tr>
+</tbody></table>
+<h3 id="misc-lifecycle-ticks-za-xiang-sheng-ming-zhou-qi-yu-shi-zhong">Misc / Lifecycle / Ticks（杂项、生命周期与时钟）</h3>
+<ul>
+<li><strong>时钟</strong>：<code>DailyTickEvent</code> / <code>HourlyTickEvent</code> / <code>QuarterHourlyTickEvent</code> / <code>WeeklyTickEvent</code>（<code>IMbEvent</code>，无载荷）；<code>TickEvent</code>（<code>IMbEvent&lt;float&gt;</code>，传已过游戏时间）；以及按对象的 <code>DailyTickPartyEvent</code>（<code>IMbEvent&lt;MobileParty&gt;</code>）、<code>DailyTickTownEvent</code>（<code>IMbEvent&lt;Town&gt;</code>）、<code>DailyTickSettlementEvent</code>、<code>DailyTickHeroEvent</code>、<code>DailyTickClanEvent</code>、对应的 <code>HourlyTick*</code> 系列。这些是<strong>最高频</strong>的钩子，适合做周期性逻辑，但务必轻量。</li>
+<li><strong>会话 / 存档</strong>：<code>OnSessionLaunchedEvent</code> / <code>OnAfterSessionLaunchedEvent</code> / <code>OnNewGameCreatedEvent</code> ★ / <code>OnNewGameCreatedPartialFollowUpEvent</code>（<code>IMbEvent&lt;CampaignGameStarter, int&gt;</code>）/ <code>OnGameLoadedEvent</code> / <code>OnGameEarlyLoadedEvent</code> / <code>OnGameLoadFinishedEvent</code> / <code>OnGameOverEvent</code>；<code>OnBeforeSaveEvent</code> / <code>OnSaveStartedEvent</code> / <code>OnSaveOverEvent</code>（<code>IMbEvent&lt;bool, string&gt;</code>）。</li>
+<li><strong>任务 / 议题</strong>：<code>OnQuestStartedEvent</code> / <code>OnQuestCompletedEvent</code>（<code>IMbEvent&lt;QuestBase, QuestBase.QuestCompleteDetails&gt;</code>）/ <code>OnQuestLogAddedEvent</code>；<code>OnIssueUpdatedEvent</code> ★ / <code>OnNewIssueCreatedEvent</code> / <code>OnIssueOwnerChangedEvent</code> / <code>OnIssueLogAddedEvent</code> / <code>OnCheckForIssueEvent</code>。</li>
+<li><strong>任务（Mission）桥接</strong>：<code>OnMissionStartedEvent</code> / <code>OnMissionEndedEvent</code> / <code>AfterMissionStarted</code>（<code>IMbEvent&lt;IMission&gt;</code>）、<code>MapEventStarted</code> / <code>MapEventEnded</code>（<code>IMbEvent&lt;MapEvent, …&gt;</code>）、<code>OnHeroCombatHitEvent</code> ★（<code>IMbEvent&lt;CharacterObject, CharacterObject, PartyBase, WeaponComponentData, bool, int&gt;</code>）、<code>OnPlayerBattleEndEvent</code>。</li>
+<li><strong>对话 /  tournament /  barter</strong>：<code>OnAgentJoinedConversationEvent</code>、<code>OnConversationEnded</code>、<code>PlayerStartTalkFromMenu</code>、<code>PersuasionProgressCommittedEvent</code>；<code>TournamentStarted</code> / <code>TournamentFinished</code> / <code>PlayerStartedTournamentMatch</code> / <code>OnPlayerJoinedTournamentEvent</code>；<code>BarterablesRequested</code> / <code>OnBarterAcceptedEvent</code> / <code>OnBarterCanceledEvent</code>。</li>
+<li><strong>引用型「can-*」事件</strong>（<code>ReferenceMBEvent</code>，可改写返回值）：<code>CanHeroDieEvent</code>、<code>CanMarryEvent</code>、<code>CanHeroLeadPartyEvent</code>、<code>CanKingdomBeDiscontinued</code>、<code>CanHeroEquipmentBeChangedEvent</code>、<code>CanHeroBecomePrisonerEvent</code>、<code>CanMoveToSettlementEvent</code> 等——订阅时 handler 的最后一个参数是 <code>ref</code>/<code>out</code>，用于投票或改写。</li>
+</ul>
+<h2 id="gao-pin-shi-jian-shen-qian-zhen-shi-qian-ming-ding-yue-pian-duan">高频事件深潜（真实签名 + 订阅片段）</h2>
+<p>下面 10 个事件覆盖绝大多数 mod 的真实需求。每个都给出<strong>真实静态属性签名</strong>、<strong>触发时机</strong>、<strong>载荷含义</strong>与<strong>安全订阅片段</strong>。</p>
+<h3 id="1-herokilledevent-ying-xiong-si-wang">1. <code>HeroKilledEvent</code> — 英雄死亡</h3>
+<pre><code data-lang="csharp">// 静态属性签名（来自 CampaignEvents.cs）
+public static IMbEvent&lt;Hero, Hero, KillCharacterAction.KillCharacterActionDetail, bool&gt; HeroKilledEvent { get; }
+
+// 触发：任意英雄死亡，由 KillCharacterAction.ApplyByBattle / ApplyByOldAge 等调用
+//       CampaignEventDispatcher.Instance.OnHeroKilled(victim, killer, detail, showNotification)
+// 载荷顺序：(Hero victim, Hero killer, KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)
+</code></pre>
+<pre><code data-lang="csharp">CampaignEvents.HeroKilledEvent.AddNonSerializedListener(this, OnHeroKilled);
+
+private void OnHeroKilled(Hero victim, Hero killer,
+    KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)
+{
+    if (victim == null || !victim.IsLord) return; // 现取现用，避免持有悬空引用
+    InformationManager.DisplayMessage(
+        new InformationMessage($&quot;{victim.Name} 死于 {killer?.Name}（原因：{detail}）&quot;));
+}
+</code></pre>
+<h3 id="2-beforeherokilledevent-si-wang-jie-suan-qian">2. <code>BeforeHeroKilledEvent</code> — 死亡结算前</h3>
+<pre><code data-lang="csharp">public static IMbEvent&lt;Hero, Hero, KillCharacterAction.KillCharacterActionDetail, bool&gt; BeforeHeroKilledEvent { get; }
+// 载荷同 HeroKilledEvent。适合在角色真正从世界移除前抢救战利品、记录临终关系或触发遗言。
+</code></pre>
+<h3 id="3-onsettlementownerchangedevent-ju-dian-yi-zhu">3. <code>OnSettlementOwnerChangedEvent</code> — 据点易主</h3>
+<pre><code data-lang="csharp">public static IMbEvent&lt;Settlement, bool, Hero, Hero, Hero,
+    ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail&gt; OnSettlementOwnerChangedEvent { get; }
+
+// 触发：ChangeOwnerOfSettlementAction 改完归属后
+// 载荷：(Settlement settlement, bool openToClaim, Hero newOwner, Hero oldOwner,
+//        Hero capturerHero, ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail detail)
+</code></pre>
+<pre><code data-lang="csharp">CampaignEvents.OnSettlementOwnerChangedEvent.AddNonSerializedListener(this, OnSettlementOwnerChanged);
+
+private void OnSettlementOwnerChanged(Settlement settlement, bool openToClaim,
+    Hero newOwner, Hero oldOwner, Hero capturerHero,
+    ChangeOwnerOfSettlementAction.ChangeOwnerOfSettlementDetail detail)
+{
+    if (settlement == null) return;
+    // detail 区分是征服/宣称/叛乱等来源
+}
+</code></pre>
+<h3 id="4-onpartyremovedevent-bu-dui-cong-di-tu-yi-chu">4. <code>OnPartyRemovedEvent</code> — 部队从地图移除</h3>
+<pre><code data-lang="csharp">public static IMbEvent&lt;PartyBase&gt; OnPartyRemovedEvent { get; }
+// 触发：MobileParty 被摧毁或解散时。注意载荷是 PartyBase（不止 MobileParty）。
+// 载荷：(PartyBase party)
+</code></pre>
+<blockquote>
+<p>想「区分是主队还是某 AI 部队」请在 handler 内用 <code>party.IsMainParty</code> 或 <code>party.MobileParty</code> 判断；不要假设它就是 <code>MobileParty</code>。</p>
+</blockquote>
+<h3 id="5-onclanchangedkingdomevent-jia-zu-huan-wang-guo">5. <code>OnClanChangedKingdomEvent</code> — 家族换王国</h3>
+<pre><code data-lang="csharp">public static IMbEvent&lt;Clan, Kingdom, Kingdom,
+    ChangeKingdomAction.ChangeKingdomActionDetail, bool&gt; OnClanChangedKingdomEvent { get; }
+
+// 触发：ChangeKingdomAction 改完归属后
+// 载荷：(Clan clan, Kingdom oldKingdom, Kingdom newKingdom,
+//        ChangeKingdomAction.ChangeKingdomActionDetail detail, bool showNotification)
+</code></pre>
+<h3 id="6-heroorpartytradedgold-zhuan-zhang">6. <code>HeroOrPartyTradedGold</code> — 转账</h3>
+<pre><code data-lang="csharp">public static IMbEvent&lt;(Hero, PartyBase), (Hero, PartyBase), (int, string), bool&gt; HeroOrPartyTradedGold { get; }
+
+// 载荷：((Hero giver, PartyBase giverParty), (Hero recipient, PartyBase recipientParty),
+//        (int goldAmount, string text), bool showNotification)
+// 注意这里用的是 C# 值元组；解构时 (Hero giver, PartyBase giverParty) 分别对应两个字段。
+</code></pre>
+<h3 id="7-onissueupdatedevent-yi-ti-geng-xin">7. <code>OnIssueUpdatedEvent</code> — 议题更新</h3>
+<pre><code data-lang="csharp">public static IMbEvent&lt;IssueBase, IssueBase.IssueUpdateDetails, Hero&gt; OnIssueUpdatedEvent { get; }
+
+// 触发：IssueBase 内部在玩家接取/推进/完成/失败/超时等时调用
+//       CampaignEventDispatcher.Instance.OnIssueUpdated(this, details, solver)
+// 载荷：(IssueBase issue, IssueBase.IssueUpdateDetails details, Hero issueSolver)
+//       details 是枚举：PlayerStartedIssueQuestClassicSolution / IssueFinishedWithSuccess /
+//       IssueFail / IssueTimedOut / IssueCancel ...
+</code></pre>
+<h3 id="8-heroprisonertaken-ying-xiong-bei-fu">8. <code>HeroPrisonerTaken</code> — 英雄被俘</h3>
+<pre><code data-lang="csharp">public static IMbEvent&lt;PartyBase, Hero&gt; HeroPrisonerTaken { get; }
+// 触发：TakePrisonerAction 把英雄设为囚犯后
+// 载荷：(PartyBase capturer, Hero prisoner)
+// 注意：普通（非英雄）士兵被俘走的是 OnPrisonerTakenEvent（IMbEvent&lt;FlattenedTroopRoster&gt;），别混用。
+</code></pre>
+<h3 id="9-onnewgamecreatedevent-xin-you-xi-chuang-jian">9. <code>OnNewGameCreatedEvent</code> — 新游戏创建</h3>
+<pre><code data-lang="csharp">public static IMbEvent&lt;CampaignGameStarter&gt; OnNewGameCreatedEvent { get; }
+// 触发：新战役建立、OnSessionLaunched 之后。这是初始化「每局游戏状态」的安全点。
+// 载荷：(CampaignGameStarter campaignGameStarter)
+</code></pre>
+<h3 id="10-battlestarted-zhan-dou-xi-ji-kai-shi-fu-wardeclared-onherocombathitevent">10. <code>BattleStarted</code> — 战斗/袭击开始（附 <code>WarDeclared</code>、<code>OnHeroCombatHitEvent</code>）</h3>
+<pre><code data-lang="csharp">public static IMbEvent&lt;PartyBase, PartyBase, object, bool&gt; BattleStarted { get; }
+// 触发：地图战斗/袭击开始时（底层 _battleStarted.Invoke(attackerParty, defenderParty, subject, showNotification)）
+// 载荷：(PartyBase attackerParty, PartyBase defenderParty, object subject, bool showNotification)
+//       subject 是具体的战斗/袭击实体（MapEvent / RaidEventComponent 等），按需 as 转换。
+
+public static IMbEvent&lt;IFaction, IFaction, DeclareWarAction.DeclareWarDetail&gt; WarDeclared { get; }
+// 载荷：(IFaction faction1, IFaction faction2, DeclareWarAction.DeclareWarDetail declareWarDetail)
+
+public static IMbEvent&lt;CharacterObject, CharacterObject, PartyBase, WeaponComponentData, bool, int&gt;
+    OnHeroCombatHitEvent { get; }
+// 载荷：(CharacterObject attackerTroop, CharacterObject attackedTroop, PartyBase party,
+//        WeaponComponentData usedWeapon, bool isFatal, int xp)
+// 注意：这是战役层的战斗命中通知（来自战斗结算），不是 Mission 内的每帧 Agent 命中。
+</code></pre>
+<h2 id="zui-xiao-zhen-shi-shi-li">最小真实示例</h2>
+<h3 id="shi-li-1-yi-ge-jian-ting-ying-xiong-si-wang-de-xing-wei-zhen-shi-ding-yue-lu-jing">示例 1：一个监听英雄死亡的行为（真实订阅路径）</h3>
+<pre><code data-lang="csharp">using System;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.Core;
+using TaleWorlds.Localization;
+
+public class LordDeathLogger : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        // owner 传 this：行为卸载时 CampaignEventDispatcher.RemoveListeners(this)
+        // 会统一清除本行为注册的全部监听，避免泄漏。
+        CampaignEvents.HeroKilledEvent.AddNonSerializedListener(this, OnHeroKilled);
+    }
+
+    private void OnHeroKilled(Hero victim, Hero killer,
+        KillCharacterAction.KillCharacterActionDetail detail, bool showNotification)
+    {
+        // handler 跑在触发本次死亡的战役 tick 内——务必轻量、判空。
+        if (victim == null || !victim.IsLord) return;
+        InformationManager.DisplayMessage(
+            new InformationMessage(
+                new TextObject(&quot;{=}领主 {VICTIM} 已被 {KILLER} 击杀&quot;)
+                    .SetTextVariable(&quot;VICTIM&quot;, victim.Name)
+                    .SetTextVariable(&quot;KILLER&quot;, killer?.Name ?? &quot;未知&quot;)));
+        // 想改变世界？调用 *Action，例如：
+        // Hero.MainHero.ChangeHeroGold(100);  // 或 GoldGainAction.ApplyForHero(...)
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        // 本行为无持久字段；有状态时要在这里读档/写档。
+    }
+}
+</code></pre>
+<h3 id="shi-li-2-ba-xing-wei-zhu-ce-jin-zhan-yi-zhen-shi-huo-qu-lu-jing">示例 2：把行为注册进战役（真实获取路径）</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.MountAndBlade;
+
+public class MySubModule : MBSubModuleBase
+{
+    protected internal override void InitializeGameStarter(Game game, IGameStarter starterObject)
+    {
+        if (game.GameType is Campaign campaign)
+        {
+            // CampaignGameStarter.AddBehavior 把行为加入战役；
+            // CampaignBehaviorManager 随后会调用其 RegisterEvents()，于是上面的监听挂上。
+            ((CampaignGameStarter)starterObject).AddBehavior(new LordDeathLogger());
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p>也可以运行期动态添加：<code>Campaign.Current.CampaignBehaviorManager.AddBehavior(new LordDeathLogger());</code>（该方法会立即调用一次 <code>RegisterEvents()</code>）。</p>
+</blockquote>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li>本页权威语义来自 <strong>bannerlord-1.4.5</strong> 源码；页内列出的事件（<code>HeroKilledEvent</code>、<code>OnSettlementOwnerChangedEvent</code>、<code>OnPartyRemovedEvent</code>、<code>OnClanChangedKingdomEvent</code>、<code>OnIssueUpdatedEvent</code>、<code>HeroPrisonerTaken</code>、<code>OnNewGameCreatedEvent</code>、<code>BattleStarted</code>、<code>WarDeclared</code>、<code>HeroOrPartyTradedGold</code>、<code>OnHeroCombatHitEvent</code>、<code>DailyTickPartyEvent</code> 等）均已核对在 <strong>1.3.15</strong> 中以<strong>相同 <code>IMbEvent&lt;T&gt;</code> 签名</strong>存在。</li>
+<li>两个版本里 <code>IMbEvent</code> 都只暴露 <code>AddNonSerializedListener</code>——即「非序列化监听」，没有旧文档里偶尔提到的 <code>AddListener</code>（序列化监听）公共 API；监听的恢复完全依赖行为随档重建。若你见过 <code>AddListener</code>，那是对其它引擎版本的误解。</li>
+<li>本页聚焦 Campaign 层；战斗场景内的实时事件（Agent 命中、Mission 开始/结束等）请走 <code>Mission</code> / <code>IMissionListener</code> 体系（见 <a href="../../mission/Mission/">Mission</a>）。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li>↑ 父级：<a href="../">campaign-ext 索引</a></li>
+<li>↔ 同级：<a href="../CampaignBehaviorBase/">CampaignBehaviorBase</a> · <a href="../CampaignEventReceiver/">CampaignEventReceiver</a> · <a href="../CampaignEventDispatcher/">CampaignEventDispatcher</a> · <a href="../CampaignGameStarter/">CampaignGameStarter</a> · <a href="../CampaignBehaviorManager/">CampaignBehaviorManager</a> · <a href="../MbEvent/">MbEvent</a> · <a href="../IMbEvent/">IMbEvent</a> · <a href="../ReferenceMBEvent/">ReferenceMBEvent</a> · <a href="../actions-index/">行动索引</a></li>
+<li>相关类：<a href="../../campaign/Campaign/">Campaign</a> · <a href="../../campaign/Hero/">Hero</a> · <a href="../../campaign/Settlement/">Settlement</a> · <a href="../../campaign/MobileParty/">MobileParty</a> · <a href="../../campaign/Clan/">Clan</a> · <a href="../../campaign/Kingdom/">Kingdom</a> · <a href="../../campaign/PartyBase/">PartyBase</a> · <a href="../IssueBase/">IssueBase</a> · <a href="../../campaign/CharacterObject/">CharacterObject</a> · <a href="../../campaign/Workshop/">Workshop</a> · <a href="../../campaign/Village/">Village</a> · <a href="../../save-system/SaveManager/">存档系统</a> · <a href="../../core/MBSubModuleBase/">MBSubModuleBase</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign-ext/">campaign-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign-ext/AcceptJoinPremadeGameRequestMessage/">&larr; AcceptJoinPremadeGameRequestMessage</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign-ext/VoiceGroupPersonaEarnestLowerTag/">VoiceGroupPersonaEarnestLowerTag &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

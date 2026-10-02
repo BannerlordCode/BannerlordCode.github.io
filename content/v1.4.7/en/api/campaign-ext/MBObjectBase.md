@@ -183,14 +183,14 @@ public class MyItemSetDef : MBObjectBase
 ## Dependencies
 
 - Upstream / providers:
-  - [MBObjectManager](../MBObjectManager) registers, instantiates and drives this class's whole lifecycle; [Game](../../core-extra/Game) creates the manager at startup.
+  - [MBObjectManager](../MBObjectManager) registers, instantiates and drives this class's whole lifecycle; `Game` creates the manager at startup. `Game` has no English page — the Chinese [zh `Game`](../../../../zh/api/core-extra/Game) is the only one on disk.
   - [MBSubModuleBase](../../core/MBSubModuleBase)'s `OnRegisterTypes` is when subclasses get registered.
 - Peers / downstream:
-  - [Game](../../core-extra/Game)'s `ObjectManager` property exposes the manager that owns these instances.
+  - `Game.ObjectManager` exposes the manager that owns these instances.
   - [Campaign](../../campaign/Campaign)'s `OnRegisterTypes` registers every campaign-layer MBObject-derived type.
-  - [LoadContext](../../save-system/LoadContext) and [SaveContext](../../save-system/SaveContext) write and resolve MBObject references.
+  - `LoadContext` and `SaveContext` write and resolve MBObject references. The save-system bucket has no English pages; both are Chinese-only: [zh `LoadContext`](../../../../zh/api/save-system/LoadContext) · [zh `SaveContext`](../../../../zh/api/save-system/SaveContext).
 
 ## See Also
 
-- ↑ Parent: [campaign-ext index](../)
-- ↔ Related: [MBObjectManager](../MBObjectManager) · [Game](../../core-extra/Game) · [MBSubModuleBase](../../core/MBSubModuleBase) · [Campaign](../../campaign/Campaign)
+- ↑ Parent: this bucket has no index page. It holds two pages: this one and [MBObjectManager](../MBObjectManager).
+- ↔ Related: [MBObjectManager](../MBObjectManager) · [MBSubModuleBase](../../core/MBSubModuleBase) · [Campaign](../../campaign/Campaign) · zh [Game](../../../../zh/api/core-extra/Game) (no English page; see [the gap list](../../../../GAPS))

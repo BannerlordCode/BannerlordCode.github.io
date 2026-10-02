@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workshop</title>
+  <meta name="description" content="A runtime instance of one workshop inside a town — it binds the owning town, the owner Hero, and a WorkshopType, and tracks operating capital, cumulative profit, and per-production progress. This is the state container for the player&#x2F;clan workshop economy.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/Workshop/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/Workshop/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/Workshop/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/Workshop/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/Workshop/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/Workshop/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Workshop</span>
+    </nav>
+  
+  <h1>Workshop</h1>
+  <h1 id="workshop">Workshop</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Settlements.Workshops
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class Workshop : SettlementArea</code>
+<strong>Base:</strong> <code>SettlementArea</code>
+<strong>Source:</strong> <code>TaleWorlds.CampaignSystem/Settlements/Workshops/Workshop.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Workshop</code> is the <strong>runtime instance of one specific workshop in one specific town</strong> in the campaign world. It is not the "type definition" of a workshop (that is <a href="../../campaign-ext/WorkshopType/"><code>WorkshopType</code></a>), nor is it the daily production logic (that lives in <a href="../../campaign-ext/WorkshopsCampaignBehavior/"><code>WorkshopsCampaignBehavior</code></a>). A <code>Workshop</code> bundles four things together:</p>
+<ul>
+<li><strong>Location and ownership</strong> — which town it belongs to (<a href="../Settlement/"><code>Settlement</code></a> / <a href="../../campaign/"><code>Town</code></a>), which <a href="../Hero/"><code>Hero</code></a> owns it, and a unique <code>Tag</code> within that town.</li>
+<li><strong>Production type</strong> — the <code>WorkshopType</code> decides which raw <a href="../../campaign-ext/"><code>ItemCategory</code></a> inputs get converted into which outputs, and at what conversion speed.</li>
+<li><strong>Operating ledger</strong> — <code>Capital</code> (current working funds), <code>InitialCapital</code> (seed money), <code>ProfitMade</code> (cumulative profit), and <code>Expense</code> (daily overhead).</li>
+<li><strong>Production progress</strong> — <code>_productionProgress[]</code>, one 0–1 progress value per <code>WorkshopType.Productions</code> entry.</li>
+</ul>
+<p>Almost every "workshop mod" touches this type: listing which shops the player runs, seeing which ones are profitable, switching a shop's production, or injecting capital. Note that <code>Workshop</code> is purely a <strong>state and ownership container</strong>; the actual "produce / sell / deduct expense every day" work is driven by <code>WorkshopsCampaignBehavior</code>'s daily tick, which reads economy parameters from <a href="../../campaign-ext/WorkshopModel/"><code>WorkshopModel</code></a>.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of a <code>Workshop</code> as <strong>"a shop's business license plus its ledger"</strong> sitting in a town:</p>
+<ul>
+<li>It lives in the <strong>Campaign layer</strong>, not the battle scene (Mission). Entering a fight does not turn a workshop into an <code>Agent</code>.</li>
+<li>One <code>Workshop</code> instance corresponds to <strong>one fixed slot</strong> in a town (unique <code>Tag</code>). Slots are allocated by <code>Town.InitializeWorkshops(...)</code> at game start; the <code>Workshop[]</code> array length is fixed. The <code>Workshop</code> you get is an already-existing, serialized object — <strong>do not <code>new Workshop(...)</code> yourself</strong>.</li>
+<li>It <strong>does no production math on its own</strong>. <code>ChangeGold</code>, <code>SetProgress</code>, and <code>UpdateLastRunTime</code> are passive record-keepers, called by <code>WorkshopsCampaignBehavior.DailyTickTown</code> during each town's daily tick. Calling them yourself is like hand-editing the ledger, and it will drift out of sync with the behavior's warehouse/progress data.</li>
+<li><strong>When it is fine to use <code>Workshop</code>'s own members directly:</strong> read-only inspection (profit, ownership, progress) or <code>SetCustomName</code> to rename the shop.</li>
+<li><strong>When NOT to call its mutators directly:</strong> changing owner, changing production type, or changing capital should go through the matching Action (<code>ChangeOwnerOfWorkshopAction</code>, <code>ChangeProductionTypeOfWorkshopAction</code>, <code>InitializeWorkshopAction</code>). Bypassing them skips the behavior's data and events — see Risks below.</li>
+<li><strong>Dependencies:</strong> upstream it relies on <code>WorkshopType</code> (an XML-loaded <code>MBObjectBase</code>) and <code>WorkshopModel</code> (economy parameters). Downstream it is read by <code>WorkshopsCampaignBehavior</code> (daily tick), the <code>Clan</code> finance panel, and the warehouse UI. Changes are broadcast through <code>CampaignEventDispatcher</code>.</li>
+</ul>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p><strong>Use <code>Workshop</code> directly when:</strong></p>
+<ul>
+<li>You only need to read state: list a town's or a hero's workshops, read <code>Capital</code> / <code>ProfitMade</code> / <code>Expense</code>, read <code>GetProductionProgress(int)</code>, or rename a shop with <code>SetCustomName</code>.</li>
+<li>You are inside a daily-tick subscription and need to nudge progress in lock-step with the behavior (rare).</li>
+</ul>
+<p><strong>Do NOT use <code>Workshop</code>'s low-level mutators directly — use the Actions instead:</strong></p>
+<table><thead><tr><th>You want to…</th><th>Wrong (bypasses behavior)</th><th>Right (keeps data + events consistent)</th></tr></thead><tbody>
+<tr><td>Buy / transfer / bankruptcy a shop</td><td><code>workshop.ChangeOwnerOfWorkshop(...)</code></td><td><code>ChangeOwnerOfWorkshopAction.ApplyByPlayerBuying</code> / <code>ApplyByDeath</code> / <code>ApplyByBankruptcy</code></td></tr>
+<tr><td>Switch production type</td><td><code>workshop.ChangeWorkshopProduction(...)</code></td><td><code>ChangeProductionTypeOfWorkshopAction.Apply(workshop, newType, ignoreCost)</code></td></tr>
+<tr><td>Create a new shop at game start</td><td><code>workshop.InitializeWorkshop(...)</code></td><td><code>InitializeWorkshopAction.ApplyByNewGame(workshop, owner, type)</code></td></tr>
+<tr><td>Inject / withdraw capital</td><td><code>workshop.ChangeGold(...)</code></td><td>Let the daily tick handle it, or use the proper economy flow</td></tr>
+</tbody></table>
+<h2 id="dependencies">Dependencies</h2>
+<p><code>Workshop</code> sits in the middle of a small dependency graph. All of these links resolve to existing pages (or bucket indexes where a deep page is not yet written):</p>
+<ul>
+<li>Upstream (definition): <a href="../../campaign-ext/WorkshopType/"><code>WorkshopType</code></a> — provides <code>Productions</code>, name, and hidden flag.</li>
+<li>Upstream (parameters): <a href="../../campaign-ext/WorkshopModel/"><code>WorkshopModel</code></a> — source of <code>InitialCapital</code> / <code>DailyExpense</code> / <code>CapitalLowLimit</code>.</li>
+<li>Downstream (driver): <a href="../../campaign-ext/WorkshopsCampaignBehavior/"><code>WorkshopsCampaignBehavior</code></a> — daily tick calls <code>SetProgress</code> / <code>ChangeGold</code> / <code>UpdateLastRunTime</code>.</li>
+<li>Downstream (correct mutation entry points): <a href="../../campaign-ext/ChangeOwnerOfWorkshopAction/"><code>ChangeOwnerOfWorkshopAction</code></a>, <a href="../../campaign-ext/ChangeProductionTypeOfWorkshopAction/"><code>ChangeProductionTypeOfWorkshopAction</code></a>, <a href="../../campaign-ext/InitializeWorkshopAction/"><code>InitializeWorkshopAction</code></a>.</li>
+<li>Events: <a href="../../campaign-ext/CampaignEventDispatcher/"><code>CampaignEventDispatcher</code></a> — <code>OnItemProduced</code> / <code>OnItemConsumed</code>, <code>WorkshopOwnerChangedEvent</code> / <code>WorkshopTypeChangedEvent</code>.</li>
+<li>Warehouse interface: <a href="../../campaign-ext/IWorkshopWarehouseCampaignBehavior/"><code>IWorkshopWarehouseCampaignBehavior</code></a> — player workshop warehouse in/out ratios and input checks.</li>
+<li>Ownership: <a href="../Hero/"><code>Hero</code></a> and <a href="../Clan/"><code>Clan</code></a> — <code>Owner.OwnedWorkshops</code> holds the reverse reference; player shops count toward clan finance.</li>
+<li>Container: <a href="../Town/"><code>Town</code></a> (use <code>Town.Workshops</code> as the access point) and <a href="../Settlement/"><code>Settlement</code></a> (the geographic location).</li>
+<li>Output goods: <a href="../../core/ItemObject/"><code>ItemObject</code></a> — referenced by the <code>ItemCategory</code> of each <code>WorkshopType.Production</code>.</li>
+</ul>
+<h2 id="risks">Risks</h2>
+<blockquote>
+<p>Directly mutating <code>Workshop</code>'s low-level setters without going through an Action is the most common source of "corrupted save / black-screen warehouse" bugs in workshop mods.</p>
+</blockquote>
+<ol>
+<li><strong>Switching owner / production must go through the Actions — do not call <code>ChangeOwnerOfWorkshop</code> / <code>ChangeWorkshopProduction</code> directly.</strong> Those methods only flip fields. <code>WorkshopsCampaignBehavior</code> maintains the player workshop's <code>_workshopData</code> (warehouse progress, stock ratio) and <code>_warehouseRosterPerSettlement</code> only inside <code>OnWorkshopOwnerChanged</code> / <code>OnWorkshopTypeChanged</code>. A raw call desynchronizes the warehouse data from the actual workshop: the player may open the "Enter Warehouse" menu and get a mismatched <code>ItemRoster</code>, or silently lose the warehouse because <code>_workshopData</code> has no matching entry. Use the pattern in Example 2.</li>
+<li><strong><code>SetProgress(i, value)</code> throws <code>IndexOutOfRangeException</code> if <code>i</code> is out of range.</strong> The <code>_productionProgress</code> array length is exactly <code>WorkshopType.Productions.Count</code>. Any <code>i</code> must satisfy <code>0 &lt;= i &lt; WorkshopType.Productions.Count</code>. After a production switch the array is rebuilt by <code>ChangeWorkshopProduction</code>, so old indices change meaning.</li>
+<li><strong>Do not inflate <code>Capital</code> with <code>ChangeGold</code>.</strong> <code>Capital</code> is managed by the daily tick's <code>HandlePlayerWorkshopExpense</code> / <code>HandleNotableWorkshopExpense</code>. When capital drops below <code>CapitalLowLimit</code> and the owner cannot pay, the behavior triggers <code>ChangeWorkshopOwnerByBankruptcy</code> (via <code>ChangeOwnerOfWorkshopAction.ApplyByBankruptcy</code>) and the shop is taken over by a notable. Hand-raising <code>Capital</code> hides the bankruptcy logic; hand-lowering it forces an early bankruptcy transfer.</li>
+<li><strong>Do not <code>new Workshop(...)</code>.</strong> Slots and serialization belong to the engine. On save load, <code>AfterLoad()</code> corrects <code>_productionProgress</code> to <code>WorkshopType.Productions.Count</code> and pushes any <code>LastRunCampaignTime == CampaignTime.Zero</code> instance to "now". A hand-<code>new</code>ed object is neither saved nor present in <code>Town.Workshops</code>, and can become an orphan reference.</li>
+<li><strong><code>WorkshopType</code> is an <code>MBObjectBase</code> loaded from module XML — it cannot be <code>new</code>ed.</strong> Obtain it via <code>WorkshopType.Find(id)</code> or <code>WorkshopType.All</code>. Passing a <code>null</code> or unknown type to <code>InitializeWorkshop</code> / <code>ChangeWorkshopProduction</code> crashes at <code>type.Productions</code>.</li>
+<li><strong>Mutating <code>Capital</code> / <code>ProductionProgress</code> outside the daily tick can desync from <code>_workshopData</code>.</strong> If you must, do it inside a <code>CampaignBehaviorBase</code> subscription to <code>DailyTickTownEvent</code>, when the behavior is running the same step.</li>
+</ol>
+<h2 id="members-grouped-by-theme">Members (grouped by theme)</h2>
+<h3 id="identity-and-ownership">Identity and ownership</h3>
+<h4 id="public-override-settlement-settlement-get"><code>public override Settlement Settlement { get; }</code></h4>
+<p>The town this workshop belongs to (<a href="../Settlement/"><code>Settlement</code></a>). Read-only, injected at construction by <code>Town.InitializeWorkshops</code> and serialized. <strong>Use when:</strong> any logic needs to know where the shop is (e.g. nearby village supply, town tax checks).</p>
+<h4 id="public-override-string-tag-get"><code>public override string Tag { get; }</code></h4>
+<p>A unique short label within the town (e.g. <code>"workshop_1"</code>). Together with <code>Settlement</code> it participates in <code>GetHashCode()</code>. Read-only. <strong>Use when:</strong> you need a stable key to distinguish multiple workshops in the same town — more robust than an array index.</p>
+<h4 id="public-override-hero-owner-get"><code>public override Hero Owner { get; }</code></h4>
+<p>The current owning hero. Read-only property, but internally mutable; changes should go through <code>ChangeOwnerOfWorkshopAction</code>. <strong>Side effect note:</strong> the reverse list <code>Owner.OwnedWorkshops</code> is maintained by <code>AddOwnedWorkshop</code> / <code>RemoveOwnedWorkshop</code>. Raw <code>ChangeOwnerOfWorkshop</code> does sync that list, but does NOT sync the behavior's warehouse data (see Risks).</p>
+<h4 id="public-override-textobject-name-get"><code>public override TextObject Name { get; }</code></h4>
+<p>Display name: uses the <code>SetCustomName</code> value first, otherwise <code>WorkshopType.Name</code>, otherwise the literal <code>"Empty Workshop"</code>. Read-only. <strong>Use when:</strong> UI lists, logs, or dialog text.</p>
+<h4 id="public-workshoptype-workshoptype-get-private-set"><code>public WorkshopType WorkshopType { get; private set; }</code></h4>
+<p>This workshop's current production type. It decides <code>Productions</code> (recipe), <code>IsHidden</code>, and the name. <strong>Set only through</strong> <code>ChangeWorkshopProduction</code> or the matching <code>ChangeProductionTypeOfWorkshopAction</code>; never assign <code>null</code>.</p>
+<h3 id="operating-state">Operating state</h3>
+<h4 id="public-int-capital-get-private-set"><code>public int Capital { get; private set; }</code></h4>
+<p>Current working funds. Changed by <code>ChangeGold</code>, reduced by daily overhead, increased when production is sold. <strong>Use when:</strong> judging profitability or proximity to the <code>WorkshopModel.CapitalLowLimit</code> bankruptcy threshold.</p>
+<h4 id="public-int-initialcapital-get-private-set"><code>public int InitialCapital { get; private set; }</code></h4>
+<p>Seed capital at game start / purchase. Set from <code>WorkshopModel.InitialCapital</code> inside <code>InitializeWorkshop</code>, then never changes.</p>
+<h4 id="public-int-profitmade-get"><code>public int ProfitMade { get; }</code></h4>
+<p>Cumulative profit, computed as <code>MathF.Max(Capital - InitialCapital, 0)</code>. Read-only derived value — callers need not maintain it.</p>
+<h4 id="public-int-expense-get"><code>public int Expense { get; }</code></h4>
+<p>Fixed daily overhead, equal to <code>Campaign.Current.Models.WorkshopModel.DailyExpense</code>. Read-only derived value. If <code>WorkshopType.IsHidden</code> is true, the behavior skips this expense during the daily tick.</p>
+<h4 id="public-campaigntime-lastruncampaigntime-get-private-set"><code>public CampaignTime LastRunCampaignTime { get; private set; }</code></h4>
+<p>The campaign time of the last production cycle. Written by <code>UpdateLastRunTime</code> as <code>CampaignTime.Now</code>. <strong>Use when:</strong> deciding "how long since it produced" or for cooldowns.</p>
+<h3 id="production-progress">Production progress</h3>
+<h4 id="public-float-getproductionprogress-int-index"><code>public float GetProductionProgress(int index)</code></h4>
+<p>Reads the progress (0–1) of the <code>index</code>-th recipe. <code>index</code> must be <code>&lt; WorkshopType.Productions.Count</code>, or it goes out of range. <strong>Use when:</strong> showing a progress bar, or deciding whether a recipe can output this cycle.</p>
+<h4 id="public-void-setprogress-int-i-float-value"><code>public void SetProgress(int i, float value)</code></h4>
+<p>Writes the progress of the <code>i</code>-th recipe. Out-of-range <code>i</code> throws <code>IndexOutOfRangeException</code>. <strong>Side effect:</strong> only edits this instance's array; <code>WorkshopsCampaignBehavior.RunTownWorkshop</code> accumulates <code>WorkshopModel.GetEffectiveConversionSpeedOfProduction</code> each day and writes back. <strong>Use when:</strong> generally do not call manually; if you must, do it inside a daily-tick subscription and ensure <code>i</code> is within <code>Productions.Count</code>.</p>
+<h3 id="lifecycle-and-initialization">Lifecycle and initialization</h3>
+<h4 id="public-workshop-settlement-settlement-string-tag"><code>public Workshop(Settlement settlement, string tag)</code></h4>
+<p><strong>Engine-internal</strong> constructor: allocates the slot, zeroes capital, but does NOT bind <code>WorkshopType</code> or <code>Owner</code>. <strong>Mods should not call it</strong> — it is invoked by <code>Town.InitializeWorkshops</code>. After that, use <code>InitializeWorkshopAction.ApplyByNewGame</code>.</p>
+<h4 id="public-void-initializeworkshop-hero-owner-workshoptype-type"><code>public void InitializeWorkshop(Hero owner, WorkshopType type)</code></h4>
+<p>Turns an empty slot into an operating workshop: sets <code>WorkshopType</code>, <code>_owner</code> (and <code>owner.AddOwnedWorkshop(this)</code>), sets <code>Capital</code> / <code>InitialCapital</code> from <code>WorkshopModel.InitialCapital</code>, and allocates the progress array sized to <code>type.Productions.Count</code>. <strong>The normal entry point is</strong> <code>InitializeWorkshopAction.ApplyByNewGame(workshop, owner, type)</code>. Calling this method directly does not raise <code>WorkshopOwnerChangedEvent</code> and, for player shops, does not build <code>_workshopData</code>.</p>
+<h4 id="internal-void-afterload"><code>internal void AfterLoad()</code></h4>
+<p>Post-load correction: aligns <code>_productionProgress</code> length to <code>WorkshopType.Productions.Count</code> (rebuilds if mismatched, which <strong>loses progress</strong>), and pushes <code>LastRunCampaignTime == Zero</code> to <code>Now</code>. <strong>Not accessible to mods (internal)</strong> — documented only so you do not think you can hand-"repair" progress.</p>
+<h3 id="mutation-operations-most-should-go-through-an-action">Mutation operations (most should go through an Action)</h3>
+<h4 id="public-void-changeownerofworkshop-hero-newowner-workshoptype-type-int-capital"><code>public void ChangeOwnerOfWorkshop(Hero newOwner, WorkshopType type, int capital)</code></h4>
+<p>Low-level owner change: <code>RemoveOwnedWorkshop</code> from old owner, <code>AddOwnedWorkshop</code> to new, <code>Capital = capital</code>; if <code>type != WorkshopType</code> it also calls <code>ChangeWorkshopProduction</code>. <strong>Side effect / risk:</strong> syncs <code>Hero.OwnedWorkshops</code> but does NOT sync <code>WorkshopsCampaignBehavior</code>'s warehouse data and raises no event. Correct entry: <code>ChangeOwnerOfWorkshopAction.ApplyByPlayerBuying</code> / <code>ApplyByDeath</code> / <code>ApplyByBankruptcy</code>.</p>
+<h4 id="public-void-changeworkshopproduction-workshoptype-newworkshoptype"><code>public void ChangeWorkshopProduction(WorkshopType newWorkshopType)</code></h4>
+<p>Switches production type and <strong>rebuilds</strong> the <code>_productionProgress</code> array (length = new type's <code>Productions.Count</code>, old progress cleared). <strong>Risk:</strong> loses progress; raw call does not raise <code>WorkshopTypeChangedEvent</code>, so the player shop's <code>_workshopData</code> is not refreshed. Correct entry: <code>ChangeProductionTypeOfWorkshopAction.Apply(workshop, newType, ignoreCost)</code>.</p>
+<h4 id="public-void-setcustomname-textobject-customname"><code>public void SetCustomName(TextObject customName)</code></h4>
+<p>Sets a custom shop name that overrides <code>WorkshopType.Name</code>. <strong>Safe and directly callable:</strong> only changes the display name, no economic side effect. A null name falls back to <code>WorkshopType.Name</code> or <code>"Empty Workshop"</code>.</p>
+<h4 id="public-void-changegold-int-goldchange"><code>public void ChangeGold(int goldChange)</code></h4>
+<p><code>Capital += goldChange</code>. <strong>Side effect:</strong> edits the ledger directly. Called daily by <code>WorkshopsCampaignBehavior</code> when selling output (add) and paying overhead (subtract). <strong>Use when:</strong> only if you explicitly want to inject/withdraw capital — otherwise it interferes with bankruptcy and profit accounting.</p>
+<h4 id="public-void-updatelastruntime"><code>public void UpdateLastRunTime()</code></h4>
+<p><code>LastRunCampaignTime = CampaignTime.Now</code>. Called by <code>RunTownWorkshop</code> when there was output that day. <strong>Use when:</strong> after manually simulating a production cycle, if you need to refresh the timestamp — do it inside a daily-tick subscription.</p>
+<h3 id="misc">Misc</h3>
+<h4 id="public-override-int-gethashcode"><code>public override int GetHashCode()</code></h4>
+<p>Hash based on <code>Settlement</code> and <code>Tag</code>, so a workshop is stably identifiable in dictionaries / sets. Safe to use directly.</p>
+<h4 id="public-override-string-tostring"><code>public override string ToString()</code></h4>
+<p><code>Name.ToString() + " " + Settlement.ToString()</code>, for logs / debugging.</p>
+<h2 id="example">Example</h2>
+<h3 id="example-1-list-every-workshop-in-the-current-town-read-only-safe">Example 1 — List every workshop in the current town (read-only, safe)</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.CampaignSystem.Settlements.Workshops;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+
+Town town = Settlement.CurrentSettlement.Town;
+foreach (Workshop workshop in town.Workshops)
+{
+    string name = workshop.Name.ToString();
+    string type = workshop.WorkshopType?.Name.ToString() ?? &quot;(none)&quot;;
+    int profit = workshop.ProfitMade;
+    int capital = workshop.Capital;
+    InformationManager.DisplayMessage(
+        new InformationMessage($&quot;{name} [{type}] profit {profit}, capital {capital}&quot;));
+}
+</code></pre>
+<blockquote>
+<p><code>Town.Workshops</code> is a <code>Workshop[]</code>; <code>Hero.OwnedWorkshops</code> is an <code>MBReadOnlyList&lt;Workshop&gt;</code>. Both reference the same set of instances.</p>
+</blockquote>
+<h3 id="example-2-switch-a-player-owned-workshop-to-a-brewery-via-the-correct-action">Example 2 — Switch a player-owned workshop to a brewery via the correct Action</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem.Settlements.Workshops;
+using TaleWorlds.CampaignSystem.Actions;
+
+// Get the target: first workshop the player owns, or any town.Workshops element
+Workshop playerShop = Hero.MainHero.OwnedWorkshops.FirstOrDefault();
+if (playerShop != null)
+{
+    // Correct production-switch entry: deducts the switch cost, syncs
+    // WorkshopsCampaignBehavior&#39;s _workshopData, and raises WorkshopTypeChangedEvent.
+    WorkshopType brewery = WorkshopType.Find(&quot;brewery&quot;);
+    if (brewery != null &amp;&amp; playerShop.WorkshopType != brewery)
+    {
+        ChangeProductionTypeOfWorkshopAction.Apply(playerShop, brewery);
+    }
+}
+</code></pre>
+<blockquote>
+<p>Contrast: <code>playerShop.ChangeWorkshopProduction(brewery)</code> also switches the type, but it loses production progress and does not refresh the player's warehouse data — over time the warehouse menu drifts out of sync with reality. Always prefer <code>ChangeProductionTypeOfWorkshopAction</code> / <code>ChangeOwnerOfWorkshopAction</code>.</p>
+</blockquote>
+<h3 id="example-3-diagnose-whether-a-player-workshop-is-near-bankruptcy-read-only">Example 3 — Diagnose whether a player workshop is near bankruptcy (read-only)</h3>
+<pre><code data-lang="csharp">Workshop w = Hero.MainHero.OwnedWorkshops.FirstOrDefault();
+if (w != null)
+{
+    int lowLimit = Campaign.Current.Models.WorkshopModel.CapitalLowLimit;
+    bool nearBankruptcy = w.Capital &lt;= lowLimit &amp;&amp; w.Owner.Gold &lt; w.Expense;
+    if (nearBankruptcy)
+    {
+        InformationManager.DisplayMessage(
+            new InformationMessage($&quot;{w.Name} is near bankruptcy (capital {w.Capital} / limit {lowLimit})&quot;));
+    }
+}
+</code></pre>
+<h2 id="how-modders-extend-workshop-types">How modders extend workshop types</h2>
+<p><code>Workshop</code> itself only stores state; extending the workshop <em>economy</em> means extending <code>WorkshopType</code> (the definitions) and <code>WorkshopModel</code> (the economy tuning).</p>
+<h3 id="1-add-a-new-workshoptype-via-module-xml">1. Add a new <code>WorkshopType</code> via module XML</h3>
+<p>Workshop types are <code>MBObjectBase</code> instances loaded from your module's XML. You declare a <code>&lt;WorkshopType&gt;</code> with a <code>name</code>, <code>jobname</code>, and one or more <code>&lt;Production&gt;</code> children that list <code>&lt;Inputs&gt;</code> and <code>&lt;Outputs&gt;</code> as <code>ItemCategory</code> references, plus a <code>conversion_speed</code>:</p>
+<pre><code data-lang="xml">&lt;WorkshopType id=&quot;my_smithy&quot; name=&quot;My Smithy&quot; jobname=&quot;Smith&quot;
+              equipment_cost=&quot;20000&quot; frequency=&quot;1&quot; isHidden=&quot;false&quot;&gt;
+  &lt;Production conversion_speed=&quot;1.0&quot;&gt;
+    &lt;Inputs&gt;
+      &lt;input value=&quot;iron&quot; input_count=&quot;2&quot; /&gt;
+    &lt;/Inputs&gt;
+    &lt;Outputs&gt;
+      &lt;output value=&quot;tools&quot; output_count=&quot;1&quot; /&gt;
+    &lt;/Outputs&gt;
+  &lt;/Production&gt;
+&lt;/WorkshopType&gt;
+</code></pre>
+<p>At runtime read it back with <code>WorkshopType.Find("my_smithy")</code> or iterate <code>WorkshopType.All</code> (<code>=&gt; Campaign.Current.Workshops</code>). Each <code>WorkshopType.Production</code> exposes <code>Inputs</code>, <code>Outputs</code> (both <code>MBReadOnlyList&lt;(ItemCategory, int)&gt;</code>), and <code>ConversionSpeed</code>. The <code>ItemCategory</code> referenced here is what ties production to concrete goods (<a href="../../core/ItemObject/"><code>ItemObject</code></a> lives under that category).</p>
+<h3 id="2-tune-the-economy-with-a-custom-workshopmodel">2. Tune the economy with a custom <code>WorkshopModel</code></h3>
+<p><code>WorkshopModel</code> is abstract; the active implementation is reached via <code>Campaign.Current.Models.WorkshopModel</code>. The members that drive a workshop's ledger and speed are:</p>
+<ul>
+<li><code>int InitialCapital</code> — seed money set in <code>InitializeWorkshop</code>.</li>
+<li><code>int DailyExpense</code> — the per-day overhead surfaced as <code>Workshop.Expense</code>.</li>
+<li><code>int CapitalLowLimit</code> — below this (with an unable owner) the shop goes bankrupt.</li>
+<li><code>ExplainedNumber GetEffectiveConversionSpeedOfProduction(Workshop workshop, float speed, bool includeDescriptions)</code> — scales a production's <code>conversion_speed</code>.</li>
+</ul>
+<p>To change these, override <code>WorkshopModel</code> in your own module (substitute the model through the normal model-registration path) rather than mutating <code>Workshop.Capital</code> directly.</p>
+<h3 id="3-place-a-workshop-at-runtime">3. Place a workshop at runtime</h3>
+<p>To actually open a shop for a hero, use <code>InitializeWorkshopAction.ApplyByNewGame(workshop, owner, type)</code> on an existing <code>Town.Workshops</code> slot — do not <code>new Workshop(...)</code>. Changing its owner or type later must use <code>ChangeOwnerOfWorkshopAction</code> / <code>ChangeProductionTypeOfWorkshopAction</code> to keep the warehouse behavior consistent.</p>
+<blockquote>
+<p><strong>On "Worker":</strong> the <code>Workshop</code> API has no per-workshop <code>Worker</code> entity. A workshop's labor is represented conceptually by <code>WorkshopType.JobName</code> (the occupation label shown in the UI, e.g. "Brewer"); the workforce count and individual workers are not modeled as objects you can read or set on <code>Workshop</code>.</p>
+</blockquote>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Parent: <a href="../">Campaign API index</a> · <a href="../../">api root</a></li>
+<li>↔ Siblings: <a href="../Town/">Town</a> · <a href="../Settlement/">Settlement</a> · <a href="../Village/">Village</a> · <a href="../Hero/">Hero</a> · <a href="../Clan/">Clan</a> · <a href="../WorkshopData/">WorkshopData</a> · <a href="../MobileParty/">MobileParty</a> · <a href="../Campaign/">Campaign</a></li>
+<li>Related behaviors / actions / models:
+<ul>
+<li><a href="../../campaign-ext/WorkshopType/">WorkshopType</a> — production-type definition (recipes, name)</li>
+<li><a href="../../campaign-ext/WorkshopModel/">WorkshopModel</a> — workshop economy parameters</li>
+<li><a href="../../campaign-ext/WorkshopsCampaignBehavior/">WorkshopsCampaignBehavior</a> — daily-tick driver</li>
+<li><a href="../../campaign-ext/InitializeWorkshopAction/">InitializeWorkshopAction</a> — create a shop at game start</li>
+<li><a href="../../campaign-ext/ChangeOwnerOfWorkshopAction/">ChangeOwnerOfWorkshopAction</a> — buy / transfer / bankruptcy</li>
+<li><a href="../../campaign-ext/ChangeProductionTypeOfWorkshopAction/">ChangeProductionTypeOfWorkshopAction</a> — switch production</li>
+<li><a href="../../campaign-ext/CampaignEventDispatcher/">CampaignEventDispatcher</a> — produce/consume and workshop events</li>
+<li><a href="../../campaign-ext/IWorkshopWarehouseCampaignBehavior/">IWorkshopWarehouseCampaignBehavior</a> — player warehouse in/out interface</li>
+</ul>
+</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign/">campaign index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign/BehaviorSaveData/">&larr; BehaviorSaveData</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign/NarrativeMenuCharacterArgs/">NarrativeMenuCharacterArgs &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Issues</title>
+  <meta name="description" content="任务（Issue）与 quest 的状态、流程与触发逻辑。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/issues/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/issues/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="active">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Issues</span>
+    </nav>
+  
+  <h1>Issues</h1>
+  <h2 id="shang-ji-dao-hang">上级导航</h2>
+<ul>
+<li><a href="../">返回 campaign 目录</a></li>
+<li><a href="../../">API 目录</a></li>
+<li><a href="../../../">版本首页</a></li>
+</ul>
+<h2 id="zi-xi-tong-gai-shu">子系统概述</h2>
+<p>这里是 <strong>campaign 目录</strong> 的 <strong>Issues</strong> 子系统。同一命名空间下的类负责相近功能，可从中找到需要的类型后再进入类页查看方法。</p>
+<p>任务（Issue）与 quest 的状态、流程与触发逻辑。</p>
+<h2 id="lei-lie-biao">类列表</h2>
+<table><thead><tr><th>类</th><th>用途</th></tr></thead><tbody>
+<tr><td><a href="../AlternativeSolutionScaleFlag/"><code>AlternativeSolutionScaleFlag</code></a></td><td>AlternativeSolutionScaleFlag 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ArmyNeedsSuppliesIssue/"><code>ArmyNeedsSuppliesIssue</code></a></td><td>ArmyNeedsSuppliesIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ArmyNeedsSuppliesIssueBehavior/"><code>ArmyNeedsSuppliesIssueBehavior</code></a></td><td>ArmyNeedsSuppliesIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ArmyNeedsSuppliesIssueQuest/"><code>ArmyNeedsSuppliesIssueQuest</code></a></td><td>ArmyNeedsSuppliesIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ArmyNeedsSuppliesIssueTypeDefiner/"><code>ArmyNeedsSuppliesIssueTypeDefiner</code></a></td><td>ArmyNeedsSuppliesIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ArtisanCantSellProductsAtAFairPriceIssue/"><code>ArtisanCantSellProductsAtAFairPriceIssue</code></a></td><td>ArtisanCantSellProductsAtAFairPriceIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ArtisanCantSellProductsAtAFairPriceIssueBehavior/"><code>ArtisanCantSellProductsAtAFairPriceIssueBehavior</code></a></td><td>ArtisanCantSellProductsAtAFairPriceIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ArtisanCantSellProductsAtAFairPriceIssueQuest/"><code>ArtisanCantSellProductsAtAFairPriceIssueQuest</code></a></td><td>ArtisanCantSellProductsAtAFairPriceIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner/"><code>ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner</code></a></td><td>ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ArtisanOverpricedGoodsIssue/"><code>ArtisanOverpricedGoodsIssue</code></a></td><td>ArtisanOverpricedGoodsIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ArtisanOverpricedGoodsIssueBehavior/"><code>ArtisanOverpricedGoodsIssueBehavior</code></a></td><td>ArtisanOverpricedGoodsIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ArtisanOverpricedGoodsIssueQuest/"><code>ArtisanOverpricedGoodsIssueQuest</code></a></td><td>ArtisanOverpricedGoodsIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ArtisanOverpricedGoodsIssueTypeDefiner/"><code>ArtisanOverpricedGoodsIssueTypeDefiner</code></a></td><td>ArtisanOverpricedGoodsIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../BettingFraudIssue/"><code>BettingFraudIssue</code></a></td><td>BettingFraudIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../BettingFraudIssueBehavior/"><code>BettingFraudIssueBehavior</code></a></td><td>BettingFraudIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../BettingFraudIssueTypeDefiner/"><code>BettingFraudIssueTypeDefiner</code></a></td><td>BettingFraudIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../BettingFraudQuest/"><code>BettingFraudQuest</code></a></td><td>BettingFraudQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../CaptureAndBringNpcTask/"><code>CaptureAndBringNpcTask</code></a></td><td>CaptureAndBringNpcTask 是 TaleWorlds.CampaignSystem.Issues.IssueQuestTasks 下的公开类型。</td></tr>
+<tr><td><a href="../CapturedByBountyHuntersIssue/"><code>CapturedByBountyHuntersIssue</code></a></td><td>CapturedByBountyHuntersIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../CapturedByBountyHuntersIssueBehavior/"><code>CapturedByBountyHuntersIssueBehavior</code></a></td><td>CapturedByBountyHuntersIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../CapturedByBountyHuntersIssueQuest/"><code>CapturedByBountyHuntersIssueQuest</code></a></td><td>CapturedByBountyHuntersIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../CapturedByBountyHuntersIssueTypeDefiner/"><code>CapturedByBountyHuntersIssueTypeDefiner</code></a></td><td>CapturedByBountyHuntersIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../CaravanAmbushIssue/"><code>CaravanAmbushIssue</code></a></td><td>CaravanAmbushIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../CaravanAmbushIssueBehavior/"><code>CaravanAmbushIssueBehavior</code></a></td><td>CaravanAmbushIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../CaravanAmbushIssueQuest/"><code>CaravanAmbushIssueQuest</code></a></td><td>CaravanAmbushIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../CaravanAmbushIssueTypeDefiner/"><code>CaravanAmbushIssueTypeDefiner</code></a></td><td>CaravanAmbushIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ChangeCommonAreaOwnerQuestTask/"><code>ChangeCommonAreaOwnerQuestTask</code></a></td><td>ChangeCommonAreaOwnerQuestTask 是 TaleWorlds.CampaignSystem.Issues.IssueQuestTasks 下的公开类型。</td></tr>
+<tr><td><a href="../ChangeSettlementOwnerTask/"><code>ChangeSettlementOwnerTask</code></a></td><td>ChangeSettlementOwnerTask 是 TaleWorlds.CampaignSystem.Issues.IssueQuestTasks 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultIssueEffects/"><code>DefaultIssueEffects</code></a></td><td>DefaultIssueEffects 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../DefeatPartyQuestTask/"><code>DefeatPartyQuestTask</code></a></td><td>DefeatPartyQuestTask 是 TaleWorlds.CampaignSystem.Issues.IssueQuestTasks 下的公开类型。</td></tr>
+<tr><td><a href="../EscortMerchantCaravanIssue/"><code>EscortMerchantCaravanIssue</code></a></td><td>EscortMerchantCaravanIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../EscortMerchantCaravanIssueBehavior/"><code>EscortMerchantCaravanIssueBehavior</code></a></td><td>EscortMerchantCaravanIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../EscortMerchantCaravanIssueQuest/"><code>EscortMerchantCaravanIssueQuest</code></a></td><td>EscortMerchantCaravanIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../EscortMerchantCaravanIssueTypeDefiner/"><code>EscortMerchantCaravanIssueTypeDefiner</code></a></td><td>EscortMerchantCaravanIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ExtortionByDesertersIssue/"><code>ExtortionByDesertersIssue</code></a></td><td>ExtortionByDesertersIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ExtortionByDesertersIssueBehavior/"><code>ExtortionByDesertersIssueBehavior</code></a></td><td>ExtortionByDesertersIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ExtortionByDesertersIssueBehaviorTypeDefiner/"><code>ExtortionByDesertersIssueBehaviorTypeDefiner</code></a></td><td>ExtortionByDesertersIssueBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ExtortionByDesertersIssueQuest/"><code>ExtortionByDesertersIssueQuest</code></a></td><td>ExtortionByDesertersIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ExtortionByDesertersQuestState/"><code>ExtortionByDesertersQuestState</code></a></td><td>ExtortionByDesertersQuestState 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsRecruitsIssue/"><code>GangLeaderNeedsRecruitsIssue</code></a></td><td>GangLeaderNeedsRecruitsIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsRecruitsIssueBehavior/"><code>GangLeaderNeedsRecruitsIssueBehavior</code></a></td><td>GangLeaderNeedsRecruitsIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsRecruitsIssueBehaviorTypeDefiner/"><code>GangLeaderNeedsRecruitsIssueBehaviorTypeDefiner</code></a></td><td>GangLeaderNeedsRecruitsIssueBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsRecruitsIssueQuest/"><code>GangLeaderNeedsRecruitsIssueQuest</code></a></td><td>GangLeaderNeedsRecruitsIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsSpecialWeaponsIssue/"><code>GangLeaderNeedsSpecialWeaponsIssue</code></a></td><td>GangLeaderNeedsSpecialWeaponsIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsSpecialWeaponsIssueBehavior/"><code>GangLeaderNeedsSpecialWeaponsIssueBehavior</code></a></td><td>GangLeaderNeedsSpecialWeaponsIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsSpecialWeaponsIssueQuest/"><code>GangLeaderNeedsSpecialWeaponsIssueQuest</code></a></td><td>GangLeaderNeedsSpecialWeaponsIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsSpecialWeaponsIssueTypeDefiner/"><code>GangLeaderNeedsSpecialWeaponsIssueTypeDefiner</code></a></td><td>GangLeaderNeedsSpecialWeaponsIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsToOffloadStolenGoodsIssue/"><code>GangLeaderNeedsToOffloadStolenGoodsIssue</code></a></td><td>GangLeaderNeedsToOffloadStolenGoodsIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsToOffloadStolenGoodsIssueBehavior/"><code>GangLeaderNeedsToOffloadStolenGoodsIssueBehavior</code></a></td><td>GangLeaderNeedsToOffloadStolenGoodsIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsToOffloadStolenGoodsIssueQuest/"><code>GangLeaderNeedsToOffloadStolenGoodsIssueQuest</code></a></td><td>GangLeaderNeedsToOffloadStolenGoodsIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner/"><code>GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner</code></a></td><td>GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsWeaponsIssue/"><code>GangLeaderNeedsWeaponsIssue</code></a></td><td>GangLeaderNeedsWeaponsIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsWeaponsIssueQuest/"><code>GangLeaderNeedsWeaponsIssueQuest</code></a></td><td>GangLeaderNeedsWeaponsIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsWeaponsIssueQuestBehavior/"><code>GangLeaderNeedsWeaponsIssueQuestBehavior</code></a></td><td>GangLeaderNeedsWeaponsIssueQuestBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../GangLeaderNeedsWeaponsIssueTypeDefiner/"><code>GangLeaderNeedsWeaponsIssueTypeDefiner</code></a></td><td>GangLeaderNeedsWeaponsIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../HeadmanNeedsGrainIssue/"><code>HeadmanNeedsGrainIssue</code></a></td><td>HeadmanNeedsGrainIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../HeadmanNeedsGrainIssueBehavior/"><code>HeadmanNeedsGrainIssueBehavior</code></a></td><td>HeadmanNeedsGrainIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../HeadmanNeedsGrainIssueQuest/"><code>HeadmanNeedsGrainIssueQuest</code></a></td><td>HeadmanNeedsGrainIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../HeadmanNeedsGrainIssueTypeDefiner/"><code>HeadmanNeedsGrainIssueTypeDefiner</code></a></td><td>HeadmanNeedsGrainIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../HeadmanNeedsToDeliverAHerdIssue/"><code>HeadmanNeedsToDeliverAHerdIssue</code></a></td><td>HeadmanNeedsToDeliverAHerdIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../HeadmanNeedsToDeliverAHerdIssueBehavior/"><code>HeadmanNeedsToDeliverAHerdIssueBehavior</code></a></td><td>HeadmanNeedsToDeliverAHerdIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../HeadmanNeedsToDeliverAHerdIssueQuest/"><code>HeadmanNeedsToDeliverAHerdIssueQuest</code></a></td><td>HeadmanNeedsToDeliverAHerdIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../HeadmanNeedsToDeliverAHerdIssueTypeDefiner/"><code>HeadmanNeedsToDeliverAHerdIssueTypeDefiner</code></a></td><td>HeadmanNeedsToDeliverAHerdIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../HeadmanVillageNeedsDraughtAnimalsIssue/"><code>HeadmanVillageNeedsDraughtAnimalsIssue</code></a></td><td>HeadmanVillageNeedsDraughtAnimalsIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../HeadmanVillageNeedsDraughtAnimalsIssueBehavior/"><code>HeadmanVillageNeedsDraughtAnimalsIssueBehavior</code></a></td><td>HeadmanVillageNeedsDraughtAnimalsIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner/"><code>HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner</code></a></td><td>HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../HeadmanVillageNeedsDraughtAnimalsIssueQuest/"><code>HeadmanVillageNeedsDraughtAnimalsIssueQuest</code></a></td><td>HeadmanVillageNeedsDraughtAnimalsIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../HeroRelatedIssueCoolDownData/"><code>HeroRelatedIssueCoolDownData</code></a></td><td>HeroRelatedIssueCoolDownData 是一个数据载体，位于 TaleWorlds.CampaignSystem.Issues，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../IssueBase/"><code>IssueBase</code></a></td><td>IssueBase 是一个抽象基类，位于 TaleWorlds.CampaignSystem.Issues，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../IssueCoolDownData/"><code>IssueCoolDownData</code></a></td><td>IssueCoolDownData 是一个数据载体，位于 TaleWorlds.CampaignSystem.Issues，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../IssueEffect/"><code>IssueEffect</code></a></td><td>IssueEffect 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../IssueFrequency/"><code>IssueFrequency</code></a></td><td>IssueFrequency 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../IssueManager/"><code>IssueManager</code></a></td><td>IssueManager 是一个管理器，位于 TaleWorlds.CampaignSystem.Issues，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../IssueState/"><code>IssueState</code></a></td><td>IssueState 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../IssueUpdateDetails/"><code>IssueUpdateDetails</code></a></td><td>IssueUpdateDetails 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LadysKnightOutIssue/"><code>LadysKnightOutIssue</code></a></td><td>LadysKnightOutIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LadysKnightOutIssueBehavior/"><code>LadysKnightOutIssueBehavior</code></a></td><td>LadysKnightOutIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LadysKnightOutIssueQuest/"><code>LadysKnightOutIssueQuest</code></a></td><td>LadysKnightOutIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LadysKnightOutIssueTypeDefiner/"><code>LadysKnightOutIssueTypeDefiner</code></a></td><td>LadysKnightOutIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandLordCompanyOfTroubleIssue/"><code>LandLordCompanyOfTroubleIssue</code></a></td><td>LandLordCompanyOfTroubleIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandLordCompanyOfTroubleIssueBehavior/"><code>LandLordCompanyOfTroubleIssueBehavior</code></a></td><td>LandLordCompanyOfTroubleIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandLordCompanyOfTroubleIssueQuest/"><code>LandLordCompanyOfTroubleIssueQuest</code></a></td><td>LandLordCompanyOfTroubleIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandLordCompanyOfTroubleIssueTypeDefiner/"><code>LandLordCompanyOfTroubleIssueTypeDefiner</code></a></td><td>LandLordCompanyOfTroubleIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandlordNeedsAccessToVillageCommonsIssue/"><code>LandlordNeedsAccessToVillageCommonsIssue</code></a></td><td>LandlordNeedsAccessToVillageCommonsIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandlordNeedsAccessToVillageCommonsIssueBehavior/"><code>LandlordNeedsAccessToVillageCommonsIssueBehavior</code></a></td><td>LandlordNeedsAccessToVillageCommonsIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandlordNeedsAccessToVillageCommonsIssueQuest/"><code>LandlordNeedsAccessToVillageCommonsIssueQuest</code></a></td><td>LandlordNeedsAccessToVillageCommonsIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandlordNeedsAccessToVillageCommonsIssueTypeDefiner/"><code>LandlordNeedsAccessToVillageCommonsIssueTypeDefiner</code></a></td><td>LandlordNeedsAccessToVillageCommonsIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandLordNeedsManualLaborersIssue/"><code>LandLordNeedsManualLaborersIssue</code></a></td><td>LandLordNeedsManualLaborersIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandLordNeedsManualLaborersIssueBehavior/"><code>LandLordNeedsManualLaborersIssueBehavior</code></a></td><td>LandLordNeedsManualLaborersIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandLordNeedsManualLaborersIssueBehaviorTypeDefiner/"><code>LandLordNeedsManualLaborersIssueBehaviorTypeDefiner</code></a></td><td>LandLordNeedsManualLaborersIssueBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandLordNeedsManualLaborersIssueQuest/"><code>LandLordNeedsManualLaborersIssueQuest</code></a></td><td>LandLordNeedsManualLaborersIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandLordTheArtOfTheTradeIssue/"><code>LandLordTheArtOfTheTradeIssue</code></a></td><td>LandLordTheArtOfTheTradeIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandLordTheArtOfTheTradeIssueBehavior/"><code>LandLordTheArtOfTheTradeIssueBehavior</code></a></td><td>LandLordTheArtOfTheTradeIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandLordTheArtOfTheTradeIssueBehaviorTypeDefiner/"><code>LandLordTheArtOfTheTradeIssueBehaviorTypeDefiner</code></a></td><td>LandLordTheArtOfTheTradeIssueBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandLordTheArtOfTheTradeIssueQuest/"><code>LandLordTheArtOfTheTradeIssueQuest</code></a></td><td>LandLordTheArtOfTheTradeIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandlordTrainingForRetainersIssue/"><code>LandlordTrainingForRetainersIssue</code></a></td><td>LandlordTrainingForRetainersIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandlordTrainingForRetainersIssueBehavior/"><code>LandlordTrainingForRetainersIssueBehavior</code></a></td><td>LandlordTrainingForRetainersIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandlordTrainingForRetainersIssueQuest/"><code>LandlordTrainingForRetainersIssueQuest</code></a></td><td>LandlordTrainingForRetainersIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LandlordTrainingForRetainersIssueTypeDefiner/"><code>LandlordTrainingForRetainersIssueTypeDefiner</code></a></td><td>LandlordTrainingForRetainersIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LesserNobleRevoltIssue/"><code>LesserNobleRevoltIssue</code></a></td><td>LesserNobleRevoltIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LesserNobleRevoltIssueBehavior/"><code>LesserNobleRevoltIssueBehavior</code></a></td><td>LesserNobleRevoltIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LesserNobleRevoltIssueBehaviorTypeDefiner/"><code>LesserNobleRevoltIssueBehaviorTypeDefiner</code></a></td><td>LesserNobleRevoltIssueBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LesserNobleRevoltIssueQuest/"><code>LesserNobleRevoltIssueQuest</code></a></td><td>LesserNobleRevoltIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordNeedsGarrisonTroopsIssue/"><code>LordNeedsGarrisonTroopsIssue</code></a></td><td>LordNeedsGarrisonTroopsIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordNeedsGarrisonTroopsIssueQuest/"><code>LordNeedsGarrisonTroopsIssueQuest</code></a></td><td>LordNeedsGarrisonTroopsIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordNeedsGarrisonTroopsIssueQuestBehavior/"><code>LordNeedsGarrisonTroopsIssueQuestBehavior</code></a></td><td>LordNeedsGarrisonTroopsIssueQuestBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordNeedsGarrisonTroopsIssueQuestTypeDefiner/"><code>LordNeedsGarrisonTroopsIssueQuestTypeDefiner</code></a></td><td>LordNeedsGarrisonTroopsIssueQuestTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordNeedsHorsesIssue/"><code>LordNeedsHorsesIssue</code></a></td><td>LordNeedsHorsesIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordNeedsHorsesIssueBehavior/"><code>LordNeedsHorsesIssueBehavior</code></a></td><td>LordNeedsHorsesIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordNeedsHorsesIssueBehaviorTypeDefiner/"><code>LordNeedsHorsesIssueBehaviorTypeDefiner</code></a></td><td>LordNeedsHorsesIssueBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordNeedsHorsesIssueQuest/"><code>LordNeedsHorsesIssueQuest</code></a></td><td>LordNeedsHorsesIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordsNeedsTutorIssue/"><code>LordsNeedsTutorIssue</code></a></td><td>LordsNeedsTutorIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordsNeedsTutorIssueBehavior/"><code>LordsNeedsTutorIssueBehavior</code></a></td><td>LordsNeedsTutorIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordsNeedsTutorIssueQuest/"><code>LordsNeedsTutorIssueQuest</code></a></td><td>LordsNeedsTutorIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordsNeedsTutorIssueTypeDefiner/"><code>LordsNeedsTutorIssueTypeDefiner</code></a></td><td>LordsNeedsTutorIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordWantsRivalCapturedIssue/"><code>LordWantsRivalCapturedIssue</code></a></td><td>LordWantsRivalCapturedIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordWantsRivalCapturedIssueBehavior/"><code>LordWantsRivalCapturedIssueBehavior</code></a></td><td>LordWantsRivalCapturedIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordWantsRivalCapturedIssueQuest/"><code>LordWantsRivalCapturedIssueQuest</code></a></td><td>LordWantsRivalCapturedIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../LordWantsRivalCapturedIssueTypeDefiner/"><code>LordWantsRivalCapturedIssueTypeDefiner</code></a></td><td>LordWantsRivalCapturedIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../MerchantArmyOfPoachersIssue/"><code>MerchantArmyOfPoachersIssue</code></a></td><td>MerchantArmyOfPoachersIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../MerchantArmyOfPoachersIssueBehavior/"><code>MerchantArmyOfPoachersIssueBehavior</code></a></td><td>MerchantArmyOfPoachersIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../MerchantArmyOfPoachersIssueBehaviorTypeDefiner/"><code>MerchantArmyOfPoachersIssueBehaviorTypeDefiner</code></a></td><td>MerchantArmyOfPoachersIssueBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../MerchantArmyOfPoachersIssueQuest/"><code>MerchantArmyOfPoachersIssueQuest</code></a></td><td>MerchantArmyOfPoachersIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../MerchantNeedsHelpWithOutlawsIssue/"><code>MerchantNeedsHelpWithOutlawsIssue</code></a></td><td>MerchantNeedsHelpWithOutlawsIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../MerchantNeedsHelpWithOutlawsIssueQuest/"><code>MerchantNeedsHelpWithOutlawsIssueQuest</code></a></td><td>MerchantNeedsHelpWithOutlawsIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../MerchantNeedsHelpWithOutlawsIssueQuestBehavior/"><code>MerchantNeedsHelpWithOutlawsIssueQuestBehavior</code></a></td><td>MerchantNeedsHelpWithOutlawsIssueQuestBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../MerchantNeedsHelpWithOutlawsIssueTypeDefiner/"><code>MerchantNeedsHelpWithOutlawsIssueTypeDefiner</code></a></td><td>MerchantNeedsHelpWithOutlawsIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../NearbyBanditBaseIssue/"><code>NearbyBanditBaseIssue</code></a></td><td>NearbyBanditBaseIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../NearbyBanditBaseIssueBehavior/"><code>NearbyBanditBaseIssueBehavior</code></a></td><td>NearbyBanditBaseIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../NearbyBanditBaseIssueQuest/"><code>NearbyBanditBaseIssueQuest</code></a></td><td>NearbyBanditBaseIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../NearbyBanditBaseIssueTypeDefiner/"><code>NearbyBanditBaseIssueTypeDefiner</code></a></td><td>NearbyBanditBaseIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../PotentialIssueData/"><code>PotentialIssueData</code></a></td><td>PotentialIssueData 是一个数据载体，位于 TaleWorlds.CampaignSystem.Issues，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../PreconditionFlags/"><code>PreconditionFlags</code></a></td><td>PreconditionFlags 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../QuestSettlement/"><code>QuestSettlement</code></a></td><td>QuestSettlement 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RaidAnEnemyTerritoryIssue/"><code>RaidAnEnemyTerritoryIssue</code></a></td><td>RaidAnEnemyTerritoryIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RaidAnEnemyTerritoryIssueBehavior/"><code>RaidAnEnemyTerritoryIssueBehavior</code></a></td><td>RaidAnEnemyTerritoryIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RaidAnEnemyTerritoryIssueTypeDefiner/"><code>RaidAnEnemyTerritoryIssueTypeDefiner</code></a></td><td>RaidAnEnemyTerritoryIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RaidAnEnemyTerritoryQuest/"><code>RaidAnEnemyTerritoryQuest</code></a></td><td>RaidAnEnemyTerritoryQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RaidVillageQuestTask/"><code>RaidVillageQuestTask</code></a></td><td>RaidVillageQuestTask 是 TaleWorlds.CampaignSystem.Issues.IssueQuestTasks 下的公开类型。</td></tr>
+<tr><td><a href="../RevenueFarmingIssue/"><code>RevenueFarmingIssue</code></a></td><td>RevenueFarmingIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RevenueFarmingIssueBehavior/"><code>RevenueFarmingIssueBehavior</code></a></td><td>RevenueFarmingIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RevenueFarmingIssueBehaviorTypeDefiner/"><code>RevenueFarmingIssueBehaviorTypeDefiner</code></a></td><td>RevenueFarmingIssueBehaviorTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RevenueFarmingIssueQuest/"><code>RevenueFarmingIssueQuest</code></a></td><td>RevenueFarmingIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RevenueVillage/"><code>RevenueVillage</code></a></td><td>RevenueVillage 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ScoutEnemyGarrisonsIssue/"><code>ScoutEnemyGarrisonsIssue</code></a></td><td>ScoutEnemyGarrisonsIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ScoutEnemyGarrisonsIssueBehavior/"><code>ScoutEnemyGarrisonsIssueBehavior</code></a></td><td>ScoutEnemyGarrisonsIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ScoutEnemyGarrisonsIssueTypeDefiner/"><code>ScoutEnemyGarrisonsIssueTypeDefiner</code></a></td><td>ScoutEnemyGarrisonsIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ScoutEnemyGarrisonsQuest/"><code>ScoutEnemyGarrisonsQuest</code></a></td><td>ScoutEnemyGarrisonsQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../SmugglersIssue/"><code>SmugglersIssue</code></a></td><td>SmugglersIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../SmugglersIssueBehavior/"><code>SmugglersIssueBehavior</code></a></td><td>SmugglersIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../SmugglersIssueQuest/"><code>SmugglersIssueQuest</code></a></td><td>SmugglersIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../SmugglersIssueTypeDefiner/"><code>SmugglersIssueTypeDefiner</code></a></td><td>SmugglersIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../TalkToNpcQuestTask/"><code>TalkToNpcQuestTask</code></a></td><td>TalkToNpcQuestTask 是 TaleWorlds.CampaignSystem.Issues.IssueQuestTasks 下的公开类型。</td></tr>
+<tr><td><a href="../TheConquestOfSettlementIssue/"><code>TheConquestOfSettlementIssue</code></a></td><td>TheConquestOfSettlementIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../TheConquestOfSettlementIssueBehavior/"><code>TheConquestOfSettlementIssueBehavior</code></a></td><td>TheConquestOfSettlementIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../TheConquestOfSettlementIssueQuest/"><code>TheConquestOfSettlementIssueQuest</code></a></td><td>TheConquestOfSettlementIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../TheConquestOfSettlementIssueTypeDefiner/"><code>TheConquestOfSettlementIssueTypeDefiner</code></a></td><td>TheConquestOfSettlementIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../VillageEvent/"><code>VillageEvent</code></a></td><td>VillageEvent 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../VillageEventOptionData/"><code>VillageEventOptionData</code></a></td><td>VillageEventOptionData 是一个数据载体，位于 TaleWorlds.CampaignSystem.Issues，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../VillageNeedsCraftingMaterialsIssue/"><code>VillageNeedsCraftingMaterialsIssue</code></a></td><td>VillageNeedsCraftingMaterialsIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../VillageNeedsCraftingMaterialsIssueBehavior/"><code>VillageNeedsCraftingMaterialsIssueBehavior</code></a></td><td>VillageNeedsCraftingMaterialsIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../VillageNeedsCraftingMaterialsIssueQuest/"><code>VillageNeedsCraftingMaterialsIssueQuest</code></a></td><td>VillageNeedsCraftingMaterialsIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../VillageNeedsCraftingMaterialsIssueTypeDefiner/"><code>VillageNeedsCraftingMaterialsIssueTypeDefiner</code></a></td><td>VillageNeedsCraftingMaterialsIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../VillageNeedsToolsIssue/"><code>VillageNeedsToolsIssue</code></a></td><td>VillageNeedsToolsIssue 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../VillageNeedsToolsIssueBehavior/"><code>VillageNeedsToolsIssueBehavior</code></a></td><td>VillageNeedsToolsIssueBehavior 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../VillageNeedsToolsIssueQuest/"><code>VillageNeedsToolsIssueQuest</code></a></td><td>VillageNeedsToolsIssueQuest 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../VillageNeedsToolsIssueTypeDefiner/"><code>VillageNeedsToolsIssueTypeDefiner</code></a></td><td>VillageNeedsToolsIssueTypeDefiner 是 TaleWorlds.CampaignSystem.Issues 下的公开类型。</td></tr>
+</tbody></table>
+<h2 id="ben-qu-yu-qi-ta-zi-xi-tong">本区域其他子系统</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../agentorigins/">AgentOrigins</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../bartersystem/">BarterSystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../campaignbehaviors/">CampaignBehaviors</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../charactercreationcontent/">CharacterCreationContent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../characterdevelopment/">CharacterDevelopment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../characters/">Characters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../componentinterfaces/">ComponentInterfaces</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../conversation/">Conversation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../election/">Election</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../encounters/">Encounters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../encyclopedia/">Encyclopedia</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../extensions/">Extensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../gamecomponents/">GameComponents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../gamemenus/">GameMenus</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../gamestate/">GameState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../heroes/">Heroes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../inventory/">Inventory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../logentries/">LogEntries</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../map/">Map</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../mapevents/">MapEvents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../mapnotificationtypes/">MapNotificationTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../naval/">Naval</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../parties/">Parties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../party/">Party</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../quests/">Quests</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../roster/">Roster</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../savecompability/">SaveCompability</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../sceneinformationpopuptypes/">SceneInformationPopupTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../settlements/">Settlements</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../siege/">Siege</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign/issues/./../tournamentgames/">TournamentGames</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

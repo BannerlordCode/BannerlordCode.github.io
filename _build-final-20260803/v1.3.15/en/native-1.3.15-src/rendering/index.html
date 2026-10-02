@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>渲染系统 &#x2F; Rendering System</title>
+  <meta name="description" content="TaleWorlds.Native.dll 渲染系统类参考">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="active">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/native-1.3.15-src/rendering/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/native-1.3.15-src/rendering/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" open>
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="active">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;native-1.3.15-src&#x2F;">Native 1.3.15 Source Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">渲染系统 &#x2F; Rendering System</span>
+    </nav>
+  
+  <h1>渲染系统 &#x2F; Rendering System</h1>
+  <h1 id="xuan-ran-xi-tong-rendering-system">渲染系统 / Rendering System</h1>
+<h2 id="mental-model">Mental Model</h2>
+<p>Treat <code>渲染系统</code> as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.</p>
+<h2 id="gai-shu-overview">概述 / Overview</h2>
+<p>渲染系统负责游戏中所有视觉内容的渲染，包括网格、光照、阴影、后处理效果等。</p>
+<p>The rendering system is responsible for all visual content rendering in the game, including meshes, lights, shadows, post-processing effects, etc.</p>
+<h2 id="gpu-she-bei-gpu-device">GPU 设备 / GPU Device</h2>
+<h3 id="rglgpu-device">rglGPU_device</h3>
+<p>GPU 设备接口基类。</p>
+<pre><code data-lang="cpp">rglGPU_device::vftable
+</code></pre>
+<h3 id="rglgpu-device-d3d11">rglGPU_device_d3d11</h3>
+<p>DirectX 11 GPU 设备实现。</p>
+<pre><code data-lang="cpp">rglGPU_device_d3d11::vftable
+</code></pre>
+<p><strong>平台:</strong> Windows DirectX 11</p>
+<h3 id="rglgraphics-command-list">rglGraphics_command_list</h3>
+<p>图形命令列表。</p>
+<pre><code data-lang="cpp">rglGraphics_command_list::vftable
+</code></pre>
+<h3 id="rglgraphics-command-list-d3d11">rglGraphics_command_list_d3d11</h3>
+<p>DirectX 11 图形命令列表。</p>
+<pre><code data-lang="cpp">rglGraphics_command_list_d3d11::vftable
+</code></pre>
+<h2 id="chang-jing-scene">场景 / Scene</h2>
+<h3 id="rglscene">rglScene</h3>
+<p>场景渲染器。管理场景中所有实体的渲染。</p>
+<pre><code data-lang="cpp">rglScene::vftable
+</code></pre>
+<p><strong>主要方法:</strong></p>
+<ul>
+<li><code>AddEntity()</code> - 添加渲染实体</li>
+<li><code>RemoveEntity()</code> - 移除渲染实体</li>
+<li><code>Render()</code> - 执行场景渲染</li>
+</ul>
+<h3 id="rglscene-view">rglScene_view</h3>
+<p>场景视图。定义渲染视口和相机。</p>
+<pre><code data-lang="cpp">rglScene_view::vftable
+</code></pre>
+<h3 id="rglscene-view-clear-task">rglScene_view_clear_task</h3>
+<p>场景视图清理任务。</p>
+<pre><code data-lang="cpp">rglScene_view_clear_task::vftable
+</code></pre>
+<h2 id="shi-ti-entity">实体 / Entity</h2>
+<h3 id="rglentity">rglEntity</h3>
+<p>渲染实体。场景中的基本渲染单元。</p>
+<pre><code data-lang="cpp">rglEntity::vftable
+</code></pre>
+<p><strong>组成:</strong></p>
+<ul>
+<li>变换矩阵 (Transform)</li>
+<li>网格数据 (Mesh)</li>
+<li>材质 (Material)</li>
+<li>渲染状态 (Render State)</li>
+</ul>
+<h3 id="rglentity-component">rglEntity_component</h3>
+<p>实体组件。</p>
+<pre><code data-lang="cpp">rglEntity_component::vftable
+</code></pre>
+<h3 id="rglsimple-game-object">rglSimple_game_object</h3>
+<p>简单游戏对象。</p>
+<pre><code data-lang="cpp">rglSimple_game_object::vftable
+</code></pre>
+<h2 id="wang-ge-mesh">网格 / Mesh</h2>
+<h3 id="rglmesh">rglMesh</h3>
+<p>网格渲染类。处理 3D 模型的几何数据和渲染。</p>
+<pre><code data-lang="cpp">rglMesh::vftable
+</code></pre>
+<p><strong>数据:</strong></p>
+<ul>
+<li>顶点数据 (Vertex Buffer)</li>
+<li>索引数据 (Index Buffer)</li>
+<li>材质 (Material)</li>
+<li>包围盒 (Bounding Box)</li>
+</ul>
+<h3 id="rglmesh-vertex-buffer-data">rglMesh_vertex_buffer_data</h3>
+<p>顶点缓冲区数据。</p>
+<pre><code data-lang="cpp">rglMesh_vertex_buffer_data::vftable
+</code></pre>
+<h3 id="rglmesh-index-buffer-data">rglMesh_index_buffer_data</h3>
+<p>索引缓冲区数据。</p>
+<pre><code data-lang="cpp">rglMesh_index_buffer_data::vftable
+</code></pre>
+<h3 id="rglmesh-vertex-buffer-gpu-holder">rglMesh_vertex_buffer_gpu_holder</h3>
+<p>GPU 顶点缓冲区持有者。</p>
+<pre><code data-lang="cpp">rglMesh_vertex_buffer_gpu_holder::vftable
+</code></pre>
+<h3 id="rglmesh-index-buffer-gpu-holder">rglMesh_index_buffer_gpu_holder</h3>
+<p>GPU 索引缓冲区持有者。</p>
+<pre><code data-lang="cpp">rglMesh_index_buffer_gpu_holder::vftable
+</code></pre>
+<h3 id="rglmesh-clothing-properties">rglMesh_clothing_properties</h3>
+<p>网格布料属性。</p>
+<pre><code data-lang="cpp">rglMesh_clothing_properties::vftable
+</code></pre>
+<h3 id="meta-mesh">Meta_mesh</h3>
+<p>元网格。用于程序化生成或变形网格。</p>
+<pre><code data-lang="cpp">Meta_mesh::vftable
+</code></pre>
+<h3 id="rglmeta-mesh">rglMeta_mesh</h3>
+<p>rgl 元网格实现。</p>
+<pre><code data-lang="cpp">rglMeta_mesh::vftable
+</code></pre>
+<h3 id="rglmeta-mesh-clothing-properties">rglMeta_mesh_clothing_properties</h3>
+<p>元网格布料属性。</p>
+<pre><code data-lang="cpp">rglMeta_mesh_clothing_properties::vftable
+</code></pre>
+<h2 id="cai-zhi-yu-zhao-se-qi-material-shader">材质与着色器 / Material &amp; Shader</h2>
+<h3 id="rglshader">rglShader</h3>
+<p>着色器。定义渲染管线的可编程部分。</p>
+<pre><code data-lang="cpp">rglShader::vftable
+</code></pre>
+<h3 id="rglmaterial">rglMaterial</h3>
+<p>材质。定义表面的视觉属性。</p>
+<pre><code data-lang="cpp">rglMaterial::vftable
+</code></pre>
+<p><strong>属性:</strong></p>
+<ul>
+<li>颜色 (Color)</li>
+<li>贴图 (Textures)</li>
+<li>光照模型 (Lighting Model)</li>
+<li>渲染状态 (Render State)</li>
+</ul>
+<h3 id="rglshader-compile-extensions-instance">rglShader_compile_extensions_instance</h3>
+<p>着色器编译扩展实例。</p>
+<pre><code data-lang="cpp">rglShader_compile_extensions_instance::vftable
+</code></pre>
+<h3 id="rglshader-compile-server-base">rglShader_compile_server_base</h3>
+<p>着色器编译服务器基类。</p>
+<pre><code data-lang="cpp">rglShader_compile_server_base::vftable
+</code></pre>
+<h3 id="rglshader-compile-server-sndbs">rglShader_compile_server_sndbs</h3>
+<p>着色器编译服务器实现。</p>
+<pre><code data-lang="cpp">rglShader_compile_server_sndbs::vftable
+</code></pre>
+<h3 id="rglshader-compile-task">rglShader_compile_task</h3>
+<p>着色器编译任务。</p>
+<pre><code data-lang="cpp">rglShader_compile_task::vftable
+</code></pre>
+<h2 id="wen-li-texture">纹理 / Texture</h2>
+<h3 id="rgltexture">rglTexture</h3>
+<p>纹理。处理 2D 图像数据。</p>
+<pre><code data-lang="cpp">rglTexture::vftable
+</code></pre>
+<p><strong>类型:</strong></p>
+<ul>
+<li>2D 纹理</li>
+<li>立方体贴图</li>
+<li>渲染目标</li>
+<li>深度模板</li>
+</ul>
+<h3 id="rgltexture-view">rglTexture_view</h3>
+<p>纹理视图。</p>
+<pre><code data-lang="cpp">rglTexture_view::vftable
+</code></pre>
+<h3 id="rgltexture-array-load-task">rglTexture_array_load_task</h3>
+<p>纹理数组加载任务。</p>
+<pre><code data-lang="cpp">rglTexture_array_load_task::vftable
+</code></pre>
+<h3 id="rgltexture-release-later-task">rglTexture_release_later_task</h3>
+<p>延迟释放纹理任务。</p>
+<pre><code data-lang="cpp">rglTexture_release_later_task::vftable
+</code></pre>
+<h2 id="xiang-ji-camera">相机 / Camera</h2>
+<h3 id="rglcamera-object">rglCamera_object</h3>
+<p>相机。定义渲染视角。</p>
+<pre><code data-lang="cpp">rglCamera_object::vftable
+</code></pre>
+<p><strong>属性:</strong></p>
+<ul>
+<li>位置 (Position)</li>
+<li>旋转 (Rotation)</li>
+<li>视场角 (FOV)</li>
+<li>近/远裁剪面 (Near/Far Plane)</li>
+</ul>
+<h3 id="rgltableau-view">rglTableau_view</h3>
+<p>Tableau 视图。</p>
+<pre><code data-lang="cpp">rglTableau_view::vftable
+</code></pre>
+<h2 id="guang-zhao-lighting">光照 / Lighting</h2>
+<h3 id="rgllight">rglLight</h3>
+<p>光源。实现点光源、聚光灯、方向光等。</p>
+<pre><code data-lang="cpp">rglLight::vftable
+</code></pre>
+<p><strong>类型:</strong></p>
+<ul>
+<li>方向光 (Directional Light)</li>
+<li>点光源 (Point Light)</li>
+<li>聚光灯 (Spot Light)</li>
+</ul>
+<h3 id="rglenvironment-map-probe-record">rglEnvironment_map_probe_record</h3>
+<p>环境贴图探针记录。</p>
+<pre><code data-lang="cpp">rglEnvironment_map_probe_record::vftable
+</code></pre>
+<h2 id="di-xing-terrain">地形 / Terrain</h2>
+<h3 id="rglterrain">rglTerrain</h3>
+<p>地形。程序化生成或加载的地形网格。</p>
+<pre><code data-lang="cpp">rglTerrain::vftable
+</code></pre>
+<h3 id="rglterrain-node">rglTerrain_node</h3>
+<p>地形节点。</p>
+<pre><code data-lang="cpp">rglTerrain_node::vftable
+</code></pre>
+<h3 id="rglterrain-layer-instance">rglTerrain_layer_instance</h3>
+<p>地形图层实例。</p>
+<pre><code data-lang="cpp">rglTerrain_layer_instance::vftable
+</code></pre>
+<h3 id="rglterrain-renderer">rglTerrain_renderer</h3>
+<p>地形渲染器。</p>
+<pre><code data-lang="cpp">rglTerrain_renderer::vftable
+</code></pre>
+<h3 id="rglterrain-shaders-generate-headers-task">rglTerrain_shaders_generate_headers_task</h3>
+<p>地形着色器头文件生成任务。</p>
+<pre><code data-lang="cpp">rglTerrain_shaders_generate_headers_task::vftable
+</code></pre>
+<h2 id="hou-chu-li-post-processing">后处理 / Post-Processing</h2>
+<h3 id="rglpostfx-graph">rglPostfx_graph</h3>
+<p>后处理图。</p>
+<pre><code data-lang="cpp">rglPostfx_graph::vftable
+</code></pre>
+<h3 id="rglpostfx-node">rglPostfx_node</h3>
+<p>后处理节点基类。</p>
+<pre><code data-lang="cpp">rglPostfx_node::vftable
+</code></pre>
+<h3 id="rglpostfx-compute-node">rglPostfx_compute_node</h3>
+<p>后处理计算节点。</p>
+<pre><code data-lang="cpp">rglPostfx_compute_node::vftable
+</code></pre>
+<h3 id="rgldepth-chain-node">rglDepth_chain_node</h3>
+<p>深度链节点。</p>
+<pre><code data-lang="cpp">rglDepth_chain_node::vftable
+</code></pre>
+<h3 id="rglhiz-fxnode">rglHiZ_fxnode</h3>
+<p>Hi-Z 节点。</p>
+<pre><code data-lang="cpp">rglHiZ_fxnode::vftable
+</code></pre>
+<h3 id="rglsao-fxnode">rglSAO_fxnode</h3>
+<p>SAO (屏幕空间环境光遮蔽) 节点。</p>
+<pre><code data-lang="cpp">rglSAO_fxnode::vftable
+</code></pre>
+<h3 id="rglsao-temporal-fxnode">rglSao_temporal_fxnode</h3>
+<p>时域 SAO 节点。</p>
+<pre><code data-lang="cpp">rglSao_temporal_fxnode::vftable
+</code></pre>
+<h3 id="rgldof-sep-node">rglDof_sep_node</h3>
+<p>景深分离节点。</p>
+<pre><code data-lang="cpp">rglDof_sep_node::vftable
+</code></pre>
+<h3 id="rgldof-blur-final-node">rglDof_blur_final_node</h3>
+<p>景深模糊最终节点。</p>
+<pre><code data-lang="cpp">rglDof_blur_final_node::vftable
+</code></pre>
+<h3 id="rglssr-fxnode">rglSSR_fxnode</h3>
+<p>屏幕空间反射节点。</p>
+<pre><code data-lang="cpp">rglSSR_fxnode::vftable
+</code></pre>
+<h3 id="rglssr-blur-fxnode">rglSsr_blur_fxnode</h3>
+<p>SSR 模糊节点。</p>
+<pre><code data-lang="cpp">rglSsr_blur_fxnode::vftable
+</code></pre>
+<h3 id="rglssr-raycast-fxnode">rglSsr_raycast_fxnode</h3>
+<p>SSR 光线投射节点。</p>
+<pre><code data-lang="cpp">rglSsr_raycast_fxnode::vftable
+</code></pre>
+<h3 id="rgltaa-filter-fxnode">rglTaa_filter_fxnode</h3>
+<p>时间抗锯齿滤波节点。</p>
+<pre><code data-lang="cpp">rglTaa_filter_fxnode::vftable
+</code></pre>
+<h3 id="rgltaa-resolve-fxnode">rglTaa_resolve_fxnode</h3>
+<p>TAA 解析节点。</p>
+<pre><code data-lang="cpp">rglTaa_resolve_fxnode::vftable
+</code></pre>
+<h3 id="rglfsr-upsample-node">rglFsr_upsample_node</h3>
+<p>FSR (FidelityFX 超分辨率) 上采样节点。</p>
+<pre><code data-lang="cpp">rglFsr_upsample_node::vftable
+</code></pre>
+<h3 id="rglfsr-sharpen-node">rglFsr_sharpen_node</h3>
+<p>FSR 锐化节点。</p>
+<pre><code data-lang="cpp">rglFsr_sharpen_node::vftable
+</code></pre>
+<h3 id="rgldlss-fxnode">rglDlss_fxnode</h3>
+<p>DLSS (深度学习超级采样) 节点。</p>
+<pre><code data-lang="cpp">rglDlss_fxnode::vftable
+</code></pre>
+<h3 id="rglshadowmap-combine-fxnode">rglShadowmap_combine_fxnode</h3>
+<p>阴影图合并节点。</p>
+<pre><code data-lang="cpp">rglShadowmap_combine_fxnode::vftable
+</code></pre>
+<h3 id="rglcontour-final-fxnode">rglContour_final_fxnode</h3>
+<p>轮廓最终节点。</p>
+<pre><code data-lang="cpp">rglContour_final_fxnode::vftable
+</code></pre>
+<h3 id="rglhalf-res-velocity-and-depth-node">rglHalf_res_velocity_and_depth_node</h3>
+<p>半分辨率速度和深度节点。</p>
+<pre><code data-lang="cpp">rglHalf_res_velocity_and_depth_node::vftable
+</code></pre>
+<h3 id="rglposftx-halfres-combine-node">rglPosftx_halfres_combine_node</h3>
+<p>半分辨率合并节点。</p>
+<pre><code data-lang="cpp">rglPosftx_halfres_combine_node::vftable
+</code></pre>
+<h3 id="rglhistory-node">rglHistory_node</h3>
+<p>历史节点。</p>
+<pre><code data-lang="cpp">rglHistory_node::vftable
+</code></pre>
+<h3 id="rglhistogram-node">rglHistogram_node</h3>
+<p>直方图节点。</p>
+<pre><code data-lang="cpp">rglHistogram_node::vftable
+</code></pre>
+<h3 id="rglvt-resolve-node">rglVt_resolve_node</h3>
+<p>VT 解析节点。</p>
+<pre><code data-lang="cpp">rglVt_resolve_node::vftable
+</code></pre>
+<h3 id="rglconvolve-fxnode">rglConvolve_fxnode</h3>
+<p>卷积节点。</p>
+<pre><code data-lang="cpp">rglConvolve_fxnode::vftable
+</code></pre>
+<h3 id="rglpingpong-fxnode">rglPingPong_fxnode</h3>
+<p>乒乓缓冲节点。</p>
+<pre><code data-lang="cpp">rglPingPong_fxnode::vftable
+</code></pre>
+<h3 id="rglsmaa-edge-detection-node">rglSmaa_edge_detection_node</h3>
+<p>SMAA 边缘检测节点。</p>
+<pre><code data-lang="cpp">rglSmaa_edge_detection_node::vftable
+</code></pre>
+<h3 id="rglsmaa-blend-weight-calc-node">rglSmaa_blend_weight_calc_node</h3>
+<p>SMAA 混合权重计算节点。</p>
+<pre><code data-lang="cpp">rglSmaa_blend_weight_calc_node::vftable
+</code></pre>
+<h3 id="rglafter-postfx-node">rglAfter_postfx_node</h3>
+<p>后后处理节点。</p>
+<pre><code data-lang="cpp">rglAfter_postfx_node::vftable
+</code></pre>
+<h3 id="rglprt-renderer">rglPRT_renderer</h3>
+<p>PRT 渲染器。</p>
+<pre><code data-lang="cpp">rglPRT_renderer::vftable
+</code></pre>
+<h3 id="rglsss-specular-add-fxnode">rglSSS_specular_add_fxnode</h3>
+<p>SSS 镜面添加节点。</p>
+<pre><code data-lang="cpp">rglSSS_specular_add_fxnode::vftable
+</code></pre>
+<h3 id="rglsss-fxnode">rglSSS_fxnode</h3>
+<p>SSS 节点。</p>
+<pre><code data-lang="cpp">rglSSS_fxnode::vftable
+</code></pre>
+<h3 id="rglbeta-indicator-view">rglBeta_indicator_view</h3>
+<p>Beta 指示器视图。</p>
+<pre><code data-lang="cpp">rglBeta_indicator_view::vftable
+</code></pre>
+<h3 id="rglcas-fxnode">rglCas_fxnode</h3>
+<p>CAS (对比度自适应锐化) 节点。</p>
+<pre><code data-lang="cpp">rglCas_fxnode::vftable
+</code></pre>
+<h2 id="zhi-bei-flora">植被 / Flora</h2>
+<h3 id="rglflora-entity">rglFlora_entity</h3>
+<p>植被实体。</p>
+<pre><code data-lang="cpp">rglFlora_entity::vftable
+</code></pre>
+<h3 id="rglflora-kind">rglFlora_kind</h3>
+<p>植被种类。</p>
+<pre><code data-lang="cpp">rglFlora_kind::vftable
+</code></pre>
+<h3 id="rglflora-seasonal-kind">rglFlora_seasonal_kind</h3>
+<p>季节性植被种类。</p>
+<pre><code data-lang="cpp">rglFlora_seasonal_kind::vftable
+</code></pre>
+<h3 id="rglflora-render-task">rglFlora_render_task</h3>
+<p>植被渲染任务。</p>
+<pre><code data-lang="cpp">rglFlora_render_task::vftable
+</code></pre>
+<h2 id="shui-ti-water">水体 / Water</h2>
+<h3 id="rglwater-body">rglWater_body</h3>
+<p>水体。</p>
+<pre><code data-lang="cpp">rglWater_body::vftable
+</code></pre>
+<h3 id="water-body">water_body</h3>
+<p>水体实现。</p>
+<pre><code data-lang="cpp">water_body::vftable
+</code></pre>
+<h3 id="water-flowmap">water_flowmap</h3>
+<p>水流图。</p>
+<pre><code data-lang="cpp">water_flowmap::vftable
+</code></pre>
+<h2 id="li-zi-xi-tong-particle-system">粒子系统 / Particle System</h2>
+<h3 id="rglgpu-particle-system">rglGpu_particle_system</h3>
+<p>GPU 粒子系统。</p>
+<pre><code data-lang="cpp">rglGpu_particle_system::vftable
+</code></pre>
+<h3 id="rglparticle-system-instanced">rglParticle_system_instanced</h3>
+<p>实例化粒子系统。</p>
+<pre><code data-lang="cpp">rglParticle_system_instanced::vftable
+</code></pre>
+<h3 id="rglparticle-system-interpolator-base">rglParticle_system_interpolator_base</h3>
+<p>粒子系统插值器基类。</p>
+<pre><code data-lang="cpp">rglParticle_system_interpolator_base::vftable
+</code></pre>
+<h3 id="rglparticle-system-interpolator-definition">rglParticle_system_interpolator_definition</h3>
+<p>粒子系统插值器定义。</p>
+<pre><code data-lang="cpp">rglParticle_system_interpolator_definition::vftable
+</code></pre>
+<h3 id="rglparticle-effect">rglParticle_effect</h3>
+<p>粒子效果。</p>
+<pre><code data-lang="cpp">rglParticle_effect::vftable
+</code></pre>
+<h3 id="rglparticle-emitter">rglParticle_emitter</h3>
+<p>粒子发射器。</p>
+<pre><code data-lang="cpp">rglParticle_emitter::vftable
+</code></pre>
+<h2 id="te-xiao-effects">特效 / Effects</h2>
+<h3 id="decal-instance">decal_instance</h3>
+<p>贴花实例。</p>
+<pre><code data-lang="cpp">decal_instance::vftable
+</code></pre>
+<h3 id="decal-placer">decal_placer</h3>
+<p>贴花放置器。</p>
+<pre><code data-lang="cpp">decal_placer::vftable
+</code></pre>
+<h3 id="rglparticle-effect-1">rglParticle_effect</h3>
+<p>粒子效果。</p>
+<pre><code data-lang="cpp">rglParticle_effect::vftable
+</code></pre>
+<h3 id="rglvector-field">rglVector_field</h3>
+<p>向量场。</p>
+<pre><code data-lang="cpp">rglVector_field::vftable
+</code></pre>
+<h3 id="flickering-light">flickering_light</h3>
+<p>闪烁光源。</p>
+<pre><code data-lang="cpp">flickering_light::vftable
+</code></pre>
+<h2 id="xuan-ran-ren-wu-render-tasks">渲染任务 / Render Tasks</h2>
+<h3 id="rglframe-move-task">rglFrame_move_task</h3>
+<p>帧移动任务。</p>
+<pre><code data-lang="cpp">rglFrame_move_task::vftable
+</code></pre>
+<h3 id="rglrender-thread">rglRender_thread</h3>
+<p>渲染线程。</p>
+<pre><code data-lang="cpp">rglRender_thread::vftable
+</code></pre>
+<h3 id="rglrender-thread-task">rglRender_thread_task</h3>
+<p>渲染线程任务。</p>
+<pre><code data-lang="cpp">rglRender_thread_task::vftable
+</code></pre>
+<h3 id="rglrender-thread-simple-task">rglRender_thread_simple_task</h3>
+<p>渲染线程简单任务。</p>
+<pre><code data-lang="cpp">rglRender_thread_simple_task::vftable
+</code></pre>
+<h3 id="rglrender-thread-simple-unwaitable-task">rglRender_thread_simple_unwaitable_task</h3>
+<p>渲染线程不可等待简单任务。</p>
+<pre><code data-lang="cpp">rglRender_thread_simple_unwaitable_task::vftable
+</code></pre>
+<h3 id="rglrender-thread-waitable-task">rglRender_thread_waitable_task</h3>
+<p>渲染线程可等待任务。</p>
+<pre><code data-lang="cpp">rglRender_thread_waitable_task::vftable
+</code></pre>
+<h3 id="rglrender-thread-block-task">rglRender_thread_block_task</h3>
+<p>渲染线程阻塞任务。</p>
+<pre><code data-lang="cpp">rglRender_thread_block_task::vftable
+</code></pre>
+<h3 id="rglparallel-for-task">rglParallel_for_task</h3>
+<p>并行 for 循环任务。</p>
+<pre><code data-lang="cpp">rglParallel_for_task::vftable
+</code></pre>
+<h3 id="rgloro-task">rglOro_task</h3>
+<p>Oro 任务。</p>
+<pre><code data-lang="cpp">rglOro_task::vftable
+</code></pre>
+<h3 id="async-render-task">Async_render_task</h3>
+<p>异步渲染任务。</p>
+<pre><code data-lang="cpp">Async_render_task::vftable
+</code></pre>
+<h2 id="zi-yuan-guan-li-resource-management">资源管理 / Resource Management</h2>
+<h3 id="rglresource">rglResource</h3>
+<p>资源基类。</p>
+<pre><code data-lang="cpp">rglResource::vftable
+</code></pre>
+<h3 id="rglasset-factory-class">rglAsset_factory_class</h3>
+<p>资源工厂类。</p>
+<pre><code data-lang="cpp">rglAsset_factory_class::vftable
+</code></pre>
+<h3 id="rglasset-load-filter">rglAsset_load_filter</h3>
+<p>资源加载过滤器。</p>
+<pre><code data-lang="cpp">rglAsset_load_filter::vftable
+</code></pre>
+<h3 id="rglasset-metadata">rglAsset_metadata</h3>
+<p>资源元数据。</p>
+<pre><code data-lang="cpp">rglAsset_metadata::vftable
+</code></pre>
+<h3 id="rglasset-metadata-texture">rglAsset_metadata_texture</h3>
+<p>纹理元数据。</p>
+<pre><code data-lang="cpp">rglAsset_metadata_texture::vftable
+</code></pre>
+<h3 id="rglasset-metadata-shader">rglAsset_metadata_shader</h3>
+<p>着色器元数据。</p>
+<pre><code data-lang="cpp">rglAsset_metadata_shader::vftable
+</code></pre>
+<h3 id="rglasset-metadata-material">rglAsset_metadata_material</h3>
+<p>材质元数据。</p>
+<pre><code data-lang="cpp">rglAsset_metadata_material::vftable
+</code></pre>
+<h3 id="rglasset-metadata-skeleton">rglAsset_metadata_skeleton</h3>
+<p>骨骼元数据。</p>
+<pre><code data-lang="cpp">rglAsset_metadata_skeleton::vftable
+</code></pre>
+<h3 id="rglasset-metadata-geometry-file">rglAsset_metadata_geometry_file</h3>
+<p>几何文件元数据。</p>
+<pre><code data-lang="cpp">rglAsset_metadata_geometry_file::vftable
+</code></pre>
+<h3 id="rglpage-resolver-granite">rglPage_resolver_granite</h3>
+<p>Granite 页面解析器。</p>
+<pre><code data-lang="cpp">rglPage_resolver_granite::vftable
+</code></pre>
+<h3 id="rglengine-async-loader-task">rglEngine_async_loader_task</h3>
+<p>引擎异步加载任务。</p>
+<pre><code data-lang="cpp">rglEngine_async_loader_task::vftable
+</code></pre>
+<h2 id="tian-kong-he-skybox">天空盒 / Skybox</h2>
+<h3 id="rglatmosphere">rglAtmosphere</h3>
+<p>大气。</p>
+<pre><code data-lang="cpp">rglAtmosphere::vftable
+</code></pre>
+<h3 id="rglinterpolated-atmosphere">rglInterpolated_atmosphere</h3>
+<p>插值大气。</p>
+<pre><code data-lang="cpp">rglInterpolated_atmosphere::vftable
+</code></pre>
+<h3 id="weather">Weather</h3>
+<p>天气。</p>
+<pre><code data-lang="cpp">Weather::vftable
+</code></pre>
+<h3 id="weather-rainy">Weather_rainy</h3>
+<p>雨天。</p>
+<pre><code data-lang="cpp">Weather_rainy::vftable
+</code></pre>
+<h3 id="weather-snowy">Weather_snowy</h3>
+<p>雪天。</p>
+<pre><code data-lang="cpp">Weather_snowy::vftable
+</code></pre>
+<h2 id="zhe-bi-occlusion">遮蔽 / Occlusion</h2>
+<h3 id="rglsoftware-occlusion-rasterization-task">rglSoftware_occlusion_rasterization_task</h3>
+<p>软件遮挡光栅化任务。</p>
+<pre><code data-lang="cpp">rglSoftware_occlusion_rasterization_task::vftable
+</code></pre>
+<h3 id="depthbufferrasterizer">DepthBufferRasterizer</h3>
+<p>深度缓冲光栅化器。</p>
+<pre><code data-lang="cpp">DepthBufferRasterizer::vftable
+</code></pre>
+<h3 id="depthbufferrasterizerscalar">DepthBufferRasterizerScalar</h3>
+<p>标量深度缓冲光栅化器。</p>
+<pre><code data-lang="cpp">DepthBufferRasterizerScalar::vftable
+</code></pre>
+<h3 id="depthbufferrasterizersse">DepthBufferRasterizerSSE</h3>
+<p>SSE 深度缓冲光栅化器。</p>
+<pre><code data-lang="cpp">DepthBufferRasterizerSSE::vftable
+</code></pre>
+<h3 id="depthbufferrasterizeravx">DepthBufferRasterizerAVX</h3>
+<p>AVX 深度缓冲光栅化器。</p>
+<pre><code data-lang="cpp">DepthBufferRasterizerAVX::vftable
+</code></pre>
+<h2 id="shi-pin-video">视频 / Video</h2>
+<h3 id="rglvideo-player">rglVideo_player</h3>
+<p>视频播放器。</p>
+<pre><code data-lang="cpp">rglVideo_player::vftable
+</code></pre>
+<h3 id="rglvideo-player-view">rglVideo_player_view</h3>
+<p>视频播放器视图。</p>
+<pre><code data-lang="cpp">rglVideo_player_view::vftable
+</code></pre>
+<h3 id="rglvideo-player-vpx">rglVideo_player_vpx</h3>
+<p>VPX 视频播放器。</p>
+<pre><code data-lang="cpp">rglVideo_player_vpx::vftable
+</code></pre>
+<h3 id="rglvideo-player-get-frame-task">rglVideo_player_get_frame_task</h3>
+<p>视频获取帧任务。</p>
+<pre><code data-lang="cpp">rglVideo_player_get_frame_task::vftable
+</code></pre>
+<h2 id="qi-ta-xuan-ran-lei-other-rendering-classes">其他渲染类 / Other Rendering Classes</h2>
+<h3 id="rglskeleton-model">rglSkeleton_model</h3>
+<p>骨骼模型。</p>
+<pre><code data-lang="cpp">rglSkeleton_model::vftable
+</code></pre>
+<h3 id="rglskinned-decal-records">rglSkinned_decal_records</h3>
+<p>蒙皮贴花记录。</p>
+<pre><code data-lang="cpp">rglSkinned_decal_records::vftable
+</code></pre>
+<h3 id="rglrope">rglRope</h3>
+<p>绳索。</p>
+<pre><code data-lang="cpp">rglRope::vftable
+</code></pre>
+<h3 id="rglrope-physx">rglRope_physx</h3>
+<p>PhysX 绳索。</p>
+<pre><code data-lang="cpp">rglRope_physx::vftable
+</code></pre>
+<h3 id="agent-visuals">Agent_visuals</h3>
+<p>Agent 视觉。</p>
+<pre><code data-lang="cpp">Agent_visuals::vftable
+</code></pre>
+<h3 id="corpse-renderer">Corpse_renderer</h3>
+<p>尸体渲染器。</p>
+<pre><code data-lang="cpp">Corpse_renderer::vftable
+</code></pre>
+<h3 id="rglquad-tree-atlas">rglQuad_tree_atlas</h3>
+<p>四叉树图集。</p>
+<pre><code data-lang="cpp">rglQuad_tree_atlas::vftable
+</code></pre>
+<h3 id="rglcompressor-interface">rglCompressor_interface</h3>
+<p>压缩器接口。</p>
+<pre><code data-lang="cpp">rglCompressor_interface::vftable
+</code></pre>
+<h3 id="rgldata-compressor-lz4hc">rglData_compressor_lz4hc</h3>
+<p>LZ4HC 数据压缩器。</p>
+<pre><code data-lang="cpp">rglData_compressor_lz4hc::vftable
+</code></pre>
+<h3 id="rglmemory-block-typeless">rglMemory_block_typeless</h3>
+<p>无类型内存块。</p>
+<pre><code data-lang="cpp">rglMemory_block_typeless::vftable
+</code></pre>
+<h3 id="rglmemory-allocator-base">rglMemory_allocator_base</h3>
+<p>内存分配器基类。</p>
+<pre><code data-lang="cpp">rglMemory_allocator_base::vftable
+</code></pre>
+<h3 id="rglinterpolator-base">rglInterpolator_base</h3>
+<p>插值器基类。</p>
+<pre><code data-lang="cpp">rglInterpolator_base::vftable
+</code></pre>
+<h3 id="rglinterpolator">rglInterpolator</h3>
+<p>插值器。</p>
+<pre><code data-lang="cpp">rglInterpolator::vftable
+</code></pre>
+<h3 id="rglinterpolator-base-definition">rglInterpolator_base_definition</h3>
+<p>插值器基类定义。</p>
+<pre><code data-lang="cpp">rglInterpolator_base_definition::vftable
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<p>// （占位示例已移除，见正文说明）</p>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/native-1.3.15-src/">Native 1.3.15 Source Reference</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/native-1.3.15-src/network/">&larr; 网络系统 &#x2F; Network System</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/native-1.3.15-src/COMPLETE-FUNCTIONS/">Complete Function Catalog &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

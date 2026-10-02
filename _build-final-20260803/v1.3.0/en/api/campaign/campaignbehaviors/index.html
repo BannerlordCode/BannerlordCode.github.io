@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampaignBehaviors</title>
+  <meta name="description" content="Periodic behaviors, event listeners and global system logic for the campaign sandbox.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/campaignbehaviors/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/campaignbehaviors/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="active">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CampaignBehaviors</span>
+    </nav>
+  
+  <h1>CampaignBehaviors</h1>
+  <h2 id="up">Up</h2>
+<ul>
+<li><a href="../">Back to campaign index</a></li>
+<li><a href="../../">API Index</a></li>
+<li><a href="../../../">Version Home</a></li>
+</ul>
+<h2 id="subsystem-overview">Subsystem overview</h2>
+<p>This is the <strong>CampaignBehaviors</strong> subsystem inside <strong>campaign index</strong>. Classes in the same namespace tackle related concerns; pick a type, then open its page for methods.</p>
+<p>Periodic behaviors, event listeners and global system logic for the campaign sandbox.</p>
+<h2 id="classes">Classes</h2>
+<table><thead><tr><th>Class</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="../AgingCampaignBehavior/"><code>AgingCampaignBehavior</code></a></td><td>AgingCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../AiArmyMemberBehavior/"><code>AiArmyMemberBehavior</code></a></td><td>AiArmyMemberBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors.</td></tr>
+<tr><td><a href="../AiEngagePartyBehavior/"><code>AiEngagePartyBehavior</code></a></td><td>AiEngagePartyBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors.</td></tr>
+<tr><td><a href="../AiLandBanditPatrollingBehavior/"><code>AiLandBanditPatrollingBehavior</code></a></td><td>AiLandBanditPatrollingBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors.</td></tr>
+<tr><td><a href="../AiMilitaryBehavior/"><code>AiMilitaryBehavior</code></a></td><td>AiMilitaryBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors.</td></tr>
+<tr><td><a href="../AIMoveToNearestLandBehavior/"><code>AIMoveToNearestLandBehavior</code></a></td><td>AIMoveToNearestLandBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors.</td></tr>
+<tr><td><a href="../AiPartyThinkBehavior/"><code>AiPartyThinkBehavior</code></a></td><td>AiPartyThinkBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors.</td></tr>
+<tr><td><a href="../AiPatrollingBehavior/"><code>AiPatrollingBehavior</code></a></td><td>AiPatrollingBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors.</td></tr>
+<tr><td><a href="../AiVisitSettlementBehavior/"><code>AiVisitSettlementBehavior</code></a></td><td>AiVisitSettlementBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.AiBehaviors.</td></tr>
+<tr><td><a href="../Alliance/"><code>Alliance</code></a></td><td>Alliance is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../AllianceCampaignBehavior/"><code>AllianceCampaignBehavior</code></a></td><td>AllianceCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../AllianceCampaignBehaviorTypeDefiner/"><code>AllianceCampaignBehaviorTypeDefiner</code></a></td><td>AllianceCampaignBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../BackstoryCampaignBehavior/"><code>BackstoryCampaignBehavior</code></a></td><td>BackstoryCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../BanditInteractionsCampaignBehavior/"><code>BanditInteractionsCampaignBehavior</code></a></td><td>BanditInteractionsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../BanditInteractionsCampaignBehaviorTypeDefiner/"><code>BanditInteractionsCampaignBehaviorTypeDefiner</code></a></td><td>BanditInteractionsCampaignBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../BanditSpawnCampaignBehavior/"><code>BanditSpawnCampaignBehavior</code></a></td><td>BanditSpawnCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../BannerCampaignBehavior/"><code>BannerCampaignBehavior</code></a></td><td>BannerCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../BattleCampaignBehavior/"><code>BattleCampaignBehavior</code></a></td><td>BattleCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../BuildingsCampaignBehavior/"><code>BuildingsCampaignBehavior</code></a></td><td>BuildingsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CallToWarAgreement/"><code>CallToWarAgreement</code></a></td><td>CallToWarAgreement is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CampaignBattleRecoveryBehavior/"><code>CampaignBattleRecoveryBehavior</code></a></td><td>CampaignBattleRecoveryBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CampaignBehaviorManager/"><code>CampaignBehaviorManager</code></a></td><td>CampaignBehaviorManager is a manager in TaleWorlds.CampaignSystem.CampaignBehaviors that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../CampaignFactionManagerBehaviour/"><code>CampaignFactionManagerBehaviour</code></a></td><td>CampaignFactionManagerBehaviour is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CampaignWarManagerBehavior/"><code>CampaignWarManagerBehavior</code></a></td><td>CampaignWarManagerBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CaravanConversationsCampaignBehavior/"><code>CaravanConversationsCampaignBehavior</code></a></td><td>CaravanConversationsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CaravansCampaignBehavior/"><code>CaravansCampaignBehavior</code></a></td><td>CaravansCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CaravansCampaignBehaviorTypeDefiner/"><code>CaravansCampaignBehaviorTypeDefiner</code></a></td><td>CaravansCampaignBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CharacterCreationCampaignBehavior/"><code>CharacterCreationCampaignBehavior</code></a></td><td>CharacterCreationCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CharacterDevelopmentCampaignBehavior/"><code>CharacterDevelopmentCampaignBehavior</code></a></td><td>CharacterDevelopmentCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CharacterRelationCampaignBehavior/"><code>CharacterRelationCampaignBehavior</code></a></td><td>CharacterRelationCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../ClanVariablesCampaignBehavior/"><code>ClanVariablesCampaignBehavior</code></a></td><td>ClanVariablesCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CommentCharacterBornBehavior/"><code>CommentCharacterBornBehavior</code></a></td><td>CommentCharacterBornBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentChildbirthBehavior/"><code>CommentChildbirthBehavior</code></a></td><td>CommentChildbirthBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnChangeRomanticStateBehavior/"><code>CommentOnChangeRomanticStateBehavior</code></a></td><td>CommentOnChangeRomanticStateBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnChangeSettlementOwnerBehavior/"><code>CommentOnChangeSettlementOwnerBehavior</code></a></td><td>CommentOnChangeSettlementOwnerBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnChangeVillageStateBehavior/"><code>CommentOnChangeVillageStateBehavior</code></a></td><td>CommentOnChangeVillageStateBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnCharacterKilledBehavior/"><code>CommentOnCharacterKilledBehavior</code></a></td><td>CommentOnCharacterKilledBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnClanDestroyedBehavior/"><code>CommentOnClanDestroyedBehavior</code></a></td><td>CommentOnClanDestroyedBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnClanLeaderChangedBehavior/"><code>CommentOnClanLeaderChangedBehavior</code></a></td><td>CommentOnClanLeaderChangedBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnDeclareWarBehavior/"><code>CommentOnDeclareWarBehavior</code></a></td><td>CommentOnDeclareWarBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnDefeatCharacterBehavior/"><code>CommentOnDefeatCharacterBehavior</code></a></td><td>CommentOnDefeatCharacterBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnDestroyMobilePartyBehavior/"><code>CommentOnDestroyMobilePartyBehavior</code></a></td><td>CommentOnDestroyMobilePartyBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnEndPlayerBattleBehavior/"><code>CommentOnEndPlayerBattleBehavior</code></a></td><td>CommentOnEndPlayerBattleBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnKingdomDestroyedBehavior/"><code>CommentOnKingdomDestroyedBehavior</code></a></td><td>CommentOnKingdomDestroyedBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnLeaveFactionBehavior/"><code>CommentOnLeaveFactionBehavior</code></a></td><td>CommentOnLeaveFactionBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnMakePeaceBehavior/"><code>CommentOnMakePeaceBehavior</code></a></td><td>CommentOnMakePeaceBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentOnPlayerMeetLordBehavior/"><code>CommentOnPlayerMeetLordBehavior</code></a></td><td>CommentOnPlayerMeetLordBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CommentPregnancyBehavior/"><code>CommentPregnancyBehavior</code></a></td><td>CommentPregnancyBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.CommentBehaviors.</td></tr>
+<tr><td><a href="../CompanionGrievanceBehavior/"><code>CompanionGrievanceBehavior</code></a></td><td>CompanionGrievanceBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CompanionGrievanceBehaviorTypeDefiner/"><code>CompanionGrievanceBehaviorTypeDefiner</code></a></td><td>CompanionGrievanceBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CompanionRolesCampaignBehavior/"><code>CompanionRolesCampaignBehavior</code></a></td><td>CompanionRolesCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CompanionsCampaignBehavior/"><code>CompanionsCampaignBehavior</code></a></td><td>CompanionsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CraftedItemInitializationData/"><code>CraftedItemInitializationData</code></a></td><td>CraftedItemInitializationData is a data carrier in TaleWorlds.CampaignSystem.CampaignBehaviors that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../CraftingCampaignBehavior/"><code>CraftingCampaignBehavior</code></a></td><td>CraftingCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CraftingCampaignBehaviorTypeDefiner/"><code>CraftingCampaignBehaviorTypeDefiner</code></a></td><td>CraftingCampaignBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CraftingOrderSlots/"><code>CraftingOrderSlots</code></a></td><td>CraftingOrderSlots is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../CrimeCampaignBehavior/"><code>CrimeCampaignBehavior</code></a></td><td>CrimeCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../DefaultLogsCampaignBehavior/"><code>DefaultLogsCampaignBehavior</code></a></td><td>DefaultLogsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../DesertersCampaignBehavior/"><code>DesertersCampaignBehavior</code></a></td><td>DesertersCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../DesertionCampaignBehavior/"><code>DesertionCampaignBehavior</code></a></td><td>DesertionCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../DiplomaticBartersBehavior/"><code>DiplomaticBartersBehavior</code></a></td><td>DiplomaticBartersBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors.</td></tr>
+<tr><td><a href="../DisbandPartyCampaignBehavior/"><code>DisbandPartyCampaignBehavior</code></a></td><td>DisbandPartyCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../DiscardItemsCampaignBehavior/"><code>DiscardItemsCampaignBehavior</code></a></td><td>DiscardItemsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../DisorganizedStateCampaignBehavior/"><code>DisorganizedStateCampaignBehavior</code></a></td><td>DisorganizedStateCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../DynamicBodyCampaignBehavior/"><code>DynamicBodyCampaignBehavior</code></a></td><td>DynamicBodyCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../EducationCampaignBehavior/"><code>EducationCampaignBehavior</code></a></td><td>EducationCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../EducationCharacterProperties/"><code>EducationCharacterProperties</code></a></td><td>EducationCharacterProperties is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../EmissarySystemCampaignBehavior/"><code>EmissarySystemCampaignBehavior</code></a></td><td>EmissarySystemCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../EncounterGameMenuBehavior/"><code>EncounterGameMenuBehavior</code></a></td><td>EncounterGameMenuBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../FactionDiscontinuationCampaignBehavior/"><code>FactionDiscontinuationCampaignBehavior</code></a></td><td>FactionDiscontinuationCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../FiefBarterBehavior/"><code>FiefBarterBehavior</code></a></td><td>FiefBarterBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors.</td></tr>
+<tr><td><a href="../FindingItemOnMapBehavior/"><code>FindingItemOnMapBehavior</code></a></td><td>FindingItemOnMapBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../FoodConsumptionBehavior/"><code>FoodConsumptionBehavior</code></a></td><td>FoodConsumptionBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../GarrisonRecruitmentCampaignBehavior/"><code>GarrisonRecruitmentCampaignBehavior</code></a></td><td>GarrisonRecruitmentCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../GarrisonTroopsCampaignBehavior/"><code>GarrisonTroopsCampaignBehavior</code></a></td><td>GarrisonTroopsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../GoldBarterBehavior/"><code>GoldBarterBehavior</code></a></td><td>GoldBarterBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors.</td></tr>
+<tr><td><a href="../GovernorCampaignBehavior/"><code>GovernorCampaignBehavior</code></a></td><td>GovernorCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../Grievance/"><code>Grievance</code></a></td><td>Grievance is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../GrievanceType/"><code>GrievanceType</code></a></td><td>GrievanceType is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../HeroAgentSpawnCampaignBehavior/"><code>HeroAgentSpawnCampaignBehavior</code></a></td><td>HeroAgentSpawnCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../HeroCraftingRecord/"><code>HeroCraftingRecord</code></a></td><td>HeroCraftingRecord is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../HeroKnownInformationCampaignBehavior/"><code>HeroKnownInformationCampaignBehavior</code></a></td><td>HeroKnownInformationCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../HeroSpawnCampaignBehavior/"><code>HeroSpawnCampaignBehavior</code></a></td><td>HeroSpawnCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../HideoutCampaignBehavior/"><code>HideoutCampaignBehavior</code></a></td><td>HideoutCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IAlleyCampaignBehavior/"><code>IAlleyCampaignBehavior</code></a></td><td>IAlleyCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IAllianceCampaignBehavior/"><code>IAllianceCampaignBehavior</code></a></td><td>IAllianceCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../ICaptivityCampaignBehavior/"><code>ICaptivityCampaignBehavior</code></a></td><td>ICaptivityCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../ICraftingCampaignBehavior/"><code>ICraftingCampaignBehavior</code></a></td><td>ICraftingCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IDisbandPartyCampaignBehavior/"><code>IDisbandPartyCampaignBehavior</code></a></td><td>IDisbandPartyCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IEducationLogic/"><code>IEducationLogic</code></a></td><td>IEducationLogic is a behavior-logic class in TaleWorlds.CampaignSystem.CampaignBehaviors that reacts to events, drives flows, and updates subsystem state at key moments.</td></tr>
+<tr><td><a href="../IFacegenCampaignBehavior/"><code>IFacegenCampaignBehavior</code></a></td><td>IFacegenCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IGarrisonRecruitmentBehavior/"><code>IGarrisonRecruitmentBehavior</code></a></td><td>IGarrisonRecruitmentBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IHideoutCampaignBehavior/"><code>IHideoutCampaignBehavior</code></a></td><td>IHideoutCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IMapTracksCampaignBehavior/"><code>IMapTracksCampaignBehavior</code></a></td><td>IMapTracksCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IMarriageOfferCampaignBehavior/"><code>IMarriageOfferCampaignBehavior</code></a></td><td>IMarriageOfferCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IncidentsCampaignBehaviour/"><code>IncidentsCampaignBehaviour</code></a></td><td>IncidentsCampaignBehaviour is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IncidentTrigger/"><code>IncidentTrigger</code></a></td><td>IncidentTrigger is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IncidentType/"><code>IncidentType</code></a></td><td>IncidentType is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../InfluenceGainCampaignBehavior/"><code>InfluenceGainCampaignBehavior</code></a></td><td>InfluenceGainCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../InitialChildGenerationCampaignBehavior/"><code>InitialChildGenerationCampaignBehavior</code></a></td><td>InitialChildGenerationCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../INonReadyObjectHandler/"><code>INonReadyObjectHandler</code></a></td><td>INonReadyObjectHandler is a handler in TaleWorlds.CampaignSystem.CampaignBehaviors that runs agreed response logic when a specific event occurs.</td></tr>
+<tr><td><a href="../IParleyCampaignBehavior/"><code>IParleyCampaignBehavior</code></a></td><td>IParleyCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IPatrolPartiesCampaignBehavior/"><code>IPatrolPartiesCampaignBehavior</code></a></td><td>IPatrolPartiesCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IRetrainOutlawPartyMembersCampaignBehavior/"><code>IRetrainOutlawPartyMembersCampaignBehavior</code></a></td><td>IRetrainOutlawPartyMembersCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IssuesCampaignBehavior/"><code>IssuesCampaignBehavior</code></a></td><td>IssuesCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IStatisticsCampaignBehavior/"><code>IStatisticsCampaignBehavior</code></a></td><td>IStatisticsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../ITeleportationCampaignBehavior/"><code>ITeleportationCampaignBehavior</code></a></td><td>ITeleportationCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../ItemBarterBehavior/"><code>ItemBarterBehavior</code></a></td><td>ItemBarterBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors.</td></tr>
+<tr><td><a href="../ItemConsumptionBehavior/"><code>ItemConsumptionBehavior</code></a></td><td>ItemConsumptionBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../ItemTradeData/"><code>ItemTradeData</code></a></td><td>ItemTradeData is a data carrier in TaleWorlds.CampaignSystem.CampaignBehaviors that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../ITradeAgreementsCampaignBehavior/"><code>ITradeAgreementsCampaignBehavior</code></a></td><td>ITradeAgreementsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../ITradeRumorCampaignBehavior/"><code>ITradeRumorCampaignBehavior</code></a></td><td>ITradeRumorCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IVassalAndMercenaryOfferCampaignBehavior/"><code>IVassalAndMercenaryOfferCampaignBehavior</code></a></td><td>IVassalAndMercenaryOfferCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../IWorkshopWarehouseCampaignBehavior/"><code>IWorkshopWarehouseCampaignBehavior</code></a></td><td>IWorkshopWarehouseCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../JournalLogsCampaignBehavior/"><code>JournalLogsCampaignBehavior</code></a></td><td>JournalLogsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../KingdomDecisionProposalBehavior/"><code>KingdomDecisionProposalBehavior</code></a></td><td>KingdomDecisionProposalBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../LiftSiegeBarterBehavior/"><code>LiftSiegeBarterBehavior</code></a></td><td>LiftSiegeBarterBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors.</td></tr>
+<tr><td><a href="../LordConversationsCampaignBehavior/"><code>LordConversationsCampaignBehavior</code></a></td><td>LordConversationsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../LordDefectionCampaignBehavior/"><code>LordDefectionCampaignBehavior</code></a></td><td>LordDefectionCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../LordDefectionCampaignBehaviorTypeDefiner/"><code>LordDefectionCampaignBehaviorTypeDefiner</code></a></td><td>LordDefectionCampaignBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../MapTracksCampaignBehavior/"><code>MapTracksCampaignBehavior</code></a></td><td>MapTracksCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../MapWeatherCampaignBehavior/"><code>MapWeatherCampaignBehavior</code></a></td><td>MapWeatherCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../MarriageOfferCampaignBehavior/"><code>MarriageOfferCampaignBehavior</code></a></td><td>MarriageOfferCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../MilitiasCampaignBehavior/"><code>MilitiasCampaignBehavior</code></a></td><td>MilitiasCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../MobilePartyTrainingBehavior/"><code>MobilePartyTrainingBehavior</code></a></td><td>MobilePartyTrainingBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../NotableHelperCharacterCampaignBehavior/"><code>NotableHelperCharacterCampaignBehavior</code></a></td><td>NotableHelperCharacterCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../NotablePowerManagementBehavior/"><code>NotablePowerManagementBehavior</code></a></td><td>NotablePowerManagementBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../NotablesCampaignBehavior/"><code>NotablesCampaignBehavior</code></a></td><td>NotablesCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../NotableSupportersCampaignBehavior/"><code>NotableSupportersCampaignBehavior</code></a></td><td>NotableSupportersCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../NPCEquipmentsCampaignBehavior/"><code>NPCEquipmentsCampaignBehavior</code></a></td><td>NPCEquipmentsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../Number/"><code>Number</code></a></td><td>Number is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../OrderOfBattleCampaignBehavior/"><code>OrderOfBattleCampaignBehavior</code></a></td><td>OrderOfBattleCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../OrderOfBattleFormationData/"><code>OrderOfBattleFormationData</code></a></td><td>OrderOfBattleFormationData is a data carrier in TaleWorlds.CampaignSystem.CampaignBehaviors that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../ParleyCampaignBehavior/"><code>ParleyCampaignBehavior</code></a></td><td>ParleyCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PartiesBuyFoodCampaignBehavior/"><code>PartiesBuyFoodCampaignBehavior</code></a></td><td>PartiesBuyFoodCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PartiesBuyHorseCampaignBehavior/"><code>PartiesBuyHorseCampaignBehavior</code></a></td><td>PartiesBuyHorseCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PartiesSellLootCampaignBehavior/"><code>PartiesSellLootCampaignBehavior</code></a></td><td>PartiesSellLootCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PartiesSellPrisonerCampaignBehavior/"><code>PartiesSellPrisonerCampaignBehavior</code></a></td><td>PartiesSellPrisonerCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PartyDiplomaticHandlerCampaignBehavior/"><code>PartyDiplomaticHandlerCampaignBehavior</code></a></td><td>PartyDiplomaticHandlerCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PartyHealCampaignBehavior/"><code>PartyHealCampaignBehavior</code></a></td><td>PartyHealCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PartyRolesCampaignBehavior/"><code>PartyRolesCampaignBehavior</code></a></td><td>PartyRolesCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PartyUpgraderCampaignBehavior/"><code>PartyUpgraderCampaignBehavior</code></a></td><td>PartyUpgraderCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PatrolPartiesCampaignBehavior/"><code>PatrolPartiesCampaignBehavior</code></a></td><td>PatrolPartiesCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PeaceOfferCampaignBehavior/"><code>PeaceOfferCampaignBehavior</code></a></td><td>PeaceOfferCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PerkActivationHandlerCampaignBehavior/"><code>PerkActivationHandlerCampaignBehavior</code></a></td><td>PerkActivationHandlerCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PerkResetCampaignBehavior/"><code>PerkResetCampaignBehavior</code></a></td><td>PerkResetCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PlayerArmyWaitBehavior/"><code>PlayerArmyWaitBehavior</code></a></td><td>PlayerArmyWaitBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PlayerCaptivityCampaignBehavior/"><code>PlayerCaptivityCampaignBehavior</code></a></td><td>PlayerCaptivityCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PlayerTownVisitCampaignBehavior/"><code>PlayerTownVisitCampaignBehavior</code></a></td><td>PlayerTownVisitCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PlayerTrackCompanionBehavior/"><code>PlayerTrackCompanionBehavior</code></a></td><td>PlayerTrackCompanionBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PlayerVariablesBehavior/"><code>PlayerVariablesBehavior</code></a></td><td>PlayerVariablesBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PoliticalStagnationAndBorderIncidentCampaignBehavior/"><code>PoliticalStagnationAndBorderIncidentCampaignBehavior</code></a></td><td>PoliticalStagnationAndBorderIncidentCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../Pregnancy/"><code>Pregnancy</code></a></td><td>Pregnancy is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PregnancyCampaignBehavior/"><code>PregnancyCampaignBehavior</code></a></td><td>PregnancyCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PregnancyCampaignBehaviorTypeDefiner/"><code>PregnancyCampaignBehaviorTypeDefiner</code></a></td><td>PregnancyCampaignBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PrisonerCaptureCampaignBehavior/"><code>PrisonerCaptureCampaignBehavior</code></a></td><td>PrisonerCaptureCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PrisonerRecruitCampaignBehavior/"><code>PrisonerRecruitCampaignBehavior</code></a></td><td>PrisonerRecruitCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../PrisonerReleaseCampaignBehavior/"><code>PrisonerReleaseCampaignBehavior</code></a></td><td>PrisonerReleaseCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../RansomOfferCampaignBehavior/"><code>RansomOfferCampaignBehavior</code></a></td><td>RansomOfferCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../RebellionsCampaignBehavior/"><code>RebellionsCampaignBehavior</code></a></td><td>RebellionsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../RecruitingDetail/"><code>RecruitingDetail</code></a></td><td>RecruitingDetail is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../RecruitmentCampaignBehavior/"><code>RecruitmentCampaignBehavior</code></a></td><td>RecruitmentCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../RecruitmentCampaignBehaviorTypeDefiner/"><code>RecruitmentCampaignBehaviorTypeDefiner</code></a></td><td>RecruitmentCampaignBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../RecruitPrisonersCampaignBehavior/"><code>RecruitPrisonersCampaignBehavior</code></a></td><td>RecruitPrisonersCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../RetrainOutlawPartyMembersBehavior/"><code>RetrainOutlawPartyMembersBehavior</code></a></td><td>RetrainOutlawPartyMembersBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../RomanceCampaignBehavior/"><code>RomanceCampaignBehavior</code></a></td><td>RomanceCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../RomanticPreference/"><code>RomanticPreference</code></a></td><td>RomanticPreference is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../SallyOutsCampaignBehavior/"><code>SallyOutsCampaignBehavior</code></a></td><td>SallyOutsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../SetPrisonerFreeBarterBehavior/"><code>SetPrisonerFreeBarterBehavior</code></a></td><td>SetPrisonerFreeBarterBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors.</td></tr>
+<tr><td><a href="../SettlementClaimantCampaignBehavior/"><code>SettlementClaimantCampaignBehavior</code></a></td><td>SettlementClaimantCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../SettlementVariablesBehavior/"><code>SettlementVariablesBehavior</code></a></td><td>SettlementVariablesBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../SiegeAftermathCampaignBehavior/"><code>SiegeAftermathCampaignBehavior</code></a></td><td>SiegeAftermathCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../SiegeAmbushCampaignBehavior/"><code>SiegeAmbushCampaignBehavior</code></a></td><td>SiegeAmbushCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../SiegeEventCampaignBehavior/"><code>SiegeEventCampaignBehavior</code></a></td><td>SiegeEventCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TeleportationCampaignBehavior/"><code>TeleportationCampaignBehavior</code></a></td><td>TeleportationCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TeleportationCampaignBehaviorTypeDefiner/"><code>TeleportationCampaignBehaviorTypeDefiner</code></a></td><td>TeleportationCampaignBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TeleportationData/"><code>TeleportationData</code></a></td><td>TeleportationData is a data carrier in TaleWorlds.CampaignSystem.CampaignBehaviors that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../TownMercenaryData/"><code>TownMercenaryData</code></a></td><td>TownMercenaryData is a data carrier in TaleWorlds.CampaignSystem.CampaignBehaviors that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../TownSecurityCampaignBehavior/"><code>TownSecurityCampaignBehavior</code></a></td><td>TownSecurityCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TradeActionLog/"><code>TradeActionLog</code></a></td><td>TradeActionLog is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TradeActionLogPool/"><code>TradeActionLogPool</code></a></td><td>TradeActionLogPool is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TradeAgreement/"><code>TradeAgreement</code></a></td><td>TradeAgreement is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TradeAgreementsCampaignBehavior/"><code>TradeAgreementsCampaignBehavior</code></a></td><td>TradeAgreementsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TradeAgreementsCampaignBehaviorTypeDefiner/"><code>TradeAgreementsCampaignBehaviorTypeDefiner</code></a></td><td>TradeAgreementsCampaignBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TradeCampaignBehavior/"><code>TradeCampaignBehavior</code></a></td><td>TradeCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TradeGoodType/"><code>TradeGoodType</code></a></td><td>TradeGoodType is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TradeRumorsCampaignBehavior/"><code>TradeRumorsCampaignBehavior</code></a></td><td>TradeRumorsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TradeSkillCampaignBehavior/"><code>TradeSkillCampaignBehavior</code></a></td><td>TradeSkillCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TradeSkillCampaignBehaviorTypeDefiner/"><code>TradeSkillCampaignBehaviorTypeDefiner</code></a></td><td>TradeSkillCampaignBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../TransferPrisonerBarterBehavior/"><code>TransferPrisonerBarterBehavior</code></a></td><td>TransferPrisonerBarterBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.BarterBehaviors.</td></tr>
+<tr><td><a href="../VassalAndMercenaryOfferCampaignBehavior/"><code>VassalAndMercenaryOfferCampaignBehavior</code></a></td><td>VassalAndMercenaryOfferCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../ViewDataTrackerCampaignBehavior/"><code>ViewDataTrackerCampaignBehavior</code></a></td><td>ViewDataTrackerCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../VillageGoodProductionCampaignBehavior/"><code>VillageGoodProductionCampaignBehavior</code></a></td><td>VillageGoodProductionCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../VillageHealCampaignBehavior/"><code>VillageHealCampaignBehavior</code></a></td><td>VillageHealCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../VillageHostileActionCampaignBehavior/"><code>VillageHostileActionCampaignBehavior</code></a></td><td>VillageHostileActionCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../VillagerCampaignBehavior/"><code>VillagerCampaignBehavior</code></a></td><td>VillagerCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../VillagerCampaignBehaviorTypeDefiner/"><code>VillagerCampaignBehaviorTypeDefiner</code></a></td><td>VillagerCampaignBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../VillageTradeBoundCampaignBehavior/"><code>VillageTradeBoundCampaignBehavior</code></a></td><td>VillageTradeBoundCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../VolunteerTroop/"><code>VolunteerTroop</code></a></td><td>VolunteerTroop is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../WorkshopData/"><code>WorkshopData</code></a></td><td>WorkshopData is a data carrier in TaleWorlds.CampaignSystem.CampaignBehaviors that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../WorkshopsCampaignBehavior/"><code>WorkshopsCampaignBehavior</code></a></td><td>WorkshopsCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../WorkshopsCampaignBehaviorTypeDefiner/"><code>WorkshopsCampaignBehaviorTypeDefiner</code></a></td><td>WorkshopsCampaignBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+<tr><td><a href="../WorkshopsCharactersCampaignBehavior/"><code>WorkshopsCharactersCampaignBehavior</code></a></td><td>WorkshopsCharactersCampaignBehavior is a public type in TaleWorlds.CampaignSystem.CampaignBehaviors.</td></tr>
+</tbody></table>
+<h2 id="other-subsystems-in-this-area">Other subsystems in this area</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../agentorigins/">AgentOrigins</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../bartersystem/">BarterSystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../charactercreationcontent/">CharacterCreationContent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../characterdevelopment/">CharacterDevelopment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../characters/">Characters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../componentinterfaces/">ComponentInterfaces</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../conversation/">Conversation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../election/">Election</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../encounters/">Encounters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../encyclopedia/">Encyclopedia</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../extensions/">Extensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../gamecomponents/">GameComponents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../gamemenus/">GameMenus</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../gamestate/">GameState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../heroes/">Heroes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../inventory/">Inventory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../issues/">Issues</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../logentries/">LogEntries</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../map/">Map</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../mapevents/">MapEvents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../mapnotificationtypes/">MapNotificationTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../naval/">Naval</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../parties/">Parties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../party/">Party</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../quests/">Quests</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../roster/">Roster</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../savecompability/">SaveCompability</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../sceneinformationpopuptypes/">SceneInformationPopupTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../settlements/">Settlements</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../siege/">Siege</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/campaignbehaviors/./../tournamentgames/">TournamentGames</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Banner</title>
+  <meta name="description" content="The runtime data object for a faction&#x27;s coat of arms in Bannerlord: a list of color&#x2F;icon layers and background serialized into a saveable BannerCode string, held by Clan, Kingdom, and (indirectly) Hero.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core-extra/Banner/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core-extra/Banner/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/core-extra/Banner/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/core-extra/Banner/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/core-extra/Banner/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/core-extra/Banner/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="active">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;">core-extra index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Banner</span>
+    </nav>
+  
+  <h1>Banner</h1>
+  <h1 id="banner">Banner</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Core
+<strong>Module:</strong> TaleWorlds.Core
+<strong>Type:</strong> <code>public class Banner</code>
+<strong>Base:</strong> none — <code>Banner</code> does <strong>not</strong> inherit <code>MBObjectBase</code>, so it is never registered in <code>MBObjectManager</code>
+<strong>Source:</strong> <code>TaleWorlds.Core/Banner.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Banner</code> is the in-memory, fully renderable description of one coat of arms. It is built from a list of <code>BannerData</code> entries: index 0 is always the background (primary color, secondary color, background mesh, rotation), and every entry from index 1 upward is an icon layered on top (icon mesh, color, position, mirror flag, rotation). That list is compressed into a <code>.</code>-separated <code>BannerCode</code> string, which both drives rendering and gets written to the save game alongside the owning clan or kingdom. <code>Banner</code> is a plain data + light-logic object; it is not a 3D entity and it is not an <code>MBObjectBase</code>.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Treat <code>Banner</code> as a <strong>serializable "sticker" describing a flag numerically</strong>, not as cloth that flaps in a scene. Its entire state lives in <code>_bannerDataList</code> (<code>MBReadOnlyList&lt;BannerData&gt;</code>); every mutating method (recolor, add icon, rotate) edits that list and then nulls the cached <code>_bannerCode</code> so the code string is regenerated on next access. It is a pure-data object in <code>TaleWorlds.Core</code> that does not depend on the campaign system, but its visual creation depends on an active <code>Game</code> session.</p>
+<ul>
+<li><strong>Who creates / who holds:</strong> Almost every <code>Banner</code> in the game world is created and held long-term by a <code>Clan</code> or a <code>Kingdom</code> during initialization (<code>Clan.Banner</code>, <code>Kingdom.Banner</code>). A <code>Hero</code> has no banner of its own — you reach it through <code>Hero.Clan.Banner</code>. Mods can also spin up a fresh banner with the static factories (<code>Banner.CreateRandomClanBanner</code>, <code>Banner.CreateOneColoredBannerWithOneIcon</code>, …).</li>
+<li><strong>Layer:</strong> Pure data + light logic in <code>TaleWorlds.Core</code>. No campaign dependency, but rendering needs <code>Game</code> (a running game session).</li>
+<li><strong>When to use:</strong> You need to read or change a faction's flag colors/icons/background; you need to carry a <code>BannerCode</code> around in UI or the save; you need to generate a flag for a new clan/kingdom.</li>
+<li><strong>When NOT to use:</strong> Do not <code>new</code> up a <code>Banner</code> just to preview its art — the <code>BannerVisual</code> getter calls <code>Game.Current.CreateBannerVisual(this)</code>, which misbehaves outside a live game. The "banner pole weapon" items in inventories use <code>BannerComponent</code>, a different path, not this runtime object. Also do not assume the <code>Banner</code> you got from <code>Clan.Banner</code> is a private copy of that clan (see Risks).</li>
+<li><strong>Depends on:</strong> <code>BannerManager</code> (color and icon registry), <code>BannerData</code> (storage unit), <code>Game</code> (visual creation), <code>Clan</code>/<code>Kingdom</code> (persistent holding + save).</li>
+<li><strong>Failure modes:</strong> Deserializing an invalid <code>BannerCode</code> yields a <code>Banner</code> with an <strong>empty list</strong>, and any later background/color getter throws <code>IndexOutOfRangeException</code>. Passing a color value not registered in <code>BannerManager</code> makes <code>ChangePrimaryColor</code> / <code>ChangeIconColors</code> <strong>silently ignore</strong> the call.</li>
+</ul>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<ul>
+<li><strong>Use <code>Banner</code> when</strong> you must read or modify a faction's coat of arms (colors, icons, background), transport a <code>BannerCode</code> for UI or save, or generate a flag for a newly founded clan/kingdom.</li>
+<li><strong>Do NOT use <code>Banner</code> for</strong> a pure cosmetic preview by constructing one and reading <code>BannerVisual</code> outside a running game — the getter invokes <code>Game.Current.CreateBannerVisual(this)</code> and will fail. For item "banner pole" visuals use <code>BannerComponent</code> instead.</li>
+<li><strong>Do NOT mutate a shared banner blindly.</strong> <code>Clan.Banner</code> can return the same instance as <code>Kingdom.Banner</code> for the ruling clan (see Risks). To safely recolor without side effects, copy via <code>Deserialize</code> into a fresh <code>Banner</code> first.</li>
+<li><strong>Prefer the static factories</strong> (<code>CreateOneColoredBannerWithOneIcon</code>, <code>CreateRandomClanBanner</code>, …) over hand-building a <code>BannerCode</code> string yourself.</li>
+</ul>
+<h2 id="how-to-obtain-a-banner">How to Obtain a Banner</h2>
+<pre><code data-lang="csharp">// 1) The player clan&#39;s banner (most common entry point)
+Banner clanBanner = Clan.PlayerClan.Banner;
+
+// 2) Any kingdom&#39;s banner
+Banner kingdomBanner = Kingdom.MainKingdom.Banner;
+
+// 3) Through a hero -&gt; clan -&gt; banner
+Banner heroBanner = Hero.MainHero.Clan.Banner;
+
+// 4) Generate a fresh single-color, single-icon banner from a faction&#39;s colors
+uint bg = settlement.MapFaction.Banner.GetFirstIconColor();
+uint fg = settlement.MapFaction.Banner.GetPrimaryColor();
+Banner newBanner = Banner.CreateOneColoredBannerWithOneIcon(bg, fg, iconMeshId);
+
+// 5) Rebuild a Banner from a BannerCode read from save/config (see Serialization)
+string code = Clan.PlayerClan.Banner.BannerCode;
+Banner rebuilt = Banner.CreateOneColoredEmptyBanner(0);
+rebuilt.Deserialize(code);
+</code></pre>
+<blockquote>
+<p>Note: <code>Banner</code> does <strong>not</strong> inherit <code>MBObjectBase</code>, so <code>MBObjectManager.Instance.GetObject&lt;Banner&gt;(...)</code> is wrong — there is no such registry entry. To get an existing banner, use the holder properties above (1–3); to make a new one, use the static factories (4).</p>
+</blockquote>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Property</th><th>Type</th><th>Notes</th></tr></thead><tbody>
+<tr><td><code>BannerCode</code></td><td><code>string</code></td><td>The flag code serialized from <code>_bannerDataList</code>; generated lazily on first access via <code>Serialize()</code>. Returns an empty string if the list is empty.</td></tr>
+<tr><td><code>BannerDataList</code></td><td><code>MBReadOnlyList&lt;BannerData&gt;</code></td><td>Read-only view of the underlying flag list. By convention index 0 is the background, index 1+ are icons.</td></tr>
+<tr><td><code>BannerVisual</code></td><td><code>IBannerVisual</code></td><td>Lazily created render visual; on first access it calls <code>Game.Current.CreateBannerVisual(this)</code>. Must be accessed inside an active game.</td></tr>
+</tbody></table>
+<p>Common constants: <code>MaxSize = 8000</code>, <code>BannerFullSize = 1528</code>, <code>BannerEditableAreaSize = 512</code>, <code>MaxIconCount = 32</code>, <code>BackgroundDataIndex = 0</code>, <code>BannerIconDataIndex = 1</code>.</p>
+<h2 id="members-grouped-by-theme">Members (Grouped by Theme)</h2>
+<h3 id="constructors">Constructors</h3>
+<p><code>Banner</code> has four constructors, but none are saved nor registered with <code>MBObjectManager</code>:</p>
+<ul>
+<li><code>Banner()</code> — builds a <code>Banner</code> with an <strong>empty list</strong>. Reading any background/color getter on it throws <code>IndexOutOfRangeException</code>; you must first populate it via <code>AddIconData</code> or <code>Deserialize</code>.</li>
+<li><code>Banner(Banner other)</code> / <code>Banner(Banner other, uint color1, uint color2)</code> — deep-copies another banner, optionally also recoloring the primary and icon colors with <code>color1</code>/<code>color2</code>.</li>
+<li><code>Banner(string bannerKey)</code> / <code>Banner(string bannerKey, uint color1, uint color2)</code> — constructs by deserializing a <code>BannerCode</code> directly; an empty <code>bannerKey</code> hits <code>Debug.FailedAssert</code> and leaves the banner empty.</li>
+</ul>
+<p>Constructors are mostly used on the campaign-init path; mod code should prefer the static factories below to avoid hand-writing a <code>BannerCode</code>.</p>
+<h3 id="color-and-background">Color and Background</h3>
+<p>These members operate on <code>_bannerDataList[0]</code> (the background entry). <strong>The list must be non-empty</strong>, or they go out of bounds.</p>
+<ul>
+<li><code>int GetPrimaryColorId()</code> / <code>int GetSecondaryColorId()</code> — read the background primary/secondary <strong>color ID</strong> (an index into the <code>BannerManager</code> palette). Use only when you want the ID rather than the color value.</li>
+<li><code>uint GetPrimaryColor()</code> / <code>uint GetSecondaryColor()</code> — translate the color ID into a <code>uint</code> color value via <code>BannerManager.GetColor(id)</code>; returns <code>uint.MaxValue</code> if the list is empty.</li>
+<li><code>void SetPrimaryColorId(int colorId)</code> / <code>void SetSecondaryColorId(int colorId)</code> — write the two background color IDs directly. Passing an ID not valid in <code>BannerManager</code> does not error, but renders the wrong color.</li>
+<li><code>void ChangePrimaryColor(uint mainColor)</code> — converts a <code>uint</code> color value into an ID via <code>BannerManager.GetColorId</code> and writes both the primary and secondary background colors. <strong>If the color is not registered in <code>BannerManager</code>, <code>GetColorId</code> returns -1 and the call is silently ignored</strong> — the single most common reason "recolor did nothing".</li>
+<li><code>void ChangeBackgroundColor(uint primaryColor, uint secondaryColor)</code> — sets primary and secondary background colors (two-tone flag). Also depends on <code>BannerManager</code> registration.</li>
+<li><code>int GetBackgroundMeshId()</code> / <code>void SetBackgroundMeshId(int meshId)</code> — read/write the background mesh ID.</li>
+<li><code>void RotateBackgroundToRight()</code> / <code>void RotateBackgroundToLeft()</code> — rotate the background by one step (<code>0.0027777778f</code>, ~1/360 of a turn), wrapping within 0–1. Handy for a "rotate" button in a banner editor.</li>
+</ul>
+<pre><code data-lang="csharp">// Recolor the player clan&#39;s flag pure red (uint 0xRRGGBB); the color must be registered in BannerManager
+Clan.PlayerClan.Banner.ChangePrimaryColor(0xFF2A2Au);
+
+// Two-tone background: primary red, secondary deep blue
+Clan.PlayerClan.Banner.ChangeBackgroundColor(0xFF2A2Au, 0x1A3C8Cu);
+
+// Rotate the background one step
+Clan.PlayerClan.Banner.RotateBackgroundToRight();
+</code></pre>
+<h3 id="icons">Icons</h3>
+<p>Icons are the entries at <code>_bannerDataList[1..]</code>. The background (index 0) is not an icon.</p>
+<ul>
+<li><code>int GetIconColorId()</code> / <code>Vec2 GetIconSize()</code> — read the first icon's color ID and size; <code>GetIconColorId</code> goes out of bounds if the list has fewer than 2 entries.</li>
+<li><code>void SetIconColorId(int colorId)</code> / <code>void SetIconSize(int newSize)</code> — rewrite the first icon's color ID and size (<code>Size</code> becomes the square <code>(newSize, newSize)</code>).</li>
+<li><code>int GetIconMeshId()</code> / <code>void SetIconMeshId(int meshId)</code> — read/write the first icon's mesh ID.</li>
+<li><code>void ChangeIconColors(uint color)</code> — set <strong>all</strong> icons' (index ≥ 1) color and secondary-color IDs to one <code>uint</code> color value; also depends on <code>BannerManager</code> registration and is silently ignored if unregistered.</li>
+<li><code>void AddIconData(BannerData iconData)</code> / <code>void AddIconData(BannerData iconData, int index)</code> — append, or insert at a position. Once the list reaches 33 entries (background + up to 32 icons) appends are rejected; the indexed overload also requires <code>index &gt; 0</code> and <code>index &lt;= count</code>.</li>
+<li><code>void RemoveIconDataAtIndex(int index)</code> — remove an icon; requires <code>index &gt; 0</code> and <code>index &lt; count</code> (the background can never be removed).</li>
+<li><code>void ClearAllIcons()</code> — keep the background (index 0) and delete every icon.</li>
+<li><code>BannerData GetBannerDataAtIndex(int index)</code> — fetch any entry; returns <code>null</code> if it does not exist, and nulls the cached <code>_bannerCode</code>.</li>
+<li><code>int GetBannerDataListCount()</code> / <code>bool IsBannerDataListEmpty()</code> — list length and empty check.</li>
+</ul>
+<pre><code data-lang="csharp">Banner banner = Clan.PlayerClan.Banner;
+// Add another icon: the color ID must come from BannerManager (convert via GetColorId)
+int colorId = BannerManager.GetColorId(0xFFD700u);
+if (colorId &gt;= 0)
+{
+    BannerData icon = new BannerData(
+        iconMeshId, colorId, colorId,
+        new Vec2(512f, 512f), new Vec2(764f, 764f), false, false, 0f);
+    banner.AddIconData(icon);
+}
+
+// Recolor all icons gold
+banner.ChangeIconColors(0xFFD700u);
+
+// Keep only the background, drop every icon
+banner.ClearAllIcons();
+</code></pre>
+<h3 id="serialization">Serialization</h3>
+<p>A <code>Banner</code>'s persistent form is the <code>BannerCode</code> string. On save, <code>Clan</code> / <code>Kingdom</code> write their held <code>Banner</code> to disk (the underlying <code>_bannerDataList</code>, marked <code>[SaveableField(1)]</code>).</p>
+<ul>
+<li><code>string Serialize()</code> — regenerates the flag code via <code>GetBannerCodeFromBannerDataList(_bannerDataList)</code>. The <code>BannerCode</code> property lazily calls this.</li>
+<li><code>void Deserialize(string message)</code> — rebuilds from a flag code: clears the cached visual, clears the list, then parses via <code>TryGetBannerDataFromCode</code>. <strong>If <code>message</code> is invalid, parsing fails and the list is cleared into an empty list</strong> — after which any background/color getter throws out of bounds. Always validate with <code>IsValidBannerCode</code> before deserializing user input.</li>
+<li><code>static bool IsValidBannerCode(string bannerCode)</code> — returns <code>false</code> for an empty string, otherwise delegates to <code>TryGetBannerDataFromCode</code>.</li>
+<li><code>static bool TryGetBannerDataFromCode(string bannerCode, out List&lt;BannerData&gt; bannerDataList)</code> — the real parser; splits the string into groups of 10 fields. Any field that fails to parse makes it return <code>false</code> and clears the output; more than 32 entries are truncated to the first 32.</li>
+</ul>
+<pre><code data-lang="csharp">string code = Clan.PlayerClan.Banner.BannerCode;
+if (Banner.IsValidBannerCode(code))
+{
+    Banner copy = Banner.CreateOneColoredEmptyBanner(0);
+    copy.Deserialize(code); // rebuild from a validated code to avoid empty-list crashes
+    // copy now matches the source flag&#39;s look; recolor freely without touching the original
+    copy.ChangePrimaryColor(0x00AEEFu);
+}
+</code></pre>
+<h3 id="static-factories">Static Factories</h3>
+<p>These are the most common mod entry points; they return a brand-new <code>Banner</code> without needing an existing instance:</p>
+<ul>
+<li><code>static Banner CreateRandomClanBanner(int seed = -1)</code> — a random banner forced into a "centered single icon" layout, good as a default clan flag. <code>seed = -1</code> means a random seed.</li>
+<li><code>static Banner CreateRandomBanner()</code> — a fully random layout (random pick of single / mirrored-pair / diagonal / horizontal / vertical / four-square).</li>
+<li><code>static Banner CreateOneColoredEmptyBanner(int colorIndex)</code> — a single-color background with no icons; <code>colorIndex</code> is a <code>BannerManager</code> color ID.</li>
+<li><code>static Banner CreateOneColoredBannerWithOneIcon(uint backgroundColor, uint iconColor, int iconMeshId)</code> — single-color background plus one centered icon; <code>backgroundColor</code>/<code>iconColor</code> are <code>uint</code> values (converted via <code>BannerManager.GetColorId</code>), and <code>iconMeshId = -1</code> picks a random icon. The preferred choice when founding a clan/kingdom.</li>
+<li><code>static string GetBannerCodeFromBannerDataList(MBList&lt;BannerData&gt; bannerDataList)</code> — compress a set of <code>BannerData</code> straight into a flag code, for building codes at the pure-data layer without a <code>Banner</code> instance.</li>
+</ul>
+<pre><code data-lang="csharp">// Make a flag for a new clan: background from the culture&#39;s primary color, icon from that culture&#39;s mesh
+uint bg = cultureBanner.GetPrimaryColor();
+Banner clanBanner = Banner.CreateOneColoredBannerWithOneIcon(bg, 0xFFFFFFFFu, newClanIconId);
+clanToFound.Banner = clanBanner;
+</code></pre>
+<h3 id="visual">Visual</h3>
+<ul>
+<li><code>void SetBannerVisual(IBannerVisual visual)</code> — directly replace the cached render visual. Normally the game creates it automatically inside the <code>BannerVisual</code> getter, so you rarely call this; use it only if you hold a custom <code>IBannerVisual</code> implementation you want to substitute.</li>
+</ul>
+<h2 id="risks">Risks</h2>
+<ol>
+<li><strong>Empty-list out-of-bounds.</strong> <code>new Banner()</code> produces a <code>Banner</code> whose <code>_bannerDataList</code> is empty. Any <code>GetPrimaryColorId</code>, <code>GetBackgroundMeshId</code>, <code>GetIconColorId</code>, <code>GetIconSize</code>, … throws <code>IndexOutOfRangeException</code>. Always <code>AddIconData</code> or <code>Deserialize</code> first, or use a factory.</li>
+<li><strong>Invalid <code>BannerCode</code> deserialization.</strong> <code>Deserialize</code> does not throw on a bad code — it clears the list, leaving a "has a code string but empty inside" banner whose later getters crash. <code>Clan</code>/<code>Kingdom</code> fall back to <code>CreateRandomClanBanner</code> when an XML node is missing, but before manually <code>Deserialize</code>-ing user input, always call <code>IsValidBannerCode</code> first.</li>
+<li><strong>Silently ignored colors.</strong> <code>ChangePrimaryColor</code> / <code>ChangeBackgroundColor</code> / <code>ChangeIconColors</code> depend on <code>BannerManager.GetColorId</code>. An unregistered color value makes the call return immediately and the flag "looks unchanged". When coloring dynamically, first confirm the color comes from the <code>BannerManager</code> palette (<code>BannerManager.GetColorId(x) &gt;= 0</code>).</li>
+<li><strong>Ruling clan shares the kingdom's banner reference.</strong> When a clan is the ruling clan of its kingdom, its <code>Clan.Banner</code> getter returns the <em>same object instance</em> as <code>Kingdom.Banner</code>. Recoloring <code>clan.Banner</code> then also recolors the entire kingdom's flag. <code>Clan.ClanOriginalBanner</code> gives you that clan's own copy (only when <code>_banner</code> is non-null). Before swapping a clan's flag, confirm it isn't the ruling clan, or explicitly assign <code>clan.Banner = newBanner</code> to replace the inherited reference.</li>
+<li><strong><code>BannerVisual</code> needs an active game.</strong> The <code>BannerVisual</code> getter calls <code>Game.Current.CreateBannerVisual(this)</code>. Accessing it outside a live campaign/mission context (headless tools, early menu) may return null or fail. Pure data work (read/write <code>BannerCode</code>, recolor) does not need it.</li>
+<li><strong><code>Banner</code> is not in <code>MBObjectManager</code>.</strong> It is a plain <code>public class</code> with no <code>StringId</code> and no <code>MBObjectBase</code> base. Do not use <code>MBObjectManager.Instance.GetObject&lt;Banner&gt;</code> — there is no such entry and the lookup will fail at runtime.</li>
+</ol>
+<h2 id="dependencies">Dependencies</h2>
+<p><strong>Upstream (what this object depends on)</strong></p>
+<ul>
+<li><a href="../Game/">Game</a> — provides <code>CreateBannerVisual</code>, turning data into a displayable visual.</li>
+<li><a href="../">BannerManager</a> — the color palette and icon/background mesh registry; every color ID is resolved through it.</li>
+<li><a href="../">BannerData</a> — a single flag-data record (mesh, color ID, position, rotation, mirror).</li>
+<li><a href="../">IBannerVisual</a> — the banner render interface that <code>Game</code> instantiates.</li>
+</ul>
+<p><strong>Downstream (who holds / uses this object)</strong></p>
+<ul>
+<li><a href="../../campaign/Clan/">Clan</a> — the clan banner, stored on <code>Clan.Banner</code> and saved with the clan.</li>
+<li><a href="../../campaign/Kingdom/">Kingdom</a> — the kingdom banner, stored on <code>Kingdom.Banner</code>.</li>
+<li><a href="../../campaign/Hero/">Hero</a> — heroes have no banner of their own; reached via <code>Hero.Clan.Banner</code>.</li>
+<li><a href="../../campaign/Campaign/">Campaign</a> — the campaign system is where clans/kingdoms (and thus their banners) are created and persisted.</li>
+<li><a href="../">BannerComponent</a> — the item "banner pole weapon" component; a separate path from this runtime <code>Banner</code>.</li>
+<li><a href="../">BannerImageIdentifier</a> — a banner image identifier (e.g. used to build from <code>TargetKingdom.Banner</code> in barter UI).</li>
+</ul>
+<h2 id="example">Example</h2>
+<h3 id="example-1-recolor-the-player-clan-s-flag-without-accidentally-recoloring-the-kingdom-flag">Example 1: Recolor the player clan's flag (without accidentally recoloring the kingdom flag)</h3>
+<pre><code data-lang="csharp">// Get the player clan&#39;s banner; if the player is the ruling clan, this is the SAME reference as the kingdom banner
+Banner clanBanner = Clan.PlayerClan.Banner;
+if (Clan.PlayerClan == Clan.PlayerClan.Kingdom.RulingClan)
+{
+    // Ruling clan: assign an independent new instance to override the inheritance, so recoloring won&#39;t bleed into the kingdom flag
+    clanBanner = Banner.CreateOneColoredBannerWithOneIcon(
+        Clan.PlayerClan.Banner.GetPrimaryColor(), 0xFFFFFFFFu, -1);
+    Clan.PlayerClan.Banner = clanBanner;
+}
+clanBanner.ChangePrimaryColor(0xFF2A2Au);
+</code></pre>
+<h3 id="example-2-generate-and-assign-a-flag-for-a-newly-founded-clan">Example 2: Generate and assign a flag for a newly founded clan</h3>
+<pre><code data-lang="csharp">uint bg = settlement.MapFaction.Banner.GetPrimaryColor();
+Banner newClanBanner = Banner.CreateOneColoredBannerWithOneIcon(bg, 0xFFFFFFFFu, clanIconMeshId);
+clanToFound.Banner = newClanBanner;
+InformationManager.DisplayMessage(new InformationMessage(&quot;New clan banner generated&quot;));
+</code></pre>
+<h3 id="example-3-validate-and-copy-a-kingdom-banner-s-bannercode">Example 3: Validate and copy a kingdom banner's BannerCode</h3>
+<pre><code data-lang="csharp">string code = Kingdom.MainKingdom.Banner.BannerCode;
+if (Banner.IsValidBannerCode(code))
+{
+    Banner snapshot = Banner.CreateOneColoredEmptyBanner(0);
+    snapshot.Deserialize(code);
+    // snapshot matches the kingdom flag&#39;s look; recolor it independently without touching the original
+    snapshot.ChangeIconColors(0xFFD700u);
+}
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Parent: <a href="../">core-extra index</a></li>
+<li>↔ Siblings with EN pages: <a href="../Game/">Game</a>, <a href="../InformationManager/">InformationManager</a>, <a href="../ViewModel/">ViewModel</a></li>
+<li>Related types without dedicated EN pages (see bucket): <a href="../">BannerManager</a>, <a href="../">BannerData</a>, <a href="../">IBannerVisual</a>, <a href="../">BannerComponent</a>, <a href="../">BannerImageIdentifier</a></li>
+<li>Cross-bucket holders: <a href="../../campaign/Clan/">Clan</a>, <a href="../../campaign/Kingdom/">Kingdom</a>, <a href="../../campaign/Hero/">Hero</a>, <a href="../../campaign/Campaign/">Campaign</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/core-extra/">core-extra index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/core-extra/Mat2/">&larr; Mat2</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/core-extra/IWriter/">IWriter &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

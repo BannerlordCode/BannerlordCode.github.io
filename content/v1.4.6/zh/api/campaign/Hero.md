@@ -358,4 +358,4 @@ if (lord != null && lord.IsActive && lord.HomeSettlement != null)
 - Behavior 层：[CampaignBehaviorBase](../CampaignBehaviorBase) · [IDataStore](../IDataStore) · [CampaignGameStarter](../CampaignGameStarter)。
 - 定居点：[Settlement](../Settlement) — `HomeSettlement` / `CurrentSettlement` 的元素类型。
 - 战斗内对应物：[Agent](../../mission/Agent) — 战场上的「那个人」。
-- 父级：campaign API 目录导览位于版本根 `../../../`。
+- 父级：[campaign API 目录导览](../)

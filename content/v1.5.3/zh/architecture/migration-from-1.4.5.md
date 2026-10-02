@@ -7,6 +7,10 @@ description: "Bannerlord 1.4.5 → 1.5.3 的 mod 迁移指南：删了什么、�
 
 > 本页**不含任何凭记忆写的结论**。每一条都由 `tools/_v153_migration-diff.mjs` 实跑两棵源码树得出，
 > 并给出 1.4.5 与 1.5.3 两侧的 `.cs` 路径。复现命令见[方法与可信度](#方法与可信度)。
+>
+> **关于文档链接**：本页刻意只链到确实存在的页面。1.5.3 树目前只有 27 篇手写类型页，
+> `api/<桶>/` 目录索引页尚未撰写，所以下面凡涉及桶的地方一律写桶名而不放链接。
+> 已写出的类型页清单见 [版本首页](../)，逐桶覆盖实况见 [模块地图](../module-map)。
 
 ## 先读这一段
 
@@ -19,7 +23,7 @@ description: "Bannerlord 1.4.5 → 1.5.3 的 mod 迁移指南：删了什么、�
 
 - **没有任何程序集被删除。** 1.4.5 树覆盖的 56 个 `bin/` 程序集在 1.5.3 里一个不少。
 - **多人（Multiplayer）命名空间没有重整。** `TaleWorlds.MountAndBlade.Multiplayer*` 的 12 个命名空间在两版逐字相同。
-- **`TaleWorlds.Diamond` 没有被剔除。** 它在 1.5.3 里依然存在（映射到 [engine](../../api/engine/) 目录）；
+- **`TaleWorlds.Diamond` 没有被剔除。** 它在 1.5.3 里依然存在（命名空间归属 `engine` 桶）。
   消失的只是 `TaleWorlds.Diamond.Socket` 子命名空间和 `ThreadedClient*` 那组线程化 REST 客户端。
 - **`TaleWorlds.ObjectManager` 从来没有存在过。** 1.3.0 / 1.3.15 / 1.4.5 / 1.5.3 四棵树里
   `namespace TaleWorlds.ObjectManager` 的匹配数都是 **0**；`TaleWorlds.ObjectSystem` 四版都在，
@@ -177,7 +181,8 @@ node tools/_v153_migration-diff.mjs --control --type TaleWorlds.CampaignSystem.C
 ### 3.1 `gameplay` 桶在 1.5.3 被取消
 
 v1.4.5 文档树有 `api/gameplay/`，下辖 `sandbox/` 与 `storymode/`。v1.5.3 树**没有 `gameplay`**：
-`SandBox` 与 `StoryMode` 被提升为顶层桶 [sandbox](../../api/sandbox/) 与 [storymode](../../api/storymode/)。
+`SandBox` 与 `StoryMode` 被提升为顶层桶 `sandbox` 与 `storymode`（两者在 1.5.3 各有 1 247 / 183 个类型，
+目前**均尚未撰写**类型页，桶索引页也不存在 —— 本页不给它们放链接）。
 
 **为什么值得单说**：Boss 实测 v1.4.5 文档树本身是脏的 —— 2 199 个类型名跨桶重复
 （每个 `TaleWorlds.CampaignSystem` 类型在 `campaign/` 和 `campaign-ext/` 里各有一份），
@@ -201,7 +206,10 @@ v1.4.5 文档树有 `api/gameplay/`，下辖 `sandbox/` 与 `storymode/`。v1.5.
 
 `TaleWorlds.ObjectManager → TaleWorlds.ObjectSystem` 是**类型/命名空间级**重命名，且它**不发生在**
 1.4.5 → 1.5.3 之间（见开头）。而 `TaleWorlds.ObjectSystem` 这个命名空间在 v1.5.3 文档里落在
-[campaign-ext](../../api/campaign-ext/) 桶 —— 这是**目录归属**，不是重命名。
+`campaign-ext` 桶 —— 这是**目录归属**，不是重命名。
+（该桶的 771 个类型目前只有 2 篇页面：
+[CampaignBehaviorManager](../../api/campaign-ext/CampaignBehaviorManager) ·
+[DefaultSettlementProsperityModel](../../api/campaign-ext/DefaultSettlementProsperityModel)。）
 两件事在本站分别记在：[模块地图](../module-map) 与本页。
 
 ---
@@ -301,7 +309,8 @@ node tools/_v153_migration-diff.mjs --control --type TaleWorlds.CampaignSystem.H
 3. **泛型与元组归一化粗糙。** `ValueTuple<,>` 与自定义结构体在文本层可能等价，本脚本无法判断，
    第 2.1 节已把返回类型变化标为破坏性，请人工确认。
 4. **api 叶子覆盖未对平。** 本指南的结论基于源码全量扫描，与文档树的页面覆盖是两件事。
-   目录桶归属见 [模块地图](../module-map)，覆盖缺口由文档侧的 inventory 统计。
+   目录桶归属见 [模块地图](../module-map)；覆盖缺口（6 824 个类型 / 27 篇页面）由文档侧的 inventory 统计，
+   明细见 [版本首页](../)。
 
 ---
 
@@ -315,10 +324,12 @@ node tools/_v153_migration-diff.mjs --control --type TaleWorlds.CampaignSystem.H
 4. 若有 P/Invoke `Opengl32` 的代码：整块重写为 DirectX 路径。
 5. 若继承过 `MapEventComponent`：把 `OnFinish` 的 `internal override` 改成 `protected override`。
 6. 全文搜索 `TaleWorlds.ObjectManager` —— 应该是 0 命中；若有，那是更早期版本的遗留，不是 1.5.3 的改动。
-7. 目录链接：旧站的 `api/gameplay/...` 路径失效，改指 [sandbox](../../api/sandbox/) 或 [storymode](../../api/storymode/)。
+7. 目录链接：旧站的 `api/gameplay/...` 路径在 1.5.3 无对应；`sandbox` 与 `storymode` 已成为顶层桶名。
+   这两个桶的类型页目前**尚未撰写**，要查类请直接去 `bannerlord-1.5.3/SandBox/` 与
+   `bannerlord-1.5.3/StoryMode/` 读源码。
 
 ## 导航
 
-- [↑ 架构总览](../) · [↑ 版本首页](../../)- [SDK 分层概览](../sdk-overview) — 分层心智模型
-- [模块地图](../module-map) — 程序集与文档目录的对照表
+- [↑ 架构总览](../ · [↑ 版本首页](../../) · [SDK 分层概览](../sdk-overview) — 分层心智模型
+- [模块地图](../module-map) — 程序集与文档桶的对照表
 - [跨版本类对比](../../../../versions/) — 逐类 API 差异

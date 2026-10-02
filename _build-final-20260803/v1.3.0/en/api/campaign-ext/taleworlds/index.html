@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TaleWorlds</title>
+  <meta name="description" content="Top-level TaleWorlds common types.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign-ext/taleworlds/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign-ext/taleworlds/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">TaleWorlds</span>
+    </nav>
+  
+  <h1>TaleWorlds</h1>
+  <h2 id="up">Up</h2>
+<ul>
+<li><a href="../">Back to campaign-ext index</a></li>
+<li><a href="../../">API Index</a></li>
+<li><a href="../../../">Version Home</a></li>
+</ul>
+<h2 id="subsystem-overview">Subsystem overview</h2>
+<p>This is the <strong>TaleWorlds</strong> subsystem inside <strong>campaign-ext index</strong>. Classes in the same namespace tackle related concerns; pick a type, then open its page for methods.</p>
+<p>Top-level TaleWorlds common types.</p>
+<h2 id="classes">Classes</h2>
+<table><thead><tr><th>Class</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="../AccessObject/"><code>AccessObject</code></a></td><td>AccessObject is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../AccessObjectJsonConverter/"><code>AccessObjectJsonConverter</code></a></td><td>AccessObjectJsonConverter is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../AccessObjectResult/"><code>AccessObjectResult</code></a></td><td>AccessObjectResult is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../Achievement/"><code>Achievement</code></a></td><td>Achievement is a public type in TaleWorlds.AchievementSystem.</td></tr>
+<tr><td><a href="../AchievementManager/"><code>AchievementManager</code></a></td><td>AchievementManager is a manager in TaleWorlds.AchievementSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../Activity/"><code>Activity</code></a></td><td>Activity is a public type in TaleWorlds.ActivitySystem.</td></tr>
+<tr><td><a href="../ActivityManager/"><code>ActivityManager</code></a></td><td>ActivityManager is a manager in TaleWorlds.ActivitySystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../ActivityOutcome/"><code>ActivityOutcome</code></a></td><td>ActivityOutcome is a public type in TaleWorlds.ActivitySystem.</td></tr>
+<tr><td><a href="../ActivityTransition/"><code>ActivityTransition</code></a></td><td>ActivityTransition is a public type in TaleWorlds.ActivitySystem.</td></tr>
+<tr><td><a href="../AesHelper/"><code>AesHelper</code></a></td><td>AesHelper is a helper class in TaleWorlds.Diamond, offering static utility methods that do not depend on instance state.</td></tr>
+<tr><td><a href="../AliveMessage/"><code>AliveMessage</code></a></td><td>AliveMessage is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../AxisType/"><code>AxisType</code></a></td><td>AxisType is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../BotData/"><code>BotData</code></a></td><td>BotData is a data carrier in TaleWorlds.MountAndBlade that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../Canvas/"><code>Canvas</code></a></td><td>Canvas is a public type in TaleWorlds.GauntletUI.Canvas.</td></tr>
+<tr><td><a href="../CanvasElement/"><code>CanvasElement</code></a></td><td>CanvasElement is a public type in TaleWorlds.GauntletUI.Canvas.</td></tr>
+<tr><td><a href="../CanvasImage/"><code>CanvasImage</code></a></td><td>CanvasImage is a public type in TaleWorlds.GauntletUI.Canvas.</td></tr>
+<tr><td><a href="../CanvasLine/"><code>CanvasLine</code></a></td><td>CanvasLine is a public type in TaleWorlds.GauntletUI.Canvas.</td></tr>
+<tr><td><a href="../CanvasLineAlignment/"><code>CanvasLineAlignment</code></a></td><td>CanvasLineAlignment is a public type in TaleWorlds.GauntletUI.Canvas.</td></tr>
+<tr><td><a href="../CanvasLineElement/"><code>CanvasLineElement</code></a></td><td>CanvasLineElement is a public type in TaleWorlds.GauntletUI.Canvas.</td></tr>
+<tr><td><a href="../CanvasLineImage/"><code>CanvasLineImage</code></a></td><td>CanvasLineImage is a public type in TaleWorlds.GauntletUI.Canvas.</td></tr>
+<tr><td><a href="../CanvasLineText/"><code>CanvasLineText</code></a></td><td>CanvasLineText is a public type in TaleWorlds.GauntletUI.Canvas.</td></tr>
+<tr><td><a href="../CanvasObject/"><code>CanvasObject</code></a></td><td>CanvasObject is a public type in TaleWorlds.GauntletUI.Canvas.</td></tr>
+<tr><td><a href="../CanvasTextBox/"><code>CanvasTextBox</code></a></td><td>CanvasTextBox is a public type in TaleWorlds.GauntletUI.Canvas.</td></tr>
+<tr><td><a href="../CanvasWidget/"><code>CanvasWidget</code></a></td><td>CanvasWidget is a Gauntlet UI widget in TaleWorlds.GauntletUI.Canvas, normally created and accessed in Gauntlet XML/.prefab or code.</td></tr>
+<tr><td><a href="../Client/"><code>Client</code></a></td><td>Client is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../ClientApplicationConfiguration/"><code>ClientApplicationConfiguration</code></a></td><td>ClientApplicationConfiguration is a public type in TaleWorlds.Diamond.ClientApplication.</td></tr>
+<tr><td><a href="../ClientRestSession/"><code>ClientRestSession</code></a></td><td>ClientRestSession is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../ClientRestSessionTask/"><code>ClientRestSessionTask</code></a></td><td>ClientRestSessionTask is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../ClientSocketSession/"><code>ClientSocketSession</code></a></td><td>ClientSocketSession is a public type in TaleWorlds.Diamond.Socket.</td></tr>
+<tr><td><a href="../ConnectMessage/"><code>ConnectMessage</code></a></td><td>ConnectMessage is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../ControllerTypes/"><code>ControllerTypes</code></a></td><td>ControllerTypes is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../DependedModule/"><code>DependedModule</code></a></td><td>DependedModule is a public type in TaleWorlds.ModuleManager.</td></tr>
+<tr><td><a href="../DiamondClientApplication/"><code>DiamondClientApplication</code></a></td><td>DiamondClientApplication is a public type in TaleWorlds.Diamond.ClientApplication.</td></tr>
+<tr><td><a href="../DiamondClientApplicationObject/"><code>DiamondClientApplicationObject</code></a></td><td>DiamondClientApplicationObject is a public type in TaleWorlds.Diamond.ClientApplication.</td></tr>
+<tr><td><a href="../DisconnectMessage/"><code>DisconnectMessage</code></a></td><td>DisconnectMessage is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../EmptyInputContext/"><code>EmptyInputContext</code></a></td><td>EmptyInputContext is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../EpicAccessObject/"><code>EpicAccessObject</code></a></td><td>EpicAccessObject is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../Extensions/"><code>Extensions</code></a></td><td>Extensions is a public type in TaleWorlds.ModuleManager.</td></tr>
+<tr><td><a href="../FunctionResult/"><code>FunctionResult</code></a></td><td>FunctionResult is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../FunctionResultJsonConverter/"><code>FunctionResultJsonConverter</code></a></td><td>FunctionResultJsonConverter is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../GameAxisKey/"><code>GameAxisKey</code></a></td><td>GameAxisKey is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../GameKey/"><code>GameKey</code></a></td><td>GameKey is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../GameKeyContext/"><code>GameKeyContext</code></a></td><td>GameKeyContext is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../GameKeyContextType/"><code>GameKeyContextType</code></a></td><td>GameKeyContextType is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../GDKAccessObject/"><code>GDKAccessObject</code></a></td><td>GDKAccessObject is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../GenericRestSessionProvider/"><code>GenericRestSessionProvider</code></a></td><td>GenericRestSessionProvider is a public type in TaleWorlds.Diamond.ClientApplication.</td></tr>
+<tr><td><a href="../GenericThreadedRestSessionProvider/"><code>GenericThreadedRestSessionProvider</code></a></td><td>GenericThreadedRestSessionProvider is a public type in TaleWorlds.Diamond.ClientApplication.</td></tr>
+<tr><td><a href="../GOGAccessObject/"><code>GOGAccessObject</code></a></td><td>GOGAccessObject is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../HandlerResult/"><code>HandlerResult</code></a></td><td>HandlerResult is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../HotKey/"><code>HotKey</code></a></td><td>HotKey is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../HotKeyManager/"><code>HotKeyManager</code></a></td><td>HotKeyManager is a manager in TaleWorlds.InputSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../IAchievementService/"><code>IAchievementService</code></a></td><td>IAchievementService is a public type in TaleWorlds.AchievementSystem.</td></tr>
+<tr><td><a href="../IActivityService/"><code>IActivityService</code></a></td><td>IActivityService is a public type in TaleWorlds.ActivitySystem.</td></tr>
+<tr><td><a href="../IClient/"><code>IClient</code></a></td><td>IClient is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../IClientSession/"><code>IClientSession</code></a></td><td>IClientSession is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../IClientSessionProvider/"><code>IClientSessionProvider</code></a></td><td>IClientSessionProvider is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../IConnectionInformation/"><code>IConnectionInformation</code></a></td><td>IConnectionInformation is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../IInputContext/"><code>IInputContext</code></a></td><td>IInputContext is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../IInputManager/"><code>IInputManager</code></a></td><td>IInputManager is a manager in TaleWorlds.InputSystem that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../ILoginAccessProvider/"><code>ILoginAccessProvider</code></a></td><td>ILoginAccessProvider is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../InnerProcessConnectionInformation/"><code>InnerProcessConnectionInformation</code></a></td><td>InnerProcessConnectionInformation is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../Input/"><code>Input</code></a></td><td>Input is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../InputContext/"><code>InputContext</code></a></td><td>InputContext is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../InputKey/"><code>InputKey</code></a></td><td>InputKey is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../InputState/"><code>InputState</code></a></td><td>InputState is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../InputType/"><code>InputType</code></a></td><td>InputType is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../IPlatformModuleExtension/"><code>IPlatformModuleExtension</code></a></td><td>IPlatformModuleExtension is a public type in TaleWorlds.ModuleManager.</td></tr>
+<tr><td><a href="../Key/"><code>Key</code></a></td><td>Key is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../LinQuick/"><code>LinQuick</code></a></td><td>LinQuick is a public type in TaleWorlds.LinQuick.</td></tr>
+<tr><td><a href="../LoginBanReason/"><code>LoginBanReason</code></a></td><td>LoginBanReason is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../LoginErrorCode/"><code>LoginErrorCode</code></a></td><td>LoginErrorCode is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../LoginMessage/"><code>LoginMessage</code></a></td><td>LoginMessage is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../LoginResult/"><code>LoginResult</code></a></td><td>LoginResult is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../LoginResultObject/"><code>LoginResultObject</code></a></td><td>LoginResultObject is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../LoginResultObjectJsonConverter/"><code>LoginResultObjectJsonConverter</code></a></td><td>LoginResultObjectJsonConverter is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../Message/"><code>Message</code></a></td><td>Message is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../MessageDescription/"><code>MessageDescription</code></a></td><td>MessageDescription is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../MessageJsonConverter/"><code>MessageJsonConverter</code></a></td><td>MessageJsonConverter is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../MessageType/"><code>MessageType</code></a></td><td>MessageType is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../Min/"><code>Min</code></a></td><td>Min is a public type in TaleWorlds.LinQuick.</td></tr>
+<tr><td><a href="../MissionState/"><code>MissionState</code></a></td><td>MissionState is a public type in TaleWorlds.MountAndBlade.</td></tr>
+<tr><td><a href="../Modifiers/"><code>Modifiers</code></a></td><td>Modifiers is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../ModuleCategory/"><code>ModuleCategory</code></a></td><td>ModuleCategory is a public type in TaleWorlds.ModuleManager.</td></tr>
+<tr><td><a href="../ModuleHelper/"><code>ModuleHelper</code></a></td><td>ModuleHelper is a helper class in TaleWorlds.ModuleManager, offering static utility methods that do not depend on instance state.</td></tr>
+<tr><td><a href="../ModuleInfo/"><code>ModuleInfo</code></a></td><td>ModuleInfo is a public type in TaleWorlds.ModuleManager.</td></tr>
+<tr><td><a href="../ModuleType/"><code>ModuleType</code></a></td><td>ModuleType is a public type in TaleWorlds.ModuleManager.</td></tr>
+<tr><td><a href="../PeerId/"><code>PeerId</code></a></td><td>PeerId is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../PeerIdJsonConverter/"><code>PeerIdJsonConverter</code></a></td><td>PeerIdJsonConverter is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../PlayerIdExtensions/"><code>PlayerIdExtensions</code></a></td><td>PlayerIdExtensions is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../PrefabTooltipExtension/"><code>PrefabTooltipExtension</code></a></td><td>PrefabTooltipExtension is a public type in TaleWorlds.GauntletUI.TooltipExtensions.</td></tr>
+<tr><td><a href="../PSAccessObject/"><code>PSAccessObject</code></a></td><td>PSAccessObject is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../RestData/"><code>RestData</code></a></td><td>RestData is a data carrier in TaleWorlds.Diamond.Rest that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../RestDataJsonConverter/"><code>RestDataJsonConverter</code></a></td><td>RestDataJsonConverter is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../RestFunctionResult/"><code>RestFunctionResult</code></a></td><td>RestFunctionResult is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../RestObjectFunctionResult/"><code>RestObjectFunctionResult</code></a></td><td>RestObjectFunctionResult is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../RestObjectRequestMessage/"><code>RestObjectRequestMessage</code></a></td><td>RestObjectRequestMessage is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../RestObjectResponseMessage/"><code>RestObjectResponseMessage</code></a></td><td>RestObjectResponseMessage is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../RestRequestMessage/"><code>RestRequestMessage</code></a></td><td>RestRequestMessage is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../RestResponse/"><code>RestResponse</code></a></td><td>RestResponse is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../RestResponseMessage/"><code>RestResponseMessage</code></a></td><td>RestResponseMessage is a public type in TaleWorlds.Diamond.Rest.</td></tr>
+<tr><td><a href="../SessionCredentials/"><code>SessionCredentials</code></a></td><td>SessionCredentials is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../SessionKey/"><code>SessionKey</code></a></td><td>SessionKey is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../SessionProviderType/"><code>SessionProviderType</code></a></td><td>SessionProviderType is a public type in TaleWorlds.Diamond.ClientApplication.</td></tr>
+<tr><td><a href="../SocketMessage/"><code>SocketMessage</code></a></td><td>SocketMessage is a public type in TaleWorlds.Diamond.Socket.</td></tr>
+<tr><td><a href="../SteamAccessObject/"><code>SteamAccessObject</code></a></td><td>SteamAccessObject is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../SubModuleInfo/"><code>SubModuleInfo</code></a></td><td>SubModuleInfo is a public type in TaleWorlds.ModuleManager.</td></tr>
+<tr><td><a href="../SubModuleTags/"><code>SubModuleTags</code></a></td><td>SubModuleTags is a public type in TaleWorlds.ModuleManager.</td></tr>
+<tr><td><a href="../TestAccessObject/"><code>TestAccessObject</code></a></td><td>TestAccessObject is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../TestAchievementService/"><code>TestAchievementService</code></a></td><td>TestAchievementService is a public type in TaleWorlds.AchievementSystem.</td></tr>
+<tr><td><a href="../TestActivityService/"><code>TestActivityService</code></a></td><td>TestActivityService is a public type in TaleWorlds.ActivitySystem.</td></tr>
+<tr><td><a href="../ThreadedClient/"><code>ThreadedClient</code></a></td><td>ThreadedClient is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../ThreadedClientCantConnectTask/"><code>ThreadedClientCantConnectTask</code></a></td><td>ThreadedClientCantConnectTask is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../ThreadedClientConnectedTask/"><code>ThreadedClientConnectedTask</code></a></td><td>ThreadedClientConnectedTask is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../ThreadedClientDisconnectedTask/"><code>ThreadedClientDisconnectedTask</code></a></td><td>ThreadedClientDisconnectedTask is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../ThreadedClientHandleMessageTask/"><code>ThreadedClientHandleMessageTask</code></a></td><td>ThreadedClientHandleMessageTask is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../ThreadedClientSession/"><code>ThreadedClientSession</code></a></td><td>ThreadedClientSession is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../ThreadedClientSessionConnectTask/"><code>ThreadedClientSessionConnectTask</code></a></td><td>ThreadedClientSessionConnectTask is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../ThreadedClientSessionDisconnectTask/"><code>ThreadedClientSessionDisconnectTask</code></a></td><td>ThreadedClientSessionDisconnectTask is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../ThreadedClientSessionFunctionTask/"><code>ThreadedClientSessionFunctionTask</code></a></td><td>ThreadedClientSessionFunctionTask is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../ThreadedClientSessionLoginTask/"><code>ThreadedClientSessionLoginTask</code></a></td><td>ThreadedClientSessionLoginTask is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../ThreadedClientSessionMessageTask/"><code>ThreadedClientSessionMessageTask</code></a></td><td>ThreadedClientSessionMessageTask is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../ThreadedClientSessionTask/"><code>ThreadedClientSessionTask</code></a></td><td>ThreadedClientSessionTask is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../ThreadedClientTask/"><code>ThreadedClientTask</code></a></td><td>ThreadedClientTask is a public type in TaleWorlds.Diamond.</td></tr>
+<tr><td><a href="../TooltipExtensionWidget/"><code>TooltipExtensionWidget</code></a></td><td>TooltipExtensionWidget is a Gauntlet UI widget in TaleWorlds.GauntletUI.TooltipExtensions, normally created and accessed in Gauntlet XML/.prefab or code.</td></tr>
+<tr><td><a href="../VirtualKeyCode/"><code>VirtualKeyCode</code></a></td><td>VirtualKeyCode is a public type in TaleWorlds.InputSystem.</td></tr>
+<tr><td><a href="../WidgetAttributeKeyTypeHint/"><code>WidgetAttributeKeyTypeHint</code></a></td><td>WidgetAttributeKeyTypeHint is a public type in TaleWorlds.GauntletUI.TooltipExtensions.</td></tr>
+</tbody></table>
+<h2 id="other-subsystems-in-this-area">Other subsystems in this area</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/taleworlds/./../global/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/taleworlds/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/taleworlds/./../actions/">Actions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/taleworlds/./../networkmessages/">NetworkMessages</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/taleworlds/./../sandbox/">SandBox</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign-ext/taleworlds/./../storymode/">StoryMode</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

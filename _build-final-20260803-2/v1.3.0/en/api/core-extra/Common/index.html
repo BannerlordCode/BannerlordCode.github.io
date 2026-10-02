@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Common</title>
+  <meta name="description" content="Auto-generated class reference for Common.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core-extra/Common/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core-extra/Common/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/core-extra/Common/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/core-extra/Common/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/core-extra/Common/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/core-extra/Common/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="active">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;">core-extra index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Common</span>
+    </nav>
+  
+  <h1>Common</h1>
+  <h1 id="common">Common</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Library
+<strong>Module:</strong> TaleWorlds.Library
+<strong>Type:</strong> <code>public static class Common</code>
+<strong>Base:</strong> none
+<strong>File:</strong> <code>TaleWorlds.Library/Common.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Common</code> lives in <code>TaleWorlds.Library</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.Library</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>PlatformFileHelper</code></td><td><code>public static IPlatformFileHelper PlatformFileHelper { get; set; }</code></td></tr>
+<tr><td><code>ConfigName</code></td><td><code>public static string ConfigName { get; }</code></td></tr>
+<tr><td><code>ParallelOptions</code></td><td><code>public static ParallelOptions ParallelOptions { get; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="combinebytes">CombineBytes</h3>
+<p><code>public static byte CombineBytes(byte arr1, byte arr2, byte arr3 = null, byte arr4 = null, byte arr5 = null)</code></p>
+<p><strong>Purpose:</strong> Combines multiple bytes inputs into a single unified result.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.CombineBytes(0, 0, 0, 0, 0);
+</code></pre>
+<h3 id="calculatemd5hash">CalculateMD5Hash</h3>
+<p><code>public static string CalculateMD5Hash(string input)</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of m d5 hash.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.CalculateMD5Hash(&quot;example&quot;);
+</code></pre>
+<h3 id="toroman">ToRoman</h3>
+<p><code>public static string ToRoman(int number)</code></p>
+<p><strong>Purpose:</strong> Executes the ToRoman logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.ToRoman(0);
+</code></pre>
+<h3 id="getdjb2">GetDJB2</h3>
+<p><code>public static int GetDJB2(string str)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the d j b2 value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.GetDJB2(&quot;example&quot;);
+</code></pre>
+<h3 id="serializeobjectasjson">SerializeObjectAsJson</h3>
+<p><code>public static byte SerializeObjectAsJson(object o)</code></p>
+<p><strong>Purpose:</strong> Serializes object as json into a storable or transmittable format.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.SerializeObjectAsJson(o);
+</code></pre>
+<h3 id="serializeobjectasjsonstring">SerializeObjectAsJsonString</h3>
+<p><code>public static string SerializeObjectAsJsonString(object o)</code></p>
+<p><strong>Purpose:</strong> Serializes object as json string into a storable or transmittable format.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.SerializeObjectAsJsonString(o);
+</code></pre>
+<h3 id="fromurlsafebase64">FromUrlSafeBase64</h3>
+<p><code>public static byte FromUrlSafeBase64(string base64)</code></p>
+<p><strong>Purpose:</strong> Executes the FromUrlSafeBase64 logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.FromUrlSafeBase64(&quot;example&quot;);
+</code></pre>
+<h3 id="findtype">FindType</h3>
+<p><code>public static Type FindType(string typeName)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching type in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.FindType(&quot;example&quot;);
+</code></pre>
+<h3 id="memorycleanupgc">MemoryCleanupGC</h3>
+<p><code>public static void MemoryCleanupGC(bool forceTimer = false)</code></p>
+<p><strong>Purpose:</strong> Executes the MemoryCleanupGC logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.MemoryCleanupGC(false);
+</code></pre>
+<h3 id="dynamicinvokewithlog">DynamicInvokeWithLog</h3>
+<p><code>public static object DynamicInvokeWithLog(this Delegate method, params object args)</code></p>
+<p><strong>Purpose:</strong> Executes the DynamicInvokeWithLog logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.DynamicInvokeWithLog(method, args);
+</code></pre>
+<h3 id="invokewithlog">InvokeWithLog</h3>
+<p><code>public static object InvokeWithLog(this MethodInfo methodInfo, object obj, params object args)</code></p>
+<p><strong>Purpose:</strong> Executes the InvokeWithLog logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.InvokeWithLog(methodInfo, obj, args);
+</code></pre>
+<h3 id="invokewithlog-1">InvokeWithLog</h3>
+<p><code>public static object InvokeWithLog(this ConstructorInfo constructorInfo, params object args)</code></p>
+<p><strong>Purpose:</strong> Executes the InvokeWithLog logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.InvokeWithLog(constructorInfo, args);
+</code></pre>
+<h3 id="textcontainsspecialcharacters">TextContainsSpecialCharacters</h3>
+<p><code>public static bool TextContainsSpecialCharacters(string text)</code></p>
+<p><strong>Purpose:</strong> Executes the TextContainsSpecialCharacters logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.TextContainsSpecialCharacters(&quot;example&quot;);
+</code></pre>
+<h3 id="parseipaddress">ParseIpAddress</h3>
+<p><code>public static uint ParseIpAddress(string address)</code></p>
+<p><strong>Purpose:</strong> Parses external input into a ip address the current system understands.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.ParseIpAddress(&quot;example&quot;);
+</code></pre>
+<h3 id="isallletters">IsAllLetters</h3>
+<p><code>public static bool IsAllLetters(string text)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the all letters state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.IsAllLetters(&quot;example&quot;);
+</code></pre>
+<h3 id="isalllettersorwhitespaces">IsAllLettersOrWhiteSpaces</h3>
+<p><code>public static bool IsAllLettersOrWhiteSpaces(string text)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the all letters or white spaces state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.IsAllLettersOrWhiteSpaces(&quot;example&quot;);
+</code></pre>
+<h3 id="ischarasian">IsCharAsian</h3>
+<p><code>public static bool IsCharAsian(char character)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the char asian state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.IsCharAsian(character);
+</code></pre>
+<h3 id="setinvariantculture">SetInvariantCulture</h3>
+<p><code>public static void SetInvariantCulture()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to invariant culture and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.SetInvariantCulture();
+</code></pre>
+<h3 id="getmethodinfo">GetMethodInfo</h3>
+<p><code>public static MethodInfo GetMethodInfo(Expression&lt;Action&gt; expression)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the method info value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.GetMethodInfo(expression);
+</code></pre>
+<h3 id="getmethodinfo-1">GetMethodInfo</h3>
+<p><code>public static MethodInfo GetMethodInfo(LambdaExpression expression)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the method info value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Common.GetMethodInfo(expression);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">Common.CombineBytes(0, 0, 0, 0, 0);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/core-extra/">core-extra index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/api/core-extra/GameManagerLoadingSteps/">&larr; GameManagerLoadingSteps</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/core-extra/ResourceDepotFile/">ResourceDepotFile &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

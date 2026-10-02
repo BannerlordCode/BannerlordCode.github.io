@@ -1,0 +1,2965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent</title>
+  <meta name="description" content="Auto-generated class reference for Agent.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission/Agent/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission/Agent/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission/Agent/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission/Agent/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission/Agent/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission/Agent/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="active">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;mission&#x2F;">mission index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Agent</span>
+    </nav>
+  
+  <h1>Agent</h1>
+  <h1 id="agent">Agent</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public sealed class Agent : DotNetObject, IAgent, IFocusable, IUsable, IFormationUnit, ITrackableBase</code>
+<strong>Base:</strong> <code>DotNetObject</code>
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/Agent.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Agent</code> lives in <code>TaleWorlds.MountAndBlade</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.MountAndBlade</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>Main</code></td><td><code>public static Agent Main { get; }</code></td></tr>
+<tr><td><code>IsPlayerControlled</code></td><td><code>public bool IsPlayerControlled { get; }</code></td></tr>
+<tr><td><code>IsMine</code></td><td><code>public bool IsMine { get; }</code></td></tr>
+<tr><td><code>IsMainAgent</code></td><td><code>public bool IsMainAgent { get; }</code></td></tr>
+<tr><td><code>IsHuman</code></td><td><code>public bool IsHuman { get; }</code></td></tr>
+<tr><td><code>IsMount</code></td><td><code>public bool IsMount { get; }</code></td></tr>
+<tr><td><code>IsAIControlled</code></td><td><code>public bool IsAIControlled { get; }</code></td></tr>
+<tr><td><code>IsPlayerTroop</code></td><td><code>public bool IsPlayerTroop { get; }</code></td></tr>
+<tr><td><code>IsUsingGameObject</code></td><td><code>public bool IsUsingGameObject { get; }</code></td></tr>
+<tr><td><code>CanLeadFormationsRemotely</code></td><td><code>public bool CanLeadFormationsRemotely { get; }</code></td></tr>
+<tr><td><code>IsDetachableFromFormation</code></td><td><code>public bool IsDetachableFromFormation { get; }</code></td></tr>
+<tr><td><code>AgentScale</code></td><td><code>public float AgentScale { get; }</code></td></tr>
+<tr><td><code>CrouchMode</code></td><td><code>public bool CrouchMode { get; }</code></td></tr>
+<tr><td><code>WalkMode</code></td><td><code>public bool WalkMode { get; }</code></td></tr>
+<tr><td><code>Position</code></td><td><code>public Vec3 Position { get; }</code></td></tr>
+<tr><td><code>MovementMode</code></td><td><code>public AgentMovementMode MovementMode { get; }</code></td></tr>
+<tr><td><code>VisualPosition</code></td><td><code>public Vec3 VisualPosition { get; }</code></td></tr>
+<tr><td><code>MovementVelocity</code></td><td><code>public Vec2 MovementVelocity { get; }</code></td></tr>
+<tr><td><code>AverageVelocity</code></td><td><code>public Vec3 AverageVelocity { get; }</code></td></tr>
+<tr><td><code>MovementDirectionAsAngle</code></td><td><code>public float MovementDirectionAsAngle { get; }</code></td></tr>
+<tr><td><code>IsLookRotationInSlowMotion</code></td><td><code>public bool IsLookRotationInSlowMotion { get; }</code></td></tr>
+<tr><td><code>PropertyModifiers</code></td><td><code>public Agent.AgentPropertiesModifiers PropertyModifiers { get; }</code></td></tr>
+<tr><td><code>ActionSet</code></td><td><code>public MBActionSet ActionSet { get; }</code></td></tr>
+<tr><td><code>Components</code></td><td><code>public MBReadOnlyList&lt;AgentComponent&gt; Components { get; }</code></td></tr>
+<tr><td><code>HitterList</code></td><td><code>public MBReadOnlyList&lt;Agent.Hitter&gt; HitterList { get; }</code></td></tr>
+<tr><td><code>CurrentGuardMode</code></td><td><code>public Agent.GuardMode CurrentGuardMode { get; }</code></td></tr>
+<tr><td><code>ImmediateEnemy</code></td><td><code>public Agent ImmediateEnemy { get; }</code></td></tr>
+<tr><td><code>IsDoingPassiveAttack</code></td><td><code>public bool IsDoingPassiveAttack { get; }</code></td></tr>
+<tr><td><code>IsPassiveUsageConditionsAreMet</code></td><td><code>public bool IsPassiveUsageConditionsAreMet { get; }</code></td></tr>
+<tr><td><code>CurrentAimingError</code></td><td><code>public float CurrentAimingError { get; }</code></td></tr>
+<tr><td><code>CurrentAimingTurbulance</code></td><td><code>public float CurrentAimingTurbulance { get; }</code></td></tr>
+<tr><td><code>AttackDirection</code></td><td><code>public Agent.UsageDirection AttackDirection { get; }</code></td></tr>
+<tr><td><code>WalkingSpeedLimitOfMountable</code></td><td><code>public float WalkingSpeedLimitOfMountable { get; }</code></td></tr>
+<tr><td><code>RiderAgent</code></td><td><code>public Agent RiderAgent { get; }</code></td></tr>
+<tr><td><code>HasMount</code></td><td><code>public bool HasMount { get; }</code></td></tr>
+<tr><td><code>CanLogCombatFor</code></td><td><code>public bool CanLogCombatFor { get; }</code></td></tr>
+<tr><td><code>MissileRangeAdjusted</code></td><td><code>public float MissileRangeAdjusted { get; }</code></td></tr>
+<tr><td><code>MaximumMissileRange</code></td><td><code>public float MaximumMissileRange { get; }</code></td></tr>
+<tr><td><code>Name</code></td><td><code>public string Name { get; }</code></td></tr>
+<tr><td><code>NameTextObject</code></td><td><code>public TextObject NameTextObject { get; }</code></td></tr>
+<tr><td><code>MovementLockedState</code></td><td><code>public AgentMovementLockedState MovementLockedState { get; }</code></td></tr>
+<tr><td><code>Monster</code></td><td><code>public Monster Monster { get; }</code></td></tr>
+<tr><td><code>IsRunningAway</code></td><td><code>public bool IsRunningAway { get; }</code></td></tr>
+<tr><td><code>BodyPropertiesValue</code></td><td><code>public BodyProperties BodyPropertiesValue { get; }</code></td></tr>
+<tr><td><code>CommonAIComponent</code></td><td><code>public CommonAIComponent CommonAIComponent { get; }</code></td></tr>
+<tr><td><code>HumanAIComponent</code></td><td><code>public HumanAIComponent HumanAIComponent { get; }</code></td></tr>
+<tr><td><code>BodyPropertiesSeed</code></td><td><code>public int BodyPropertiesSeed { get; }</code></td></tr>
+<tr><td><code>LastRangedHitTime</code></td><td><code>public float LastRangedHitTime { get; }</code></td></tr>
+<tr><td><code>LastMeleeHitTime</code></td><td><code>public float LastMeleeHitTime { get; }</code></td></tr>
+<tr><td><code>LastRangedAttackTime</code></td><td><code>public float LastRangedAttackTime { get; }</code></td></tr>
+<tr><td><code>LastMeleeAttackTime</code></td><td><code>public float LastMeleeAttackTime { get; }</code></td></tr>
+<tr><td><code>IsFemale</code></td><td><code>public bool IsFemale { get; set; }</code></td></tr>
+<tr><td><code>Banner</code></td><td><code>public ItemObject Banner { get; }</code></td></tr>
+<tr><td><code>FormationBanner</code></td><td><code>public ItemObject FormationBanner { get; }</code></td></tr>
+<tr><td><code>WieldedWeapon</code></td><td><code>public MissionWeapon WieldedWeapon { get; }</code></td></tr>
+<tr><td><code>IsItemUseDisabled</code></td><td><code>public bool IsItemUseDisabled { get; }</code></td></tr>
+<tr><td><code>SyncHealthToAllClients</code></td><td><code>public bool SyncHealthToAllClients { get; }</code></td></tr>
+<tr><td><code>CurrentlyUsedGameObject</code></td><td><code>public UsableMissionObject CurrentlyUsedGameObject { get; }</code></td></tr>
+<tr><td><code>CombatActionsEnabled</code></td><td><code>public bool CombatActionsEnabled { get; }</code></td></tr>
+<tr><td><code>Mission</code></td><td><code>public Mission Mission { get; }</code></td></tr>
+<tr><td><code>IsHero</code></td><td><code>public bool IsHero { get; }</code></td></tr>
+<tr><td><code>Index</code></td><td><code>public int Index { get; }</code></td></tr>
+<tr><td><code>Equipment</code></td><td><code>public MissionEquipment Equipment { get; }</code></td></tr>
+<tr><td><code>AgentRole</code></td><td><code>public TextObject AgentRole { get; }</code></td></tr>
+<tr><td><code>HasBeenBuilt</code></td><td><code>public bool HasBeenBuilt { get; }</code></td></tr>
+<tr><td><code>CurrentMortalityState</code></td><td><code>public Agent.MortalityState CurrentMortalityState { get; }</code></td></tr>
+<tr><td><code>SpawnEquipment</code></td><td><code>public Equipment SpawnEquipment { get; }</code></td></tr>
+<tr><td><code>FormationPositionPreference</code></td><td><code>public FormationPositionPreference FormationPositionPreference { get; }</code></td></tr>
+<tr><td><code>RandomizeColors</code></td><td><code>public bool RandomizeColors { get; }</code></td></tr>
+<tr><td><code>CharacterPowerCached</code></td><td><code>public float CharacterPowerCached { get; }</code></td></tr>
+<tr><td><code>WalkSpeedCached</code></td><td><code>public float WalkSpeedCached { get; }</code></td></tr>
+<tr><td><code>Origin</code></td><td><code>public IAgentOriginBase Origin { get; }</code></td></tr>
+<tr><td><code>Team</code></td><td><code>public Team Team { get; }</code></td></tr>
+<tr><td><code>KillCount</code></td><td><code>public int KillCount { get; }</code></td></tr>
+<tr><td><code>AgentDrivenProperties</code></td><td><code>public AgentDrivenProperties AgentDrivenProperties { get; }</code></td></tr>
+<tr><td><code>BaseHealthLimit</code></td><td><code>public float BaseHealthLimit { get; }</code></td></tr>
+<tr><td><code>HorseCreationKey</code></td><td><code>public string HorseCreationKey { get; }</code></td></tr>
+<tr><td><code>HealthLimit</code></td><td><code>public float HealthLimit { get; set; }</code></td></tr>
+<tr><td><code>IsRangedCached</code></td><td><code>public bool IsRangedCached { get; }</code></td></tr>
+<tr><td><code>HasMeleeWeaponCached</code></td><td><code>public bool HasMeleeWeaponCached { get; }</code></td></tr>
+<tr><td><code>HasShieldCached</code></td><td><code>public bool HasShieldCached { get; }</code></td></tr>
+<tr><td><code>HasSpearCached</code></td><td><code>public bool HasSpearCached { get; }</code></td></tr>
+<tr><td><code>HasThrownCached</code></td><td><code>public bool HasThrownCached { get; set; }</code></td></tr>
+<tr><td><code>AIStateFlags</code></td><td><code>public Agent.AIStateFlag AIStateFlags { get; set; }</code></td></tr>
+<tr><td><code>Frame</code></td><td><code>public MatrixFrame Frame { get; }</code></td></tr>
+<tr><td><code>MovementFlags</code></td><td><code>public Agent.MovementControlFlag MovementFlags { get; set; }</code></td></tr>
+<tr><td><code>MovementInputVector</code></td><td><code>public Vec2 MovementInputVector { get; set; }</code></td></tr>
+<tr><td><code>CollisionCapsule</code></td><td><code>public CapsuleData CollisionCapsule { get; }</code></td></tr>
+<tr><td><code>CollisionCapsuleCenter</code></td><td><code>public Vec3 CollisionCapsuleCenter { get; }</code></td></tr>
+<tr><td><code>AgentVisuals</code></td><td><code>public MBAgentVisuals AgentVisuals { get; }</code></td></tr>
+<tr><td><code>HeadCameraMode</code></td><td><code>public bool HeadCameraMode { get; set; }</code></td></tr>
+<tr><td><code>MountAgent</code></td><td><code>public Agent MountAgent { get; }</code></td></tr>
+<tr><td><code>Detachment</code></td><td><code>public IDetachment Detachment { get; set; }</code></td></tr>
+<tr><td><code>IsPaused</code></td><td><code>public bool IsPaused { get; set; }</code></td></tr>
+<tr><td><code>IsDetachedFromFormation</code></td><td><code>public bool IsDetachedFromFormation { get; }</code></td></tr>
+<tr><td><code>CurrentWatchState</code></td><td><code>public Agent.WatchState CurrentWatchState { get; }</code></td></tr>
+<tr><td><code>Defensiveness</code></td><td><code>public float Defensiveness { get; set; }</code></td></tr>
+<tr><td><code>Formation</code></td><td><code>public Formation Formation { get; set; }</code></td></tr>
+<tr><td><code>IsShieldUsageEncouraged</code></td><td><code>public bool IsShieldUsageEncouraged { get; }</code></td></tr>
+<tr><td><code>IsPlayerUnit</code></td><td><code>public bool IsPlayerUnit { get; }</code></td></tr>
+<tr><td><code>Controller</code></td><td><code>public AgentControllerType Controller { get; set; }</code></td></tr>
+<tr><td><code>ClothingColor1</code></td><td><code>public uint ClothingColor1 { get; }</code></td></tr>
+<tr><td><code>ClothingColor2</code></td><td><code>public uint ClothingColor2 { get; }</code></td></tr>
+<tr><td><code>LookFrame</code></td><td><code>public MatrixFrame LookFrame { get; }</code></td></tr>
+<tr><td><code>LookDirectionAsAngle</code></td><td><code>public float LookDirectionAsAngle { get; set; }</code></td></tr>
+<tr><td><code>LookRotation</code></td><td><code>public Mat3 LookRotation { get; }</code></td></tr>
+<tr><td><code>IsLookDirectionLocked</code></td><td><code>public bool IsLookDirectionLocked { get; set; }</code></td></tr>
+<tr><td><code>IsCheering</code></td><td><code>public bool IsCheering { get; }</code></td></tr>
+<tr><td><code>IsInBeingStruckAction</code></td><td><code>public bool IsInBeingStruckAction { get; }</code></td></tr>
+<tr><td><code>MissionPeer</code></td><td><code>public MissionPeer MissionPeer { get; set; }</code></td></tr>
+<tr><td><code>Character</code></td><td><code>public BasicCharacterObject Character { get; set; }</code></td></tr>
+<tr><td><code>LastDetachmentTickAgentTime</code></td><td><code>public float LastDetachmentTickAgentTime { get; }</code></td></tr>
+<tr><td><code>OwningAgentMissionPeer</code></td><td><code>public MissionPeer OwningAgentMissionPeer { get; }</code></td></tr>
+<tr><td><code>MissionRepresentative</code></td><td><code>public MissionRepresentativeBase MissionRepresentative { get; }</code></td></tr>
+<tr><td><code>IsInLadderQueue</code></td><td><code>public bool IsInLadderQueue { get; }</code></td></tr>
+<tr><td><code>LocalPositionError</code></td><td><code>public Vec2 LocalPositionError { get; }</code></td></tr>
+<tr><td><code>DetachmentWeight</code></td><td><code>public float DetachmentWeight { get; }</code></td></tr>
+<tr><td><code>DetachmentIndex</code></td><td><code>public int DetachmentIndex { get; }</code></td></tr>
+<tr><td><code>LookDirection</code></td><td><code>public Vec3 LookDirection { get; set; }</code></td></tr>
+<tr><td><code>IsLookDirectionLow</code></td><td><code>public bool IsLookDirectionLow { get; set; }</code></td></tr>
+<tr><td><code>Health</code></td><td><code>public float Health { get; set; }</code></td></tr>
+<tr><td><code>Age</code></td><td><code>public float Age { get; set; }</code></td></tr>
+<tr><td><code>Velocity</code></td><td><code>public Vec3 Velocity { get; }</code></td></tr>
+<tr><td><code>EventControlFlags</code></td><td><code>public Agent.EventControlFlag EventControlFlags { get; set; }</code></td></tr>
+<tr><td><code>State</code></td><td><code>public AgentState State { get; set; }</code></td></tr>
+<tr><td><code>WieldedOffhandWeapon</code></td><td><code>public MissionWeapon WieldedOffhandWeapon { get; }</code></td></tr>
+<tr><td><code>Damage</code></td><td><code>public float Damage { get; }</code></td></tr>
+<tr><td><code>LastBlowOwnerId</code></td><td><code>public int LastBlowOwnerId { get; }</code></td></tr>
+<tr><td><code>LastBlowAttackType</code></td><td><code>public AgentAttackType LastBlowAttackType { get; }</code></td></tr>
+<tr><td><code>CanOverrideBlow</code></td><td><code>public bool CanOverrideBlow { get; }</code></td></tr>
+<tr><td><code>this</code></td><td><code>public Agent this { get; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="gethasonaiinputsetcallback">GetHasOnAiInputSetCallback</h3>
+<p><code>public bool GetHasOnAiInputSetCallback()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the has on ai input set callback value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetHasOnAiInputSetCallback();
+</code></pre>
+<h3 id="sethasonaiinputsetcallback">SetHasOnAiInputSetCallback</h3>
+<p><code>public void SetHasOnAiInputSetCallback(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to has on ai input set callback and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetHasOnAiInputSetCallback(false);
+</code></pre>
+<h3 id="getmissilerangewithheightdifferenceaux">GetMissileRangeWithHeightDifferenceAux</h3>
+<p><code>public float GetMissileRangeWithHeightDifferenceAux(float targetZ)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the missile range with height difference aux value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetMissileRangeWithHeightDifferenceAux(0);
+</code></pre>
+<h3 id="getsoundandcollisioninfoclassname">GetSoundAndCollisionInfoClassName</h3>
+<p><code>public string GetSoundAndCollisionInfoClassName()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the sound and collision info class name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetSoundAndCollisionInfoClassName();
+</code></pre>
+<h3 id="updateagentstats">UpdateAgentStats</h3>
+<p><code>public void UpdateAgentStats()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of agent stats.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.UpdateAgentStats();
+</code></pre>
+<h3 id="getweaponinaccuracy">GetWeaponInaccuracy</h3>
+<p><code>public float GetWeaponInaccuracy(EquipmentIndex weaponSlotIndex, int weaponUsageIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the weapon inaccuracy value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetWeaponInaccuracy(weaponSlotIndex, 0);
+</code></pre>
+<h3 id="debuggethealth">DebugGetHealth</h3>
+<p><code>public float DebugGetHealth()</code></p>
+<p><strong>Purpose:</strong> Executes the DebugGetHealth logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.DebugGetHealth();
+</code></pre>
+<h3 id="settargetposition">SetTargetPosition</h3>
+<p><code>public void SetTargetPosition(Vec2 value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to target position and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetTargetPosition(value);
+</code></pre>
+<h3 id="settargetz">SetTargetZ</h3>
+<p><code>public void SetTargetZ(float targetZ)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to target z and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetTargetZ(0);
+</code></pre>
+<h3 id="settargetup">SetTargetUp</h3>
+<p><code>public void SetTargetUp(in Vec3 targetUp)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to target up and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetTargetUp(targetUp);
+</code></pre>
+<h3 id="setcanleadformationsremotely">SetCanLeadFormationsRemotely</h3>
+<p><code>public void SetCanLeadFormationsRemotely(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to can lead formations remotely and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetCanLeadFormationsRemotely(false);
+</code></pre>
+<h3 id="setaveragepinginmilliseconds">SetAveragePingInMilliseconds</h3>
+<p><code>public void SetAveragePingInMilliseconds(double averagePingInMilliseconds)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to average ping in milliseconds and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetAveragePingInMilliseconds(0);
+</code></pre>
+<h3 id="settargetpositionanddirection">SetTargetPositionAndDirection</h3>
+<p><code>public void SetTargetPositionAndDirection(in Vec2 targetPosition, in Vec3 targetDirection)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to target position and direction and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetTargetPositionAndDirection(targetPosition, targetDirection);
+</code></pre>
+<h3 id="addacceleration">AddAcceleration</h3>
+<p><code>public void AddAcceleration(in Vec3 acceleration)</code></p>
+<p><strong>Purpose:</strong> Adds acceleration to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.AddAcceleration(acceleration);
+</code></pre>
+<h3 id="setweaponguard">SetWeaponGuard</h3>
+<p><code>public void SetWeaponGuard(Agent.UsageDirection direction)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to weapon guard and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetWeaponGuard(direction);
+</code></pre>
+<h3 id="setwatchstate">SetWatchState</h3>
+<p><code>public void SetWatchState(Agent.WatchState watchState)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to watch state and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetWatchState(watchState);
+</code></pre>
+<h3 id="isalarmstatenormal">IsAlarmStateNormal</h3>
+<p><code>public bool IsAlarmStateNormal()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the alarm state normal state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsAlarmStateNormal();
+</code></pre>
+<h3 id="iscautious">IsCautious</h3>
+<p><code>public bool IsCautious()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the cautious state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsCautious();
+</code></pre>
+<h3 id="ispatrollingcautious">IsPatrollingCautious</h3>
+<p><code>public bool IsPatrollingCautious()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the patrolling cautious state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsPatrollingCautious();
+</code></pre>
+<h3 id="isalarmed">IsAlarmed</h3>
+<p><code>public bool IsAlarmed()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the alarmed state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsAlarmed();
+</code></pre>
+<h3 id="setalarmstate">SetAlarmState</h3>
+<p><code>public bool SetAlarmState(Agent.AIStateFlag alarmStateFlag)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to alarm state and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.SetAlarmState(alarmStateFlag);
+</code></pre>
+<h3 id="settargetformationindex">SetTargetFormationIndex</h3>
+<p><code>public void SetTargetFormationIndex(int targetFormationIndex)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to target formation index and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetTargetFormationIndex(0);
+</code></pre>
+<h3 id="startragdollascorpse">StartRagdollAsCorpse</h3>
+<p><code>public void StartRagdollAsCorpse()</code></p>
+<p><strong>Purpose:</strong> Starts the ragdoll as corpse flow or state machine.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.StartRagdollAsCorpse();
+</code></pre>
+<h3 id="endragdollascorpse">EndRagdollAsCorpse</h3>
+<p><code>public void EndRagdollAsCorpse()</code></p>
+<p><strong>Purpose:</strong> Executes the EndRagdollAsCorpse logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.EndRagdollAsCorpse();
+</code></pre>
+<h3 id="isaddedascorpse">IsAddedAsCorpse</h3>
+<p><code>public bool IsAddedAsCorpse()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the added as corpse state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsAddedAsCorpse();
+</code></pre>
+<h3 id="addascorpse">AddAsCorpse</h3>
+<p><code>public void AddAsCorpse()</code></p>
+<p><strong>Purpose:</strong> Adds as corpse to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.AddAsCorpse();
+</code></pre>
+<h3 id="setoverridenstrikeanddeathaction">SetOverridenStrikeAndDeathAction</h3>
+<p><code>public void SetOverridenStrikeAndDeathAction(in ActionIndexCache strikeAction, in ActionIndexCache deathAction)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to overriden strike and death action and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetOverridenStrikeAndDeathAction(strikeAction, deathAction);
+</code></pre>
+<h3 id="applyforceonragdoll">ApplyForceOnRagdoll</h3>
+<p><code>public void ApplyForceOnRagdoll(sbyte boneIndex, in Vec3 force)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of force on ragdoll to the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ApplyForceOnRagdoll(0, force);
+</code></pre>
+<h3 id="setvelocitylimitsonragdoll">SetVelocityLimitsOnRagdoll</h3>
+<p><code>public void SetVelocityLimitsOnRagdoll(float linearVelocityLimit, float angularVelocityLimit)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to velocity limits on ragdoll and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetVelocityLimitsOnRagdoll(0, 0);
+</code></pre>
+<h3 id="getailastsuspiciousposition">GetAILastSuspiciousPosition</h3>
+<p><code>public WorldPosition GetAILastSuspiciousPosition()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the a i last suspicious position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAILastSuspiciousPosition();
+</code></pre>
+<h3 id="setailastsuspiciousposition">SetAILastSuspiciousPosition</h3>
+<p><code>public void SetAILastSuspiciousPosition(WorldPosition lastSuspiciousPosition, bool checkNavMeshForCorrection)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to a i last suspicious position and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetAILastSuspiciousPosition(lastSuspiciousPosition, false);
+</code></pre>
+<h3 id="getaimovedestination">GetAIMoveDestination</h3>
+<p><code>public WorldPosition GetAIMoveDestination()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the a i move destination value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAIMoveDestination();
+</code></pre>
+<h3 id="findlongestdirectmovetoposition">FindLongestDirectMoveToPosition</h3>
+<p><code>public Vec2 FindLongestDirectMoveToPosition(Vec2 targetPosition, bool checkBoundaries, bool checkFriendlyAgents, out bool isCollidedWithAgent)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching longest direct move to position in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.FindLongestDirectMoveToPosition(targetPosition, false, false, isCollidedWithAgent);
+</code></pre>
+<h3 id="getaimovestarttolerance">GetAIMoveStartTolerance</h3>
+<p><code>public float GetAIMoveStartTolerance()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the a i move start tolerance value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAIMoveStartTolerance();
+</code></pre>
+<h3 id="getaimovestoptolerance">GetAIMoveStopTolerance</h3>
+<p><code>public float GetAIMoveStopTolerance()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the a i move stop tolerance value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAIMoveStopTolerance();
+</code></pre>
+<h3 id="isaiatmovedestination">IsAIAtMoveDestination</h3>
+<p><code>public bool IsAIAtMoveDestination()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the a i at move destination state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsAIAtMoveDestination();
+</code></pre>
+<h3 id="setformationbanner">SetFormationBanner</h3>
+<p><code>public void SetFormationBanner(ItemObject banner)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to formation banner and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetFormationBanner(banner);
+</code></pre>
+<h3 id="setisaipaused">SetIsAIPaused</h3>
+<p><code>public void SetIsAIPaused(bool isPaused)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to is a i paused and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetIsAIPaused(false);
+</code></pre>
+<h3 id="resetenemycaches">ResetEnemyCaches</h3>
+<p><code>public void ResetEnemyCaches()</code></p>
+<p><strong>Purpose:</strong> Returns enemy caches to its default or initial condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ResetEnemyCaches();
+</code></pre>
+<h3 id="settargetpositionsynched">SetTargetPositionSynched</h3>
+<p><code>public void SetTargetPositionSynched(ref Vec2 targetPosition)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to target position synched and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetTargetPositionSynched(targetPosition);
+</code></pre>
+<h3 id="settargetpositionanddirectionsynched">SetTargetPositionAndDirectionSynched</h3>
+<p><code>public void SetTargetPositionAndDirectionSynched(ref Vec2 targetPosition, ref Vec3 targetDirection)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to target position and direction synched and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetTargetPositionAndDirectionSynched(targetPosition, targetDirection);
+</code></pre>
+<h3 id="setbodyarmormaterialtype">SetBodyArmorMaterialType</h3>
+<p><code>public void SetBodyArmorMaterialType(ArmorComponent.ArmorMaterialTypes bodyArmorMaterialType)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to body armor material type and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetBodyArmorMaterialType(bodyArmorMaterialType);
+</code></pre>
+<h3 id="setusedgameobjectforclient">SetUsedGameObjectForClient</h3>
+<p><code>public void SetUsedGameObjectForClient(UsableMissionObject usedObject)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to used game object for client and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetUsedGameObjectForClient(usedObject);
+</code></pre>
+<h3 id="setteam">SetTeam</h3>
+<p><code>public void SetTeam(Team team, bool sync)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to team and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetTeam(team, false);
+</code></pre>
+<h3 id="setclothingcolor1">SetClothingColor1</h3>
+<p><code>public void SetClothingColor1(uint color)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to clothing color1 and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetClothingColor1(0);
+</code></pre>
+<h3 id="setclothingcolor2">SetClothingColor2</h3>
+<p><code>public void SetClothingColor2(uint color)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to clothing color2 and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetClothingColor2(0);
+</code></pre>
+<h3 id="setwieldeditemindexasclient">SetWieldedItemIndexAsClient</h3>
+<p><code>public void SetWieldedItemIndexAsClient(Agent.HandIndex handIndex, EquipmentIndex equipmentIndex, bool isWieldedInstantly, bool isWieldedOnSpawn, int mainHandCurrentUsageIndex)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to wielded item index as client and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetWieldedItemIndexAsClient(handIndex, equipmentIndex, false, false, 0);
+</code></pre>
+<h3 id="setpreciserangedaimingenabled">SetPreciseRangedAimingEnabled</h3>
+<p><code>public void SetPreciseRangedAimingEnabled(bool set)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to precise ranged aiming enabled and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetPreciseRangedAimingEnabled(false);
+</code></pre>
+<h3 id="setasconversationagent">SetAsConversationAgent</h3>
+<p><code>public void SetAsConversationAgent(bool set)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to as conversation agent and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetAsConversationAgent(false);
+</code></pre>
+<h3 id="setcrouchmode">SetCrouchMode</h3>
+<p><code>public void SetCrouchMode(bool set)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to crouch mode and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetCrouchMode(false);
+</code></pre>
+<h3 id="setweaponamountinslot">SetWeaponAmountInSlot</h3>
+<p><code>public void SetWeaponAmountInSlot(EquipmentIndex equipmentSlot, short amount, bool enforcePrimaryItem)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to weapon amount in slot and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetWeaponAmountInSlot(equipmentSlot, 0, false);
+</code></pre>
+<h3 id="setdraggingmode">SetDraggingMode</h3>
+<p><code>public void SetDraggingMode(bool set)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to dragging mode and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetDraggingMode(false);
+</code></pre>
+<h3 id="setweaponammoasclient">SetWeaponAmmoAsClient</h3>
+<p><code>public void SetWeaponAmmoAsClient(EquipmentIndex equipmentIndex, EquipmentIndex ammoEquipmentIndex, short ammo)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to weapon ammo as client and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetWeaponAmmoAsClient(equipmentIndex, ammoEquipmentIndex, 0);
+</code></pre>
+<h3 id="setweaponreloadphaseasclient">SetWeaponReloadPhaseAsClient</h3>
+<p><code>public void SetWeaponReloadPhaseAsClient(EquipmentIndex equipmentIndex, short reloadState)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to weapon reload phase as client and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetWeaponReloadPhaseAsClient(equipmentIndex, 0);
+</code></pre>
+<h3 id="setreloadammoinslot">SetReloadAmmoInSlot</h3>
+<p><code>public void SetReloadAmmoInSlot(EquipmentIndex equipmentIndex, EquipmentIndex ammoSlotIndex, short reloadedAmmo)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to reload ammo in slot and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetReloadAmmoInSlot(equipmentIndex, ammoSlotIndex, 0);
+</code></pre>
+<h3 id="setusageindexofweaponinslotasclient">SetUsageIndexOfWeaponInSlotAsClient</h3>
+<p><code>public void SetUsageIndexOfWeaponInSlotAsClient(EquipmentIndex slotIndex, int usageIndex)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to usage index of weapon in slot as client and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetUsageIndexOfWeaponInSlotAsClient(slotIndex, 0);
+</code></pre>
+<h3 id="setrandomizecolors">SetRandomizeColors</h3>
+<p><code>public void SetRandomizeColors(bool shouldRandomize)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to randomize colors and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetRandomizeColors(false);
+</code></pre>
+<h3 id="setformationframedisabled">SetFormationFrameDisabled</h3>
+<p><code>public void SetFormationFrameDisabled()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to formation frame disabled and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetFormationFrameDisabled();
+</code></pre>
+<h3 id="setformationframeenabled">SetFormationFrameEnabled</h3>
+<p><code>public void SetFormationFrameEnabled(WorldPosition position, Vec2 direction, Vec2 positionVelocity, float formationDirectionEnforcingFactor)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to formation frame enabled and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetFormationFrameEnabled(position, direction, positionVelocity, 0);
+</code></pre>
+<h3 id="setshouldcatchupwithformation">SetShouldCatchUpWithFormation</h3>
+<p><code>public void SetShouldCatchUpWithFormation(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to should catch up with formation and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetShouldCatchUpWithFormation(false);
+</code></pre>
+<h3 id="setformationintegritydata">SetFormationIntegrityData</h3>
+<p><code>public void SetFormationIntegrityData(Vec2 position, Vec2 currentFormationDirection, Vec2 averageVelocityOfCloseAgents, float averageMaxUnlimitedSpeedOfCloseAgents, float deviationOfPositions, bool shouldKeepWithFormationInsteadOfMovingToAgent)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to formation integrity data and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetFormationIntegrityData(position, currentFormationDirection, averageVelocityOfCloseAgents, 0, 0, false);
+</code></pre>
+<h3 id="iscrouchingallowed">IsCrouchingAllowed</h3>
+<p><code>public bool IsCrouchingAllowed()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the crouching allowed state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsCrouchingAllowed();
+</code></pre>
+<h3 id="setcurrentactionprogress">SetCurrentActionProgress</h3>
+<p><code>public void SetCurrentActionProgress(int channelNo, float progress)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to current action progress and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetCurrentActionProgress(0, 0);
+</code></pre>
+<h3 id="setcurrentactionspeed">SetCurrentActionSpeed</h3>
+<p><code>public void SetCurrentActionSpeed(int channelNo, float speed)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to current action speed and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetCurrentActionSpeed(0, 0);
+</code></pre>
+<h3 id="setactionchannel">SetActionChannel</h3>
+<p><code>public bool SetActionChannel(int channelNo, in ActionIndexCache actionIndexCache, bool ignorePriority = false, AnimFlags additionalFlags = (AnimFlags)0UL, float blendWithNextActionFactor = 0f, float actionSpeed = 1f, float blendInPeriod = -0.2f, float blendOutPeriodToNoAnim = 0.4f, float startProgress = 0f, bool useLinearSmoothing = false, float blendOutPeriod = -0.2f, int actionShift = 0, bool forceFaceMorphRestart = true)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to action channel and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.SetActionChannel(0, actionIndexCache, false, (AnimFlags)0UL, 0, 0, 0, 0, 0, false, 0, 0, false);
+</code></pre>
+<h3 id="setattackstate">SetAttackState</h3>
+<p><code>public void SetAttackState(int attackState)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to attack state and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetAttackState(0);
+</code></pre>
+<h3 id="setaibehaviorparams">SetAIBehaviorParams</h3>
+<p><code>public void SetAIBehaviorParams(HumanAIComponent.AISimpleBehaviorKind behavior, float y1, float x2, float y2, float x3, float y3)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to a i behavior params and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetAIBehaviorParams(behavior, 0, 0, 0, 0, 0);
+</code></pre>
+<h3 id="setallbehaviorparams">SetAllBehaviorParams</h3>
+<p><code>public void SetAllBehaviorParams(HumanAIComponent.BehaviorValues behaviorParams)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to all behavior params and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetAllBehaviorParams(behaviorParams);
+</code></pre>
+<h3 id="setmovementdirection">SetMovementDirection</h3>
+<p><code>public void SetMovementDirection(in Vec2 direction)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to movement direction and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetMovementDirection(direction);
+</code></pre>
+<h3 id="setscriptedflags">SetScriptedFlags</h3>
+<p><code>public void SetScriptedFlags(Agent.AIScriptedFrameFlags flags)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to scripted flags and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetScriptedFlags(flags);
+</code></pre>
+<h3 id="setscriptedcombatflags">SetScriptedCombatFlags</h3>
+<p><code>public void SetScriptedCombatFlags(Agent.AISpecialCombatModeFlags flags)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to scripted combat flags and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetScriptedCombatFlags(flags);
+</code></pre>
+<h3 id="setscriptedpositionanddirection">SetScriptedPositionAndDirection</h3>
+<p><code>public void SetScriptedPositionAndDirection(ref WorldPosition scriptedPosition, float scriptedDirection, bool addHumanLikeDelay, Agent.AIScriptedFrameFlags additionalFlags = Agent.AIScriptedFrameFlags.None)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to scripted position and direction and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetScriptedPositionAndDirection(scriptedPosition, 0, false, agent.AIScriptedFrameFlags.None);
+</code></pre>
+<h3 id="setscriptedposition">SetScriptedPosition</h3>
+<p><code>public void SetScriptedPosition(ref WorldPosition position, bool addHumanLikeDelay, Agent.AIScriptedFrameFlags additionalFlags = Agent.AIScriptedFrameFlags.None)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to scripted position and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetScriptedPosition(position, false, agent.AIScriptedFrameFlags.None);
+</code></pre>
+<h3 id="setscriptedtargetentityandposition">SetScriptedTargetEntityAndPosition</h3>
+<p><code>public void SetScriptedTargetEntityAndPosition(WeakGameEntity target, WorldPosition position, Agent.AISpecialCombatModeFlags additionalFlags = Agent.AISpecialCombatModeFlags.None, bool ignoreIfAlreadyAttacking = false)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to scripted target entity and position and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetScriptedTargetEntityAndPosition(target, position, agent.AISpecialCombatModeFlags.None, false);
+</code></pre>
+<h3 id="setagentexcludestateforfacegroupid">SetAgentExcludeStateForFaceGroupId</h3>
+<p><code>public void SetAgentExcludeStateForFaceGroupId(int faceGroupId, bool isExcluded)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to agent exclude state for face group id and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetAgentExcludeStateForFaceGroupId(0, false);
+</code></pre>
+<h3 id="setlookagent">SetLookAgent</h3>
+<p><code>public void SetLookAgent(Agent agent)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to look agent and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetLookAgent(agent);
+</code></pre>
+<h3 id="setinteractionagent">SetInteractionAgent</h3>
+<p><code>public void SetInteractionAgent(Agent agent)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to interaction agent and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetInteractionAgent(agent);
+</code></pre>
+<h3 id="setlooktopointofinterest">SetLookToPointOfInterest</h3>
+<p><code>public void SetLookToPointOfInterest(Vec3 point)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to look to point of interest and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetLookToPointOfInterest(point);
+</code></pre>
+<h3 id="setagentflags">SetAgentFlags</h3>
+<p><code>public void SetAgentFlags(AgentFlag agentFlags)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to agent flags and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetAgentFlags(agentFlags);
+</code></pre>
+<h3 id="setselectedmountindex">SetSelectedMountIndex</h3>
+<p><code>public void SetSelectedMountIndex(int mountIndex)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to selected mount index and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetSelectedMountIndex(0);
+</code></pre>
+<h3 id="getfiringorder">GetFiringOrder</h3>
+<p><code>public int GetFiringOrder()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the firing order value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetFiringOrder();
+</code></pre>
+<h3 id="getridingorder">GetRidingOrder</h3>
+<p><code>public int GetRidingOrder()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the riding order value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetRidingOrder();
+</code></pre>
+<h3 id="getselectedmountindex">GetSelectedMountIndex</h3>
+<p><code>public int GetSelectedMountIndex()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the selected mount index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetSelectedMountIndex();
+</code></pre>
+<h3 id="gettargetformationindex">GetTargetFormationIndex</h3>
+<p><code>public int GetTargetFormationIndex()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the target formation index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetTargetFormationIndex();
+</code></pre>
+<h3 id="setfiringorder">SetFiringOrder</h3>
+<p><code>public void SetFiringOrder(FiringOrder.RangedWeaponUsageOrderEnum order)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to firing order and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetFiringOrder(order);
+</code></pre>
+<h3 id="setridingorder">SetRidingOrder</h3>
+<p><code>public void SetRidingOrder(RidingOrder.RidingOrderEnum order)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to riding order and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetRidingOrder(order);
+</code></pre>
+<h3 id="setagentfacialanimation">SetAgentFacialAnimation</h3>
+<p><code>public void SetAgentFacialAnimation(Agent.FacialAnimChannel channel, string animationName, bool loop)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to agent facial animation and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetAgentFacialAnimation(channel, &quot;example&quot;, false);
+</code></pre>
+<h3 id="sethandinversekinematicsframe">SetHandInverseKinematicsFrame</h3>
+<p><code>public bool SetHandInverseKinematicsFrame(in MatrixFrame leftGlobalFrame, in MatrixFrame rightGlobalFrame)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to hand inverse kinematics frame and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.SetHandInverseKinematicsFrame(leftGlobalFrame, rightGlobalFrame);
+</code></pre>
+<h3 id="setnativeformationno">SetNativeFormationNo</h3>
+<p><code>public void SetNativeFormationNo(int formationNo)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to native formation no and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetNativeFormationNo(0);
+</code></pre>
+<h3 id="setdirectionchangetendency">SetDirectionChangeTendency</h3>
+<p><code>public void SetDirectionChangeTendency(float tendency)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to direction change tendency and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetDirectionChangeTendency(0);
+</code></pre>
+<h3 id="getbattleimportance">GetBattleImportance</h3>
+<p><code>public float GetBattleImportance()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the battle importance value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetBattleImportance();
+</code></pre>
+<h3 id="gettraitsmask">GetTraitsMask</h3>
+<p><code>public TroopTraitsMask GetTraitsMask()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the traits mask value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetTraitsMask();
+</code></pre>
+<h3 id="setsynchedprefabcomponentvisibility">SetSynchedPrefabComponentVisibility</h3>
+<p><code>public void SetSynchedPrefabComponentVisibility(int componentIndex, bool visibility)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to synched prefab component visibility and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetSynchedPrefabComponentVisibility(0, false);
+</code></pre>
+<h3 id="setactionset">SetActionSet</h3>
+<p><code>public void SetActionSet(ref AnimationSystemData animationSystemData)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to action set and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetActionSet(animationSystemData);
+</code></pre>
+<h3 id="setcolumnwisefollowagent">SetColumnwiseFollowAgent</h3>
+<p><code>public void SetColumnwiseFollowAgent(Agent followAgent, ref Vec2 followPosition)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to columnwise follow agent and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetColumnwiseFollowAgent(followAgent, followPosition);
+</code></pre>
+<h3 id="sethandinversekinematicsframeformissionobjectusage">SetHandInverseKinematicsFrameForMissionObjectUsage</h3>
+<p><code>public void SetHandInverseKinematicsFrameForMissionObjectUsage(in MatrixFrame localIKFrame, in MatrixFrame boundEntityGlobalFrame, float animationHeightDifference = 0f)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to hand inverse kinematics frame for mission object usage and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetHandInverseKinematicsFrameForMissionObjectUsage(localIKFrame, boundEntityGlobalFrame, 0);
+</code></pre>
+<h3 id="setwantstoyell">SetWantsToYell</h3>
+<p><code>public void SetWantsToYell()</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to wants to yell and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetWantsToYell();
+</code></pre>
+<h3 id="setcapeclothsimulator">SetCapeClothSimulator</h3>
+<p><code>public void SetCapeClothSimulator(GameEntityComponent clothSimulatorComponent)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to cape cloth simulator and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetCapeClothSimulator(clothSimulatorComponent);
+</code></pre>
+<h3 id="gettargetposition">GetTargetPosition</h3>
+<p><code>public Vec2 GetTargetPosition()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the target position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetTargetPosition();
+</code></pre>
+<h3 id="gettargetdirection">GetTargetDirection</h3>
+<p><code>public Vec3 GetTargetDirection()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the target direction value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetTargetDirection();
+</code></pre>
+<h3 id="getaimingtimer">GetAimingTimer</h3>
+<p><code>public float GetAimingTimer()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the aiming timer value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAimingTimer();
+</code></pre>
+<h3 id="getinteractiondistancetousable">GetInteractionDistanceToUsable</h3>
+<p><code>public float GetInteractionDistanceToUsable(IUsable usable)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the interaction distance to usable value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetInteractionDistanceToUsable(usable);
+</code></pre>
+<h3 id="getinfotextforbeingnotinteractable">GetInfoTextForBeingNotInteractable</h3>
+<p><code>public TextObject GetInfoTextForBeingNotInteractable(Agent userAgent)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the info text for being not interactable value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetInfoTextForBeingNotInteractable(userAgent);
+</code></pre>
+<h3 id="getprimarywieldeditemindex">GetPrimaryWieldedItemIndex</h3>
+<p><code>public EquipmentIndex GetPrimaryWieldedItemIndex()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the primary wielded item index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetPrimaryWieldedItemIndex();
+</code></pre>
+<h3 id="getoffhandwieldeditemindex">GetOffhandWieldedItemIndex</h3>
+<p><code>public EquipmentIndex GetOffhandWieldedItemIndex()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the offhand wielded item index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetOffhandWieldedItemIndex();
+</code></pre>
+<h3 id="getmaximumforwardunlimitedspeed">GetMaximumForwardUnlimitedSpeed</h3>
+<p><code>public float GetMaximumForwardUnlimitedSpeed()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the maximum forward unlimited speed value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetMaximumForwardUnlimitedSpeed();
+</code></pre>
+<h3 id="getdescriptiontext">GetDescriptionText</h3>
+<p><code>public TextObject GetDescriptionText(WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the description text value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetDescriptionText(gameEntity);
+</code></pre>
+<h3 id="getweaponentityfromequipmentslot">GetWeaponEntityFromEquipmentSlot</h3>
+<p><code>public WeakGameEntity GetWeaponEntityFromEquipmentSlot(EquipmentIndex slotIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the weapon entity from equipment slot value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetWeaponEntityFromEquipmentSlot(slotIndex);
+</code></pre>
+<h3 id="getretreatpos">GetRetreatPos</h3>
+<p><code>public WorldPosition GetRetreatPos()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the retreat pos value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetRetreatPos();
+</code></pre>
+<h3 id="getscriptedflags">GetScriptedFlags</h3>
+<p><code>public Agent.AIScriptedFrameFlags GetScriptedFlags()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the scripted flags value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetScriptedFlags();
+</code></pre>
+<h3 id="getscriptedcombatflags">GetScriptedCombatFlags</h3>
+<p><code>public Agent.AISpecialCombatModeFlags GetScriptedCombatFlags()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the scripted combat flags value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetScriptedCombatFlags();
+</code></pre>
+<h3 id="getsteppedentity">GetSteppedEntity</h3>
+<p><code>public WeakGameEntity GetSteppedEntity()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the stepped entity value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetSteppedEntity();
+</code></pre>
+<h3 id="getsteppedrootentity">GetSteppedRootEntity</h3>
+<p><code>public WeakGameEntity GetSteppedRootEntity()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the stepped root entity value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetSteppedRootEntity();
+</code></pre>
+<h3 id="getsteppedbodyflags">GetSteppedBodyFlags</h3>
+<p><code>public BodyFlags GetSteppedBodyFlags()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the stepped body flags value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetSteppedBodyFlags();
+</code></pre>
+<h3 id="getcurrentanimationflag">GetCurrentAnimationFlag</h3>
+<p><code>public AnimFlags GetCurrentAnimationFlag(int channelNo)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the current animation flag value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetCurrentAnimationFlag(0);
+</code></pre>
+<h3 id="getcurrentaction">GetCurrentAction</h3>
+<p><code>public ActionIndexCache GetCurrentAction(int channelNo)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the current action value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetCurrentAction(0);
+</code></pre>
+<h3 id="getcurrentactiontype">GetCurrentActionType</h3>
+<p><code>public Agent.ActionCodeType GetCurrentActionType(int channelNo)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the current action type value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetCurrentActionType(0);
+</code></pre>
+<h3 id="getcurrentactionstage">GetCurrentActionStage</h3>
+<p><code>public Agent.ActionStage GetCurrentActionStage(int channelNo)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the current action stage value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetCurrentActionStage(0);
+</code></pre>
+<h3 id="getcurrentactiondirection">GetCurrentActionDirection</h3>
+<p><code>public Agent.UsageDirection GetCurrentActionDirection(int channelNo)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the current action direction value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetCurrentActionDirection(0);
+</code></pre>
+<h3 id="getcurrentactionpriority">GetCurrentActionPriority</h3>
+<p><code>public int GetCurrentActionPriority(int channelNo)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the current action priority value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetCurrentActionPriority(0);
+</code></pre>
+<h3 id="getcurrentactionprogress">GetCurrentActionProgress</h3>
+<p><code>public float GetCurrentActionProgress(int channelNo)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the current action progress value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetCurrentActionProgress(0);
+</code></pre>
+<h3 id="getactionchannelweight">GetActionChannelWeight</h3>
+<p><code>public float GetActionChannelWeight(int channelNo)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the action channel weight value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetActionChannelWeight(0);
+</code></pre>
+<h3 id="getactionchannelcurrentactionweight">GetActionChannelCurrentActionWeight</h3>
+<p><code>public float GetActionChannelCurrentActionWeight(int channelNo)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the action channel current action weight value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetActionChannelCurrentActionWeight(0);
+</code></pre>
+<h3 id="getworldframe">GetWorldFrame</h3>
+<p><code>public WorldFrame GetWorldFrame()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the world frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetWorldFrame();
+</code></pre>
+<h3 id="getlookdownlimit">GetLookDownLimit</h3>
+<p><code>public float GetLookDownLimit()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the look down limit value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetLookDownLimit();
+</code></pre>
+<h3 id="geteyeglobalheight">GetEyeGlobalHeight</h3>
+<p><code>public float GetEyeGlobalHeight()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the eye global height value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetEyeGlobalHeight();
+</code></pre>
+<h3 id="getmaximumspeedlimit">GetMaximumSpeedLimit</h3>
+<p><code>public float GetMaximumSpeedLimit()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the maximum speed limit value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetMaximumSpeedLimit();
+</code></pre>
+<h3 id="getcurrentvelocity">GetCurrentVelocity</h3>
+<p><code>public Vec2 GetCurrentVelocity()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the current velocity value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetCurrentVelocity();
+</code></pre>
+<h3 id="getturnspeed">GetTurnSpeed</h3>
+<p><code>public float GetTurnSpeed()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the turn speed value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetTurnSpeed();
+</code></pre>
+<h3 id="getcurrentspeedlimit">GetCurrentSpeedLimit</h3>
+<p><code>public float GetCurrentSpeedLimit()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the current speed limit value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetCurrentSpeedLimit();
+</code></pre>
+<h3 id="getrealglobalvelocity">GetRealGlobalVelocity</h3>
+<p><code>public Vec3 GetRealGlobalVelocity()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the real global velocity value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetRealGlobalVelocity();
+</code></pre>
+<h3 id="getaveragerealglobalvelocity">GetAverageRealGlobalVelocity</h3>
+<p><code>public Vec3 GetAverageRealGlobalVelocity()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the average real global velocity value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAverageRealGlobalVelocity();
+</code></pre>
+<h3 id="getmovementdirection">GetMovementDirection</h3>
+<p><code>public Vec2 GetMovementDirection()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the movement direction value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetMovementDirection();
+</code></pre>
+<h3 id="getcurweaponoffset">GetCurWeaponOffset</h3>
+<p><code>public Vec3 GetCurWeaponOffset()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the cur weapon offset value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetCurWeaponOffset();
+</code></pre>
+<h3 id="getisleftstance">GetIsLeftStance</h3>
+<p><code>public bool GetIsLeftStance()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the is left stance value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetIsLeftStance();
+</code></pre>
+<h3 id="getpathdistancetopoint">GetPathDistanceToPoint</h3>
+<p><code>public float GetPathDistanceToPoint(ref Vec3 point)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the path distance to point value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetPathDistanceToPoint(point);
+</code></pre>
+<h3 id="getcurrentnavigationfaceid">GetCurrentNavigationFaceId</h3>
+<p><code>public int GetCurrentNavigationFaceId()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the current navigation face id value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetCurrentNavigationFaceId();
+</code></pre>
+<h3 id="getworldposition">GetWorldPosition</h3>
+<p><code>public WorldPosition GetWorldPosition()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the world position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetWorldPosition();
+</code></pre>
+<h3 id="getlookagent">GetLookAgent</h3>
+<p><code>public Agent GetLookAgent()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the look agent value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetLookAgent();
+</code></pre>
+<h3 id="gettargetagent">GetTargetAgent</h3>
+<p><code>public Agent GetTargetAgent()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the target agent value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetTargetAgent();
+</code></pre>
+<h3 id="settargetagent">SetTargetAgent</h3>
+<p><code>public void SetTargetAgent(Agent agent)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to target agent and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetTargetAgent(agent);
+</code></pre>
+<h3 id="setautomatictargetselection">SetAutomaticTargetSelection</h3>
+<p><code>public void SetAutomaticTargetSelection(bool enable)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to automatic target selection and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetAutomaticTargetSelection(false);
+</code></pre>
+<h3 id="getagentflags">GetAgentFlags</h3>
+<p><code>public AgentFlag GetAgentFlags()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the agent flags value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAgentFlags();
+</code></pre>
+<h3 id="getagentfacialanimation">GetAgentFacialAnimation</h3>
+<p><code>public string GetAgentFacialAnimation()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the agent facial animation value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAgentFacialAnimation();
+</code></pre>
+<h3 id="getagentvoicedefinition">GetAgentVoiceDefinition</h3>
+<p><code>public string GetAgentVoiceDefinition()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the agent voice definition value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAgentVoiceDefinition();
+</code></pre>
+<h3 id="geteyeglobalposition">GetEyeGlobalPosition</h3>
+<p><code>public Vec3 GetEyeGlobalPosition()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the eye global position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetEyeGlobalPosition();
+</code></pre>
+<h3 id="getchestglobalposition">GetChestGlobalPosition</h3>
+<p><code>public Vec3 GetChestGlobalPosition()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the chest global position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetChestGlobalPosition();
+</code></pre>
+<h3 id="getdefendmovementflag">GetDefendMovementFlag</h3>
+<p><code>public Agent.MovementControlFlag GetDefendMovementFlag()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the defend movement flag value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetDefendMovementFlag();
+</code></pre>
+<h3 id="getattackdirection">GetAttackDirection</h3>
+<p><code>public Agent.UsageDirection GetAttackDirection()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the attack direction value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAttackDirection();
+</code></pre>
+<h3 id="getwieldedweaponinfo">GetWieldedWeaponInfo</h3>
+<p><code>public WeaponInfo GetWieldedWeaponInfo(Agent.HandIndex handIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the wielded weapon info value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetWieldedWeaponInfo(handIndex);
+</code></pre>
+<h3 id="getbodyrotationconstraint">GetBodyRotationConstraint</h3>
+<p><code>public Vec2 GetBodyRotationConstraint(int channelIndex = 1)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the body rotation constraint value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetBodyRotationConstraint(0);
+</code></pre>
+<h3 id="gettotalencumbrance">GetTotalEncumbrance</h3>
+<p><code>public float GetTotalEncumbrance()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the total encumbrance value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetTotalEncumbrance();
+</code></pre>
+<h3 id="getagentdrivenpropertyvalue">GetAgentDrivenPropertyValue</h3>
+<p><code>public float GetAgentDrivenPropertyValue(DrivenProperty type)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the agent driven property value value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAgentDrivenPropertyValue(type);
+</code></pre>
+<h3 id="getsteppedmachine">GetSteppedMachine</h3>
+<p><code>public UsableMachine GetSteppedMachine()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the stepped machine value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetSteppedMachine();
+</code></pre>
+<h3 id="getattachedweaponscount">GetAttachedWeaponsCount</h3>
+<p><code>public int GetAttachedWeaponsCount()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the attached weapons count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAttachedWeaponsCount();
+</code></pre>
+<h3 id="getattachedweapon">GetAttachedWeapon</h3>
+<p><code>public MissionWeapon GetAttachedWeapon(int index)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the attached weapon value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAttachedWeapon(0);
+</code></pre>
+<h3 id="getattachedweaponframe">GetAttachedWeaponFrame</h3>
+<p><code>public MatrixFrame GetAttachedWeaponFrame(int index)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the attached weapon frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAttachedWeaponFrame(0);
+</code></pre>
+<h3 id="getattachedweaponboneindex">GetAttachedWeaponBoneIndex</h3>
+<p><code>public sbyte GetAttachedWeaponBoneIndex(int index)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the attached weapon bone index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAttachedWeaponBoneIndex(0);
+</code></pre>
+<h3 id="deleteattachedweapon">DeleteAttachedWeapon</h3>
+<p><code>public void DeleteAttachedWeapon(int index)</code></p>
+<p><strong>Purpose:</strong> Executes the DeleteAttachedWeapon logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.DeleteAttachedWeapon(0);
+</code></pre>
+<h3 id="hasrangedweapon">HasRangedWeapon</h3>
+<p><code>public bool HasRangedWeapon(bool checkHasAmmo = false)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds ranged weapon.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.HasRangedWeapon(false);
+</code></pre>
+<h3 id="getformationfileandrankinfo">GetFormationFileAndRankInfo</h3>
+<p><code>public void GetFormationFileAndRankInfo(out int fileIndex, out int rankIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the formation file and rank info value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.GetFormationFileAndRankInfo(fileIndex, rankIndex);
+</code></pre>
+<h3 id="getformationfileandrankinfo-1">GetFormationFileAndRankInfo</h3>
+<p><code>public void GetFormationFileAndRankInfo(out int fileIndex, out int rankIndex, out int fileCount, out int rankCount)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the formation file and rank info value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.GetFormationFileAndRankInfo(fileIndex, rankIndex, fileCount, rankCount);
+</code></pre>
+<h3 id="setmortalitystate">SetMortalityState</h3>
+<p><code>public void SetMortalityState(Agent.MortalityState newState)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to mortality state and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetMortalityState(newState);
+</code></pre>
+<h3 id="toggleinvulnerable">ToggleInvulnerable</h3>
+<p><code>public void ToggleInvulnerable()</code></p>
+<p><strong>Purpose:</strong> Executes the ToggleInvulnerable logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ToggleInvulnerable();
+</code></pre>
+<h3 id="getarmlength">GetArmLength</h3>
+<p><code>public float GetArmLength()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the arm length value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetArmLength();
+</code></pre>
+<h3 id="getarmweight">GetArmWeight</h3>
+<p><code>public float GetArmWeight()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the arm weight value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetArmWeight();
+</code></pre>
+<h3 id="getrunningsimulationdatauntilmaximumspeedreached">GetRunningSimulationDataUntilMaximumSpeedReached</h3>
+<p><code>public void GetRunningSimulationDataUntilMaximumSpeedReached(ref float combatAccelerationTime, ref float maxSpeed, float speedValues)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the running simulation data until maximum speed reached value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.GetRunningSimulationDataUntilMaximumSpeedReached(combatAccelerationTime, maxSpeed, 0);
+</code></pre>
+<h3 id="setmaximumspeedlimit">SetMaximumSpeedLimit</h3>
+<p><code>public void SetMaximumSpeedLimit(float maximumSpeedLimit, bool isMultiplier)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to maximum speed limit and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetMaximumSpeedLimit(0, false);
+</code></pre>
+<h3 id="getbasearmoreffectivenessforbodypart">GetBaseArmorEffectivenessForBodyPart</h3>
+<p><code>public float GetBaseArmorEffectivenessForBodyPart(BoneBodyPartType bodyPart)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the base armor effectiveness for body part value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetBaseArmorEffectivenessForBodyPart(bodyPart);
+</code></pre>
+<h3 id="getlasttargetvisibilitystate">GetLastTargetVisibilityState</h3>
+<p><code>public AITargetVisibilityState GetLastTargetVisibilityState()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the last target visibility state value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetLastTargetVisibilityState();
+</code></pre>
+<h3 id="getmissilerange">GetMissileRange</h3>
+<p><code>public float GetMissileRange()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the missile range value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetMissileRange();
+</code></pre>
+<h3 id="setagentidleanimationstatus">SetAgentIdleAnimationStatus</h3>
+<p><code>public void SetAgentIdleAnimationStatus(bool idleEnabled)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to agent idle animation status and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetAgentIdleAnimationStatus(false);
+</code></pre>
+<h3 id="getweapontoreplaceonquickaction">GetWeaponToReplaceOnQuickAction</h3>
+<p><code>public ItemObject GetWeaponToReplaceOnQuickAction(SpawnedItemEntity spawnedItem, out EquipmentIndex possibleSlotIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the weapon to replace on quick action value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetWeaponToReplaceOnQuickAction(spawnedItem, possibleSlotIndex);
+</code></pre>
+<h3 id="getassistinghitter">GetAssistingHitter</h3>
+<p><code>public Agent.Hitter GetAssistingHitter(MissionPeer killerPeer)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the assisting hitter value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetAssistingHitter(killerPeer);
+</code></pre>
+<h3 id="canreachagent">CanReachAgent</h3>
+<p><code>public bool CanReachAgent(Agent otherAgent)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for reach agent.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CanReachAgent(otherAgent);
+</code></pre>
+<h3 id="caninteractwithagent">CanInteractWithAgent</h3>
+<p><code>public bool CanInteractWithAgent(Agent otherAgent, float userAgentCameraElevation)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for interact with agent.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CanInteractWithAgent(otherAgent, 0);
+</code></pre>
+<h3 id="canbeassignedforscriptedmovement">CanBeAssignedForScriptedMovement</h3>
+<p><code>public bool CanBeAssignedForScriptedMovement()</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for be assigned for scripted movement.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CanBeAssignedForScriptedMovement();
+</code></pre>
+<h3 id="canreachanduseobject">CanReachAndUseObject</h3>
+<p><code>public bool CanReachAndUseObject(UsableMissionObject gameObject, float distanceSq)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for reach and use object.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CanReachAndUseObject(gameObject, 0);
+</code></pre>
+<h3 id="canreachobject">CanReachObject</h3>
+<p><code>public bool CanReachObject(UsableMissionObject gameObject, float distanceSq)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for reach object.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CanReachObject(gameObject, 0);
+</code></pre>
+<h3 id="canreachobjectfromposition">CanReachObjectFromPosition</h3>
+<p><code>public bool CanReachObjectFromPosition(UsableMissionObject gameObject, float distanceSq, Vec3 position)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for reach object from position.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CanReachObjectFromPosition(gameObject, 0, position);
+</code></pre>
+<h3 id="canuseobject">CanUseObject</h3>
+<p><code>public bool CanUseObject(UsableMissionObject gameObject)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for use object.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CanUseObject(gameObject);
+</code></pre>
+<h3 id="canmovedirectlytoposition">CanMoveDirectlyToPosition</h3>
+<p><code>public bool CanMoveDirectlyToPosition(in Vec2 position)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for move directly to position.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CanMoveDirectlyToPosition(position);
+</code></pre>
+<h3 id="caninteractableweaponbepickedup">CanInteractableWeaponBePickedUp</h3>
+<p><code>public bool CanInteractableWeaponBePickedUp(SpawnedItemEntity spawnedItem)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for interactable weapon be picked up.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CanInteractableWeaponBePickedUp(spawnedItem);
+</code></pre>
+<h3 id="canquickpickup">CanQuickPickUp</h3>
+<p><code>public bool CanQuickPickUp(SpawnedItemEntity spawnedItem)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for quick pick up.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CanQuickPickUp(spawnedItem);
+</code></pre>
+<h3 id="canteleport">CanTeleport</h3>
+<p><code>public unsafe bool CanTeleport()</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for teleport.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CanTeleport();
+</code></pre>
+<h3 id="isactive">IsActive</h3>
+<p><code>public bool IsActive()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the active state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsActive();
+</code></pre>
+<h3 id="isretreating">IsRetreating</h3>
+<p><code>public bool IsRetreating()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the retreating state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsRetreating();
+</code></pre>
+<h3 id="isfadingout">IsFadingOut</h3>
+<p><code>public bool IsFadingOut()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the fading out state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsFadingOut();
+</code></pre>
+<h3 id="setagentdrivenpropertyvaluefromconsole">SetAgentDrivenPropertyValueFromConsole</h3>
+<p><code>public void SetAgentDrivenPropertyValueFromConsole(DrivenProperty type, float val)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to agent driven property value from console and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetAgentDrivenPropertyValueFromConsole(type, 0);
+</code></pre>
+<h3 id="isonland">IsOnLand</h3>
+<p><code>public bool IsOnLand()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the on land state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsOnLand();
+</code></pre>
+<h3 id="isinwater">IsInWater</h3>
+<p><code>public bool IsInWater()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the in water state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsInWater();
+</code></pre>
+<h3 id="isabletousemachine">IsAbleToUseMachine</h3>
+<p><code>public bool IsAbleToUseMachine()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the able to use machine state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsAbleToUseMachine();
+</code></pre>
+<h3 id="isagentparententitysameas">IsAgentParentEntitySameAs</h3>
+<p><code>public bool IsAgentParentEntitySameAs(GameEntity toBeChecked)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the agent parent entity same as state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsAgentParentEntitySameAs(toBeChecked);
+</code></pre>
+<h3 id="setexcludedfromgravity">SetExcludedFromGravity</h3>
+<p><code>public void SetExcludedFromGravity(bool exclude, bool applyAverageGlobalVelocity)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to excluded from gravity and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetExcludedFromGravity(false, false);
+</code></pre>
+<h3 id="setforceattachedentity">SetForceAttachedEntity</h3>
+<p><code>public void SetForceAttachedEntity(WeakGameEntity willBeAttached)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to force attached entity and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetForceAttachedEntity(willBeAttached);
+</code></pre>
+<h3 id="issliding">IsSliding</h3>
+<p><code>public bool IsSliding()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the sliding state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsSliding();
+</code></pre>
+<h3 id="issitting">IsSitting</h3>
+<p><code>public bool IsSitting()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the sitting state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsSitting();
+</code></pre>
+<h3 id="isreleasingchainattackinmultiplayer">IsReleasingChainAttackInMultiplayer</h3>
+<p><code>public bool IsReleasingChainAttackInMultiplayer()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the releasing chain attack in multiplayer state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsReleasingChainAttackInMultiplayer();
+</code></pre>
+<h3 id="iscameraattachable">IsCameraAttachable</h3>
+<p><code>public bool IsCameraAttachable()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the camera attachable state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsCameraAttachable();
+</code></pre>
+<h3 id="issynchedprefabcomponentvisible">IsSynchedPrefabComponentVisible</h3>
+<p><code>public bool IsSynchedPrefabComponentVisible(int componentIndex)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the synched prefab component visible state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsSynchedPrefabComponentVisible(0);
+</code></pre>
+<h3 id="isenemyof">IsEnemyOf</h3>
+<p><code>public bool IsEnemyOf(Agent otherAgent)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the enemy of state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsEnemyOf(otherAgent);
+</code></pre>
+<h3 id="isfriendof">IsFriendOf</h3>
+<p><code>public bool IsFriendOf(Agent otherAgent)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the friend of state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsFriendOf(otherAgent);
+</code></pre>
+<h3 id="onfocusgain">OnFocusGain</h3>
+<p><code>public void OnFocusGain(Agent userAgent)</code></p>
+<p><strong>Purpose:</strong> Invoked when the focus gain event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.OnFocusGain(userAgent);
+</code></pre>
+<h3 id="onfocuslose">OnFocusLose</h3>
+<p><code>public void OnFocusLose(Agent userAgent)</code></p>
+<p><strong>Purpose:</strong> Invoked when the focus lose event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.OnFocusLose(userAgent);
+</code></pre>
+<h3 id="onitemremovedfromscene">OnItemRemovedFromScene</h3>
+<p><code>public void OnItemRemovedFromScene()</code></p>
+<p><strong>Purpose:</strong> Invoked when the item removed from scene event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.OnItemRemovedFromScene();
+</code></pre>
+<h3 id="onuse">OnUse</h3>
+<p><code>public void OnUse(Agent userAgent, sbyte agentBoneIndex)</code></p>
+<p><strong>Purpose:</strong> Invoked when the use event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.OnUse(userAgent, 0);
+</code></pre>
+<h3 id="onusestopped">OnUseStopped</h3>
+<p><code>public void OnUseStopped(Agent userAgent, bool isSuccessful, int preferenceIndex)</code></p>
+<p><strong>Purpose:</strong> Invoked when the use stopped event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.OnUseStopped(userAgent, false, 0);
+</code></pre>
+<h3 id="onweapondrop">OnWeaponDrop</h3>
+<p><code>public void OnWeaponDrop(EquipmentIndex equipmentSlot)</code></p>
+<p><strong>Purpose:</strong> Invoked when the weapon drop event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.OnWeaponDrop(equipmentSlot);
+</code></pre>
+<h3 id="onitempickup">OnItemPickup</h3>
+<p><code>public void OnItemPickup(SpawnedItemEntity spawnedItemEntity, EquipmentIndex weaponPickUpSlotIndex, out bool removeWeapon)</code></p>
+<p><strong>Purpose:</strong> Invoked when the item pickup event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.OnItemPickup(spawnedItemEntity, weaponPickUpSlotIndex, removeWeapon);
+</code></pre>
+<h3 id="getdistanceto">GetDistanceTo</h3>
+<p><code>public float GetDistanceTo(Agent other)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the distance to value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetDistanceTo(other);
+</code></pre>
+<h3 id="checkpathtoaitargetagentpassesthroughnavigationfaceidfromdirection">CheckPathToAITargetAgentPassesThroughNavigationFaceIdFromDirection</h3>
+<p><code>public bool CheckPathToAITargetAgentPassesThroughNavigationFaceIdFromDirection(int navigationFaceId, in Vec3 direction, float overridenCostForFaceId)</code></p>
+<p><strong>Purpose:</strong> Verifies whether path to a i target agent passes through navigation face id from direction holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CheckPathToAITargetAgentPassesThroughNavigationFaceIdFromDirection(0, direction, 0);
+</code></pre>
+<h3 id="istargetnavigationfaceidbetween">IsTargetNavigationFaceIdBetween</h3>
+<p><code>public bool IsTargetNavigationFaceIdBetween(int navigationFaceIdStart, int navigationFaceIdEnd)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the target navigation face id between state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsTargetNavigationFaceIdBetween(0, 0);
+</code></pre>
+<h3 id="checkequipmentforcapeclothsimulationstatechange">CheckEquipmentForCapeClothSimulationStateChange</h3>
+<p><code>public void CheckEquipmentForCapeClothSimulationStateChange()</code></p>
+<p><strong>Purpose:</strong> Verifies whether equipment for cape cloth simulation state change holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.CheckEquipmentForCapeClothSimulationStateChange();
+</code></pre>
+<h3 id="checktodropflaggeditem">CheckToDropFlaggedItem</h3>
+<p><code>public void CheckToDropFlaggedItem()</code></p>
+<p><strong>Purpose:</strong> Verifies whether to drop flagged item holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.CheckToDropFlaggedItem();
+</code></pre>
+<h3 id="checkskillformounting">CheckSkillForMounting</h3>
+<p><code>public bool CheckSkillForMounting(Agent mountAgent)</code></p>
+<p><strong>Purpose:</strong> Verifies whether skill for mounting holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CheckSkillForMounting(mountAgent);
+</code></pre>
+<h3 id="initializespawnequipment">InitializeSpawnEquipment</h3>
+<p><code>public void InitializeSpawnEquipment(Equipment spawnEquipment)</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings required by spawn equipment.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.InitializeSpawnEquipment(spawnEquipment);
+</code></pre>
+<h3 id="initializemissionequipment">InitializeMissionEquipment</h3>
+<p><code>public void InitializeMissionEquipment(MissionEquipment missionEquipment, Banner banner)</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings required by mission equipment.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.InitializeMissionEquipment(missionEquipment, banner);
+</code></pre>
+<h3 id="initializeagentproperties">InitializeAgentProperties</h3>
+<p><code>public void InitializeAgentProperties(Equipment spawnEquipment, AgentBuildData agentBuildData)</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings required by agent properties.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.InitializeAgentProperties(spawnEquipment, agentBuildData);
+</code></pre>
+<h3 id="updateformationorders">UpdateFormationOrders</h3>
+<p><code>public void UpdateFormationOrders()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of formation orders.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.UpdateFormationOrders();
+</code></pre>
+<h3 id="updateweapons">UpdateWeapons</h3>
+<p><code>public void UpdateWeapons()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of weapons.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.UpdateWeapons();
+</code></pre>
+<h3 id="updateagentproperties">UpdateAgentProperties</h3>
+<p><code>public void UpdateAgentProperties()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of agent properties.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.UpdateAgentProperties();
+</code></pre>
+<h3 id="updatecustomdrivenproperties">UpdateCustomDrivenProperties</h3>
+<p><code>public void UpdateCustomDrivenProperties()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of custom driven properties.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.UpdateCustomDrivenProperties();
+</code></pre>
+<h3 id="updatebodyproperties">UpdateBodyProperties</h3>
+<p><code>public void UpdateBodyProperties(BodyProperties bodyProperties)</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of body properties.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.UpdateBodyProperties(bodyProperties);
+</code></pre>
+<h3 id="updatesynchealthtoallclients">UpdateSyncHealthToAllClients</h3>
+<p><code>public void UpdateSyncHealthToAllClients(bool value)</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of sync health to all clients.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.UpdateSyncHealthToAllClients(false);
+</code></pre>
+<h3 id="updatespawnequipmentandrefreshvisuals">UpdateSpawnEquipmentAndRefreshVisuals</h3>
+<p><code>public void UpdateSpawnEquipmentAndRefreshVisuals(Equipment newSpawnEquipment)</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of spawn equipment and refresh visuals.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.UpdateSpawnEquipmentAndRefreshVisuals(newSpawnEquipment);
+</code></pre>
+<h3 id="forceupdatecachedandformationvalues">ForceUpdateCachedAndFormationValues</h3>
+<p><code>public void ForceUpdateCachedAndFormationValues(bool updateOnlyMovement, bool arrangementChangeAllowed)</code></p>
+<p><strong>Purpose:</strong> Executes the ForceUpdateCachedAndFormationValues logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ForceUpdateCachedAndFormationValues(false, false);
+</code></pre>
+<h3 id="updatelastrangedattacktimeduetoanattack">UpdateLastRangedAttackTimeDueToAnAttack</h3>
+<p><code>public void UpdateLastRangedAttackTimeDueToAnAttack(float newTime)</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of last ranged attack time due to an attack.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.UpdateLastRangedAttackTimeDueToAnAttack(0);
+</code></pre>
+<h3 id="invalidatetargetagent">InvalidateTargetAgent</h3>
+<p><code>public void InvalidateTargetAgent()</code></p>
+<p><strong>Purpose:</strong> Executes the InvalidateTargetAgent logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.InvalidateTargetAgent();
+</code></pre>
+<h3 id="invalidateaiweaponselections">InvalidateAIWeaponSelections</h3>
+<p><code>public void InvalidateAIWeaponSelections()</code></p>
+<p><strong>Purpose:</strong> Executes the InvalidateAIWeaponSelections logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.InvalidateAIWeaponSelections();
+</code></pre>
+<h3 id="resetlookagent">ResetLookAgent</h3>
+<p><code>public void ResetLookAgent()</code></p>
+<p><strong>Purpose:</strong> Returns look agent to its default or initial condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ResetLookAgent();
+</code></pre>
+<h3 id="resetguard">ResetGuard</h3>
+<p><code>public void ResetGuard()</code></p>
+<p><strong>Purpose:</strong> Returns guard to its default or initial condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ResetGuard();
+</code></pre>
+<h3 id="resetagentproperties">ResetAgentProperties</h3>
+<p><code>public void ResetAgentProperties()</code></p>
+<p><strong>Purpose:</strong> Returns agent properties to its default or initial condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ResetAgentProperties();
+</code></pre>
+<h3 id="resetaiwaitbeforeshootfactor">ResetAiWaitBeforeShootFactor</h3>
+<p><code>public void ResetAiWaitBeforeShootFactor()</code></p>
+<p><strong>Purpose:</strong> Returns ai wait before shoot factor to its default or initial condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ResetAiWaitBeforeShootFactor();
+</code></pre>
+<h3 id="cleartargetframe">ClearTargetFrame</h3>
+<p><code>public void ClearTargetFrame()</code></p>
+<p><strong>Purpose:</strong> Removes all target frame from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ClearTargetFrame();
+</code></pre>
+<h3 id="clearequipment">ClearEquipment</h3>
+<p><code>public void ClearEquipment()</code></p>
+<p><strong>Purpose:</strong> Removes all equipment from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ClearEquipment();
+</code></pre>
+<h3 id="clearhandinversekinematics">ClearHandInverseKinematics</h3>
+<p><code>public void ClearHandInverseKinematics()</code></p>
+<p><strong>Purpose:</strong> Removes all hand inverse kinematics from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ClearHandInverseKinematics();
+</code></pre>
+<h3 id="clearattachedweapons">ClearAttachedWeapons</h3>
+<p><code>public void ClearAttachedWeapons()</code></p>
+<p><strong>Purpose:</strong> Removes all attached weapons from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ClearAttachedWeapons();
+</code></pre>
+<h3 id="setdetachablefromformation">SetDetachableFromFormation</h3>
+<p><code>public void SetDetachableFromFormation(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to detachable from formation and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetDetachableFromFormation(false);
+</code></pre>
+<h3 id="undetachandattachtoformation">UndetachAndAttachToFormation</h3>
+<p><code>public void UndetachAndAttachToFormation(bool removeDetachmentScores = true)</code></p>
+<p><strong>Purpose:</strong> Executes the UndetachAndAttachToFormation logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.UndetachAndAttachToFormation(false);
+</code></pre>
+<h3 id="undetachandstopusingobjects">UndetachAndStopUsingObjects</h3>
+<p><code>public void UndetachAndStopUsingObjects(bool removeDetachmentScores = true)</code></p>
+<p><strong>Purpose:</strong> Executes the UndetachAndStopUsingObjects logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.UndetachAndStopUsingObjects(false);
+</code></pre>
+<h3 id="enforceshieldusage">EnforceShieldUsage</h3>
+<p><code>public void EnforceShieldUsage(Agent.UsageDirection shieldDirection)</code></p>
+<p><strong>Purpose:</strong> Executes the EnforceShieldUsage logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.EnforceShieldUsage(shieldDirection);
+</code></pre>
+<h3 id="objecthasvacantposition">ObjectHasVacantPosition</h3>
+<p><code>public bool ObjectHasVacantPosition(UsableMissionObject gameObject)</code></p>
+<p><strong>Purpose:</strong> Executes the ObjectHasVacantPosition logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.ObjectHasVacantPosition(gameObject);
+</code></pre>
+<h3 id="interactingwithanygameobject">InteractingWithAnyGameObject</h3>
+<p><code>public bool InteractingWithAnyGameObject()</code></p>
+<p><strong>Purpose:</strong> Executes the InteractingWithAnyGameObject logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.InteractingWithAnyGameObject();
+</code></pre>
+<h3 id="stopusinggameobjectmt">StopUsingGameObjectMT</h3>
+<p><code>public void StopUsingGameObjectMT(bool isSuccessful = true, Agent.StopUsingGameObjectFlags flags = Agent.StopUsingGameObjectFlags.AutoAttachAfterStoppingUsingGameObject)</code></p>
+<p><strong>Purpose:</strong> Stops the using game object m t flow or state machine.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.StopUsingGameObjectMT(false, agent.StopUsingGameObjectFlags.AutoAttachAfterStoppingUsingGameObject);
+</code></pre>
+<h3 id="stopusinggameobject">StopUsingGameObject</h3>
+<p><code>public void StopUsingGameObject(bool isSuccessful = true, Agent.StopUsingGameObjectFlags flags = Agent.StopUsingGameObjectFlags.AutoAttachAfterStoppingUsingGameObject)</code></p>
+<p><strong>Purpose:</strong> Stops the using game object flow or state machine.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.StopUsingGameObject(false, agent.StopUsingGameObjectFlags.AutoAttachAfterStoppingUsingGameObject);
+</code></pre>
+<h3 id="handlestopusingaction">HandleStopUsingAction</h3>
+<p><code>public void HandleStopUsingAction()</code></p>
+<p><strong>Purpose:</strong> Executes the response logic associated with stop using action.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.HandleStopUsingAction();
+</code></pre>
+<h3 id="handlestartusingaction">HandleStartUsingAction</h3>
+<p><code>public void HandleStartUsingAction(UsableMissionObject targetObject, int preferenceIndex)</code></p>
+<p><strong>Purpose:</strong> Executes the response logic associated with start using action.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.HandleStartUsingAction(targetObject, 0);
+</code></pre>
+<h3 id="addcontroller">AddController</h3>
+<p><code>public AgentController AddController(Type type)</code></p>
+<p><strong>Purpose:</strong> Adds controller to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.AddController(type);
+</code></pre>
+<h3 id="removecontroller">RemoveController</h3>
+<p><code>public AgentController RemoveController(Type type)</code></p>
+<p><strong>Purpose:</strong> Removes controller from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.RemoveController(type);
+</code></pre>
+<h3 id="canthrustattacksticktobone">CanThrustAttackStickToBone</h3>
+<p><code>public bool CanThrustAttackStickToBone(BoneBodyPartType bodyPart)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for thrust attack stick to bone.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.CanThrustAttackStickToBone(bodyPart);
+</code></pre>
+<h3 id="getoldwieldediteminfo">GetOldWieldedItemInfo</h3>
+<p><code>public void GetOldWieldedItemInfo(out int rightHandSlotIndex, out int rightHandUsageIndex, out int leftHandSlotIndex, out int leftHandUsageIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the old wielded item info value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.GetOldWieldedItemInfo(rightHandSlotIndex, rightHandUsageIndex, leftHandSlotIndex, leftHandUsageIndex);
+</code></pre>
+<h3 id="startswitchingweaponusageindexasclient">StartSwitchingWeaponUsageIndexAsClient</h3>
+<p><code>public void StartSwitchingWeaponUsageIndexAsClient(EquipmentIndex equipmentIndex, int usageIndex, Agent.UsageDirection currentMovementFlagUsageDirection)</code></p>
+<p><strong>Purpose:</strong> Starts the switching weapon usage index as client flow or state machine.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.StartSwitchingWeaponUsageIndexAsClient(equipmentIndex, 0, currentMovementFlagUsageDirection);
+</code></pre>
+<h3 id="trytowieldweaponinslot">TryToWieldWeaponInSlot</h3>
+<p><code>public void TryToWieldWeaponInSlot(EquipmentIndex slotIndex, Agent.WeaponWieldActionType type, bool isWieldedOnSpawn)</code></p>
+<p><strong>Purpose:</strong> Attempts to retrieve to wield weapon in slot, usually returning success through an out parameter.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.TryToWieldWeaponInSlot(slotIndex, type, false);
+</code></pre>
+<h3 id="prepareweaponfordropinequipmentslot">PrepareWeaponForDropInEquipmentSlot</h3>
+<p><code>public void PrepareWeaponForDropInEquipmentSlot(EquipmentIndex slotIndex, bool dropWithHolster)</code></p>
+<p><strong>Purpose:</strong> Finishes prerequisite setup for the upcoming weapon for drop in equipment slot operation.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.PrepareWeaponForDropInEquipmentSlot(slotIndex, false);
+</code></pre>
+<h3 id="addhitter">AddHitter</h3>
+<p><code>public void AddHitter(MissionPeer peer, float damage, bool isFriendlyHit)</code></p>
+<p><strong>Purpose:</strong> Adds hitter to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.AddHitter(peer, 0, false);
+</code></pre>
+<h3 id="trytosheathweaponinhand">TryToSheathWeaponInHand</h3>
+<p><code>public void TryToSheathWeaponInHand(Agent.HandIndex handIndex, Agent.WeaponWieldActionType type)</code></p>
+<p><strong>Purpose:</strong> Attempts to retrieve to sheath weapon in hand, usually returning success through an out parameter.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.TryToSheathWeaponInHand(handIndex, type);
+</code></pre>
+<h3 id="removehitter">RemoveHitter</h3>
+<p><code>public void RemoveHitter(MissionPeer peer, bool isFriendlyHit)</code></p>
+<p><strong>Purpose:</strong> Removes hitter from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.RemoveHitter(peer, false);
+</code></pre>
+<h3 id="retreat">Retreat</h3>
+<p><code>public void Retreat(WorldPosition retreatPos)</code></p>
+<p><strong>Purpose:</strong> Executes the Retreat logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.Retreat(retreatPos);
+</code></pre>
+<h3 id="stopretreating">StopRetreating</h3>
+<p><code>public void StopRetreating()</code></p>
+<p><strong>Purpose:</strong> Stops the retreating flow or state machine.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.StopRetreating();
+</code></pre>
+<h3 id="usegameobject">UseGameObject</h3>
+<p><code>public void UseGameObject(UsableMissionObject usedObject, int preferenceIndex = -1)</code></p>
+<p><strong>Purpose:</strong> Executes the UseGameObject logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.UseGameObject(usedObject, 0);
+</code></pre>
+<h3 id="saveequipmentsonhand">SaveEquipmentsOnHand</h3>
+<p><code>public void SaveEquipmentsOnHand()</code></p>
+<p><strong>Purpose:</strong> Writes equipments on hand to persistent storage or a stream.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SaveEquipmentsOnHand();
+</code></pre>
+<h3 id="startfadingout">StartFadingOut</h3>
+<p><code>public void StartFadingOut()</code></p>
+<p><strong>Purpose:</strong> Starts the fading out flow or state machine.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.StartFadingOut();
+</code></pre>
+<h3 id="iswandering">IsWandering</h3>
+<p><code>public bool IsWandering()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the wandering state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.IsWandering();
+</code></pre>
+<h3 id="setrendercheckenabled">SetRenderCheckEnabled</h3>
+<p><code>public void SetRenderCheckEnabled(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to render check enabled and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetRenderCheckEnabled(false);
+</code></pre>
+<h3 id="getrendercheckenabled">GetRenderCheckEnabled</h3>
+<p><code>public bool GetRenderCheckEnabled()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the render check enabled value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetRenderCheckEnabled();
+</code></pre>
+<h3 id="computeanimationdisplacement">ComputeAnimationDisplacement</h3>
+<p><code>public Vec3 ComputeAnimationDisplacement(float dt)</code></p>
+<p><strong>Purpose:</strong> Executes the ComputeAnimationDisplacement logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.ComputeAnimationDisplacement(0);
+</code></pre>
+<h3 id="tickactionchannels">TickActionChannels</h3>
+<p><code>public void TickActionChannels(float dt)</code></p>
+<p><strong>Purpose:</strong> Advances the action channels state each frame or update cycle.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.TickActionChannels(0);
+</code></pre>
+<h3 id="lockagentreplicationtabledatawithcurrentreliablesequenceno">LockAgentReplicationTableDataWithCurrentReliableSequenceNo</h3>
+<p><code>public void LockAgentReplicationTableDataWithCurrentReliableSequenceNo(NetworkCommunicator peer)</code></p>
+<p><strong>Purpose:</strong> Executes the LockAgentReplicationTableDataWithCurrentReliableSequenceNo logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.LockAgentReplicationTableDataWithCurrentReliableSequenceNo(peer);
+</code></pre>
+<h3 id="teleporttoposition">TeleportToPosition</h3>
+<p><code>public void TeleportToPosition(Vec3 position)</code></p>
+<p><strong>Purpose:</strong> Executes the TeleportToPosition logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.TeleportToPosition(position);
+</code></pre>
+<h3 id="fadeout">FadeOut</h3>
+<p><code>public void FadeOut(bool hideInstantly, bool hideMount)</code></p>
+<p><strong>Purpose:</strong> Executes the FadeOut logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.FadeOut(false, false);
+</code></pre>
+<h3 id="fadein">FadeIn</h3>
+<p><code>public void FadeIn()</code></p>
+<p><strong>Purpose:</strong> Executes the FadeIn logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.FadeIn();
+</code></pre>
+<h3 id="disablescriptedmovement">DisableScriptedMovement</h3>
+<p><code>public void DisableScriptedMovement()</code></p>
+<p><strong>Purpose:</strong> Executes the DisableScriptedMovement logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.DisableScriptedMovement();
+</code></pre>
+<h3 id="disablescriptedcombatmovement">DisableScriptedCombatMovement</h3>
+<p><code>public void DisableScriptedCombatMovement()</code></p>
+<p><strong>Purpose:</strong> Executes the DisableScriptedCombatMovement logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.DisableScriptedCombatMovement();
+</code></pre>
+<h3 id="forceaibehaviorselection">ForceAiBehaviorSelection</h3>
+<p><code>public void ForceAiBehaviorSelection()</code></p>
+<p><strong>Purpose:</strong> Executes the ForceAiBehaviorSelection logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ForceAiBehaviorSelection();
+</code></pre>
+<h3 id="haspaththroughnavigationfaceidfromdirectionmt">HasPathThroughNavigationFaceIdFromDirectionMT</h3>
+<p><code>public bool HasPathThroughNavigationFaceIdFromDirectionMT(int navigationFaceId, Vec2 direction)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds path through navigation face id from direction m t.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.HasPathThroughNavigationFaceIdFromDirectionMT(0, direction);
+</code></pre>
+<h3 id="haspaththroughnavigationfaceidfromdirection">HasPathThroughNavigationFaceIdFromDirection</h3>
+<p><code>public bool HasPathThroughNavigationFaceIdFromDirection(int navigationFaceId, Vec2 direction)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds path through navigation face id from direction.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.HasPathThroughNavigationFaceIdFromDirection(0, direction);
+</code></pre>
+<h3 id="disablelooktopointofinterest">DisableLookToPointOfInterest</h3>
+<p><code>public void DisableLookToPointOfInterest()</code></p>
+<p><strong>Purpose:</strong> Executes the DisableLookToPointOfInterest logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.DisableLookToPointOfInterest();
+</code></pre>
+<h3 id="addprefabcomponenttobone">AddPrefabComponentToBone</h3>
+<p><code>public CompositeComponent AddPrefabComponentToBone(string prefabName, sbyte boneIndex)</code></p>
+<p><strong>Purpose:</strong> Adds prefab component to bone to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.AddPrefabComponentToBone(&quot;example&quot;, 0);
+</code></pre>
+<h3 id="makevoice">MakeVoice</h3>
+<p><code>public void MakeVoice(SkinVoiceManager.SkinVoiceType voiceType, SkinVoiceManager.CombatVoiceNetworkPredictionType predictionType)</code></p>
+<p><strong>Purpose:</strong> Executes the MakeVoice logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.MakeVoice(voiceType, predictionType);
+</code></pre>
+<h3 id="yellafterdelay">YellAfterDelay</h3>
+<p><code>public void YellAfterDelay(float delayTimeInSecond)</code></p>
+<p><strong>Purpose:</strong> Executes the YellAfterDelay logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.YellAfterDelay(0);
+</code></pre>
+<h3 id="wieldnextweapon">WieldNextWeapon</h3>
+<p><code>public void WieldNextWeapon(Agent.HandIndex weaponIndex, Agent.WeaponWieldActionType wieldActionType = Agent.WeaponWieldActionType.WithAnimation)</code></p>
+<p><strong>Purpose:</strong> Executes the WieldNextWeapon logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.WieldNextWeapon(weaponIndex, agent.WeaponWieldActionType.WithAnimation);
+</code></pre>
+<h3 id="attackdirectiontomovementflag">AttackDirectionToMovementFlag</h3>
+<p><code>public Agent.MovementControlFlag AttackDirectionToMovementFlag(Agent.UsageDirection direction)</code></p>
+<p><strong>Purpose:</strong> Executes the AttackDirectionToMovementFlag logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.AttackDirectionToMovementFlag(direction);
+</code></pre>
+<h3 id="defenddirectiontomovementflag">DefendDirectionToMovementFlag</h3>
+<p><code>public Agent.MovementControlFlag DefendDirectionToMovementFlag(Agent.UsageDirection direction)</code></p>
+<p><strong>Purpose:</strong> Executes the DefendDirectionToMovementFlag logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.DefendDirectionToMovementFlag(direction);
+</code></pre>
+<h3 id="kickclear">KickClear</h3>
+<p><code>public bool KickClear()</code></p>
+<p><strong>Purpose:</strong> Executes the KickClear logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.KickClear();
+</code></pre>
+<h3 id="playerattackdirection">PlayerAttackDirection</h3>
+<p><code>public Agent.UsageDirection PlayerAttackDirection()</code></p>
+<p><strong>Purpose:</strong> Executes the PlayerAttackDirection logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.PlayerAttackDirection();
+</code></pre>
+<h3 id="getrandompairofrealbloodburstboneindices">GetRandomPairOfRealBloodBurstBoneIndices</h3>
+<p><code>public ValueTuple&lt;sbyte, sbyte&gt; GetRandomPairOfRealBloodBurstBoneIndices()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the random pair of real blood burst bone indices value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetRandomPairOfRealBloodBurstBoneIndices();
+</code></pre>
+<h3 id="createbloodburstatlimb">CreateBloodBurstAtLimb</h3>
+<p><code>public void CreateBloodBurstAtLimb(sbyte realBoneIndex, float scale)</code></p>
+<p><strong>Purpose:</strong> Constructs a new blood burst at limb entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.CreateBloodBurstAtLimb(0, 0);
+</code></pre>
+<h3 id="addcomponent">AddComponent</h3>
+<p><code>public void AddComponent(AgentComponent agentComponent)</code></p>
+<p><strong>Purpose:</strong> Adds component to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.AddComponent(agentComponent);
+</code></pre>
+<h3 id="removecomponent">RemoveComponent</h3>
+<p><code>public bool RemoveComponent(AgentComponent agentComponent)</code></p>
+<p><strong>Purpose:</strong> Removes component from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.RemoveComponent(agentComponent);
+</code></pre>
+<h3 id="handletaunt">HandleTaunt</h3>
+<p><code>public void HandleTaunt(int tauntIndex, bool isDefaultTaunt)</code></p>
+<p><strong>Purpose:</strong> Executes the response logic associated with taunt.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.HandleTaunt(0, false);
+</code></pre>
+<h3 id="handlebark">HandleBark</h3>
+<p><code>public void HandleBark(int indexOfBark)</code></p>
+<p><strong>Purpose:</strong> Executes the response logic associated with bark.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.HandleBark(0);
+</code></pre>
+<h3 id="handledropweapon">HandleDropWeapon</h3>
+<p><code>public void HandleDropWeapon(bool isDefendPressed, EquipmentIndex forcedSlotIndexToDropWeaponFrom)</code></p>
+<p><strong>Purpose:</strong> Executes the response logic associated with drop weapon.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.HandleDropWeapon(false, forcedSlotIndexToDropWeaponFrom);
+</code></pre>
+<h3 id="dropitem">DropItem</h3>
+<p><code>public void DropItem(EquipmentIndex itemIndex, WeaponClass pickedUpItemType = WeaponClass.Undefined)</code></p>
+<p><strong>Purpose:</strong> Executes the DropItem logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.DropItem(itemIndex, weaponClass.Undefined);
+</code></pre>
+<h3 id="equipitemsfromspawnequipment">EquipItemsFromSpawnEquipment</h3>
+<p><code>public void EquipItemsFromSpawnEquipment(bool neededBatchedItems)</code></p>
+<p><strong>Purpose:</strong> Executes the EquipItemsFromSpawnEquipment logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.EquipItemsFromSpawnEquipment(false);
+</code></pre>
+<h3 id="wieldinitialweapons">WieldInitialWeapons</h3>
+<p><code>public void WieldInitialWeapons(Agent.WeaponWieldActionType wieldActionType = Agent.WeaponWieldActionType.InstantAfterPickUp, Equipment.InitialWeaponEquipPreference initialWeaponEquipPreference = TaleWorlds.Core.Equipment.InitialWeaponEquipPreference.Any)</code></p>
+<p><strong>Purpose:</strong> Executes the WieldInitialWeapons logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.WieldInitialWeapons(agent.WeaponWieldActionType.InstantAfterPickUp, taleWorlds.Core.Equipment.InitialWeaponEquipPreference.Any);
+</code></pre>
+<h3 id="changeweaponhitpoints">ChangeWeaponHitPoints</h3>
+<p><code>public void ChangeWeaponHitPoints(EquipmentIndex slotIndex, short hitPoints)</code></p>
+<p><strong>Purpose:</strong> Executes the ChangeWeaponHitPoints logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ChangeWeaponHitPoints(slotIndex, 0);
+</code></pre>
+<h3 id="hasweapon">HasWeapon</h3>
+<p><code>public bool HasWeapon()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds weapon.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.HasWeapon();
+</code></pre>
+<h3 id="attachweapontoweapon">AttachWeaponToWeapon</h3>
+<p><code>public void AttachWeaponToWeapon(EquipmentIndex slotIndex, MissionWeapon weapon, GameEntity weaponEntity, ref MatrixFrame attachLocalFrame)</code></p>
+<p><strong>Purpose:</strong> Executes the AttachWeaponToWeapon logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.AttachWeaponToWeapon(slotIndex, weapon, weaponEntity, attachLocalFrame);
+</code></pre>
+<h3 id="attachweapontobone">AttachWeaponToBone</h3>
+<p><code>public void AttachWeaponToBone(MissionWeapon weapon, GameEntity weaponEntity, sbyte boneIndex, ref MatrixFrame attachLocalFrame)</code></p>
+<p><strong>Purpose:</strong> Executes the AttachWeaponToBone logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.AttachWeaponToBone(weapon, weaponEntity, 0, attachLocalFrame);
+</code></pre>
+<h3 id="restoreshieldhitpoints">RestoreShieldHitPoints</h3>
+<p><code>public void RestoreShieldHitPoints()</code></p>
+<p><strong>Purpose:</strong> Executes the RestoreShieldHitPoints logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.RestoreShieldHitPoints();
+</code></pre>
+<h3 id="die">Die</h3>
+<p><code>public void Die(Blow b, Agent.KillInfo overrideKillInfo = Agent.KillInfo.Invalid)</code></p>
+<p><strong>Purpose:</strong> Executes the Die logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.Die(b, agent.KillInfo.Invalid);
+</code></pre>
+<h3 id="makedead">MakeDead</h3>
+<p><code>public void MakeDead(bool isKilled, ActionIndexCache actionIndex, int corpsesToFadeIndex = -1)</code></p>
+<p><strong>Purpose:</strong> Executes the MakeDead logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.MakeDead(false, actionIndex, 0);
+</code></pre>
+<h3 id="registerblow">RegisterBlow</h3>
+<p><code>public void RegisterBlow(Blow blow, in AttackCollisionData collisionData)</code></p>
+<p><strong>Purpose:</strong> Registers blow with the current system so it can later be observed or dispatched.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.RegisterBlow(blow, collisionData);
+</code></pre>
+<h3 id="createblowfromblowasreflection">CreateBlowFromBlowAsReflection</h3>
+<p><code>public void CreateBlowFromBlowAsReflection(in Blow blow, in AttackCollisionData collisionData, out Blow outBlow, out AttackCollisionData outCollisionData)</code></p>
+<p><strong>Purpose:</strong> Constructs a new blow from blow as reflection entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.CreateBlowFromBlowAsReflection(blow, collisionData, outBlow, outCollisionData);
+</code></pre>
+<h3 id="tickparallel">TickParallel</h3>
+<p><code>public void TickParallel(float dt)</code></p>
+<p><strong>Purpose:</strong> Advances the parallel state each frame or update cycle.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.TickParallel(0);
+</code></pre>
+<h3 id="tick">Tick</h3>
+<p><code>public void Tick(float dt)</code></p>
+<p><strong>Purpose:</strong> Advances the this instance's state by one frame or update cycle.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.Tick(0);
+</code></pre>
+<h3 id="debugmore">DebugMore</h3>
+<p><code>public void DebugMore()</code></p>
+<p><strong>Purpose:</strong> Executes the DebugMore logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.DebugMore();
+</code></pre>
+<h3 id="mount">Mount</h3>
+<p><code>public void Mount(Agent mountAgent)</code></p>
+<p><strong>Purpose:</strong> Executes the Mount logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.Mount(mountAgent);
+</code></pre>
+<h3 id="equipweapontoextraslotandwield">EquipWeaponToExtraSlotAndWield</h3>
+<p><code>public void EquipWeaponToExtraSlotAndWield(ref MissionWeapon weapon)</code></p>
+<p><strong>Purpose:</strong> Executes the EquipWeaponToExtraSlotAndWield logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.EquipWeaponToExtraSlotAndWield(weapon);
+</code></pre>
+<h3 id="removeequippedweapon">RemoveEquippedWeapon</h3>
+<p><code>public void RemoveEquippedWeapon(EquipmentIndex slotIndex)</code></p>
+<p><strong>Purpose:</strong> Removes equipped weapon from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.RemoveEquippedWeapon(slotIndex);
+</code></pre>
+<h3 id="equipweaponwithnewentity">EquipWeaponWithNewEntity</h3>
+<p><code>public void EquipWeaponWithNewEntity(EquipmentIndex slotIndex, ref MissionWeapon weapon)</code></p>
+<p><strong>Purpose:</strong> Executes the EquipWeaponWithNewEntity logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.EquipWeaponWithNewEntity(slotIndex, weapon);
+</code></pre>
+<h3 id="equipweaponfromspawneditementity">EquipWeaponFromSpawnedItemEntity</h3>
+<p><code>public void EquipWeaponFromSpawnedItemEntity(EquipmentIndex slotIndex, SpawnedItemEntity spawnedItemEntity, bool removeWeapon)</code></p>
+<p><strong>Purpose:</strong> Executes the EquipWeaponFromSpawnedItemEntity logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.EquipWeaponFromSpawnedItemEntity(slotIndex, spawnedItemEntity, false);
+</code></pre>
+<h3 id="preloadforrendering">PreloadForRendering</h3>
+<p><code>public void PreloadForRendering()</code></p>
+<p><strong>Purpose:</strong> Executes the PreloadForRendering logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.PreloadForRendering();
+</code></pre>
+<h3 id="addsynchedprefabcomponenttobone">AddSynchedPrefabComponentToBone</h3>
+<p><code>public int AddSynchedPrefabComponentToBone(string prefabName, sbyte boneIndex)</code></p>
+<p><strong>Purpose:</strong> Adds synched prefab component to bone to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.AddSynchedPrefabComponentToBone(&quot;example&quot;, 0);
+</code></pre>
+<h3 id="willdropwieldedshield">WillDropWieldedShield</h3>
+<p><code>public bool WillDropWieldedShield(SpawnedItemEntity spawnedItem)</code></p>
+<p><strong>Purpose:</strong> Executes the WillDropWieldedShield logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.WillDropWieldedShield(spawnedItem);
+</code></pre>
+<h3 id="hadsametypeofconsumableorshieldonspawn">HadSameTypeOfConsumableOrShieldOnSpawn</h3>
+<p><code>public bool HadSameTypeOfConsumableOrShieldOnSpawn(WeaponClass weaponClass)</code></p>
+<p><strong>Purpose:</strong> Executes the HadSameTypeOfConsumableOrShieldOnSpawn logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.HadSameTypeOfConsumableOrShieldOnSpawn(weaponClass);
+</code></pre>
+<h3 id="gethashcode">GetHashCode</h3>
+<p><code>public override int GetHashCode()</code></p>
+<p><strong>Purpose:</strong> Returns a hash code for the this instance, used for fast lookup in dictionaries and hash sets.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.GetHashCode();
+</code></pre>
+<h3 id="trygetimmediateenemyagentmovementdata">TryGetImmediateEnemyAgentMovementData</h3>
+<p><code>public bool TryGetImmediateEnemyAgentMovementData(out float maximumForwardUnlimitedSpeed, out Vec3 position)</code></p>
+<p><strong>Purpose:</strong> Attempts to retrieve get immediate enemy agent movement data, usually returning success through an out parameter.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.TryGetImmediateEnemyAgentMovementData(maximumForwardUnlimitedSpeed, position);
+</code></pre>
+<h3 id="haslostshield">HasLostShield</h3>
+<p><code>public bool HasLostShield()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds lost shield.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.HasLostShield();
+</code></pre>
+<h3 id="setlastdetachmenttickagenttime">SetLastDetachmentTickAgentTime</h3>
+<p><code>public void SetLastDetachmentTickAgentTime(float lastDetachmentTickAgentTime)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to last detachment tick agent time and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetLastDetachmentTickAgentTime(0);
+</code></pre>
+<h3 id="setdetachmentweight">SetDetachmentWeight</h3>
+<p><code>public void SetDetachmentWeight(float newDetachmentWeight)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to detachment weight and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetDetachmentWeight(0);
+</code></pre>
+<h3 id="setdetachmentindex">SetDetachmentIndex</h3>
+<p><code>public void SetDetachmentIndex(int newDetachmentIndex)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to detachment index and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetDetachmentIndex(0);
+</code></pre>
+<h3 id="setowningagentmissionpeer">SetOwningAgentMissionPeer</h3>
+<p><code>public void SetOwningAgentMissionPeer(MissionPeer owningAgentMissionPeer)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to owning agent mission peer and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetOwningAgentMissionPeer(owningAgentMissionPeer);
+</code></pre>
+<h3 id="setmissionrepresentative">SetMissionRepresentative</h3>
+<p><code>public void SetMissionRepresentative(MissionRepresentativeBase missionRepresentative)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to mission representative and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetMissionRepresentative(missionRepresentative);
+</code></pre>
+<h3 id="setisladderqueueusing">SetIsLadderQueueUsing</h3>
+<p><code>public void SetIsLadderQueueUsing(bool isLadderQueueUsing)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to is ladder queue using and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetIsLadderQueueUsing(false);
+</code></pre>
+<h3 id="setisinladderqueue">SetIsInLadderQueue</h3>
+<p><code>public void SetIsInLadderQueue(bool isInLadderQueue)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to is in ladder queue and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetIsInLadderQueue(false);
+</code></pre>
+<h3 id="updatelocalpositionerror">UpdateLocalPositionError</h3>
+<p><code>public void UpdateLocalPositionError()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of local position error.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.UpdateLocalPositionError();
+</code></pre>
+<h3 id="yellingbehaviour">YellingBehaviour</h3>
+<p><code>public void YellingBehaviour()</code></p>
+<p><strong>Purpose:</strong> Executes the YellingBehaviour logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.YellingBehaviour();
+</code></pre>
+<h3 id="haspaththroughnavigationfacesidfromdirection">HasPathThroughNavigationFacesIDFromDirection</h3>
+<p><code>public bool HasPathThroughNavigationFacesIDFromDirection(int navigationFaceID_1, int navigationFaceID_2, int navigationFaceID_3, Vec2 direction)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds path through navigation faces i d from direction.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.HasPathThroughNavigationFacesIDFromDirection(0, 0, 0, direction);
+</code></pre>
+<h3 id="haspaththroughnavigationfacesidfromdirectionmt">HasPathThroughNavigationFacesIDFromDirectionMT</h3>
+<p><code>public bool HasPathThroughNavigationFacesIDFromDirectionMT(int navigationFaceID_1, int navigationFaceID_2, int navigationFaceID_3, Vec2 direction)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds path through navigation faces i d from direction m t.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+var result = agent.HasPathThroughNavigationFacesIDFromDirectionMT(0, 0, 0, direction);
+</code></pre>
+<h3 id="setinitialframe">SetInitialFrame</h3>
+<p><code>public void SetInitialFrame(in Vec3 initialPosition, in Vec2 initialDirection, bool canSpawnOutsideOfMissionBoundary = false)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to initial frame and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.SetInitialFrame(initialPosition, initialDirection, false);
+</code></pre>
+<h3 id="cleartargetz">ClearTargetZ</h3>
+<p><code>public void ClearTargetZ()</code></p>
+<p><strong>Purpose:</strong> Removes all target z from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.ClearTargetZ();
+</code></pre>
+<h3 id="movementflagtodirection">MovementFlagToDirection</h3>
+<p><code>public static Agent.UsageDirection MovementFlagToDirection(Agent.MovementControlFlag flag)</code></p>
+<p><strong>Purpose:</strong> Moves ment flag to direction to a new position or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Agent.MovementFlagToDirection(flag);
+</code></pre>
+<h3 id="getactiondirection">GetActionDirection</h3>
+<p><code>public static Agent.UsageDirection GetActionDirection(int actionIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the action direction value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Agent.GetActionDirection(0);
+</code></pre>
+<h3 id="getmonsterusageindex">GetMonsterUsageIndex</h3>
+<p><code>public static int GetMonsterUsageIndex(string monsterUsage)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the monster usage index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Agent.GetMonsterUsageIndex(&quot;example&quot;);
+</code></pre>
+<h3 id="increasedamage">IncreaseDamage</h3>
+<p><code>public void IncreaseDamage(float amount)</code></p>
+<p><strong>Purpose:</strong> Executes the IncreaseDamage logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.IncreaseDamage(0);
+</code></pre>
+<h3 id="initialize">Initialize</h3>
+<p><code>public void Initialize()</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings the this instance needs before use.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.Initialize();
+</code></pre>
+<h3 id="registerlastblow">RegisterLastBlow</h3>
+<p><code>public void RegisterLastBlow(int ownerId, AgentAttackType attackType)</code></p>
+<p><strong>Purpose:</strong> Registers last blow with the current system so it can later be observed or dispatched.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.RegisterLastBlow(0, attackType);
+</code></pre>
+<h3 id="onagenthealthchangeddelegate">OnAgentHealthChangedDelegate</h3>
+<p><code>public delegate void OnAgentHealthChangedDelegate(Agent agent, float oldHealth, float newHealth)</code></p>
+<p><strong>Purpose:</strong> Invoked when the agent health changed delegate event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.OnAgentHealthChangedDelegate(agent, 0, 0);
+</code></pre>
+<h3 id="onmounthealthchangeddelegate">OnMountHealthChangedDelegate</h3>
+<p><code>public delegate void OnMountHealthChangedDelegate(Agent agent, Agent mount, float oldHealth, float newHealth)</code></p>
+<p><strong>Purpose:</strong> Invoked when the mount health changed delegate event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.OnMountHealthChangedDelegate(agent, mount, 0, 0);
+</code></pre>
+<h3 id="onmainagentwieldeditemchangedelegate">OnMainAgentWieldedItemChangeDelegate</h3>
+<p><code>public delegate void OnMainAgentWieldedItemChangeDelegate()</code></p>
+<p><strong>Purpose:</strong> Invoked when the main agent wielded item change delegate event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Agent from the subsystem API first
+Agent agent = ...;
+agent.OnMainAgentWieldedItemChangeDelegate();
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+Agent agent = ...;
+agent.GetHasOnAiInputSetCallback();
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/mission/">mission index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <span class="page-navigation-disabled" aria-disabled="true">&larr; First item</span>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/mission/IMBItem/">IMBItem &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

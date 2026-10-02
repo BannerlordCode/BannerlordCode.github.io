@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Getting Started Guide</title>
+  <meta name="description" content="Quick start guide for Bannerlord v1.3.0 modding">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/guide/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/guide/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/guide/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/guide/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/guide/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/guide/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="active">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Getting Started Guide</span>
+    </nav>
+  
+  <h1>Getting Started Guide</h1>
+  <h1 id="getting-started-guide">Getting Started Guide</h1>
+<h2 id="mental-model">Mental Model</h2>
+<p>Treat <code>Getting Started Guide</code> as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.</p>
+<p>Welcome to the Bannerlord v1.3.0 modding getting started guide. This guide covers the basics for v1.3.0.</p>
+<blockquote>
+<p><strong>Note</strong>
+v1.3.0 is the version before v1.3.15. Some APIs may differ from the newer version. For new projects, it is recommended to use v1.3.15.</p>
+</blockquote>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/#environment-setup">Environment Setup</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/#project-structure">Project Structure</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/#your-first-submodule">Your First SubModule</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/#debugging-tips">Debugging Tips</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/#version-differences">Version Differences</a></li>
+</ol>
+<hr />
+<h2 id="advanced-topics">Advanced Topics</h2>
+<blockquote>
+<p>Note: v1.3.0 has some API differences from v1.3.15. Refer to <a href="../../../v1.3.15/en/guide/">v1.3.15 Guide</a> for more complete content.</p>
+</blockquote>
+<ol start="6">
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/./mission-basics">Mission System Basics</a> - Mission, MissionBehavior introduction</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/./campaign-basics">Campaign System Basics</a> - MobileParty, Kingdom introduction</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/./ui-basics">UI System Basics</a> - GauntletMovie introduction</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/./save-system">Save System</a> - v1.3.0 save implementation</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/./common-issues">Common Issues</a> - Common errors and solutions</li>
+</ol>
+<hr />
+<h2 id="environment-setup">Environment Setup</h2>
+<h3 id="system-requirements">System Requirements</h3>
+<table><thead><tr><th>Requirement</th><th>Minimum</th><th>Recommended</th></tr></thead><tbody>
+<tr><td>OS</td><td>Windows 10</td><td>Windows 11</td></tr>
+<tr><td>RAM</td><td>8GB</td><td>16GB</td></tr>
+<tr><td>Disk Space</td><td>50GB free</td><td>100GB SSD</td></tr>
+<tr><td>.NET</td><td>.NET Framework 4.7.2</td><td>.NET Framework 4.8</td></tr>
+</tbody></table>
+<h3 id="installation-steps">Installation Steps</h3>
+<ol>
+<li>
+<p><strong>Install Visual Studio 2019/2022</strong></p>
+<ul>
+<li>Download <a rel="noopener external" target="_blank" href="https://visualstudio.microsoft.com/downloads/">Visual Studio</a></li>
+<li>Select <code>.NET desktop development</code> workload</li>
+</ul>
+</li>
+<li>
+<p><strong>Install TaleWorlds.Modding SDK</strong></p>
+<pre><code data-lang="bash">git clone https://github.com/BannerlordCoop/modding-sdk.git
+cd modding-sdk
+.\setup.bat
+</code></pre>
+</li>
+<li>
+<p><strong>Configure Game Path</strong></p>
+<ul>
+<li>Open <code>Module Manager</code></li>
+<li>Set game installation path</li>
+</ul>
+</li>
+</ol>
+<h3 id="verify-installation">Verify Installation</h3>
+<p>Launch the game and confirm your module appears in the list.</p>
+<hr />
+<h2 id="project-structure">Project Structure</h2>
+<pre><code>MyModule/
+├── MyModule.dll
+├── SubModule.xml
+├── ModuleData/
+│   └── lang/
+│       └── strings.txt
+├── Assets/
+│   ├── meshes/
+│   ├── textures/
+│   └── sounds/
+└── Guis/
+    └── gauntlet/
+</code></pre>
+<h3 id="submodule-xml-explained">SubModule.xml Explained</h3>
+<pre><code data-lang="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;Module&gt;
+  &lt;Name value=&quot;MyModule&quot;/&gt;
+  &lt;Version value=&quot;1.0.0&quot;/&gt;
+  &lt;DefaultModule&gt;
+    &lt;Xmls&gt;
+      &lt;XmlNode path=&quot;ModuleData/my_config&quot;/&gt;
+    &lt;/Xmls&gt;
+  &lt;/DefaultModule&gt;
+&lt;/Module&gt;
+</code></pre>
+<hr />
+<h2 id="your-first-submodule">Your First SubModule</h2>
+<h3 id="create-project">Create Project</h3>
+<ol>
+<li>Create <code>Class Library (.NET Framework)</code> project in Visual Studio</li>
+<li>Add NuGet packages:<pre><code data-lang="powershell">Install-Package TaleWorlds.Core
+Install-Package TaleWorlds.MountAndBlade
+Install-Package TaleWorlds.Library
+</code></pre>
+</li>
+</ol>
+<h3 id="create-submodule-class">Create SubModule Class</h3>
+<pre><code data-lang="csharp">using TaleWorlds.MountAndBlade;
+
+namespace MyModule
+{
+    public class MySubModule : MBSubModuleBase
+    {
+        protected override void OnSubModuleLoad()
+        {
+            base.OnSubModuleLoad();
+        }
+
+        protected override void OnGameStartGame(Game game, GameStarter gameStarter)
+        {
+            base.OnGameStartGame(game, gameStarter);
+        }
+    }
+}
+</code></pre>
+<h3 id="register-submodule">Register SubModule</h3>
+<pre><code data-lang="xml">&lt;Module&gt;
+  &lt;Dlls&gt;
+    &lt;DllInfo&gt;
+      &lt;AssemblyFile&gt;MyModule.dll&lt;/AssemblyFile&gt;
+      &lt;SubModuleClassType&gt;MyModule.MySubModule&lt;/SubModuleClassType&gt;
+    &lt;/DllInfo&gt;
+  &lt;/Dlls&gt;
+&lt;/Module&gt;
+</code></pre>
+<hr />
+<h2 id="debugging-tips">Debugging Tips</h2>
+<h3 id="breakpoint-debugging">Breakpoint Debugging</h3>
+<ol>
+<li>Set breakpoints (F9) in Visual Studio</li>
+<li>Press <code>F5</code> to start debugging</li>
+</ol>
+<h3 id="log-file-location">Log File Location</h3>
+<pre><code>C:\Users\&lt;username&gt;\Documents\Mount &amp; Blade II Bannerlord\logs\rgl_log.txt
+</code></pre>
+<hr />
+<h2 id="version-differences">Version Differences</h2>
+<h3 id="v1-3-0-vs-v1-3-15-key-differences">v1.3.0 vs v1.3.15 Key Differences</h3>
+<table><thead><tr><th>Feature</th><th>v1.3.0</th><th>v1.3.15</th></tr></thead><tbody>
+<tr><td>SaveSystem</td><td>Inline implementation</td><td>Separate TaleWorlds.SaveSystem</td></tr>
+<tr><td>Async loading</td><td>Partial support</td><td>Full support</td></tr>
+<tr><td>[Obsolete] markers</td><td>Fewer</td><td>More</td></tr>
+</tbody></table>
+<h3 id="upgrade-recommendations">Upgrade Recommendations</h3>
+<ul>
+<li>For new projects, use v1.3.15</li>
+<li>Existing v1.3.0 projects can continue maintenance</li>
+<li>Check <a href="../api/">API Reference</a> before upgrading</li>
+</ul>
+<hr />
+<h2 id="next-steps">Next Steps</h2>
+<ul>
+<li>View <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/./mission-basics">Mission System Basics</a> - Learn Mission and MissionBehavior</li>
+<li>View <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/./campaign-basics">Campaign System Basics</a> - Learn world map logic</li>
+<li>View <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/./ui-basics">UI System Basics</a> - Learn Gauntlet UI</li>
+<li>View <a href="../api/">API Reference</a> to learn available interfaces</li>
+<li>View <a href="../xml-reference/">XML Reference</a> to learn configuration formats</li>
+<li>View <a href="../architecture/">Architecture</a> to understand system design</li>
+<li>Recommended: Use <a href="../../../v1.3.15/en/guide/">v1.3.15 Guide</a> for more complete content</li>
+</ul>
+<hr />
+<h2 id="faq">FAQ</h2>
+<h3 id="q-module-doesn-t-show-in-list">Q: Module doesn't show in list?</h3>
+<p>Check:</p>
+<ol>
+<li><code>SubModule.xml</code> is in correct location</li>
+<li>DLL is compiled</li>
+<li>Class name matches XML</li>
+</ol>
+<h3 id="q-which-is-better-v1-3-0-or-v1-3-15">Q: Which is better, v1.3.0 or v1.3.15?</h3>
+<table><thead><tr><th>Feature</th><th>v1.3.0</th><th>v1.3.15</th></tr></thead><tbody>
+<tr><td>SaveSystem</td><td>Inline implementation</td><td>Separate TaleWorlds.SaveSystem</td></tr>
+<tr><td>Stability</td><td>Stable</td><td>Newer</td></tr>
+<tr><td>Mod compatibility</td><td>Depends on mod</td><td>Depends on mod</td></tr>
+</tbody></table>
+<p>For new projects, v1.3.15 is recommended.</p>
+<h3 id="q-how-to-upgrade-to-v1-3-15">Q: How to upgrade to v1.3.15?</h3>
+<ol>
+<li>Check v1.3.15 API changes</li>
+<li>If using TaleWorlds.SaveSystem, need to re-implement</li>
+<li>Test all functionality</li>
+</ol>
+<!-- BEGIN SECTION INDEX -->
+<h2 id="parent-navigation">Parent Navigation</h2>
+<ul>
+<li><a href="../">Version Home</a></li>
+</ul>
+<h2 id="child-pages">Child Pages</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/./campaign-basics">Campaign System Basics</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/./common-issues">Common Issues</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/./mission-basics">Mission System Basics</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/./save-system">Save System</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/guide/./ui-basics">UI System Basics</a></li>
+</ul>
+<!-- END SECTION INDEX -->
+
+</article>
+<hr>
+<ul>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;guide&#x2F;ui-basics&#x2F;">UI System Basics</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;guide&#x2F;mission-basics&#x2F;">Mission System Basics</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;guide&#x2F;common-issues&#x2F;">Common Issues</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;guide&#x2F;save-system&#x2F;">Save System</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;guide&#x2F;campaign-basics&#x2F;">Campaign System Basics</a></li>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

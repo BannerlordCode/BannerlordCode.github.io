@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MapEvents Family</title>
+  <meta name="description" content="Campaign-map battles, their participants and components, save ownership, and the transition into Mission combat.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/mapevents/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/mapevents/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MapEvents Family</span>
+    </nav>
+  
+  <h1>MapEvents Family</h1>
+  <h1 id="mapevents-family">MapEvents Family</h1>
+<p><strong>One-sentence role:</strong> A <code>MapEvent</code> is the campaign-owned battle record that gathers parties into attacker and defender sides, advances the encounter, and survives long enough for Mission results to be committed back to the world.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>The event is neither a menu nor a Mission. <code>MapEventManager</code> owns the saved list and ticks it; <code>MapEvent</code> owns two <code>MapEventSide</code> objects, their <code>MapEventParty</code> members, battle state, and event component. <code>PlayerEncounter</code> is the bridge when the main party participates: it opens combat or simulation, then lets the map event finalize and detach participants.</p>
+<p>Read existing state through <code>MapEvent.PlayerMapEvent</code> when reacting to a player battle. Create or resolve world conflicts through <a href="../actions">Actions</a>, <code>EncounterManager</code>, and the relevant model boundaries. Do not create a naked <code>MapEvent</code> from a menu callback or call <code>FinalizeEvent</code> while the mission/result pipeline is still consuming it.</p>
+<h2 id="dependency-map">Dependency Map</h2>
+<ul>
+<li>Upstream: <code>PartyBase</code>, <code>MobileParty</code>, settlements, <a href="../encounters">Encounters</a>, <code>StartBattleAction</code>, and campaign models.</li>
+<li>Ownership: <code>Campaign.Current.MapEventManager</code> saves and updates registered map events; each side owns party battle accounting.</li>
+<li>Downstream: Mission deployment/simulation, <a href="../mapevents">MapEvents</a> result handling, rewards, morale, casualties, sieges, and player encounter menus.</li>
+<li>Related: <a href="../party">Party</a>, <a href="../settlements">Settlements</a>, <a href="../gamemenus">GameMenus</a>, and <a href="../CampaignEvents">Campaign events</a>.</li>
+</ul>
+<h2 id="real-inspection-entry-point">Real Inspection Entry Point</h2>
+<pre><code data-lang="csharp">MapEvent mapEvent = MapEvent.PlayerMapEvent;
+if (mapEvent != null &amp;&amp; !mapEvent.IsFinalized)
+{
+    MapEventSide playerSide = mapEvent.GetMapEventSide(mapEvent.PlayerSide);
+    int involved = mapEvent.GetNumberOfInvolvedMen(playerSide.MissionSide);
+}
+</code></pre>
+<p><code>PlayerMapEvent</code> is null outside a player battle. The value can become finalized as mission completion returns to campaign, so read it in the event/behaviour callback that needs it and do not retain it for later ticks.</p>
+<h2 id="timing-and-risk-boundaries">Timing And Risk Boundaries</h2>
+<p><code>MapEventManager.OnMapEventCreated</code> places a new event into its saveable list, and the manager removes finalized events during its reverse tick. <code>MapEvent</code> contains saveable sides, parties, state, and battle data; direct roster edits during result application bypass casualty, reward, and event dispatch bookkeeping. Mission agents are not map-event troops and become invalid after Mission end. For save compatibility, keep custom persistent consequences in a behaviour and react to campaign events or completed action boundaries rather than serializing references to a transient event component.</p>
+<h2 id="map-event-entries">Map-Event Entries</h2>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../MapEvent">MapEvent</a></td><td>Owns battle type, sides, state, settlement context, and finalization for one campaign conflict.</td><td>From registered creation until finalization.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../MapEventManager">MapEventManager</a></td><td>Saves, locates, starts special events, updates active events, and removes finalized ones.</td><td>Campaign tick and action-driven event creation.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../MapEventSide">MapEventSide</a></td><td>Aggregates one attacker or defender side's parties, troop allocation, strength, and surrender state.</td><td>During setup, simulation, Mission reporting, and resolution.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../MapEventParty">MapEventParty</a></td><td>Tracks one party's contribution, casualties, rewards, and roster allocation inside its side.</td><td>After the party joins until battle accounting completes.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../MapEventComponent">MapEventComponent</a></td><td>Supplies behavior that differentiates a field battle, raid, hideout, or special encounter.</td><td>Chosen as the event is initialized.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../FieldBattleEventComponent">FieldBattleEventComponent</a></td><td>Supplies normal open-field battle behavior.</td><td>Field-battle initialization and completion.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../RaidEventComponent">RaidEventComponent</a></td><td>Applies the village raid progression and its distinct result path.</td><td>While a raid event is active.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../ForceSuppliesEventComponent">ForceSuppliesEventComponent</a></td><td>Represents a hostile demand for village supplies rather than a full battle.</td><td>During the force-supplies encounter branch.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../ForceVolunteersEventComponent">ForceVolunteersEventComponent</a></td><td>Represents forced volunteer recruitment from a village.</td><td>During the force-volunteers branch.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../HideoutEventComponent">HideoutEventComponent</a></td><td>Marks hideout combat and its specialized mission/result handling.</td><td>From hideout attack setup through its result.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../SiegeAmbushEventComponent">SiegeAmbushEventComponent</a></td><td>Marks the ambush phase inside an ongoing siege.</td><td>Only during siege ambush setup and resolution.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../BlockadeBattleMapEvent">BlockadeBattleMapEvent</a></td><td>Adds blockade-specific map-event behavior to the component hierarchy.</td><td>When a blockade battle is initialized.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../MapEventState">MapEventState</a></td><td>Names the event's lifecycle states used by update and battle handling.</td><td>When event state advances.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../MapEventResultExplainer">MapEventResultExplainer</a></td><td>Produces explanatory outcome values for battle-result presentation.</td><td>After a result is available for UI or reward feedback.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../IMapEventVisual">IMapEventVisual</a></td><td>Defines the campaign-map visual contract for a map event.</td><td>While the map layer renders an active event.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../BattleTypes">BattleTypes</a></td><td>Names the campaign battle categories used to choose component and Mission behavior.</td><td>When a map event is created and classified.</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.MapEvents</td><td><a href="../PowerCalculationContext">PowerCalculationContext</a></td><td>Carries the parties and modifiers supplied to battle-power calculation models.</td><td>During setup and simulation power evaluation.</td></tr>
+</tbody></table>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li><a href="..">Parent: Campaign-Ext</a></li>
+<li><a href="../encounters">Siblings: Encounters</a>, <a href="../party">Party</a>, and <a href="../settlements">Settlements</a></li>
+<li><a href="../actions">Related: Actions</a>, <a href="../gamemenus">GameMenus</a>, and <a href="../../mission">Mission</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

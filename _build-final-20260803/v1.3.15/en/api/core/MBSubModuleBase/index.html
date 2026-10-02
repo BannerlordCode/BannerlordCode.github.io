@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MBSubModuleBase</title>
+  <meta name="description" content="The module lifecycle adapter: the engine calls a derived class during loading, game start&#x2F;load, Mission initialization, ticks, and shutdown.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core/MBSubModuleBase/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core/MBSubModuleBase/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/core/MBSubModuleBase/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/core/MBSubModuleBase/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/core/MBSubModuleBase/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/core/MBSubModuleBase/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="active">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core&#x2F;">core index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MBSubModuleBase</span>
+    </nav>
+  
+  <h1>MBSubModuleBase</h1>
+  <h1 id="mbsubmodulebase">MBSubModuleBase</h1>
+<p><strong>Namespace:</strong> <code>TaleWorlds.MountAndBlade</code><br />
+<strong>Module:</strong> <code>TaleWorlds.MountAndBlade</code><br />
+<strong>Type:</strong> <code>public abstract class MBSubModuleBase</code><br />
+<strong>Base:</strong> none (top-level abstract base)<br />
+<strong>Source:</strong> <code>TaleWorlds.MountAndBlade/MBSubModuleBase.cs</code></p>
+<h2 id="responsibility">Responsibility</h2>
+<p><code>MBSubModuleBase</code> is the lifecycle adapter for a SubModule: the engine creates a derived instance from the module manifest, stores it in <code>Module.CurrentModule</code>, and lets <code>MBGameManager</code> dispatch callbacks at each game phase.</p>
+<h2 id="mental-model">Mental model</h2>
+<p>Think of this type as a timeline of hooks, not as a container for <code>Hero</code>, <code>Campaign</code>, or <code>Mission</code> state. The instance exists while the module is loaded, but <code>Game.Current</code> and <code>Campaign.Current</code> can still be null. Use runtime objects only after the game-start/load callbacks that provide them.</p>
+<p>In 1.3.15, <code>MBGameManager</code> enumerates <code>Module.CurrentModule.CollectSubModules()</code> from <code>BeginGameStart</code>, <code>OnGameStart</code>, <code>OnGameLoaded</code>, <code>OnGameEnd</code>, and related methods. Each derived module is therefore asked to do one phase-specific job. Long-lived state belongs in <code>CampaignBehaviorBase</code>, <code>GameHandler</code>, or another explicit owner.</p>
+<h3 id="lifecycle-layers">Lifecycle layers</h3>
+<table><thead><tr><th>Phase</th><th>Good use</th><th>Do not assume</th></tr></thead><tbody>
+<tr><td><code>OnSubModuleLoad</code> / <code>OnNewModuleLoad</code></td><td>Static registration, configuration, input, one-time resources</td><td><code>Game.Current</code> or <code>Campaign.Current</code> exists</td></tr>
+<tr><td><code>InitializeGameStarter</code> / <code>OnGameStart</code></td><td>Add <code>CampaignBehaviorBase</code> to <code>CampaignGameStarter</code></td><td>Save data has already loaded</td></tr>
+<tr><td><code>OnGameLoaded</code> / <code>OnAfterGameLoaded</code></td><td>Build caches from restored campaign state</td><td>New and loaded campaigns have identical state</td></tr>
+<tr><td><code>OnBeforeMissionBehaviorInitialize</code> / <code>OnMissionBehaviorInitialize</code></td><td>Add a <code>MissionBehavior</code></td><td>All Agents, Teams, and Formations exist yet</td></tr>
+<tr><td><code>OnApplicationTick</code> / <code>OnNetworkTick</code></td><td>Small guarded frame/network work</td><td>A valid Mission exists every frame</td></tr>
+<tr><td><code>OnGameEnd</code> / <code>OnSubModuleUnloaded</code></td><td>Release resources and unsubscribe</td><td>Destroyed objects remain usable</td></tr>
+</tbody></table>
+<h2 id="when-to-use-it">When to use it</h2>
+<ul>
+<li><strong>Use it</strong> to register a behavior in <code>OnGameStart</code>, rebuild non-save caches after a load, add a Mission behavior, or pair global event subscription with unsubscription.</li>
+<li><strong>Do not use it</strong> for daily campaign rules in <code>OnApplicationTick</code>, direct writes to <code>Hero</code> or <code>Settlement</code>, or orphan behavior instances. Use <a href="../../campaign-ext/CampaignBehaviorBase">CampaignBehaviorBase</a> for event-driven campaign logic and the relevant <a href="../../campaign-ext/actions">Action</a> for world mutations.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<pre><code data-lang="mermaid">graph TD
+    XML[SubModule.xml] --&gt; MOD[Module.CurrentModule]
+    MOD --&gt; SUB[MBSubModuleBase derived type]
+    SUB --&gt; MGR[MBGameManager dispatch]
+    MGR --&gt; GAME[Game]
+    MGR --&gt; CAM[Campaign]
+    MGR --&gt; MIS[Mission]
+    SUB --&gt; START[CampaignGameStarter.AddBehavior]
+    START --&gt; BEHAVIOR[CampaignBehaviorBase]
+    BEHAVIOR --&gt; EVENTS[CampaignEvents]
+</code></pre>
+<ul>
+<li><strong>Upstream:</strong> <a href="../Module">Module</a> reads <code>SubModuleClassType</code> from <code>SubModule.xml</code>; <code>MBGameManager</code> forwards lifecycle calls.</li>
+<li><strong>Downstream:</strong> <a href="../../core-extra/Game">Game</a> provides the runtime root, <a href="../../campaign/Campaign">Campaign</a> owns campaign behaviors and save state, and <a href="../../mission/Mission">Mission</a> owns battle behaviors.</li>
+<li><strong>Events and save:</strong> a behavior registered through <code>CampaignGameStarter.AddBehavior</code> reaches <code>RegisterEvents()</code> and <code>SyncData(IDataStore)</code> through <code>CampaignBehaviorManager</code>.</li>
+</ul>
+<h2 id="crash-and-save-risks">Crash and save risks</h2>
+<ol>
+<li><strong>Early null access:</strong> <code>OnSubModuleLoad</code> and <code>OnBeforeInitialModuleScreenSetAsRoot</code> run before game creation. Dereferencing <code>Campaign.Current</code> or <code>Game.Current</code> there can crash the main menu.</li>
+<li><strong>Unregistered behavior:</strong> constructing <code>MyBehavior</code> without <code>CampaignGameStarter.AddBehavior</code> means it receives neither events nor save callbacks.</li>
+<li><strong>Load ordering:</strong> <code>OnGameLoaded</code> is the restored-state window. Adding a save-bearing behavior only after initialization can miss the old file's behavior data.</li>
+<li><strong>Tick work:</strong> <code>OnApplicationTick(float dt)</code> also runs in menus. Guard <code>Game.Current</code>, avoid heavy work, and prefer events.</li>
+<li><strong>Leaked subscriptions:</strong> unsubscribe module-wide events in <code>OnSubModuleUnloaded</code>, otherwise hot reload can duplicate callbacks.</li>
+<li><strong>Mission timing:</strong> Mission initialization does not guarantee that Agents, Teams, or Formations are ready; defer those reads to the derived <code>MissionBehavior</code> callbacks.</li>
+</ol>
+<h2 id="key-members-by-phase">Key members by phase</h2>
+<h3 id="module-loading">Module loading</h3>
+<ul>
+<li><code>OnSubModuleLoad()</code> / <code>OnSubModuleUnloaded()</code> for paired setup and cleanup.</li>
+<li><code>RegisterSubModuleTypes()</code> for save/object-system type registration.</li>
+<li><code>OnConfigChanged()</code> for refreshing configuration-dependent caches.</li>
+<li><code>OnSubModuleActivated()</code> / <code>OnSubModuleDeactivated()</code> for enable-state changes.</li>
+</ul>
+<h3 id="game-start-and-load">Game start and load</h3>
+<ul>
+<li><code>InitializeGameStarter(Game, IGameStarter)</code> and <code>OnGameStart(Game, IGameStarter)</code> for behavior registration. In 1.3.15 <code>OnGameStart</code> is <code>protected internal virtual</code>.</li>
+<li><code>RegisterSubModuleObjects(bool)</code> / <code>AfterRegisterSubModuleObjects(bool)</code> for new-save versus loaded-save object setup.</li>
+<li><code>BeginGameStart</code>, <code>OnCampaignStart</code>, <code>OnGameLoaded</code>, <code>OnAfterGameLoaded</code>, and <code>OnNewGameCreated</code> for phase-specific bridges.</li>
+</ul>
+<h3 id="runtime-and-mission">Runtime and Mission</h3>
+<ul>
+<li><code>OnApplicationTick(float)</code>, <code>AfterAsyncTickTick(float)</code>, and <code>OnNetworkTick(float)</code> for guarded frame work.</li>
+<li><code>OnBeforeMissionBehaviorInitialize(Mission)</code> / <code>OnMissionBehaviorInitialize(Mission)</code> for Mission behavior injection.</li>
+<li><code>OnGameEnd(Game)</code> for game-level cleanup; <code>DoLoading(Game)</code> returns whether this module continues a loading step.</li>
+</ul>
+<h2 id="real-mod-entry-point">Real mod entry point</h2>
+<p>The following API names and call order are taken from the 1.3.15 <code>MBGameManager.cs</code>, <code>SandboxSubModule.cs</code>, and <code>CampaignGameStarter</code> call sites:</p>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+namespace MyMod;
+
+public sealed class MySubModule : MBSubModuleBase
+{
+    protected internal override void OnGameStart(Game game, IGameStarter gameStarterObject)
+    {
+        if (game.GameType is Campaign)
+        {
+            var starter = (CampaignGameStarter)gameStarterObject;
+            starter.AddBehavior(new DailyGoldBehavior());
+        }
+    }
+}
+
+public sealed class DailyGoldBehavior : CampaignBehaviorBase
+{
+    private int _days;
+
+    public override void RegisterEvents()
+    {
+        CampaignEvents.DailyTickEvent.AddNonSerializedListener(this, OnDailyTick);
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        dataStore.SyncData(&quot;Days&quot;, ref _days);
+    }
+
+    private void OnDailyTick()
+    {
+        _days++;
+        if (_days &gt;= 7 &amp;&amp; Hero.MainHero != null)
+        {
+            _days = 0;
+            GiveGoldAction.ApplyBetweenCharacters(null, Hero.MainHero, 1000, true);
+        }
+    }
+}
+</code></pre>
+<p>The acquisition path is <code>SubModule.xml</code> → <code>MBSubModuleBase.OnGameStart</code> → <code>CampaignGameStarter.AddBehavior</code> → <code>CampaignEvents</code>; it is not a constructor-time lookup of <code>Campaign.Current</code>. The state mutation contract for <code>GiveGoldAction</code> is documented in the <a href="../../campaign-ext/actions">Action index</a>.</p>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li>Parent: <a href="https://bannerlordcode.github.io/v1.3.15/en/api/core/MBSubModuleBase/./">core index</a></li>
+<li>Siblings: <a href="../../core-extra/Game">Game</a> · <a href="../../campaign-ext/MBObjectBase">MBObjectBase</a></li>
+<li>Children/downstream: <a href="../../campaign/Campaign">Campaign</a> · <a href="../../campaign-ext/CampaignBehaviorBase">CampaignBehaviorBase</a> · <a href="../../mission/Mission">Mission</a></li>
+<li>Related: <a href="../../save-system/SaveManager">SaveManager</a> · <a href="../../../architecture/doc-contract">documentation contract</a> · <a href="../../../architecture/crash-boundaries">crash boundaries</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/core/">core index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/core/ItemObject/">&larr; ItemObject</a>
+          
+          
+            <span class="page-navigation-disabled" aria-disabled="true">Last item &rarr;</span>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

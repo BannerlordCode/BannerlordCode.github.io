@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Opengl32ARB</title>
+  <meta name="description" content="Auto-generated class reference for Opengl32ARB.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="active">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/gui/Opengl32ARB/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/gui/Opengl32ARB/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/gui/Opengl32ARB/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/gui/Opengl32ARB/"
+               class="active">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/en/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/en/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>v1.4.5 Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/api/" class="">Index</a><a href="/v1.4.5/en/api/core/" class="">Core</a><a href="/v1.4.5/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/en/api/mission/" class="">Mission</a><a href="/v1.4.5/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/en/api/campaign/" class="">Campaign</a><a href="/v1.4.5/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/en/api/gui/" class="active">GUI</a><a href="/v1.4.5/en/api/save-system/" class="">Save System</a><a href="/v1.4.5/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.4.5/en/api/localization/" class="">Localization</a><a href="/v1.4.5/en/api/engine/" class="">Engine</a><a href="/v1.4.5/en/api/gameplay/" class="">Gameplay</a><a href="/v1.4.5/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/en/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/en/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;gui&#x2F;">gui index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Opengl32ARB</span>
+    </nav>
+  
+  <h1>Opengl32ARB</h1>
+  <h1 id="opengl32arb">Opengl32ARB</h1>
+<p><strong>Namespace:</strong> TaleWorlds.TwoDimension.Standalone.Native.OpenGL
+<strong>Module:</strong> TaleWorlds.TwoDimension
+<strong>Type:</strong> <code>internal static class Opengl32ARB</code>
+<strong>Base:</strong> none
+<strong>File:</strong> <code>bin/TaleWorlds.TwoDimension.Standalone/TaleWorlds.TwoDimension.Standalone.Native.OpenGL/Opengl32ARB.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Opengl32ARB</code> lives in <code>TaleWorlds.TwoDimension.Standalone.Native.OpenGL</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.TwoDimension.Standalone.Native.OpenGL</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="blendfuncseparatedelegate">BlendFuncSeparateDelegate</h3>
+<p><code>public delegate void BlendFuncSeparateDelegate(BlendingSourceFactor srcRGB, BlendingDestinationFactor dstRGB, BlendingSourceFactor srcAlpha, BlendingDestinationFactor dstAlpha)</code></p>
+<p><strong>Purpose:</strong> Executes the BlendFuncSeparateDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.BlendFuncSeparateDelegate(srcRGB, dstRGB, srcAlpha, dstAlpha);
+</code></pre>
+<h3 id="activetexturedelegate">ActiveTextureDelegate</h3>
+<p><code>public delegate void ActiveTextureDelegate(TextureUnit textureUnit)</code></p>
+<p><strong>Purpose:</strong> Executes the ActiveTextureDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.ActiveTextureDelegate(textureUnit);
+</code></pre>
+<h3 id="bindvertexarraydelegate">BindVertexArrayDelegate</h3>
+<p><code>public delegate void BindVertexArrayDelegate(uint buffer)</code></p>
+<p><strong>Purpose:</strong> Executes the BindVertexArrayDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.BindVertexArrayDelegate(0);
+</code></pre>
+<h3 id="genvertexarraysdelegate">GenVertexArraysDelegate</h3>
+<p><code>public delegate void GenVertexArraysDelegate(int size, uint buffers)</code></p>
+<p><strong>Purpose:</strong> Executes the GenVertexArraysDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.GenVertexArraysDelegate(0, 0);
+</code></pre>
+<h3 id="vertexattribpointerdelegate">VertexAttribPointerDelegate</h3>
+<p><code>public delegate void VertexAttribPointerDelegate(uint index, int size, DataType type, byte normalized, int stride, IntPtr pointer)</code></p>
+<p><strong>Purpose:</strong> Executes the VertexAttribPointerDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.VertexAttribPointerDelegate(0, 0, type, 0, 0, pointer);
+</code></pre>
+<h3 id="enablevertexattribarraydelegate">EnableVertexAttribArrayDelegate</h3>
+<p><code>public delegate void EnableVertexAttribArrayDelegate(uint index)</code></p>
+<p><strong>Purpose:</strong> Executes the EnableVertexAttribArrayDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.EnableVertexAttribArrayDelegate(0);
+</code></pre>
+<h3 id="disablevertexattribarraydelegate">DisableVertexAttribArrayDelegate</h3>
+<p><code>public delegate void DisableVertexAttribArrayDelegate(int index)</code></p>
+<p><strong>Purpose:</strong> Executes the DisableVertexAttribArrayDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.DisableVertexAttribArrayDelegate(0);
+</code></pre>
+<h3 id="genbuffersdelegate">GenBuffersDelegate</h3>
+<p><code>public delegate void GenBuffersDelegate(int size, uint buffers)</code></p>
+<p><strong>Purpose:</strong> Executes the GenBuffersDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.GenBuffersDelegate(0, 0);
+</code></pre>
+<h3 id="bindbufferdelegate">BindBufferDelegate</h3>
+<p><code>public delegate void BindBufferDelegate(BufferBindingTarget target, uint buffer)</code></p>
+<p><strong>Purpose:</strong> Executes the BindBufferDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.BindBufferDelegate(target, 0);
+</code></pre>
+<h3 id="bufferdatadelegate">BufferDataDelegate</h3>
+<p><code>public delegate void BufferDataDelegate(BufferBindingTarget target, int size, IntPtr data, int usage)</code></p>
+<p><strong>Purpose:</strong> Executes the BufferDataDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.BufferDataDelegate(target, 0, data, 0);
+</code></pre>
+<h3 id="buffersubdatadelegate">BufferSubDataDelegate</h3>
+<p><code>public delegate void BufferSubDataDelegate(BufferBindingTarget target, int offset, int size, IntPtr data)</code></p>
+<p><strong>Purpose:</strong> Executes the BufferSubDataDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.BufferSubDataDelegate(target, 0, 0, data);
+</code></pre>
+<h3 id="detachshaderdelegate">DetachShaderDelegate</h3>
+<p><code>public delegate void DetachShaderDelegate(int program, int shader)</code></p>
+<p><strong>Purpose:</strong> Executes the DetachShaderDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.DetachShaderDelegate(0, 0);
+</code></pre>
+<h3 id="deleteshaderdelegate">DeleteShaderDelegate</h3>
+<p><code>public delegate int DeleteShaderDelegate(int shader)</code></p>
+<p><strong>Purpose:</strong> Executes the DeleteShaderDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+var result = opengl32ARB.DeleteShaderDelegate(0);
+</code></pre>
+<h3 id="getprograminfologdelegate">GetProgramInfoLogDelegate</h3>
+<p><code>public delegate void GetProgramInfoLogDelegate(int shader, int maxLength, out int length, byte output)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the program info log delegate value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.GetProgramInfoLogDelegate(0, 0, length, 0);
+</code></pre>
+<h3 id="getshaderinfologdelegate">GetShaderInfoLogDelegate</h3>
+<p><code>public delegate void GetShaderInfoLogDelegate(int shader, int maxLength, out int length, byte output)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the shader info log delegate value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.GetShaderInfoLogDelegate(0, 0, length, 0);
+</code></pre>
+<h3 id="getprogramivdelegate">GetProgramivDelegate</h3>
+<p><code>public delegate void GetProgramivDelegate(int program, int paremeterName, out int returnValue)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the programiv delegate value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.GetProgramivDelegate(0, 0, returnValue);
+</code></pre>
+<h3 id="getshaderivdelegate">GetShaderivDelegate</h3>
+<p><code>public delegate void GetShaderivDelegate(int shader, int paremeterName, out int returnValue)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the shaderiv delegate value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.GetShaderivDelegate(0, 0, returnValue);
+</code></pre>
+<h3 id="uniform4fdelegate">Uniform4fDelegate</h3>
+<p><code>public delegate void Uniform4fDelegate(int location, float f1, float f2, float f3, float f4)</code></p>
+<p><strong>Purpose:</strong> Executes the Uniform4fDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.Uniform4fDelegate(0, 0, 0, 0, 0);
+</code></pre>
+<h3 id="uniform1idelegate">Uniform1iDelegate</h3>
+<p><code>public delegate void Uniform1iDelegate(int location, int i)</code></p>
+<p><strong>Purpose:</strong> Executes the Uniform1iDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.Uniform1iDelegate(0, 0);
+</code></pre>
+<h3 id="uniform1fdelegate">Uniform1fDelegate</h3>
+<p><code>public delegate void Uniform1fDelegate(int location, float f)</code></p>
+<p><strong>Purpose:</strong> Executes the Uniform1fDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.Uniform1fDelegate(0, 0);
+</code></pre>
+<h3 id="uniform2fdelegate">Uniform2fDelegate</h3>
+<p><code>public delegate void Uniform2fDelegate(int location, float f1, float f2)</code></p>
+<p><strong>Purpose:</strong> Executes the Uniform2fDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.Uniform2fDelegate(0, 0, 0);
+</code></pre>
+<h3 id="useprogramdelegate">UseProgramDelegate</h3>
+<p><code>public delegate void UseProgramDelegate(int program)</code></p>
+<p><strong>Purpose:</strong> Executes the UseProgramDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.UseProgramDelegate(0);
+</code></pre>
+<h3 id="deleteprogramdelegate">DeleteProgramDelegate</h3>
+<p><code>public delegate void DeleteProgramDelegate(int program)</code></p>
+<p><strong>Purpose:</strong> Executes the DeleteProgramDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.DeleteProgramDelegate(0);
+</code></pre>
+<h3 id="linkprogramdelegate">LinkProgramDelegate</h3>
+<p><code>public delegate void LinkProgramDelegate(int program)</code></p>
+<p><strong>Purpose:</strong> Executes the LinkProgramDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.LinkProgramDelegate(0);
+</code></pre>
+<h3 id="attachshaderdelegate">AttachShaderDelegate</h3>
+<p><code>public delegate void AttachShaderDelegate(int program, int shader)</code></p>
+<p><strong>Purpose:</strong> Executes the AttachShaderDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.AttachShaderDelegate(0, 0);
+</code></pre>
+<h3 id="compileshaderdelegate">CompileShaderDelegate</h3>
+<p><code>public delegate int CompileShaderDelegate(int shader)</code></p>
+<p><strong>Purpose:</strong> Executes the CompileShaderDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+var result = opengl32ARB.CompileShaderDelegate(0);
+</code></pre>
+<h3 id="createprogramobjectdelegate">CreateProgramObjectDelegate</h3>
+<p><code>public delegate int CreateProgramObjectDelegate()</code></p>
+<p><strong>Purpose:</strong> Constructs a new program object delegate entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+var result = opengl32ARB.CreateProgramObjectDelegate();
+</code></pre>
+<h3 id="createshaderobjectdelegate">CreateShaderObjectDelegate</h3>
+<p><code>public delegate int CreateShaderObjectDelegate(ShaderType shaderType)</code></p>
+<p><strong>Purpose:</strong> Constructs a new shader object delegate entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+var result = opengl32ARB.CreateShaderObjectDelegate(shaderType);
+</code></pre>
+<h3 id="wglcreatecontextattribsdelegate">wglCreateContextAttribsDelegate</h3>
+<p><code>public delegate IntPtr wglCreateContextAttribsDelegate(IntPtr hDC, IntPtr hShareContext, int attribList)</code></p>
+<p><strong>Purpose:</strong> Executes the wglCreateContextAttribsDelegate logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Opengl32ARB from the subsystem API first
+Opengl32ARB opengl32ARB = ...;
+var result = opengl32ARB.wglCreateContextAttribsDelegate(hDC, hShareContext, 0);
+</code></pre>
+<h3 id="loadcontextextension">LoadContextExtension</h3>
+<p><code>public static void LoadContextExtension(IntPtr hdc)</code></p>
+<p><strong>Purpose:</strong> Reads context extension from persistent storage or a stream.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Opengl32ARB.LoadContextExtension(hdc);
+</code></pre>
+<h3 id="loadextensions">LoadExtensions</h3>
+<p><code>public static void LoadExtensions(IntPtr hdc)</code></p>
+<p><strong>Purpose:</strong> Reads extensions from persistent storage or a stream.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Opengl32ARB.LoadExtensions(hdc);
+</code></pre>
+<h3 id="shadersource">ShaderSource</h3>
+<p><code>public static void ShaderSource(int shader, string shaderSource)</code></p>
+<p><strong>Purpose:</strong> Executes the ShaderSource logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Opengl32ARB.ShaderSource(0, &quot;example&quot;);
+</code></pre>
+<h3 id="getuniformlocation">GetUniformLocation</h3>
+<p><code>public static int GetUniformLocation(int program, string parameter)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the uniform location value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Opengl32ARB.GetUniformLocation(0, &quot;example&quot;);
+</code></pre>
+<h3 id="uniformmatrix4fv">UniformMatrix4fv</h3>
+<p><code>public static void UniformMatrix4fv(int location, int count, bool isTranspose, in Matrix4x4 matrix)</code></p>
+<p><strong>Purpose:</strong> Executes the UniformMatrix4fv logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Opengl32ARB.UniformMatrix4fv(0, 0, false, matrix);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+Opengl32ARB opengl32ARB = ...;
+opengl32ARB.BlendFuncSeparateDelegate(srcRGB, dstRGB, srcAlpha, dstAlpha);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/en/api/gui/">gui index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/en/api/gui/TextLayout/">&larr; TextLayout</a>
+          
+          
+            <a rel="next" href="/v1.4.5/en/api/gui/SpriteFromTexture/">SpriteFromTexture &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

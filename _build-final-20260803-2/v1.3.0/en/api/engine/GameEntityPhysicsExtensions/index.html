@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GameEntityPhysicsExtensions</title>
+  <meta name="description" content="Auto-generated class reference for GameEntityPhysicsExtensions.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/engine/GameEntityPhysicsExtensions/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/engine/GameEntityPhysicsExtensions/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/engine/GameEntityPhysicsExtensions/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/engine/GameEntityPhysicsExtensions/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/engine/GameEntityPhysicsExtensions/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/engine/GameEntityPhysicsExtensions/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="active">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;engine&#x2F;">engine index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">GameEntityPhysicsExtensions</span>
+    </nav>
+  
+  <h1>GameEntityPhysicsExtensions</h1>
+  <h1 id="gameentityphysicsextensions">GameEntityPhysicsExtensions</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Engine
+<strong>Module:</strong> TaleWorlds.Engine
+<strong>Type:</strong> <code>public static class GameEntityPhysicsExtensions</code>
+<strong>Base:</strong> none
+<strong>File:</strong> <code>TaleWorlds.Engine/GameEntityPhysicsExtensions.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>GameEntityPhysicsExtensions</code> lives in <code>TaleWorlds.Engine</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.Engine</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="hasbody">HasBody</h3>
+<p><code>public static bool HasBody(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds body.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasBody(gameEntity);
+</code></pre>
+<h3 id="hasbody-1">HasBody</h3>
+<p><code>public static bool HasBody(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds body.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasBody(gameEntity);
+</code></pre>
+<h3 id="addsphereasbody">AddSphereAsBody</h3>
+<p><code>public static void AddSphereAsBody(this GameEntity gameEntity, Vec3 sphere, float radius, BodyFlags bodyFlags)</code></p>
+<p><strong>Purpose:</strong> Adds sphere as body to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.AddSphereAsBody(gameEntity, sphere, 0, bodyFlags);
+</code></pre>
+<h3 id="pushcapsuleshapetoentitybody">PushCapsuleShapeToEntityBody</h3>
+<p><code>public static void PushCapsuleShapeToEntityBody(this WeakGameEntity gameEntity, Vec3 p1, Vec3 p2, float radius, string physicsMaterialName)</code></p>
+<p><strong>Purpose:</strong> Executes the PushCapsuleShapeToEntityBody logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.PushCapsuleShapeToEntityBody(gameEntity, p1, p2, 0, &quot;example&quot;);
+</code></pre>
+<h3 id="addsphereasbody-1">AddSphereAsBody</h3>
+<p><code>public static void AddSphereAsBody(this WeakGameEntity gameEntity, Vec3 sphere, float radius, BodyFlags bodyFlags)</code></p>
+<p><strong>Purpose:</strong> Adds sphere as body to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.AddSphereAsBody(gameEntity, sphere, 0, bodyFlags);
+</code></pre>
+<h3 id="popcapsuleshapefromentitybody">PopCapsuleShapeFromEntityBody</h3>
+<p><code>public static void PopCapsuleShapeFromEntityBody(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Executes the PopCapsuleShapeFromEntityBody logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.PopCapsuleShapeFromEntityBody(gameEntity);
+</code></pre>
+<h3 id="removephysics">RemovePhysics</h3>
+<p><code>public static void RemovePhysics(this GameEntity gameEntity, bool clearingTheScene = false)</code></p>
+<p><strong>Purpose:</strong> Removes physics from the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.RemovePhysics(gameEntity, false);
+</code></pre>
+<h3 id="removephysics-1">RemovePhysics</h3>
+<p><code>public static void RemovePhysics(this WeakGameEntity gameEntity, bool clearingTheScene = false)</code></p>
+<p><strong>Purpose:</strong> Removes physics from the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.RemovePhysics(gameEntity, false);
+</code></pre>
+<h3 id="getphysicsstate">GetPhysicsState</h3>
+<p><code>public static bool GetPhysicsState(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the physics state value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetPhysicsState(gameEntity);
+</code></pre>
+<h3 id="getphysicsstate-1">GetPhysicsState</h3>
+<p><code>public static bool GetPhysicsState(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the physics state value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetPhysicsState(gameEntity);
+</code></pre>
+<h3 id="adddistancejoint">AddDistanceJoint</h3>
+<p><code>public static PhysicsJoint AddDistanceJoint(this GameEntity gameEntity, GameEntity otherGameEntity, float minDistance, float maxDistance)</code></p>
+<p><strong>Purpose:</strong> Adds distance joint to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.AddDistanceJoint(gameEntity, otherGameEntity, 0, 0);
+</code></pre>
+<h3 id="adddistancejoint-1">AddDistanceJoint</h3>
+<p><code>public static PhysicsJoint AddDistanceJoint(this WeakGameEntity gameEntity, GameEntity otherGameEntity, float minDistance, float maxDistance)</code></p>
+<p><strong>Purpose:</strong> Adds distance joint to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.AddDistanceJoint(gameEntity, otherGameEntity, 0, 0);
+</code></pre>
+<h3 id="adddistancejoint-2">AddDistanceJoint</h3>
+<p><code>public static PhysicsJoint AddDistanceJoint(this GameEntity gameEntity, GameEntity otherGameEntity, MatrixFrame globalFrameOnA, MatrixFrame globalFrameOnB, float minDistance, float maxDistance)</code></p>
+<p><strong>Purpose:</strong> Adds distance joint to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.AddDistanceJoint(gameEntity, otherGameEntity, globalFrameOnA, globalFrameOnB, 0, 0);
+</code></pre>
+<h3 id="adddistancejoint-3">AddDistanceJoint</h3>
+<p><code>public static PhysicsJoint AddDistanceJoint(this WeakGameEntity gameEntity, GameEntity otherGameEntity, MatrixFrame globalFrameOnA, MatrixFrame globalFrameOnB, float minDistance, float maxDistance)</code></p>
+<p><strong>Purpose:</strong> Adds distance joint to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.AddDistanceJoint(gameEntity, otherGameEntity, globalFrameOnA, globalFrameOnB, 0, 0);
+</code></pre>
+<h3 id="removejoint">RemoveJoint</h3>
+<p><code>public static void RemoveJoint(this GameEntity gameEntity, PhysicsJoint jointToRemove)</code></p>
+<p><strong>Purpose:</strong> Removes joint from the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.RemoveJoint(gameEntity, jointToRemove);
+</code></pre>
+<h3 id="removejoint-1">RemoveJoint</h3>
+<p><code>public static void RemoveJoint(this WeakGameEntity gameEntity, PhysicsJoint jointToRemove)</code></p>
+<p><strong>Purpose:</strong> Removes joint from the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.RemoveJoint(gameEntity, jointToRemove);
+</code></pre>
+<h3 id="hasphysicsdefinitionwithoutflags">HasPhysicsDefinitionWithoutFlags</h3>
+<p><code>public static bool HasPhysicsDefinitionWithoutFlags(this GameEntity gameEntity, int excludeFlags)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds physics definition without flags.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasPhysicsDefinitionWithoutFlags(gameEntity, 0);
+</code></pre>
+<h3 id="hasphysicsdefinitionwithoutflags-1">HasPhysicsDefinitionWithoutFlags</h3>
+<p><code>public static bool HasPhysicsDefinitionWithoutFlags(this WeakGameEntity gameEntity, int excludeFlags)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds physics definition without flags.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasPhysicsDefinitionWithoutFlags(gameEntity, 0);
+</code></pre>
+<h3 id="hasphysicsbody">HasPhysicsBody</h3>
+<p><code>public static bool HasPhysicsBody(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds physics body.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasPhysicsBody(gameEntity);
+</code></pre>
+<h3 id="hasphysicsbody-1">HasPhysicsBody</h3>
+<p><code>public static bool HasPhysicsBody(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds physics body.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasPhysicsBody(gameEntity);
+</code></pre>
+<h3 id="hasdynamicrigidbody">HasDynamicRigidBody</h3>
+<p><code>public static bool HasDynamicRigidBody(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds dynamic rigid body.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasDynamicRigidBody(gameEntity);
+</code></pre>
+<h3 id="hasdynamicrigidbody-1">HasDynamicRigidBody</h3>
+<p><code>public static bool HasDynamicRigidBody(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds dynamic rigid body.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasDynamicRigidBody(gameEntity);
+</code></pre>
+<h3 id="haskinematicrigidbody">HasKinematicRigidBody</h3>
+<p><code>public static bool HasKinematicRigidBody(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds kinematic rigid body.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasKinematicRigidBody(gameEntity);
+</code></pre>
+<h3 id="haskinematicrigidbody-1">HasKinematicRigidBody</h3>
+<p><code>public static bool HasKinematicRigidBody(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds kinematic rigid body.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasKinematicRigidBody(gameEntity);
+</code></pre>
+<h3 id="hasstaticphysicsbody">HasStaticPhysicsBody</h3>
+<p><code>public static bool HasStaticPhysicsBody(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds static physics body.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasStaticPhysicsBody(gameEntity);
+</code></pre>
+<h3 id="hasstaticphysicsbody-1">HasStaticPhysicsBody</h3>
+<p><code>public static bool HasStaticPhysicsBody(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds static physics body.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasStaticPhysicsBody(gameEntity);
+</code></pre>
+<h3 id="hasdynamicrigidbodyandactivesimulation">HasDynamicRigidBodyAndActiveSimulation</h3>
+<p><code>public static bool HasDynamicRigidBodyAndActiveSimulation(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds dynamic rigid body and active simulation.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasDynamicRigidBodyAndActiveSimulation(gameEntity);
+</code></pre>
+<h3 id="hasdynamicrigidbodyandactivesimulation-1">HasDynamicRigidBodyAndActiveSimulation</h3>
+<p><code>public static bool HasDynamicRigidBodyAndActiveSimulation(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds dynamic rigid body and active simulation.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.HasDynamicRigidBodyAndActiveSimulation(gameEntity);
+</code></pre>
+<h3 id="setphysicsstate">SetPhysicsState</h3>
+<p><code>public static void SetPhysicsState(this GameEntity gameEntity, bool isEnabled, bool setChildren)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to physics state and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetPhysicsState(gameEntity, false, false);
+</code></pre>
+<h3 id="setphysicsstate-1">SetPhysicsState</h3>
+<p><code>public static void SetPhysicsState(this WeakGameEntity gameEntity, bool isEnabled, bool setChildren)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to physics state and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetPhysicsState(gameEntity, false, false);
+</code></pre>
+<h3 id="removeenginephysics">RemoveEnginePhysics</h3>
+<p><code>public static void RemoveEnginePhysics(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Removes engine physics from the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.RemoveEnginePhysics(gameEntity);
+</code></pre>
+<h3 id="removeenginephysics-1">RemoveEnginePhysics</h3>
+<p><code>public static void RemoveEnginePhysics(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Removes engine physics from the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.RemoveEnginePhysics(gameEntity);
+</code></pre>
+<h3 id="isenginebodysleeping">IsEngineBodySleeping</h3>
+<p><code>public static bool IsEngineBodySleeping(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the engine body sleeping state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.IsEngineBodySleeping(gameEntity);
+</code></pre>
+<h3 id="isenginebodysleeping-1">IsEngineBodySleeping</h3>
+<p><code>public static bool IsEngineBodySleeping(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the engine body sleeping state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.IsEngineBodySleeping(gameEntity);
+</code></pre>
+<h3 id="isdynamicbodystationary">IsDynamicBodyStationary</h3>
+<p><code>public static bool IsDynamicBodyStationary(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the dynamic body stationary state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.IsDynamicBodyStationary(gameEntity);
+</code></pre>
+<h3 id="isdynamicbodystationary-1">IsDynamicBodyStationary</h3>
+<p><code>public static bool IsDynamicBodyStationary(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the dynamic body stationary state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.IsDynamicBodyStationary(gameEntity);
+</code></pre>
+<h3 id="isdynamicbodystationarymt">IsDynamicBodyStationaryMT</h3>
+<p><code>public static bool IsDynamicBodyStationaryMT(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the dynamic body stationary m t state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.IsDynamicBodyStationaryMT(gameEntity);
+</code></pre>
+<h3 id="isdynamicbodystationarymt-1">IsDynamicBodyStationaryMT</h3>
+<p><code>public static bool IsDynamicBodyStationaryMT(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the dynamic body stationary m t state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.IsDynamicBodyStationaryMT(gameEntity);
+</code></pre>
+<h3 id="replacephysicsbodywithquadphysicsbody">ReplacePhysicsBodyWithQuadPhysicsBody</h3>
+<p><code>public static void ReplacePhysicsBodyWithQuadPhysicsBody(this GameEntity gameEntity, Vec3 vertices, int numberOfVertices, PhysicsMaterial physicsMaterial, BodyFlags bodyFlags, int indices, int numberOfIndices)</code></p>
+<p><strong>Purpose:</strong> Executes the ReplacePhysicsBodyWithQuadPhysicsBody logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ReplacePhysicsBodyWithQuadPhysicsBody(gameEntity, vertices, 0, physicsMaterial, bodyFlags, 0, 0);
+</code></pre>
+<h3 id="replacephysicsbodywithquadphysicsbody-1">ReplacePhysicsBodyWithQuadPhysicsBody</h3>
+<p><code>public static void ReplacePhysicsBodyWithQuadPhysicsBody(this WeakGameEntity gameEntity, Vec3 vertices, int numberOfVertices, PhysicsMaterial physicsMaterial, BodyFlags bodyFlags, int indices, int numberOfIndices)</code></p>
+<p><strong>Purpose:</strong> Executes the ReplacePhysicsBodyWithQuadPhysicsBody logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ReplacePhysicsBodyWithQuadPhysicsBody(gameEntity, vertices, 0, physicsMaterial, bodyFlags, 0, 0);
+</code></pre>
+<h3 id="getbodyshape">GetBodyShape</h3>
+<p><code>public static PhysicsShape GetBodyShape(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the body shape value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetBodyShape(gameEntity);
+</code></pre>
+<h3 id="getbodyshape-1">GetBodyShape</h3>
+<p><code>public static PhysicsShape GetBodyShape(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the body shape value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetBodyShape(gameEntity);
+</code></pre>
+<h3 id="setbodyshape">SetBodyShape</h3>
+<p><code>public static void SetBodyShape(this GameEntity gameEntity, PhysicsShape shape)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to body shape and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetBodyShape(gameEntity, shape);
+</code></pre>
+<h3 id="setbodyshape-1">SetBodyShape</h3>
+<p><code>public static void SetBodyShape(this WeakGameEntity gameEntity, PhysicsShape shape)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to body shape and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetBodyShape(gameEntity, shape);
+</code></pre>
+<h3 id="addphysics">AddPhysics</h3>
+<p><code>public static void AddPhysics(this GameEntity gameEntity, float mass, Vec3 localCenterOfMass, PhysicsShape body, Vec3 initialGlobalVelocity, Vec3 angularGlobalVelocity, PhysicsMaterial physicsMaterial, bool isStatic, int collisionGroupID)</code></p>
+<p><strong>Purpose:</strong> Adds physics to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.AddPhysics(gameEntity, 0, localCenterOfMass, body, initialGlobalVelocity, angularGlobalVelocity, physicsMaterial, false, 0);
+</code></pre>
+<h3 id="addphysics-1">AddPhysics</h3>
+<p><code>public static void AddPhysics(this WeakGameEntity gameEntity, float mass, Vec3 localCenterOfMass, PhysicsShape body, Vec3 initialVelocity, Vec3 angularVelocity, PhysicsMaterial physicsMaterial, bool isStatic, int collisionGroupID)</code></p>
+<p><strong>Purpose:</strong> Adds physics to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.AddPhysics(gameEntity, 0, localCenterOfMass, body, initialVelocity, angularVelocity, physicsMaterial, false, 0);
+</code></pre>
+<h3 id="setvelocitylimits">SetVelocityLimits</h3>
+<p><code>public static void SetVelocityLimits(this GameEntity gameEntity, float maxLinearVelocity, float maxAngularVelocity)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to velocity limits and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetVelocityLimits(gameEntity, 0, 0);
+</code></pre>
+<h3 id="setvelocitylimits-1">SetVelocityLimits</h3>
+<p><code>public static void SetVelocityLimits(this WeakGameEntity gameEntity, float maxLinearVelocity, float maxAngularVelocity)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to velocity limits and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetVelocityLimits(gameEntity, 0, 0);
+</code></pre>
+<h3 id="setmaxdepenetrationvelocity">SetMaxDepenetrationVelocity</h3>
+<p><code>public static void SetMaxDepenetrationVelocity(this GameEntity gameEntity, float maxDepenetrationVelocity)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to max depenetration velocity and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetMaxDepenetrationVelocity(gameEntity, 0);
+</code></pre>
+<h3 id="setmaxdepenetrationvelocity-1">SetMaxDepenetrationVelocity</h3>
+<p><code>public static void SetMaxDepenetrationVelocity(this WeakGameEntity gameEntity, float maxDepenetrationVelocity)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to max depenetration velocity and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetMaxDepenetrationVelocity(gameEntity, 0);
+</code></pre>
+<h3 id="setsolveriterationcounts">SetSolverIterationCounts</h3>
+<p><code>public static void SetSolverIterationCounts(this GameEntity gameEntity, int positionIterationCount, int velocityIterationCount)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to solver iteration counts and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetSolverIterationCounts(gameEntity, 0, 0);
+</code></pre>
+<h3 id="setsolveriterationcounts-1">SetSolverIterationCounts</h3>
+<p><code>public static void SetSolverIterationCounts(this WeakGameEntity gameEntity, int positionIterationCount, int velocityIterationCount)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to solver iteration counts and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetSolverIterationCounts(gameEntity, 0, 0);
+</code></pre>
+<h3 id="applylocalimpulsetodynamicbody">ApplyLocalImpulseToDynamicBody</h3>
+<p><code>public static void ApplyLocalImpulseToDynamicBody(this GameEntity gameEntity, Vec3 localPosition, Vec3 impulse)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of local impulse to dynamic body to the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ApplyLocalImpulseToDynamicBody(gameEntity, localPosition, impulse);
+</code></pre>
+<h3 id="applylocalimpulsetodynamicbody-1">ApplyLocalImpulseToDynamicBody</h3>
+<p><code>public static void ApplyLocalImpulseToDynamicBody(this WeakGameEntity gameEntity, Vec3 localPosition, Vec3 impulse)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of local impulse to dynamic body to the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ApplyLocalImpulseToDynamicBody(gameEntity, localPosition, impulse);
+</code></pre>
+<h3 id="applyforcetodynamicbody">ApplyForceToDynamicBody</h3>
+<p><code>public static void ApplyForceToDynamicBody(this GameEntity gameEntity, Vec3 force, GameEntityPhysicsExtensions.ForceMode forceMode)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of force to dynamic body to the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ApplyForceToDynamicBody(gameEntity, force, forceMode);
+</code></pre>
+<h3 id="applyforcetodynamicbody-1">ApplyForceToDynamicBody</h3>
+<p><code>public static void ApplyForceToDynamicBody(this WeakGameEntity gameEntity, Vec3 force, GameEntityPhysicsExtensions.ForceMode forceMode)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of force to dynamic body to the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ApplyForceToDynamicBody(gameEntity, force, forceMode);
+</code></pre>
+<h3 id="applyglobalforceatlocalpostodynamicbody">ApplyGlobalForceAtLocalPosToDynamicBody</h3>
+<p><code>public static void ApplyGlobalForceAtLocalPosToDynamicBody(this GameEntity gameEntity, Vec3 localPosition, Vec3 globalForce, GameEntityPhysicsExtensions.ForceMode forceMode)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of global force at local pos to dynamic body to the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ApplyGlobalForceAtLocalPosToDynamicBody(gameEntity, localPosition, globalForce, forceMode);
+</code></pre>
+<h3 id="applyglobalforceatlocalpostodynamicbody-1">ApplyGlobalForceAtLocalPosToDynamicBody</h3>
+<p><code>public static void ApplyGlobalForceAtLocalPosToDynamicBody(this WeakGameEntity gameEntity, Vec3 localPosition, Vec3 globalForce, GameEntityPhysicsExtensions.ForceMode forceMode)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of global force at local pos to dynamic body to the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ApplyGlobalForceAtLocalPosToDynamicBody(gameEntity, localPosition, globalForce, forceMode);
+</code></pre>
+<h3 id="applytorquetodynamicbody">ApplyTorqueToDynamicBody</h3>
+<p><code>public static void ApplyTorqueToDynamicBody(this GameEntity gameEntity, Vec3 torque, GameEntityPhysicsExtensions.ForceMode forceMode)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of torque to dynamic body to the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ApplyTorqueToDynamicBody(gameEntity, torque, forceMode);
+</code></pre>
+<h3 id="applytorquetodynamicbody-1">ApplyTorqueToDynamicBody</h3>
+<p><code>public static void ApplyTorqueToDynamicBody(this WeakGameEntity gameEntity, Vec3 torque, GameEntityPhysicsExtensions.ForceMode forceMode)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of torque to dynamic body to the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ApplyTorqueToDynamicBody(gameEntity, torque, forceMode);
+</code></pre>
+<h3 id="applylocalforceatlocalpostodynamicbody">ApplyLocalForceAtLocalPosToDynamicBody</h3>
+<p><code>public static void ApplyLocalForceAtLocalPosToDynamicBody(this GameEntity gameEntity, Vec3 localPosition, Vec3 localForce, GameEntityPhysicsExtensions.ForceMode forceMode)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of local force at local pos to dynamic body to the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ApplyLocalForceAtLocalPosToDynamicBody(gameEntity, localPosition, localForce, forceMode);
+</code></pre>
+<h3 id="applylocalforceatlocalpostodynamicbody-1">ApplyLocalForceAtLocalPosToDynamicBody</h3>
+<p><code>public static void ApplyLocalForceAtLocalPosToDynamicBody(this WeakGameEntity gameEntity, Vec3 localPosition, Vec3 localForce, GameEntityPhysicsExtensions.ForceMode forceMode)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of local force at local pos to dynamic body to the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ApplyLocalForceAtLocalPosToDynamicBody(gameEntity, localPosition, localForce, forceMode);
+</code></pre>
+<h3 id="applyaccelerationtodynamicbody">ApplyAccelerationToDynamicBody</h3>
+<p><code>public static void ApplyAccelerationToDynamicBody(this GameEntity gameEntity, Vec3 acceleration)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of acceleration to dynamic body to the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ApplyAccelerationToDynamicBody(gameEntity, acceleration);
+</code></pre>
+<h3 id="applyaccelerationtodynamicbody-1">ApplyAccelerationToDynamicBody</h3>
+<p><code>public static void ApplyAccelerationToDynamicBody(this WeakGameEntity gameEntity, Vec3 acceleration)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of acceleration to dynamic body to the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ApplyAccelerationToDynamicBody(gameEntity, acceleration);
+</code></pre>
+<h3 id="disabledynamicbodysimulation">DisableDynamicBodySimulation</h3>
+<p><code>public static void DisableDynamicBodySimulation(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Executes the DisableDynamicBodySimulation logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.DisableDynamicBodySimulation(gameEntity);
+</code></pre>
+<h3 id="disabledynamicbodysimulation-1">DisableDynamicBodySimulation</h3>
+<p><code>public static void DisableDynamicBodySimulation(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Executes the DisableDynamicBodySimulation logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.DisableDynamicBodySimulation(gameEntity);
+</code></pre>
+<h3 id="disabledynamicbodysimulationmt">DisableDynamicBodySimulationMT</h3>
+<p><code>public static void DisableDynamicBodySimulationMT(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Executes the DisableDynamicBodySimulationMT logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.DisableDynamicBodySimulationMT(gameEntity);
+</code></pre>
+<h3 id="disabledynamicbodysimulationmt-1">DisableDynamicBodySimulationMT</h3>
+<p><code>public static void DisableDynamicBodySimulationMT(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Executes the DisableDynamicBodySimulationMT logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.DisableDynamicBodySimulationMT(gameEntity);
+</code></pre>
+<h3 id="convertdynamicbodytokinematic">ConvertDynamicBodyToKinematic</h3>
+<p><code>public static void ConvertDynamicBodyToKinematic(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Converts dynamic body to kinematic into another representation or type.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ConvertDynamicBodyToKinematic(gameEntity);
+</code></pre>
+<h3 id="convertdynamicbodytokinematic-1">ConvertDynamicBodyToKinematic</h3>
+<p><code>public static void ConvertDynamicBodyToKinematic(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Converts dynamic body to kinematic into another representation or type.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ConvertDynamicBodyToKinematic(gameEntity);
+</code></pre>
+<h3 id="convertdynamicbodytoraycast">ConvertDynamicBodyToRayCast</h3>
+<p><code>public static void ConvertDynamicBodyToRayCast(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Converts dynamic body to ray cast into another representation or type.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ConvertDynamicBodyToRayCast(gameEntity);
+</code></pre>
+<h3 id="convertdynamicbodytoraycast-1">ConvertDynamicBodyToRayCast</h3>
+<p><code>public static void ConvertDynamicBodyToRayCast(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Converts dynamic body to ray cast into another representation or type.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.ConvertDynamicBodyToRayCast(gameEntity);
+</code></pre>
+<h3 id="setphysicsmovetobatched">SetPhysicsMoveToBatched</h3>
+<p><code>public static void SetPhysicsMoveToBatched(this GameEntity gameEntity, bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to physics move to batched and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetPhysicsMoveToBatched(gameEntity, false);
+</code></pre>
+<h3 id="setphysicsmovetobatched-1">SetPhysicsMoveToBatched</h3>
+<p><code>public static void SetPhysicsMoveToBatched(this WeakGameEntity gameEntity, bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to physics move to batched and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetPhysicsMoveToBatched(gameEntity, false);
+</code></pre>
+<h3 id="enabledynamicbody">EnableDynamicBody</h3>
+<p><code>public static void EnableDynamicBody(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Executes the EnableDynamicBody logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.EnableDynamicBody(gameEntity);
+</code></pre>
+<h3 id="enabledynamicbody-1">EnableDynamicBody</h3>
+<p><code>public static void EnableDynamicBody(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Executes the EnableDynamicBody logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.EnableDynamicBody(gameEntity);
+</code></pre>
+<h3 id="getmass">GetMass</h3>
+<p><code>public static float GetMass(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mass value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetMass(gameEntity);
+</code></pre>
+<h3 id="getmass-1">GetMass</h3>
+<p><code>public static float GetMass(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mass value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetMass(gameEntity);
+</code></pre>
+<h3 id="setmassandupdateinertiaandcenterofmass">SetMassAndUpdateInertiaAndCenterOfMass</h3>
+<p><code>public static void SetMassAndUpdateInertiaAndCenterOfMass(this GameEntity gameEntity, float mass)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to mass and update inertia and center of mass and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetMassAndUpdateInertiaAndCenterOfMass(gameEntity, 0);
+</code></pre>
+<h3 id="setmassandupdateinertiaandcenterofmass-1">SetMassAndUpdateInertiaAndCenterOfMass</h3>
+<p><code>public static void SetMassAndUpdateInertiaAndCenterOfMass(this WeakGameEntity gameEntity, float mass)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to mass and update inertia and center of mass and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetMassAndUpdateInertiaAndCenterOfMass(gameEntity, 0);
+</code></pre>
+<h3 id="setcenterofmass">SetCenterOfMass</h3>
+<p><code>public static void SetCenterOfMass(this GameEntity gameEntity, Vec3 localCenterOfMass)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to center of mass and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetCenterOfMass(gameEntity, localCenterOfMass);
+</code></pre>
+<h3 id="setcenterofmass-1">SetCenterOfMass</h3>
+<p><code>public static void SetCenterOfMass(this WeakGameEntity gameEntity, Vec3 centerOfMass)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to center of mass and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetCenterOfMass(gameEntity, centerOfMass);
+</code></pre>
+<h3 id="getmassspaceinertia">GetMassSpaceInertia</h3>
+<p><code>public static Vec3 GetMassSpaceInertia(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mass space inertia value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetMassSpaceInertia(gameEntity);
+</code></pre>
+<h3 id="getmassspaceinertia-1">GetMassSpaceInertia</h3>
+<p><code>public static Vec3 GetMassSpaceInertia(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mass space inertia value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetMassSpaceInertia(gameEntity);
+</code></pre>
+<h3 id="getmassspaceinverseinertia">GetMassSpaceInverseInertia</h3>
+<p><code>public static Vec3 GetMassSpaceInverseInertia(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mass space inverse inertia value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetMassSpaceInverseInertia(gameEntity);
+</code></pre>
+<h3 id="getmassspaceinverseinertia-1">GetMassSpaceInverseInertia</h3>
+<p><code>public static Vec3 GetMassSpaceInverseInertia(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mass space inverse inertia value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetMassSpaceInverseInertia(gameEntity);
+</code></pre>
+<h3 id="setmassspaceinertia">SetMassSpaceInertia</h3>
+<p><code>public static void SetMassSpaceInertia(this GameEntity gameEntity, Vec3 inertia)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to mass space inertia and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetMassSpaceInertia(gameEntity, inertia);
+</code></pre>
+<h3 id="setmassspaceinertia-1">SetMassSpaceInertia</h3>
+<p><code>public static void SetMassSpaceInertia(this WeakGameEntity gameEntity, Vec3 inertia)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to mass space inertia and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetMassSpaceInertia(gameEntity, inertia);
+</code></pre>
+<h3 id="setdamping">SetDamping</h3>
+<p><code>public static void SetDamping(this GameEntity gameEntity, float linearDamping, float angularDamping)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to damping and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetDamping(gameEntity, 0, 0);
+</code></pre>
+<h3 id="setdamping-1">SetDamping</h3>
+<p><code>public static void SetDamping(this WeakGameEntity gameEntity, float linearDamping, float angularDamping)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to damping and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetDamping(gameEntity, 0, 0);
+</code></pre>
+<h3 id="setdampingmt">SetDampingMT</h3>
+<p><code>public static void SetDampingMT(this GameEntity gameEntity, float linearDamping, float angularDamping)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to damping m t and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetDampingMT(gameEntity, 0, 0);
+</code></pre>
+<h3 id="setdampingmt-1">SetDampingMT</h3>
+<p><code>public static void SetDampingMT(this WeakGameEntity gameEntity, float linearDamping, float angularDamping)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to damping m t and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetDampingMT(gameEntity, 0, 0);
+</code></pre>
+<h3 id="disablegravity">DisableGravity</h3>
+<p><code>public static void DisableGravity(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Executes the DisableGravity logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.DisableGravity(gameEntity);
+</code></pre>
+<h3 id="disablegravity-1">DisableGravity</h3>
+<p><code>public static void DisableGravity(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Executes the DisableGravity logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.DisableGravity(gameEntity);
+</code></pre>
+<h3 id="isgravitydisabled">IsGravityDisabled</h3>
+<p><code>public static bool IsGravityDisabled(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the gravity disabled state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.IsGravityDisabled(gameEntity);
+</code></pre>
+<h3 id="isgravitydisabled-1">IsGravityDisabled</h3>
+<p><code>public static bool IsGravityDisabled(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the gravity disabled state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.IsGravityDisabled(gameEntity);
+</code></pre>
+<h3 id="getlinearvelocity">GetLinearVelocity</h3>
+<p><code>public static Vec3 GetLinearVelocity(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the linear velocity value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetLinearVelocity(gameEntity);
+</code></pre>
+<h3 id="getlinearvelocity-1">GetLinearVelocity</h3>
+<p><code>public static Vec3 GetLinearVelocity(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the linear velocity value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetLinearVelocity(gameEntity);
+</code></pre>
+<h3 id="setlinearvelocity">SetLinearVelocity</h3>
+<p><code>public static void SetLinearVelocity(this GameEntity gameEntity, Vec3 newLinearVelocity)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to linear velocity and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetLinearVelocity(gameEntity, newLinearVelocity);
+</code></pre>
+<h3 id="setlinearvelocity-1">SetLinearVelocity</h3>
+<p><code>public static void SetLinearVelocity(this WeakGameEntity gameEntity, Vec3 newLinearVelocity)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to linear velocity and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetLinearVelocity(gameEntity, newLinearVelocity);
+</code></pre>
+<h3 id="getlinearvelocitymt">GetLinearVelocityMT</h3>
+<p><code>public static Vec3 GetLinearVelocityMT(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the linear velocity m t value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetLinearVelocityMT(gameEntity);
+</code></pre>
+<h3 id="getlinearvelocitymt-1">GetLinearVelocityMT</h3>
+<p><code>public static Vec3 GetLinearVelocityMT(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the linear velocity m t value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetLinearVelocityMT(gameEntity);
+</code></pre>
+<h3 id="getangularvelocity">GetAngularVelocity</h3>
+<p><code>public static Vec3 GetAngularVelocity(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the angular velocity value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetAngularVelocity(gameEntity);
+</code></pre>
+<h3 id="getangularvelocity-1">GetAngularVelocity</h3>
+<p><code>public static Vec3 GetAngularVelocity(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the angular velocity value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetAngularVelocity(gameEntity);
+</code></pre>
+<h3 id="getangularvelocitymt">GetAngularVelocityMT</h3>
+<p><code>public static Vec3 GetAngularVelocityMT(this GameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the angular velocity m t value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetAngularVelocityMT(gameEntity);
+</code></pre>
+<h3 id="getangularvelocitymt-1">GetAngularVelocityMT</h3>
+<p><code>public static Vec3 GetAngularVelocityMT(this WeakGameEntity gameEntity)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the angular velocity m t value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetAngularVelocityMT(gameEntity);
+</code></pre>
+<h3 id="setangularvelocity">SetAngularVelocity</h3>
+<p><code>public static void SetAngularVelocity(this GameEntity gameEntity, Vec3 newAngularVelocity)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to angular velocity and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetAngularVelocity(gameEntity, newAngularVelocity);
+</code></pre>
+<h3 id="setangularvelocity-1">SetAngularVelocity</h3>
+<p><code>public static void SetAngularVelocity(this WeakGameEntity gameEntity, Vec3 newAngularVelocity)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to angular velocity and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.SetAngularVelocity(gameEntity, newAngularVelocity);
+</code></pre>
+<h3 id="getphysicsminmax">GetPhysicsMinMax</h3>
+<p><code>public static void GetPhysicsMinMax(this GameEntity gameEntity, bool includeChildren, out Vec3 bbmin, out Vec3 bbmax, bool returnLocal)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the physics min max value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetPhysicsMinMax(gameEntity, false, bbmin, bbmax, false);
+</code></pre>
+<h3 id="getlinearvelocityatglobalpointforentitywithdynamicbody">GetLinearVelocityAtGlobalPointForEntityWithDynamicBody</h3>
+<p><code>public static Vec3 GetLinearVelocityAtGlobalPointForEntityWithDynamicBody(this WeakGameEntity entity, Vec3 point)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the linear velocity at global point for entity with dynamic body value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetLinearVelocityAtGlobalPointForEntityWithDynamicBody(entity, point);
+</code></pre>
+<h3 id="getphysicsminmax-1">GetPhysicsMinMax</h3>
+<p><code>public static void GetPhysicsMinMax(this WeakGameEntity gameEntity, bool includeChildren, out Vec3 bbmin, out Vec3 bbmax, bool returnLocal)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the physics min max value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetPhysicsMinMax(gameEntity, false, bbmin, bbmax, false);
+</code></pre>
+<h3 id="getlocalphysicsboundingbox">GetLocalPhysicsBoundingBox</h3>
+<p><code>public static BoundingBox GetLocalPhysicsBoundingBox(this GameEntity gameEntity, bool includeChildren)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local physics bounding box value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetLocalPhysicsBoundingBox(gameEntity, false);
+</code></pre>
+<h3 id="getlocalphysicsboundingbox-1">GetLocalPhysicsBoundingBox</h3>
+<p><code>public static BoundingBox GetLocalPhysicsBoundingBox(this WeakGameEntity gameEntity, bool includeChildren)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local physics bounding box value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+GameEntityPhysicsExtensions.GetLocalPhysicsBoundingBox(gameEntity, false);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">GameEntityPhysicsExtensions.HasBody(gameEntity);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/engine/">engine index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/api/engine/GameEntity/">&larr; GameEntity</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/engine/Shader/">Shader &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

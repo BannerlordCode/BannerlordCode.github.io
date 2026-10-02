@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Widget</title>
+  <meta name="description" content="Auto-generated class reference for Widget.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/Widget/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/Widget/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Widget</span>
+    </nav>
+  
+  <h1>Widget</h1>
+  <h1 id="widget">Widget</h1>
+<p><strong>Namespace:</strong> TaleWorlds.GauntletUI.BaseTypes
+<strong>Module:</strong> TaleWorlds.GauntletUI
+<strong>Type:</strong> <code>public class Widget : PropertyOwnerObject</code>
+<strong>Base:</strong> <code>PropertyOwnerObject</code>
+<strong>File:</strong> <code>TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/BaseTypes/Widget.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Widget</code> lives in <code>TaleWorlds.GauntletUI.BaseTypes</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.GauntletUI.BaseTypes</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>ColorFactor</code></td><td><code>public float ColorFactor { get; set; }</code></td></tr>
+<tr><td><code>AlphaFactor</code></td><td><code>public float AlphaFactor { get; set; }</code></td></tr>
+<tr><td><code>ValueFactor</code></td><td><code>public float ValueFactor { get; set; }</code></td></tr>
+<tr><td><code>SaturationFactor</code></td><td><code>public float SaturationFactor { get; set; }</code></td></tr>
+<tr><td><code>ExtendLeft</code></td><td><code>public float ExtendLeft { get; set; }</code></td></tr>
+<tr><td><code>ExtendRight</code></td><td><code>public float ExtendRight { get; set; }</code></td></tr>
+<tr><td><code>ExtendTop</code></td><td><code>public float ExtendTop { get; set; }</code></td></tr>
+<tr><td><code>ExtendBottom</code></td><td><code>public float ExtendBottom { get; set; }</code></td></tr>
+<tr><td><code>VerticalFlip</code></td><td><code>public bool VerticalFlip { get; set; }</code></td></tr>
+<tr><td><code>HorizontalFlip</code></td><td><code>public bool HorizontalFlip { get; set; }</code></td></tr>
+<tr><td><code>NinePatchTop</code></td><td><code>public int NinePatchTop { get; set; }</code></td></tr>
+<tr><td><code>NinePatchBottom</code></td><td><code>public int NinePatchBottom { get; set; }</code></td></tr>
+<tr><td><code>NinePatchLeft</code></td><td><code>public int NinePatchLeft { get; set; }</code></td></tr>
+<tr><td><code>NinePatchRight</code></td><td><code>public int NinePatchRight { get; set; }</code></td></tr>
+<tr><td><code>ImageFit</code></td><td><code>public ImageFit ImageFit { get; set; }</code></td></tr>
+<tr><td><code>GlobalRotation</code></td><td><code>public float GlobalRotation { get; }</code></td></tr>
+<tr><td><code>Rotation</code></td><td><code>public float Rotation { get; set; }</code></td></tr>
+<tr><td><code>PivotX</code></td><td><code>public float PivotX { get; set; }</code></td></tr>
+<tr><td><code>PivotY</code></td><td><code>public float PivotY { get; set; }</code></td></tr>
+<tr><td><code>Left</code></td><td><code>public float Left { get; }</code></td></tr>
+<tr><td><code>Top</code></td><td><code>public float Top { get; }</code></td></tr>
+<tr><td><code>Size</code></td><td><code>public Vector2 Size { get; }</code></td></tr>
+<tr><td><code>FrictionEnabled</code></td><td><code>public bool FrictionEnabled { get; set; }</code></td></tr>
+<tr><td><code>Color</code></td><td><code>public Color Color { get; set; }</code></td></tr>
+<tr><td><code>Id</code></td><td><code>public string Id { get; }</code></td></tr>
+<tr><td><code>LocalPosition</code></td><td><code>public Vector2 LocalPosition { get; }</code></td></tr>
+<tr><td><code>GlobalPosition</code></td><td><code>public Vector2 GlobalPosition { get; }</code></td></tr>
+<tr><td><code>GamepadCursorAreaRect</code></td><td><code>public Rectangle2D GamepadCursorAreaRect { get; }</code></td></tr>
+<tr><td><code>DoNotUseCustomScaleAndChildren</code></td><td><code>public bool DoNotUseCustomScaleAndChildren { get; set; }</code></td></tr>
+<tr><td><code>DoNotUseCustomScale</code></td><td><code>public bool DoNotUseCustomScale { get; set; }</code></td></tr>
+<tr><td><code>SuggestedWidth</code></td><td><code>public float SuggestedWidth { get; set; }</code></td></tr>
+<tr><td><code>SuggestedHeight</code></td><td><code>public float SuggestedHeight { get; set; }</code></td></tr>
+<tr><td><code>ScaledSuggestedWidth</code></td><td><code>public float ScaledSuggestedWidth { get; set; }</code></td></tr>
+<tr><td><code>ScaledSuggestedHeight</code></td><td><code>public float ScaledSuggestedHeight { get; set; }</code></td></tr>
+<tr><td><code>HoveredCursorState</code></td><td><code>public string HoveredCursorState { get; set; }</code></td></tr>
+<tr><td><code>AlternateClickEventHasSpecialEvent</code></td><td><code>public bool AlternateClickEventHasSpecialEvent { get; set; }</code></td></tr>
+<tr><td><code>PosOffset</code></td><td><code>public Vector2 PosOffset { get; set; }</code></td></tr>
+<tr><td><code>ScaledPositionOffset</code></td><td><code>public Vector2 ScaledPositionOffset { get; set; }</code></td></tr>
+<tr><td><code>PositionXOffset</code></td><td><code>public float PositionXOffset { get; set; }</code></td></tr>
+<tr><td><code>PositionYOffset</code></td><td><code>public float PositionYOffset { get; set; }</code></td></tr>
+<tr><td><code>ScaledPositionXOffset</code></td><td><code>public float ScaledPositionXOffset { get; set; }</code></td></tr>
+<tr><td><code>ScaledPositionYOffset</code></td><td><code>public float ScaledPositionYOffset { get; set; }</code></td></tr>
+<tr><td><code>ParentWidget</code></td><td><code>public Widget ParentWidget { get; set; }</code></td></tr>
+<tr><td><code>EventManager</code></td><td><code>public EventManager EventManager { get; }</code></td></tr>
+<tr><td><code>GamepadNavigationContext</code></td><td><code>public IGamepadNavigationContext GamepadNavigationContext { get; }</code></td></tr>
+<tr><td><code>Context</code></td><td><code>public UIContext Context { get; }</code></td></tr>
+<tr><td><code>MeasuredSize</code></td><td><code>public Vector2 MeasuredSize { get; }</code></td></tr>
+<tr><td><code>MarginTop</code></td><td><code>public float MarginTop { get; set; }</code></td></tr>
+<tr><td><code>MarginLeft</code></td><td><code>public float MarginLeft { get; set; }</code></td></tr>
+<tr><td><code>MarginBottom</code></td><td><code>public float MarginBottom { get; set; }</code></td></tr>
+<tr><td><code>MarginRight</code></td><td><code>public float MarginRight { get; set; }</code></td></tr>
+<tr><td><code>ScaledMarginTop</code></td><td><code>public float ScaledMarginTop { get; }</code></td></tr>
+<tr><td><code>ScaledMarginLeft</code></td><td><code>public float ScaledMarginLeft { get; }</code></td></tr>
+<tr><td><code>ScaledMarginBottom</code></td><td><code>public float ScaledMarginBottom { get; }</code></td></tr>
+<tr><td><code>ScaledMarginRight</code></td><td><code>public float ScaledMarginRight { get; set; }</code></td></tr>
+<tr><td><code>VerticalAlignment</code></td><td><code>public VerticalAlignment VerticalAlignment { get; set; }</code></td></tr>
+<tr><td><code>HorizontalAlignment</code></td><td><code>public HorizontalAlignment HorizontalAlignment { get; set; }</code></td></tr>
+<tr><td><code>Right</code></td><td><code>public float Right { get; }</code></td></tr>
+<tr><td><code>Bottom</code></td><td><code>public float Bottom { get; }</code></td></tr>
+<tr><td><code>ChildCount</code></td><td><code>public int ChildCount { get; set; }</code></td></tr>
+<tr><td><code>ForcePixelPerfectRenderPlacement</code></td><td><code>public bool ForcePixelPerfectRenderPlacement { get; set; }</code></td></tr>
+<tr><td><code>UseGlobalTimeForAnimation</code></td><td><code>public bool UseGlobalTimeForAnimation { get; set; }</code></td></tr>
+<tr><td><code>UseSpriteDimensions</code></td><td><code>public bool UseSpriteDimensions { get; set; }</code></td></tr>
+<tr><td><code>WidthSizePolicy</code></td><td><code>public SizePolicy WidthSizePolicy { get; set; }</code></td></tr>
+<tr><td><code>HeightSizePolicy</code></td><td><code>public SizePolicy HeightSizePolicy { get; set; }</code></td></tr>
+<tr><td><code>AcceptDrag</code></td><td><code>public bool AcceptDrag { get; set; }</code></td></tr>
+<tr><td><code>AcceptDrop</code></td><td><code>public bool AcceptDrop { get; set; }</code></td></tr>
+<tr><td><code>HideOnDrag</code></td><td><code>public bool HideOnDrag { get; set; }</code></td></tr>
+<tr><td><code>DragWidget</code></td><td><code>public Widget DragWidget { get; set; }</code></td></tr>
+<tr><td><code>ClipContents</code></td><td><code>public bool ClipContents { get; set; }</code></td></tr>
+<tr><td><code>ClipHorizontalContent</code></td><td><code>public bool ClipHorizontalContent { get; set; }</code></td></tr>
+<tr><td><code>ClipVerticalContent</code></td><td><code>public bool ClipVerticalContent { get; set; }</code></td></tr>
+<tr><td><code>CircularClipEnabled</code></td><td><code>public bool CircularClipEnabled { get; set; }</code></td></tr>
+<tr><td><code>CircularClipRadius</code></td><td><code>public float CircularClipRadius { get; set; }</code></td></tr>
+<tr><td><code>IsCircularClipRadiusHalfOfWidth</code></td><td><code>public bool IsCircularClipRadiusHalfOfWidth { get; set; }</code></td></tr>
+<tr><td><code>IsCircularClipRadiusHalfOfHeight</code></td><td><code>public bool IsCircularClipRadiusHalfOfHeight { get; set; }</code></td></tr>
+<tr><td><code>CircularClipSmoothingRadius</code></td><td><code>public float CircularClipSmoothingRadius { get; set; }</code></td></tr>
+<tr><td><code>CircularClipXOffset</code></td><td><code>public float CircularClipXOffset { get; set; }</code></td></tr>
+<tr><td><code>CircularClipYOffset</code></td><td><code>public float CircularClipYOffset { get; set; }</code></td></tr>
+<tr><td><code>RenderLate</code></td><td><code>public bool RenderLate { get; set; }</code></td></tr>
+<tr><td><code>DoNotRenderIfNotFullyInsideScissor</code></td><td><code>public bool DoNotRenderIfNotFullyInsideScissor { get; set; }</code></td></tr>
+<tr><td><code>FixedWidth</code></td><td><code>public bool FixedWidth { get; }</code></td></tr>
+<tr><td><code>FixedHeight</code></td><td><code>public bool FixedHeight { get; }</code></td></tr>
+<tr><td><code>IsHovered</code></td><td><code>public bool IsHovered { get; }</code></td></tr>
+<tr><td><code>IsDisabled</code></td><td><code>public bool IsDisabled { get; set; }</code></td></tr>
+<tr><td><code>IsFocusable</code></td><td><code>public bool IsFocusable { get; set; }</code></td></tr>
+<tr><td><code>IsFocused</code></td><td><code>public bool IsFocused { get; }</code></td></tr>
+<tr><td><code>IsEnabled</code></td><td><code>public bool IsEnabled { get; set; }</code></td></tr>
+<tr><td><code>RestartAnimationFirstFrame</code></td><td><code>public bool RestartAnimationFirstFrame { get; set; }</code></td></tr>
+<tr><td><code>DoNotPassEventsToChildren</code></td><td><code>public bool DoNotPassEventsToChildren { get; set; }</code></td></tr>
+<tr><td><code>DoNotAcceptEvents</code></td><td><code>public bool DoNotAcceptEvents { get; set; }</code></td></tr>
+<tr><td><code>CanAcceptEvents</code></td><td><code>public bool CanAcceptEvents { get; set; }</code></td></tr>
+<tr><td><code>IsPressed</code></td><td><code>public bool IsPressed { get; set; }</code></td></tr>
+<tr><td><code>IsHidden</code></td><td><code>public bool IsHidden { get; set; }</code></td></tr>
+<tr><td><code>IsVisible</code></td><td><code>public bool IsVisible { get; set; }</code></td></tr>
+<tr><td><code>Sprite</code></td><td><code>public Sprite Sprite { get; set; }</code></td></tr>
+<tr><td><code>VisualDefinition</code></td><td><code>public VisualDefinition VisualDefinition { get; set; }</code></td></tr>
+<tr><td><code>CurrentState</code></td><td><code>public string CurrentState { get; set; }</code></td></tr>
+<tr><td><code>UpdateChildrenStates</code></td><td><code>public bool UpdateChildrenStates { get; set; }</code></td></tr>
+<tr><td><code>Tag</code></td><td><code>public object Tag { get; }</code></td></tr>
+<tr><td><code>LayoutImp</code></td><td><code>public ILayout LayoutImp { get; }</code></td></tr>
+<tr><td><code>DropEventHandledManually</code></td><td><code>public bool DropEventHandledManually { get; }</code></td></tr>
+<tr><td><code>Children</code></td><td><code>public List&lt;Widget&gt; Children { get; }</code></td></tr>
+<tr><td><code>ConnectedToRoot</code></td><td><code>public bool ConnectedToRoot { get; set; }</code></td></tr>
+<tr><td><code>MaxWidth</code></td><td><code>public float MaxWidth { get; set; }</code></td></tr>
+<tr><td><code>MaxHeight</code></td><td><code>public float MaxHeight { get; set; }</code></td></tr>
+<tr><td><code>MinWidth</code></td><td><code>public float MinWidth { get; set; }</code></td></tr>
+<tr><td><code>MinHeight</code></td><td><code>public float MinHeight { get; set; }</code></td></tr>
+<tr><td><code>ScaledMaxWidth</code></td><td><code>public float ScaledMaxWidth { get; }</code></td></tr>
+<tr><td><code>ScaledMaxHeight</code></td><td><code>public float ScaledMaxHeight { get; }</code></td></tr>
+<tr><td><code>ScaledMinWidth</code></td><td><code>public float ScaledMinWidth { get; }</code></td></tr>
+<tr><td><code>ScaledMinHeight</code></td><td><code>public float ScaledMinHeight { get; }</code></td></tr>
+<tr><td><code>DisableRender</code></td><td><code>public bool DisableRender { get; set; }</code></td></tr>
+<tr><td><code>EventFire</code></td><td><code>public event Action&lt;Widget, string, object &gt; EventFire { get; }</code></td></tr>
+<tr><td><code>ExtendCursorAreaTop</code></td><td><code>public float ExtendCursorAreaTop { get; set; }</code></td></tr>
+<tr><td><code>ExtendCursorAreaRight</code></td><td><code>public float ExtendCursorAreaRight { get; set; }</code></td></tr>
+<tr><td><code>ExtendCursorAreaBottom</code></td><td><code>public float ExtendCursorAreaBottom { get; set; }</code></td></tr>
+<tr><td><code>ExtendCursorAreaLeft</code></td><td><code>public float ExtendCursorAreaLeft { get; set; }</code></td></tr>
+<tr><td><code>CursorAreaXOffset</code></td><td><code>public float CursorAreaXOffset { get; set; }</code></td></tr>
+<tr><td><code>CursorAreaYOffset</code></td><td><code>public float CursorAreaYOffset { get; set; }</code></td></tr>
+<tr><td><code>AcceptNavigation</code></td><td><code>public bool AcceptNavigation { get; set; }</code></td></tr>
+<tr><td><code>DoNotAcceptNavigation</code></td><td><code>public bool DoNotAcceptNavigation { get; set; }</code></td></tr>
+<tr><td><code>IsUsingNavigation</code></td><td><code>public bool IsUsingNavigation { get; set; }</code></td></tr>
+<tr><td><code>UseSiblingIndexForNavigation</code></td><td><code>public bool UseSiblingIndexForNavigation { get; set; }</code></td></tr>
+<tr><td><code>GamepadNavigationIndex</code></td><td><code>public int GamepadNavigationIndex { get; set; }</code></td></tr>
+<tr><td><code>UsedNavigationMovements</code></td><td><code>public GamepadNavigationTypes UsedNavigationMovements { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="getallchildrenandthisrecursive">GetAllChildrenAndThisRecursive</h3>
+<p><code>public List&lt;Widget&gt; GetAllChildrenAndThisRecursive()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the all children and this recursive value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.GetAllChildrenAndThisRecursive();
+</code></pre>
+<h3 id="applyactiontoallchildren">ApplyActionToAllChildren</h3>
+<p><code>public void ApplyActionToAllChildren(Action&lt;Widget&gt; action)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of action to all children to the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.ApplyActionToAllChildren(action);
+</code></pre>
+<h3 id="applyactiontoallchildrenrecursive">ApplyActionToAllChildrenRecursive</h3>
+<p><code>public void ApplyActionToAllChildrenRecursive(Action&lt;Widget&gt; action)</code></p>
+<p><strong>Purpose:</strong> Applies the effect of action to all children recursive to the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.ApplyActionToAllChildrenRecursive(action);
+</code></pre>
+<h3 id="getallchildrenrecursive">GetAllChildrenRecursive</h3>
+<p><code>public List&lt;Widget&gt; GetAllChildrenRecursive(Func&lt;Widget, bool&gt; predicate = null)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the all children recursive value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.GetAllChildrenRecursive(func&lt;Widget, false);
+</code></pre>
+<h3 id="getallparents">GetAllParents</h3>
+<p><code>public List&lt;Widget&gt; GetAllParents()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the all parents value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.GetAllParents();
+</code></pre>
+<h3 id="addcomponent">AddComponent</h3>
+<p><code>public void AddComponent(WidgetComponent component)</code></p>
+<p><strong>Purpose:</strong> Adds component to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.AddComponent(component);
+</code></pre>
+<h3 id="addstate">AddState</h3>
+<p><code>public void AddState(string stateName)</code></p>
+<p><strong>Purpose:</strong> Adds state to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.AddState(&quot;example&quot;);
+</code></pre>
+<h3 id="containsstate">ContainsState</h3>
+<p><code>public bool ContainsState(string stateName)</code></p>
+<p><strong>Purpose:</strong> Indicates whether the this instance contains state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.ContainsState(&quot;example&quot;);
+</code></pre>
+<h3 id="setstate">SetState</h3>
+<p><code>public virtual void SetState(string stateName)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to state and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.SetState(&quot;example&quot;);
+</code></pre>
+<h3 id="findchild">FindChild</h3>
+<p><code>public Widget FindChild(BindingPath path)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching child in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.FindChild(path);
+</code></pre>
+<h3 id="findchild-1">FindChild</h3>
+<p><code>public Widget FindChild(string singlePathNode)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching child in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.FindChild(&quot;example&quot;);
+</code></pre>
+<h3 id="findchild-2">FindChild</h3>
+<p><code>public Widget FindChild(WidgetSearchDelegate widgetSearchDelegate)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching child in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.FindChild(widgetSearchDelegate);
+</code></pre>
+<h3 id="findchild-3">FindChild</h3>
+<p><code>public Widget FindChild(string id, bool includeAllChildren = false)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching child in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.FindChild(&quot;example&quot;, false);
+</code></pre>
+<h3 id="getfirstinchildrenandthisrecursive">GetFirstInChildrenAndThisRecursive</h3>
+<p><code>public Widget GetFirstInChildrenAndThisRecursive(Func&lt;Widget, bool&gt; predicate)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the first in children and this recursive value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.GetFirstInChildrenAndThisRecursive(func&lt;Widget, false);
+</code></pre>
+<h3 id="getfirstinchildrenrecursive">GetFirstInChildrenRecursive</h3>
+<p><code>public Widget GetFirstInChildrenRecursive(Func&lt;Widget, bool&gt; predicate)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the first in children recursive value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.GetFirstInChildrenRecursive(func&lt;Widget, false);
+</code></pre>
+<h3 id="removeallchildren">RemoveAllChildren</h3>
+<p><code>public void RemoveAllChildren()</code></p>
+<p><strong>Purpose:</strong> Removes all children from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.RemoveAllChildren();
+</code></pre>
+<h3 id="updateanimationpropertiessubtask">UpdateAnimationPropertiesSubTask</h3>
+<p><code>public virtual void UpdateAnimationPropertiesSubTask(float alphaFactor)</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of animation properties sub task.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.UpdateAnimationPropertiesSubTask(0);
+</code></pre>
+<h3 id="measure">Measure</h3>
+<p><code>public void Measure(Vector2 measureSpec)</code></p>
+<p><strong>Purpose:</strong> Executes the Measure logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.Measure(measureSpec);
+</code></pre>
+<h3 id="checkismychildrecursive">CheckIsMyChildRecursive</h3>
+<p><code>public bool CheckIsMyChildRecursive(Widget child)</code></p>
+<p><strong>Purpose:</strong> Verifies whether is my child recursive holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.CheckIsMyChildRecursive(child);
+</code></pre>
+<h3 id="addchild">AddChild</h3>
+<p><code>public void AddChild(Widget widget)</code></p>
+<p><strong>Purpose:</strong> Adds child to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.AddChild(widget);
+</code></pre>
+<h3 id="addchildatindex">AddChildAtIndex</h3>
+<p><code>public void AddChildAtIndex(Widget widget, int index)</code></p>
+<p><strong>Purpose:</strong> Adds child at index to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.AddChildAtIndex(widget, 0);
+</code></pre>
+<h3 id="swapchildren">SwapChildren</h3>
+<p><code>public void SwapChildren(Widget widget1, Widget widget2)</code></p>
+<p><strong>Purpose:</strong> Executes the SwapChildren logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.SwapChildren(widget1, widget2);
+</code></pre>
+<h3 id="removechild">RemoveChild</h3>
+<p><code>public void RemoveChild(Widget widget)</code></p>
+<p><strong>Purpose:</strong> Removes child from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.RemoveChild(widget);
+</code></pre>
+<h3 id="onbeforeremovedchild">OnBeforeRemovedChild</h3>
+<p><code>public virtual void OnBeforeRemovedChild(Widget widget)</code></p>
+<p><strong>Purpose:</strong> Invoked when the before removed child event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.OnBeforeRemovedChild(widget);
+</code></pre>
+<h3 id="haschild">HasChild</h3>
+<p><code>public bool HasChild(Widget widget)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds child.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.HasChild(widget);
+</code></pre>
+<h3 id="updatebrushes">UpdateBrushes</h3>
+<p><code>public virtual void UpdateBrushes(float dt)</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of brushes.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.UpdateBrushes(0);
+</code></pre>
+<h3 id="getchildindex">GetChildIndex</h3>
+<p><code>public int GetChildIndex(Widget child)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the child index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.GetChildIndex(child);
+</code></pre>
+<h3 id="getvisiblechildindex">GetVisibleChildIndex</h3>
+<p><code>public int GetVisibleChildIndex(Widget child)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the visible child index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.GetVisibleChildIndex(child);
+</code></pre>
+<h3 id="getfilterchildindex">GetFilterChildIndex</h3>
+<p><code>public int GetFilterChildIndex(Widget child, Func&lt;Widget, bool&gt; childrenFilter)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the filter child index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.GetFilterChildIndex(child, func&lt;Widget, false);
+</code></pre>
+<h3 id="getchild">GetChild</h3>
+<p><code>public Widget GetChild(int i)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the child value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.GetChild(0);
+</code></pre>
+<h3 id="layout">Layout</h3>
+<p><code>public void Layout(float left, float bottom, float right, float top)</code></p>
+<p><strong>Purpose:</strong> Executes the Layout logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.Layout(0, 0, 0, 0);
+</code></pre>
+<h3 id="handleinput">HandleInput</h3>
+<p><code>public virtual void HandleInput(IReadOnlyList&lt;int&gt; lastKeysPressed)</code></p>
+<p><strong>Purpose:</strong> Executes the response logic associated with input.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.HandleInput(lastKeysPressed);
+</code></pre>
+<h3 id="ispointinsidemeasuredarea">IsPointInsideMeasuredArea</h3>
+<p><code>public bool IsPointInsideMeasuredArea(Vector2 p)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the point inside measured area state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.IsPointInsideMeasuredArea(p);
+</code></pre>
+<h3 id="ispointinsidegamepadcursorarea">IsPointInsideGamepadCursorArea</h3>
+<p><code>public bool IsPointInsideGamepadCursorArea(Vector2 p)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the point inside gamepad cursor area state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.IsPointInsideGamepadCursorArea(p);
+</code></pre>
+<h3 id="hide">Hide</h3>
+<p><code>public void Hide()</code></p>
+<p><strong>Purpose:</strong> Hides the UI or element associated with the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.Hide();
+</code></pre>
+<h3 id="show">Show</h3>
+<p><code>public void Show()</code></p>
+<p><strong>Purpose:</strong> Displays the UI or element associated with the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.Show();
+</code></pre>
+<h3 id="getlocalpoint">GetLocalPoint</h3>
+<p><code>public Vector2 GetLocalPoint(Vector2 globalPoint)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the local point value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.GetLocalPoint(globalPoint);
+</code></pre>
+<h3 id="setsiblingindex">SetSiblingIndex</h3>
+<p><code>public void SetSiblingIndex(int index, bool force = false)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to sibling index and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.SetSiblingIndex(0, false);
+</code></pre>
+<h3 id="getsiblingindex">GetSiblingIndex</h3>
+<p><code>public int GetSiblingIndex()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the sibling index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.GetSiblingIndex();
+</code></pre>
+<h3 id="getvisiblesiblingindex">GetVisibleSiblingIndex</h3>
+<p><code>public int GetVisibleSiblingIndex()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the visible sibling index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.GetVisibleSiblingIndex();
+</code></pre>
+<h3 id="render">Render</h3>
+<p><code>public void Render(TwoDimensionContext twoDimensionContext, TwoDimensionDrawContext drawContext)</code></p>
+<p><strong>Purpose:</strong> Executes the Render logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.Render(twoDimensionContext, drawContext);
+</code></pre>
+<h3 id="isrecursivelyvisible">IsRecursivelyVisible</h3>
+<p><code>public bool IsRecursivelyVisible()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the recursively visible state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.IsRecursivelyVisible();
+</code></pre>
+<h3 id="tostring">ToString</h3>
+<p><code>public override string ToString()</code></p>
+<p><strong>Purpose:</strong> Returns a human-readable string representation of the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+var result = widget.ToString();
+</code></pre>
+<h3 id="ongamepadnavigationfocusgain">OnGamepadNavigationFocusGain</h3>
+<p><code>public void OnGamepadNavigationFocusGain()</code></p>
+<p><strong>Purpose:</strong> Invoked when the gamepad navigation focus gain event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Widget from the subsystem API first
+Widget widget = ...;
+widget.OnGamepadNavigationFocusGain();
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+Widget widget = ...;
+widget.GetAllChildrenAndThisRecursive();
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/BattleOverMessage/">&larr; BattleOverMessage</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/CardSelectionItemSpriteType/">CardSelectionItemSpriteType &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

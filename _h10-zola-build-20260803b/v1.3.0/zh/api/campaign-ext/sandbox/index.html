@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SandBox</title>
+  <meta name="description" content="Sandbox 模块（战役作弊、行为等）。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign-ext/sandbox/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign-ext/sandbox/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">SandBox</span>
+    </nav>
+  
+  <h1>SandBox</h1>
+  <h2 id="shang-ji-dao-hang">上级导航</h2>
+<ul>
+<li><a href="../">返回 campaign-ext 目录</a></li>
+<li><a href="../../">API 目录</a></li>
+<li><a href="../../../">版本首页</a></li>
+</ul>
+<h2 id="zi-xi-tong-gai-shu">子系统概述</h2>
+<p>这里是 <strong>campaign-ext 目录</strong> 的 <strong>SandBox</strong> 子系统。同一命名空间下的类负责相近功能，可从中找到需要的类型后再进入类页查看方法。</p>
+<p>Sandbox 模块（战役作弊、行为等）。</p>
+<h2 id="lei-lie-biao">类列表</h2>
+<table><thead><tr><th>类</th><th>用途</th></tr></thead><tbody>
+<tr><td><a href="../Add1000GoldCheat/"><code>Add1000GoldCheat</code></a></td><td>Add1000GoldCheat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../Add100InfluenceCheat/"><code>Add100InfluenceCheat</code></a></td><td>Add100InfluenceCheat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../Add100RenownCheat/"><code>Add100RenownCheat</code></a></td><td>Add100RenownCheat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../AddCraftingMaterialsCheat/"><code>AddCraftingMaterialsCheat</code></a></td><td>AddCraftingMaterialsCheat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../AgentAlarmStateEnum/"><code>AgentAlarmStateEnum</code></a></td><td>AgentAlarmStateEnum 是 SandBox.ViewModelCollection.Missions.MainAgentDetection 下的公开类型。</td></tr>
+<tr><td><a href="../AgentBehavior/"><code>AgentBehavior</code></a></td><td>AgentBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AgentBehaviorGroup/"><code>AgentBehaviorGroup</code></a></td><td>AgentBehaviorGroup 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AgentBehaviorManager/"><code>AgentBehaviorManager</code></a></td><td>AgentBehaviorManager 是一个管理器，位于 SandBox.AI，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../AgentStealthOffenseType/"><code>AgentStealthOffenseType</code></a></td><td>AgentStealthOffenseType 是 SandBox.ViewModelCollection.Missions.MainAgentDetection 下的公开类型。</td></tr>
+<tr><td><a href="../AgentTrackTypes/"><code>AgentTrackTypes</code></a></td><td>AgentTrackTypes 是 SandBox.Missions.MissionLogics 下的公开类型。</td></tr>
+<tr><td><a href="../AIState/"><code>AIState</code></a></td><td>AIState 是 SandBox.BoardGames.AI 下的公开类型。</td></tr>
+<tr><td><a href="../AlarmedBehaviorGroup/"><code>AlarmedBehaviorGroup</code></a></td><td>AlarmedBehaviorGroup 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AlleyCampaignBehavior/"><code>AlleyCampaignBehavior</code></a></td><td>AlleyCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AlleyCampaignBehaviorTypeDefiner/"><code>AlleyCampaignBehaviorTypeDefiner</code></a></td><td>AlleyCampaignBehaviorTypeDefiner 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../AlleyFightMissionHandler/"><code>AlleyFightMissionHandler</code></a></td><td>AlleyFightMissionHandler 是一个处理器，位于 SandBox.Missions.MissionLogics.Towns，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../AnimatedBasicAreaIndicator/"><code>AnimatedBasicAreaIndicator</code></a></td><td>AnimatedBasicAreaIndicator 是 SandBox.Objects.AreaMarkers 下的公开类型。</td></tr>
+<tr><td><a href="../AnimationPoint/"><code>AnimationPoint</code></a></td><td>AnimationPoint 是 SandBox.Objects.AnimationPoints 下的公开类型。</td></tr>
+<tr><td><a href="../ArcheryTournamentAgentController/"><code>ArcheryTournamentAgentController</code></a></td><td>ArcheryTournamentAgentController 是一个控制器，位于 SandBox.Tournaments.AgentControllers，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../ArenaAgentStateDeciderLogic/"><code>ArenaAgentStateDeciderLogic</code></a></td><td>ArenaAgentStateDeciderLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics.Arena，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../ArenaDuelMissionBehavior/"><code>ArenaDuelMissionBehavior</code></a></td><td>ArenaDuelMissionBehavior 是 SandBox.Missions.MissionLogics.Arena 下的公开类型。</td></tr>
+<tr><td><a href="../ArenaDuelMissionController/"><code>ArenaDuelMissionController</code></a></td><td>ArenaDuelMissionController 是一个控制器，位于 SandBox.Missions.MissionLogics.Arena，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../ArenaDuelQuestTask/"><code>ArenaDuelQuestTask</code></a></td><td>ArenaDuelQuestTask 是 SandBox.Issues.IssueQuestTasks 下的公开类型。</td></tr>
+<tr><td><a href="../ArenaMasterCampaignBehavior/"><code>ArenaMasterCampaignBehavior</code></a></td><td>ArenaMasterCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../ArenaPracticeFightMissionController/"><code>ArenaPracticeFightMissionController</code></a></td><td>ArenaPracticeFightMissionController 是一个控制器，位于 SandBox.Missions.MissionLogics.Arena，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../BannerEditorView/"><code>BannerEditorView</code></a></td><td>BannerEditorView 是一个视图层对象，位于 SandBox.GauntletUI.BannerEditor，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../BarberCampaignBehavior/"><code>BarberCampaignBehavior</code></a></td><td>BarberCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../BarrierInfo/"><code>BarrierInfo</code></a></td><td>BarrierInfo 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../BasicAreaIndicator/"><code>BasicAreaIndicator</code></a></td><td>BasicAreaIndicator 是 SandBox.Objects.AreaMarkers 下的公开类型。</td></tr>
+<tr><td><a href="../BattleAgentLogic/"><code>BattleAgentLogic</code></a></td><td>BattleAgentLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../BattleSimulationMapView/"><code>BattleSimulationMapView</code></a></td><td>BattleSimulationMapView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../BattleSurgeonLogic/"><code>BattleSurgeonLogic</code></a></td><td>BattleSurgeonLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../BeginConversationInitiatedByAIQuestTask/"><code>BeginConversationInitiatedByAIQuestTask</code></a></td><td>BeginConversationInitiatedByAIQuestTask 是 SandBox.Issues.IssueQuestTasks 下的公开类型。</td></tr>
+<tr><td><a href="../BehaviorSets/"><code>BehaviorSets</code></a></td><td>BehaviorSets 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../BlockadePositionScript/"><code>BlockadePositionScript</code></a></td><td>BlockadePositionScript 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameAgentBehavior/"><code>BoardGameAgentBehavior</code></a></td><td>BoardGameAgentBehavior 是 SandBox.Source.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameAIBaghChal/"><code>BoardGameAIBaghChal</code></a></td><td>BoardGameAIBaghChal 是 SandBox.BoardGames.AI 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameAIBase/"><code>BoardGameAIBase</code></a></td><td>BoardGameAIBase 是一个抽象基类，位于 SandBox.BoardGames.AI，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../BoardGameAIKonane/"><code>BoardGameAIKonane</code></a></td><td>BoardGameAIKonane 是 SandBox.BoardGames.AI 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameAIMuTorere/"><code>BoardGameAIMuTorere</code></a></td><td>BoardGameAIMuTorere 是 SandBox.BoardGames.AI 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameAIPuluc/"><code>BoardGameAIPuluc</code></a></td><td>BoardGameAIPuluc 是 SandBox.BoardGames.AI 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameAISeega/"><code>BoardGameAISeega</code></a></td><td>BoardGameAISeega 是 SandBox.BoardGames.AI 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameAITablut/"><code>BoardGameAITablut</code></a></td><td>BoardGameAITablut 是 SandBox.BoardGames.AI 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameBaghChal/"><code>BoardGameBaghChal</code></a></td><td>BoardGameBaghChal 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameBase/"><code>BoardGameBase</code></a></td><td>BoardGameBase 是一个抽象基类，位于 SandBox.BoardGames，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../BoardGameCampaignBehavior/"><code>BoardGameCampaignBehavior</code></a></td><td>BoardGameCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameDecal/"><code>BoardGameDecal</code></a></td><td>BoardGameDecal 是 SandBox.BoardGames.Objects 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameInstructionsVM/"><code>BoardGameInstructionsVM</code></a></td><td>BoardGameInstructionsVM 是 SandBox.ViewModelCollection.BoardGame 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameInstructionVM/"><code>BoardGameInstructionVM</code></a></td><td>BoardGameInstructionVM 是 SandBox.ViewModelCollection.BoardGame 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameKonane/"><code>BoardGameKonane</code></a></td><td>BoardGameKonane 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameMuTorere/"><code>BoardGameMuTorere</code></a></td><td>BoardGameMuTorere 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGamePuluc/"><code>BoardGamePuluc</code></a></td><td>BoardGamePuluc 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameSeega/"><code>BoardGameSeega</code></a></td><td>BoardGameSeega 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameSide/"><code>BoardGameSide</code></a></td><td>BoardGameSide 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameTablut/"><code>BoardGameTablut</code></a></td><td>BoardGameTablut 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../BoardGameVM/"><code>BoardGameVM</code></a></td><td>BoardGameVM 是 SandBox.ViewModelCollection.BoardGame 下的公开类型。</td></tr>
+<tr><td><a href="../BoardInformation/"><code>BoardInformation</code></a></td><td>BoardInformation 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../BoostSkillCheatGroup/"><code>BoostSkillCheatGroup</code></a></td><td>BoostSkillCheatGroup 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../BoostSkillCheeat/"><code>BoostSkillCheeat</code></a></td><td>BoostSkillCheeat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../CameraFadeState/"><code>CameraFadeState</code></a></td><td>CameraFadeState 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../CameraFollowMode/"><code>CameraFollowMode</code></a></td><td>CameraFollowMode 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../CameraJumpScript/"><code>CameraJumpScript</code></a></td><td>CameraJumpScript 是 SandBox.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../CampaignAgentComponent/"><code>CampaignAgentComponent</code></a></td><td>CampaignAgentComponent 是一个组件型对象，位于 SandBox，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../CampaignEntityVisualComponent/"><code>CampaignEntityVisualComponent</code></a></td><td>CampaignEntityVisualComponent 是一个组件型对象，位于 SandBox.View.Map，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../CampaignMapSiegePrefabEntityCache/"><code>CampaignMapSiegePrefabEntityCache</code></a></td><td>CampaignMapSiegePrefabEntityCache 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../CampaignMissionComponent/"><code>CampaignMissionComponent</code></a></td><td>CampaignMissionComponent 是一个组件型对象，位于 SandBox.Missions.MissionLogics，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../CampaignMissionManager/"><code>CampaignMissionManager</code></a></td><td>CampaignMissionManager 是一个管理器，位于 SandBox，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../CampaignMusicHandler/"><code>CampaignMusicHandler</code></a></td><td>CampaignMusicHandler 是一个处理器，位于 SandBox.View，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../CampaignSiegeStateHandler/"><code>CampaignSiegeStateHandler</code></a></td><td>CampaignSiegeStateHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../CapturedPawnsPool/"><code>CapturedPawnsPool</code></a></td><td>CapturedPawnsPool 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../CaravanTransactionNotificationItemVM/"><code>CaravanTransactionNotificationItemVM</code></a></td><td>CaravanTransactionNotificationItemVM 是 SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes 下的公开类型。</td></tr>
+<tr><td><a href="../CautiousBehavior/"><code>CautiousBehavior</code></a></td><td>CautiousBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../Chair/"><code>Chair</code></a></td><td>Chair 是 SandBox.Objects.Usables 下的公开类型。</td></tr>
+<tr><td><a href="../ChairUsePoint/"><code>ChairUsePoint</code></a></td><td>ChairUsePoint 是 SandBox.Objects.AnimationPoints 下的公开类型。</td></tr>
+<tr><td><a href="../ChangeLightIntensityScript/"><code>ChangeLightIntensityScript</code></a></td><td>ChangeLightIntensityScript 是 SandBox.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../ChangeLocationBehavior/"><code>ChangeLocationBehavior</code></a></td><td>ChangeLocationBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CharacterCreationBannerEditorView/"><code>CharacterCreationBannerEditorView</code></a></td><td>CharacterCreationBannerEditorView 是一个视图层对象，位于 SandBox.GauntletUI.CharacterCreation，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../CharacterCreationClanNamingStageView/"><code>CharacterCreationClanNamingStageView</code></a></td><td>CharacterCreationClanNamingStageView 是一个视图层对象，位于 SandBox.GauntletUI.CharacterCreation，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../CharacterCreationCultureStageView/"><code>CharacterCreationCultureStageView</code></a></td><td>CharacterCreationCultureStageView 是一个视图层对象，位于 SandBox.GauntletUI.CharacterCreation，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../CharacterCreationFaceGeneratorView/"><code>CharacterCreationFaceGeneratorView</code></a></td><td>CharacterCreationFaceGeneratorView 是一个视图层对象，位于 SandBox.GauntletUI.CharacterCreation，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../CharacterCreationNarrativeStageView/"><code>CharacterCreationNarrativeStageView</code></a></td><td>CharacterCreationNarrativeStageView 是一个视图层对象，位于 SandBox.GauntletUI.CharacterCreation，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../CharacterCreationOptionsStageView/"><code>CharacterCreationOptionsStageView</code></a></td><td>CharacterCreationOptionsStageView 是一个视图层对象，位于 SandBox.GauntletUI.CharacterCreation，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../CharacterCreationReviewStageView/"><code>CharacterCreationReviewStageView</code></a></td><td>CharacterCreationReviewStageView 是一个视图层对象，位于 SandBox.GauntletUI.CharacterCreation，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../CharacterCreationScreen/"><code>CharacterCreationScreen</code></a></td><td>CharacterCreationScreen 是 SandBox.View.CharacterCreation 下的公开类型。</td></tr>
+<tr><td><a href="../CharacterCreationStageViewAttribute/"><code>CharacterCreationStageViewAttribute</code></a></td><td>CharacterCreationStageViewAttribute 是一个 .NET 特性，位于 SandBox.View.CharacterCreation，用于给类型或成员打标签。</td></tr>
+<tr><td><a href="../CharacterCreationStageViewBase/"><code>CharacterCreationStageViewBase</code></a></td><td>CharacterCreationStageViewBase 是一个抽象基类，位于 SandBox.View.CharacterCreation，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../CharacterDeveloperNavigationElement/"><code>CharacterDeveloperNavigationElement</code></a></td><td>CharacterDeveloperNavigationElement 是 SandBox.View.Map.Navigation.NavigationElements 下的公开类型。</td></tr>
+<tr><td><a href="../CheatActionItemVM/"><code>CheatActionItemVM</code></a></td><td>CheatActionItemVM 是 SandBox.ViewModelCollection.Map.Cheat 下的公开类型。</td></tr>
+<tr><td><a href="../CheatGroupItemVM/"><code>CheatGroupItemVM</code></a></td><td>CheatGroupItemVM 是 SandBox.ViewModelCollection.Map.Cheat 下的公开类型。</td></tr>
+<tr><td><a href="../CheatItemBaseVM/"><code>CheatItemBaseVM</code></a></td><td>CheatItemBaseVM 是 SandBox.ViewModelCollection.Map.Cheat 下的公开类型。</td></tr>
+<tr><td><a href="../CheckPoint/"><code>CheckPoint</code></a></td><td>CheckPoint 是 SandBox.Tournaments.MissionLogics 下的公开类型。</td></tr>
+<tr><td><a href="../CheckpointArea/"><code>CheckpointArea</code></a></td><td>CheckpointArea 是 SandBox.Objects 下的公开类型。</td></tr>
+<tr><td><a href="../CheckpointCampaignBehavior/"><code>CheckpointCampaignBehavior</code></a></td><td>CheckpointCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CheckpointLoadedMissionEvent/"><code>CheckpointLoadedMissionEvent</code></a></td><td>CheckpointLoadedMissionEvent 是 SandBox.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../CheckpointMissionLogic/"><code>CheckpointMissionLogic</code></a></td><td>CheckpointMissionLogic 是一个行为逻辑类，位于 SandBox.Missions，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../CheckpointUsePoint/"><code>CheckpointUsePoint</code></a></td><td>CheckpointUsePoint 是 SandBox.Objects.Usables 下的公开类型。</td></tr>
+<tr><td><a href="../CinematicBurningArrow/"><code>CinematicBurningArrow</code></a></td><td>CinematicBurningArrow 是 SandBox.Objects.Cinematics 下的公开类型。</td></tr>
+<tr><td><a href="../CivilianPortShipSpawnMissionLogic/"><code>CivilianPortShipSpawnMissionLogic</code></a></td><td>CivilianPortShipSpawnMissionLogic 是一个行为逻辑类，位于 SandBox.Missions，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../ClanMemberRolesCampaignBehavior/"><code>ClanMemberRolesCampaignBehavior</code></a></td><td>ClanMemberRolesCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../ClanNavigationElement/"><code>ClanNavigationElement</code></a></td><td>ClanNavigationElement 是 SandBox.View.Map.Navigation.NavigationElements 下的公开类型。</td></tr>
+<tr><td><a href="../ClanScreenPermissionEvent/"><code>ClanScreenPermissionEvent</code></a></td><td>ClanScreenPermissionEvent 是 SandBox.View.Map.Navigation.NavigationElements 下的公开类型。</td></tr>
+<tr><td><a href="../CombatMissionWithDialogueController/"><code>CombatMissionWithDialogueController</code></a></td><td>CombatMissionWithDialogueController 是一个控制器，位于 SandBox.Missions.MissionLogics，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../CommonAreaMarker/"><code>CommonAreaMarker</code></a></td><td>CommonAreaMarker 是 SandBox.Objects.AreaMarkers 下的公开类型。</td></tr>
+<tr><td><a href="../CommonTownsfolkCampaignBehavior/"><code>CommonTownsfolkCampaignBehavior</code></a></td><td>CommonTownsfolkCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CommonVillagersCampaignBehavior/"><code>CommonVillagersCampaignBehavior</code></a></td><td>CommonVillagersCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../CompleteBuildingProjectCheat/"><code>CompleteBuildingProjectCheat</code></a></td><td>CompleteBuildingProjectCheat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../ConversationAnimationToolCampaignBehavior/"><code>ConversationAnimationToolCampaignBehavior</code></a></td><td>ConversationAnimationToolCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../ConversationMission/"><code>ConversationMission</code></a></td><td>ConversationMission 是 SandBox.Conversation 下的公开类型。</td></tr>
+<tr><td><a href="../ConversationMissionLogic/"><code>ConversationMissionLogic</code></a></td><td>ConversationMissionLogic 是一个行为逻辑类，位于 SandBox.Conversation.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../ConversationPlayArgs/"><code>ConversationPlayArgs</code></a></td><td>ConversationPlayArgs 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../ConversationViewEventHandler/"><code>ConversationViewEventHandler</code></a></td><td>ConversationViewEventHandler 是一个处理器，位于 SandBox.View.Conversation，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../ConversationViewManager/"><code>ConversationViewManager</code></a></td><td>ConversationViewManager 是一个管理器，位于 SandBox.View.Conversation，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../CorpseDraggingMissionLogic/"><code>CorpseDraggingMissionLogic</code></a></td><td>CorpseDraggingMissionLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../CoverAnimalAgentComponent/"><code>CoverAnimalAgentComponent</code></a></td><td>CoverAnimalAgentComponent 是一个组件型对象，位于 SandBox.Missions，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../CrossRoadScoreData/"><code>CrossRoadScoreData</code></a></td><td>CrossRoadScoreData 是一个数据载体，位于 SandBox.Missions.MissionLogics，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../DailyBehaviorGroup/"><code>DailyBehaviorGroup</code></a></td><td>DailyBehaviorGroup 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../DecalEntity/"><code>DecalEntity</code></a></td><td>DecalEntity 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultCutscenesCampaignBehavior/"><code>DefaultCutscenesCampaignBehavior</code></a></td><td>DefaultCutscenesCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultGameMenuOverlayProvider/"><code>DefaultGameMenuOverlayProvider</code></a></td><td>DefaultGameMenuOverlayProvider 是 SandBox.View.Overlay 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultMapConversationDataProvider/"><code>DefaultMapConversationDataProvider</code></a></td><td>DefaultMapConversationDataProvider 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultMissionNameMarkerHandler/"><code>DefaultMissionNameMarkerHandler</code></a></td><td>DefaultMissionNameMarkerHandler 是一个处理器，位于 SandBox.View.Missions.NameMarkers，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../DefaultMusicInstrumentData/"><code>DefaultMusicInstrumentData</code></a></td><td>DefaultMusicInstrumentData 是一个数据载体，位于 SandBox.Objects，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../DefaultNotificationsCampaignBehavior/"><code>DefaultNotificationsCampaignBehavior</code></a></td><td>DefaultNotificationsCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../DisguiseMissionLogic/"><code>DisguiseMissionLogic</code></a></td><td>DisguiseMissionLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../DisguiseMissionUsePoint/"><code>DisguiseMissionUsePoint</code></a></td><td>DisguiseMissionUsePoint 是 SandBox.Objects.Usables 下的公开类型。</td></tr>
+<tr><td><a href="../DumpIntegrityCampaignBehavior/"><code>DumpIntegrityCampaignBehavior</code></a></td><td>DumpIntegrityCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../DynamicObjectAnimationPoint/"><code>DynamicObjectAnimationPoint</code></a></td><td>DynamicObjectAnimationPoint 是 SandBox.Objects.AnimationPoints 下的公开类型。</td></tr>
+<tr><td><a href="../DynamicPatrolAreaParent/"><code>DynamicPatrolAreaParent</code></a></td><td>DynamicPatrolAreaParent 是 SandBox.Objects 下的公开类型。</td></tr>
+<tr><td><a href="../EavesdroppingMissionCameraView/"><code>EavesdroppingMissionCameraView</code></a></td><td>EavesdroppingMissionCameraView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../EavesdroppingMissionLogic/"><code>EavesdroppingMissionLogic</code></a></td><td>EavesdroppingMissionLogic 是一个行为逻辑类，位于 SandBox.Missions，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../EavesdropSound/"><code>EavesdropSound</code></a></td><td>EavesdropSound 是 SandBox.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../EditorSceneMissionManager/"><code>EditorSceneMissionManager</code></a></td><td>EditorSceneMissionManager 是一个管理器，位于 SandBox，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../EncyclopediaData/"><code>EncyclopediaData</code></a></td><td>EncyclopediaData 是一个数据载体，位于 SandBox.GauntletUI.Encyclopedia，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../EncyclopediaListViewDataController/"><code>EncyclopediaListViewDataController</code></a></td><td>EncyclopediaListViewDataController 是一个控制器，位于 SandBox.GauntletUI.Encyclopedia，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../EnemyAgentAIDeactivationMissionLogic/"><code>EnemyAgentAIDeactivationMissionLogic</code></a></td><td>EnemyAgentAIDeactivationMissionLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../EntityVisualManagerBase/"><code>EntityVisualManagerBase</code></a></td><td>EntityVisualManagerBase 是一个抽象基类，位于 SandBox.View.Map.Managers，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../EscapeMenuNavigationElement/"><code>EscapeMenuNavigationElement</code></a></td><td>EscapeMenuNavigationElement 是 SandBox.View.Map.Navigation.NavigationElements 下的公开类型。</td></tr>
+<tr><td><a href="../EscortAgentBehavior/"><code>EscortAgentBehavior</code></a></td><td>EscortAgentBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../FamilyFeudIssue/"><code>FamilyFeudIssue</code></a></td><td>FamilyFeudIssue 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../FamilyFeudIssueBehavior/"><code>FamilyFeudIssueBehavior</code></a></td><td>FamilyFeudIssueBehavior 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../FamilyFeudIssueMissionBehavior/"><code>FamilyFeudIssueMissionBehavior</code></a></td><td>FamilyFeudIssueMissionBehavior 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../FamilyFeudIssueQuest/"><code>FamilyFeudIssueQuest</code></a></td><td>FamilyFeudIssueQuest 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../FamilyFeudIssueTypeDefiner/"><code>FamilyFeudIssueTypeDefiner</code></a></td><td>FamilyFeudIssueTypeDefiner 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../FightBehavior/"><code>FightBehavior</code></a></td><td>FightBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../FillCraftingStaminaCheat/"><code>FillCraftingStaminaCheat</code></a></td><td>FillCraftingStaminaCheat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../FleeBehavior/"><code>FleeBehavior</code></a></td><td>FleeBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../FollowAgentBehavior/"><code>FollowAgentBehavior</code></a></td><td>FollowAgentBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../FollowAgentQuestTask/"><code>FollowAgentQuestTask</code></a></td><td>FollowAgentQuestTask 是 SandBox.Issues.IssueQuestTasks 下的公开类型。</td></tr>
+<tr><td><a href="../GameOverEnum/"><code>GameOverEnum</code></a></td><td>GameOverEnum 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../GameOverStatCategoryVM/"><code>GameOverStatCategoryVM</code></a></td><td>GameOverStatCategoryVM 是 SandBox.ViewModelCollection.GameOver 下的公开类型。</td></tr>
+<tr><td><a href="../GameOverStatItemVM/"><code>GameOverStatItemVM</code></a></td><td>GameOverStatItemVM 是 SandBox.ViewModelCollection.GameOver 下的公开类型。</td></tr>
+<tr><td><a href="../GameOverStatsProvider/"><code>GameOverStatsProvider</code></a></td><td>GameOverStatsProvider 是 SandBox.ViewModelCollection.GameOver 下的公开类型。</td></tr>
+<tr><td><a href="../GameOverVM/"><code>GameOverVM</code></a></td><td>GameOverVM 是 SandBox.ViewModelCollection.GameOver 下的公开类型。</td></tr>
+<tr><td><a href="../GameplayCheatBase/"><code>GameplayCheatBase</code></a></td><td>GameplayCheatBase 是一个抽象基类，位于 SandBox，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../GameplayCheatGroup/"><code>GameplayCheatGroup</code></a></td><td>GameplayCheatGroup 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../GameplayCheatItem/"><code>GameplayCheatItem</code></a></td><td>GameplayCheatItem 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../GameplayCheatsManager/"><code>GameplayCheatsManager</code></a></td><td>GameplayCheatsManager 是一个管理器，位于 SandBox，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../GameplayCheatsVM/"><code>GameplayCheatsVM</code></a></td><td>GameplayCheatsVM 是 SandBox.ViewModelCollection.Map.Cheat 下的公开类型。</td></tr>
+<tr><td><a href="../GauntlerMenuBackground/"><code>GauntlerMenuBackground</code></a></td><td>GauntlerMenuBackground 是 SandBox.GauntletUI.Menu 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletBannerEditorScreen/"><code>GauntletBannerEditorScreen</code></a></td><td>GauntletBannerEditorScreen 是 SandBox.GauntletUI.BannerEditor 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletBarberScreen/"><code>GauntletBarberScreen</code></a></td><td>GauntletBarberScreen 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletCharacterDeveloperScreen/"><code>GauntletCharacterDeveloperScreen</code></a></td><td>GauntletCharacterDeveloperScreen 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletClanScreen/"><code>GauntletClanScreen</code></a></td><td>GauntletClanScreen 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletCraftingScreen/"><code>GauntletCraftingScreen</code></a></td><td>GauntletCraftingScreen 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletEducationScreen/"><code>GauntletEducationScreen</code></a></td><td>GauntletEducationScreen 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletGameOverScreen/"><code>GauntletGameOverScreen</code></a></td><td>GauntletGameOverScreen 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletHeirSelectionPopupView/"><code>GauntletHeirSelectionPopupView</code></a></td><td>GauntletHeirSelectionPopupView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletInventoryScreen/"><code>GauntletInventoryScreen</code></a></td><td>GauntletInventoryScreen 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletKingdomScreen/"><code>GauntletKingdomScreen</code></a></td><td>GauntletKingdomScreen 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletMapBarGlobalLayer/"><code>GauntletMapBarGlobalLayer</code></a></td><td>GauntletMapBarGlobalLayer 是 SandBox.GauntletUI.Map 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletMapBarView/"><code>GauntletMapBarView</code></a></td><td>GauntletMapBarView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapBasicView/"><code>GauntletMapBasicView</code></a></td><td>GauntletMapBasicView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapBattleSimulationView/"><code>GauntletMapBattleSimulationView</code></a></td><td>GauntletMapBattleSimulationView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapCameraFadeView/"><code>GauntletMapCameraFadeView</code></a></td><td>GauntletMapCameraFadeView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapCampaignOptionsView/"><code>GauntletMapCampaignOptionsView</code></a></td><td>GauntletMapCampaignOptionsView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapCheatsView/"><code>GauntletMapCheatsView</code></a></td><td>GauntletMapCheatsView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapConversationView/"><code>GauntletMapConversationView</code></a></td><td>GauntletMapConversationView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapEncyclopediaView/"><code>GauntletMapEncyclopediaView</code></a></td><td>GauntletMapEncyclopediaView 是一个视图层对象，位于 SandBox.GauntletUI.Encyclopedia，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapEscapeMenuView/"><code>GauntletMapEscapeMenuView</code></a></td><td>GauntletMapEscapeMenuView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapEventVisual/"><code>GauntletMapEventVisual</code></a></td><td>GauntletMapEventVisual 是 SandBox.GauntletUI.Map 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletMapEventVisualCreator/"><code>GauntletMapEventVisualCreator</code></a></td><td>GauntletMapEventVisualCreator 是 SandBox.GauntletUI.Map 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletMapEventVisualsView/"><code>GauntletMapEventVisualsView</code></a></td><td>GauntletMapEventVisualsView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapIncidentView/"><code>GauntletMapIncidentView</code></a></td><td>GauntletMapIncidentView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapNotificationView/"><code>GauntletMapNotificationView</code></a></td><td>GauntletMapNotificationView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapOverlayView/"><code>GauntletMapOverlayView</code></a></td><td>GauntletMapOverlayView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapParleyAnimationView/"><code>GauntletMapParleyAnimationView</code></a></td><td>GauntletMapParleyAnimationView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapPartyNameplateView/"><code>GauntletMapPartyNameplateView</code></a></td><td>GauntletMapPartyNameplateView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapReadyView/"><code>GauntletMapReadyView</code></a></td><td>GauntletMapReadyView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapSaveView/"><code>GauntletMapSaveView</code></a></td><td>GauntletMapSaveView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapSettlementNameplateView/"><code>GauntletMapSettlementNameplateView</code></a></td><td>GauntletMapSettlementNameplateView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapSiegeOverlayView/"><code>GauntletMapSiegeOverlayView</code></a></td><td>GauntletMapSiegeOverlayView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMapTrackersView/"><code>GauntletMapTrackersView</code></a></td><td>GauntletMapTrackersView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMarriageOfferPopupView/"><code>GauntletMarriageOfferPopupView</code></a></td><td>GauntletMarriageOfferPopupView 是一个视图层对象，位于 SandBox.GauntletUI.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMenuBaseView/"><code>GauntletMenuBaseView</code></a></td><td>GauntletMenuBaseView 是一个视图层对象，位于 SandBox.GauntletUI.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMenuOverlayBaseView/"><code>GauntletMenuOverlayBaseView</code></a></td><td>GauntletMenuOverlayBaseView 是一个视图层对象，位于 SandBox.GauntletUI.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMenuRecruitVolunteersView/"><code>GauntletMenuRecruitVolunteersView</code></a></td><td>GauntletMenuRecruitVolunteersView 是一个视图层对象，位于 SandBox.GauntletUI.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMenuTournamentLeaderboardView/"><code>GauntletMenuTournamentLeaderboardView</code></a></td><td>GauntletMenuTournamentLeaderboardView 是一个视图层对象，位于 SandBox.GauntletUI.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMenuTownManagementView/"><code>GauntletMenuTownManagementView</code></a></td><td>GauntletMenuTownManagementView 是一个视图层对象，位于 SandBox.GauntletUI.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletMenuTroopSelectionView/"><code>GauntletMenuTroopSelectionView</code></a></td><td>GauntletMenuTroopSelectionView 是一个视图层对象，位于 SandBox.GauntletUI.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../GauntletPartyScreen/"><code>GauntletPartyScreen</code></a></td><td>GauntletPartyScreen 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletQuestsScreen/"><code>GauntletQuestsScreen</code></a></td><td>GauntletQuestsScreen 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletSaveLoadScreen/"><code>GauntletSaveLoadScreen</code></a></td><td>GauntletSaveLoadScreen 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../GauntletTutorialSystem/"><code>GauntletTutorialSystem</code></a></td><td>GauntletTutorialSystem 是 SandBox.GauntletUI.Tutorial 下的公开类型。</td></tr>
+<tr><td><a href="../GenderEnum/"><code>GenderEnum</code></a></td><td>GenderEnum 是 SandBox.View.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../GenericMissionEventBox/"><code>GenericMissionEventBox</code></a></td><td>GenericMissionEventBox 是 SandBox.Objects 下的公开类型。</td></tr>
+<tr><td><a href="../Give10GrainCheat/"><code>Give10GrainCheat</code></a></td><td>Give10GrainCheat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../Give10WarhorsesCheat/"><code>Give10WarhorsesCheat</code></a></td><td>Give10WarhorsesCheat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../Give5TroopsToPlayerCheat/"><code>Give5TroopsToPlayerCheat</code></a></td><td>Give5TroopsToPlayerCheat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../GroupSpawnPoint/"><code>GroupSpawnPoint</code></a></td><td>GroupSpawnPoint 是 SandBox.Objects 下的公开类型。</td></tr>
+<tr><td><a href="../GuardsCampaignBehavior/"><code>GuardsCampaignBehavior</code></a></td><td>GuardsCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../HealMainHeroCheat/"><code>HealMainHeroCheat</code></a></td><td>HealMainHeroCheat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../HealPlayerPartyCheat/"><code>HealPlayerPartyCheat</code></a></td><td>HealPlayerPartyCheat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../HeirSelectionCampaignBehavior/"><code>HeirSelectionCampaignBehavior</code></a></td><td>HeirSelectionCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../HeirSelectionPopupView/"><code>HeirSelectionPopupView</code></a></td><td>HeirSelectionPopupView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../HeroSkillHandler/"><code>HeroSkillHandler</code></a></td><td>HeroSkillHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../HideoutAgentType/"><code>HideoutAgentType</code></a></td><td>HideoutAgentType 是 SandBox.Missions.MissionLogics.Hideout 下的公开类型。</td></tr>
+<tr><td><a href="../HideoutAmbushBossFightCinematicController/"><code>HideoutAmbushBossFightCinematicController</code></a></td><td>HideoutAmbushBossFightCinematicController 是一个控制器，位于 SandBox.Missions.MissionLogics.Hideout，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../HideoutAmbushMissionController/"><code>HideoutAmbushMissionController</code></a></td><td>HideoutAmbushMissionController 是一个控制器，位于 SandBox.Missions.MissionLogics.Hideout，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../HideoutBossFightBehavior/"><code>HideoutBossFightBehavior</code></a></td><td>HideoutBossFightBehavior 是 SandBox.Objects.Cinematics 下的公开类型。</td></tr>
+<tr><td><a href="../HideoutCinematicController/"><code>HideoutCinematicController</code></a></td><td>HideoutCinematicController 是一个控制器，位于 SandBox.Missions.MissionLogics.Hideout，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../HideoutCinematicState/"><code>HideoutCinematicState</code></a></td><td>HideoutCinematicState 是 SandBox.Missions.MissionLogics.Hideout 下的公开类型。</td></tr>
+<tr><td><a href="../HideoutConversationsCampaignBehavior/"><code>HideoutConversationsCampaignBehavior</code></a></td><td>HideoutConversationsCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../HideoutMissionController/"><code>HideoutMissionController</code></a></td><td>HideoutMissionController 是一个控制器，位于 SandBox.Missions.MissionLogics.Hideout，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../HideoutPostCinematicPhase/"><code>HideoutPostCinematicPhase</code></a></td><td>HideoutPostCinematicPhase 是 SandBox.Missions.MissionLogics.Hideout 下的公开类型。</td></tr>
+<tr><td><a href="../HideoutPreCinematicPhase/"><code>HideoutPreCinematicPhase</code></a></td><td>HideoutPreCinematicPhase 是 SandBox.Missions.MissionLogics.Hideout 下的公开类型。</td></tr>
+<tr><td><a href="../HouseMissionController/"><code>HouseMissionController</code></a></td><td>HouseMissionController 是一个控制器，位于 SandBox.Missions.MissionLogics，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../IChangeableScreen/"><code>IChangeableScreen</code></a></td><td>IChangeableScreen 是 SandBox.View 下的公开类型。</td></tr>
+<tr><td><a href="../IdleAgentBehavior/"><code>IdleAgentBehavior</code></a></td><td>IdleAgentBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../IGauntletMapEventVisualHandler/"><code>IGauntletMapEventVisualHandler</code></a></td><td>IGauntletMapEventVisualHandler 是一个处理器，位于 SandBox.GauntletUI.Map，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../IMapConversationDataProvider/"><code>IMapConversationDataProvider</code></a></td><td>IMapConversationDataProvider 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../IMissionProgressTracker/"><code>IMissionProgressTracker</code></a></td><td>IMissionProgressTracker 是 SandBox.Missions.MissionLogics 下的公开类型。</td></tr>
+<tr><td><a href="../INameMarkerProviderContext/"><code>INameMarkerProviderContext</code></a></td><td>INameMarkerProviderContext 是 SandBox.ViewModelCollection.Missions.NameMarker 下的公开类型。</td></tr>
+<tr><td><a href="../IndoorMissionController/"><code>IndoorMissionController</code></a></td><td>IndoorMissionController 是一个控制器，位于 SandBox.Missions.MissionLogics，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../InputInformation/"><code>InputInformation</code></a></td><td>InputInformation 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../InputKeyItemVM/"><code>InputKeyItemVM</code></a></td><td>InputKeyItemVM 是 SandBox.ViewModelCollection.Input 下的公开类型。</td></tr>
+<tr><td><a href="../InstrumentData/"><code>InstrumentData</code></a></td><td>InstrumentData 是一个数据载体，位于 SandBox.Objects，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../InterruptingBehaviorGroup/"><code>InterruptingBehaviorGroup</code></a></td><td>InterruptingBehaviorGroup 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../InventoryNavigationElement/"><code>InventoryNavigationElement</code></a></td><td>InventoryNavigationElement 是 SandBox.View.Map.Navigation.NavigationElements 下的公开类型。</td></tr>
+<tr><td><a href="../IssueSolvedByLordNotificationItemVM/"><code>IssueSolvedByLordNotificationItemVM</code></a></td><td>IssueSolvedByLordNotificationItemVM 是 SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes 下的公开类型。</td></tr>
+<tr><td><a href="../IssueTypes/"><code>IssueTypes</code></a></td><td>IssueTypes 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../ItemCatalogController/"><code>ItemCatalogController</code></a></td><td>ItemCatalogController 是一个控制器，位于 SandBox.Missions.MissionLogics，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../ItemForBone/"><code>ItemForBone</code></a></td><td>ItemForBone 是 SandBox.Objects.AnimationPoints 下的公开类型。</td></tr>
+<tr><td><a href="../ItemPlacements/"><code>ItemPlacements</code></a></td><td>ItemPlacements 是 SandBox.ViewModelCollection.Tutorial 下的公开类型。</td></tr>
+<tr><td><a href="../ItemSoldNotificationItemVM/"><code>ItemSoldNotificationItemVM</code></a></td><td>ItemSoldNotificationItemVM 是 SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes 下的公开类型。</td></tr>
+<tr><td><a href="../ITournamentGameBehavior/"><code>ITournamentGameBehavior</code></a></td><td>ITournamentGameBehavior 是 SandBox.Tournaments 下的公开类型。</td></tr>
+<tr><td><a href="../JoustingAgentController/"><code>JoustingAgentController</code></a></td><td>JoustingAgentController 是一个控制器，位于 SandBox.Tournaments.AgentControllers，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../JoustingAgentState/"><code>JoustingAgentState</code></a></td><td>JoustingAgentState 是 SandBox.Tournaments.AgentControllers 下的公开类型。</td></tr>
+<tr><td><a href="../KingdomNavigationElement/"><code>KingdomNavigationElement</code></a></td><td>KingdomNavigationElement 是 SandBox.View.Map.Navigation.NavigationElements 下的公开类型。</td></tr>
+<tr><td><a href="../LeaveMissionLogic/"><code>LeaveMissionLogic</code></a></td><td>LeaveMissionLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../LocationCharacterAgentSpawnedMissionEvent/"><code>LocationCharacterAgentSpawnedMissionEvent</code></a></td><td>LocationCharacterAgentSpawnedMissionEvent 是 SandBox.Missions.MissionLogics 下的公开类型。</td></tr>
+<tr><td><a href="../LocationCharacterMissionExtensions/"><code>LocationCharacterMissionExtensions</code></a></td><td>LocationCharacterMissionExtensions 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../LocationItemSpawnHandler/"><code>LocationItemSpawnHandler</code></a></td><td>LocationItemSpawnHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../LookBackPointData/"><code>LookBackPointData</code></a></td><td>LookBackPointData 是一个数据载体，位于 SandBox.Missions.MissionLogics，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../MachineTypes/"><code>MachineTypes</code></a></td><td>MachineTypes 是 SandBox.ViewModelCollection.MapSiege 下的公开类型。</td></tr>
+<tr><td><a href="../MainAgentDetectionVM/"><code>MainAgentDetectionVM</code></a></td><td>MainAgentDetectionVM 是 SandBox.ViewModelCollection.Missions.MainAgentDetection 下的公开类型。</td></tr>
+<tr><td><a href="../MainHeroSaveVisualSupplier/"><code>MainHeroSaveVisualSupplier</code></a></td><td>MainHeroSaveVisualSupplier 是 SandBox.View 下的公开类型。</td></tr>
+<tr><td><a href="../MainMapCameraMoveEvent/"><code>MainMapCameraMoveEvent</code></a></td><td>MainMapCameraMoveEvent 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../MainQuestTypes/"><code>MainQuestTypes</code></a></td><td>MainQuestTypes 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../MapArmyTrackItemVM/"><code>MapArmyTrackItemVM</code></a></td><td>MapArmyTrackItemVM 是 SandBox.ViewModelCollection.Map.Tracker 下的公开类型。</td></tr>
+<tr><td><a href="../MapBarView/"><code>MapBarView</code></a></td><td>MapBarView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapBasicView/"><code>MapBasicView</code></a></td><td>MapBasicView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapCameraFadeView/"><code>MapCameraFadeView</code></a></td><td>MapCameraFadeView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapCameraView/"><code>MapCameraView</code></a></td><td>MapCameraView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapCampaignOptionsView/"><code>MapCampaignOptionsView</code></a></td><td>MapCampaignOptionsView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapCheatsView/"><code>MapCheatsView</code></a></td><td>MapCheatsView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapConversationMission/"><code>MapConversationMission</code></a></td><td>MapConversationMission 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../MapConversationTableau/"><code>MapConversationTableau</code></a></td><td>MapConversationTableau 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../MapConversationTableauData/"><code>MapConversationTableauData</code></a></td><td>MapConversationTableauData 是一个数据载体，位于 SandBox.View.Map，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../MapConversationTextureProvider/"><code>MapConversationTextureProvider</code></a></td><td>MapConversationTextureProvider 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../MapConversationView/"><code>MapConversationView</code></a></td><td>MapConversationView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapCursor/"><code>MapCursor</code></a></td><td>MapCursor 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../MapEncyclopediaView/"><code>MapEncyclopediaView</code></a></td><td>MapEncyclopediaView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapEntityVisual/"><code>MapEntityVisual</code></a></td><td>MapEntityVisual 是 SandBox.View.Map.Visuals 下的公开类型。</td></tr>
+<tr><td><a href="../MapEscapeMenuView/"><code>MapEscapeMenuView</code></a></td><td>MapEscapeMenuView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapEventVisualItemVM/"><code>MapEventVisualItemVM</code></a></td><td>MapEventVisualItemVM 是 SandBox.ViewModelCollection.Map 下的公开类型。</td></tr>
+<tr><td><a href="../MapEventVisualsView/"><code>MapEventVisualsView</code></a></td><td>MapEventVisualsView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapEventVisualsVM/"><code>MapEventVisualsVM</code></a></td><td>MapEventVisualsVM 是 SandBox.ViewModelCollection.Map 下的公开类型。</td></tr>
+<tr><td><a href="../MapEventVisualTypes/"><code>MapEventVisualTypes</code></a></td><td>MapEventVisualTypes 是 SandBox.ViewModelCollection 下的公开类型。</td></tr>
+<tr><td><a href="../MapGamepadEffectsView/"><code>MapGamepadEffectsView</code></a></td><td>MapGamepadEffectsView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapIncidentOptionVM/"><code>MapIncidentOptionVM</code></a></td><td>MapIncidentOptionVM 是 SandBox.ViewModelCollection.Map.Incidents 下的公开类型。</td></tr>
+<tr><td><a href="../MapIncidentView/"><code>MapIncidentView</code></a></td><td>MapIncidentView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapIncidentVM/"><code>MapIncidentVM</code></a></td><td>MapIncidentVM 是 SandBox.ViewModelCollection.Map.Incidents 下的公开类型。</td></tr>
+<tr><td><a href="../MapMarkerTrackerItemVM/"><code>MapMarkerTrackerItemVM</code></a></td><td>MapMarkerTrackerItemVM 是 SandBox.ViewModelCollection.Map.Tracker 下的公开类型。</td></tr>
+<tr><td><a href="../MapMobilePartyTrackItemVM/"><code>MapMobilePartyTrackItemVM</code></a></td><td>MapMobilePartyTrackItemVM 是 SandBox.ViewModelCollection.Map.Tracker 下的公开类型。</td></tr>
+<tr><td><a href="../MapNavigationElementBase/"><code>MapNavigationElementBase</code></a></td><td>MapNavigationElementBase 是一个抽象基类，位于 SandBox.View.Map.Navigation，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../MapNavigationHandler/"><code>MapNavigationHandler</code></a></td><td>MapNavigationHandler 是一个处理器，位于 SandBox.View.Map.Navigation，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MapNavigationHelper/"><code>MapNavigationHelper</code></a></td><td>MapNavigationHelper 是一个帮助类，位于 SandBox.View.Map.Navigation，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../MapNotificationView/"><code>MapNotificationView</code></a></td><td>MapNotificationView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapOverlayType/"><code>MapOverlayType</code></a></td><td>MapOverlayType 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../MapOverlayView/"><code>MapOverlayView</code></a></td><td>MapOverlayView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapParleyAnimationView/"><code>MapParleyAnimationView</code></a></td><td>MapParleyAnimationView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapPartyNameplateView/"><code>MapPartyNameplateView</code></a></td><td>MapPartyNameplateView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapReadyView/"><code>MapReadyView</code></a></td><td>MapReadyView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapSaveView/"><code>MapSaveView</code></a></td><td>MapSaveView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapSaveVM/"><code>MapSaveVM</code></a></td><td>MapSaveVM 是 SandBox.ViewModelCollection.SaveLoad 下的公开类型。</td></tr>
+<tr><td><a href="../MapScene/"><code>MapScene</code></a></td><td>MapScene 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../MapSceneCreator/"><code>MapSceneCreator</code></a></td><td>MapSceneCreator 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../MapSceneHelper/"><code>MapSceneHelper</code></a></td><td>MapSceneHelper 是一个帮助类，位于 SandBox，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../MapScreen/"><code>MapScreen</code></a></td><td>MapScreen 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../MapSettlementNameplateView/"><code>MapSettlementNameplateView</code></a></td><td>MapSettlementNameplateView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapSiegeOverlayView/"><code>MapSiegeOverlayView</code></a></td><td>MapSiegeOverlayView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapSiegePOIVM/"><code>MapSiegePOIVM</code></a></td><td>MapSiegePOIVM 是 SandBox.ViewModelCollection.MapSiege 下的公开类型。</td></tr>
+<tr><td><a href="../MapSiegeProductionMachineVM/"><code>MapSiegeProductionMachineVM</code></a></td><td>MapSiegeProductionMachineVM 是 SandBox.ViewModelCollection.MapSiege 下的公开类型。</td></tr>
+<tr><td><a href="../MapSiegeProductionVM/"><code>MapSiegeProductionVM</code></a></td><td>MapSiegeProductionVM 是 SandBox.ViewModelCollection.MapSiege 下的公开类型。</td></tr>
+<tr><td><a href="../MapSiegeVM/"><code>MapSiegeVM</code></a></td><td>MapSiegeVM 是 SandBox.ViewModelCollection.MapSiege 下的公开类型。</td></tr>
+<tr><td><a href="../MapTrackerCollectionVM/"><code>MapTrackerCollectionVM</code></a></td><td>MapTrackerCollectionVM 是 SandBox.ViewModelCollection.Map.Tracker 下的公开类型。</td></tr>
+<tr><td><a href="../MapTrackerProvider/"><code>MapTrackerProvider</code></a></td><td>MapTrackerProvider 是 SandBox.ViewModelCollection.Map.Tracker 下的公开类型。</td></tr>
+<tr><td><a href="../MapTrackersView/"><code>MapTrackersView</code></a></td><td>MapTrackersView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapTracksVisualManager/"><code>MapTracksVisualManager</code></a></td><td>MapTracksVisualManager 是一个管理器，位于 SandBox.View.Map.Managers，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MapView/"><code>MapView</code></a></td><td>MapView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MapViewsContainer/"><code>MapViewsContainer</code></a></td><td>MapViewsContainer 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../MapWeatherVisual/"><code>MapWeatherVisual</code></a></td><td>MapWeatherVisual 是 SandBox.View.Map.Visuals 下的公开类型。</td></tr>
+<tr><td><a href="../MapWeatherVisualManager/"><code>MapWeatherVisualManager</code></a></td><td>MapWeatherVisualManager 是一个管理器，位于 SandBox.View.Map.Managers，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MarriageOfferPopupView/"><code>MarriageOfferPopupView</code></a></td><td>MarriageOfferPopupView 是一个视图层对象，位于 SandBox.View.Map，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MenuBackgroundView/"><code>MenuBackgroundView</code></a></td><td>MenuBackgroundView 是一个视图层对象，位于 SandBox.View.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MenuBaseView/"><code>MenuBaseView</code></a></td><td>MenuBaseView 是一个视图层对象，位于 SandBox.View.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MenuOverlayBaseView/"><code>MenuOverlayBaseView</code></a></td><td>MenuOverlayBaseView 是一个视图层对象，位于 SandBox.View.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MenuRecruitVolunteersView/"><code>MenuRecruitVolunteersView</code></a></td><td>MenuRecruitVolunteersView 是一个视图层对象，位于 SandBox.View.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MenuTournamentLeaderboardView/"><code>MenuTournamentLeaderboardView</code></a></td><td>MenuTournamentLeaderboardView 是一个视图层对象，位于 SandBox.View.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MenuTownManagementView/"><code>MenuTownManagementView</code></a></td><td>MenuTownManagementView 是一个视图层对象，位于 SandBox.View.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MenuTroopSelectionView/"><code>MenuTroopSelectionView</code></a></td><td>MenuTroopSelectionView 是一个视图层对象，位于 SandBox.View.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MenuView/"><code>MenuView</code></a></td><td>MenuView 是一个视图层对象，位于 SandBox.View.Menu，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MenuViewContext/"><code>MenuViewContext</code></a></td><td>MenuViewContext 是 SandBox.View.Menu 下的公开类型。</td></tr>
+<tr><td><a href="../MissionAgentAlarmStateView/"><code>MissionAgentAlarmStateView</code></a></td><td>MissionAgentAlarmStateView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionAgentAlarmStateVM/"><code>MissionAgentAlarmStateVM</code></a></td><td>MissionAgentAlarmStateVM 是 SandBox.ViewModelCollection.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../MissionAgentAlarmTargetVM/"><code>MissionAgentAlarmTargetVM</code></a></td><td>MissionAgentAlarmTargetVM 是 SandBox.ViewModelCollection.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../MissionAgentHandler/"><code>MissionAgentHandler</code></a></td><td>MissionAgentHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MissionAgentLookHandler/"><code>MissionAgentLookHandler</code></a></td><td>MissionAgentLookHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MissionAgentMarkerTargetVM/"><code>MissionAgentMarkerTargetVM</code></a></td><td>MissionAgentMarkerTargetVM 是 SandBox.ViewModelCollection.Missions.NameMarker.Targets 下的公开类型。</td></tr>
+<tr><td><a href="../MissionAIActivationDeactivationEventListenerLogic/"><code>MissionAIActivationDeactivationEventListenerLogic</code></a></td><td>MissionAIActivationDeactivationEventListenerLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionEvents，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../MissionAlleyHandler/"><code>MissionAlleyHandler</code></a></td><td>MissionAlleyHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MissionAnimatedBasicAreaIndicatorMarkerTargetVM/"><code>MissionAnimatedBasicAreaIndicatorMarkerTargetVM</code></a></td><td>MissionAnimatedBasicAreaIndicatorMarkerTargetVM 是 SandBox.ViewModelCollection.Missions.NameMarker.Targets 下的公开类型。</td></tr>
+<tr><td><a href="../MissionArenaPracticeFightView/"><code>MissionArenaPracticeFightView</code></a></td><td>MissionArenaPracticeFightView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionArenaPracticeFightVM/"><code>MissionArenaPracticeFightVM</code></a></td><td>MissionArenaPracticeFightVM 是 SandBox.ViewModelCollection.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../MissionAudienceHandler/"><code>MissionAudienceHandler</code></a></td><td>MissionAudienceHandler 是一个处理器，位于 SandBox.View.Missions，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MissionBasicAreaIndicatorMarkerTargetVM/"><code>MissionBasicAreaIndicatorMarkerTargetVM</code></a></td><td>MissionBasicAreaIndicatorMarkerTargetVM 是 SandBox.ViewModelCollection.Missions.NameMarker.Targets 下的公开类型。</td></tr>
+<tr><td><a href="../MissionBasicTeamLogic/"><code>MissionBasicTeamLogic</code></a></td><td>MissionBasicTeamLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../MissionBoardGameDebugHandler/"><code>MissionBoardGameDebugHandler</code></a></td><td>MissionBoardGameDebugHandler 是一个处理器，位于 SandBox.BoardGames.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MissionBoardGameLogic/"><code>MissionBoardGameLogic</code></a></td><td>MissionBoardGameLogic 是一个行为逻辑类，位于 SandBox.BoardGames.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../MissionCampaignBattleSpectatorView/"><code>MissionCampaignBattleSpectatorView</code></a></td><td>MissionCampaignBattleSpectatorView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionCampaignView/"><code>MissionCampaignView</code></a></td><td>MissionCampaignView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionCaravanOrVillagerTacticsHandler/"><code>MissionCaravanOrVillagerTacticsHandler</code></a></td><td>MissionCaravanOrVillagerTacticsHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MissionCommonAreaMarkerTargetVM/"><code>MissionCommonAreaMarkerTargetVM</code></a></td><td>MissionCommonAreaMarkerTargetVM 是 SandBox.ViewModelCollection.Missions.NameMarker.Targets 下的公开类型。</td></tr>
+<tr><td><a href="../MissionConversationCameraView/"><code>MissionConversationCameraView</code></a></td><td>MissionConversationCameraView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionConversationLogic/"><code>MissionConversationLogic</code></a></td><td>MissionConversationLogic 是一个行为逻辑类，位于 SandBox.Conversation.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../MissionConversationPrepareView/"><code>MissionConversationPrepareView</code></a></td><td>MissionConversationPrepareView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionCrimeHandler/"><code>MissionCrimeHandler</code></a></td><td>MissionCrimeHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MissionCustomCameraView/"><code>MissionCustomCameraView</code></a></td><td>MissionCustomCameraView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionDisguiseMarkerItemVM/"><code>MissionDisguiseMarkerItemVM</code></a></td><td>MissionDisguiseMarkerItemVM 是 SandBox.ViewModelCollection.Missions.MainAgentDetection 下的公开类型。</td></tr>
+<tr><td><a href="../MissionDisguiseMarkersVM/"><code>MissionDisguiseMarkersVM</code></a></td><td>MissionDisguiseMarkersVM 是 SandBox.ViewModelCollection.Missions.MainAgentDetection 下的公开类型。</td></tr>
+<tr><td><a href="../MissionEquipItemToolView/"><code>MissionEquipItemToolView</code></a></td><td>MissionEquipItemToolView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionFightHandler/"><code>MissionFightHandler</code></a></td><td>MissionFightHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MissionGauntletAgentAlarmStateView/"><code>MissionGauntletAgentAlarmStateView</code></a></td><td>MissionGauntletAgentAlarmStateView 是一个视图层对象，位于 SandBox.GauntletUI.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionGauntletArenaPracticeFightView/"><code>MissionGauntletArenaPracticeFightView</code></a></td><td>MissionGauntletArenaPracticeFightView 是一个视图层对象，位于 SandBox.GauntletUI.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionGauntletBarterView/"><code>MissionGauntletBarterView</code></a></td><td>MissionGauntletBarterView 是一个视图层对象，位于 SandBox.GauntletUI.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionGauntletBoardGameView/"><code>MissionGauntletBoardGameView</code></a></td><td>MissionGauntletBoardGameView 是一个视图层对象，位于 SandBox.GauntletUI.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionGauntletCheatView/"><code>MissionGauntletCheatView</code></a></td><td>MissionGauntletCheatView 是一个视图层对象，位于 SandBox.GauntletUI.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionGauntletConversationView/"><code>MissionGauntletConversationView</code></a></td><td>MissionGauntletConversationView 是一个视图层对象，位于 SandBox.GauntletUI.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionGauntletEavesdroppingCameraView/"><code>MissionGauntletEavesdroppingCameraView</code></a></td><td>MissionGauntletEavesdroppingCameraView 是一个视图层对象，位于 SandBox.GauntletUI.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionGauntletHideoutAmbushCinematicView/"><code>MissionGauntletHideoutAmbushCinematicView</code></a></td><td>MissionGauntletHideoutAmbushCinematicView 是一个视图层对象，位于 SandBox.GauntletUI.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionGauntletNameMarkerView/"><code>MissionGauntletNameMarkerView</code></a></td><td>MissionGauntletNameMarkerView 是一个视图层对象，位于 SandBox.GauntletUI.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionGauntletObjectiveView/"><code>MissionGauntletObjectiveView</code></a></td><td>MissionGauntletObjectiveView 是一个视图层对象，位于 SandBox.GauntletUI.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionGauntletQuestBarView/"><code>MissionGauntletQuestBarView</code></a></td><td>MissionGauntletQuestBarView 是一个视图层对象，位于 SandBox.GauntletUI.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionGauntletStoryModeCheatView/"><code>MissionGauntletStoryModeCheatView</code></a></td><td>MissionGauntletStoryModeCheatView 是一个视图层对象，位于 SandBox.GauntletUI.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionGauntletTournamentView/"><code>MissionGauntletTournamentView</code></a></td><td>MissionGauntletTournamentView 是一个视图层对象，位于 SandBox.GauntletUI.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionGenericMarkerTargetVM/"><code>MissionGenericMarkerTargetVM</code></a></td><td>MissionGenericMarkerTargetVM 是 SandBox.ViewModelCollection.Missions.NameMarker.Targets 下的公开类型。</td></tr>
+<tr><td><a href="../MissionHelper/"><code>MissionHelper</code></a></td><td>MissionHelper 是一个帮助类，位于 SandBox，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../MissionHideoutAmbushCinematicView/"><code>MissionHideoutAmbushCinematicView</code></a></td><td>MissionHideoutAmbushCinematicView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionHideoutCinematicView/"><code>MissionHideoutCinematicView</code></a></td><td>MissionHideoutCinematicView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionItemCalatogView/"><code>MissionItemCalatogView</code></a></td><td>MissionItemCalatogView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionLocationLogic/"><code>MissionLocationLogic</code></a></td><td>MissionLocationLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../MissionLosingTargetVM/"><code>MissionLosingTargetVM</code></a></td><td>MissionLosingTargetVM 是 SandBox.ViewModelCollection.Missions.MainAgentDetection 下的公开类型。</td></tr>
+<tr><td><a href="../MissionMainAgentDetectionView/"><code>MissionMainAgentDetectionView</code></a></td><td>MissionMainAgentDetectionView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionNameMarkerFactory/"><code>MissionNameMarkerFactory</code></a></td><td>MissionNameMarkerFactory 是 SandBox.ViewModelCollection.Missions.NameMarker 下的公开类型。</td></tr>
+<tr><td><a href="../MissionNameMarkerHelper/"><code>MissionNameMarkerHelper</code></a></td><td>MissionNameMarkerHelper 是一个帮助类，位于 SandBox.ViewModelCollection.Missions.NameMarker，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../MissionNameMarkerProvider/"><code>MissionNameMarkerProvider</code></a></td><td>MissionNameMarkerProvider 是 SandBox.ViewModelCollection.Missions.NameMarker 下的公开类型。</td></tr>
+<tr><td><a href="../MissionNameMarkerTargetBaseVM/"><code>MissionNameMarkerTargetBaseVM</code></a></td><td>MissionNameMarkerTargetBaseVM 是 SandBox.ViewModelCollection.Missions.NameMarker 下的公开类型。</td></tr>
+<tr><td><a href="../MissionNameMarkerTargetVM/"><code>MissionNameMarkerTargetVM</code></a></td><td>MissionNameMarkerTargetVM 是 SandBox.ViewModelCollection.Missions.NameMarker 下的公开类型。</td></tr>
+<tr><td><a href="../MissionNameMarkerToggleEvent/"><code>MissionNameMarkerToggleEvent</code></a></td><td>MissionNameMarkerToggleEvent 是 SandBox.ViewModelCollection.Missions.NameMarker 下的公开类型。</td></tr>
+<tr><td><a href="../MissionNameMarkerUIHandler/"><code>MissionNameMarkerUIHandler</code></a></td><td>MissionNameMarkerUIHandler 是一个处理器，位于 SandBox.View.Missions.NameMarkers，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MissionNameMarkerVM/"><code>MissionNameMarkerVM</code></a></td><td>MissionNameMarkerVM 是 SandBox.ViewModelCollection.Missions.NameMarker 下的公开类型。</td></tr>
+<tr><td><a href="../MissionPassageUsePointNameMarkerTargetVM/"><code>MissionPassageUsePointNameMarkerTargetVM</code></a></td><td>MissionPassageUsePointNameMarkerTargetVM 是 SandBox.ViewModelCollection.Missions.NameMarker.Targets 下的公开类型。</td></tr>
+<tr><td><a href="../MissionPathGenerationLogic/"><code>MissionPathGenerationLogic</code></a></td><td>MissionPathGenerationLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../MissionPreloadView/"><code>MissionPreloadView</code></a></td><td>MissionPreloadView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionQuestBarView/"><code>MissionQuestBarView</code></a></td><td>MissionQuestBarView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionQuestBarVM/"><code>MissionQuestBarVM</code></a></td><td>MissionQuestBarVM 是 SandBox.ViewModelCollection.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../MissionSettlementPrepareLogic/"><code>MissionSettlementPrepareLogic</code></a></td><td>MissionSettlementPrepareLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../MissionSettlementPrepareView/"><code>MissionSettlementPrepareView</code></a></td><td>MissionSettlementPrepareView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionSingleplayerViewHandler/"><code>MissionSingleplayerViewHandler</code></a></td><td>MissionSingleplayerViewHandler 是一个处理器，位于 SandBox.View.Missions，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MissionSoundParametersView/"><code>MissionSoundParametersView</code></a></td><td>MissionSoundParametersView 是一个视图层对象，位于 SandBox.View.Missions，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionStealthAreaNameMarkerTargetVM/"><code>MissionStealthAreaNameMarkerTargetVM</code></a></td><td>MissionStealthAreaNameMarkerTargetVM 是 SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout 下的公开类型。</td></tr>
+<tr><td><a href="../MissionStealthAreaUsePointNameMarkerTargetVM/"><code>MissionStealthAreaUsePointNameMarkerTargetVM</code></a></td><td>MissionStealthAreaUsePointNameMarkerTargetVM 是 SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout 下的公开类型。</td></tr>
+<tr><td><a href="../MissionStealthSentryNameMarkerTargetVM/"><code>MissionStealthSentryNameMarkerTargetVM</code></a></td><td>MissionStealthSentryNameMarkerTargetVM 是 SandBox.ViewModelCollection.Missions.NameMarker.Targets.Hideout 下的公开类型。</td></tr>
+<tr><td><a href="../MissionTournamentJoustingView/"><code>MissionTournamentJoustingView</code></a></td><td>MissionTournamentJoustingView 是一个视图层对象，位于 SandBox.View.Missions.Tournaments，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionTournamentView/"><code>MissionTournamentView</code></a></td><td>MissionTournamentView 是一个视图层对象，位于 SandBox.View.Missions.Tournaments，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MissionWorkshopNameMarkerTargetVM/"><code>MissionWorkshopNameMarkerTargetVM</code></a></td><td>MissionWorkshopNameMarkerTargetVM 是 SandBox.ViewModelCollection.Missions.NameMarker.Targets 下的公开类型。</td></tr>
+<tr><td><a href="../MobilePartyVisual/"><code>MobilePartyVisual</code></a></td><td>MobilePartyVisual 是 SandBox.View.Map.Visuals 下的公开类型。</td></tr>
+<tr><td><a href="../MobilePartyVisualManager/"><code>MobilePartyVisualManager</code></a></td><td>MobilePartyVisualManager 是一个管理器，位于 SandBox.View.Map.Managers，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MountAgentLogic/"><code>MountAgentLogic</code></a></td><td>MountAgentLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../Move/"><code>Move</code></a></td><td>Move 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../MovementState/"><code>MovementState</code></a></td><td>MovementState 是 SandBox.BoardGames.Pawns 下的公开类型。</td></tr>
+<tr><td><a href="../MusicArenaPracticeMissionView/"><code>MusicArenaPracticeMissionView</code></a></td><td>MusicArenaPracticeMissionView 是一个视图层对象，位于 SandBox.View.Missions.Sound.Components，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../MusicianGroup/"><code>MusicianGroup</code></a></td><td>MusicianGroup 是 SandBox.Objects.Usables 下的公开类型。</td></tr>
+<tr><td><a href="../MusicTournamentMissionView/"><code>MusicTournamentMissionView</code></a></td><td>MusicTournamentMissionView 是一个视图层对象，位于 SandBox.View.Missions.Sound.Components，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../NameplateDistanceComparer/"><code>NameplateDistanceComparer</code></a></td><td>NameplateDistanceComparer 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../NameplateVM/"><code>NameplateVM</code></a></td><td>NameplateVM 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../NavigationPathData/"><code>NavigationPathData</code></a></td><td>NavigationPathData 是一个数据载体，位于 SandBox.Missions.MissionLogics，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../NavigationState/"><code>NavigationState</code></a></td><td>NavigationState 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../NotableSpawnPointHandler/"><code>NotableSpawnPointHandler</code></a></td><td>NotableSpawnPointHandler 是一个处理器，位于 SandBox.Missions.AgentBehaviors，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../NotableWantsDaughterFoundIssue/"><code>NotableWantsDaughterFoundIssue</code></a></td><td>NotableWantsDaughterFoundIssue 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../NotableWantsDaughterFoundIssueBehavior/"><code>NotableWantsDaughterFoundIssueBehavior</code></a></td><td>NotableWantsDaughterFoundIssueBehavior 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../NotableWantsDaughterFoundIssueQuest/"><code>NotableWantsDaughterFoundIssueQuest</code></a></td><td>NotableWantsDaughterFoundIssueQuest 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../NotableWantsDaughterFoundIssueTypeDefiner/"><code>NotableWantsDaughterFoundIssueTypeDefiner</code></a></td><td>NotableWantsDaughterFoundIssueTypeDefiner 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../OnStealthMissionCounterFailedEvent/"><code>OnStealthMissionCounterFailedEvent</code></a></td><td>OnStealthMissionCounterFailedEvent 是 SandBox.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../OpenInventoryWithGivenItemsEventListenerLogic/"><code>OpenInventoryWithGivenItemsEventListenerLogic</code></a></td><td>OpenInventoryWithGivenItemsEventListenerLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionEvents，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../OtherMissionViews/"><code>OtherMissionViews</code></a></td><td>OtherMissionViews 是 SandBox.View.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../PartyMarkerItemComparer/"><code>PartyMarkerItemComparer</code></a></td><td>PartyMarkerItemComparer 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../PartyNameplatesVM/"><code>PartyNameplatesVM</code></a></td><td>PartyNameplatesVM 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../PartyNameplateVM/"><code>PartyNameplateVM</code></a></td><td>PartyNameplateVM 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../PartyNavigationElement/"><code>PartyNavigationElement</code></a></td><td>PartyNavigationElement 是 SandBox.View.Map.Navigation.NavigationElements 下的公开类型。</td></tr>
+<tr><td><a href="../Passage/"><code>Passage</code></a></td><td>Passage 是 SandBox.Objects.Usables 下的公开类型。</td></tr>
+<tr><td><a href="../PassageAI/"><code>PassageAI</code></a></td><td>PassageAI 是 SandBox.AI 下的公开类型。</td></tr>
+<tr><td><a href="../PassageUsePoint/"><code>PassageUsePoint</code></a></td><td>PassageUsePoint 是 SandBox.Objects 下的公开类型。</td></tr>
+<tr><td><a href="../PatrolAgentBehavior/"><code>PatrolAgentBehavior</code></a></td><td>PatrolAgentBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PatrolArea/"><code>PatrolArea</code></a></td><td>PatrolArea 是 SandBox.Objects.Usables 下的公开类型。</td></tr>
+<tr><td><a href="../PatrollingGuardBehavior/"><code>PatrollingGuardBehavior</code></a></td><td>PatrollingGuardBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PatrolPoint/"><code>PatrolPoint</code></a></td><td>PatrolPoint 是 SandBox.Objects 下的公开类型。</td></tr>
+<tr><td><a href="../PawnBaghChal/"><code>PawnBaghChal</code></a></td><td>PawnBaghChal 是 SandBox.BoardGames.Pawns 下的公开类型。</td></tr>
+<tr><td><a href="../PawnBase/"><code>PawnBase</code></a></td><td>PawnBase 是一个抽象基类，位于 SandBox.BoardGames.Pawns，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../PawnInformation/"><code>PawnInformation</code></a></td><td>PawnInformation 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../PawnKonane/"><code>PawnKonane</code></a></td><td>PawnKonane 是 SandBox.BoardGames.Pawns 下的公开类型。</td></tr>
+<tr><td><a href="../PawnMuTorere/"><code>PawnMuTorere</code></a></td><td>PawnMuTorere 是 SandBox.BoardGames.Pawns 下的公开类型。</td></tr>
+<tr><td><a href="../PawnPuluc/"><code>PawnPuluc</code></a></td><td>PawnPuluc 是 SandBox.BoardGames.Pawns 下的公开类型。</td></tr>
+<tr><td><a href="../PawnSeega/"><code>PawnSeega</code></a></td><td>PawnSeega 是 SandBox.BoardGames.Pawns 下的公开类型。</td></tr>
+<tr><td><a href="../PawnTablut/"><code>PawnTablut</code></a></td><td>PawnTablut 是 SandBox.BoardGames.Pawns 下的公开类型。</td></tr>
+<tr><td><a href="../PerkObjectComparer/"><code>PerkObjectComparer</code></a></td><td>PerkObjectComparer 是 SandBox.ViewModelCollection 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerStartEngineConstructionEvent/"><code>PlayerStartEngineConstructionEvent</code></a></td><td>PlayerStartEngineConstructionEvent 是 SandBox.ViewModelCollection.MapSiege 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerTurn/"><code>PlayerTurn</code></a></td><td>PlayerTurn 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../PlayMusicPoint/"><code>PlayMusicPoint</code></a></td><td>PlayMusicPoint 是 SandBox.Objects.AnimationPoints 下的公开类型。</td></tr>
+<tr><td><a href="../PointOfInterestBaseData/"><code>PointOfInterestBaseData</code></a></td><td>PointOfInterestBaseData 是一个数据载体，位于 SandBox.Missions.MissionLogics，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../PointOfInterests/"><code>PointOfInterests</code></a></td><td>PointOfInterests 是 SandBox.Missions.MissionLogics 下的公开类型。</td></tr>
+<tr><td><a href="../PointOfInterestScorePair/"><code>PointOfInterestScorePair</code></a></td><td>PointOfInterestScorePair 是 SandBox.Missions.MissionLogics 下的公开类型。</td></tr>
+<tr><td><a href="../POIType/"><code>POIType</code></a></td><td>POIType 是 SandBox.ViewModelCollection.MapSiege 下的公开类型。</td></tr>
+<tr><td><a href="../PrisonBreakCampaignBehavior/"><code>PrisonBreakCampaignBehavior</code></a></td><td>PrisonBreakCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../PrisonBreakMissionController/"><code>PrisonBreakMissionController</code></a></td><td>PrisonBreakMissionController 是一个控制器，位于 SandBox.Missions.MissionLogics.Towns，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../PrisonerSoldNotificationItemVM/"><code>PrisonerSoldNotificationItemVM</code></a></td><td>PrisonerSoldNotificationItemVM 是 SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes 下的公开类型。</td></tr>
+<tr><td><a href="../ProdigalSonIssue/"><code>ProdigalSonIssue</code></a></td><td>ProdigalSonIssue 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ProdigalSonIssueBehavior/"><code>ProdigalSonIssueBehavior</code></a></td><td>ProdigalSonIssueBehavior 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ProdigalSonIssueQuest/"><code>ProdigalSonIssueQuest</code></a></td><td>ProdigalSonIssueQuest 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../ProdigalSonIssueTypeDefiner/"><code>ProdigalSonIssueTypeDefiner</code></a></td><td>ProdigalSonIssueTypeDefiner 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../QuestsNavigationElement/"><code>QuestsNavigationElement</code></a></td><td>QuestsNavigationElement 是 SandBox.View.Map.Navigation.NavigationElements 下的公开类型。</td></tr>
+<tr><td><a href="../RecruitmentAgentSpawnBehavior/"><code>RecruitmentAgentSpawnBehavior</code></a></td><td>RecruitmentAgentSpawnBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../RelationType/"><code>RelationType</code></a></td><td>RelationType 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../RetirementCampaignBehavior/"><code>RetirementCampaignBehavior</code></a></td><td>RetirementCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../RetirementMissionLogic/"><code>RetirementMissionLogic</code></a></td><td>RetirementMissionLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../RivalGangMovingInIssue/"><code>RivalGangMovingInIssue</code></a></td><td>RivalGangMovingInIssue 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RivalGangMovingInIssueBehavior/"><code>RivalGangMovingInIssueBehavior</code></a></td><td>RivalGangMovingInIssueBehavior 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RivalGangMovingInIssueQuest/"><code>RivalGangMovingInIssueQuest</code></a></td><td>RivalGangMovingInIssueQuest 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RivalGangMovingInIssueTypeDefiner/"><code>RivalGangMovingInIssueTypeDefiner</code></a></td><td>RivalGangMovingInIssueTypeDefiner 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RotateObjectScript/"><code>RotateObjectScript</code></a></td><td>RotateObjectScript 是 SandBox.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../RuralNotableInnAndOutIssue/"><code>RuralNotableInnAndOutIssue</code></a></td><td>RuralNotableInnAndOutIssue 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RuralNotableInnAndOutIssueBehavior/"><code>RuralNotableInnAndOutIssueBehavior</code></a></td><td>RuralNotableInnAndOutIssueBehavior 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RuralNotableInnAndOutIssueQuest/"><code>RuralNotableInnAndOutIssueQuest</code></a></td><td>RuralNotableInnAndOutIssueQuest 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../RuralNotableInnAndOutIssueTypeDefiner/"><code>RuralNotableInnAndOutIssueTypeDefiner</code></a></td><td>RuralNotableInnAndOutIssueTypeDefiner 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../SabotageMissionController/"><code>SabotageMissionController</code></a></td><td>SabotageMissionController 是一个控制器，位于 SandBox.Missions，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../SandboxAgentApplyDamageModel/"><code>SandboxAgentApplyDamageModel</code></a></td><td>SandboxAgentApplyDamageModel 是一个规则模型，位于 SandBox.GameComponents，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SandboxAgentDecideKilledOrUnconsciousModel/"><code>SandboxAgentDecideKilledOrUnconsciousModel</code></a></td><td>SandboxAgentDecideKilledOrUnconsciousModel 是一个规则模型，位于 SandBox.GameComponents，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SandboxAgentStatCalculateModel/"><code>SandboxAgentStatCalculateModel</code></a></td><td>SandboxAgentStatCalculateModel 是一个规则模型，位于 SandBox.GameComponents，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SandboxApplyWeatherEffectsModel/"><code>SandboxApplyWeatherEffectsModel</code></a></td><td>SandboxApplyWeatherEffectsModel 是一个规则模型，位于 SandBox.GameComponents，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SandboxAutoBlockModel/"><code>SandboxAutoBlockModel</code></a></td><td>SandboxAutoBlockModel 是一个规则模型，位于 SandBox.GameComponents，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SandboxBattleBannerBearersModel/"><code>SandboxBattleBannerBearersModel</code></a></td><td>SandboxBattleBannerBearersModel 是一个规则模型，位于 SandBox，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SandboxBattleInitializationModel/"><code>SandboxBattleInitializationModel</code></a></td><td>SandboxBattleInitializationModel 是一个规则模型，位于 SandBox.GameComponents，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SandBoxBattleMissionSpawnHandler/"><code>SandBoxBattleMissionSpawnHandler</code></a></td><td>SandBoxBattleMissionSpawnHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../SandboxBattleMoraleModel/"><code>SandboxBattleMoraleModel</code></a></td><td>SandboxBattleMoraleModel 是一个规则模型，位于 SandBox.GameComponents，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SandboxBattleSpawnModel/"><code>SandboxBattleSpawnModel</code></a></td><td>SandboxBattleSpawnModel 是一个规则模型，位于 SandBox.GameComponents，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SandBoxGameManager/"><code>SandBoxGameManager</code></a></td><td>SandBoxGameManager 是一个管理器，位于 SandBox，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../SandBoxGauntletUISubModule/"><code>SandBoxGauntletUISubModule</code></a></td><td>SandBoxGauntletUISubModule 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../SandboxGeneralsAndCaptainsAssignmentLogic/"><code>SandboxGeneralsAndCaptainsAssignmentLogic</code></a></td><td>SandboxGeneralsAndCaptainsAssignmentLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../SandBoxHelpers/"><code>SandBoxHelpers</code></a></td><td>SandBoxHelpers 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../SandboxHighlightsController/"><code>SandboxHighlightsController</code></a></td><td>SandboxHighlightsController 是一个控制器，位于 SandBox.Missions.MissionLogics，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../SandboxMissionDifficultyModel/"><code>SandboxMissionDifficultyModel</code></a></td><td>SandboxMissionDifficultyModel 是一个规则模型，位于 SandBox.GameComponents，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SandBoxMissionHandler/"><code>SandBoxMissionHandler</code></a></td><td>SandBoxMissionHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../SandBoxMissionManager/"><code>SandBoxMissionManager</code></a></td><td>SandBoxMissionManager 是一个管理器，位于 SandBox，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../SandBoxMissions/"><code>SandBoxMissions</code></a></td><td>SandBoxMissions 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../SandBoxMissionSpawnHandler/"><code>SandBoxMissionSpawnHandler</code></a></td><td>SandBoxMissionSpawnHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../SandBoxMissionViews/"><code>SandBoxMissionViews</code></a></td><td>SandBoxMissionViews 是 SandBox.View.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../SandBoxSallyOutMissionController/"><code>SandBoxSallyOutMissionController</code></a></td><td>SandBoxSallyOutMissionController 是一个控制器，位于 SandBox.Missions.MissionLogics，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../SandBoxSaveHelper/"><code>SandBoxSaveHelper</code></a></td><td>SandBoxSaveHelper 是一个帮助类，位于 SandBox，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../SandBoxSaveManager/"><code>SandBoxSaveManager</code></a></td><td>SandBoxSaveManager 是一个管理器，位于 SandBox，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../SandboxSceneNotificationContextProvider/"><code>SandboxSceneNotificationContextProvider</code></a></td><td>SandboxSceneNotificationContextProvider 是 SandBox.GauntletUI 下的公开类型。</td></tr>
+<tr><td><a href="../SandBoxSiegeMissionSpawnHandler/"><code>SandBoxSiegeMissionSpawnHandler</code></a></td><td>SandBoxSiegeMissionSpawnHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../SandboxStrikeMagnitudeModel/"><code>SandboxStrikeMagnitudeModel</code></a></td><td>SandboxStrikeMagnitudeModel 是一个规则模型，位于 SandBox.GameComponents，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../SandBoxSubModule/"><code>SandBoxSubModule</code></a></td><td>SandBoxSubModule 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../SandBoxUIHelper/"><code>SandBoxUIHelper</code></a></td><td>SandBoxUIHelper 是一个帮助类，位于 SandBox.ViewModelCollection，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../SandboxView/"><code>SandboxView</code></a></td><td>SandboxView 是一个视图层对象，位于 SandBox.View，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../SandBoxViewCheats/"><code>SandBoxViewCheats</code></a></td><td>SandBoxViewCheats 是 SandBox.View 下的公开类型。</td></tr>
+<tr><td><a href="../SandBoxViewCreator/"><code>SandBoxViewCreator</code></a></td><td>SandBoxViewCreator 是 SandBox.View 下的公开类型。</td></tr>
+<tr><td><a href="../SandBoxViewSubModule/"><code>SandBoxViewSubModule</code></a></td><td>SandBoxViewSubModule 是 SandBox.View 下的公开类型。</td></tr>
+<tr><td><a href="../SandBoxViewVisualManager/"><code>SandBoxViewVisualManager</code></a></td><td>SandBoxViewVisualManager 是一个管理器，位于 SandBox.View，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../SaveableSandBoxTypeDefiner/"><code>SaveableSandBoxTypeDefiner</code></a></td><td>SaveableSandBoxTypeDefiner 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../SavedGameGroupVM/"><code>SavedGameGroupVM</code></a></td><td>SavedGameGroupVM 是 SandBox.ViewModelCollection.SaveLoad 下的公开类型。</td></tr>
+<tr><td><a href="../SavedGameModuleInfoVM/"><code>SavedGameModuleInfoVM</code></a></td><td>SavedGameModuleInfoVM 是 SandBox.ViewModelCollection.SaveLoad 下的公开类型。</td></tr>
+<tr><td><a href="../SavedGameProperty/"><code>SavedGameProperty</code></a></td><td>SavedGameProperty 是 SandBox.ViewModelCollection.SaveLoad 下的公开类型。</td></tr>
+<tr><td><a href="../SavedGamePropertyVM/"><code>SavedGamePropertyVM</code></a></td><td>SavedGamePropertyVM 是 SandBox.ViewModelCollection.SaveLoad 下的公开类型。</td></tr>
+<tr><td><a href="../SavedGameVM/"><code>SavedGameVM</code></a></td><td>SavedGameVM 是 SandBox.ViewModelCollection.SaveLoad 下的公开类型。</td></tr>
+<tr><td><a href="../SaveHelperState/"><code>SaveHelperState</code></a></td><td>SaveHelperState 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../SaveLoadScreen/"><code>SaveLoadScreen</code></a></td><td>SaveLoadScreen 是 SandBox.View 下的公开类型。</td></tr>
+<tr><td><a href="../SaveLoadVM/"><code>SaveLoadVM</code></a></td><td>SaveLoadVM 是 SandBox.ViewModelCollection.SaveLoad 下的公开类型。</td></tr>
+<tr><td><a href="../SceneType/"><code>SceneType</code></a></td><td>SceneType 是 SandBox.View.Missions.SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../ScriptBehavior/"><code>ScriptBehavior</code></a></td><td>ScriptBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../SearchBodyMissionHandler/"><code>SearchBodyMissionHandler</code></a></td><td>SearchBodyMissionHandler 是一个处理器，位于 SandBox.Missions.MissionLogics，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../SettlementEventType/"><code>SettlementEventType</code></a></td><td>SettlementEventType 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementMusicData/"><code>SettlementMusicData</code></a></td><td>SettlementMusicData 是一个数据载体，位于 SandBox.Objects，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../SettlementMusiciansCampaignBehavior/"><code>SettlementMusiciansCampaignBehavior</code></a></td><td>SettlementMusiciansCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementNameplateEventItemVM/"><code>SettlementNameplateEventItemVM</code></a></td><td>SettlementNameplateEventItemVM 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementNameplateEventsVM/"><code>SettlementNameplateEventsVM</code></a></td><td>SettlementNameplateEventsVM 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementNameplateNotificationsVM/"><code>SettlementNameplateNotificationsVM</code></a></td><td>SettlementNameplateNotificationsVM 是 SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementNameplatePartyMarkerItemVM/"><code>SettlementNameplatePartyMarkerItemVM</code></a></td><td>SettlementNameplatePartyMarkerItemVM 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementNameplatePartyMarkersVM/"><code>SettlementNameplatePartyMarkersVM</code></a></td><td>SettlementNameplatePartyMarkersVM 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementNameplatesVM/"><code>SettlementNameplatesVM</code></a></td><td>SettlementNameplatesVM 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementNameplateVM/"><code>SettlementNameplateVM</code></a></td><td>SettlementNameplateVM 是 SandBox.ViewModelCollection.Nameplate 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementNotificationItemBaseVM/"><code>SettlementNotificationItemBaseVM</code></a></td><td>SettlementNotificationItemBaseVM 是 SandBox.ViewModelCollection.Nameplate.NameplateNotifications 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementPositionScript/"><code>SettlementPositionScript</code></a></td><td>SettlementPositionScript 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementVisual/"><code>SettlementVisual</code></a></td><td>SettlementVisual 是 SandBox.View.Map.Visuals 下的公开类型。</td></tr>
+<tr><td><a href="../SettlementVisualManager/"><code>SettlementVisualManager</code></a></td><td>SettlementVisualManager 是一个管理器，位于 SandBox.View.Map.Managers，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../ShadowingAgentOffenseInfo/"><code>ShadowingAgentOffenseInfo</code></a></td><td>ShadowingAgentOffenseInfo 是 SandBox.Missions.MissionLogics 下的公开类型。</td></tr>
+<tr><td><a href="../ShadowingSecureZoneUsePoint/"><code>ShadowingSecureZoneUsePoint</code></a></td><td>ShadowingSecureZoneUsePoint 是 SandBox.Objects.Usables 下的公开类型。</td></tr>
+<tr><td><a href="../ShipSoldNotificationItemVM/"><code>ShipSoldNotificationItemVM</code></a></td><td>ShipSoldNotificationItemVM 是 SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes 下的公开类型。</td></tr>
+<tr><td><a href="../ShowQuickInformationEventListenerLogic/"><code>ShowQuickInformationEventListenerLogic</code></a></td><td>ShowQuickInformationEventListenerLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionEvents，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../SiegePOIDistanceComparer/"><code>SiegePOIDistanceComparer</code></a></td><td>SiegePOIDistanceComparer 是 SandBox.ViewModelCollection.MapSiege 下的公开类型。</td></tr>
+<tr><td><a href="../SittableType/"><code>SittableType</code></a></td><td>SittableType 是 SandBox.Objects.Usables 下的公开类型。</td></tr>
+<tr><td><a href="../SkeletonAnimatedCamera/"><code>SkeletonAnimatedCamera</code></a></td><td>SkeletonAnimatedCamera 是 SandBox.Objects.Cinematics 下的公开类型。</td></tr>
+<tr><td><a href="../SmithingMachine/"><code>SmithingMachine</code></a></td><td>SmithingMachine 是 SandBox.Objects.Usables 下的公开类型。</td></tr>
+<tr><td><a href="../SnareTheWealthyIssue/"><code>SnareTheWealthyIssue</code></a></td><td>SnareTheWealthyIssue 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../SnareTheWealthyIssueBehavior/"><code>SnareTheWealthyIssueBehavior</code></a></td><td>SnareTheWealthyIssueBehavior 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../SnareTheWealthyIssueQuest/"><code>SnareTheWealthyIssueQuest</code></a></td><td>SnareTheWealthyIssueQuest 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../SnareTheWealthyIssueTypeDefiner/"><code>SnareTheWealthyIssueTypeDefiner</code></a></td><td>SnareTheWealthyIssueTypeDefiner 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../SnowAndRainTextureDefiner/"><code>SnowAndRainTextureDefiner</code></a></td><td>SnowAndRainTextureDefiner 是 SandBox.View.Map 下的公开类型。</td></tr>
+<tr><td><a href="../SoundParameterMissionCulture/"><code>SoundParameterMissionCulture</code></a></td><td>SoundParameterMissionCulture 是 SandBox.View.Missions 下的公开类型。</td></tr>
+<tr><td><a href="../SpawnPointDebugView/"><code>SpawnPointDebugView</code></a></td><td>SpawnPointDebugView 是一个视图层对象，位于 SandBox.View.Missions.SandBox，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../SpawnPointUnits/"><code>SpawnPointUnits</code></a></td><td>SpawnPointUnits 是 SandBox.View.Missions.SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../SPOrderOfBattleVM/"><code>SPOrderOfBattleVM</code></a></td><td>SPOrderOfBattleVM 是 SandBox.ViewModelCollection 下的公开类型。</td></tr>
+<tr><td><a href="../SPScoreboardVM/"><code>SPScoreboardVM</code></a></td><td>SPScoreboardVM 是 SandBox.ViewModelCollection 下的公开类型。</td></tr>
+<tr><td><a href="../StandGuardBehavior/"><code>StandGuardBehavior</code></a></td><td>StandGuardBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../StandingGuardSpawnData/"><code>StandingGuardSpawnData</code></a></td><td>StandingGuardSpawnData 是一个数据载体，位于 SandBox.Missions.MissionLogics，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../StatCategory/"><code>StatCategory</code></a></td><td>StatCategory 是 SandBox.ViewModelCollection.GameOver 下的公开类型。</td></tr>
+<tr><td><a href="../StatisticsCampaignBehavior/"><code>StatisticsCampaignBehavior</code></a></td><td>StatisticsCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../StatItem/"><code>StatItem</code></a></td><td>StatItem 是 SandBox.ViewModelCollection.GameOver 下的公开类型。</td></tr>
+<tr><td><a href="../StatType/"><code>StatType</code></a></td><td>StatType 是 SandBox.ViewModelCollection.GameOver 下的公开类型。</td></tr>
+<tr><td><a href="../StealthAreaData/"><code>StealthAreaData</code></a></td><td>StealthAreaData 是一个数据载体，位于 SandBox.Missions.MissionLogics，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../StealthAreaMarker/"><code>StealthAreaMarker</code></a></td><td>StealthAreaMarker 是 SandBox.Objects.AreaMarkers 下的公开类型。</td></tr>
+<tr><td><a href="../StealthAreaMissionLogic/"><code>StealthAreaMissionLogic</code></a></td><td>StealthAreaMissionLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../StealthAreaUsePoint/"><code>StealthAreaUsePoint</code></a></td><td>StealthAreaUsePoint 是 SandBox.Objects.Usables 下的公开类型。</td></tr>
+<tr><td><a href="../StealthCharactersCampaignBehavior/"><code>StealthCharactersCampaignBehavior</code></a></td><td>StealthCharactersCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../StealthFailCounterMissionLogic/"><code>StealthFailCounterMissionLogic</code></a></td><td>StealthFailCounterMissionLogic 是一个行为逻辑类，位于 SandBox.Missions，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../StealthIndoorLightingArea/"><code>StealthIndoorLightingArea</code></a></td><td>StealthIndoorLightingArea 是 SandBox.Objects 下的公开类型。</td></tr>
+<tr><td><a href="../StealthMissionController/"><code>StealthMissionController</code></a></td><td>StealthMissionController 是一个控制器，位于 SandBox.Missions.MissionLogics，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../StealthMissionUIHandler/"><code>StealthMissionUIHandler</code></a></td><td>StealthMissionUIHandler 是一个处理器，位于 SandBox.View.Missions，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../StealthNameMarkerProvider/"><code>StealthNameMarkerProvider</code></a></td><td>StealthNameMarkerProvider 是 SandBox.View.Missions.NameMarkers 下的公开类型。</td></tr>
+<tr><td><a href="../StealthOffenseTypes/"><code>StealthOffenseTypes</code></a></td><td>StealthOffenseTypes 是 SandBox.Missions.MissionLogics 下的公开类型。</td></tr>
+<tr><td><a href="../StealthPatrolPointMissionLogic/"><code>StealthPatrolPointMissionLogic</code></a></td><td>StealthPatrolPointMissionLogic 是一个行为逻辑类，位于 SandBox.Missions.MissionLogics，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../StealthZone/"><code>StealthZone</code></a></td><td>StealthZone 是 SandBox.Objects 下的公开类型。</td></tr>
+<tr><td><a href="../SuspectNpc/"><code>SuspectNpc</code></a></td><td>SuspectNpc 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../TalkBehavior/"><code>TalkBehavior</code></a></td><td>TalkBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TavernEmployeesCampaignBehavior/"><code>TavernEmployeesCampaignBehavior</code></a></td><td>TavernEmployeesCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TeleportType/"><code>TeleportType</code></a></td><td>TeleportType 是 SandBox.Objects 下的公开类型。</td></tr>
+<tr><td><a href="../TeleportUsePoint/"><code>TeleportUsePoint</code></a></td><td>TeleportUsePoint 是 SandBox.Objects 下的公开类型。</td></tr>
+<tr><td><a href="../TheSpyPartyIssue/"><code>TheSpyPartyIssue</code></a></td><td>TheSpyPartyIssue 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../TheSpyPartyIssueQuest/"><code>TheSpyPartyIssueQuest</code></a></td><td>TheSpyPartyIssueQuest 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../TheSpyPartyIssueQuestBehavior/"><code>TheSpyPartyIssueQuestBehavior</code></a></td><td>TheSpyPartyIssueQuestBehavior 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../TheSpyPartyIssueQuestTypeDefiner/"><code>TheSpyPartyIssueQuestTypeDefiner</code></a></td><td>TheSpyPartyIssueQuestTypeDefiner 是 SandBox.Issues 下的公开类型。</td></tr>
+<tr><td><a href="../Tile/"><code>Tile</code></a></td><td>Tile 是 SandBox.BoardGames.Objects 下的公开类型。</td></tr>
+<tr><td><a href="../Tile1D/"><code>Tile1D</code></a></td><td>Tile1D 是 SandBox.BoardGames.Tiles 下的公开类型。</td></tr>
+<tr><td><a href="../Tile2D/"><code>Tile2D</code></a></td><td>Tile2D 是 SandBox.BoardGames.Tiles 下的公开类型。</td></tr>
+<tr><td><a href="../TileBase/"><code>TileBase</code></a></td><td>TileBase 是一个抽象基类，位于 SandBox.BoardGames.Tiles，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../TileBaseInformation/"><code>TileBaseInformation</code></a></td><td>TileBaseInformation 是 SandBox.BoardGames 下的公开类型。</td></tr>
+<tr><td><a href="../TileMuTorere/"><code>TileMuTorere</code></a></td><td>TileMuTorere 是 SandBox.BoardGames.Tiles 下的公开类型。</td></tr>
+<tr><td><a href="../TilePuluc/"><code>TilePuluc</code></a></td><td>TilePuluc 是 SandBox.BoardGames.Tiles 下的公开类型。</td></tr>
+<tr><td><a href="../TournamentArcheryMissionController/"><code>TournamentArcheryMissionController</code></a></td><td>TournamentArcheryMissionController 是一个控制器，位于 SandBox.Tournaments.MissionLogics，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../TournamentBehavior/"><code>TournamentBehavior</code></a></td><td>TournamentBehavior 是 SandBox.Tournaments.MissionLogics 下的公开类型。</td></tr>
+<tr><td><a href="../TournamentFightMissionController/"><code>TournamentFightMissionController</code></a></td><td>TournamentFightMissionController 是一个控制器，位于 SandBox.Tournaments.MissionLogics，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../TournamentJoustingMissionController/"><code>TournamentJoustingMissionController</code></a></td><td>TournamentJoustingMissionController 是一个控制器，位于 SandBox.Tournaments.MissionLogics，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../TournamentMatchState/"><code>TournamentMatchState</code></a></td><td>TournamentMatchState 是 SandBox.ViewModelCollection.Tournament 下的公开类型。</td></tr>
+<tr><td><a href="../TournamentMatchVM/"><code>TournamentMatchVM</code></a></td><td>TournamentMatchVM 是 SandBox.ViewModelCollection.Tournament 下的公开类型。</td></tr>
+<tr><td><a href="../TournamentMissionStarter/"><code>TournamentMissionStarter</code></a></td><td>TournamentMissionStarter 是 SandBox.Tournaments 下的公开类型。</td></tr>
+<tr><td><a href="../TournamentMissionViews/"><code>TournamentMissionViews</code></a></td><td>TournamentMissionViews 是 SandBox.View.Missions.Tournaments 下的公开类型。</td></tr>
+<tr><td><a href="../TournamentParticipantVM/"><code>TournamentParticipantVM</code></a></td><td>TournamentParticipantVM 是 SandBox.ViewModelCollection.Tournament 下的公开类型。</td></tr>
+<tr><td><a href="../TournamentPlayerState/"><code>TournamentPlayerState</code></a></td><td>TournamentPlayerState 是 SandBox.ViewModelCollection.Tournament 下的公开类型。</td></tr>
+<tr><td><a href="../TournamentRewardVM/"><code>TournamentRewardVM</code></a></td><td>TournamentRewardVM 是 SandBox.ViewModelCollection 下的公开类型。</td></tr>
+<tr><td><a href="../TournamentRoundVM/"><code>TournamentRoundVM</code></a></td><td>TournamentRoundVM 是 SandBox.ViewModelCollection.Tournament 下的公开类型。</td></tr>
+<tr><td><a href="../TournamentTeamVM/"><code>TournamentTeamVM</code></a></td><td>TournamentTeamVM 是 SandBox.ViewModelCollection.Tournament 下的公开类型。</td></tr>
+<tr><td><a href="../TournamentVM/"><code>TournamentVM</code></a></td><td>TournamentVM 是 SandBox.ViewModelCollection.Tournament 下的公开类型。</td></tr>
+<tr><td><a href="../TownCenterMissionController/"><code>TownCenterMissionController</code></a></td><td>TownCenterMissionController 是一个控制器，位于 SandBox.Missions.MissionLogics.Towns，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../TownHorseRaceAgentController/"><code>TownHorseRaceAgentController</code></a></td><td>TownHorseRaceAgentController 是一个控制器，位于 SandBox.Tournaments.AgentControllers，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../TownHorseRaceMissionController/"><code>TownHorseRaceMissionController</code></a></td><td>TownHorseRaceMissionController 是一个控制器，位于 SandBox.Tournaments.MissionLogics，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../TownMerchantsCampaignBehavior/"><code>TownMerchantsCampaignBehavior</code></a></td><td>TownMerchantsCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TrackVisual/"><code>TrackVisual</code></a></td><td>TrackVisual 是 SandBox.View.Map.Visuals 下的公开类型。</td></tr>
+<tr><td><a href="../TradersCampaignBehavior/"><code>TradersCampaignBehavior</code></a></td><td>TradersCampaignBehavior 是 SandBox.CampaignBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../TreeNodeTablut/"><code>TreeNodeTablut</code></a></td><td>TreeNodeTablut 是 SandBox.BoardGames.AI 下的公开类型。</td></tr>
+<tr><td><a href="../TroopData/"><code>TroopData</code></a></td><td>TroopData 是一个数据载体，位于 SandBox.Missions.MissionLogics.Hideout，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../TroopGivenToSettlementNotificationItemVM/"><code>TroopGivenToSettlementNotificationItemVM</code></a></td><td>TroopGivenToSettlementNotificationItemVM 是 SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes 下的公开类型。</td></tr>
+<tr><td><a href="../TroopRecruitmentNotificationItemVM/"><code>TroopRecruitmentNotificationItemVM</code></a></td><td>TroopRecruitmentNotificationItemVM 是 SandBox.ViewModelCollection.Nameplate.NameplateNotifications.SettlementNotificationTypes 下的公开类型。</td></tr>
+<tr><td><a href="../TutorialAttribute/"><code>TutorialAttribute</code></a></td><td>TutorialAttribute 是一个 .NET 特性，位于 SandBox.GauntletUI.Tutorial，用于给类型或成员打标签。</td></tr>
+<tr><td><a href="../TutorialHelper/"><code>TutorialHelper</code></a></td><td>TutorialHelper 是一个帮助类，位于 SandBox.GauntletUI.Tutorial，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../TutorialItemBase/"><code>TutorialItemBase</code></a></td><td>TutorialItemBase 是一个抽象基类，位于 SandBox.GauntletUI.Tutorial，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../TutorialItemVM/"><code>TutorialItemVM</code></a></td><td>TutorialItemVM 是 SandBox.ViewModelCollection.Tutorial 下的公开类型。</td></tr>
+<tr><td><a href="../TutorialScreen/"><code>TutorialScreen</code></a></td><td>TutorialScreen 是 SandBox.View.Menu 下的公开类型。</td></tr>
+<tr><td><a href="../TutorialVM/"><code>TutorialVM</code></a></td><td>TutorialVM 是 SandBox.ViewModelCollection.Tutorial 下的公开类型。</td></tr>
+<tr><td><a href="../UnlockAllCraftingRecipesCheat/"><code>UnlockAllCraftingRecipesCheat</code></a></td><td>UnlockAllCraftingRecipesCheat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../UnlockFogOfWarCheat/"><code>UnlockFogOfWarCheat</code></a></td><td>UnlockFogOfWarCheat 是 SandBox 下的公开类型。</td></tr>
+<tr><td><a href="../UsableMachineData/"><code>UsableMachineData</code></a></td><td>UsableMachineData 是一个数据载体，位于 SandBox.Missions.MissionLogics，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../UsablePlace/"><code>UsablePlace</code></a></td><td>UsablePlace 是 SandBox.Objects.Usables 下的公开类型。</td></tr>
+<tr><td><a href="../UsablePlaceAI/"><code>UsablePlaceAI</code></a></td><td>UsablePlaceAI 是 SandBox.AI 下的公开类型。</td></tr>
+<tr><td><a href="../VillageMissionController/"><code>VillageMissionController</code></a></td><td>VillageMissionController 是一个控制器，位于 SandBox.Missions.MissionLogics，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../VisitPointNodeScoreData/"><code>VisitPointNodeScoreData</code></a></td><td>VisitPointNodeScoreData 是一个数据载体，位于 SandBox.Missions.MissionLogics，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../VisualTrackerMissionBehavior/"><code>VisualTrackerMissionBehavior</code></a></td><td>VisualTrackerMissionBehavior 是 SandBox.Missions.MissionLogics 下的公开类型。</td></tr>
+<tr><td><a href="../WalkingBehavior/"><code>WalkingBehavior</code></a></td><td>WalkingBehavior 是 SandBox.Missions.AgentBehaviors 下的公开类型。</td></tr>
+<tr><td><a href="../WhileEnteringSettlementBattleMissionController/"><code>WhileEnteringSettlementBattleMissionController</code></a></td><td>WhileEnteringSettlementBattleMissionController 是一个控制器，位于 SandBox.Missions.MissionLogics，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../WorkshopAreaMarker/"><code>WorkshopAreaMarker</code></a></td><td>WorkshopAreaMarker 是 SandBox.Objects.AreaMarkers 下的公开类型。</td></tr>
+<tr><td><a href="../WorkshopMissionHandler/"><code>WorkshopMissionHandler</code></a></td><td>WorkshopMissionHandler 是一个处理器，位于 SandBox.Missions.MissionLogics.Towns，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../WoundAllEnemiesCheat/"><code>WoundAllEnemiesCheat</code></a></td><td>WoundAllEnemiesCheat 是 SandBox 下的公开类型。</td></tr>
+</tbody></table>
+<h2 id="ben-qu-yu-qi-ta-zi-xi-tong">本区域其他子系统</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign-ext/sandbox/./../global/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign-ext/sandbox/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign-ext/sandbox/./../actions/">Actions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign-ext/sandbox/./../networkmessages/">NetworkMessages</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign-ext/sandbox/./../storymode/">StoryMode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/campaign-ext/sandbox/./../taleworlds/">TaleWorlds</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,88 +1,47 @@
 ---
-title: "Campaign — Campaign world: entities and state"
-description: "The root `TaleWorlds.CampaignSystem` namespace. This is the data plane of the persistent world: `Campaign`, `Hero`, `Cla"
+title: "Campaign — campaign world: entities and state"
+description: "The bucket for the TaleWorlds.CampaignSystem namespace itself: the entities that make up the campaign world and the rules that read and write them. 5 pages."
 ---
-# Campaign — Campaign world: entities and state
+# Campaign — campaign world: entities and state
 
-The root `TaleWorlds.CampaignSystem` namespace. This is the **data plane of the persistent world**: `Campaign`, `Hero`, `Clan`, `Kingdom`, `Settlement`, `Town`, `Village`, `MobileParty`, `Army` and their sub-namespaces (`Party`, `Settlements`, `MapEvents`, …).
+This bucket is `TaleWorlds.CampaignSystem` **the namespace itself** — the campaign world proper: who is in it, what state it is in, and the rules that change that state. In 1.4.7 that namespace root holds 135 `.cs` files.
 
-Objects in this layer **end up in saves**. Writing their fields directly desynchronises state from the event system. To change the world, go through `CampaignEvents` and the `*Action` types in [Campaign-Ext](../campaign-ext/).
+For a mod author this is the doorway to the persistent half of the game. `Hero`, `Party`, `Clan`, `Kingdom`, `Town`, `ItemObject` — all of them live here, and all of them are things that end up in a save. That is the line that matters when deciding where your own state belongs: if it survives a save it belongs to this bucket, if it only exists during a battle it belongs in [mission-ext](../mission-ext/).
 
-Correct reading order here: `Campaign` (current-campaign entry) → the entity you care about → its events.
+The sub-namespaces of `CampaignSystem` are deliberately **not** here. The prefix rules send them elsewhere:
 
-## Pages in this area (190)
+| Sub-namespace | Resolves to |
+| --- | --- |
+| `CampaignBehaviors`, `ComponentInterfaces`, `GameComponents` | [campaign-ext](../campaign-ext/) |
+| `Conversation`, `Issues`, `PartyBasedVisitables` | [campaign-ext](../campaign-ext/) |
+| `SandBox` | [sandbox](../sandbox/) |
+| `ViewModelCollection` | [viewmodel](../viewmodel/) |
 
-[AcceptCallToWarAgreementDecision](AcceptCallToWarAgreementDecision) · [AcceptCallToWarOfferMapNotification](AcceptCallToWarOfferMapNotification) · [AccompanyingCharacter](AccompanyingCharacter)
-[AddCompanionAction](AddCompanionAction) · [AddHeroToPartyAction](AddHeroToPartyAction) · [AdoptHeroAction](AdoptHeroAction)
-[AiBehavior](AiBehavior) · [Alley](Alley) · [AlleyLeaderDiedMapNotification](AlleyLeaderDiedMapNotification)
-[AlleyUnderAttackMapNotification](AlleyUnderAttackMapNotification) · [AllianceOfferMapNotification](AllianceOfferMapNotification) · [AnchorPoint](AnchorPoint)
-[AntiEmpireConspiracyBeginsSceneNotificationItem](AntiEmpireConspiracyBeginsSceneNotificationItem) · [ApplyHeirSelectionAction](ApplyHeirSelectionAction) · [ArmyCreationLogEntry](ArmyCreationLogEntry)
-[ArmyCreationMapNotification](ArmyCreationMapNotification) · [ArmyDispersionLogEntry](ArmyDispersionLogEntry) · [ArmyDispersionMapNotification](ArmyDispersionMapNotification)
-[ArmyDispersionReasonEnumResolver](ArmyDispersionReasonEnumResolver) · [Attributes](Attributes) · [BanditPartyComponent](BanditPartyComponent)
-[BannerEditorState](BannerEditorState) · [BarberState](BarberState) · [BarterData](BarterData)
-[BarterGroup](BarterGroup) · [BarterManager](BarterManager) · [BarterResult](BarterResult)
-[Barterable](Barterable) · [BattleStartedLogEntry](BattleStartedLogEntry) · [BattleTypeEnumResolver](BattleTypeEnumResolver)
-[BeHostileAction](BeHostileAction) · [BecomeKingSceneNotificationItem](BecomeKingSceneNotificationItem) · [BesiegeSettlementLogEntry](BesiegeSettlementLogEntry)
-[BesiegerCamp](BesiegerCamp) · [BlockadeBattleMapEvent](BlockadeBattleMapEvent) · [BreakInOutBesiegedSettlementAction](BreakInOutBesiegedSettlementAction)
-[Building](Building) · [BuildingEffectEnum](BuildingEffectEnum) · [BuildingEffectIncrementType](BuildingEffectIncrementType)
-[BuildingType](BuildingType) · [Campaign](Campaign) · [CampaignBattleResult](CampaignBattleResult)
-[CampaignObjectManager](CampaignObjectManager) · [CampaignSceneNotificationHelper](CampaignSceneNotificationHelper) · [CanTalkToHeroDelegate](CanTalkToHeroDelegate)
-[CanUseDoor](CanUseDoor) · [CaravanPartyComponent](CaravanPartyComponent) · [CastleEncounter](CastleEncounter)
-[ChangeAlleyOwnerLogEntry](ChangeAlleyOwnerLogEntry) · [ChangeRomanticStateLogEntry](ChangeRomanticStateLogEntry) · [CharacterAttributesResolver](CharacterAttributesResolver)
-[CharacterCreationBannerEditorStage](CharacterCreationBannerEditorStage) · [CharacterCreationClanNamingStage](CharacterCreationClanNamingStage) · [CharacterCreationContent](CharacterCreationContent)
-[CharacterCreationCultureStage](CharacterCreationCultureStage) · [CharacterCreationFaceGeneratorStage](CharacterCreationFaceGeneratorStage) · [CharacterCreationManager](CharacterCreationManager)
-[CharacterData](CharacterData) · [CharacterDeveloperState](CharacterDeveloperState) · [CharacterPerksResolver](CharacterPerksResolver)
-[CharacterRelationManager](CharacterRelationManager) · [CharacterTraitsResolver](CharacterTraitsResolver) · [ClanMemberPeaceDeathSceneNotificationItem](ClanMemberPeaceDeathSceneNotificationItem)
-[ClanMemberWarDeathSceneNotificationItem](ClanMemberWarDeathSceneNotificationItem) · [ClanState](ClanState) · [CraftingOrder](CraftingOrder)
-[CraftingState](CraftingState) · [CreateLocationCharacterDelegate](CreateLocationCharacterDelegate) · [CustomPartyComponent](CustomPartyComponent)
-[DeathOldAgeSceneNotificationItem](DeathOldAgeSceneNotificationItem) · [DeclareWarBarterable](DeclareWarBarterable) · [DeclareWarDecision](DeclareWarDecision)
-[DefaultBuildingTypes](DefaultBuildingTypes) · [DefaultCulturalFeats](DefaultCulturalFeats) · [DefaultEncounter](DefaultEncounter)
-[DefaultEncyclopediaClanPage](DefaultEncyclopediaClanPage) · [DefaultEncyclopediaFactionPage](DefaultEncyclopediaFactionPage) · [DefaultEncyclopediaHeroPage](DefaultEncyclopediaHeroPage)
-[DefaultEncyclopediaSettlementPage](DefaultEncyclopediaSettlementPage) · [DefaultEncyclopediaShipPage](DefaultEncyclopediaShipPage) · [DefaultEncyclopediaUnitPage](DefaultEncyclopediaUnitPage)
-[DefaultFigureheads](DefaultFigureheads) · [DefaultPerks](DefaultPerks) · [DefaultSiegeStrategies](DefaultSiegeStrategies)
-[DefaultSkillLevelingManager](DefaultSkillLevelingManager) · [DefaultTraits](DefaultTraits) · [DefaultVillageTypes](DefaultVillageTypes)
-[DefaultsBarterGroup](DefaultsBarterGroup) · [EducationState](EducationState) · [EncyclopediaFilterGroup](EncyclopediaFilterGroup)
-[EncyclopediaFilterItem](EncyclopediaFilterItem) · [EncyclopediaListItem](EncyclopediaListItem) · [EncyclopediaListItemComparerBase](EncyclopediaListItemComparerBase)
-[EncyclopediaListItemNameComparer](EncyclopediaListItemNameComparer) · [EncyclopediaManager](EncyclopediaManager) · [EndCaptivityDetailEnumResolver](EndCaptivityDetailEnumResolver)
-[ExplainedNumber](ExplainedNumber) · [FakeInventoryListener](FakeInventoryListener) · [FakeMarketData](FakeMarketData)
-[FastModeOptionsProvider](FastModeOptionsProvider) · [FastModeSubModule](FastModeSubModule) · [FeatObject](FeatObject)
-[Fief](Fief) · [FiefBarterGroup](FiefBarterGroup) · [FiefBarterable](FiefBarterable)
-[FieldBattleEventComponent](FieldBattleEventComponent) · [FightTournamentGame](FightTournamentGame) · [Figurehead](Figurehead)
-[FlattenedTroopRoster](FlattenedTroopRoster) · [FlattenedTroopRosterElement](FlattenedTroopRosterElement) · [ForceSuppliesEventComponent](ForceSuppliesEventComponent)
-[ForceVolunteersEventComponent](ForceVolunteersEventComponent) · [GameMenu](GameMenu) · [GameMenuCallbackManager](GameMenuCallbackManager)
-[GameMenuEventHandler](GameMenuEventHandler) · [GameMenuEventHandlerDelegate](GameMenuEventHandlerDelegate) · [GameMenuInitDelegate](GameMenuInitDelegate)
-[GameMenuInitializationHandler](GameMenuInitializationHandler) · [GarrisonPartyComponent](GarrisonPartyComponent) · [GoldBarterable](GoldBarterable)
-[HeroCreator](HeroCreator) · [HeroDeveloper](HeroDeveloper) · [Hideout](Hideout)
-[HideoutEncounter](HideoutEncounter) · [HideoutEventComponent](HideoutEventComponent) · [ICustomSystemManager](ICustomSystemManager)
-[IInteractablePoint](IInteractablePoint) · [ILocatable](ILocatable) · [IMapEventVisual](IMapEventVisual)
-[IMapPoint](IMapPoint) · [IMapScene](IMapScene) · [IMapSceneCreator](IMapSceneCreator)
-[IPlayerTradeBehavior](IPlayerTradeBehavior) · [ISettlementDataHolder](ISettlementDataHolder) · [ISiegeEventSide](ISiegeEventSide)
-[ISiegeEventVisual](ISiegeEventVisual) · [ITournamentManager](ITournamentManager) · [Incident](Incident)
-[IncidentEffect](IncidentEffect) · [InventoryListener](InventoryListener) · [InventoryLogic](InventoryLogic)
-[InventoryTransferItemEvent](InventoryTransferItemEvent) · [IsTroopTransferableDelegate](IsTroopTransferableDelegate) · [ItemBarterable](ItemBarterable)
-[ItemCategories](ItemCategories) · [ItemObjectExtensions](ItemObjectExtensions) · [ItemRoster](ItemRoster)
-[Items](Items) · [JoinKingdomAsClanBarterable](JoinKingdomAsClanBarterable) · [LocatableSearchData](LocatableSearchData)
-[Location](Location) · [LocationCharacter](LocationCharacter) · [LocationComplex](LocationComplex)
-[LocationEncounter](LocationEncounter) · [LordPartyComponent](LordPartyComponent) · [MBEquipmentRosterExtensions](MBEquipmentRosterExtensions)
-[MakePeaceKingdomDecision](MakePeaceKingdomDecision) · [MetaDataExtensions](MetaDataExtensions) · [MilitiaPartyComponent](MilitiaPartyComponent)
-[MobileParty](MobileParty) · [MobilePartyAi](MobilePartyAi) · [NavigationCache](NavigationCache)
-[NavigationCacheElement](NavigationCacheElement) · [NumberChangedCallback](NumberChangedCallback) · [PartyAgentOrigin](PartyAgentOrigin)
-[PartyGroupAgentOrigin](PartyGroupAgentOrigin) · [PartyGroupTroopSupplier](PartyGroupTroopSupplier) · [PartyScreenLogic](PartyScreenLogic)
-[PlayerEncounter](PlayerEncounter) · [PlayerEncounterState](PlayerEncounterState) · [PlayerSiege](PlayerSiege)
-[PlayerTownVisit](PlayerTownVisit) · [ProposeCallToWarAgreementDecision](ProposeCallToWarAgreementDecision) · [Romance](Romance)
-[RosterTroopState](RosterTroopState) · [SandBoxNavigationCache](SandBoxNavigationCache) · [Ship](Ship)
-[SiegeEvent](SiegeEvent) · [SimpleAgentOrigin](SimpleAgentOrigin) · [StartAllianceDecision](StartAllianceDecision)
-[TournamentCampaignBehavior](TournamentCampaignBehavior) · [TournamentGame](TournamentGame) · [TournamentManager](TournamentManager)
-[TournamentMatch](TournamentMatch) · [Town](Town) · [TradeAgreementDecision](TradeAgreementDecision)
-[TransferCommand](TransferCommand) · [TroopRoster](TroopRoster) · [Workshop](Workshop)
-[WorkshopType](WorkshopType)
+The `*VM` types you bind in the interface are therefore not here either — they are the binding layer, not the state layer.
+
+## Pages in this area (5)
+
+| Page | What it covers |
+| --- | --- |
+| [Campaign](./Campaign) | the campaign world singleton: current campaign, time, event bus |
+| [CampaignGameStarter](./CampaignGameStarter) | the door a module hangs campaign behaviour on |
+| [CampaignBehaviorBase](./CampaignBehaviorBase) | the base class for anything registered on that door |
+| [CampaignEvents](./CampaignEvents) | the static hub the campaign fires its events on |
+| [IFaction](./IFaction) | the faction abstraction behind `Clan` and `Kingdom` |
+
+Those five are one path rather than five separate topics: a `CampaignBehaviorBase` registered on `CampaignGameStarter` subscribes to `CampaignEvents`, and the change lands on a faction object like `IFaction`.
+
+## Not yet written
+
+Types the namespace rule puts in this bucket that have no page: `Hero`, `Party`, `Clan`, `Kingdom`, the `Settlement` family, `ItemObject`, the equipment and crafting models, the diplomacy model, map events (`MapEvents`), encounters, elections, tournaments and arenas, inventory and trade, character development, and the `GameState` / save-compatibility layer. What is documented here is the entry point, not the body.
 
 ## Sibling areas
 
-[core](../core/) · [core-extra](../core-extra/) · [mission](../mission/) · [mission-ext](../mission-ext/) · [campaign-ext](../campaign-ext/) · [gui](../gui/) · [save-system](../save-system/) · [viewmodel](../viewmodel/) · [localization](../localization/) · [engine](../engine/) · [system](../system/) · [custombattle](../custombattle/) · [modulemanager](../modulemanager/) · [network](../network/) · [sandbox](../sandbox/) · [storymode](../storymode/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
+[core](../core/) · [core-extra](../core-extra/) · [campaign-ext](../campaign-ext/) · [mission](../mission/) · [mission-ext](../mission-ext/) · [gui](../gui/) · [viewmodel](../viewmodel/) · [engine](../engine/) · [sandbox](../sandbox/) · [custombattle](../custombattle/) · [system](../system/) · [network](../network/) · [modulemanager](../modulemanager/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
 
 ## See also
 
 - ↑ [Version home](../../)
 - ↑ [API reference](../)
 - ↔ [Architecture overview](../../architecture/)
+- ↘ [Module System](../../architecture/module-system)

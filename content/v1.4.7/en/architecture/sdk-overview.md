@@ -73,16 +73,23 @@ like being sent somewhere unrelated with no way back.
 
 | Directory | Pages | Directory | Pages |
 | --- | ---: | --- | ---: |
-| [Mission-Ext](../../api/mission-ext/) | 1,669 | [Save System](../../api/save-system/) | 110 |
+| [Mission-Ext](../../api/mission-ext/) | 1,669 | Save System | 110 |
 | [Core-Extra](../../api/core-extra/) | 1,099 | [Network](../../api/network/) | 41 |
-| [Campaign-Ext](../../api/campaign-ext/) | 601 | [CustomBattle](../../api/custombattle/) | 40 |
-| [Campaign](../../api/campaign/) | 589 | [Localization](../../api/localization/) | 53 |
+| Campaign-Ext | 601 | [CustomBattle](../../api/custombattle/) | 40 |
+| [Campaign](../../api/campaign/) | 589 | Localization | 53 |
 | [SandBox](../../api/sandbox/) | 554 | [System](../../api/system/) | 15 |
 | [ViewModel](../../api/viewmodel/) | 538 | [ModuleManager](../../api/modulemanager/) | 8 |
 | [GUI](../../api/gui/) | 271 | [ActivitySystem](../../api/activitysystem/) | 6 |
 | [Engine](../../api/engine/) | 250 | [Mission](../../api/mission/) | 5 |
-| [StoryMode](../../api/storymode/) | 168 | [AchievementSystem](../../api/achievementsystem/) | 4 |
+| StoryMode | 168 | [AchievementSystem](../../api/achievementsystem/) | 4 |
 | | | [Core](../../api/core/) | 2 |
+
+The **Pages** column is the page count the doc generator produced for that directory in the tree
+that was withdrawn from this site. It is not a count of pages you can click here. Four of these
+directories have no bucket index in this tree, so their names in the table are plain text rather
+than links: `api/save-system/` has no English directory at all, `api/localization/` and
+`api/storymode/` have no pages in either language, and `api/campaign-ext/` holds two hand-written
+pages. [The gap list](../../../GAPS) names each of them by path.
 
 **There is no `gameplay/` directory and no `navigationsystem/` directory.** See
 [Version Delta](../version-delta) for why.

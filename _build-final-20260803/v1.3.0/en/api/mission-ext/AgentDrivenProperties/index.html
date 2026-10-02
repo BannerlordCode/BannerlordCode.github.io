@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentDrivenProperties</title>
+  <meta name="description" content="Auto-generated class reference for AgentDrivenProperties.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/AgentDrivenProperties/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/AgentDrivenProperties/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/AgentDrivenProperties/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/AgentDrivenProperties/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/AgentDrivenProperties/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/AgentDrivenProperties/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">AgentDrivenProperties</span>
+    </nav>
+  
+  <h1>AgentDrivenProperties</h1>
+  <h1 id="agentdrivenproperties">AgentDrivenProperties</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public class AgentDrivenProperties</code>
+<strong>Base:</strong> none
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/AgentDrivenProperties.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>AgentDrivenProperties</code> lives in <code>TaleWorlds.MountAndBlade</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.MountAndBlade</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>SwingSpeedMultiplier</code></td><td><code>public float SwingSpeedMultiplier { get; set; }</code></td></tr>
+<tr><td><code>ThrustOrRangedReadySpeedMultiplier</code></td><td><code>public float ThrustOrRangedReadySpeedMultiplier { get; set; }</code></td></tr>
+<tr><td><code>HandlingMultiplier</code></td><td><code>public float HandlingMultiplier { get; set; }</code></td></tr>
+<tr><td><code>ReloadSpeed</code></td><td><code>public float ReloadSpeed { get; set; }</code></td></tr>
+<tr><td><code>MissileSpeedMultiplier</code></td><td><code>public float MissileSpeedMultiplier { get; set; }</code></td></tr>
+<tr><td><code>WeaponInaccuracy</code></td><td><code>public float WeaponInaccuracy { get; set; }</code></td></tr>
+<tr><td><code>WeaponMaxMovementAccuracyPenalty</code></td><td><code>public float WeaponMaxMovementAccuracyPenalty { get; set; }</code></td></tr>
+<tr><td><code>WeaponMaxUnsteadyAccuracyPenalty</code></td><td><code>public float WeaponMaxUnsteadyAccuracyPenalty { get; set; }</code></td></tr>
+<tr><td><code>WeaponBestAccuracyWaitTime</code></td><td><code>public float WeaponBestAccuracyWaitTime { get; set; }</code></td></tr>
+<tr><td><code>WeaponUnsteadyBeginTime</code></td><td><code>public float WeaponUnsteadyBeginTime { get; set; }</code></td></tr>
+<tr><td><code>WeaponUnsteadyEndTime</code></td><td><code>public float WeaponUnsteadyEndTime { get; set; }</code></td></tr>
+<tr><td><code>WeaponRotationalAccuracyPenaltyInRadians</code></td><td><code>public float WeaponRotationalAccuracyPenaltyInRadians { get; set; }</code></td></tr>
+<tr><td><code>ArmorEncumbrance</code></td><td><code>public float ArmorEncumbrance { get; set; }</code></td></tr>
+<tr><td><code>DamageMultiplierBonus</code></td><td><code>public float DamageMultiplierBonus { get; set; }</code></td></tr>
+<tr><td><code>ThrowingWeaponDamageMultiplierBonus</code></td><td><code>public float ThrowingWeaponDamageMultiplierBonus { get; set; }</code></td></tr>
+<tr><td><code>MeleeWeaponDamageMultiplierBonus</code></td><td><code>public float MeleeWeaponDamageMultiplierBonus { get; set; }</code></td></tr>
+<tr><td><code>ArmorPenetrationMultiplierCrossbow</code></td><td><code>public float ArmorPenetrationMultiplierCrossbow { get; set; }</code></td></tr>
+<tr><td><code>ArmorPenetrationMultiplierBow</code></td><td><code>public float ArmorPenetrationMultiplierBow { get; set; }</code></td></tr>
+<tr><td><code>WeaponsEncumbrance</code></td><td><code>public float WeaponsEncumbrance { get; set; }</code></td></tr>
+<tr><td><code>ArmorHead</code></td><td><code>public float ArmorHead { get; set; }</code></td></tr>
+<tr><td><code>ArmorTorso</code></td><td><code>public float ArmorTorso { get; set; }</code></td></tr>
+<tr><td><code>ArmorLegs</code></td><td><code>public float ArmorLegs { get; set; }</code></td></tr>
+<tr><td><code>ArmorArms</code></td><td><code>public float ArmorArms { get; set; }</code></td></tr>
+<tr><td><code>AttributeRiding</code></td><td><code>public float AttributeRiding { get; set; }</code></td></tr>
+<tr><td><code>AttributeShield</code></td><td><code>public float AttributeShield { get; set; }</code></td></tr>
+<tr><td><code>AttributeShieldMissileCollisionBodySizeAdder</code></td><td><code>public float AttributeShieldMissileCollisionBodySizeAdder { get; set; }</code></td></tr>
+<tr><td><code>ShieldBashStunDurationMultiplier</code></td><td><code>public float ShieldBashStunDurationMultiplier { get; set; }</code></td></tr>
+<tr><td><code>KickStunDurationMultiplier</code></td><td><code>public float KickStunDurationMultiplier { get; set; }</code></td></tr>
+<tr><td><code>ReloadMovementPenaltyFactor</code></td><td><code>public float ReloadMovementPenaltyFactor { get; set; }</code></td></tr>
+<tr><td><code>TopSpeedReachDuration</code></td><td><code>public float TopSpeedReachDuration { get; set; }</code></td></tr>
+<tr><td><code>MaxSpeedMultiplier</code></td><td><code>public float MaxSpeedMultiplier { get; set; }</code></td></tr>
+<tr><td><code>CombatMaxSpeedMultiplier</code></td><td><code>public float CombatMaxSpeedMultiplier { get; set; }</code></td></tr>
+<tr><td><code>CrouchedSpeedMultiplier</code></td><td><code>public float CrouchedSpeedMultiplier { get; set; }</code></td></tr>
+<tr><td><code>AttributeHorseArchery</code></td><td><code>public float AttributeHorseArchery { get; set; }</code></td></tr>
+<tr><td><code>AttributeCourage</code></td><td><code>public float AttributeCourage { get; set; }</code></td></tr>
+<tr><td><code>MountManeuver</code></td><td><code>public float MountManeuver { get; set; }</code></td></tr>
+<tr><td><code>MountSpeed</code></td><td><code>public float MountSpeed { get; set; }</code></td></tr>
+<tr><td><code>MountDashAccelerationMultiplier</code></td><td><code>public float MountDashAccelerationMultiplier { get; set; }</code></td></tr>
+<tr><td><code>MountChargeDamage</code></td><td><code>public float MountChargeDamage { get; set; }</code></td></tr>
+<tr><td><code>MountDifficulty</code></td><td><code>public float MountDifficulty { get; set; }</code></td></tr>
+<tr><td><code>BipedalRangedReadySpeedMultiplier</code></td><td><code>public float BipedalRangedReadySpeedMultiplier { get; set; }</code></td></tr>
+<tr><td><code>BipedalRangedReloadSpeedMultiplier</code></td><td><code>public float BipedalRangedReloadSpeedMultiplier { get; set; }</code></td></tr>
+<tr><td><code>AiRangedHorsebackMissileRange</code></td><td><code>public float AiRangedHorsebackMissileRange { get; set; }</code></td></tr>
+<tr><td><code>AiFacingMissileWatch</code></td><td><code>public float AiFacingMissileWatch { get; set; }</code></td></tr>
+<tr><td><code>AiFlyingMissileCheckRadius</code></td><td><code>public float AiFlyingMissileCheckRadius { get; set; }</code></td></tr>
+<tr><td><code>AiShootFreq</code></td><td><code>public float AiShootFreq { get; set; }</code></td></tr>
+<tr><td><code>AiWaitBeforeShootFactor</code></td><td><code>public float AiWaitBeforeShootFactor { get; set; }</code></td></tr>
+<tr><td><code>AIBlockOnDecideAbility</code></td><td><code>public float AIBlockOnDecideAbility { get; set; }</code></td></tr>
+<tr><td><code>AIParryOnDecideAbility</code></td><td><code>public float AIParryOnDecideAbility { get; set; }</code></td></tr>
+<tr><td><code>AiTryChamberAttackOnDecide</code></td><td><code>public float AiTryChamberAttackOnDecide { get; set; }</code></td></tr>
+<tr><td><code>AIAttackOnParryChance</code></td><td><code>public float AIAttackOnParryChance { get; set; }</code></td></tr>
+<tr><td><code>AiAttackOnParryTiming</code></td><td><code>public float AiAttackOnParryTiming { get; set; }</code></td></tr>
+<tr><td><code>AIDecideOnAttackChance</code></td><td><code>public float AIDecideOnAttackChance { get; set; }</code></td></tr>
+<tr><td><code>AIParryOnAttackAbility</code></td><td><code>public float AIParryOnAttackAbility { get; set; }</code></td></tr>
+<tr><td><code>AiKick</code></td><td><code>public float AiKick { get; set; }</code></td></tr>
+<tr><td><code>AiAttackCalculationMaxTimeFactor</code></td><td><code>public float AiAttackCalculationMaxTimeFactor { get; set; }</code></td></tr>
+<tr><td><code>AiDecideOnAttackWhenReceiveHitTiming</code></td><td><code>public float AiDecideOnAttackWhenReceiveHitTiming { get; set; }</code></td></tr>
+<tr><td><code>AiDecideOnAttackContinueAction</code></td><td><code>public float AiDecideOnAttackContinueAction { get; set; }</code></td></tr>
+<tr><td><code>AiDecideOnAttackingContinue</code></td><td><code>public float AiDecideOnAttackingContinue { get; set; }</code></td></tr>
+<tr><td><code>AIParryOnAttackingContinueAbility</code></td><td><code>public float AIParryOnAttackingContinueAbility { get; set; }</code></td></tr>
+<tr><td><code>AIDecideOnRealizeEnemyBlockingAttackAbility</code></td><td><code>public float AIDecideOnRealizeEnemyBlockingAttackAbility { get; set; }</code></td></tr>
+<tr><td><code>AIRealizeBlockingFromIncorrectSideAbility</code></td><td><code>public float AIRealizeBlockingFromIncorrectSideAbility { get; set; }</code></td></tr>
+<tr><td><code>AiAttackingShieldDefenseChance</code></td><td><code>public float AiAttackingShieldDefenseChance { get; set; }</code></td></tr>
+<tr><td><code>AiAttackingShieldDefenseTimer</code></td><td><code>public float AiAttackingShieldDefenseTimer { get; set; }</code></td></tr>
+<tr><td><code>AiCheckMovementIntervalFactor</code></td><td><code>public float AiCheckMovementIntervalFactor { get; set; }</code></td></tr>
+<tr><td><code>AiMovementDelayFactor</code></td><td><code>public float AiMovementDelayFactor { get; set; }</code></td></tr>
+<tr><td><code>AiParryDecisionChangeValue</code></td><td><code>public float AiParryDecisionChangeValue { get; set; }</code></td></tr>
+<tr><td><code>AiDefendWithShieldDecisionChanceValue</code></td><td><code>public float AiDefendWithShieldDecisionChanceValue { get; set; }</code></td></tr>
+<tr><td><code>AiMoveEnemySideTimeValue</code></td><td><code>public float AiMoveEnemySideTimeValue { get; set; }</code></td></tr>
+<tr><td><code>AiMinimumDistanceToContinueFactor</code></td><td><code>public float AiMinimumDistanceToContinueFactor { get; set; }</code></td></tr>
+<tr><td><code>AiChargeHorsebackTargetDistFactor</code></td><td><code>public float AiChargeHorsebackTargetDistFactor { get; set; }</code></td></tr>
+<tr><td><code>AiRangerLeadErrorMin</code></td><td><code>public float AiRangerLeadErrorMin { get; set; }</code></td></tr>
+<tr><td><code>AiRangerLeadErrorMax</code></td><td><code>public float AiRangerLeadErrorMax { get; set; }</code></td></tr>
+<tr><td><code>AiRangerVerticalErrorMultiplier</code></td><td><code>public float AiRangerVerticalErrorMultiplier { get; set; }</code></td></tr>
+<tr><td><code>AiRangerHorizontalErrorMultiplier</code></td><td><code>public float AiRangerHorizontalErrorMultiplier { get; set; }</code></td></tr>
+<tr><td><code>AIAttackOnDecideChance</code></td><td><code>public float AIAttackOnDecideChance { get; set; }</code></td></tr>
+<tr><td><code>AiRaiseShieldDelayTimeBase</code></td><td><code>public float AiRaiseShieldDelayTimeBase { get; set; }</code></td></tr>
+<tr><td><code>AiUseShieldAgainstEnemyMissileProbability</code></td><td><code>public float AiUseShieldAgainstEnemyMissileProbability { get; set; }</code></td></tr>
+<tr><td><code>AiSpeciesIndex</code></td><td><code>public int AiSpeciesIndex { get; set; }</code></td></tr>
+<tr><td><code>AiRandomizedDefendDirectionChance</code></td><td><code>public float AiRandomizedDefendDirectionChance { get; set; }</code></td></tr>
+<tr><td><code>AiShooterError</code></td><td><code>public float AiShooterError { get; set; }</code></td></tr>
+<tr><td><code>AiWeaponFavorMultiplierMelee</code></td><td><code>public float AiWeaponFavorMultiplierMelee { get; set; }</code></td></tr>
+<tr><td><code>AiWeaponFavorMultiplierRanged</code></td><td><code>public float AiWeaponFavorMultiplierRanged { get; set; }</code></td></tr>
+<tr><td><code>AiWeaponFavorMultiplierPolearm</code></td><td><code>public float AiWeaponFavorMultiplierPolearm { get; set; }</code></td></tr>
+<tr><td><code>AISetNoAttackTimerAfterBeingHitAbility</code></td><td><code>public float AISetNoAttackTimerAfterBeingHitAbility { get; set; }</code></td></tr>
+<tr><td><code>AISetNoAttackTimerAfterBeingParriedAbility</code></td><td><code>public float AISetNoAttackTimerAfterBeingParriedAbility { get; set; }</code></td></tr>
+<tr><td><code>AISetNoDefendTimerAfterHittingAbility</code></td><td><code>public float AISetNoDefendTimerAfterHittingAbility { get; set; }</code></td></tr>
+<tr><td><code>AISetNoDefendTimerAfterParryingAbility</code></td><td><code>public float AISetNoDefendTimerAfterParryingAbility { get; set; }</code></td></tr>
+<tr><td><code>AIEstimateStunDurationPrecision</code></td><td><code>public float AIEstimateStunDurationPrecision { get; set; }</code></td></tr>
+<tr><td><code>AIHoldingReadyMaxDuration</code></td><td><code>public float AIHoldingReadyMaxDuration { get; set; }</code></td></tr>
+<tr><td><code>AIHoldingReadyVariationPercentage</code></td><td><code>public float AIHoldingReadyVariationPercentage { get; set; }</code></td></tr>
+<tr><td><code>OffhandWeaponDefendSpeedMultiplier</code></td><td><code>public float OffhandWeaponDefendSpeedMultiplier { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="getstat">GetStat</h3>
+<p><code>public float GetStat(DrivenProperty propertyEnum)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the stat value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of AgentDrivenProperties from the subsystem API first
+AgentDrivenProperties agentDrivenProperties = ...;
+var result = agentDrivenProperties.GetStat(propertyEnum);
+</code></pre>
+<h3 id="setstat">SetStat</h3>
+<p><code>public void SetStat(DrivenProperty propertyEnum, float value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to stat and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of AgentDrivenProperties from the subsystem API first
+AgentDrivenProperties agentDrivenProperties = ...;
+agentDrivenProperties.SetStat(propertyEnum, 0);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+AgentDrivenProperties agentDrivenProperties = ...;
+agentDrivenProperties.GetStat(propertyEnum);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/mission-ext/">mission-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/api/mission-ext/SiegeMissionPreparationHandler/">&larr; SiegeMissionPreparationHandler</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/mission-ext/MissionBoundaryPlacer/">MissionBoundaryPlacer &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

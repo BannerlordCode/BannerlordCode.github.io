@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LogEntries</title>
+  <meta name="description" content="Campaign log entries and event records.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/logentries/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/logentries/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="active">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">LogEntries</span>
+    </nav>
+  
+  <h1>LogEntries</h1>
+  <h2 id="up">Up</h2>
+<ul>
+<li><a href="../">Back to campaign index</a></li>
+<li><a href="../../">API Index</a></li>
+<li><a href="../../../">Version Home</a></li>
+</ul>
+<h2 id="subsystem-overview">Subsystem overview</h2>
+<p>This is the <strong>LogEntries</strong> subsystem inside <strong>campaign index</strong>. Classes in the same namespace tackle related concerns; pick a type, then open its page for methods.</p>
+<p>Campaign log entries and event records.</p>
+<h2 id="classes">Classes</h2>
+<table><thead><tr><th>Class</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="../ArmyCreationLogEntry/"><code>ArmyCreationLogEntry</code></a></td><td>ArmyCreationLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../ArmyDispersionLogEntry/"><code>ArmyDispersionLogEntry</code></a></td><td>ArmyDispersionLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../BattleStartedLogEntry/"><code>BattleStartedLogEntry</code></a></td><td>BattleStartedLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../BesiegeSettlementLogEntry/"><code>BesiegeSettlementLogEntry</code></a></td><td>BesiegeSettlementLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../ChangeAlleyOwnerLogEntry/"><code>ChangeAlleyOwnerLogEntry</code></a></td><td>ChangeAlleyOwnerLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../ChangeRomanticStateLogEntry/"><code>ChangeRomanticStateLogEntry</code></a></td><td>ChangeRomanticStateLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../ChangeSettlementOwnerLogEntry/"><code>ChangeSettlementOwnerLogEntry</code></a></td><td>ChangeSettlementOwnerLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../CharacterBecameFugitiveLogEntry/"><code>CharacterBecameFugitiveLogEntry</code></a></td><td>CharacterBecameFugitiveLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../CharacterBornLogEntry/"><code>CharacterBornLogEntry</code></a></td><td>CharacterBornLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../CharacterInsultedLogEntry/"><code>CharacterInsultedLogEntry</code></a></td><td>CharacterInsultedLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../CharacterKilledLogEntry/"><code>CharacterKilledLogEntry</code></a></td><td>CharacterKilledLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../CharacterMarriedLogEntry/"><code>CharacterMarriedLogEntry</code></a></td><td>CharacterMarriedLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../ChatNotificationType/"><code>ChatNotificationType</code></a></td><td>ChatNotificationType is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../ChildbirthLogEntry/"><code>ChildbirthLogEntry</code></a></td><td>ChildbirthLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../ClanChangeKingdomLogEntry/"><code>ClanChangeKingdomLogEntry</code></a></td><td>ClanChangeKingdomLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../ClanDestroyedLogEntry/"><code>ClanDestroyedLogEntry</code></a></td><td>ClanDestroyedLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../ClanLeaderChangedLogEntry/"><code>ClanLeaderChangedLogEntry</code></a></td><td>ClanLeaderChangedLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../CommonAreaFightLogEntry/"><code>CommonAreaFightLogEntry</code></a></td><td>CommonAreaFightLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../DeclareWarLogEntry/"><code>DeclareWarLogEntry</code></a></td><td>DeclareWarLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../DefeatCharacterLogEntry/"><code>DefeatCharacterLogEntry</code></a></td><td>DefeatCharacterLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../DestroyMobilePartyLogEntry/"><code>DestroyMobilePartyLogEntry</code></a></td><td>DestroyMobilePartyLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../EndAllianceLogEntry/"><code>EndAllianceLogEntry</code></a></td><td>EndAllianceLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../EndCallToWarAgreementLogEntry/"><code>EndCallToWarAgreementLogEntry</code></a></td><td>EndCallToWarAgreementLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../EndCaptivityLogEntry/"><code>EndCaptivityLogEntry</code></a></td><td>EndCaptivityLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../GatherArmyLogEntry/"><code>GatherArmyLogEntry</code></a></td><td>GatherArmyLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../IChatNotification/"><code>IChatNotification</code></a></td><td>IChatNotification is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../IEncyclopediaLog/"><code>IEncyclopediaLog</code></a></td><td>IEncyclopediaLog is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../ImportanceEnum/"><code>ImportanceEnum</code></a></td><td>ImportanceEnum is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../IssueQuestLogEntry/"><code>IssueQuestLogEntry</code></a></td><td>IssueQuestLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../IssueQuestStartLogEntry/"><code>IssueQuestStartLogEntry</code></a></td><td>IssueQuestStartLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../IWarLog/"><code>IWarLog</code></a></td><td>IWarLog is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../JournalLogEntry/"><code>JournalLogEntry</code></a></td><td>JournalLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../KingdomDecisionAddedLogEntry/"><code>KingdomDecisionAddedLogEntry</code></a></td><td>KingdomDecisionAddedLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../KingdomDecisionConcludedLogEntry/"><code>KingdomDecisionConcludedLogEntry</code></a></td><td>KingdomDecisionConcludedLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../KingdomDestroyedLogEntry/"><code>KingdomDestroyedLogEntry</code></a></td><td>KingdomDestroyedLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../LogEntry/"><code>LogEntry</code></a></td><td>LogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../LogEntryHistory/"><code>LogEntryHistory</code></a></td><td>LogEntryHistory is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../MakePeaceLogEntry/"><code>MakePeaceLogEntry</code></a></td><td>MakePeaceLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../MercenaryClanChangedKingdomLogEntry/"><code>MercenaryClanChangedKingdomLogEntry</code></a></td><td>MercenaryClanChangedKingdomLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../OverruleInfluenceLogEntry/"><code>OverruleInfluenceLogEntry</code></a></td><td>OverruleInfluenceLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../PlayerAttackAlleyLogEntry/"><code>PlayerAttackAlleyLogEntry</code></a></td><td>PlayerAttackAlleyLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../PlayerBattleEndedLogEntry/"><code>PlayerBattleEndedLogEntry</code></a></td><td>PlayerBattleEndedLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../PlayerCharacterChangedLogEntry/"><code>PlayerCharacterChangedLogEntry</code></a></td><td>PlayerCharacterChangedLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../PlayerMeetLordLogEntry/"><code>PlayerMeetLordLogEntry</code></a></td><td>PlayerMeetLordLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../PlayerReputationChangesLogEntry/"><code>PlayerReputationChangesLogEntry</code></a></td><td>PlayerReputationChangesLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../PlayerRetiredLogEntry/"><code>PlayerRetiredLogEntry</code></a></td><td>PlayerRetiredLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../PregnancyLogEntry/"><code>PregnancyLogEntry</code></a></td><td>PregnancyLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../RebellionStartedLogEntry/"><code>RebellionStartedLogEntry</code></a></td><td>RebellionStartedLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../SettlementClaimedLogEntry/"><code>SettlementClaimedLogEntry</code></a></td><td>SettlementClaimedLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../SiegeAftermathLogEntry/"><code>SiegeAftermathLogEntry</code></a></td><td>SiegeAftermathLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../StartAllianceLogEntry/"><code>StartAllianceLogEntry</code></a></td><td>StartAllianceLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../StartCallToWarAgreementLogEntry/"><code>StartCallToWarAgreementLogEntry</code></a></td><td>StartCallToWarAgreementLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../TakePrisonerLogEntry/"><code>TakePrisonerLogEntry</code></a></td><td>TakePrisonerLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../TournamentWonLogEntry/"><code>TournamentWonLogEntry</code></a></td><td>TournamentWonLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../TradeAgreementLogEntry/"><code>TradeAgreementLogEntry</code></a></td><td>TradeAgreementLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+<tr><td><a href="../VillageStateChangedLogEntry/"><code>VillageStateChangedLogEntry</code></a></td><td>VillageStateChangedLogEntry is a public type in TaleWorlds.CampaignSystem.LogEntries.</td></tr>
+</tbody></table>
+<h2 id="other-subsystems-in-this-area">Other subsystems in this area</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../agentorigins/">AgentOrigins</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../bartersystem/">BarterSystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../campaignbehaviors/">CampaignBehaviors</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../charactercreationcontent/">CharacterCreationContent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../characterdevelopment/">CharacterDevelopment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../characters/">Characters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../componentinterfaces/">ComponentInterfaces</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../conversation/">Conversation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../election/">Election</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../encounters/">Encounters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../encyclopedia/">Encyclopedia</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../extensions/">Extensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../gamecomponents/">GameComponents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../gamemenus/">GameMenus</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../gamestate/">GameState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../heroes/">Heroes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../inventory/">Inventory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../issues/">Issues</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../map/">Map</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../mapevents/">MapEvents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../mapnotificationtypes/">MapNotificationTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../naval/">Naval</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../parties/">Parties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../party/">Party</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../quests/">Quests</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../roster/">Roster</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../savecompability/">SaveCompability</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../sceneinformationpopuptypes/">SceneInformationPopupTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../settlements/">Settlements</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../siege/">Siege</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/logentries/./../tournamentgames/">TournamentGames</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

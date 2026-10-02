@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampaignCheats</title>
+  <meta name="description" content="Auto-generated class reference for CampaignCheats.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="active">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/CampaignCheats/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/CampaignCheats/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/CampaignCheats/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/CampaignCheats/"
+               class="active">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/en/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/en/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>v1.4.5 Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/api/" class="">Index</a><a href="/v1.4.5/en/api/core/" class="">Core</a><a href="/v1.4.5/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/en/api/mission/" class="">Mission</a><a href="/v1.4.5/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/en/api/campaign/" class="active">Campaign</a><a href="/v1.4.5/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/en/api/gui/" class="">GUI</a><a href="/v1.4.5/en/api/save-system/" class="">Save System</a><a href="/v1.4.5/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.4.5/en/api/localization/" class="">Localization</a><a href="/v1.4.5/en/api/engine/" class="">Engine</a><a href="/v1.4.5/en/api/gameplay/" class="">Gameplay</a><a href="/v1.4.5/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/en/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/en/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">Campaign API — v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CampaignCheats</span>
+    </nav>
+  
+  <h1>CampaignCheats</h1>
+  <h1 id="campaigncheats">CampaignCheats</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public static class CampaignCheats</code>
+<strong>Base:</strong> none
+<strong>File:</strong> <code>bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/CampaignCheats.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>CampaignCheats</code> lives in <code>TaleWorlds.CampaignSystem</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.CampaignSystem</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>GetDefaultSettlement</code></td><td><code>public static Settlement GetDefaultSettlement { get; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="checkcheatusage">CheckCheatUsage</h3>
+<p><code>public static bool CheckCheatUsage(ref string ErrorType)</code></p>
+<p><strong>Purpose:</strong> Verifies whether cheat usage holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.CheckCheatUsage(errorType);
+</code></pre>
+<h3 id="checkparameters">CheckParameters</h3>
+<p><code>public static bool CheckParameters(List&lt;string&gt; strings, int ParameterCount)</code></p>
+<p><strong>Purpose:</strong> Verifies whether parameters holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.CheckParameters(strings, 0);
+</code></pre>
+<h3 id="checkhelp">CheckHelp</h3>
+<p><code>public static bool CheckHelp(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Verifies whether help holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.CheckHelp(strings);
+</code></pre>
+<h3 id="getseparatednames">GetSeparatedNames</h3>
+<p><code>public static List&lt;string&gt; GetSeparatedNames(List&lt;string&gt; strings, bool removeEmptySpaces = false)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the separated names value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.GetSeparatedNames(strings, false);
+</code></pre>
+<h3 id="concatenatestring">ConcatenateString</h3>
+<p><code>public static string ConcatenateString(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the ConcatenateString logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.ConcatenateString(strings);
+</code></pre>
+<h3 id="importmainhero">ImportMainHero</h3>
+<p><code>public static string ImportMainHero(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the ImportMainHero logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.ImportMainHero(strings);
+</code></pre>
+<h3 id="exportmainhero">ExportMainHero</h3>
+<p><code>public static string ExportMainHero(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the ExportMainHero logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.ExportMainHero(strings);
+</code></pre>
+<h3 id="setcraftingstamina">SetCraftingStamina</h3>
+<p><code>public static string SetCraftingStamina(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to crafting stamina and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetCraftingStamina(strings);
+</code></pre>
+<h3 id="setheroculture">SetHeroCulture</h3>
+<p><code>public static string SetHeroCulture(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to hero culture and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetHeroCulture(strings);
+</code></pre>
+<h3 id="setclanculture">SetClanCulture</h3>
+<p><code>public static string SetClanCulture(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to clan culture and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetClanCulture(strings);
+</code></pre>
+<h3 id="addskillxptohero">AddSkillXpToHero</h3>
+<p><code>public static string AddSkillXpToHero(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds skill xp to hero to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddSkillXpToHero(strings);
+</code></pre>
+<h3 id="printplayertrait">PrintPlayerTrait</h3>
+<p><code>public static string PrintPlayerTrait(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the PrintPlayerTrait logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.PrintPlayerTrait(strings);
+</code></pre>
+<h3 id="showsettlements">ShowSettlements</h3>
+<p><code>public static string ShowSettlements(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Displays the UI or element associated with settlements.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.ShowSettlements(strings);
+</code></pre>
+<h3 id="setskillsofgivenhero">SetSkillsOfGivenHero</h3>
+<p><code>public static string SetSkillsOfGivenHero(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to skills of given hero and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetSkillsOfGivenHero(strings);
+</code></pre>
+<h3 id="hidesettlements">HideSettlements</h3>
+<p><code>public static string HideSettlements(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Hides the UI or element associated with settlements.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.HideSettlements(strings);
+</code></pre>
+<h3 id="setskillmainhero">SetSkillMainHero</h3>
+<p><code>public static string SetSkillMainHero(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to skill main hero and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetSkillMainHero(strings);
+</code></pre>
+<h3 id="setskillcompanion">SetSkillCompanion</h3>
+<p><code>public static string SetSkillCompanion(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to skill companion and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetSkillCompanion(strings);
+</code></pre>
+<h3 id="setallskillsofallcompanions">SetAllSkillsOfAllCompanions</h3>
+<p><code>public static string SetAllSkillsOfAllCompanions(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to all skills of all companions and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetAllSkillsOfAllCompanions(strings);
+</code></pre>
+<h3 id="setallheroskills">SetAllHeroSkills</h3>
+<p><code>public static string SetAllHeroSkills(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to all hero skills and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetAllHeroSkills(strings);
+</code></pre>
+<h3 id="setloyaltyofsettlement">SetLoyaltyOfSettlement</h3>
+<p><code>public static string SetLoyaltyOfSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to loyalty of settlement and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetLoyaltyOfSettlement(strings);
+</code></pre>
+<h3 id="setprosperityofsettlement">SetProsperityOfSettlement</h3>
+<p><code>public static string SetProsperityOfSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to prosperity of settlement and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetProsperityOfSettlement(strings);
+</code></pre>
+<h3 id="setmilitiaofsettlement">SetMilitiaOfSettlement</h3>
+<p><code>public static string SetMilitiaOfSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to militia of settlement and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetMilitiaOfSettlement(strings);
+</code></pre>
+<h3 id="setsecurityofsettlement">SetSecurityOfSettlement</h3>
+<p><code>public static string SetSecurityOfSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to security of settlement and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetSecurityOfSettlement(strings);
+</code></pre>
+<h3 id="setfoodofsettlement">SetFoodOfSettlement</h3>
+<p><code>public static string SetFoodOfSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to food of settlement and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetFoodOfSettlement(strings);
+</code></pre>
+<h3 id="sethearthofsettlement">SetHearthOfSettlement</h3>
+<p><code>public static string SetHearthOfSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to hearth of settlement and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetHearthOfSettlement(strings);
+</code></pre>
+<h3 id="showherorelation">ShowHeroRelation</h3>
+<p><code>public static string ShowHeroRelation(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Displays the UI or element associated with hero relation.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.ShowHeroRelation(strings);
+</code></pre>
+<h3 id="addherorelation">AddHeroRelation</h3>
+<p><code>public static string AddHeroRelation(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds hero relation to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddHeroRelation(strings);
+</code></pre>
+<h3 id="printmainpartyposition">PrintMainPartyPosition</h3>
+<p><code>public static string PrintMainPartyPosition(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the PrintMainPartyPosition logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.PrintMainPartyPosition(strings);
+</code></pre>
+<h3 id="addcraftingmaterials">AddCraftingMaterials</h3>
+<p><code>public static string AddCraftingMaterials(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds crafting materials to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddCraftingMaterials(strings);
+</code></pre>
+<h3 id="healmainparty">HealMainParty</h3>
+<p><code>public static string HealMainParty(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the HealMainParty logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.HealMainParty(strings);
+</code></pre>
+<h3 id="declarewar">DeclareWar</h3>
+<p><code>public static string DeclareWar(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the DeclareWar logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.DeclareWar(strings);
+</code></pre>
+<h3 id="additemtoplayerparty">AddItemToPlayerParty</h3>
+<p><code>public static string AddItemToPlayerParty(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds item to player party to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddItemToPlayerParty(strings);
+</code></pre>
+<h3 id="declarepeace">DeclarePeace</h3>
+<p><code>public static string DeclarePeace(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the DeclarePeace logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.DeclarePeace(strings);
+</code></pre>
+<h3 id="addinfluence">AddInfluence</h3>
+<p><code>public static string AddInfluence(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds influence to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddInfluence(strings);
+</code></pre>
+<h3 id="addrenown">AddRenown</h3>
+<p><code>public static string AddRenown(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds renown to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddRenown(strings);
+</code></pre>
+<h3 id="addgoldtohero">AddGoldToHero</h3>
+<p><code>public static string AddGoldToHero(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds gold to hero to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddGoldToHero(strings);
+</code></pre>
+<h3 id="adddevelopment">AddDevelopment</h3>
+<p><code>public static string AddDevelopment(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds development to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddDevelopment(strings);
+</code></pre>
+<h3 id="activateallpolicies">ActivateAllPolicies</h3>
+<p><code>public static string ActivateAllPolicies(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Activates the resource, state, or feature associated with all policies.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.ActivateAllPolicies(strings);
+</code></pre>
+<h3 id="setplayerreputationtrait">SetPlayerReputationTrait</h3>
+<p><code>public static string SetPlayerReputationTrait(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to player reputation trait and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetPlayerReputationTrait(strings);
+</code></pre>
+<h3 id="givesettlementtoplayer">GiveSettlementToPlayer</h3>
+<p><code>public static string GiveSettlementToPlayer(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the GiveSettlementToPlayer logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.GiveSettlementToPlayer(strings);
+</code></pre>
+<h3 id="givesettlementtokingdom">GiveSettlementToKingdom</h3>
+<p><code>public static string GiveSettlementToKingdom(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the GiveSettlementToKingdom logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.GiveSettlementToKingdom(strings);
+</code></pre>
+<h3 id="addpowertonotable">AddPowerToNotable</h3>
+<p><code>public static string AddPowerToNotable(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds power to notable to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddPowerToNotable(strings);
+</code></pre>
+<h3 id="leadyourfaction">LeadYourFaction</h3>
+<p><code>public static string LeadYourFaction(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the LeadYourFaction logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.LeadYourFaction(strings);
+</code></pre>
+<h3 id="printheroessuitableformarriage">PrintHeroesSuitableForMarriage</h3>
+<p><code>public static string PrintHeroesSuitableForMarriage(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the PrintHeroesSuitableForMarriage logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.PrintHeroesSuitableForMarriage(strings);
+</code></pre>
+<h3 id="marryplayerwithhero">MarryPlayerWithHero</h3>
+<p><code>public static string MarryPlayerWithHero(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the MarryPlayerWithHero logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.MarryPlayerWithHero(strings);
+</code></pre>
+<h3 id="marryherowithhero">MarryHeroWithHero</h3>
+<p><code>public static string MarryHeroWithHero(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the MarryHeroWithHero logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.MarryHeroWithHero(strings);
+</code></pre>
+<h3 id="isherosuitableformarriagewithplayer">IsHeroSuitableForMarriageWithPlayer</h3>
+<p><code>public static string IsHeroSuitableForMarriageWithPlayer(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the hero suitable for marriage with player state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.IsHeroSuitableForMarriageWithPlayer(strings);
+</code></pre>
+<h3 id="createplayerkingdom">CreatePlayerKingdom</h3>
+<p><code>public static string CreatePlayerKingdom(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Constructs a new player kingdom entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.CreatePlayerKingdom(strings);
+</code></pre>
+<h3 id="createrandomclan">CreateRandomClan</h3>
+<p><code>public static string CreateRandomClan(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Constructs a new random clan entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.CreateRandomClan(strings);
+</code></pre>
+<h3 id="leadkingdom">LeadKingdom</h3>
+<p><code>public static string LeadKingdom(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the LeadKingdom logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.LeadKingdom(strings);
+</code></pre>
+<h3 id="joinkingdom">JoinKingdom</h3>
+<p><code>public static string JoinKingdom(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Joins several kingdom items into a single whole.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.JoinKingdom(strings);
+</code></pre>
+<h3 id="joinkingdomasmercenary">JoinKingdomAsMercenary</h3>
+<p><code>public static string JoinKingdomAsMercenary(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Joins several kingdom as mercenary items into a single whole.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.JoinKingdomAsMercenary(strings);
+</code></pre>
+<h3 id="maketradeagreement">MakeTradeAgreement</h3>
+<p><code>public static string MakeTradeAgreement(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the MakeTradeAgreement logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.MakeTradeAgreement(strings);
+</code></pre>
+<h3 id="printcriminalratings">PrintCriminalRatings</h3>
+<p><code>public static string PrintCriminalRatings(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the PrintCriminalRatings logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.PrintCriminalRatings(strings);
+</code></pre>
+<h3 id="setmainheroage">SetMainHeroAge</h3>
+<p><code>public static string SetMainHeroAge(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to main hero age and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetMainHeroAge(strings);
+</code></pre>
+<h3 id="setmainpartyattackable">SetMainPartyAttackable</h3>
+<p><code>public static string SetMainPartyAttackable(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to main party attackable and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetMainPartyAttackable(strings);
+</code></pre>
+<h3 id="addmoraletoparty">AddMoraleToParty</h3>
+<p><code>public static string AddMoraleToParty(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds morale to party to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddMoraleToParty(strings);
+</code></pre>
+<h3 id="boostcohesionofarmy">BoostCohesionOfArmy</h3>
+<p><code>public static string BoostCohesionOfArmy(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Increases the value or strength of cohesion of army.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.BoostCohesionOfArmy(strings);
+</code></pre>
+<h3 id="addfocuspointcheat">AddFocusPointCheat</h3>
+<p><code>public static string AddFocusPointCheat(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds focus point cheat to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddFocusPointCheat(strings);
+</code></pre>
+<h3 id="addattributepointscheat">AddAttributePointsCheat</h3>
+<p><code>public static string AddAttributePointsCheat(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds attribute points cheat to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddAttributePointsCheat(strings);
+</code></pre>
+<h3 id="printsettlementswithtournament">PrintSettlementsWithTournament</h3>
+<p><code>public static string PrintSettlementsWithTournament(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the PrintSettlementsWithTournament logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.PrintSettlementsWithTournament(strings);
+</code></pre>
+<h3 id="convertlisttomultiline">ConvertListToMultiLine</h3>
+<p><code>public static string ConvertListToMultiLine(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Converts list to multi line into another representation or type.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.ConvertListToMultiLine(strings);
+</code></pre>
+<h3 id="printallissues">PrintAllIssues</h3>
+<p><code>public static string PrintAllIssues(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the PrintAllIssues logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.PrintAllIssues(strings);
+</code></pre>
+<h3 id="giveworkshoptoplayer">GiveWorkshopToPlayer</h3>
+<p><code>public static string GiveWorkshopToPlayer(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the GiveWorkshopToPlayer logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.GiveWorkshopToPlayer(strings);
+</code></pre>
+<h3 id="makepregnant">MakePregnant</h3>
+<p><code>public static string MakePregnant(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the MakePregnant logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.MakePregnant(strings);
+</code></pre>
+<h3 id="generatechild">GenerateChild</h3>
+<p><code>public static Hero GenerateChild(Hero hero, bool isFemale, CultureObject culture)</code></p>
+<p><strong>Purpose:</strong> Generates an instance, data, or representation of child.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.GenerateChild(hero, false, culture);
+</code></pre>
+<h3 id="addprisonertoparty">AddPrisonerToParty</h3>
+<p><code>public static string AddPrisonerToParty(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds prisoner to party to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddPrisonerToParty(strings);
+</code></pre>
+<h3 id="clearsettlementdefense">ClearSettlementDefense</h3>
+<p><code>public static string ClearSettlementDefense(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Removes all settlement defense from the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.ClearSettlementDefense(strings);
+</code></pre>
+<h3 id="addprisonersxp">AddPrisonersXp</h3>
+<p><code>public static string AddPrisonersXp(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds prisoners xp to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddPrisonersXp(strings);
+</code></pre>
+<h3 id="setherotrait">SetHeroTrait</h3>
+<p><code>public static string SetHeroTrait(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to hero trait and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetHeroTrait(strings);
+</code></pre>
+<h3 id="removemilitiasfromsettlement">RemoveMilitiasFromSettlement</h3>
+<p><code>public static string RemoveMilitiasFromSettlement(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Removes militias from settlement from the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.RemoveMilitiasFromSettlement(strings);
+</code></pre>
+<h3 id="cancelquestcheat">CancelQuestCheat</h3>
+<p><code>public static string CancelQuestCheat(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for cel quest cheat.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.CancelQuestCheat(strings);
+</code></pre>
+<h3 id="kickcompanionfromparty">KickCompanionFromParty</h3>
+<p><code>public static string KickCompanionFromParty(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the KickCompanionFromParty logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.KickCompanionFromParty(strings);
+</code></pre>
+<h3 id="addtroopsxp">AddTroopsXp</h3>
+<p><code>public static string AddTroopsXp(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds troops xp to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddTroopsXp(strings);
+</code></pre>
+<h3 id="printgameplaystatistics">PrintGameplayStatistics</h3>
+<p><code>public static string PrintGameplayStatistics(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the PrintGameplayStatistics logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.PrintGameplayStatistics(strings);
+</code></pre>
+<h3 id="setallarmiesandpartiesvisible">SetAllArmiesAndPartiesVisible</h3>
+<p><code>public static string SetAllArmiesAndPartiesVisible(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to all armies and parties visible and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetAllArmiesAndPartiesVisible(strings);
+</code></pre>
+<h3 id="printstrengthoflordparties">PrintStrengthOfLordParties</h3>
+<p><code>public static string PrintStrengthOfLordParties(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the PrintStrengthOfLordParties logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.PrintStrengthOfLordParties(strings);
+</code></pre>
+<h3 id="toggleinformationrestrictions">ToggleInformationRestrictions</h3>
+<p><code>public static string ToggleInformationRestrictions(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the ToggleInformationRestrictions logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.ToggleInformationRestrictions(strings);
+</code></pre>
+<h3 id="printstrengthoffactions">PrintStrengthOfFactions</h3>
+<p><code>public static string PrintStrengthOfFactions(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the PrintStrengthOfFactions logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.PrintStrengthOfFactions(strings);
+</code></pre>
+<h3 id="addsupportersformainhero">AddSupportersForMainHero</h3>
+<p><code>public static string AddSupportersForMainHero(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds supporters for main hero to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddSupportersForMainHero(strings);
+</code></pre>
+<h3 id="setcampaignspeed">SetCampaignSpeed</h3>
+<p><code>public static string SetCampaignSpeed(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to campaign speed and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetCampaignSpeed(strings);
+</code></pre>
+<h3 id="showhideouts">ShowHideouts</h3>
+<p><code>public static string ShowHideouts(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Displays the UI or element associated with hideouts.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.ShowHideouts(strings);
+</code></pre>
+<h3 id="hidehideouts">HideHideouts</h3>
+<p><code>public static string HideHideouts(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Hides the UI or element associated with hideouts.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.HideHideouts(strings);
+</code></pre>
+<h3 id="unlockcraftingpieces">UnlockCraftingPieces</h3>
+<p><code>public static string UnlockCraftingPieces(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the UnlockCraftingPieces logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.UnlockCraftingPieces(strings);
+</code></pre>
+<h3 id="setrebellionenabled">SetRebellionEnabled</h3>
+<p><code>public static string SetRebellionEnabled(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to rebellion enabled and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.SetRebellionEnabled(strings);
+</code></pre>
+<h3 id="addtroopstoparty">AddTroopsToParty</h3>
+<p><code>public static string AddTroopsToParty(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Adds troops to party to the current collection or state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.AddTroopsToParty(strings);
+</code></pre>
+<h3 id="ispartysuitabletousecheat">IsPartySuitableToUseCheat</h3>
+<p><code>public static bool IsPartySuitableToUseCheat(PartyBase party, bool ignoreMapEvents = false)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the party suitable to use cheat state or condition.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+CampaignCheats.IsPartySuitableToUseCheat(party, false);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">CampaignCheats.CheckCheatUsage(errorType);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/en/api/campaign/">Campaign API — v1.4.5</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/en/api/campaign/DefaultSettlementPatrolModel/">&larr; DefaultSettlementPatrolModel</a>
+          
+          
+            <a rel="next" href="/v1.4.5/en/api/campaign/PartyLeaderChangeNotification/">PartyLeaderChangeNotification &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

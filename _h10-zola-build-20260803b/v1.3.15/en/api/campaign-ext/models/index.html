@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Models Family Handbook</title>
+  <meta name="description" content="How campaign models calculate policy, economy, combat, and party outcomes without owning world mutations.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/models/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/models/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Models Family Handbook</span>
+    </nav>
+  
+  <h1>Models Family Handbook</h1>
+  <h1 id="models-family-handbook">Models Family Handbook</h1>
+<p><strong>One-sentence role:</strong> <code>*Model</code> types are replaceable campaign policy providers. They answer how much, which option, or whether something is allowed, then leave world mutation to actions and behaviors.</p>
+<h2 id="mental-model">Mental Model</h2>
+<h3 id="reading-order">Reading order</h3>
+<p>Read <a href="../GameModels">GameModels</a> first. It receives the default implementations from <code>SandBoxManager</code> and exposes them through <code>Campaign.Current.Models</code>. Interface declarations are under <code>Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces</code>; defaults are under <code>TaleWorlds.CampaignSystem.GameComponents</code>. Start with <a href="../PartySpeedModel">PartySpeedModel</a> -&gt; <a href="../DefaultPartySpeedCalculatingModel">DefaultPartySpeedCalculatingModel</a>, or <a href="../SettlementLoyaltyModel">SettlementLoyaltyModel</a> -&gt; <a href="../DefaultSettlementLoyaltyModel">DefaultSettlementLoyaltyModel</a>, then follow their real consumers.</p>
+<p>A model may read campaign entities and caches, but it must not write <code>Hero</code>, <code>Settlement</code>, or <code>MobileParty</code> state. Use <a href="../actions">Actions</a> for mutations and behaviors for scheduled progression or persistence. Register replacements during startup through <code>IGameStarter.AddModel</code>; do not construct an ad-hoc model during a running tick.</p>
+<h2 id="when-to-use-and-when-not-to">When to use, and when not to</h2>
+<ul>
+<li>Use a model for a calculation, permission, score, or choice such as speed, loyalty change, building effects, damage, or barter success.</li>
+<li>Use an action when the requirement is “make the change happen,” such as declaring war, changing settlement ownership, giving gold, or adding a hero to a party.</li>
+<li>Do not read <code>Campaign.Current.Models</code> before a campaign exists, and do not run model registration from UI or mission ticks.</li>
+<li>Custom implementations must preserve vanilla fallbacks, bounded deterministic results, and the interface's <code>ExplainedNumber</code> or enum contract. Invalid values may corrupt later economy, movement, or save-derived caches.</li>
+</ul>
+<h2 id="dependency-map-and-real-entry-point">Dependency map and real entry point</h2>
+<pre><code data-lang="mermaid">graph TD
+    START[SandBoxManager / IGameStarter] --&gt; REG[GameStarter.AddModel]
+    REG --&gt; SET[Campaign.Current.Models]
+    SET --&gt; MODEL[Model interface / default implementation]
+    MODEL --&gt; CONSUMER[Entity / Behavior / Action / ViewModel]
+    ACTION[Action.Apply] --&gt; WORLD[world mutation]
+</code></pre>
+<pre><code data-lang="csharp">PartySpeedModel speedModel = Campaign.Current.Models.PartySpeedCalculatingModel;
+ExplainedNumber baseSpeed = speedModel.CalculateBaseSpeed(party, includeDescriptions: true);
+ExplainedNumber finalSpeed = speedModel.CalculateFinalSpeed(party, baseSpeed);
+
+SettlementLoyaltyModel loyaltyModel = Campaign.Current.Models.SettlementLoyaltyModel;
+ExplainedNumber loyaltyChange = loyaltyModel.CalculateLoyaltyChange(town, includeDescriptions: true);
+</code></pre>
+<p>These are the access paths used by <code>MobileParty.CalculateSpeed</code>, <code>Town.LoyaltyChange</code>, and town-management UI code. They read a result; ownership, relation, and roster changes still go through <a href="../actions">Actions</a>.</p>
+<h2 id="priority-models-purpose-and-typical-timing">Priority models: purpose and typical timing</h2>
+<p>The table covers the highest-risk interface/default pairs in this family. <code>Purpose</code> states the business responsibility and <code>Timing</code> names the normal engine or campaign phase; these are not signature summaries. Remaining targets are added in later H5/H9 family waves under the same contract.</p>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartySpeedModel">PartySpeedModel</a></td><td>Combines roster, encumbrance, terrain, and state into an explainable map speed.</td><td>Map ticks and speed-cache refresh</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartySpeedCalculatingModel">DefaultPartySpeedCalculatingModel</a></td><td>Implements vanilla base and final speed rules for weight, formation, and terrain.</td><td>Registered by SandBox and read by MobileParty</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartySizeLimitModel">PartySizeLimitModel</a></td><td>Computes party capacity for recruitment and formation consumers.</td><td>Party assembly, hero joins, daily refresh</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartySizeLimitModel">DefaultPartySizeLimitModel</a></td><td>Combines clan tier, perks, and leader abilities into the vanilla limit.</td><td>Model registration and Party/Recruitment queries</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyWageModel">PartyWageModel</a></td><td>Converts roster state and wage rules into a party's daily wage.</td><td>Daily settlement and wage previews</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyWageModel">DefaultPartyWageModel</a></td><td>Applies vanilla troop-tier, perk, and party-state wage factors.</td><td>Campaign daily economy tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyHealingModel">PartyHealingModel</a></td><td>Computes wounded-party recovery without editing the wounded roster.</td><td>Map ticks and medical recovery</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyHealingModel">DefaultPartyHealingModel</a></td><td>Provides vanilla healing factors for medicine, settlement, and party state.</td><td>MobileParty daily/map updates</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyMoraleModel">PartyMoraleModel</a></td><td>Explains how food, battles, and composition contribute to morale.</td><td>Daily updates, battle edges, UI previews</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyMoraleModel">DefaultPartyMoraleModel</a></td><td>Implements default morale factors and bounded change.</td><td>Campaign tick and party refresh</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyNavigationModel">PartyNavigationModel</a></td><td>Chooses map targets, routes, and navigation restrictions for parties.</td><td>Target selection and pathfinding</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyNavigationModel">DefaultPartyNavigationModel</a></td><td>Supplies vanilla target priority and map-navigation policy.</td><td>Map AI tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyFoodBuyingModel">PartyFoodBuyingModel</a></td><td>Decides what and how much a hungry party should buy.</td><td>Settlement trade and supply checks</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyFoodBuyingModel">DefaultPartyFoodBuyingModel</a></td><td>Calculates vanilla restocking from size, consumption, and inventory.</td><td>Before a supply behavior executes</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyDesertionModel">PartyDesertionModel</a></td><td>Calculates deserter count and causes for food or morale failure.</td><td>Daily party settlement</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyDesertionModel">DefaultPartyDesertionModel</a></td><td>Implements vanilla desertion thresholds and limits for its behavior.</td><td>Campaign daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../DiplomacyModel">DiplomacyModel</a></td><td>Evaluates war, peace, relation, and diplomatic-option eligibility.</td><td>Kingdom decisions and diplomacy menus</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultDiplomacyModel">DefaultDiplomacyModel</a></td><td>Supplies vanilla diplomatic costs, relation gates, and AI scores.</td><td>Campaign decision resolution</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../ClanFinanceModel">ClanFinanceModel</a></td><td>Aggregates clan income, expenses, and assets for economy consumers.</td><td>Daily finance and clan UI</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultClanFinanceModel">DefaultClanFinanceModel</a></td><td>Calculates vanilla workshop, vassal, and party finance entries.</td><td>Campaign daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../ClanPoliticsModel">ClanPoliticsModel</a></td><td>Computes influence, policy support, and political-choice outcomes.</td><td>Kingdom policy and clan decisions</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultClanPoliticsModel">DefaultClanPoliticsModel</a></td><td>Implements default political scores from tier, fiefs, and relations.</td><td>Vote evaluation and political UI</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SettlementLoyaltyModel">SettlementLoyaltyModel</a></td><td>Explains loyalty change and rebellion thresholds for settlements and UI.</td><td>Daily settlement update and rebellion checks</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSettlementLoyaltyModel">DefaultSettlementLoyaltyModel</a></td><td>Applies culture, governor, policy, and event factors to vanilla loyalty.</td><td>Settlement daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SettlementSecurityModel">SettlementSecurityModel</a></td><td>Computes security change and its crime, rebellion, and prosperity inputs.</td><td>Daily settlement settlement</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSettlementSecurityModel">DefaultSettlementSecurityModel</a></td><td>Provides the default garrison, gang, and crime security formula.</td><td>Campaign daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SettlementMilitiaModel">SettlementMilitiaModel</a></td><td>Calculates militia growth, cap, and battle-ready count.</td><td>Daily update and siege assessment</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSettlementMilitiaModel">DefaultSettlementMilitiaModel</a></td><td>Combines loyalty, buildings, and village contribution into militia change.</td><td>Settlement daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SettlementProsperityModel">SettlementProsperityModel</a></td><td>Calculates prosperity change with food, loyalty, and trade explanations.</td><td>Daily settlement economy</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSettlementProsperityModel">DefaultSettlementProsperityModel</a></td><td>Implements vanilla prosperity growth, decay, and loyalty effects.</td><td>Campaign daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SettlementEconomyModel">SettlementEconomyModel</a></td><td>Evaluates settlement production, demand, and market outcomes.</td><td>Daily economy and trade UI</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSettlementEconomyModel">DefaultSettlementEconomyModel</a></td><td>Implements vanilla production-chain and demand calculations.</td><td>Settlement daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../BuildingModel">BuildingModel</a></td><td>Determines building availability and settlement effects.</td><td>Building queues, town management, load</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultBuildingModel">DefaultBuildingModel</a></td><td>Provides default building categories, prerequisites, and effect queries.</td><td>Read by <code>BuildingsCampaignBehavior</code></td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../BuildingConstructionModel">BuildingConstructionModel</a></td><td>Calculates construction speed, cost, and completion time.</td><td>Daily building progression</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultBuildingConstructionModel">DefaultBuildingConstructionModel</a></td><td>Implements vanilla construction progress and queue rules.</td><td>Settlement daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../BuildingEffectModel">BuildingEffectModel</a></td><td>Maps building state to garrison, prosperity, food, and related effects.</td><td>State refresh and UI explanations</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultBuildingEffectModel">DefaultBuildingEffectModel</a></td><td>Supplies default effect strengths and application conditions.</td><td>Building completion and daily calculation</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../CombatSimulationModel">CombatSimulationModel</a></td><td>Estimates casualties, winner, and reward inputs for map battles.</td><td>MapEvent simulation resolution</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultCombatSimulationModel">DefaultCombatSimulationModel</a></td><td>Uses troops, equipment, and terrain for vanilla simulated outcomes.</td><td>Non-Mission battle completion</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../CombatXpModel">CombatXpModel</a></td><td>Calculates combat experience categories and amounts.</td><td>Battle reward stage</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultCombatXpModel">DefaultCombatXpModel</a></td><td>Distributes vanilla experience from troops, damage, and outcome.</td><td>MapEvent/Mission settlement</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../CharacterDevelopmentModel">CharacterDevelopmentModel</a></td><td>Calculates hero/troop growth, skill progression, and limits.</td><td>Experience application and growth</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultCharacterDevelopmentModel">DefaultCharacterDevelopmentModel</a></td><td>Supplies vanilla skill experience, attribute gates, and upgrade rules.</td><td>Battle and quest rewards</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../MarriageModel">MarriageModel</a></td><td>Evaluates candidates, relation gates, and costs for marriage.</td><td>Proposal and marriage decisions</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultMarriageModel">DefaultMarriageModel</a></td><td>Implements default marriage eligibility, price, and relation rules.</td><td>Campaign decision stage</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PregnancyModel">PregnancyModel</a></td><td>Calculates eligibility, cycle, and outcome for hero pregnancy.</td><td>Hero daily lifecycle tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPregnancyModel">DefaultPregnancyModel</a></td><td>Provides vanilla probability, cooldown, and age boundaries.</td><td>Campaign daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../VolunteerModel">VolunteerModel</a></td><td>Calculates volunteer pools and refresh probability for recruitment.</td><td>Recruitment menus and daily refresh</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultVolunteerModel">DefaultVolunteerModel</a></td><td>Implements the default culture, village, and relation volunteer pool.</td><td>Recruitment resolution</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SmithingModel">SmithingModel</a></td><td>Calculates recipes, materials, stamina, and item value for smithing.</td><td>Smithing previews and completion</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSmithingModel">DefaultSmithingModel</a></td><td>Supplies vanilla smithing difficulty, experience, and price rules.</td><td>Smithing UI and craft completion</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SiegeEventModel">SiegeEventModel</a></td><td>Calculates siege progression, preparation, and attack eligibility.</td><td>Siege map ticks and menus</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSiegeEventModel">DefaultSiegeEventModel</a></td><td>Implements default siege phases, force assessment, and time rules.</td><td>SiegeEvent updates</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SiegeAftermathModel">SiegeAftermathModel</a></td><td>Evaluates loot, population, and settlement consequences after a siege.</td><td>Siege outcome resolution</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSiegeAftermathModel">DefaultSiegeAftermathModel</a></td><td>Calculates vanilla post-siege consequences and rewards.</td><td>SiegeEvent completion</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SiegeStrategyActionModel">SiegeStrategyActionModel</a></td><td>Calculates feasibility and cost for siege strategy choices.</td><td>Strategy submission and menu preview</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSiegeStrategyActionModel">DefaultSiegeStrategyActionModel</a></td><td>Scores vanilla engines, breaches, and defensive siege strategies.</td><td>Siege strategy tick/menu</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.ComponentInterfaces</td><td><a href="../../mission-ext/AgentApplyDamageModel">AgentApplyDamageModel</a></td><td>Converts hit, armor, and damage type into an Agent damage result.</td><td>Mission hit processing</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.ComponentInterfaces</td><td><a href="../../mission-ext/BattleMoraleModel">BattleMoraleModel</a></td><td>Calculates battlefield morale changes and rout thresholds.</td><td>Mission battle events and morale ticks</td></tr>
+</tbody></table>
+<h2 id="model-versus-mutation-boundary">Model versus mutation boundary</h2>
+<p>A model can answer <code>SettlementLoyaltyModel.CalculateLoyaltyChange</code>, but settlement ownership must go through <a href="../ChangeOwnerOfSettlementAction">ChangeOwnerOfSettlementAction</a>, and relation changes through <a href="../ChangeRelationAction">ChangeRelationAction</a>. Putting an action inside a model makes previews and AI evaluation mutate the world; treating a model as a setter bypasses events, caches, and save boundaries.</p>
+<h2 id="risks-and-debugging-order">Risks and debugging order</h2>
+<ol>
+<li>Confirm that <code>Campaign.Current</code>, <code>Campaign.Current.Models</code>, and the target model were registered by <code>GameModels</code>; the title screen and early load hooks have no active campaign.</li>
+<li>Preserve default ranges, <code>ExplainedNumber</code> explanations, and enum branches. Never return <code>null</code>, an uninitialized collection, or an unbounded value dependent on global randomness.</li>
+<li>After replacement, inspect every consumer for duplicate evaluation in one tick. Persistent state still belongs to a behavior/save contract, not to the model.</li>
+</ol>
+<h2 id="long-tail-model-contracts">Long-tail model contracts</h2>
+<p>The remaining model identities are grouped only with closely related contracts. Each row keeps the exact namespace so a duplicate type name cannot silently alias another subsystem. Interface rows answer one policy question; GameComponents rows supply the vanilla implementation registered by SandBox.</p>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../AccessDetails">AccessDetails</a>; <a href="../AccessLevel">AccessLevel</a>; <a href="../AccessLimitationReason">AccessLimitationReason</a>; <a href="../AccessMethod">AccessMethod</a>; <a href="../AgeModel">AgeModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../AlleyModel">AlleyModel</a>; <a href="../AllianceModel">AllianceModel</a>; <a href="../ArmyManagementCalculationModel">ArmyManagementCalculationModel</a>; <a href="../BanditDensityModel">BanditDensityModel</a>; <a href="../BannerItemModel">BannerItemModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Daily campaign economy and settlement refresh</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../BarterModel">BarterModel</a>; <a href="../BattleCaptainModel">BattleCaptainModel</a>; <a href="../BattleRewardModel">BattleRewardModel</a>; <a href="../BodyPropertiesModel">BodyPropertiesModel</a>; <a href="../BribeCalculationModel">BribeCalculationModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Daily campaign economy and settlement refresh</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../BuildingScoreCalculationModel">BuildingScoreCalculationModel</a>; <a href="../CampaignShipDamageModel">CampaignShipDamageModel</a>; <a href="../CampaignShipParametersModel">CampaignShipParametersModel</a>; <a href="../CampaignTimeModel">CampaignTimeModel</a>; <a href="../CaravanModel">CaravanModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../CharacterStatsModel">CharacterStatsModel</a>; <a href="../ClanTierModel">ClanTierModel</a>; <a href="../CompanionHiringPriceCalculationModel">CompanionHiringPriceCalculationModel</a>; <a href="../CrimeModel">CrimeModel</a>; <a href="../CutsceneSelectionModel">CutsceneSelectionModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Hero lifecycle, progression, or decision resolution</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../DailyTroopXpBonusModel">DailyTroopXpBonusModel</a>; <a href="../DefectionModel">DefectionModel</a>; <a href="../DelayedTeleportationModel">DelayedTeleportationModel</a>; <a href="../DifficultyModel">DifficultyModel</a>; <a href="../DiplomacyStance">DiplomacyStance</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../DisguiseDetectionModel">DisguiseDetectionModel</a>; <a href="../EmissaryModel">EmissaryModel</a>; <a href="../EncounterModel">EncounterModel</a>; <a href="../EquipmentSelectionModel">EquipmentSelectionModel</a>; <a href="../ExecutionRelationModel">ExecutionRelationModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../FleetManagementModel">FleetManagementModel</a>; <a href="../GenericXpModel">GenericXpModel</a>; <a href="../HeirSelectionCalculationModel">HeirSelectionCalculationModel</a>; <a href="../HeroAgentLocationModel">HeroAgentLocationModel</a>; <a href="../HeroCreationModel">HeroCreationModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../HeroDeathProbabilityCalculationModel">HeroDeathProbabilityCalculationModel</a>; <a href="../HeroLocationDetail">HeroLocationDetail</a>; <a href="../HideoutModel">HideoutModel</a>; <a href="../INavigationCache">INavigationCache</a>; <a href="../IncidentModel">IncidentModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Hero lifecycle, progression, or decision resolution</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../InformationRestrictionModel">InformationRestrictionModel</a>; <a href="../InventoryCapacityModel">InventoryCapacityModel</a>; <a href="../ItemDiscardModel">ItemDiscardModel</a>; <a href="../KingdomCreationModel">KingdomCreationModel</a>; <a href="../KingdomDecisionPermissionModel">KingdomDecisionPermissionModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../LimitedAccessSolution">LimitedAccessSolution</a>; <a href="../LocationModel">LocationModel</a>; <a href="../MapDistanceModel">MapDistanceModel</a>; <a href="../MapTrackModel">MapTrackModel</a>; <a href="../MapVisibilityModel">MapVisibilityModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../MapWeatherModel">MapWeatherModel</a>; <a href="../MilitaryPowerModel">MilitaryPowerModel</a>; <a href="../MinorFactionsModel">MinorFactionsModel</a>; <a href="../MissionTypeEnum">MissionTypeEnum</a>; <a href="../MobilePartyAIModel">MobilePartyAIModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Map tick, encounter setup, or route evaluation</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../MobilePartyFoodConsumptionModel">MobilePartyFoodConsumptionModel</a>; <a href="../MobilePartyMoraleModel">MobilePartyMoraleModel</a>; <a href="../NotablePowerModel">NotablePowerModel</a>; <a href="../NotableSpawnModel">NotableSpawnModel</a>; <a href="../PartyImpairmentModel">PartyImpairmentModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Daily campaign economy and settlement refresh</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyShipLimitModel">PartyShipLimitModel</a>; <a href="../PartyTradeModel">PartyTradeModel</a>; <a href="../PartyTrainingModel">PartyTrainingModel</a>; <a href="../PartyTransitionModel">PartyTransitionModel</a>; <a href="../PartyTroopUpgradeModel">PartyTroopUpgradeModel</a></td><td>Defines the replaceable party policy contract; consumers read bounded results while Actions own world mutation.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PaymentMethod">PaymentMethod</a>; <a href="../PersuasionModel">PersuasionModel</a>; <a href="../PlayerProgressionModel">PlayerProgressionModel</a>; <a href="../PreliminaryActionObligation">PreliminaryActionObligation</a>; <a href="../PreliminaryActionType">PreliminaryActionType</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PrisonBreakModel">PrisonBreakModel</a>; <a href="../PrisonerDonationModel">PrisonerDonationModel</a>; <a href="../PrisonerRecruitmentCalculationModel">PrisonerRecruitmentCalculationModel</a>; <a href="../RaidModel">RaidModel</a>; <a href="../RansomValueCalculationModel">RansomValueCalculationModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../RomanceModel">RomanceModel</a>; <a href="../SceneModel">SceneModel</a>; <a href="../SettlementAccessModel">SettlementAccessModel</a>; <a href="../SettlementAction">SettlementAction</a>; <a href="../SettlementFoodModel">SettlementFoodModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Hero lifecycle, progression, or decision resolution</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SettlementGarrisonModel">SettlementGarrisonModel</a>; <a href="../SettlementMenuOverlayModel">SettlementMenuOverlayModel</a>; <a href="../SettlementPatrolModel">SettlementPatrolModel</a>; <a href="../SettlementTaxModel">SettlementTaxModel</a>; <a href="../SettlementValueModel">SettlementValueModel</a></td><td>Defines the replaceable settlement policy contract; consumers read bounded results while Actions own world mutation.</td><td>Daily campaign economy and settlement refresh</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../ShipCostModel">ShipCostModel</a>; <a href="../ShipStatModel">ShipStatModel</a>; <a href="../SiegeAction">SiegeAction</a>; <a href="../SiegeLordsHallFightModel">SiegeLordsHallFightModel</a>; <a href="../TargetScoreCalculatingModel">TargetScoreCalculatingModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../TavernMercenaryTroopsModel">TavernMercenaryTroopsModel</a>; <a href="../TournamentModel">TournamentModel</a>; <a href="../TradeAgreementModel">TradeAgreementModel</a>; <a href="../TradeItemPriceFactorModel">TradeItemPriceFactorModel</a>; <a href="../TroopSacrificeModel">TroopSacrificeModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../TroopSupplierProbabilityModel">TroopSupplierProbabilityModel</a>; <a href="../ValuationModel">ValuationModel</a>; <a href="../VassalRewardsModel">VassalRewardsModel</a>; <a href="../VillageProductionCalculatorModel">VillageProductionCalculatorModel</a>; <a href="../VillageTradeModel">VillageTradeModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../VoiceOverModel">VoiceOverModel</a>; <a href="../WallHitPointCalculationModel">WallHitPointCalculationModel</a>; <a href="../WeatherEvent">WeatherEvent</a>; <a href="../WeatherEventEffectOnTerrain">WeatherEventEffectOnTerrain</a>; <a href="../WorkshopModel">WorkshopModel</a></td><td>Defines the replaceable related campaign subsystems policy contract; consumers read bounded results while Actions own world mutation.</td><td>Campaign startup and feature-specific queries</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../AlleyMemberAvailabilityDetail">AlleyMemberAvailabilityDetail</a>; <a href="../AssetIncomeType">AssetIncomeType</a>; <a href="../DefaultAgeModel">DefaultAgeModel</a>; <a href="../DefaultAlleyModel">DefaultAlleyModel</a>; <a href="../DefaultAllianceModel">DefaultAllianceModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Daily campaign economy and settlement refresh</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultArmyManagementCalculationModel">DefaultArmyManagementCalculationModel</a>; <a href="../DefaultBanditDensityModel">DefaultBanditDensityModel</a>; <a href="../DefaultBannerItemModel">DefaultBannerItemModel</a>; <a href="../DefaultBarterModel">DefaultBarterModel</a>; <a href="../DefaultBattleCaptainModel">DefaultBattleCaptainModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultBattleRewardModel">DefaultBattleRewardModel</a>; <a href="../DefaultBodyPropertiesModel">DefaultBodyPropertiesModel</a>; <a href="../DefaultBribeCalculationModel">DefaultBribeCalculationModel</a>; <a href="../DefaultBuildingScoreCalculationModel">DefaultBuildingScoreCalculationModel</a>; <a href="../DefaultCampaignShipDamageModel">DefaultCampaignShipDamageModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Mission, battle, or siege resolution</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultCampaignShipParametersModel">DefaultCampaignShipParametersModel</a>; <a href="../DefaultCampaignTimeModel">DefaultCampaignTimeModel</a>; <a href="../DefaultCaravanModel">DefaultCaravanModel</a>; <a href="../DefaultCharacterStatsModel">DefaultCharacterStatsModel</a>; <a href="../DefaultClanTierModel">DefaultClanTierModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Campaign startup and feature-specific queries</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultCompanionHiringPriceCalculationModel">DefaultCompanionHiringPriceCalculationModel</a>; <a href="../DefaultCrimeModel">DefaultCrimeModel</a>; <a href="../DefaultCutsceneSelectionModel">DefaultCutsceneSelectionModel</a>; <a href="../DefaultDailyTroopXpBonusModel">DefaultDailyTroopXpBonusModel</a>; <a href="../DefaultDefectionModel">DefaultDefectionModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Hero lifecycle, progression, or decision resolution</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultDelayedTeleportationModel">DefaultDelayedTeleportationModel</a>; <a href="../DefaultDifficultyModel">DefaultDifficultyModel</a>; <a href="../DefaultDisguiseDetectionModel">DefaultDisguiseDetectionModel</a>; <a href="../DefaultEmissaryModel">DefaultEmissaryModel</a>; <a href="../DefaultEncounterGameMenuModel">DefaultEncounterGameMenuModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultEncounterModel">DefaultEncounterModel</a>; <a href="../DefaultEquipmentSelectionModel">DefaultEquipmentSelectionModel</a>; <a href="../DefaultExecutionRelationModel">DefaultExecutionRelationModel</a>; <a href="../DefaultFleetManagementModel">DefaultFleetManagementModel</a>; <a href="../DefaultGenericXpModel">DefaultGenericXpModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Map tick, encounter setup, or route evaluation</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultHeirSelectionCalculationModel">DefaultHeirSelectionCalculationModel</a>; <a href="../DefaultHeroAgentLocationModel">DefaultHeroAgentLocationModel</a>; <a href="../DefaultHeroCreationModel">DefaultHeroCreationModel</a>; <a href="../DefaultHeroDeathProbabilityCalculationModel">DefaultHeroDeathProbabilityCalculationModel</a>; <a href="../DefaultHideoutModel">DefaultHideoutModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Hero lifecycle, progression, or decision resolution</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultIncidentModel">DefaultIncidentModel</a>; <a href="../DefaultInformationRestrictionModel">DefaultInformationRestrictionModel</a>; <a href="../DefaultInventoryCapacityModel">DefaultInventoryCapacityModel</a>; <a href="../DefaultItemDiscardModel">DefaultItemDiscardModel</a>; <a href="../DefaultKingdomCreationModel">DefaultKingdomCreationModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Campaign startup and feature-specific queries</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultKingdomDecisionPermissionModel">DefaultKingdomDecisionPermissionModel</a>; <a href="../DefaultLocationModel">DefaultLocationModel</a>; <a href="../DefaultMapDistanceModel">DefaultMapDistanceModel</a>; <a href="../DefaultMapTrackModel">DefaultMapTrackModel</a>; <a href="../DefaultMapVisibilityModel">DefaultMapVisibilityModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultMapWeatherModel">DefaultMapWeatherModel</a>; <a href="../DefaultMilitaryPowerModel">DefaultMilitaryPowerModel</a>; <a href="../DefaultMinorFactionsModel">DefaultMinorFactionsModel</a>; <a href="../DefaultMobilePartyAIModel">DefaultMobilePartyAIModel</a>; <a href="../DefaultMobilePartyFoodConsumptionModel">DefaultMobilePartyFoodConsumptionModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Map tick, encounter setup, or route evaluation</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultNotablePowerModel">DefaultNotablePowerModel</a>; <a href="../DefaultNotableSpawnModel">DefaultNotableSpawnModel</a>; <a href="../DefaultPartyImpairmentModel">DefaultPartyImpairmentModel</a>; <a href="../DefaultPartyShipLimitModel">DefaultPartyShipLimitModel</a>; <a href="../DefaultPartyTradeModel">DefaultPartyTradeModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyTrainingModel">DefaultPartyTrainingModel</a>; <a href="../DefaultPartyTransitionModel">DefaultPartyTransitionModel</a>; <a href="../DefaultPartyTroopUpgradeModel">DefaultPartyTroopUpgradeModel</a>; <a href="../DefaultPersuasionModel">DefaultPersuasionModel</a>; <a href="../DefaultPlayerProgressionModel">DefaultPlayerProgressionModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPrisonBreakModel">DefaultPrisonBreakModel</a>; <a href="../DefaultPrisonerDonationModel">DefaultPrisonerDonationModel</a>; <a href="../DefaultPrisonerRecruitmentCalculationModel">DefaultPrisonerRecruitmentCalculationModel</a>; <a href="../DefaultRaidModel">DefaultRaidModel</a>; <a href="../DefaultRansomValueCalculationModel">DefaultRansomValueCalculationModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Model registration and consumer query</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultRomanceModel">DefaultRomanceModel</a>; <a href="../DefaultSceneModel">DefaultSceneModel</a>; <a href="../DefaultSettlementAccessModel">DefaultSettlementAccessModel</a>; <a href="../DefaultSettlementFoodModel">DefaultSettlementFoodModel</a>; <a href="../DefaultSettlementGarrisonModel">DefaultSettlementGarrisonModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Hero lifecycle, progression, or decision resolution</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSettlementPatrolModel">DefaultSettlementPatrolModel</a>; <a href="../DefaultSettlementTaxModel">DefaultSettlementTaxModel</a>; <a href="../DefaultSettlementValueModel">DefaultSettlementValueModel</a>; <a href="../DefaultShipCostModel">DefaultShipCostModel</a>; <a href="../DefaultShipStatModel">DefaultShipStatModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Daily campaign economy and settlement refresh</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSiegeLordsHallFightModel">DefaultSiegeLordsHallFightModel</a>; <a href="../DefaultTargetScoreCalculatingModel">DefaultTargetScoreCalculatingModel</a>; <a href="../DefaultTavernMercenaryTroopsModel">DefaultTavernMercenaryTroopsModel</a>; <a href="../DefaultTournamentModel">DefaultTournamentModel</a>; <a href="../DefaultTradeAgreementModel">DefaultTradeAgreementModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Mission, battle, or siege resolution</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultTradeItemPriceFactorModel">DefaultTradeItemPriceFactorModel</a>; <a href="../DefaultTroopSacrificeModel">DefaultTroopSacrificeModel</a>; <a href="../DefaultTroopSupplierProbabilityModel">DefaultTroopSupplierProbabilityModel</a>; <a href="../DefaultValuationModel">DefaultValuationModel</a>; <a href="../DefaultVassalRewardsModel">DefaultVassalRewardsModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Daily campaign economy and settlement refresh</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultVillageProductionCalculatorModel">DefaultVillageProductionCalculatorModel</a>; <a href="../DefaultVillageTradeModel">DefaultVillageTradeModel</a>; <a href="../DefaultVoiceOverModel">DefaultVoiceOverModel</a>; <a href="../DefaultWallHitPointCalculationModel">DefaultWallHitPointCalculationModel</a>; <a href="../DefaultWorkshopModel">DefaultWorkshopModel</a></td><td>Supplies the vanilla related campaign subsystems calculation; SandBox registers it and GameModels exposes it to consumers.</td><td>Daily campaign economy and settlement refresh</td></tr>
+</tbody></table>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li><a href="..">Parent: Campaign-Ext</a></li>
+<li><a href="../actions">Siblings: Actions</a> · <a href="../behaviors">Behaviors</a> · <a href="../party">Party</a> · <a href="../settlements">Settlements</a></li>
+<li><a href="../GameModels">Registration: GameModels</a></li>
+<li><a href="../../campaign/Campaign">Related: Campaign</a> · <a href="../CampaignEvents">CampaignEvents</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

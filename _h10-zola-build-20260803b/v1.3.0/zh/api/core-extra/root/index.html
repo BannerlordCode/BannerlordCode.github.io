@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Root</title>
+  <meta name="description" content="位于该区域根命名空间的类型集合。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/core-extra/root/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/core-extra/root/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="active">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;core-extra&#x2F;">core-extra 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Root</span>
+    </nav>
+  
+  <h1>Root</h1>
+  <h2 id="shang-ji-dao-hang">上级导航</h2>
+<ul>
+<li><a href="../">返回 core-extra 目录</a></li>
+<li><a href="../../">API 目录</a></li>
+<li><a href="../../../">版本首页</a></li>
+</ul>
+<h2 id="zi-xi-tong-gai-shu">子系统概述</h2>
+<p>这里是 <strong>core-extra 目录</strong> 的 <strong>Root</strong> 子系统。同一命名空间下的类负责相近功能，可从中找到需要的类型后再进入类页查看方法。</p>
+<p>位于该区域根命名空间的类型集合。</p>
+<h2 id="lei-lie-biao">类列表</h2>
+<table><thead><tr><th>类</th><th>用途</th></tr></thead><tbody>
+<tr><td><a href="../ActionSetCode/"><code>ActionSetCode</code></a></td><td>ActionSetCode 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../AgentAttackType/"><code>AgentAttackType</code></a></td><td>AgentAttackType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../AgentControllerType/"><code>AgentControllerType</code></a></td><td>AgentControllerType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../AgentData/"><code>AgentData</code></a></td><td>AgentData 是一个数据载体，位于 TaleWorlds.Core，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../AgentFlag/"><code>AgentFlag</code></a></td><td>AgentFlag 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../AgentMovementMode/"><code>AgentMovementMode</code></a></td><td>AgentMovementMode 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../AgentOriginUtilities/"><code>AgentOriginUtilities</code></a></td><td>AgentOriginUtilities 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../AgentSaveData/"><code>AgentSaveData</code></a></td><td>AgentSaveData 是一个数据载体，位于 TaleWorlds.Core，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../AgentState/"><code>AgentState</code></a></td><td>AgentState 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../AmbientInformation/"><code>AmbientInformation</code></a></td><td>AmbientInformation 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ApplicationPlatform/"><code>ApplicationPlatform</code></a></td><td>ApplicationPlatform 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ApplicationVersion/"><code>ApplicationVersion</code></a></td><td>ApplicationVersion 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ApplicationVersionJsonConverter/"><code>ApplicationVersionJsonConverter</code></a></td><td>ApplicationVersionJsonConverter 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ApplicationVersionType/"><code>ApplicationVersionType</code></a></td><td>ApplicationVersionType 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../AreaInformation/"><code>AreaInformation</code></a></td><td>AreaInformation 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ArmorComponent/"><code>ArmorComponent</code></a></td><td>ArmorComponent 是一个组件型对象，位于 TaleWorlds.Core，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../ArmorMaterialTypes/"><code>ArmorMaterialTypes</code></a></td><td>ArmorMaterialTypes 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../AssemblyLoader/"><code>AssemblyLoader</code></a></td><td>AssemblyLoader 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../AsyncRunner/"><code>AsyncRunner</code></a></td><td>AsyncRunner 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../AtmosphereInfo/"><code>AtmosphereInfo</code></a></td><td>AtmosphereInfo 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../AtmosphereState/"><code>AtmosphereState</code></a></td><td>AtmosphereState 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../AutoGeneratedSaveManager/"><code>AutoGeneratedSaveManager</code></a></td><td>AutoGeneratedSaveManager 是一个管理器，位于 TaleWorlds.Core，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../AwaitableAsyncRunner/"><code>AwaitableAsyncRunner</code></a></td><td>AwaitableAsyncRunner 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../AzureDiscovery/"><code>AzureDiscovery</code></a></td><td>AzureDiscovery 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Banner/"><code>Banner</code></a></td><td>Banner 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BannerColor/"><code>BannerColor</code></a></td><td>BannerColor 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BannerComponent/"><code>BannerComponent</code></a></td><td>BannerComponent 是一个组件型对象，位于 TaleWorlds.Core，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../BannerData/"><code>BannerData</code></a></td><td>BannerData 是一个数据载体，位于 TaleWorlds.Core，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../BannerEffect/"><code>BannerEffect</code></a></td><td>BannerEffect 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BannerExtensions/"><code>BannerExtensions</code></a></td><td>BannerExtensions 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BannerIconData/"><code>BannerIconData</code></a></td><td>BannerIconData 是一个数据载体，位于 TaleWorlds.Core，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../BannerIconGroup/"><code>BannerIconGroup</code></a></td><td>BannerIconGroup 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BannerManager/"><code>BannerManager</code></a></td><td>BannerManager 是一个管理器，位于 TaleWorlds.Core，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../BasePath/"><code>BasePath</code></a></td><td>BasePath 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../BasicCharacterObject/"><code>BasicCharacterObject</code></a></td><td>BasicCharacterObject 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BasicCultureObject/"><code>BasicCultureObject</code></a></td><td>BasicCultureObject 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BasicGameModels/"><code>BasicGameModels</code></a></td><td>BasicGameModels 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BattleSideEnum/"><code>BattleSideEnum</code></a></td><td>BattleSideEnum 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BattleSideEnumExtensions/"><code>BattleSideEnumExtensions</code></a></td><td>BattleSideEnumExtensions 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BattleState/"><code>BattleState</code></a></td><td>BattleState 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BeardCoverTypes/"><code>BeardCoverTypes</code></a></td><td>BeardCoverTypes 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../bin/"><code>bin</code></a></td><td>bin 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../BinaryReader/"><code>BinaryReader</code></a></td><td>BinaryReader 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../BinaryWriter/"><code>BinaryWriter</code></a></td><td>BinaryWriter 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../BindingPath/"><code>BindingPath</code></a></td><td>BindingPath 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../BladeData/"><code>BladeData</code></a></td><td>BladeData 是一个数据载体，位于 TaleWorlds.Core，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../BodyDeformTypes/"><code>BodyDeformTypes</code></a></td><td>BodyDeformTypes 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BodyMeshMaturityType/"><code>BodyMeshMaturityType</code></a></td><td>BodyMeshMaturityType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BodyMeshTypes/"><code>BodyMeshTypes</code></a></td><td>BodyMeshTypes 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../BodyProperties/"><code>BodyProperties</code></a></td><td>BodyProperties 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../BodyPropertiesJsonConverter/"><code>BodyPropertiesJsonConverter</code></a></td><td>BodyPropertiesJsonConverter 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../CachedDataAttribute/"><code>CachedDataAttribute</code></a></td><td>CachedDataAttribute 是一个 .NET 特性，位于 TaleWorlds.Library，用于给类型或成员打标签。</td></tr>
+<tr><td><a href="../CampaignSaveMetaDataArgs/"><code>CampaignSaveMetaDataArgs</code></a></td><td>CampaignSaveMetaDataArgs 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../CharacterAttribute/"><code>CharacterAttribute</code></a></td><td>CharacterAttribute 是一个 .NET 特性，位于 TaleWorlds.Core，用于给类型或成员打标签。</td></tr>
+<tr><td><a href="../CharacterCode/"><code>CharacterCode</code></a></td><td>CharacterCode 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ChoiceTag/"><code>ChoiceTag</code></a></td><td>ChoiceTag 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ClientProfiles/"><code>ClientProfiles</code></a></td><td>ClientProfiles 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Color/"><code>Color</code></a></td><td>Color 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ColorExtensions/"><code>ColorExtensions</code></a></td><td>ColorExtensions 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Colors/"><code>Colors</code></a></td><td>Colors 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../CombatStatCalculator/"><code>CombatStatCalculator</code></a></td><td>CombatStatCalculator 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../CommandLineArgumentFunction/"><code>CommandLineArgumentFunction</code></a></td><td>CommandLineArgumentFunction 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../CommandLineFunctionality/"><code>CommandLineFunctionality</code></a></td><td>CommandLineFunctionality 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Common/"><code>Common</code></a></td><td>Common 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ComparerType/"><code>ComparerType</code></a></td><td>ComparerType 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ConfigurationManager/"><code>ConfigurationManager</code></a></td><td>ConfigurationManager 是一个管理器，位于 TaleWorlds.Library，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../Corners/"><code>Corners</code></a></td><td>Corners 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Crafting/"><code>Crafting</code></a></td><td>Crafting 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../CraftingMaterials/"><code>CraftingMaterials</code></a></td><td>CraftingMaterials 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../CraftingPiece/"><code>CraftingPiece</code></a></td><td>CraftingPiece 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../CraftingStatData/"><code>CraftingStatData</code></a></td><td>CraftingStatData 是一个数据载体，位于 TaleWorlds.Core，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../CraftingStatTypes/"><code>CraftingStatTypes</code></a></td><td>CraftingStatTypes 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../CraftingTemplate/"><code>CraftingTemplate</code></a></td><td>CraftingTemplate 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../CubicBezier/"><code>CubicBezier</code></a></td><td>CubicBezier 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../DamageTypes/"><code>DamageTypes</code></a></td><td>DamageTypes 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../DataSourceProperty/"><code>DataSourceProperty</code></a></td><td>DataSourceProperty 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Debug/"><code>Debug</code></a></td><td>Debug 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../DebugColor/"><code>DebugColor</code></a></td><td>DebugColor 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../DebugSystemFilter/"><code>DebugSystemFilter</code></a></td><td>DebugSystemFilter 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../DebugUserFilter/"><code>DebugUserFilter</code></a></td><td>DebugUserFilter 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultBannerEffects/"><code>DefaultBannerEffects</code></a></td><td>DefaultBannerEffects 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultCharacterAttributes/"><code>DefaultCharacterAttributes</code></a></td><td>DefaultCharacterAttributes 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultItemCategories/"><code>DefaultItemCategories</code></a></td><td>DefaultItemCategories 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultItemCategorySelector/"><code>DefaultItemCategorySelector</code></a></td><td>DefaultItemCategorySelector 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultItemValueModel/"><code>DefaultItemValueModel</code></a></td><td>DefaultItemValueModel 是一个规则模型，位于 TaleWorlds.Core，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DefaultParallelDriver/"><code>DefaultParallelDriver</code></a></td><td>DefaultParallelDriver 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultRidingModel/"><code>DefaultRidingModel</code></a></td><td>DefaultRidingModel 是一个规则模型，位于 TaleWorlds.Core，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../DefaultSiegeEngineTypes/"><code>DefaultSiegeEngineTypes</code></a></td><td>DefaultSiegeEngineTypes 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../DefaultSkills/"><code>DefaultSkills</code></a></td><td>DefaultSkills 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../DeploymentFormationClass/"><code>DeploymentFormationClass</code></a></td><td>DeploymentFormationClass 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../DiamondDebugCategory/"><code>DiamondDebugCategory</code></a></td><td>DiamondDebugCategory 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../DiamondDebugManager/"><code>DiamondDebugManager</code></a></td><td>DiamondDebugManager 是一个管理器，位于 TaleWorlds.Library，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../DrivenProperty/"><code>DrivenProperty</code></a></td><td>DrivenProperty 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../DummyCommunicator/"><code>DummyCommunicator</code></a></td><td>DummyCommunicator 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../DynamicBodyProperties/"><code>DynamicBodyProperties</code></a></td><td>DynamicBodyProperties 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../EffectIncrementType/"><code>EffectIncrementType</code></a></td><td>EffectIncrementType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../EngineMethod/"><code>EngineMethod</code></a></td><td>EngineMethod 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../EngineType/"><code>EngineType</code></a></td><td>EngineType 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../EntitySystem/"><code>EntitySystem</code></a></td><td>EntitySystem 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../EnumHelper/"><code>EnumHelper</code></a></td><td>EnumHelper 是一个帮助类，位于 TaleWorlds.Library，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../Equipment/"><code>Equipment</code></a></td><td>Equipment 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../EquipmentElement/"><code>EquipmentElement</code></a></td><td>EquipmentElement 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../EquipmentFlags/"><code>EquipmentFlags</code></a></td><td>EquipmentFlags 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../EquipmentIndex/"><code>EquipmentIndex</code></a></td><td>EquipmentIndex 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../EquipmentType/"><code>EquipmentType</code></a></td><td>EquipmentType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../Extensions/"><code>Extensions</code></a></td><td>Extensions 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Extensions__TaleWorlds_Core/"><code>Extensions__TaleWorlds_Core</code></a></td><td>Extensions 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../FaceGen/"><code>FaceGen</code></a></td><td>FaceGen 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../FaceGeneratorStage/"><code>FaceGeneratorStage</code></a></td><td>FaceGeneratorStage 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../FaceGenHistory/"><code>FaceGenHistory</code></a></td><td>FaceGenHistory 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../FileHelper/"><code>FileHelper</code></a></td><td>FileHelper 是一个帮助类，位于 TaleWorlds.Library，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../FileHelperExtensions/"><code>FileHelperExtensions</code></a></td><td>FileHelperExtensions 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../FilePaths/"><code>FilePaths</code></a></td><td>FilePaths 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../FogInformation/"><code>FogInformation</code></a></td><td>FogInformation 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ForestDensity/"><code>ForestDensity</code></a></td><td>ForestDensity 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../FormationClass/"><code>FormationClass</code></a></td><td>FormationClass 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../FormationClassExtensions/"><code>FormationClassExtensions</code></a></td><td>FormationClassExtensions 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../FormationFilterType/"><code>FormationFilterType</code></a></td><td>FormationFilterType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../FormationPositionPreference/"><code>FormationPositionPreference</code></a></td><td>FormationPositionPreference 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../Game/"><code>Game</code></a></td><td>Game 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../GameHandler/"><code>GameHandler</code></a></td><td>GameHandler 是一个处理器，位于 TaleWorlds.Core，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../GameManagerBase/"><code>GameManagerBase</code></a></td><td>GameManagerBase 是一个抽象基类，位于 TaleWorlds.Core，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../GameManagerComponent/"><code>GameManagerComponent</code></a></td><td>GameManagerComponent 是一个组件型对象，位于 TaleWorlds.Core，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../GameManagerLoadingSteps/"><code>GameManagerLoadingSteps</code></a></td><td>GameManagerLoadingSteps 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../GameModel/"><code>GameModel</code></a></td><td>GameModel 是一个规则模型，位于 TaleWorlds.Core，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../GameModelsManager/"><code>GameModelsManager</code></a></td><td>GameModelsManager 是一个管理器，位于 TaleWorlds.Core，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../GameState/"><code>GameState</code></a></td><td>GameState 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../GameStateManager/"><code>GameStateManager</code></a></td><td>GameStateManager 是一个管理器，位于 TaleWorlds.Core，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../GameStateManagerType/"><code>GameStateManagerType</code></a></td><td>GameStateManagerType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../GameText/"><code>GameText</code></a></td><td>GameText 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../GameTextHelper/"><code>GameTextHelper</code></a></td><td>GameTextHelper 是一个帮助类，位于 TaleWorlds.Core，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../GameTextManager/"><code>GameTextManager</code></a></td><td>GameTextManager 是一个管理器，位于 TaleWorlds.Core，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../GameTexts/"><code>GameTexts</code></a></td><td>GameTexts 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../GameTextVariation/"><code>GameTextVariation</code></a></td><td>GameTextVariation 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../GameType/"><code>GameType</code></a></td><td>GameType 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../GameTypeLoadingStates/"><code>GameTypeLoadingStates</code></a></td><td>GameTypeLoadingStates 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../GCHandleFactory/"><code>GCHandleFactory</code></a></td><td>GCHandleFactory 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../GenericComparer/"><code>GenericComparer</code></a></td><td>GenericComparer 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../HairCoverTypes/"><code>HairCoverTypes</code></a></td><td>HairCoverTypes 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../HorseComponent/"><code>HorseComponent</code></a></td><td>HorseComponent 是一个组件型对象，位于 TaleWorlds.Core，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../HorseHarnessCoverTypes/"><code>HorseHarnessCoverTypes</code></a></td><td>HorseHarnessCoverTypes 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../HorseTailCoverTypes/"><code>HorseTailCoverTypes</code></a></td><td>HorseTailCoverTypes 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../HTMLDebugCategory/"><code>HTMLDebugCategory</code></a></td><td>HTMLDebugCategory 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../HTMLDebugData/"><code>HTMLDebugData</code></a></td><td>HTMLDebugData 是一个数据载体，位于 TaleWorlds.Library，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../HttpHelper/"><code>HttpHelper</code></a></td><td>HttpHelper 是一个帮助类，位于 TaleWorlds.Library，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../HumanBone/"><code>HumanBone</code></a></td><td>HumanBone 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../HyperlinkTexts/"><code>HyperlinkTexts</code></a></td><td>HyperlinkTexts 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IAgent/"><code>IAgent</code></a></td><td>IAgent 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IAgentOriginBase/"><code>IAgentOriginBase</code></a></td><td>IAgentOriginBase 是一个抽象基类，位于 TaleWorlds.Core，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../IBannerVisual/"><code>IBannerVisual</code></a></td><td>IBannerVisual 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IBannerVisualCreator/"><code>IBannerVisualCreator</code></a></td><td>IBannerVisualCreator 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IBattleCombatant/"><code>IBattleCombatant</code></a></td><td>IBattleCombatant 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IBattleObserver/"><code>IBattleObserver</code></a></td><td>IBattleObserver 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ICache/"><code>ICache</code></a></td><td>ICache 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ICameraModeLogic/"><code>ICameraModeLogic</code></a></td><td>ICameraModeLogic 是一个行为逻辑类，位于 TaleWorlds.Core，响应事件、驱动流程并在关键节点更新系统状态。</td></tr>
+<tr><td><a href="../ICharacterData/"><code>ICharacterData</code></a></td><td>ICharacterData 是一个数据载体，位于 TaleWorlds.Core，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../ICommunicator/"><code>ICommunicator</code></a></td><td>ICommunicator 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IConfigurationManager/"><code>IConfigurationManager</code></a></td><td>IConfigurationManager 是一个管理器，位于 TaleWorlds.Library，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../IDebugManager/"><code>IDebugManager</code></a></td><td>IDebugManager 是一个管理器，位于 TaleWorlds.Library，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../IEntityComponent/"><code>IEntityComponent</code></a></td><td>IEntityComponent 是一个组件型对象，位于 TaleWorlds.Core，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../IFaceGen/"><code>IFaceGen</code></a></td><td>IFaceGen 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IFaceGeneratorCustomFilter/"><code>IFaceGeneratorCustomFilter</code></a></td><td>IFaceGeneratorCustomFilter 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IGameStarter/"><code>IGameStarter</code></a></td><td>IGameStarter 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IGameStateListener/"><code>IGameStateListener</code></a></td><td>IGameStateListener 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IGameStateManagerListener/"><code>IGameStateManagerListener</code></a></td><td>IGameStateManagerListener 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IGameStateManagerOwner/"><code>IGameStateManagerOwner</code></a></td><td>IGameStateManagerOwner 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IInformationDataHolder/"><code>IInformationDataHolder</code></a></td><td>IInformationDataHolder 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IManagedParametersInitializer/"><code>IManagedParametersInitializer</code></a></td><td>IManagedParametersInitializer 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IMBBindingList/"><code>IMBBindingList</code></a></td><td>IMBBindingList 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../IMBCollection/"><code>IMBCollection</code></a></td><td>IMBCollection 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../IMission/"><code>IMission</code></a></td><td>IMission 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IMissionSiegeWeapon/"><code>IMissionSiegeWeapon</code></a></td><td>IMissionSiegeWeapon 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IMissionTeam/"><code>IMissionTeam</code></a></td><td>IMissionTeam 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IMissionTroopSupplier/"><code>IMissionTroopSupplier</code></a></td><td>IMissionTroopSupplier 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IMonsterMissionData/"><code>IMonsterMissionData</code></a></td><td>IMonsterMissionData 是一个数据载体，位于 TaleWorlds.Core，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../IMonsterMissionDataCreator/"><code>IMonsterMissionDataCreator</code></a></td><td>IMonsterMissionDataCreator 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IndexEntry/"><code>IndexEntry</code></a></td><td>IndexEntry 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../INetworkCommunication/"><code>INetworkCommunication</code></a></td><td>INetworkCommunication 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../InformationData/"><code>InformationData</code></a></td><td>InformationData 是一个数据载体，位于 TaleWorlds.Core，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../InformationManager/"><code>InformationManager</code></a></td><td>InformationManager 是一个管理器，位于 TaleWorlds.Library，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../InformationMessage/"><code>InformationMessage</code></a></td><td>InformationMessage 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../InitialWeaponEquipPreference/"><code>InitialWeaponEquipPreference</code></a></td><td>InitialWeaponEquipPreference 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../InputType/"><code>InputType</code></a></td><td>InputType 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../InputUsageMask/"><code>InputUsageMask</code></a></td><td>InputUsageMask 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../InquiryData/"><code>InquiryData</code></a></td><td>InquiryData 是一个数据载体，位于 TaleWorlds.Library，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../InquiryElement/"><code>InquiryElement</code></a></td><td>InquiryElement 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IParallelDriver/"><code>IParallelDriver</code></a></td><td>IParallelDriver 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../IPlatformFileHelper/"><code>IPlatformFileHelper</code></a></td><td>IPlatformFileHelper 是一个帮助类，位于 TaleWorlds.Library，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../IReader/"><code>IReader</code></a></td><td>IReader 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../IReadOnlyPropertyOwner/"><code>IReadOnlyPropertyOwner</code></a></td><td>IReadOnlyPropertyOwner 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../IReadOnlyPropertyOwnerF/"><code>IReadOnlyPropertyOwnerF</code></a></td><td>IReadOnlyPropertyOwnerF 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ISceneNotificationContextProvider/"><code>ISceneNotificationContextProvider</code></a></td><td>ISceneNotificationContextProvider 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ISerializableObject/"><code>ISerializableObject</code></a></td><td>ISerializableObject 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../IShipOrigin/"><code>IShipOrigin</code></a></td><td>IShipOrigin 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ITask/"><code>ITask</code></a></td><td>ITask 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ITelemetryManager/"><code>ITelemetryManager</code></a></td><td>ITelemetryManager 是一个管理器，位于 TaleWorlds.Library，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../ItemCategory/"><code>ItemCategory</code></a></td><td>ItemCategory 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ItemCategorySelector/"><code>ItemCategorySelector</code></a></td><td>ItemCategorySelector 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ItemComponent/"><code>ItemComponent</code></a></td><td>ItemComponent 是一个组件型对象，位于 TaleWorlds.Core，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../ItemFlags/"><code>ItemFlags</code></a></td><td>ItemFlags 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ItemModifier/"><code>ItemModifier</code></a></td><td>ItemModifier 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ItemModifierGroup/"><code>ItemModifierGroup</code></a></td><td>ItemModifierGroup 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ItemObject/"><code>ItemObject</code></a></td><td>ItemObject 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ItemQuality/"><code>ItemQuality</code></a></td><td>ItemQuality 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ItemRosterElement/"><code>ItemRosterElement</code></a></td><td>ItemRosterElement 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ItemTiers/"><code>ItemTiers</code></a></td><td>ItemTiers 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ItemTypeEnum/"><code>ItemTypeEnum</code></a></td><td>ItemTypeEnum 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ItemUsageSetFlags/"><code>ItemUsageSetFlags</code></a></td><td>ItemUsageSetFlags 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ItemValueModel/"><code>ItemValueModel</code></a></td><td>ItemValueModel 是一个规则模型，位于 TaleWorlds.Core，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../ITrackableBase/"><code>ITrackableBase</code></a></td><td>ITrackableBase 是一个抽象基类，位于 TaleWorlds.Core，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../IViewModel/"><code>IViewModel</code></a></td><td>IViewModel 是一个 Gauntlet ViewModel，位于 TaleWorlds.Library，负责把 C# 逻辑状态绑定到 UI。</td></tr>
+<tr><td><a href="../IViewModelGetterInterface/"><code>IViewModelGetterInterface</code></a></td><td>IViewModelGetterInterface 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../IViewModelSetterInterface/"><code>IViewModelSetterInterface</code></a></td><td>IViewModelSetterInterface 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../IWriter/"><code>IWriter</code></a></td><td>IWriter 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../JobType/"><code>JobType</code></a></td><td>JobType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../LinearFrictionTerm/"><code>LinearFrictionTerm</code></a></td><td>LinearFrictionTerm 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../LineSegment2D/"><code>LineSegment2D</code></a></td><td>LineSegment2D 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ListChangedEventArgs/"><code>ListChangedEventArgs</code></a></td><td>ListChangedEventArgs 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ListChangedType/"><code>ListChangedType</code></a></td><td>ListChangedType 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Logger/"><code>Logger</code></a></td><td>Logger 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MachineId/"><code>MachineId</code></a></td><td>MachineId 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ManagedArray/"><code>ManagedArray</code></a></td><td>ManagedArray 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ManagedDllFolder/"><code>ManagedDllFolder</code></a></td><td>ManagedDllFolder 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ManagedParameters/"><code>ManagedParameters</code></a></td><td>ManagedParameters 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ManagedParametersEnum/"><code>ManagedParametersEnum</code></a></td><td>ManagedParametersEnum 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../Mat2/"><code>Mat2</code></a></td><td>Mat2 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Mat3/"><code>Mat3</code></a></td><td>Mat3 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MaterialProperty/"><code>MaterialProperty</code></a></td><td>MaterialProperty 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MathF/"><code>MathF</code></a></td><td>MathF 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MatrixFrame/"><code>MatrixFrame</code></a></td><td>MatrixFrame 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MBArrayList/"><code>MBArrayList</code></a></td><td>MBArrayList 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MBBindingList/"><code>MBBindingList</code></a></td><td>MBBindingList 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MBBodyProperty/"><code>MBBodyProperty</code></a></td><td>MBBodyProperty 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MBCharacterSkills/"><code>MBCharacterSkills</code></a></td><td>MBCharacterSkills 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MBEquipmentRoster/"><code>MBEquipmentRoster</code></a></td><td>MBEquipmentRoster 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MBException/"><code>MBException</code></a></td><td>MBException 是一个异常类型，位于 TaleWorlds.Core，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../MBFastRandom/"><code>MBFastRandom</code></a></td><td>MBFastRandom 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MBFastRandomSelector/"><code>MBFastRandomSelector</code></a></td><td>MBFastRandomSelector 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MBGameModel/"><code>MBGameModel</code></a></td><td>MBGameModel 是一个规则模型，位于 TaleWorlds.Core，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../MBHaltonColorGenerator/"><code>MBHaltonColorGenerator</code></a></td><td>MBHaltonColorGenerator 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MBIllegalValueException/"><code>MBIllegalValueException</code></a></td><td>MBIllegalValueException 是一个异常类型，位于 TaleWorlds.Core，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../MBInformationManager/"><code>MBInformationManager</code></a></td><td>MBInformationManager 是一个管理器，位于 TaleWorlds.Core，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../MBInvalidParameterException/"><code>MBInvalidParameterException</code></a></td><td>MBInvalidParameterException 是一个异常类型，位于 TaleWorlds.Core，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../MBList/"><code>MBList</code></a></td><td>MBList 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MBList2D/"><code>MBList2D</code></a></td><td>MBList2D 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MBMath/"><code>MBMath</code></a></td><td>MBMath 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MBMethodNameNotFoundException/"><code>MBMethodNameNotFoundException</code></a></td><td>MBMethodNameNotFoundException 是一个异常类型，位于 TaleWorlds.Core，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../MBMisuseException/"><code>MBMisuseException</code></a></td><td>MBMisuseException 是一个异常类型，位于 TaleWorlds.Core，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../MBNetwork/"><code>MBNetwork</code></a></td><td>MBNetwork 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MBNetworkBitException/"><code>MBNetworkBitException</code></a></td><td>MBNetworkBitException 是一个异常类型，位于 TaleWorlds.Core，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../MBNotFoundException/"><code>MBNotFoundException</code></a></td><td>MBNotFoundException 是一个异常类型，位于 TaleWorlds.Core，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../MBNotNullParameterException/"><code>MBNotNullParameterException</code></a></td><td>MBNotNullParameterException 是一个异常类型，位于 TaleWorlds.Core，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../MBNullParameterException/"><code>MBNullParameterException</code></a></td><td>MBNullParameterException 是一个异常类型，位于 TaleWorlds.Core，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../MBObjectManagerExtensions/"><code>MBObjectManagerExtensions</code></a></td><td>MBObjectManagerExtensions 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MBOutOfRangeException/"><code>MBOutOfRangeException</code></a></td><td>MBOutOfRangeException 是一个异常类型，位于 TaleWorlds.Core，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../MBPerlin/"><code>MBPerlin</code></a></td><td>MBPerlin 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MBQueue/"><code>MBQueue</code></a></td><td>MBQueue 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MBRandom/"><code>MBRandom</code></a></td><td>MBRandom 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MBReadOnlyDictionary/"><code>MBReadOnlyDictionary</code></a></td><td>MBReadOnlyDictionary 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MBReadOnlyList/"><code>MBReadOnlyList</code></a></td><td>MBReadOnlyList 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MBReadOnlyQueue/"><code>MBReadOnlyQueue</code></a></td><td>MBReadOnlyQueue 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MBSaveLoad/"><code>MBSaveLoad</code></a></td><td>MBSaveLoad 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MBSortedMultiList/"><code>MBSortedMultiList</code></a></td><td>MBSortedMultiList 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MBStringBuilder/"><code>MBStringBuilder</code></a></td><td>MBStringBuilder 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MBTypeMismatchException/"><code>MBTypeMismatchException</code></a></td><td>MBTypeMismatchException 是一个异常类型，位于 TaleWorlds.Core，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../MBUnderFlowException/"><code>MBUnderFlowException</code></a></td><td>MBUnderFlowException 是一个异常类型，位于 TaleWorlds.Core，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../MBUnknownTypeException/"><code>MBUnknownTypeException</code></a></td><td>MBUnknownTypeException 是一个异常类型，位于 TaleWorlds.Core，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../MBUtil/"><code>MBUtil</code></a></td><td>MBUtil 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MBWorkspace/"><code>MBWorkspace</code></a></td><td>MBWorkspace 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../MetaDataExtensions/"><code>MetaDataExtensions</code></a></td><td>MetaDataExtensions 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MissionInitializerRecord/"><code>MissionInitializerRecord</code></a></td><td>MissionInitializerRecord 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MissionMode/"><code>MissionMode</code></a></td><td>MissionMode 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MissionResult/"><code>MissionResult</code></a></td><td>MissionResult 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MissionShipObject/"><code>MissionShipObject</code></a></td><td>MissionShipObject 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MissionSiegeWeapon/"><code>MissionSiegeWeapon</code></a></td><td>MissionSiegeWeapon 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ModuleCheckResultType/"><code>ModuleCheckResultType</code></a></td><td>ModuleCheckResultType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../Monster/"><code>Monster</code></a></td><td>Monster 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MountCreationKey/"><code>MountCreationKey</code></a></td><td>MountCreationKey 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../MultiSelectionInquiryData/"><code>MultiSelectionInquiryData</code></a></td><td>MultiSelectionInquiryData 是一个数据载体，位于 TaleWorlds.Core，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../NauticalInformation/"><code>NauticalInformation</code></a></td><td>NauticalInformation 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../NavigationPath/"><code>NavigationPath</code></a></td><td>NavigationPath 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../NotificationSceneProperties/"><code>NotificationSceneProperties</code></a></td><td>NotificationSceneProperties 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ObjectInstanceTracker/"><code>ObjectInstanceTracker</code></a></td><td>ObjectInstanceTracker 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Oriented2DArea/"><code>Oriented2DArea</code></a></td><td>Oriented2DArea 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ParameterContainer/"><code>ParameterContainer</code></a></td><td>ParameterContainer 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ParameterFile/"><code>ParameterFile</code></a></td><td>ParameterFile 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ParameterLoader/"><code>ParameterLoader</code></a></td><td>ParameterLoader 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Parameters/"><code>Parameters</code></a></td><td>Parameters 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PathFaceRecord/"><code>PathFaceRecord</code></a></td><td>PathFaceRecord 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PathFinder/"><code>PathFinder</code></a></td><td>PathFinder 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PeerComponent/"><code>PeerComponent</code></a></td><td>PeerComponent 是一个组件型对象，位于 TaleWorlds.Core，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../PerformanceTestBlock/"><code>PerformanceTestBlock</code></a></td><td>PerformanceTestBlock 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PieceData/"><code>PieceData</code></a></td><td>PieceData 是一个数据载体，位于 TaleWorlds.Core，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../PieceTypes/"><code>PieceTypes</code></a></td><td>PieceTypes 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../PinnedArrayData/"><code>PinnedArrayData</code></a></td><td>PinnedArrayData 是一个数据载体，位于 TaleWorlds.Library，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../Platform/"><code>Platform</code></a></td><td>Platform 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PlatformDirectoryPath/"><code>PlatformDirectoryPath</code></a></td><td>PlatformDirectoryPath 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PlatformFileHelperPC/"><code>PlatformFileHelperPC</code></a></td><td>PlatformFileHelperPC 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PlatformFilePath/"><code>PlatformFilePath</code></a></td><td>PlatformFilePath 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PlatformFileType/"><code>PlatformFileType</code></a></td><td>PlatformFileType 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PlatformInitParams/"><code>PlatformInitParams</code></a></td><td>PlatformInitParams 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PlayerGameState/"><code>PlayerGameState</code></a></td><td>PlayerGameState 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../PostProcessInformation/"><code>PostProcessInformation</code></a></td><td>PostProcessInformation 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PriorityQueue/"><code>PriorityQueue</code></a></td><td>PriorityQueue 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ProfanityChechkerType/"><code>ProfanityChechkerType</code></a></td><td>ProfanityChechkerType 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ProfanityChecker/"><code>ProfanityChecker</code></a></td><td>ProfanityChecker 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Property/"><code>Property</code></a></td><td>Property 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../PropertyChangedWithBoolValueEventArgs/"><code>PropertyChangedWithBoolValueEventArgs</code></a></td><td>PropertyChangedWithBoolValueEventArgs 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PropertyChangedWithColorValueEventArgs/"><code>PropertyChangedWithColorValueEventArgs</code></a></td><td>PropertyChangedWithColorValueEventArgs 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PropertyChangedWithDoubleValueEventArgs/"><code>PropertyChangedWithDoubleValueEventArgs</code></a></td><td>PropertyChangedWithDoubleValueEventArgs 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PropertyChangedWithFloatValueEventArgs/"><code>PropertyChangedWithFloatValueEventArgs</code></a></td><td>PropertyChangedWithFloatValueEventArgs 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PropertyChangedWithIntValueEventArgs/"><code>PropertyChangedWithIntValueEventArgs</code></a></td><td>PropertyChangedWithIntValueEventArgs 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PropertyChangedWithUIntValueEventArgs/"><code>PropertyChangedWithUIntValueEventArgs</code></a></td><td>PropertyChangedWithUIntValueEventArgs 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PropertyChangedWithValueEventArgs/"><code>PropertyChangedWithValueEventArgs</code></a></td><td>PropertyChangedWithValueEventArgs 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PropertyChangedWithVec2ValueEventArgs/"><code>PropertyChangedWithVec2ValueEventArgs</code></a></td><td>PropertyChangedWithVec2ValueEventArgs 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../PropertyObject/"><code>PropertyObject</code></a></td><td>PropertyObject 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../PropertyOwner/"><code>PropertyOwner</code></a></td><td>PropertyOwner 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../PropertyOwnerF/"><code>PropertyOwnerF</code></a></td><td>PropertyOwnerF 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../Quaternion/"><code>Quaternion</code></a></td><td>Quaternion 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../RainInformation/"><code>RainInformation</code></a></td><td>RainInformation 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Ray/"><code>Ray</code></a></td><td>Ray 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../RefiningFormula/"><code>RefiningFormula</code></a></td><td>RefiningFormula 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../RelevantContextType/"><code>RelevantContextType</code></a></td><td>RelevantContextType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ResetAllTutorialsEvent/"><code>ResetAllTutorialsEvent</code></a></td><td>ResetAllTutorialsEvent 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ResourceDepot/"><code>ResourceDepot</code></a></td><td>ResourceDepot 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ResourceDepotFile/"><code>ResourceDepotFile</code></a></td><td>ResourceDepotFile 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ResourceDepotLocation/"><code>ResourceDepotLocation</code></a></td><td>ResourceDepotLocation 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../RidingModel/"><code>RidingModel</code></a></td><td>RidingModel 是一个规则模型，位于 TaleWorlds.Core，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../Runtime/"><code>Runtime</code></a></td><td>Runtime 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../SaddleComponent/"><code>SaddleComponent</code></a></td><td>SaddleComponent 是一个组件型对象，位于 TaleWorlds.Core，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../SailType/"><code>SailType</code></a></td><td>SailType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../SaveableCoreTypeDefiner/"><code>SaveableCoreTypeDefiner</code></a></td><td>SaveableCoreTypeDefiner 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../SaveResult/"><code>SaveResult</code></a></td><td>SaveResult 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../SaveResultWithMessage/"><code>SaveResultWithMessage</code></a></td><td>SaveResultWithMessage 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../SceneNotificationCharacter/"><code>SceneNotificationCharacter</code></a></td><td>SceneNotificationCharacter 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../SceneNotificationData/"><code>SceneNotificationData</code></a></td><td>SceneNotificationData 是一个数据载体，位于 TaleWorlds.Core，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../SceneNotificationShip/"><code>SceneNotificationShip</code></a></td><td>SceneNotificationShip 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ScopedTimer/"><code>ScopedTimer</code></a></td><td>ScopedTimer 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../SerialTask/"><code>SerialTask</code></a></td><td>SerialTask 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ShipHull/"><code>ShipHull</code></a></td><td>ShipHull 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ShipPhysicsReference/"><code>ShipPhysicsReference</code></a></td><td>ShipPhysicsReference 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ShipSail/"><code>ShipSail</code></a></td><td>ShipSail 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ShipSlot/"><code>ShipSlot</code></a></td><td>ShipSlot 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ShipType/"><code>ShipType</code></a></td><td>ShipType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ShipUpgradePiece/"><code>ShipUpgradePiece</code></a></td><td>ShipUpgradePiece 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../ShipVisualSlotInfo/"><code>ShipVisualSlotInfo</code></a></td><td>ShipVisualSlotInfo 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../SiegeEngineType/"><code>SiegeEngineType</code></a></td><td>SiegeEngineType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../SingleThreadedSynchronizationContext/"><code>SingleThreadedSynchronizationContext</code></a></td><td>SingleThreadedSynchronizationContext 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../SingleThreadedSynchronizationContextManager/"><code>SingleThreadedSynchronizationContextManager</code></a></td><td>SingleThreadedSynchronizationContextManager 是一个管理器，位于 TaleWorlds.Library，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../SkeletonScale/"><code>SkeletonScale</code></a></td><td>SkeletonScale 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../SkillObject/"><code>SkillObject</code></a></td><td>SkillObject 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../SkillType/"><code>SkillType</code></a></td><td>SkillType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../SkinMask/"><code>SkinMask</code></a></td><td>SkinMask 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../SkyInformation/"><code>SkyInformation</code></a></td><td>SkyInformation 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../SnowInformation/"><code>SnowInformation</code></a></td><td>SnowInformation 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../SpectatorCameraTypes/"><code>SpectatorCameraTypes</code></a></td><td>SpectatorCameraTypes 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../SRTHelper/"><code>SRTHelper</code></a></td><td>SRTHelper 是一个帮助类，位于 TaleWorlds.Library，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../SrtParser/"><code>SrtParser</code></a></td><td>SrtParser 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray/"><code>StackArray</code></a></td><td>StackArray 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray10FloatFloatTuple/"><code>StackArray10FloatFloatTuple</code></a></td><td>StackArray10FloatFloatTuple 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray2Bool/"><code>StackArray2Bool</code></a></td><td>StackArray2Bool 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray32Bool/"><code>StackArray32Bool</code></a></td><td>StackArray32Bool 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray3Bool/"><code>StackArray3Bool</code></a></td><td>StackArray3Bool 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray3Float/"><code>StackArray3Float</code></a></td><td>StackArray3Float 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray3Int/"><code>StackArray3Int</code></a></td><td>StackArray3Int 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray4Bool/"><code>StackArray4Bool</code></a></td><td>StackArray4Bool 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray4Int/"><code>StackArray4Int</code></a></td><td>StackArray4Int 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray5Bool/"><code>StackArray5Bool</code></a></td><td>StackArray5Bool 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray5Float/"><code>StackArray5Float</code></a></td><td>StackArray5Float 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray6Bool/"><code>StackArray6Bool</code></a></td><td>StackArray6Bool 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray7Bool/"><code>StackArray7Bool</code></a></td><td>StackArray7Bool 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray8Bool/"><code>StackArray8Bool</code></a></td><td>StackArray8Bool 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray8Int/"><code>StackArray8Int</code></a></td><td>StackArray8Int 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StackArray8Vec3/"><code>StackArray8Vec3</code></a></td><td>StackArray8Vec3 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../State/"><code>State</code></a></td><td>State 是 TaleWorlds.MountAndBlade 下的公开类型。</td></tr>
+<tr><td><a href="../StaticBodyProperties/"><code>StaticBodyProperties</code></a></td><td>StaticBodyProperties 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StreamHelpers/"><code>StreamHelpers</code></a></td><td>StreamHelpers 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../StrikeType/"><code>StrikeType</code></a></td><td>StrikeType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../StringReader/"><code>StringReader</code></a></td><td>StringReader 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../StringWriter/"><code>StringWriter</code></a></td><td>StringWriter 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../SubtitleItem/"><code>SubtitleItem</code></a></td><td>SubtitleItem 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../SunInformation/"><code>SunInformation</code></a></td><td>SunInformation 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../TeamSideEnum/"><code>TeamSideEnum</code></a></td><td>TeamSideEnum 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../TeamSideEnumExtensions/"><code>TeamSideEnumExtensions</code></a></td><td>TeamSideEnumExtensions 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../TelemetryLevelMask/"><code>TelemetryLevelMask</code></a></td><td>TelemetryLevelMask 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../TerrainType/"><code>TerrainType</code></a></td><td>TerrainType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../TestCommonBase/"><code>TestCommonBase</code></a></td><td>TestCommonBase 是一个抽象基类，位于 TaleWorlds.Library，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../TestContext/"><code>TestContext</code></a></td><td>TestContext 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../TextInquiryData/"><code>TextInquiryData</code></a></td><td>TextInquiryData 是一个数据载体，位于 TaleWorlds.Library，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../TimedDictionaryCache/"><code>TimedDictionaryCache</code></a></td><td>TimedDictionaryCache 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../TimeInformation/"><code>TimeInformation</code></a></td><td>TimeInformation 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Timer/"><code>Timer</code></a></td><td>Timer 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../TooltipBaseVM/"><code>TooltipBaseVM</code></a></td><td>TooltipBaseVM 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../TooltipRegistry/"><code>TooltipRegistry</code></a></td><td>TooltipRegistry 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../TradeItemComponent/"><code>TradeItemComponent</code></a></td><td>TradeItemComponent 是一个组件型对象，位于 TaleWorlds.Core，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../Transformation/"><code>Transformation</code></a></td><td>Transformation 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../TroopClassExtensions/"><code>TroopClassExtensions</code></a></td><td>TroopClassExtensions 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../TroopTraitsMask/"><code>TroopTraitsMask</code></a></td><td>TroopTraitsMask 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../TroopTraitsMaskExtensions/"><code>TroopTraitsMaskExtensions</code></a></td><td>TroopTraitsMaskExtensions 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../TroopType/"><code>TroopType</code></a></td><td>TroopType 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../TroopUsageFlags/"><code>TroopUsageFlags</code></a></td><td>TroopUsageFlags 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../TutorialContextChangedEvent/"><code>TutorialContextChangedEvent</code></a></td><td>TutorialContextChangedEvent 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../TutorialContexts/"><code>TutorialContexts</code></a></td><td>TutorialContexts 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../TWException/"><code>TWException</code></a></td><td>TWException 是一个异常类型，位于 TaleWorlds.Library，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../TWParallel/"><code>TWParallel</code></a></td><td>TWParallel 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../TWSharedMutex/"><code>TWSharedMutex</code></a></td><td>TWSharedMutex 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../TWSharedMutexReadLock/"><code>TWSharedMutexReadLock</code></a></td><td>TWSharedMutexReadLock 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../TWSharedMutexWriteLock/"><code>TWSharedMutexWriteLock</code></a></td><td>TWSharedMutexWriteLock 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../TWXmlLoadException/"><code>TWXmlLoadException</code></a></td><td>TWXmlLoadException 是一个异常类型，位于 TaleWorlds.Library，用于表达明确的错误条件。</td></tr>
+<tr><td><a href="../UiStringHelper/"><code>UiStringHelper</code></a></td><td>UiStringHelper 是一个帮助类，位于 TaleWorlds.Library，提供不依赖实例状态的静态辅助方法。</td></tr>
+<tr><td><a href="../UnderwearTypes/"><code>UnderwearTypes</code></a></td><td>UnderwearTypes 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../UndoRedoKey/"><code>UndoRedoKey</code></a></td><td>UndoRedoKey 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../UniqueSceneId/"><code>UniqueSceneId</code></a></td><td>UniqueSceneId 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../UniqueTroopDescriptor/"><code>UniqueTroopDescriptor</code></a></td><td>UniqueTroopDescriptor 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../UnitSpawnPrioritizations/"><code>UnitSpawnPrioritizations</code></a></td><td>UnitSpawnPrioritizations 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../Vec2/"><code>Vec2</code></a></td><td>Vec2 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Vec2i/"><code>Vec2i</code></a></td><td>Vec2i 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Vec3/"><code>Vec3</code></a></td><td>Vec3 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../Vec3i/"><code>Vec3i</code></a></td><td>Vec3i 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../ViewModel/"><code>ViewModel</code></a></td><td>ViewModel 是一个规则模型，位于 TaleWorlds.Library，定义“系统该如何计算”；mod 开发者常用继承或替换来改变规则。</td></tr>
+<tr><td><a href="../VirtualDirectoryAttribute/"><code>VirtualDirectoryAttribute</code></a></td><td>VirtualDirectoryAttribute 是一个 .NET 特性，位于 TaleWorlds.Library，用于给类型或成员打标签。</td></tr>
+<tr><td><a href="../VirtualFileAttribute/"><code>VirtualFileAttribute</code></a></td><td>VirtualFileAttribute 是一个 .NET 特性，位于 TaleWorlds.Library，用于给类型或成员打标签。</td></tr>
+<tr><td><a href="../VirtualFolders/"><code>VirtualFolders</code></a></td><td>VirtualFolders 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../VirtualPlayer/"><code>VirtualPlayer</code></a></td><td>VirtualPlayer 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../WaitForGameState/"><code>WaitForGameState</code></a></td><td>WaitForGameState 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../WeaponClass/"><code>WeaponClass</code></a></td><td>WeaponClass 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../WeaponComponent/"><code>WeaponComponent</code></a></td><td>WeaponComponent 是一个组件型对象，位于 TaleWorlds.Core，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../WeaponComponentData/"><code>WeaponComponentData</code></a></td><td>WeaponComponentData 是一个数据载体，位于 TaleWorlds.Core，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../WeaponComponentDataExtensions/"><code>WeaponComponentDataExtensions</code></a></td><td>WeaponComponentDataExtensions 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../WeaponDescription/"><code>WeaponDescription</code></a></td><td>WeaponDescription 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../WeaponDesign/"><code>WeaponDesign</code></a></td><td>WeaponDesign 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../WeaponDesignElement/"><code>WeaponDesignElement</code></a></td><td>WeaponDesignElement 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../WeaponFlags/"><code>WeaponFlags</code></a></td><td>WeaponFlags 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../WeaponTiers/"><code>WeaponTiers</code></a></td><td>WeaponTiers 是 TaleWorlds.Core 下的公开类型。</td></tr>
+<tr><td><a href="../Win64_Shipping_Client/"><code>Win64_Shipping_Client</code></a></td><td>Win64_Shipping_Client 是 TaleWorlds.Library 下的公开类型。</td></tr>
+<tr><td><a href="../XmlHelper/"><code>XmlHelper</code></a></td><td>XmlHelper 是一个帮助类，位于 TaleWorlds.Core，提供不依赖实例状态的静态辅助方法。</td></tr>
+</tbody></table>
+<h2 id="ben-qu-yu-qi-ta-zi-xi-tong">本区域其他子系统</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/core-extra/root/./../codegeneration/">CodeGeneration</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/core-extra/root/./../eventsystem/">EventSystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/core-extra/root/./../graph/">Graph</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/core-extra/root/./../http/">Http</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/core-extra/root/./../imageidentifiers/">ImageIdentifiers</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/core-extra/root/./../newsmanager/">NewsManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/core-extra/root/./../viewmodelcollection/">ViewModelCollection</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -129,11 +129,12 @@
           {%- for lang_code in nav.meta.languages %}
             {%- set route_key = "/" ~ version ~ "/" ~ lang_code ~ "/" -%}
             {%- if nav.routes[route_key] is defined -%}
-              {%- set target_rel = alt_map[current_relkey] -%}
-              {%- if target_rel and target_rel[version] and target_rel[version][lang_code] -%}
-                {%- set target_url = target_rel[version][lang_code] -%}
-              {%- else -%}
-                {%- set target_url = get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/_index.md') -%}
+              {%- set target_url = get_url(path='@/' ~ version ~ '/' ~ lang_code ~ '/_index.md') -%}
+              {%- if alt_map[current_relkey] is defined -%}
+                {%- set target_rel = alt_map[current_relkey] -%}
+                {%- if target_rel and target_rel[version] and target_rel[version][lang_code] -%}
+                  {%- set target_url = target_rel[version][lang_code] -%}
+                {%- endif -%}
               {%- endif -%}
               <a href="{{ target_url | safe }}"
                  class="{%- if current_url is starting_with(route_key) %}active{% endif %}">

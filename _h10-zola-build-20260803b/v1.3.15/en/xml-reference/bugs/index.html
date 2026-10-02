@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>bugs</title>
+  <meta name="description" content="Bannerlord Modding SDK Documentation - 模块架构指南与 API 参考">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/xml-reference/bugs/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/xml-reference/bugs/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="active">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;xml-reference&#x2F;">XML Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">bugs</span>
+    </nav>
+  
+  <h1>bugs</h1>
+  <h1 id="xml-parsing-bug-analysis-report">XML Parsing Bug Analysis Report</h1>
+<h2 id="mental-model">Mental Model</h2>
+<p>Treat <code>XML Parsing Bug Analysis Report</code> as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.</p>
+<blockquote>
+<p>Version: Bannerlord v1.3.15<br />
+Analysis Scope: TaleWorlds.ObjectSystem</p>
+</blockquote>
+<hr />
+<h2 id="bug-1-loadxml-silently-swallows-all-exceptions">Bug 1: LoadXML() Silently Swallows All Exceptions</h2>
+<p><strong>File</strong>: <code>bannerlord-1.3.15/TaleWorlds.ObjectSystem/MBObjectManager.cs</code><br />
+<strong>Line</strong>: ~541-543<br />
+<strong>Severity</strong>: Critical</p>
+<h3 id="what-happens">What Happens</h3>
+<p>Any exception during XML loading is silently swallowed. Modders see no error message, but the XML may not be loaded correctly at all.</p>
+<h3 id="root-cause">Root Cause</h3>
+<pre><code data-lang="csharp">public void LoadXML(string id, bool isDevelopment, string gameType, bool skipXmlFilterForEditor = false)
+{
+    bool flag = skipXmlFilterForEditor || isDevelopment;
+    XmlDocument mergedXmlForManaged = MBObjectManager.GetMergedXmlForManaged(id, false, flag, gameType);
+    try
+    {
+        this.LoadXml(mergedXmlForManaged, isDevelopment);
+    }
+    catch (Exception)  // Empty catch block, swallows all exceptions
+    {
+    }
+}
+</code></pre>
+<h3 id="trigger-condition">Trigger Condition</h3>
+<ul>
+<li>XML syntax error</li>
+<li>XML missing required elements</li>
+<li>XML references non-existent objects</li>
+</ul>
+<h3 id="error-impact">Error/Impact</h3>
+<ul>
+<li>Exception completely swallowed, no log output</li>
+<li>XML may be partially loaded</li>
+<li>Game behavior becomes unpredictable</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre><code data-lang="xml">&lt;!-- Missing &lt;/Items&gt; closing tag --&gt;
+&lt;Items&gt;
+    &lt;Item id=&quot;test_item&quot;&gt;
+        &lt;name&gt;Test&lt;/name&gt;
+&lt;/Items&gt;
+</code></pre>
+<hr />
+<h2 id="bug-2-mbobjectbase-deserialize-missing-id-attribute-null-check">Bug 2: MBObjectBase.Deserialize() Missing id Attribute Null Check</h2>
+<p><strong>File</strong>: <code>bannerlord-1.3.15/TaleWorlds.ObjectSystem/MBObjectBase.cs</code><br />
+<strong>Line</strong>: ~85<br />
+<strong>Severity</strong>: Critical</p>
+<h3 id="what-happens-1">What Happens</h3>
+<p>When an XML element is missing the <code>id</code> attribute, directly calling <code>.Value</code> causes a <code>NullReferenceException</code> crash.</p>
+<h3 id="root-cause-1">Root Cause</h3>
+<pre><code data-lang="csharp">public virtual void Deserialize(MBObjectManager objectManager, XmlNode node)
+{
+    this.Initialize();
+    this.StringId = node.Attributes.get_ItemOf(&quot;id&quot;).Value;  // If id doesn&#39;t exist, get_ItemOf returns null, .Value throws
+}
+</code></pre>
+<h3 id="trigger-condition-1">Trigger Condition</h3>
+<p>XML element missing <code>id</code> attribute</p>
+<h3 id="error-impact-1">Error/Impact</h3>
+<pre><code>NullReferenceException: Object reference not set to an instance of an object.
+   at TaleWorlds.ObjectSystem.MBObjectBase.Deserialize(...)
+</code></pre>
+<h3 id="example-1">Example</h3>
+<pre><code data-lang="xml">&lt;!-- Missing id attribute --&gt;
+&lt;Items&gt;
+    &lt;Item&gt;
+        &lt;name&gt;Test Item&lt;/name&gt;
+    &lt;/Item&gt;
+&lt;/Items&gt;
+</code></pre>
+<hr />
+<h2 id="bug-3-loadxml-missing-id-attribute-null-check-during-node-iteration">Bug 3: LoadXml() Missing id Attribute Null Check During Node Iteration</h2>
+<p><strong>File</strong>: <code>bannerlord-1.3.15/TaleWorlds.ObjectSystem/MBObjectManager.cs</code><br />
+<strong>Line</strong>: ~1249<br />
+<strong>Severity</strong>: Critical</p>
+<h3 id="what-happens-2">What Happens</h3>
+<p>Similar to Bug 2, when iterating through nodes in the <code>LoadXml()</code> method, the <code>id</code> attribute value is accessed directly without null check.</p>
+<h3 id="root-cause-2">Root Cause</h3>
+<pre><code data-lang="csharp">for (XmlNode xmlNode = doc.ChildNodes.get_ItemOf(i).ChildNodes.get_ItemOf(0); xmlNode != null; xmlNode = xmlNode.NextSibling)
+{
+    if (xmlNode.NodeType != XmlNodeType.Comment)
+    {
+        string value = xmlNode.Attributes.get_ItemOf(&quot;id&quot;).Value;  // May crash
+        MBObjectBase presumedObject = this.GetPresumedObject(text, value, true);
+        presumedObject.Deserialize(this, xmlNode);
+        presumedObject.AfterInitialized();
+    }
+}
+</code></pre>
+<h3 id="trigger-condition-2">Trigger Condition</h3>
+<ul>
+<li>XML comment nodes accidentally processed as elements</li>
+<li>XML element genuinely missing id attribute</li>
+</ul>
+<h3 id="error-impact-2">Error/Impact</h3>
+<p>Game crashes, modder has no idea which XML file or line caused the problem.</p>
+<hr />
+<h2 id="bug-4-loadonexmlfromfile-silently-swallows-exceptions">Bug 4: LoadOneXmlFromFile() Silently Swallows Exceptions</h2>
+<p><strong>File</strong>: <code>bannerlord-1.3.15/TaleWorlds.ObjectSystem/MBObjectManager.cs</code><br />
+<strong>Line</strong>: ~845-847<br />
+<strong>Severity</strong>: High</p>
+<h3 id="what-happens-3">What Happens</h3>
+<p>The <code>LoadOneXmlFromFile()</code> method catches all exceptions but does nothing.</p>
+<h3 id="root-cause-3">Root Cause</h3>
+<pre><code data-lang="csharp">public void LoadOneXmlFromFile(string xmlPath, string xsdPath, bool skipValidation = false)
+{
+    try
+    {
+        XmlDocument xmlDocument = MBObjectManager.CreateDocumentFromXmlFile(xmlPath, xsdPath, skipValidation);
+        this.LoadXml(xmlDocument, false);
+    }
+    catch (Exception)  // Empty catch block
+    {
+    }
+}
+</code></pre>
+<h3 id="trigger-condition-3">Trigger Condition</h3>
+<p>XML file doesn't exist, XML format error, XSD validation failure</p>
+<h3 id="error-impact-3">Error/Impact</h3>
+<ul>
+<li>File loading fails but no notification</li>
+<li>Game may be missing content with no way to find the cause</li>
+</ul>
+<hr />
+<h2 id="bug-5-loadxmlfromfileskipvalidation-silently-swallows-exceptions">Bug 5: LoadXMLFromFileSkipValidation() Silently Swallows Exceptions</h2>
+<p><strong>File</strong>: <code>bannerlord-1.3.15/TaleWorlds.ObjectSystem/MBObjectManager.cs</code><br />
+<strong>Line</strong>: ~858-860<br />
+<strong>Severity</strong>: High</p>
+<h3 id="what-happens-4">What Happens</h3>
+<p>The <code>LoadXMLFromFileSkipValidation()</code> method catches exceptions and returns null, but there's no logging.</p>
+<h3 id="root-cause-4">Root Cause</h3>
+<pre><code data-lang="csharp">public XmlDocument LoadXMLFromFileSkipValidation(string xmlPath, string xsdPath)
+{
+    XmlDocument xmlDocument;
+    try
+    {
+        xmlDocument = MBObjectManager.CreateDocumentFromXmlFile(xmlPath, xsdPath, true);
+    }
+    catch  // Empty catch block
+    {
+        xmlDocument = null;
+    }
+    return xmlDocument;
+}
+</code></pre>
+<h3 id="trigger-condition-4">Trigger Condition</h3>
+<p>XML file read failure</p>
+<h3 id="error-impact-4">Error/Impact</h3>
+<p>Caller receives null but doesn't know why</p>
+<hr />
+<h2 id="bug-6-loadxmlwithvalidation-silently-swallows-exceptions">Bug 6: LoadXmlWithValidation() Silently Swallows Exceptions</h2>
+<p><strong>File</strong>: <code>bannerlord-1.3.15/TaleWorlds.ObjectSystem/MBObjectManager.cs</code><br />
+<strong>Line</strong>: ~930-933<br />
+<strong>Severity</strong>: High</p>
+<h3 id="what-happens-5">What Happens</h3>
+<p>Exceptions during XML loading are caught but only the URI is recorded, with no other error information.</p>
+<h3 id="root-cause-5">Root Cause</h3>
+<pre><code data-lang="csharp">try
+{
+    XmlReader xmlReader = XmlReader.Create(new StreamReader(xmlPath), xmlReaderSettings);
+    xmlDocument.Load(xmlReader);
+    xmlReader.Close();
+    // ... second validation ...
+}
+catch (Exception)
+{
+    string localPath = new Uri(xmlDocument.BaseURI).LocalPath;  // Only gets path, doesn&#39;t log exception
+}
+</code></pre>
+<h3 id="trigger-condition-5">Trigger Condition</h3>
+<p>XML format error or doesn't comply with XSD specification</p>
+<h3 id="error-impact-5">Error/Impact</h3>
+<p>Validation errors ignored, XML may load invalid data</p>
+<hr />
+<h2 id="bug-7-validationeventhandler-only-logs-doesn-t-stop-loading">Bug 7: ValidationEventHandler Only Logs, Doesn't Stop Loading</h2>
+<p><strong>File</strong>: <code>bannerlord-1.3.15/TaleWorlds.ObjectSystem/MBObjectManager.cs</code><br />
+<strong>Line</strong>: ~1178-1198<br />
+<strong>Severity</strong>: Medium</p>
+<h3 id="what-happens-6">What Happens</h3>
+<p>The XSD validation event handler only prints error/warning messages and does not stop the XML loading process.</p>
+<h3 id="root-cause-6">Root Cause</h3>
+<pre><code data-lang="csharp">private static void ValidationEventHandler(object sender, ValidationEventArgs e)
+{
+    XmlReader xmlReader = (XmlReader)sender;
+    string text = string.Empty;
+    XmlSeverityType severity = e.Severity;
+    if (severity != null)
+    {
+        if (severity == 1)
+        {
+            text = text + &quot;Warning: &quot; + e.Message;
+        }
+    }
+    else
+    {
+        text = text + &quot;Error: &quot; + e.Message;
+    }
+    // ... only prints log, doesn&#39;t throw exception or stop loading ...
+    Debug.Print(text, 0, Debug.DebugColor.Red, 17592186044416UL);
+}
+</code></pre>
+<h3 id="trigger-condition-6">Trigger Condition</h3>
+<p>XML doesn't comply with XSD validation rules</p>
+<h3 id="error-impact-6">Error/Impact</h3>
+<ul>
+<li>Invalid XML still loaded</li>
+<li>Modders may not know their XML has problems</li>
+</ul>
+<hr />
+<h2 id="bug-8-readobjectreferencefromxml-incomplete-reference-format-check">Bug 8: ReadObjectReferenceFromXml() Incomplete Reference Format Check</h2>
+<p><strong>File</strong>: <code>bannerlord-1.3.15/TaleWorlds.ObjectSystem/MBObjectManager.cs</code><br />
+<strong>Line</strong>: ~1367-1383<br />
+<strong>Severity</strong>: Medium</p>
+<h3 id="what-happens-7">What Happens</h3>
+<p>Object references must contain a "." delimiter, otherwise <code>MBInvalidReferenceException</code> is thrown.</p>
+<h3 id="root-cause-7">Root Cause</h3>
+<pre><code data-lang="csharp">public T ReadObjectReferenceFromXml&lt;T&gt;(string attributeName, XmlNode node) where T : MBObjectBase
+{
+    if (node.Attributes.get_ItemOf(attributeName) == null)
+    {
+        return default(T);
+    }
+    string value = node.Attributes.get_ItemOf(attributeName).Value;
+    string text = value.Split(&quot;.&quot;.ToCharArray())[0];
+    if (text == value)  // If there&#39;s no &quot;.&quot;, text == value, throws exception
+    {
+        throw new MBInvalidReferenceException(value);
+    }
+    // ...
+}
+</code></pre>
+<h3 id="trigger-condition-7">Trigger Condition</h3>
+<p>Reference format error, e.g., <code>ref="SomeId"</code> instead of <code>ref="Type.SomeId"</code></p>
+<h3 id="error-impact-7">Error/Impact</h3>
+<pre><code>MBInvalidReferenceException: SomeId
+</code></pre>
+<h3 id="example-2">Example</h3>
+<pre><code data-lang="xml">&lt;!-- Wrong: should be &quot;Item.sword_001&quot; --&gt;
+&lt;EquipmentSlot id=&quot;primary&quot; ref=&quot;sword_001&quot; /&gt;
+
+&lt;!-- Correct --&gt;
+&lt;EquipmentSlot id=&quot;primary&quot; ref=&quot;Item.sword_001&quot; /&gt;
+</code></pre>
+<hr />
+<h2 id="bug-9-xmlresource-getmbprojxmls-attribute-access-without-null-check">Bug 9: XmlResource.GetMbprojxmls() Attribute Access Without Null Check</h2>
+<p><strong>File</strong>: <code>bannerlord-1.3.15/TaleWorlds.ObjectSystem/XmlResource.cs</code><br />
+<strong>Line</strong>: ~138-139<br />
+<strong>Severity</strong>: High</p>
+<h3 id="what-happens-8">What Happens</h3>
+<p>When reading mbproj files, if <code>id</code> or <code>name</code> attributes don't exist, NullReferenceException is thrown.</p>
+<h3 id="root-cause-8">Root Cause</h3>
+<pre><code data-lang="csharp">foreach (object obj in xmlNodeList)
+{
+    XmlNode xmlNode = (XmlNode)obj;
+    string innerText = xmlNode.Attributes.get_ItemOf(&quot;id&quot;).InnerText;  // May be null
+    string innerText2 = xmlNode.Attributes.get_ItemOf(&quot;name&quot;).InnerText;  // May be null
+    // ...
+}
+</code></pre>
+<h3 id="trigger-condition-8">Trigger Condition</h3>
+<p><code>&lt;file&gt;</code> element in mbproj XML missing <code>id</code> or <code>name</code> attribute</p>
+<h3 id="error-impact-8">Error/Impact</h3>
+<p>Module loading fails, cannot get any XML content</p>
+<hr />
+<h2 id="bug-10-xmlresource-getxmllistandapply-attribute-access-without-null-check">Bug 10: XmlResource.GetXmlListAndApply() Attribute Access Without Null Check</h2>
+<p><strong>File</strong>: <code>bannerlord-1.3.15/TaleWorlds.ObjectSystem/XmlResource.cs</code><br />
+<strong>Line</strong>: ~173-174, 187<br />
+<strong>Severity</strong>: High</p>
+<h3 id="what-happens-9">What Happens</h3>
+<p>Similar to Bug 9, missing null checks when reading XmlName and IncludedGameTypes nodes.</p>
+<h3 id="root-cause-9">Root Cause</h3>
+<pre><code data-lang="csharp">// Line 173-174
+string innerText = xmlNode2.Attributes.get_ItemOf(&quot;id&quot;).InnerText;
+string innerText2 = xmlNode2.Attributes.get_ItemOf(&quot;path&quot;).InnerText;
+
+// Line 187
+list.Add(xmlNode4.Attributes.get_ItemOf(&quot;value&quot;).InnerText);
+</code></pre>
+<h3 id="trigger-condition-9">Trigger Condition</h3>
+<p>Module XML configuration missing required attributes</p>
+<h3 id="error-impact-9">Error/Impact</h3>
+<p>Module initialization fails</p>
+<hr />
+<h2 id="bug-11-createobjectfromxmlnode-and-createobjectwithoutdeserialize-also-missing-id-check">Bug 11: CreateObjectFromXmlNode() and CreateObjectWithoutDeserialize() Also Missing id Check</h2>
+<p><strong>File</strong>: <code>bannerlord-1.3.15/TaleWorlds.ObjectSystem/MBObjectManager.cs</code><br />
+<strong>Line</strong>: ~1271, 1289<br />
+<strong>Severity</strong>: Critical</p>
+<h3 id="what-happens-10">What Happens</h3>
+<p>Both methods directly access the <code>id</code> attribute without null checks.</p>
+<h3 id="root-cause-10">Root Cause</h3>
+<pre><code data-lang="csharp">// Line 1271 (CreateObjectFromXmlNode)
+string value = node.Attributes.get_ItemOf(&quot;id&quot;).Value;
+
+// Line 1289 (CreateObjectWithoutDeserialize)  
+string value = node.Attributes.get_ItemOf(&quot;id&quot;).Value;
+</code></pre>
+<h3 id="trigger-condition-10">Trigger Condition</h3>
+<p>Passed XmlNode missing id attribute</p>
+<h3 id="error-impact-10">Error/Impact</h3>
+<p>Program crash</p>
+<hr />
+<h2 id="summary">Summary</h2>
+<table><thead><tr><th>Bug ID</th><th>Severity</th><th>Description</th></tr></thead><tbody>
+<tr><td>1</td><td>Critical</td><td>LoadXML() silently swallows all exceptions</td></tr>
+<tr><td>2</td><td>Critical</td><td>MBObjectBase.Deserialize() id attribute null check missing</td></tr>
+<tr><td>3</td><td>Critical</td><td>LoadXml() id attribute null check missing during node iteration</td></tr>
+<tr><td>4</td><td>High</td><td>LoadOneXmlFromFile() silently swallows exceptions</td></tr>
+<tr><td>5</td><td>High</td><td>LoadXMLFromFileSkipValidation() silently swallows exceptions</td></tr>
+<tr><td>6</td><td>High</td><td>LoadXmlWithValidation() silently swallows exceptions</td></tr>
+<tr><td>7</td><td>Medium</td><td>ValidationEventHandler only logs, doesn't stop loading</td></tr>
+<tr><td>8</td><td>Medium</td><td>ReadObjectReferenceFromXml() reference format check incomplete</td></tr>
+<tr><td>9</td><td>High</td><td>XmlResource.GetMbprojxmls() attribute access without null check</td></tr>
+<tr><td>10</td><td>High</td><td>XmlResource.GetXmlListAndApply() attribute access without null check</td></tr>
+<tr><td>11</td><td>Critical</td><td>CreateObjectFromXmlNode/WithoutDeserialize missing id check</td></tr>
+</tbody></table>
+<hr />
+<h2 id="fix-recommendations">Fix Recommendations</h2>
+<ol>
+<li><strong>All <code>get_ItemOf().Value/InnerText</code> calls must be null-checked first</strong></li>
+<li><strong>Silent <code>catch (Exception)</code> blocks should at least log the exception</strong></li>
+<li><strong>ValidationEventHandler should consider throwing exception to block invalid XML loading</strong></li>
+<li><strong>Add more detailed error context</strong> (file path, line number, node name, etc.)</li>
+</ol>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Use the sections below to locate common patterns or issues.
+</code></pre>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/xml-reference/">XML Reference</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <span class="page-navigation-disabled" aria-disabled="true">&larr; First item</span>
+          
+          
+            <span class="page-navigation-disabled" aria-disabled="true">Last item &rarr;</span>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

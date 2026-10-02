@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Behaviors 优先类型</title>
+  <meta name="description" content="CampaignBehaviors 中负责生命周期、外交、劫匪、商队和存档边界的优先类型。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/behaviors-priority/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/behaviors-priority/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Behaviors 优先类型</span>
+    </nav>
+  
+  <h1>Behaviors 优先类型</h1>
+  <h1 id="behaviors-you-xian-lei-xing">Behaviors 优先类型</h1>
+<p><strong>一句话职责：</strong> 这些 <code>CampaignBehaviorBase</code> 实现把事件订阅、每日推进、对话注册和 <code>SyncData</code> 存档绑定到战役生命周期；它们不是可以随意从 tick 中 new 出来的工具。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p><code>CampaignGameStarter</code> 在战役建立时加入 Behavior，<code>Campaign</code> 随后通过 <code>GetCampaignBehavior&lt;T&gt;()</code> 暴露已注册实例。实例由战役持有，<code>RegisterEvents</code> 负责一次性订阅，<code>SyncData</code> 负责把该 Behavior 的持久状态接入存档。<code>CampaignBehaviorManager</code> 在保存前收集每个 Behavior 的数据，在加载后恢复它们；因此 Behavior 的字段、SaveableTypeDefiner 和事件顺序是一条完整链路。</p>
+<p>本页按功能覆盖第一批优先类型：年龄与角色创建、联盟与宣战、劫匪与商队、旗帜与建筑、战斗恢复和管理器。需要改变世界状态时仍回到 <a href="../actions/">Actions</a>；需要替换公式时回到 <a href="../models/">Models</a>；下面的 <code>TypeDefiner</code> 只负责保存类型定义，不是业务 Behavior。</p>
+<h2 id="yi-lai-yu-shi-yong-bian-jie">依赖与使用边界</h2>
+<ul>
+<li><strong>上游：</strong> <a href="../../campaign/Campaign">Campaign</a>、<a href="../CampaignGameStarter">CampaignGameStarter</a>、<a href="../CampaignEvents">CampaignEvents</a> 和 <code>Campaign.Current</code>。</li>
+<li><strong>下游：</strong> <a href="../actions/">Actions</a>、<a href="../models/">Models</a>、<a href="../CampaignEvents">CampaignEvents</a>、对话/任务以及 <a href="../../save-system/">Save 系统</a>。</li>
+<li><strong>同级：</strong> <a href="../behaviors/">Behaviors family</a>、<a href="../actions/">Actions</a>、<a href="../issues/">Issues</a>、<a href="../quests/">Quests</a>。</li>
+<li><strong>不要做：</strong> 不要在 <code>RegisterEvents</code> 之外重复订阅，不要在模块加载阶段假设 <code>Campaign.Current</code>，不要删除有存档字段的 Behavior 而不提供兼容迁移。</li>
+</ul>
+<h2 id="di-yi-pi-lei-xing-yu-dian-xing-shi-ji">第一批类型与典型时机</h2>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../AgingCampaignBehavior">AgingCampaignBehavior</a></td><td>处理英雄年龄、成年、成长、死亡和额外生命，并保存未成年英雄与额外生命字典。</td><td>每日英雄 tick、加载和角色创建结束</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../../campaign/Alliance">Alliance</a></td><td>保存两个王国及联盟结束时间的轻量存档结构。</td><td>联盟建立、每日过期和存档序列化</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../AllianceCampaignBehavior">AllianceCampaignBehavior</a></td><td>维护联盟与 Call-to-War 协议，响应宣战、和平、王国销毁并发布关系变化。</td><td>每日部落 tick、外交事件和新档注册</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../AllianceCampaignBehaviorTypeDefiner">AllianceCampaignBehaviorTypeDefiner</a></td><td>为 <code>Alliance</code> 与 <code>CallToWarAgreement</code> 注册结构和容器的保存 ID。</td><td>SaveSystem 构建类型定义时</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BackstoryCampaignBehavior">BackstoryCampaignBehavior</a></td><td>将角色背景和开局叙事选择接入战役行为层。</td><td>角色创建结束和新战役启动</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BanditInteractionsCampaignBehavior">BanditInteractionsCampaignBehavior</a></td><td>注册劫匪对话，记录玩家与劫匪的友好、付款或敌对交互，并随部队销毁清理。</td><td>会话启动、遭遇对话和部队销毁</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BanditInteractionsCampaignBehaviorTypeDefiner">BanditInteractionsCampaignBehaviorTypeDefiner</a></td><td>为劫匪交互枚举和按 <code>MobileParty</code> 索引的容器登记存档定义。</td><td>SaveSystem 构建类型定义时</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BanditSpawnCampaignBehavior">BanditSpawnCampaignBehavior</a></td><td>按战役地图与据点状态生成和维护劫匪部队。</td><td>每日地图推进与新档装配</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BannerCampaignBehavior">BannerCampaignBehavior</a></td><td>将旗帜效果、英雄旗帜和相关战役事件接入行为生命周期。</td><td>旗帜初始化、英雄变化和事件通知</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BattleCampaignBehavior">BattleCampaignBehavior</a></td><td>接收地图战斗结果并驱动战斗后的战役奖励、通知和后续处理。</td><td>MapEvent 结束与战斗结果广播</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../BuildingsCampaignBehavior">BuildingsCampaignBehavior</a></td><td>推进城镇建筑队列并把建筑每日变化接入事件和存档。</td><td>每日城镇 tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../../campaign/CallToWarAgreement">CallToWarAgreement</a></td><td>保存呼叫方、被呼叫方、目标敌国和协议到期时间。</td><td>联盟外交决策与协议到期</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CampaignBattleRecoveryBehavior">CampaignBattleRecoveryBehavior</a></td><td>处理战斗后部队和角色的恢复节奏，避免战斗状态直接跳回稳定状态。</td><td>MapEvent 结束后的恢复阶段</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CampaignBehaviorManager">CampaignBehaviorManager</a></td><td>持有已注册 Behavior，统一注册事件、保存前收集和加载后恢复。</td><td>Campaign 初始化、保存和加载</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CampaignFactionManagerBehaviour">CampaignFactionManagerBehaviour</a></td><td>把阵营管理器的初始化和生命周期接入战役行为集合。</td><td>Campaign 建立与阵营状态恢复</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CampaignWarManagerBehavior">CampaignWarManagerBehavior</a></td><td>维护战争管理器的战役级状态并响应外交与战争事件。</td><td>宣战、和平、每日外交推进</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CaravanConversationsCampaignBehavior">CaravanConversationsCampaignBehavior</a></td><td>注册商队遭遇中的对话、交易和离开条件。</td><td>商队遭遇会话启动时</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CaravansCampaignBehavior">CaravansCampaignBehavior</a></td><td>生成和管理商队、交易记录、玩家交互以及贸易相关存档容器。</td><td>每日商队推进、交易事件和加载</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CaravansCampaignBehaviorTypeDefiner">CaravansCampaignBehaviorTypeDefiner</a></td><td>为商队交互、交易日志和交易日志容器登记保存定义。</td><td>SaveSystem 构建类型定义时</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.CampaignBehaviors</td><td><a href="../CharacterCreationCampaignBehavior">CharacterCreationCampaignBehavior</a></td><td>将创建角色阶段的职业、文化和开局行为接入 Campaign 生命周期。</td><td>角色创建结束和开局初始化</td></tr>
+</tbody></table>
+<h2 id="zhen-shi-huo-qu-yu-zhu-ce-lu-jing">真实获取与注册路径</h2>
+<p>在战役已经建立后，从 <code>Campaign.Current</code> 获取接口或 Behavior；不要自行 <code>new</code> 官方实例，也不要在 <code>RegisterEvents</code> 中反复调用注册逻辑。</p>
+<pre><code data-lang="csharp">using System.Linq;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
+
+IAllianceCampaignBehavior alliances =
+    Campaign.Current.GetCampaignBehavior&lt;IAllianceCampaignBehavior&gt;();
+Kingdom firstKingdom = Kingdom.All.FirstOrDefault();
+Kingdom secondKingdom = Kingdom.All.Skip(1).FirstOrDefault();
+if (alliances != null &amp;&amp; firstKingdom != null &amp;&amp; secondKingdom != null)
+{
+    bool hasAlliance = alliances.IsAllyWithKingdom(firstKingdom, secondKingdom);
+}
+</code></pre>
+<p><code>GetCampaignBehavior&lt;T&gt;()</code> 返回的是已经由战役装配的实例；接口的具体成员和空值条件必须以对应源码为准。自己的 Behavior 应由 <code>CampaignGameStarter.AddBehavior</code> 注册，并在 <code>SyncData(IDataStore)</code> 中同步自有状态，而不是把状态挂在静态字段上。</p>
+<h2 id="beng-kui-yu-pi-dang-bian-jie">崩溃与坏档边界</h2>
+<ul>
+<li><code>CampaignBehaviorManager</code> 的列表顺序、事件注册和保存恢复是耦合的。重复加入同一个 Behavior 会重复奖励、重复对话或重复事件反应。</li>
+<li><code>Alliance</code>、<code>CallToWarAgreement</code>、劫匪交互和商队交易日志都依赖 <code>SaveableTypeDefiner</code> 的稳定 ID；改动字段顺序或 ID 会使旧档无法正确读取。</li>
+<li><code>AgingCampaignBehavior</code>、<code>BuildingsCampaignBehavior</code> 和 <code>CaravansCampaignBehavior</code> 在每日 tick 中工作，不能从 UI 回调中手动重放每日推进。</li>
+<li>行为的事件回调可能收到已销毁部队、已结束遭遇或为空的当前战役；回调内必须按源代码的生命周期检查处理。</li>
+</ul>
+<h2 id="dao-hang">导航</h2>
+<ul>
+<li><strong>Parent:</strong> <a href="../behaviors/">Behaviors family</a></li>
+<li><strong>Sibling:</strong> <a href="../actions/">Actions</a>、<a href="../models/">Models</a>、<a href="../issues/">Issues</a>、<a href="../quests/">Quests</a></li>
+<li><strong>Related:</strong> <a href="../CampaignBehaviorBase">CampaignBehaviorBase</a>、<a href="../CampaignEvents">CampaignEvents</a>、<a href="../CampaignGameStarter">CampaignGameStarter</a></li>
+<li><strong>Risk guide:</strong> <a href="../../../architecture/crash-boundaries">Crash boundaries</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

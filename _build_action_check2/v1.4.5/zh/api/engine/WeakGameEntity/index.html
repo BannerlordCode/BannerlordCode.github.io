@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WeakGameEntity</title>
+  <meta name="description" content="WeakGameEntity 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/engine/WeakGameEntity/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/engine/WeakGameEntity/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/engine/WeakGameEntity/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/engine/WeakGameEntity/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/engine/WeakGameEntity/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/engine/WeakGameEntity/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="active">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;engine&#x2F;">engine 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">WeakGameEntity</span>
+    </nav>
+  
+  <h1>WeakGameEntity</h1>
+  <h1 id="weakgameentity">WeakGameEntity</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Engine
+<strong>Module:</strong> TaleWorlds.Engine
+<strong>Type:</strong> <code>public struct WeakGameEntity</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>bin/TaleWorlds.Engine/TaleWorlds.Engine/WeakGameEntity.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>WeakGameEntity</code> 位于 <code>TaleWorlds.Engine</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.Engine</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>Pointer</code></td><td><code>public UIntPtr Pointer { get; }</code></td></tr>
+<tr><td><code>Parent</code></td><td><code>public WeakGameEntity Parent { get; }</code></td></tr>
+<tr><td><code>Skeleton</code></td><td><code>public Skeleton Skeleton { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="invalidate">Invalidate</h3>
+<p><code>public void Invalidate()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Invalidate 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.Invalidate();
+</code></pre>
+<h3 id="getscenepointer">GetScenePointer</h3>
+<p><code>public UIntPtr GetScenePointer()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 scene pointer 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetScenePointer();
+</code></pre>
+<h3 id="tostring">ToString</h3>
+<p><code>public override string ToString()</code></p>
+<p><strong>用途 / Purpose:</strong> 返回当前对象的人类可读字符串表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.ToString();
+</code></pre>
+<h3 id="clearentitycomponents">ClearEntityComponents</h3>
+<p><code>public void ClearEntityComponents(bool resetAll, bool removeScripts, bool deleteChildEntities)</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的entity components。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ClearEntityComponents(false, false, false);
+</code></pre>
+<h3 id="clearcomponents">ClearComponents</h3>
+<p><code>public void ClearComponents()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的components。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ClearComponents();
+</code></pre>
+<h3 id="clearonlyowncomponents">ClearOnlyOwnComponents</h3>
+<p><code>public void ClearOnlyOwnComponents()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的only own components。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ClearOnlyOwnComponents();
+</code></pre>
+<h3 id="checkresources">CheckResources</h3>
+<p><code>public bool CheckResources(bool addToQueue, bool checkFaceResources)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查resources在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.CheckResources(false, false);
+</code></pre>
+<h3 id="setmobility">SetMobility</h3>
+<p><code>public void SetMobility(GameEntity.Mobility mobility)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 mobility 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetMobility(mobility);
+</code></pre>
+<h3 id="getmobility">GetMobility</h3>
+<p><code>public GameEntity.Mobility GetMobility()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 mobility 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetMobility();
+</code></pre>
+<h3 id="addmesh">AddMesh</h3>
+<p><code>public void AddMesh(Mesh mesh, bool recomputeBoundingBox = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 mesh 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddMesh(mesh, false);
+</code></pre>
+<h3 id="addmultimeshtoskeleton">AddMultiMeshToSkeleton</h3>
+<p><code>public void AddMultiMeshToSkeleton(MetaMesh metaMesh)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 multi mesh to skeleton 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddMultiMeshToSkeleton(metaMesh);
+</code></pre>
+<h3 id="addmultimeshtoskeletonbone">AddMultiMeshToSkeletonBone</h3>
+<p><code>public void AddMultiMeshToSkeletonBone(MetaMesh metaMesh, sbyte boneIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 multi mesh to skeleton bone 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddMultiMeshToSkeletonBone(metaMesh, 0);
+</code></pre>
+<h3 id="setcolortoallmesheswithtagrecursive">SetColorToAllMeshesWithTagRecursive</h3>
+<p><code>public void SetColorToAllMeshesWithTagRecursive(uint color, string tag)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 color to all meshes with tag recursive 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetColorToAllMeshesWithTagRecursive(0, &quot;example&quot;);
+</code></pre>
+<h3 id="getallmesheswithtag">GetAllMeshesWithTag</h3>
+<p><code>public IEnumerable&lt;Mesh&gt; GetAllMeshesWithTag(string tag)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 all meshes with tag 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetAllMeshesWithTag(&quot;example&quot;);
+</code></pre>
+<h3 id="setname">SetName</h3>
+<p><code>public void SetName(string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 name 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetName(&quot;example&quot;);
+</code></pre>
+<h3 id="setentityflags">SetEntityFlags</h3>
+<p><code>public void SetEntityFlags(EntityFlags flags)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 entity flags 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetEntityFlags(flags);
+</code></pre>
+<h3 id="setentityvisibilityflags">SetEntityVisibilityFlags</h3>
+<p><code>public void SetEntityVisibilityFlags(EntityVisibilityFlags flags)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 entity visibility flags 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetEntityVisibilityFlags(flags);
+</code></pre>
+<h3 id="getphysicsmaterial">GetPhysicsMaterial</h3>
+<p><code>public PhysicsMaterial GetPhysicsMaterial()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 physics material 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetPhysicsMaterial();
+</code></pre>
+<h3 id="setbodyflags">SetBodyFlags</h3>
+<p><code>public void SetBodyFlags(BodyFlags flags)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 body flags 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetBodyFlags(flags);
+</code></pre>
+<h3 id="setbodyflagsrecursive">SetBodyFlagsRecursive</h3>
+<p><code>public void SetBodyFlagsRecursive(BodyFlags bodyFlags)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 body flags recursive 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetBodyFlagsRecursive(bodyFlags);
+</code></pre>
+<h3 id="addbodyflags">AddBodyFlags</h3>
+<p><code>public void AddBodyFlags(BodyFlags bodyFlags, bool applyToChildren = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 body flags 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddBodyFlags(bodyFlags, false);
+</code></pre>
+<h3 id="removebodyflags">RemoveBodyFlags</h3>
+<p><code>public void RemoveBodyFlags(BodyFlags bodyFlags, bool applyToChildren = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 body flags。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveBodyFlags(bodyFlags, false);
+</code></pre>
+<h3 id="setlocalposition">SetLocalPosition</h3>
+<p><code>public void SetLocalPosition(Vec3 position)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 local position 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetLocalPosition(position);
+</code></pre>
+<h3 id="setglobalposition">SetGlobalPosition</h3>
+<p><code>public void SetGlobalPosition(Vec3 position)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 global position 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetGlobalPosition(position);
+</code></pre>
+<h3 id="setcolor">SetColor</h3>
+<p><code>public void SetColor(uint color1, uint color2, string meshTag)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 color 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetColor(0, 0, &quot;example&quot;);
+</code></pre>
+<h3 id="getfactorcolor">GetFactorColor</h3>
+<p><code>public uint GetFactorColor()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 factor color 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetFactorColor();
+</code></pre>
+<h3 id="setfactorcolor">SetFactorColor</h3>
+<p><code>public void SetFactorColor(uint color)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 factor color 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetFactorColor(0);
+</code></pre>
+<h3 id="setasreplayentity">SetAsReplayEntity</h3>
+<p><code>public void SetAsReplayEntity()</code></p>
+<p><strong>用途 / Purpose:</strong> 为 as replay entity 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetAsReplayEntity();
+</code></pre>
+<h3 id="setclothmaxdistancemultiplier">SetClothMaxDistanceMultiplier</h3>
+<p><code>public void SetClothMaxDistanceMultiplier(float multiplier)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 cloth max distance multiplier 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetClothMaxDistanceMultiplier(0);
+</code></pre>
+<h3 id="removemultimeshfromskeleton">RemoveMultiMeshFromSkeleton</h3>
+<p><code>public void RemoveMultiMeshFromSkeleton(MetaMesh metaMesh)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 multi mesh from skeleton。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveMultiMeshFromSkeleton(metaMesh);
+</code></pre>
+<h3 id="removemultimeshfromskeletonbone">RemoveMultiMeshFromSkeletonBone</h3>
+<p><code>public void RemoveMultiMeshFromSkeletonBone(MetaMesh metaMesh, sbyte boneIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 multi mesh from skeleton bone。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveMultiMeshFromSkeletonBone(metaMesh, 0);
+</code></pre>
+<h3 id="removecomponentwithmesh">RemoveComponentWithMesh</h3>
+<p><code>public bool RemoveComponentWithMesh(Mesh mesh)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 component with mesh。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.RemoveComponentWithMesh(mesh);
+</code></pre>
+<h3 id="addcomponent">AddComponent</h3>
+<p><code>public void AddComponent(GameEntityComponent component)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 component 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddComponent(component);
+</code></pre>
+<h3 id="hascomponent">HasComponent</h3>
+<p><code>public bool HasComponent(GameEntityComponent component)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 component。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasComponent(component);
+</code></pre>
+<h3 id="isineditorscene">IsInEditorScene</h3>
+<p><code>public bool IsInEditorScene()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 in editor scene 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.IsInEditorScene();
+</code></pre>
+<h3 id="removecomponent">RemoveComponent</h3>
+<p><code>public bool RemoveComponent(GameEntityComponent component)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 component。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.RemoveComponent(component);
+</code></pre>
+<h3 id="getguid">GetGuid</h3>
+<p><code>public string GetGuid()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 guid 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGuid();
+</code></pre>
+<h3 id="isguidvalid">IsGuidValid</h3>
+<p><code>public bool IsGuidValid()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 guid valid 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.IsGuidValid();
+</code></pre>
+<h3 id="setenforcedmaximumlodlevel">SetEnforcedMaximumLodLevel</h3>
+<p><code>public void SetEnforcedMaximumLodLevel(int lodLevel)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 enforced maximum lod level 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetEnforcedMaximumLodLevel(0);
+</code></pre>
+<h3 id="getlodlevelfordistancesq">GetLodLevelForDistanceSq</h3>
+<p><code>public float GetLodLevelForDistanceSq(float distSq)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 lod level for distance sq 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetLodLevelForDistanceSq(0);
+</code></pre>
+<h3 id="getquickboneentitialframe">GetQuickBoneEntitialFrame</h3>
+<p><code>public void GetQuickBoneEntitialFrame(sbyte index, out MatrixFrame frame)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 quick bone entitial frame 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetQuickBoneEntitialFrame(0, frame);
+</code></pre>
+<h3 id="updatevisibilitymask">UpdateVisibilityMask</h3>
+<p><code>public void UpdateVisibilityMask()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 visibility mask 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.UpdateVisibilityMask();
+</code></pre>
+<h3 id="callscriptcallbacks">CallScriptCallbacks</h3>
+<p><code>public void CallScriptCallbacks(bool registerScriptComponents)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CallScriptCallbacks 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.CallScriptCallbacks(false);
+</code></pre>
+<h3 id="getscriptcount">GetScriptCount</h3>
+<p><code>public int GetScriptCount()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 script count 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetScriptCount();
+</code></pre>
+<h3 id="isghostobject">IsGhostObject</h3>
+<p><code>public bool IsGhostObject()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 ghost object 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.IsGhostObject();
+</code></pre>
+<h3 id="createandaddscriptcomponent">CreateAndAddScriptComponent</h3>
+<p><code>public void CreateAndAddScriptComponent(string name, bool callScriptCallbacks)</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 and add script component 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.CreateAndAddScriptComponent(&quot;example&quot;, false);
+</code></pre>
+<h3 id="removescriptcomponent">RemoveScriptComponent</h3>
+<p><code>public void RemoveScriptComponent(UIntPtr scriptComponent, int removeReason)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 script component。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveScriptComponent(scriptComponent, 0);
+</code></pre>
+<h3 id="setentityenvmapvisibility">SetEntityEnvMapVisibility</h3>
+<p><code>public void SetEntityEnvMapVisibility(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 entity env map visibility 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetEntityEnvMapVisibility(false);
+</code></pre>
+<h3 id="getscriptatindex">GetScriptAtIndex</h3>
+<p><code>public ScriptComponentBehavior GetScriptAtIndex(int index)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 script at index 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetScriptAtIndex(0);
+</code></pre>
+<h3 id="hasscene">HasScene</h3>
+<p><code>public bool HasScene()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 scene。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasScene();
+</code></pre>
+<h3 id="hasscriptcomponent">HasScriptComponent</h3>
+<p><code>public bool HasScriptComponent(string scName)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 script component。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasScriptComponent(&quot;example&quot;);
+</code></pre>
+<h3 id="hasscriptcomponent-1">HasScriptComponent</h3>
+<p><code>public bool HasScriptComponent(uint scNameHash)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 script component。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasScriptComponent(0);
+</code></pre>
+<h3 id="getscriptcomponents">GetScriptComponents</h3>
+<p><code>public IEnumerable&lt;ScriptComponentBehavior&gt; GetScriptComponents()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 script components 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetScriptComponents();
+</code></pre>
+<h3 id="getfirstscriptwithnamehash">GetFirstScriptWithNameHash</h3>
+<p><code>public ScriptComponentBehavior GetFirstScriptWithNameHash(uint nameHash)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 first script with name hash 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetFirstScriptWithNameHash(0);
+</code></pre>
+<h3 id="getfirstchildentitywithtag">GetFirstChildEntityWithTag</h3>
+<p><code>public WeakGameEntity GetFirstChildEntityWithTag(string tag)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 first child entity with tag 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetFirstChildEntityWithTag(&quot;example&quot;);
+</code></pre>
+<h3 id="setalpha">SetAlpha</h3>
+<p><code>public void SetAlpha(float alpha)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 alpha 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetAlpha(0);
+</code></pre>
+<h3 id="setvisibilityexcludeparents">SetVisibilityExcludeParents</h3>
+<p><code>public void SetVisibilityExcludeParents(bool visible)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 visibility exclude parents 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetVisibilityExcludeParents(false);
+</code></pre>
+<h3 id="setreadytorender">SetReadyToRender</h3>
+<p><code>public void SetReadyToRender(bool ready)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 ready to render 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetReadyToRender(false);
+</code></pre>
+<h3 id="getvisibilityexcludeparents">GetVisibilityExcludeParents</h3>
+<p><code>public bool GetVisibilityExcludeParents()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 visibility exclude parents 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetVisibilityExcludeParents();
+</code></pre>
+<h3 id="isvisibleincludeparents">IsVisibleIncludeParents</h3>
+<p><code>public bool IsVisibleIncludeParents()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 visible include parents 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.IsVisibleIncludeParents();
+</code></pre>
+<h3 id="getvisibilitylevelmaskincludingparents">GetVisibilityLevelMaskIncludingParents</h3>
+<p><code>public uint GetVisibilityLevelMaskIncludingParents()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 visibility level mask including parents 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetVisibilityLevelMaskIncludingParents();
+</code></pre>
+<h3 id="geteditmodelevelvisibility">GetEditModeLevelVisibility</h3>
+<p><code>public bool GetEditModeLevelVisibility()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 edit mode level visibility 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetEditModeLevelVisibility();
+</code></pre>
+<h3 id="remove">Remove</h3>
+<p><code>public void Remove(int removeReason)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除项。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.Remove(0);
+</code></pre>
+<h3 id="setupgradelevelmask">SetUpgradeLevelMask</h3>
+<p><code>public void SetUpgradeLevelMask(GameEntity.UpgradeLevelMask mask)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 upgrade level mask 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetUpgradeLevelMask(mask);
+</code></pre>
+<h3 id="getupgradelevelmask">GetUpgradeLevelMask</h3>
+<p><code>public GameEntity.UpgradeLevelMask GetUpgradeLevelMask()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 upgrade level mask 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetUpgradeLevelMask();
+</code></pre>
+<h3 id="getupgradelevelmaskcumulative">GetUpgradeLevelMaskCumulative</h3>
+<p><code>public GameEntity.UpgradeLevelMask GetUpgradeLevelMaskCumulative()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 upgrade level mask cumulative 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetUpgradeLevelMaskCumulative();
+</code></pre>
+<h3 id="getupgradelevelofentity">GetUpgradeLevelOfEntity</h3>
+<p><code>public int GetUpgradeLevelOfEntity()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 upgrade level of entity 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetUpgradeLevelOfEntity();
+</code></pre>
+<h3 id="getoldprefabname">GetOldPrefabName</h3>
+<p><code>public string GetOldPrefabName()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 old prefab name 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetOldPrefabName();
+</code></pre>
+<h3 id="getprefabname">GetPrefabName</h3>
+<p><code>public string GetPrefabName()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 prefab name 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetPrefabName();
+</code></pre>
+<h3 id="refreshmeshestorendertohullwater">RefreshMeshesToRenderToHullWater</h3>
+<p><code>public void RefreshMeshesToRenderToHullWater(UIntPtr visualRecord, string entityTag)</code></p>
+<p><strong>用途 / Purpose:</strong> 使 meshes to render to hull water 的显示或缓存与底层状态保持一致。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RefreshMeshesToRenderToHullWater(visualRecord, &quot;example&quot;);
+</code></pre>
+<h3 id="deregisterwatermeshmaterials">DeRegisterWaterMeshMaterials</h3>
+<p><code>public void DeRegisterWaterMeshMaterials(UIntPtr visualRecord)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DeRegisterWaterMeshMaterials 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.DeRegisterWaterMeshMaterials(visualRecord);
+</code></pre>
+<h3 id="setvisualrecordwakeparams">SetVisualRecordWakeParams</h3>
+<p><code>public void SetVisualRecordWakeParams(UIntPtr visualRecord, Vec3 wakeParams)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 visual record wake params 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetVisualRecordWakeParams(visualRecord, wakeParams);
+</code></pre>
+<h3 id="changeresolutionmultiplierofwatervisual">ChangeResolutionMultiplierOfWaterVisual</h3>
+<p><code>public void ChangeResolutionMultiplierOfWaterVisual(UIntPtr visualRecord, float multiplier, in Vec3 waterEffectsBB)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ChangeResolutionMultiplierOfWaterVisual 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ChangeResolutionMultiplierOfWaterVisual(visualRecord, 0, waterEffectsBB);
+</code></pre>
+<h3 id="resethullwater">ResetHullWater</h3>
+<p><code>public void ResetHullWater(UIntPtr visualRecord)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 hull water 重置回默认或初始状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ResetHullWater(visualRecord);
+</code></pre>
+<h3 id="setwatervisualrecordframeanddt">SetWaterVisualRecordFrameAndDt</h3>
+<p><code>public void SetWaterVisualRecordFrameAndDt(UIntPtr visualRecord, MatrixFrame frame, float dt)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 water visual record frame and dt 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetWaterVisualRecordFrameAndDt(visualRecord, frame, 0);
+</code></pre>
+<h3 id="addsplashpositiontowatervisualrecord">AddSplashPositionToWaterVisualRecord</h3>
+<p><code>public void AddSplashPositionToWaterVisualRecord(UIntPtr visualRecord, Vec3 position)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 splash position to water visual record 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddSplashPositionToWaterVisualRecord(visualRecord, position);
+</code></pre>
+<h3 id="updatehullwatereffectframes">UpdateHullWaterEffectFrames</h3>
+<p><code>public void UpdateHullWaterEffectFrames(UIntPtr visualRecord)</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 hull water effect frames 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.UpdateHullWaterEffectFrames(visualRecord);
+</code></pre>
+<h3 id="copyscriptcomponentfromanotherentity">CopyScriptComponentFromAnotherEntity</h3>
+<p><code>public void CopyScriptComponentFromAnotherEntity(GameEntity otherEntity, string scriptName)</code></p>
+<p><strong>用途 / Purpose:</strong> 把当前对象的script component from another entity状态复制到目标对象。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.CopyScriptComponentFromAnotherEntity(otherEntity, &quot;example&quot;);
+</code></pre>
+<h3 id="setframe">SetFrame</h3>
+<p><code>public void SetFrame(ref MatrixFrame frame, bool isTeleportation = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 frame 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetFrame(frame, false);
+</code></pre>
+<h3 id="setlocalframe">SetLocalFrame</h3>
+<p><code>public void SetLocalFrame(ref MatrixFrame frame, bool isTeleportation)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 local frame 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetLocalFrame(frame, false);
+</code></pre>
+<h3 id="setclothcomponentkeepstate">SetClothComponentKeepState</h3>
+<p><code>public void SetClothComponentKeepState(MetaMesh metaMesh, bool state)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 cloth component keep state 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetClothComponentKeepState(metaMesh, false);
+</code></pre>
+<h3 id="setclothcomponentkeepstateofallmeshes">SetClothComponentKeepStateOfAllMeshes</h3>
+<p><code>public void SetClothComponentKeepStateOfAllMeshes(bool state)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 cloth component keep state of all meshes 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetClothComponentKeepStateOfAllMeshes(false);
+</code></pre>
+<h3 id="setpreviousframeinvalid">SetPreviousFrameInvalid</h3>
+<p><code>public void SetPreviousFrameInvalid()</code></p>
+<p><strong>用途 / Purpose:</strong> 为 previous frame invalid 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetPreviousFrameInvalid();
+</code></pre>
+<h3 id="getframe">GetFrame</h3>
+<p><code>public MatrixFrame GetFrame()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 frame 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetFrame();
+</code></pre>
+<h3 id="getlocalframe">GetLocalFrame</h3>
+<p><code>public void GetLocalFrame(out MatrixFrame frame)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 local frame 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetLocalFrame(frame);
+</code></pre>
+<h3 id="hasbatchedkinematicphysicsflag">HasBatchedKinematicPhysicsFlag</h3>
+<p><code>public bool HasBatchedKinematicPhysicsFlag()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 batched kinematic physics flag。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasBatchedKinematicPhysicsFlag();
+</code></pre>
+<h3 id="hasbatchedraycastphysicsflag">HasBatchedRayCastPhysicsFlag</h3>
+<p><code>public bool HasBatchedRayCastPhysicsFlag()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 batched ray cast physics flag。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasBatchedRayCastPhysicsFlag();
+</code></pre>
+<h3 id="getlocalframe-1">GetLocalFrame</h3>
+<p><code>public MatrixFrame GetLocalFrame()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 local frame 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetLocalFrame();
+</code></pre>
+<h3 id="getglobalframe">GetGlobalFrame</h3>
+<p><code>public MatrixFrame GetGlobalFrame()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 global frame 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGlobalFrame();
+</code></pre>
+<h3 id="setwatersdfclipdata">SetWaterSDFClipData</h3>
+<p><code>public void SetWaterSDFClipData(int slotIndex, in MatrixFrame frame, bool visibility)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 water s d f clip data 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetWaterSDFClipData(0, frame, false);
+</code></pre>
+<h3 id="registerwatersdfclip">RegisterWaterSDFClip</h3>
+<p><code>public int RegisterWaterSDFClip(Texture sdfTexture)</code></p>
+<p><strong>用途 / Purpose:</strong> 将water s d f clip注册到当前系统，以便后续监听或分发。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.RegisterWaterSDFClip(sdfTexture);
+</code></pre>
+<h3 id="deregisterwatersdfclip">DeRegisterWaterSDFClip</h3>
+<p><code>public void DeRegisterWaterSDFClip(int slot)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DeRegisterWaterSDFClip 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.DeRegisterWaterSDFClip(0);
+</code></pre>
+<h3 id="getglobalframeimpreciseforfixedtick">GetGlobalFrameImpreciseForFixedTick</h3>
+<p><code>public MatrixFrame GetGlobalFrameImpreciseForFixedTick()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 global frame imprecise for fixed tick 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGlobalFrameImpreciseForFixedTick();
+</code></pre>
+<h3 id="computepreciseglobalframeforfixedtickslow">ComputePreciseGlobalFrameForFixedTickSlow</h3>
+<p><code>public MatrixFrame ComputePreciseGlobalFrameForFixedTickSlow()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ComputePreciseGlobalFrameForFixedTickSlow 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.ComputePreciseGlobalFrameForFixedTickSlow();
+</code></pre>
+<h3 id="setglobalframe">SetGlobalFrame</h3>
+<p><code>public void SetGlobalFrame(in MatrixFrame frame, bool isTeleportation = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 global frame 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetGlobalFrame(frame, false);
+</code></pre>
+<h3 id="getpreviousglobalframe">GetPreviousGlobalFrame</h3>
+<p><code>public MatrixFrame GetPreviousGlobalFrame()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 previous global frame 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetPreviousGlobalFrame();
+</code></pre>
+<h3 id="getbodyworldtransform">GetBodyWorldTransform</h3>
+<p><code>public MatrixFrame GetBodyWorldTransform()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 body world transform 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBodyWorldTransform();
+</code></pre>
+<h3 id="getbodyvisualworldtransform">GetBodyVisualWorldTransform</h3>
+<p><code>public MatrixFrame GetBodyVisualWorldTransform()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 body visual world transform 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBodyVisualWorldTransform();
+</code></pre>
+<h3 id="updatetriadframeforeditor">UpdateTriadFrameForEditor</h3>
+<p><code>public void UpdateTriadFrameForEditor()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 triad frame for editor 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.UpdateTriadFrameForEditor();
+</code></pre>
+<h3 id="updatetriadframeforeditorforallchildren">UpdateTriadFrameForEditorForAllChildren</h3>
+<p><code>public void UpdateTriadFrameForEditorForAllChildren()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 triad frame for editor for all children 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.UpdateTriadFrameForEditorForAllChildren();
+</code></pre>
+<h3 id="getglobalscale">GetGlobalScale</h3>
+<p><code>public Vec3 GetGlobalScale()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 global scale 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGlobalScale();
+</code></pre>
+<h3 id="getlocalscale">GetLocalScale</h3>
+<p><code>public Vec3 GetLocalScale()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 local scale 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetLocalScale();
+</code></pre>
+<h3 id="setanimationsoundactivation">SetAnimationSoundActivation</h3>
+<p><code>public void SetAnimationSoundActivation(bool activate)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 animation sound activation 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetAnimationSoundActivation(false);
+</code></pre>
+<h3 id="copycomponentstoskeleton">CopyComponentsToSkeleton</h3>
+<p><code>public void CopyComponentsToSkeleton()</code></p>
+<p><strong>用途 / Purpose:</strong> 把当前对象的components to skeleton状态复制到目标对象。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.CopyComponentsToSkeleton();
+</code></pre>
+<h3 id="addmeshtobone">AddMeshToBone</h3>
+<p><code>public void AddMeshToBone(sbyte boneIndex, Mesh mesh)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 mesh to bone 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddMeshToBone(0, mesh);
+</code></pre>
+<h3 id="activateragdoll">ActivateRagdoll</h3>
+<p><code>public void ActivateRagdoll()</code></p>
+<p><strong>用途 / Purpose:</strong> 激活ragdoll对应的资源、状态或功能。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ActivateRagdoll();
+</code></pre>
+<h3 id="pauseskeletonanimation">PauseSkeletonAnimation</h3>
+<p><code>public void PauseSkeletonAnimation()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PauseSkeletonAnimation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.PauseSkeletonAnimation();
+</code></pre>
+<h3 id="resumeskeletonanimation">ResumeSkeletonAnimation</h3>
+<p><code>public void ResumeSkeletonAnimation()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ResumeSkeletonAnimation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ResumeSkeletonAnimation();
+</code></pre>
+<h3 id="isskeletonanimationpaused">IsSkeletonAnimationPaused</h3>
+<p><code>public bool IsSkeletonAnimationPaused()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 skeleton animation paused 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.IsSkeletonAnimationPaused();
+</code></pre>
+<h3 id="getbonecount">GetBoneCount</h3>
+<p><code>public sbyte GetBoneCount()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 bone count 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoneCount();
+</code></pre>
+<h3 id="getwaterlevelatposition">GetWaterLevelAtPosition</h3>
+<p><code>public float GetWaterLevelAtPosition(Vec2 position, bool useWaterRenderer, bool checkWaterBodyEntities)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 water level at position 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetWaterLevelAtPosition(position, false, false);
+</code></pre>
+<h3 id="getboneentitialframewithindex">GetBoneEntitialFrameWithIndex</h3>
+<p><code>public MatrixFrame GetBoneEntitialFrameWithIndex(sbyte boneIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 bone entitial frame with index 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoneEntitialFrameWithIndex(0);
+</code></pre>
+<h3 id="getboneentitialframewithname">GetBoneEntitialFrameWithName</h3>
+<p><code>public MatrixFrame GetBoneEntitialFrameWithName(string boneName)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 bone entitial frame with name 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoneEntitialFrameWithName(&quot;example&quot;);
+</code></pre>
+<h3 id="addtag">AddTag</h3>
+<p><code>public void AddTag(string tag)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 tag 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddTag(&quot;example&quot;);
+</code></pre>
+<h3 id="removetag">RemoveTag</h3>
+<p><code>public void RemoveTag(string tag)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 tag。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveTag(&quot;example&quot;);
+</code></pre>
+<h3 id="hastag">HasTag</h3>
+<p><code>public bool HasTag(string tag)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 tag。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasTag(&quot;example&quot;);
+</code></pre>
+<h3 id="addchild">AddChild</h3>
+<p><code>public void AddChild(WeakGameEntity gameEntity, bool autoLocalizeFrame = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 child 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddChild(gameEntity, false);
+</code></pre>
+<h3 id="removechild">RemoveChild</h3>
+<p><code>public void RemoveChild(WeakGameEntity childEntity, bool keepPhysics, bool keepScenePointer, bool callScriptCallbacks, int removeReason)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 child。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveChild(childEntity, false, false, false, 0);
+</code></pre>
+<h3 id="breakprefab">BreakPrefab</h3>
+<p><code>public void BreakPrefab()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BreakPrefab 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.BreakPrefab();
+</code></pre>
+<h3 id="getchild">GetChild</h3>
+<p><code>public WeakGameEntity GetChild(int index)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 child 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetChild(0);
+</code></pre>
+<h3 id="hascomplexanimtree">HasComplexAnimTree</h3>
+<p><code>public bool HasComplexAnimTree()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 complex anim tree。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.HasComplexAnimTree();
+</code></pre>
+<h3 id="addmultimesh">AddMultiMesh</h3>
+<p><code>public void AddMultiMesh(MetaMesh metaMesh, bool updateVisMask = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 multi mesh 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddMultiMesh(metaMesh, false);
+</code></pre>
+<h3 id="removemultimesh">RemoveMultiMesh</h3>
+<p><code>public bool RemoveMultiMesh(MetaMesh metaMesh)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 multi mesh。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.RemoveMultiMesh(metaMesh);
+</code></pre>
+<h3 id="getcomponentcount">GetComponentCount</h3>
+<p><code>public int GetComponentCount(GameEntity.ComponentType componentType)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 component count 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetComponentCount(componentType);
+</code></pre>
+<h3 id="addallmeshesofgameentity">AddAllMeshesOfGameEntity</h3>
+<p><code>public void AddAllMeshesOfGameEntity(GameEntity gameEntity)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 all meshes of game entity 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddAllMeshesOfGameEntity(gameEntity);
+</code></pre>
+<h3 id="setframechanged">SetFrameChanged</h3>
+<p><code>public void SetFrameChanged()</code></p>
+<p><strong>用途 / Purpose:</strong> 为 frame changed 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetFrameChanged();
+</code></pre>
+<h3 id="getcomponentatindex">GetComponentAtIndex</h3>
+<p><code>public GameEntityComponent GetComponentAtIndex(int index, GameEntity.ComponentType componentType)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 component at index 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetComponentAtIndex(0, componentType);
+</code></pre>
+<h3 id="getmetamesh">GetMetaMesh</h3>
+<p><code>public MetaMesh GetMetaMesh(int metaMeshIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 meta mesh 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetMetaMesh(0);
+</code></pre>
+<h3 id="getclothsimulator">GetClothSimulator</h3>
+<p><code>public ClothSimulatorComponent GetClothSimulator(int clothSimulatorIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 cloth simulator 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetClothSimulator(0);
+</code></pre>
+<h3 id="setvectorargument">SetVectorArgument</h3>
+<p><code>public void SetVectorArgument(float vectorArgument0, float vectorArgument1, float vectorArgument2, float vectorArgument3)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 vector argument 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetVectorArgument(0, 0, 0, 0);
+</code></pre>
+<h3 id="setmaterialforallmeshes">SetMaterialForAllMeshes</h3>
+<p><code>public void SetMaterialForAllMeshes(Material material)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 material for all meshes 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetMaterialForAllMeshes(material);
+</code></pre>
+<h3 id="addlight">AddLight</h3>
+<p><code>public bool AddLight(Light light)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 light 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.AddLight(light);
+</code></pre>
+<h3 id="getlight">GetLight</h3>
+<p><code>public Light GetLight()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 light 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetLight();
+</code></pre>
+<h3 id="addparticlesystemcomponent">AddParticleSystemComponent</h3>
+<p><code>public void AddParticleSystemComponent(string particleid)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 particle system component 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddParticleSystemComponent(&quot;example&quot;);
+</code></pre>
+<h3 id="removeallparticlesystems">RemoveAllParticleSystems</h3>
+<p><code>public void RemoveAllParticleSystems()</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 all particle systems。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveAllParticleSystems();
+</code></pre>
+<h3 id="checkpointwithorientedboundingbox">CheckPointWithOrientedBoundingBox</h3>
+<p><code>public bool CheckPointWithOrientedBoundingBox(Vec3 point)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查point with oriented bounding box在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.CheckPointWithOrientedBoundingBox(point);
+</code></pre>
+<h3 id="pauseparticlesystem">PauseParticleSystem</h3>
+<p><code>public void PauseParticleSystem(bool doChildren)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PauseParticleSystem 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.PauseParticleSystem(false);
+</code></pre>
+<h3 id="resumeparticlesystem">ResumeParticleSystem</h3>
+<p><code>public void ResumeParticleSystem(bool doChildren)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ResumeParticleSystem 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ResumeParticleSystem(false);
+</code></pre>
+<h3 id="burstentityparticle">BurstEntityParticle</h3>
+<p><code>public void BurstEntityParticle(bool doChildren)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BurstEntityParticle 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.BurstEntityParticle(false);
+</code></pre>
+<h3 id="setruntimeemissionratemultiplier">SetRuntimeEmissionRateMultiplier</h3>
+<p><code>public void SetRuntimeEmissionRateMultiplier(float emissionRateMultiplier)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 runtime emission rate multiplier 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetRuntimeEmissionRateMultiplier(0);
+</code></pre>
+<h3 id="getlocalboundingbox">GetLocalBoundingBox</h3>
+<p><code>public BoundingBox GetLocalBoundingBox()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 local bounding box 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetLocalBoundingBox();
+</code></pre>
+<h3 id="getglobalboundingbox">GetGlobalBoundingBox</h3>
+<p><code>public BoundingBox GetGlobalBoundingBox()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 global bounding box 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGlobalBoundingBox();
+</code></pre>
+<h3 id="getboundingboxmin">GetBoundingBoxMin</h3>
+<p><code>public Vec3 GetBoundingBoxMin()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 bounding box min 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoundingBoxMin();
+</code></pre>
+<h3 id="sethascustomboundingboxvalidationsystem">SetHasCustomBoundingBoxValidationSystem</h3>
+<p><code>public void SetHasCustomBoundingBoxValidationSystem(bool hasCustomBoundingBox)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 has custom bounding box validation system 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetHasCustomBoundingBoxValidationSystem(false);
+</code></pre>
+<h3 id="validateboundingbox">ValidateBoundingBox</h3>
+<p><code>public void ValidateBoundingBox()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查bounding box是否满足约束条件，通常返回布尔值。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ValidateBoundingBox();
+</code></pre>
+<h3 id="getboundingboxmax">GetBoundingBoxMax</h3>
+<p><code>public Vec3 GetBoundingBoxMax()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 bounding box max 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoundingBoxMax();
+</code></pre>
+<h3 id="updateglobalbounds">UpdateGlobalBounds</h3>
+<p><code>public void UpdateGlobalBounds()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 global bounds 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.UpdateGlobalBounds();
+</code></pre>
+<h3 id="recomputeboundingbox">RecomputeBoundingBox</h3>
+<p><code>public void RecomputeBoundingBox()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新执行bounding box相关的计算并返回结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RecomputeBoundingBox();
+</code></pre>
+<h3 id="getboundingboxradius">GetBoundingBoxRadius</h3>
+<p><code>public float GetBoundingBoxRadius()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 bounding box radius 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoundingBoxRadius();
+</code></pre>
+<h3 id="setboundingboxdirty">SetBoundingboxDirty</h3>
+<p><code>public void SetBoundingboxDirty()</code></p>
+<p><strong>用途 / Purpose:</strong> 为 boundingbox dirty 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetBoundingboxDirty();
+</code></pre>
+<h3 id="computeglobalphysicsboundingboxcenter">ComputeGlobalPhysicsBoundingBoxCenter</h3>
+<p><code>public Vec3 ComputeGlobalPhysicsBoundingBoxCenter()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ComputeGlobalPhysicsBoundingBoxCenter 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.ComputeGlobalPhysicsBoundingBoxCenter();
+</code></pre>
+<h3 id="setcontourcolor">SetContourColor</h3>
+<p><code>public void SetContourColor(uint? color, bool alwaysVisible = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 contour color 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetContourColor(0, false);
+</code></pre>
+<h3 id="gethasframechanged">GetHasFrameChanged</h3>
+<p><code>public bool GetHasFrameChanged()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 has frame changed 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetHasFrameChanged();
+</code></pre>
+<h3 id="getfirstmesh">GetFirstMesh</h3>
+<p><code>public Mesh GetFirstMesh()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 first mesh 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetFirstMesh();
+</code></pre>
+<h3 id="getattachednavmeshfacecount">GetAttachedNavmeshFaceCount</h3>
+<p><code>public int GetAttachedNavmeshFaceCount()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 attached navmesh face count 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetAttachedNavmeshFaceCount();
+</code></pre>
+<h3 id="getattachednavmeshfacerecords">GetAttachedNavmeshFaceRecords</h3>
+<p><code>public void GetAttachedNavmeshFaceRecords(PathFaceRecord faceRecords)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 attached navmesh face records 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetAttachedNavmeshFaceRecords(faceRecords);
+</code></pre>
+<h3 id="getattachednavmeshfacevertexindices">GetAttachedNavmeshFaceVertexIndices</h3>
+<p><code>public void GetAttachedNavmeshFaceVertexIndices(in PathFaceRecord faceRecord, int indices)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 attached navmesh face vertex indices 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetAttachedNavmeshFaceVertexIndices(faceRecord, 0);
+</code></pre>
+<h3 id="setcustomvertexpositionenabled">SetCustomVertexPositionEnabled</h3>
+<p><code>public void SetCustomVertexPositionEnabled(bool customVertexPositionEnabled)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 custom vertex position enabled 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetCustomVertexPositionEnabled(false);
+</code></pre>
+<h3 id="setpositionsforattachednavmeshvertices">SetPositionsForAttachedNavmeshVertices</h3>
+<p><code>public void SetPositionsForAttachedNavmeshVertices(int vertices, int indexCount, Vec3 positions)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 positions for attached navmesh vertices 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetPositionsForAttachedNavmeshVertices(0, 0, positions);
+</code></pre>
+<h3 id="setcostadderforattachedfaces">SetCostAdderForAttachedFaces</h3>
+<p><code>public void SetCostAdderForAttachedFaces(float costs)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 cost adder for attached faces 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetCostAdderForAttachedFaces(0);
+</code></pre>
+<h3 id="setexternalreferencesusage">SetExternalReferencesUsage</h3>
+<p><code>public void SetExternalReferencesUsage(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 external references usage 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetExternalReferencesUsage(false);
+</code></pre>
+<h3 id="setmorphframeofcomponents">SetMorphFrameOfComponents</h3>
+<p><code>public void SetMorphFrameOfComponents(float value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 morph frame of components 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetMorphFrameOfComponents(0);
+</code></pre>
+<h3 id="addeditdatausertoallmeshes">AddEditDataUserToAllMeshes</h3>
+<p><code>public void AddEditDataUserToAllMeshes(bool entityComponents, bool skeletonComponents)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 edit data user to all meshes 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AddEditDataUserToAllMeshes(false, false);
+</code></pre>
+<h3 id="releaseeditdatausertoallmeshes">ReleaseEditDataUserToAllMeshes</h3>
+<p><code>public void ReleaseEditDataUserToAllMeshes(bool entityComponents, bool skeletonComponents)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ReleaseEditDataUserToAllMeshes 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ReleaseEditDataUserToAllMeshes(false, false);
+</code></pre>
+<h3 id="getcameraparamsfromcamerascript">GetCameraParamsFromCameraScript</h3>
+<p><code>public void GetCameraParamsFromCameraScript(Camera cam, ref Vec3 dofParams)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 camera params from camera script 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetCameraParamsFromCameraScript(cam, dofParams);
+</code></pre>
+<h3 id="getmeshbendedframe">GetMeshBendedFrame</h3>
+<p><code>public void GetMeshBendedFrame(MatrixFrame worldSpacePosition, ref MatrixFrame output)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 mesh bended frame 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetMeshBendedFrame(worldSpacePosition, output);
+</code></pre>
+<h3 id="computetrajectoryvolume">ComputeTrajectoryVolume</h3>
+<p><code>public void ComputeTrajectoryVolume(float missileSpeed, float verticalAngleMaxInDegrees, float verticalAngleMinInDegrees, float horizontalAngleRangeInDegrees, float airFrictionConstant)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ComputeTrajectoryVolume 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ComputeTrajectoryVolume(0, 0, 0, 0, 0);
+</code></pre>
+<h3 id="setanimtreechannelparameterforceupdate">SetAnimTreeChannelParameterForceUpdate</h3>
+<p><code>public void SetAnimTreeChannelParameterForceUpdate(float phase, int channelNo)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 anim tree channel parameter force update 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetAnimTreeChannelParameterForceUpdate(0, 0);
+</code></pre>
+<h3 id="changemetameshorremoveitifnotexists">ChangeMetaMeshOrRemoveItIfNotExists</h3>
+<p><code>public void ChangeMetaMeshOrRemoveItIfNotExists(MetaMesh entityMetaMesh, MetaMesh newMetaMesh)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ChangeMetaMeshOrRemoveItIfNotExists 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.ChangeMetaMeshOrRemoveItIfNotExists(entityMetaMesh, newMetaMesh);
+</code></pre>
+<h3 id="setupdatevalidtyonframechangedoffaceswithid">SetUpdateValidtyOnFrameChangedOfFacesWithId</h3>
+<p><code>public void SetUpdateValidtyOnFrameChangedOfFacesWithId(int faceGroupId, bool updateValidity)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 update validty on frame changed of faces with id 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetUpdateValidtyOnFrameChangedOfFacesWithId(0, false);
+</code></pre>
+<h3 id="attachnavigationmeshfaces">AttachNavigationMeshFaces</h3>
+<p><code>public void AttachNavigationMeshFaces(int faceGroupId, bool isConnected, bool isBlocker = false, bool autoLocalize = false, bool finalizeBlockerConvexHullComputation = false, bool updateEntityFrame = true)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AttachNavigationMeshFaces 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.AttachNavigationMeshFaces(0, false, false, false, false, false);
+</code></pre>
+<h3 id="detachallattachednavigationmeshfaces">DetachAllAttachedNavigationMeshFaces</h3>
+<p><code>public void DetachAllAttachedNavigationMeshFaces()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DetachAllAttachedNavigationMeshFaces 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.DetachAllAttachedNavigationMeshFaces();
+</code></pre>
+<h3 id="updateattachednavigationmeshfaces">UpdateAttachedNavigationMeshFaces</h3>
+<p><code>public void UpdateAttachedNavigationMeshFaces()</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 attached navigation mesh faces 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.UpdateAttachedNavigationMeshFaces();
+</code></pre>
+<h3 id="removeskeleton">RemoveSkeleton</h3>
+<p><code>public void RemoveSkeleton()</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 skeleton。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveSkeleton();
+</code></pre>
+<h3 id="removeallchildren">RemoveAllChildren</h3>
+<p><code>public void RemoveAllChildren()</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 all children。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveAllChildren();
+</code></pre>
+<h3 id="getchildren">GetChildren</h3>
+<p><code>public IEnumerable&lt;WeakGameEntity&gt; GetChildren()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 children 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetChildren();
+</code></pre>
+<h3 id="getentityandchildren">GetEntityAndChildren</h3>
+<p><code>public IEnumerable&lt;WeakGameEntity&gt; GetEntityAndChildren()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 entity and children 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetEntityAndChildren();
+</code></pre>
+<h3 id="getchildrenrecursive">GetChildrenRecursive</h3>
+<p><code>public void GetChildrenRecursive(ref List&lt;WeakGameEntity&gt; children)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 children recursive 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetChildrenRecursive(children);
+</code></pre>
+<h3 id="getchildrenwithtagrecursive">GetChildrenWithTagRecursive</h3>
+<p><code>public void GetChildrenWithTagRecursive(List&lt;WeakGameEntity&gt; children, string tag)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 children with tag recursive 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetChildrenWithTagRecursive(children, &quot;example&quot;);
+</code></pre>
+<h3 id="isselectedoneditor">IsSelectedOnEditor</h3>
+<p><code>public bool IsSelectedOnEditor()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 selected on editor 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.IsSelectedOnEditor();
+</code></pre>
+<h3 id="selectentityoneditor">SelectEntityOnEditor</h3>
+<p><code>public void SelectEntityOnEditor()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SelectEntityOnEditor 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SelectEntityOnEditor();
+</code></pre>
+<h3 id="deselectentityoneditor">DeselectEntityOnEditor</h3>
+<p><code>public void DeselectEntityOnEditor()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DeselectEntityOnEditor 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.DeselectEntityOnEditor();
+</code></pre>
+<h3 id="setaspredisplayentity">SetAsPredisplayEntity</h3>
+<p><code>public void SetAsPredisplayEntity()</code></p>
+<p><strong>用途 / Purpose:</strong> 为 as predisplay entity 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetAsPredisplayEntity();
+</code></pre>
+<h3 id="removefrompredisplayentity">RemoveFromPredisplayEntity</h3>
+<p><code>public void RemoveFromPredisplayEntity()</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 from predisplay entity。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RemoveFromPredisplayEntity();
+</code></pre>
+<h3 id="setnativescriptcomponentvariable">SetNativeScriptComponentVariable</h3>
+<p><code>public void SetNativeScriptComponentVariable(string className, string fieldName, ref ScriptComponentFieldHolder data, RglScriptFieldType variableType)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 native script component variable 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetNativeScriptComponentVariable(&quot;example&quot;, &quot;example&quot;, data, variableType);
+</code></pre>
+<h3 id="setmanualglobalboundingbox">SetManualGlobalBoundingBox</h3>
+<p><code>public void SetManualGlobalBoundingBox(Vec3 boundingBoxStartGlobal, Vec3 boundingBoxEndGlobal)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 manual global bounding box 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetManualGlobalBoundingBox(boundingBoxStartGlobal, boundingBoxEndGlobal);
+</code></pre>
+<h3 id="rayhitentitywithnormal">RayHitEntityWithNormal</h3>
+<p><code>public bool RayHitEntityWithNormal(Vec3 rayOrigin, Vec3 rayDirection, float maxLength, ref Vec3 resultNormal, ref float resultLength)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RayHitEntityWithNormal 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.RayHitEntityWithNormal(rayOrigin, rayDirection, 0, resultNormal, resultLength);
+</code></pre>
+<h3 id="rayhitentity">RayHitEntity</h3>
+<p><code>public bool RayHitEntity(Vec3 rayOrigin, Vec3 rayDirection, float maxLength, ref float resultLength)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RayHitEntity 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.RayHitEntity(rayOrigin, rayDirection, 0, resultLength);
+</code></pre>
+<h3 id="getnativescriptcomponentvariable">GetNativeScriptComponentVariable</h3>
+<p><code>public void GetNativeScriptComponentVariable(string className, string fieldName, ref ScriptComponentFieldHolder data, RglScriptFieldType variableType)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 native script component variable 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.GetNativeScriptComponentVariable(&quot;example&quot;, &quot;example&quot;, data, variableType);
+</code></pre>
+<h3 id="setcustomclipplane">SetCustomClipPlane</h3>
+<p><code>public void SetCustomClipPlane(Vec3 clipPosition, Vec3 clipNormal, bool setForChildren)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 custom clip plane 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetCustomClipPlane(clipPosition, clipNormal, false);
+</code></pre>
+<h3 id="getboundingboxlongesthalfdimension">GetBoundingBoxLongestHalfDimension</h3>
+<p><code>public float GetBoundingBoxLongestHalfDimension()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 bounding box longest half dimension 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetBoundingBoxLongestHalfDimension();
+</code></pre>
+<h3 id="computeboundingboxfromlongesthalfdimension">ComputeBoundingBoxFromLongestHalfDimension</h3>
+<p><code>public BoundingBox ComputeBoundingBoxFromLongestHalfDimension(float longestHalfDimensionCoefficient)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ComputeBoundingBoxFromLongestHalfDimension 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.ComputeBoundingBoxFromLongestHalfDimension(0);
+</code></pre>
+<h3 id="computeboundingboxincludechildren">ComputeBoundingBoxIncludeChildren</h3>
+<p><code>public BoundingBox ComputeBoundingBoxIncludeChildren()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ComputeBoundingBoxIncludeChildren 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.ComputeBoundingBoxIncludeChildren();
+</code></pre>
+<h3 id="setmanuallocalboundingbox">SetManualLocalBoundingBox</h3>
+<p><code>public void SetManualLocalBoundingBox(in BoundingBox boundingBox)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 manual local bounding box 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetManualLocalBoundingBox(boundingBox);
+</code></pre>
+<h3 id="relaxlocalboundingbox">RelaxLocalBoundingBox</h3>
+<p><code>public void RelaxLocalBoundingBox(in BoundingBox boundingBox)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RelaxLocalBoundingBox 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.RelaxLocalBoundingBox(boundingBox);
+</code></pre>
+<h3 id="setcullmode">SetCullMode</h3>
+<p><code>public void SetCullMode(MBMeshCullingMode cullMode)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 cull mode 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetCullMode(cullMode);
+</code></pre>
+<h3 id="getfirstchildentitywithtagrecursive">GetFirstChildEntityWithTagRecursive</h3>
+<p><code>public WeakGameEntity GetFirstChildEntityWithTagRecursive(string tag)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 first child entity with tag recursive 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetFirstChildEntityWithTagRecursive(&quot;example&quot;);
+</code></pre>
+<h3 id="equals">Equals</h3>
+<p><code>public override bool Equals(object obj)</code></p>
+<p><strong>用途 / Purpose:</strong> 比较当前对象与传入实例是否相等。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.Equals(obj);
+</code></pre>
+<h3 id="gethashcode">GetHashCode</h3>
+<p><code>public override int GetHashCode()</code></p>
+<p><strong>用途 / Purpose:</strong> 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetHashCode();
+</code></pre>
+<h3 id="collectchildrenentitieswithtag">CollectChildrenEntitiesWithTag</h3>
+<p><code>public List&lt;WeakGameEntity&gt; CollectChildrenEntitiesWithTag(string tag)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CollectChildrenEntitiesWithTag 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.CollectChildrenEntitiesWithTag(&quot;example&quot;);
+</code></pre>
+<h3 id="collectchildrenentitieswithtagasenumarable">CollectChildrenEntitiesWithTagAsEnumarable</h3>
+<p><code>public IEnumerable&lt;WeakGameEntity&gt; CollectChildrenEntitiesWithTagAsEnumarable(string tag)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CollectChildrenEntitiesWithTagAsEnumarable 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.CollectChildrenEntitiesWithTagAsEnumarable(&quot;example&quot;);
+</code></pre>
+<h3 id="setdonotcheckvisibility">SetDoNotCheckVisibility</h3>
+<p><code>public void SetDoNotCheckVisibility(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 do not check visibility 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetDoNotCheckVisibility(false);
+</code></pre>
+<h3 id="setboneframetoallmeshes">SetBoneFrameToAllMeshes</h3>
+<p><code>public void SetBoneFrameToAllMeshes(int boneIndex, in MatrixFrame frame)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 bone frame to all meshes 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetBoneFrameToAllMeshes(0, frame);
+</code></pre>
+<h3 id="getglobalwindstrengthvectorofscene">GetGlobalWindStrengthVectorOfScene</h3>
+<p><code>public Vec2 GetGlobalWindStrengthVectorOfScene()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 global wind strength vector of scene 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGlobalWindStrengthVectorOfScene();
+</code></pre>
+<h3 id="getglobalwindvelocityofscene">GetGlobalWindVelocityOfScene</h3>
+<p><code>public Vec2 GetGlobalWindVelocityOfScene()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 global wind velocity of scene 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGlobalWindVelocityOfScene();
+</code></pre>
+<h3 id="getlastfinalrendercamerapositionofscene">GetLastFinalRenderCameraPositionOfScene</h3>
+<p><code>public Vec3 GetLastFinalRenderCameraPositionOfScene()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 last final render camera position of scene 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetLastFinalRenderCameraPositionOfScene();
+</code></pre>
+<h3 id="getglobalwindvelocitywithgustnoiseofscene">GetGlobalWindVelocityWithGustNoiseOfScene</h3>
+<p><code>public Vec2 GetGlobalWindVelocityWithGustNoiseOfScene(float globalTime)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 global wind velocity with gust noise of scene 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.GetGlobalWindVelocityWithGustNoiseOfScene(0);
+</code></pre>
+<h3 id="setforcedecalstorender">SetForceDecalsToRender</h3>
+<p><code>public void SetForceDecalsToRender(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 force decals to render 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetForceDecalsToRender(false);
+</code></pre>
+<h3 id="createemptyphysxshape">CreateEmptyPhysxShape</h3>
+<p><code>public UIntPtr CreateEmptyPhysxShape(bool isVariable, int physxMaterialIndex)</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 empty physx shape 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.CreateEmptyPhysxShape(false, 0);
+</code></pre>
+<h3 id="setforcenotaffectedbyseason">SetForceNotAffectedBySeason</h3>
+<p><code>public void SetForceNotAffectedBySeason(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 force not affected by season 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.SetForceNotAffectedBySeason(false);
+</code></pre>
+<h3 id="checkisprefablinkrootprefab">CheckIsPrefabLinkRootPrefab</h3>
+<p><code>public bool CheckIsPrefabLinkRootPrefab(int depth)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查is prefab link root prefab在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 WeakGameEntity 实例
+WeakGameEntity weakGameEntity = ...;
+var result = weakGameEntity.CheckIsPrefabLinkRootPrefab(0);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+WeakGameEntity weakGameEntity = ...;
+weakGameEntity.Invalidate();
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/zh/api/engine/">engine 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/zh/api/engine/UpgradeLevelMask/">&larr; UpgradeLevelMask</a>
+          
+          
+            <a rel="next" href="/v1.4.5/zh/api/engine/PhysicsContactInfo/">PhysicsContactInfo &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

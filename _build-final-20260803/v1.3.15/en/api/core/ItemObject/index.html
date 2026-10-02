@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ItemObject</title>
+  <meta name="description" content="Item type blueprint: weapon&#x2F;armor&#x2F;mount&#x2F;food&#x2F;trade good MBObject definition. Inventory counts live on ItemRoster, not on ItemObject itself.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core/ItemObject/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core/ItemObject/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="active">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core&#x2F;">core index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">ItemObject</span>
+    </nav>
+  
+  <h1>ItemObject</h1>
+  <h1 id="itemobject">ItemObject</h1>
+<p><strong>Namespace:</strong> <code>TaleWorlds.Core</code><br />
+<strong>Module:</strong> <code>TaleWorlds.Core</code><br />
+<strong>Type:</strong> <code>public class ItemObject : MBObjectBase</code><br />
+<strong>Base:</strong> <code>MBObjectBase</code><br />
+<strong>File:</strong> <code>TaleWorlds.Core/ItemObject.cs</code></p>
+<h2 id="one-line-job">One-line job</h2>
+<p><strong>Definition / template for one item kind</strong> (XML-loaded <code>MBObject</code>): value, weight, type, meshes, and <code>ItemComponent</code> (weapon / armor / horse / food, …). It does <strong>not</strong> mean "how many are in a bag".</p>
+<h2 id="mental-model">Mental Model</h2>
+<pre><code>XML &lt;Item id=&quot;grain&quot; ... /&gt;
+        │
+        ▼
+   ItemObject  (blueprint, one global instance per id)
+        │
+        ├── ItemRosterElement(item, count)     ← party / shop stock
+        ├── EquipmentElement(item, modifier) ← worn on a body
+        └── Agent gear / loot / craft instances
+</code></pre>
+<table><thead><tr><th>Dimension</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>Who creates</td><td>Main-data XML + <code>MBObjectManager</code>; trade goods can use <code>InitializeTradeGood</code>; crafting can use <code>InitAsPlayerCraftedItem</code></td></tr>
+<tr><td>Who holds</td><td>ObjectManager type list; referenced by Roster / Equipment</td></tr>
+<tr><td>Layer</td><td>Core base object; Campaign and Mission share the same blueprint</td></tr>
+<tr><td>Lifetime</td><td>Loaded with modules; crafted items can register at runtime</td></tr>
+<tr><td>What it is not</td><td><strong>Not</strong> a stack count; counts live on <code>ItemRoster.AddToCounts</code></td></tr>
+</tbody></table>
+<h3 id="when-to-use">When to use</h3>
+<ul>
+<li>Resolve by id: <code>MBObjectManager.Instance.GetObject&lt;ItemObject&gt;("grain")</code>.</li>
+<li>Type checks: <code>IsFood</code>, <code>IsTradeGood</code>, <code>HasWeaponComponent</code>, <code>ItemType</code>.</li>
+<li>Add/remove stock on parties/shops: get <code>ItemObject</code>, then mutate <code>ItemRoster</code>.</li>
+<li>Read base economy fields: <code>Value</code>, <code>Weight</code>, <code>ItemCategory</code>.</li>
+<li>Ammo kind: <code>GetAmmoTypeForItemType</code>.</li>
+</ul>
+<h3 id="when-not-to-use-do-not-write-fields-directly">When not to use / do not write fields directly</h3>
+<table><thead><tr><th>Don't</th><th>Why</th><th>Do instead</th></tr></thead><tbody>
+<tr><td>Change global <code>grain.Value</code> for one trade</td><td>Template is global; whole-save economy shifts</td><td><code>ItemModifier</code>, price Model, or trade logic overrides</td></tr>
+<tr><td><code>new ItemObject()</code> without registration as loot</td><td>Save / net / UI cannot resolve id</td><td>XML or <code>MBObjectManager</code> create + register</td></tr>
+<tr><td>Treat <code>ItemObject</code> as "player backpack"</td><td>No quantity</td><td><code>MobileParty.ItemRoster</code> / <code>PartyBase</code></td></tr>
+<tr><td><code>AddWeapon</code> on a shared blueprint instance</td><td>Pollutes that id for the whole game</td><td>Clone / craft-only instances</td></tr>
+<tr><td>Call <code>PrimaryWeapon</code> on non-weapons</td><td>NRE</td><td>Guard with <code>HasWeaponComponent</code></td></tr>
+</tbody></table>
+<h2 id="dependencies">Dependencies</h2>
+<h3 id="upstream">Upstream</h3>
+<table><thead><tr><th>Type</th><th>Relation</th></tr></thead><tbody>
+<tr><td><code>MBObjectManager</code></td><td>Load, lookup, type lists</td></tr>
+<tr><td>XML items</td><td>Mesh names, type, component child nodes</td></tr>
+<tr><td><code>ItemCategory</code></td><td>Economy category</td></tr>
+</tbody></table>
+<h3 id="downstream">Downstream</h3>
+<table><thead><tr><th>Type</th><th>Relation</th></tr></thead><tbody>
+<tr><td><code>ItemRoster</code> / <a href="../../campaign/MobileParty"><code>MobileParty</code></a></td><td>Stock counts</td></tr>
+<tr><td><code>Equipment</code> / <a href="../../campaign/Hero"><code>Hero</code></a> / <code>CharacterObject</code></td><td>Worn gear</td></tr>
+<tr><td><code>WeaponComponent</code> / <code>ArmorComponent</code> / <code>HorseComponent</code> / <code>TradeItemComponent</code></td><td>Concrete behavior</td></tr>
+<tr><td>Mission equipment and projectiles</td><td>Combat presentation</td></tr>
+</tbody></table>
+<h3 id="models-save">Models / Save</h3>
+<table><thead><tr><th>Channel</th><th>Relation</th></tr></thead><tbody>
+<tr><td>Models</td><td>Price, demand, craft difficulty often read Item fields then compute</td></tr>
+<tr><td>Save</td><td>Inventories store <strong>item ref + count + modifier</strong>; blueprints resolve by StringId. Crafted items need a restorable id/hash (<code>GetCraftedItemObjectFromHashedCode</code>)</td></tr>
+</tbody></table>
+<h2 id="risks-and-crash-boundaries">Risks and crash boundaries</h2>
+<table><thead><tr><th>Risk</th><th>Result</th><th>Mitigation</th></tr></thead><tbody>
+<tr><td>Mutate shared template numbers</td><td>Map-wide economy / balance breaks</td><td>Treat as read-only recipe</td></tr>
+<tr><td>Unregistered item into Roster</td><td>Load loss / exceptions</td><td>Proper registration</td></tr>
+<tr><td>Typo in <code>GetObject</code> id</td><td>null → NRE</td><td>Null checks</td></tr>
+<tr><td>Duplicate StringId across modules</td><td>Override / conflict</td><td>Unique prefixes</td></tr>
+<tr><td>Feed non-food into food tick</td><td>Logic bugs</td><td><code>IsFood</code> / <code>HasFoodComponent</code></td></tr>
+</tbody></table>
+<h2 id="key-members-purpose-timing">Key members (purpose + timing)</h2>
+<h3 id="lookup-and-factories">Lookup and factories</h3>
+<table><thead><tr><th>Member</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td><code>MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(id)</code></td><td>Main lookup</td><td>Any loaded stage</td></tr>
+<tr><td><code>GetObjectTypeList&lt;ItemObject&gt;()</code></td><td>Walk all</td><td>Debug / encyclopedia</td></tr>
+<tr><td><code>InitializeTradeGood(...)</code></td><td>Init trade-good fields</td><td>Dynamic trade goods</td></tr>
+<tr><td><code>InitAsPlayerCraftedItem(ref item)</code></td><td>Mark player-crafted</td><td>After craft</td></tr>
+<tr><td><code>GetCraftedItemObjectFromHashedCode</code></td><td>Crafted by hash</td><td>Load / share</td></tr>
+<tr><td><code>GetItemFromWeaponKind</code></td><td>Weapon kind → item</td><td>Low-level weapon tables</td></tr>
+<tr><td><code>GetAmmoTypeForItemType</code></td><td>Ammo type</td><td>Before shooting</td></tr>
+<tr><td><code>GetAirFrictionConstant</code></td><td>Projectile drag</td><td>Projectiles</td></tr>
+</tbody></table>
+<h3 id="type-and-components">Type and components</h3>
+<table><thead><tr><th>Member</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>ItemType</code> / <code>Type</code></td><td>Coarse enum</td></tr>
+<tr><td><code>ItemCategory</code> / <code>DetermineItemCategoryForItem</code></td><td>Economy category</td></tr>
+<tr><td><code>ItemFlags</code> / <code>SetItemFlagsForCosmetics</code></td><td>Flags</td></tr>
+<tr><td><code>HasWeaponComponent</code> / <code>WeaponComponent</code> / <code>PrimaryWeapon</code> / <code>Weapons</code> / <code>GetWeaponWithUsageIndex</code></td><td>Weapons</td></tr>
+<tr><td><code>HasArmorComponent</code> / <code>ArmorComponent</code></td><td>Armor</td></tr>
+<tr><td><code>HasHorseComponent</code> / <code>HorseComponent</code> / <code>IsMountable</code> / <code>IsAnimal</code></td><td>Mounts / animals</td></tr>
+<tr><td><code>HasFoodComponent</code> / <code>FoodComponent</code> / <code>IsFood</code></td><td>Food</td></tr>
+<tr><td><code>IsTradeGood</code> / <code>IsBannerItem</code> / <code>IsUniqueItem</code> / <code>NotMerchandise</code></td><td>Circulation and specials</td></tr>
+<tr><td><code>IsCraftedWeapon</code> / <code>IsCraftedByPlayer</code> / <code>WeaponDesign</code> / <code>Tier</code></td><td>Crafting</td></tr>
+</tbody></table>
+<h3 id="economy-and-presentation">Economy and presentation</h3>
+<table><thead><tr><th>Member</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>Name</code> / <code>Value</code> / <code>Weight</code> / <code>Difficulty</code> / <code>Effectiveness</code> / <code>Appearance</code></td><td>Base numbers</td></tr>
+<tr><td><code>Culture</code></td><td>Culture tag</td></tr>
+<tr><td><code>MultiMeshName</code> / <code>HolsterMeshName</code> / <code>BodyName</code> / <code>PrefabName</code>, …</td><td>Asset names</td></tr>
+<tr><td><code>IsCivilian</code> / <code>IsStealthItem</code> / <code>IsTransferable</code></td><td>Use contexts</td></tr>
+</tbody></table>
+<h2 id="real-examples">Real examples</h2>
+<h3 id="example-1-give-items-to-the-main-party">Example 1: Give items to the main party</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.Core;
+using TaleWorlds.ObjectSystem;
+
+public void GiveItemToMainParty(string itemId, int count)
+{
+    ItemObject item = MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(itemId);
+    if (item == null || MobileParty.MainParty == null || count == 0)
+    {
+        return;
+    }
+    MobileParty.MainParty.ItemRoster.AddToCounts(item, count);
+}
+</code></pre>
+<h3 id="example-2-list-all-food-items">Example 2: List all food items</h3>
+<pre><code data-lang="csharp">using TaleWorlds.Core;
+using TaleWorlds.ObjectSystem;
+
+public void ListFoods()
+{
+    foreach (ItemObject item in MBObjectManager.Instance.GetObjectTypeList&lt;ItemObject&gt;())
+    {
+        if (item.IsFood)
+        {
+            InformationManager.DisplayMessage(
+                new InformationMessage($&quot;{item.StringId}: {item.Name}&quot;));
+        }
+    }
+}
+</code></pre>
+<h3 id="example-3-does-this-weapon-need-ammo">Example 3: Does this weapon need ammo?</h3>
+<pre><code data-lang="csharp">using TaleWorlds.Core;
+
+public bool NeedsAmmo(ItemObject item)
+{
+    if (item == null || !item.HasWeaponComponent)
+    {
+        return false;
+    }
+    ItemObject.ItemTypeEnum ammo = ItemObject.GetAmmoTypeForItemType(item.ItemType);
+    return ammo != ItemObject.ItemTypeEnum.Invalid;
+}
+</code></pre>
+<h3 id="example-4-find-a-cheap-trade-good-in-campaign">Example 4: Find a cheap trade good in campaign</h3>
+<pre><code data-lang="csharp">using System.Linq;
+using TaleWorlds.Core;
+using TaleWorlds.ObjectSystem;
+
+public ItemObject FindCheapTradeGood(int maxValue)
+{
+    return MBObjectManager.Instance.GetObjectTypeList&lt;ItemObject&gt;()
+        .FirstOrDefault(i =&gt; i.IsTradeGood &amp;&amp; !i.NotMerchandise &amp;&amp; i.Value &lt;= maxValue);
+}
+</code></pre>
+<h2 id="working-with-campaign-objects">Working with campaign objects</h2>
+<table><thead><tr><th>Scene</th><th>Correct path</th></tr></thead><tbody>
+<tr><td>Give player supplies</td><td><code>MobileParty.MainParty.ItemRoster.AddToCounts(item, n)</code></td></tr>
+<tr><td>Equip a hero</td><td>Change <code>Hero</code> / <code>CharacterObject</code> <code>Equipment</code> slots (prefer official equip APIs)</td></tr>
+<tr><td>Shop buy/sell</td><td>Read pricing fields on <code>ItemObject</code> + town market logic / trade Actions; do <strong>not</strong> rewrite template <code>Value</code></td></tr>
+<tr><td>Quest reward unique items</td><td>Prefer existing ids or module-XML new ids; crafted items restore via hash</td></tr>
+<tr><td>"Can this feed the party?"</td><td><code>IsFood</code> or <code>HasFoodComponent</code>, then party food tick</td></tr>
+</tbody></table>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.Core;
+using TaleWorlds.ObjectSystem;
+
+// Daily Behavior sketch: top up grain when low (shows lookup path)
+public void EnsureMainPartyHasSomeFood()
+{
+    if (Campaign.Current == null || MobileParty.MainParty == null)
+    {
+        return;
+    }
+    MobileParty main = MobileParty.MainParty;
+    if (main.ItemRoster.TotalFood &gt; 10)
+    {
+        return;
+    }
+    ItemObject grain = MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(&quot;grain&quot;);
+    if (grain != null)
+    {
+        main.ItemRoster.AddToCounts(grain, 20);
+    }
+}
+</code></pre>
+<h2 id="cross-version-notes">Cross-version notes</h2>
+<ul>
+<li><strong>1.3.x / 1.4.5:</strong> <code>GetObject</code> + Roster pattern is stable.</li>
+<li><strong>1.4.5:</strong> Crafting and <code>WeaponDesign</code> are richer; stealth item flags show up more often.</li>
+<li>Custom items: module XML + unique <code>id</code>. Avoid runtime edits to vanilla templates.</li>
+</ul>
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/core/ItemObject/./">core section</a></li>
+<li><a href="../">API section</a></li>
+<li><a href="../../../architecture/sdk-overview">SDK overview</a></li>
+</ul>
+<h2 id="sibling-navigation">Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>Relation</th></tr></thead><tbody>
+<tr><td><a href="../../core-extra/ItemObject">core-extra/ItemObject</a></td><td>Path anchor for the same type</td></tr>
+<tr><td><a href="../../campaign/MobileParty">MobileParty</a></td><td>Holds item bags</td></tr>
+<tr><td><a href="../../campaign/CharacterObject">CharacterObject</a></td><td>Equipment references items</td></tr>
+<tr><td><a href="../../campaign/Hero">Hero</a></td><td>Character equipment</td></tr>
+<tr><td><a href="../../campaign/PartyBase">PartyBase</a></td><td>Roster root</td></tr>
+</tbody></table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../../../guide/asset-pipeline">Asset pipeline</a>: item XML</li>
+<li><a href="../../../architecture/crash-boundaries">Crash boundaries § MBObjectManager</a></li>
+<li><a href="../../../guide/campaign-system">Campaign system guide</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/core/">core index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/core/Module/">&larr; Module</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/core/MBSubModuleBase/">MBSubModuleBase &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

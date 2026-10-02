@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MBDebug</title>
+  <meta name="description" content="MBDebug 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/engine/MBDebug/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/engine/MBDebug/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/engine/MBDebug/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/engine/MBDebug/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/engine/MBDebug/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/engine/MBDebug/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="active">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;engine&#x2F;">engine 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MBDebug</span>
+    </nav>
+  
+  <h1>MBDebug</h1>
+  <h1 id="mbdebug">MBDebug</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Engine
+<strong>Module:</strong> TaleWorlds.Engine
+<strong>Type:</strong> <code>public static class MBDebug</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>TaleWorlds.Engine/MBDebug.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>MBDebug</code> 位于 <code>TaleWorlds.Engine</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.Engine</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>DebugVector</code></td><td><code>public static Vec3 DebugVector { get; set; }</code></td></tr>
+<tr><td><code>ShowDebugInfoState</code></td><td><code>public static int ShowDebugInfoState { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="disableui">DisableUI</h3>
+<p><code>public static string DisableUI(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DisableUI 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.DisableUI(strings);
+</code></pre>
+<h3 id="assertmemoryusage">AssertMemoryUsage</h3>
+<p><code>public static void AssertMemoryUsage(int memoryMB)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AssertMemoryUsage 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.AssertMemoryUsage(0);
+</code></pre>
+<h3 id="abortgame">AbortGame</h3>
+<p><code>public static void AbortGame(int ExitCode = 5)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AbortGame 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.AbortGame(0);
+</code></pre>
+<h3 id="showwarning">ShowWarning</h3>
+<p><code>public static void ShowWarning(string message)</code></p>
+<p><strong>用途 / Purpose:</strong> 显示warning对应的界面或元素。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.ShowWarning(&quot;example&quot;);
+</code></pre>
+<h3 id="contentwarning">ContentWarning</h3>
+<p><code>public static void ContentWarning(string message)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ContentWarning 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.ContentWarning(&quot;example&quot;);
+</code></pre>
+<h3 id="conditionalcontentwarning">ConditionalContentWarning</h3>
+<p><code>public static void ConditionalContentWarning(bool condition, string message)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ConditionalContentWarning 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.ConditionalContentWarning(false, &quot;example&quot;);
+</code></pre>
+<h3 id="showerror">ShowError</h3>
+<p><code>public static void ShowError(string message)</code></p>
+<p><strong>用途 / Purpose:</strong> 显示error对应的界面或元素。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.ShowError(&quot;example&quot;);
+</code></pre>
+<h3 id="showmessagebox">ShowMessageBox</h3>
+<p><code>public static void ShowMessageBox(string lpText, string lpCaption, uint uType)</code></p>
+<p><strong>用途 / Purpose:</strong> 显示message box对应的界面或元素。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.ShowMessageBox(&quot;example&quot;, &quot;example&quot;, 0);
+</code></pre>
+<h3 id="assert">Assert</h3>
+<p><code>public static void Assert(bool condition, string message, string callerFile = "", string callerMethod = "", int callerLine = 0)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Assert 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.Assert(false, &quot;example&quot;, &quot;example&quot;, &quot;example&quot;, 0);
+</code></pre>
+<h3 id="failedassert">FailedAssert</h3>
+<p><code>public static void FailedAssert(string message, string callerFile = "", string callerMethod = "", int callerLine = 0)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 FailedAssert 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.FailedAssert(&quot;example&quot;, &quot;example&quot;, &quot;example&quot;, 0);
+</code></pre>
+<h3 id="silentassert">SilentAssert</h3>
+<p><code>public static void SilentAssert(bool condition, string message = "", bool getDump = false, string callerFile = "", string callerMethod = "", int callerLine = 0)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SilentAssert 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.SilentAssert(false, &quot;example&quot;, false, &quot;example&quot;, &quot;example&quot;, 0);
+</code></pre>
+<h3 id="assertconditionorcallerclassname">AssertConditionOrCallerClassName</h3>
+<p><code>public static void AssertConditionOrCallerClassName(bool condition, string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AssertConditionOrCallerClassName 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.AssertConditionOrCallerClassName(false, &quot;example&quot;);
+</code></pre>
+<h3 id="assertconditionorcallerclassnamesearchallcallstack">AssertConditionOrCallerClassNameSearchAllCallstack</h3>
+<p><code>public static void AssertConditionOrCallerClassNameSearchAllCallstack(bool condition, string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AssertConditionOrCallerClassNameSearchAllCallstack 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.AssertConditionOrCallerClassNameSearchAllCallstack(false, &quot;example&quot;);
+</code></pre>
+<h3 id="print">Print</h3>
+<p><code>public static void Print(string message, int logLevel = 0, Debug.DebugColor color = Debug.DebugColor.White, ulong debugFilter = 17592186044416UL)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Print 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.Print(&quot;example&quot;, 0, debug.DebugColor.White, 0);
+</code></pre>
+<h3 id="consoleprint">ConsolePrint</h3>
+<p><code>public static void ConsolePrint(string message, Debug.DebugColor color = Debug.DebugColor.White, ulong debugFilter = 17592186044416UL)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ConsolePrint 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.ConsolePrint(&quot;example&quot;, debug.DebugColor.White, 0);
+</code></pre>
+<h3 id="writedebuglineonscreen">WriteDebugLineOnScreen</h3>
+<p><code>public static void WriteDebugLineOnScreen(string str)</code></p>
+<p><strong>用途 / Purpose:</strong> 将debug line on screen写入目标位置。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.WriteDebugLineOnScreen(&quot;example&quot;);
+</code></pre>
+<h3 id="renderdebugtext">RenderDebugText</h3>
+<p><code>public static void RenderDebugText(float screenX, float screenY, string text, uint color = 4294967295U, float time = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderDebugText 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderDebugText(0, 0, &quot;example&quot;, 0, 0);
+</code></pre>
+<h3 id="rendertext">RenderText</h3>
+<p><code>public static void RenderText(float screenX, float screenY, string text, uint color = 4294967295U, float time = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderText 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderText(0, 0, &quot;example&quot;, 0, 0);
+</code></pre>
+<h3 id="renderdebugrect">RenderDebugRect</h3>
+<p><code>public static void RenderDebugRect(float left, float bottom, float right, float top)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderDebugRect 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderDebugRect(0, 0, 0, 0);
+</code></pre>
+<h3 id="renderdebugrectwithcolor">RenderDebugRectWithColor</h3>
+<p><code>public static void RenderDebugRectWithColor(float left, float bottom, float right, float top, uint color = 4294967295U)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderDebugRectWithColor 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderDebugRectWithColor(0, 0, 0, 0, 0);
+</code></pre>
+<h3 id="renderdebugframe">RenderDebugFrame</h3>
+<p><code>public static void RenderDebugFrame(MatrixFrame frame, float lineLength, float time = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderDebugFrame 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderDebugFrame(frame, 0, 0);
+</code></pre>
+<h3 id="renderdebugtext3d">RenderDebugText3D</h3>
+<p><code>public static void RenderDebugText3D(Vec3 worldPosition, string str, uint color = 4294967295U, int screenPosOffsetX = 0, int screenPosOffsetY = 0, float time = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderDebugText3D 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderDebugText3D(worldPosition, &quot;example&quot;, 0, 0, 0, 0);
+</code></pre>
+<h3 id="renderdebugdirectionarrow">RenderDebugDirectionArrow</h3>
+<p><code>public static void RenderDebugDirectionArrow(Vec3 position, Vec3 direction, uint color = 4294967295U, bool depthCheck = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderDebugDirectionArrow 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderDebugDirectionArrow(position, direction, 0, false);
+</code></pre>
+<h3 id="renderdebugline">RenderDebugLine</h3>
+<p><code>public static void RenderDebugLine(Vec3 position, Vec3 direction, uint color = 4294967295U, bool depthCheck = false, float time = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderDebugLine 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderDebugLine(position, direction, 0, false, 0);
+</code></pre>
+<h3 id="renderdebugsphere">RenderDebugSphere</h3>
+<p><code>public static void RenderDebugSphere(Vec3 position, float radius, uint color = 4294967295U, bool depthCheck = false, float time = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderDebugSphere 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderDebugSphere(position, 0, 0, false, 0);
+</code></pre>
+<h3 id="renderdebugcapsule">RenderDebugCapsule</h3>
+<p><code>public static void RenderDebugCapsule(Vec3 p0, Vec3 p1, float radius, uint color = 4294967295U, bool depthCheck = false, float time = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderDebugCapsule 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderDebugCapsule(p0, p1, 0, 0, false, 0);
+</code></pre>
+<h3 id="renderdebugboundingboxofentity">RenderDebugBoundingBoxOfEntity</h3>
+<p><code>public static void RenderDebugBoundingBoxOfEntity(GameEntity entity, MatrixFrame frame, uint color = 4294967295U, bool depthCheck = false, float time = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderDebugBoundingBoxOfEntity 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderDebugBoundingBoxOfEntity(entity, frame, 0, false, 0);
+</code></pre>
+<h3 id="renderdebugboundingbox">RenderDebugBoundingBox</h3>
+<p><code>public static void RenderDebugBoundingBox(BoundingBox box, MatrixFrame frame, uint color = 4294967295U, bool depthCheck = false, float time = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderDebugBoundingBox 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderDebugBoundingBox(box, frame, 0, false, 0);
+</code></pre>
+<h3 id="clearrenderobjects">ClearRenderObjects</h3>
+<p><code>public static void ClearRenderObjects()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的render objects。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.ClearRenderObjects();
+</code></pre>
+<h3 id="renderdebugboxobject">RenderDebugBoxObject</h3>
+<p><code>public static void RenderDebugBoxObject(Vec3 min, Vec3 max, uint color = 4294967295U, bool depthCheck = false, float time = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderDebugBoxObject 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderDebugBoxObject(min, max, 0, false, 0);
+</code></pre>
+<h3 id="renderdebugboxobject-1">RenderDebugBoxObject</h3>
+<p><code>public static void RenderDebugBoxObject(Vec3 min, Vec3 max, MatrixFrame frame, uint color = 4294967295U, bool depthCheck = false, float time = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RenderDebugBoxObject 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.RenderDebugBoxObject(min, max, frame, 0, false, 0);
+</code></pre>
+<h3 id="postwarningline">PostWarningLine</h3>
+<p><code>public static void PostWarningLine(string line)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PostWarningLine 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.PostWarningLine(&quot;example&quot;);
+</code></pre>
+<h3 id="iserrorreportmodeactive">IsErrorReportModeActive</h3>
+<p><code>public static bool IsErrorReportModeActive()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 error report mode active 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.IsErrorReportModeActive();
+</code></pre>
+<h3 id="iserrorreportmodepausemission">IsErrorReportModePauseMission</h3>
+<p><code>public static bool IsErrorReportModePauseMission()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 error report mode pause mission 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.IsErrorReportModePauseMission();
+</code></pre>
+<h3 id="seterrorreportscene">SetErrorReportScene</h3>
+<p><code>public static void SetErrorReportScene(Scene scene)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 error report scene 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.SetErrorReportScene(scene);
+</code></pre>
+<h3 id="setdumpgenerationdisabled">SetDumpGenerationDisabled</h3>
+<p><code>public static void SetDumpGenerationDisabled(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 dump generation disabled 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.SetDumpGenerationDisabled(false);
+</code></pre>
+<h3 id="echocommandwindow">EchoCommandWindow</h3>
+<p><code>public static void EchoCommandWindow(string content)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EchoCommandWindow 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.EchoCommandWindow(&quot;example&quot;);
+</code></pre>
+<h3 id="clearconsole">ClearConsole</h3>
+<p><code>public static string ClearConsole(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的console。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.ClearConsole(strings);
+</code></pre>
+<h3 id="echocommandwindow-1">EchoCommandWindow</h3>
+<p><code>public static string EchoCommandWindow(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EchoCommandWindow 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.EchoCommandWindow(strings);
+</code></pre>
+<h3 id="echocommandwindowtest">EchoCommandWindowTest</h3>
+<p><code>public static string EchoCommandWindowTest(List&lt;string&gt; strings)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EchoCommandWindowTest 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.EchoCommandWindowTest(strings);
+</code></pre>
+<h3 id="istestmode">IsTestMode</h3>
+<p><code>public static bool IsTestMode()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 test mode 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MBDebug.IsTestMode();
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">MBDebug.DisableUI(strings);
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/api/engine/">engine 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/api/engine/MBMeshCullingMode/">&larr; MBMeshCullingMode</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/api/engine/EditDataPolicy/">EditDataPolicy &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

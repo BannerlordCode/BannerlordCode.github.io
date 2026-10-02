@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LobbyClient</title>
+  <meta name="description" content="LobbyClient 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/LobbyClient/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/LobbyClient/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/LobbyClient/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/LobbyClient/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">LobbyClient</span>
+    </nav>
+  
+  <h1>LobbyClient</h1>
+  <h1 id="lobbyclient">LobbyClient</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade.Diamond
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public class LobbyClient : Client&lt;LobbyClient&gt;</code>
+<strong>Base:</strong> <code>Client&lt;LobbyClient&gt;</code>
+<strong>File:</strong> <code>bin/TaleWorlds.MountAndBlade.Diamond/TaleWorlds.MountAndBlade.Diamond/LobbyClient.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>LobbyClient</code> 位于 <code>TaleWorlds.MountAndBlade.Diamond</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.MountAndBlade.Diamond</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>PlayerData</code></td><td><code>public PlayerData PlayerData { get; }</code></td></tr>
+<tr><td><code>SupportedFeatures</code></td><td><code>public SupportedFeatures SupportedFeatures { get; }</code></td></tr>
+<tr><td><code>ClanInfo</code></td><td><code>public ClanInfo ClanInfo { get; }</code></td></tr>
+<tr><td><code>ClanHomeInfo</code></td><td><code>public ClanHomeInfo ClanHomeInfo { get; }</code></td></tr>
+<tr><td><code>AvailableScenes</code></td><td><code>public AvailableScenes AvailableScenes { get; }</code></td></tr>
+<tr><td><code>IsRefreshingPlayerData</code></td><td><code>public bool IsRefreshingPlayerData { get; }</code></td></tr>
+<tr><td><code>CurrentState</code></td><td><code>public State CurrentState { get; }</code></td></tr>
+<tr><td><code>AliveCheckTimeInMiliSeconds</code></td><td><code>public override long AliveCheckTimeInMiliSeconds { get; }</code></td></tr>
+<tr><td><code>CanPerformLobbyActions</code></td><td><code>public bool CanPerformLobbyActions { get; }</code></td></tr>
+<tr><td><code>LastBattleServerAddressForClient</code></td><td><code>public string LastBattleServerAddressForClient { get; }</code></td></tr>
+<tr><td><code>LastBattleServerPortForClient</code></td><td><code>public ushort LastBattleServerPortForClient { get; }</code></td></tr>
+<tr><td><code>LastBattleIsOfficial</code></td><td><code>public bool LastBattleIsOfficial { get; }</code></td></tr>
+<tr><td><code>Connected</code></td><td><code>public bool Connected { get; }</code></td></tr>
+<tr><td><code>LoggedIn</code></td><td><code>public bool LoggedIn { get; }</code></td></tr>
+<tr><td><code>IsInGame</code></td><td><code>public bool IsInGame { get; }</code></td></tr>
+<tr><td><code>IsAbleToSearchForGame</code></td><td><code>public bool IsAbleToSearchForGame { get; }</code></td></tr>
+<tr><td><code>HasUserGeneratedContentPrivilege</code></td><td><code>public bool HasUserGeneratedContentPrivilege { get; }</code></td></tr>
+<tr><td><code>IsPartyLeader</code></td><td><code>public bool IsPartyLeader { get; }</code></td></tr>
+<tr><td><code>IsClanLeader</code></td><td><code>public bool IsClanLeader { get; }</code></td></tr>
+<tr><td><code>IsClanOfficer</code></td><td><code>public bool IsClanOfficer { get; }</code></td></tr>
+<tr><td><code>IsEligibleToCreatePremadeGame</code></td><td><code>public bool IsEligibleToCreatePremadeGame { get; }</code></td></tr>
+<tr><td><code>CustomBattleId</code></td><td><code>public CustomBattleId CustomBattleId { get; }</code></td></tr>
+<tr><td><code>CustomGameType</code></td><td><code>public string CustomGameType { get; }</code></td></tr>
+<tr><td><code>CustomGameScene</code></td><td><code>public string CustomGameScene { get; }</code></td></tr>
+<tr><td><code>AvailableCustomGames</code></td><td><code>public AvailableCustomGames AvailableCustomGames { get; }</code></td></tr>
+<tr><td><code>AvailablePremadeGames</code></td><td><code>public PremadeGameList AvailablePremadeGames { get; }</code></td></tr>
+<tr><td><code>PlayersInParty</code></td><td><code>public List&lt;PartyPlayerInLobbyClient&gt; PlayersInParty { get; }</code></td></tr>
+<tr><td><code>PlayersInClan</code></td><td><code>public List&lt;ClanPlayer&gt; PlayersInClan { get; }</code></td></tr>
+<tr><td><code>PlayerInfosInClan</code></td><td><code>public List&lt;ClanPlayerInfo&gt; PlayerInfosInClan { get; }</code></td></tr>
+<tr><td><code>FriendInfos</code></td><td><code>public FriendInfo FriendInfos { get; }</code></td></tr>
+<tr><td><code>IsInParty</code></td><td><code>public bool IsInParty { get; }</code></td></tr>
+<tr><td><code>CurrentMatchId</code></td><td><code>public string CurrentMatchId { get; }</code></td></tr>
+<tr><td><code>IsPartyInvitationPopupActive</code></td><td><code>public bool IsPartyInvitationPopupActive { get; }</code></td></tr>
+<tr><td><code>IsPartyJoinRequestPopupActive</code></td><td><code>public bool IsPartyJoinRequestPopupActive { get; }</code></td></tr>
+<tr><td><code>CanInvitePlayers</code></td><td><code>public bool CanInvitePlayers { get; }</code></td></tr>
+<tr><td><code>CanSuggestPlayers</code></td><td><code>public bool CanSuggestPlayers { get; }</code></td></tr>
+<tr><td><code>ClanID</code></td><td><code>public Guid ClanID { get; }</code></td></tr>
+<tr><td><code>FriendIDs</code></td><td><code>public List&lt;PlayerId&gt; FriendIDs { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="logout">Logout</h3>
+<p><code>public void Logout(TextObject logOutReason)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Logout 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.Logout(logOutReason);
+</code></pre>
+<h3 id="setloadedmodules">SetLoadedModules</h3>
+<p><code>public void SetLoadedModules(string moduleIDs)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 loaded modules 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.SetLoadedModules(&quot;example&quot;);
+</code></pre>
+<h3 id="getcustomgameserverlist">GetCustomGameServerList</h3>
+<p><code>public async Task&lt;AvailableCustomGames&gt; GetCustomGameServerList()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 custom game server list 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetCustomGameServerList();
+</code></pre>
+<h3 id="quitfromcustomgame">QuitFromCustomGame</h3>
+<p><code>public void QuitFromCustomGame()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 QuitFromCustomGame 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.QuitFromCustomGame();
+</code></pre>
+<h3 id="quitfrommatchmakergame">QuitFromMatchmakerGame</h3>
+<p><code>public void QuitFromMatchmakerGame()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 QuitFromMatchmakerGame 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.QuitFromMatchmakerGame();
+</code></pre>
+<h3 id="requestjoincustomgame">RequestJoinCustomGame</h3>
+<p><code>public async Task&lt;bool&gt; RequestJoinCustomGame(CustomBattleId serverId, string password, bool isJoinAsAdmin = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RequestJoinCustomGame 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.RequestJoinCustomGame(serverId, &quot;example&quot;, false);
+</code></pre>
+<h3 id="requestjoinplayerparty">RequestJoinPlayerParty</h3>
+<p><code>public async Task&lt;bool&gt; RequestJoinPlayerParty(PlayerId targetPlayer, bool inviteRequest)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RequestJoinPlayerParty 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.RequestJoinPlayerParty(targetPlayer, false);
+</code></pre>
+<h3 id="cancelfindgame">CancelFindGame</h3>
+<p><code>public void CancelFindGame()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否满足 cel find game 的前置条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.CancelFindGame();
+</code></pre>
+<h3 id="findgame">FindGame</h3>
+<p><code>public void FindGame()</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找满足条件的game。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.FindGame();
+</code></pre>
+<h3 id="findcustomgame">FindCustomGame</h3>
+<p><code>public async Task&lt;bool&gt; FindCustomGame(string selectedCustomGameTypes, bool? hasCrossplayPrivilege, string region)</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找满足条件的custom game。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.FindCustomGame(&quot;example&quot;, false, &quot;example&quot;);
+</code></pre>
+<h3 id="connect">Connect</h3>
+<p><code>public async Task&lt;LobbyClientConnectResult&gt; Connect(ILobbyClientSessionHandler lobbyClientSessionHandler, ILoginAccessProvider lobbyClientLoginAccessProvider, string overridenUserName, bool hasUserGeneratedContentPrivilege, PlatformInitParams initParams, Func&lt;Task&lt;bool&gt;&gt; preLoginTask)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 Connect 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.Connect(lobbyClientSessionHandler, lobbyClientLoginAccessProvider, &quot;example&quot;, false, initParams, preLoginTask);
+</code></pre>
+<h3 id="kickplayer">KickPlayer</h3>
+<p><code>public void KickPlayer(PlayerId id, bool banPlayer)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 KickPlayer 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.KickPlayer(id, false);
+</code></pre>
+<h3 id="changeregion">ChangeRegion</h3>
+<p><code>public void ChangeRegion(string region)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ChangeRegion 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.ChangeRegion(&quot;example&quot;);
+</code></pre>
+<h3 id="changegametypes">ChangeGameTypes</h3>
+<p><code>public void ChangeGameTypes(string gameTypes)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ChangeGameTypes 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.ChangeGameTypes(&quot;example&quot;);
+</code></pre>
+<h3 id="onconnected">OnConnected</h3>
+<p><code>public override void OnConnected()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 connected 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.OnConnected();
+</code></pre>
+<h3 id="oncantconnect">OnCantConnect</h3>
+<p><code>public override void OnCantConnect()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 cant connect 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.OnCantConnect();
+</code></pre>
+<h3 id="ondisconnected">OnDisconnected</h3>
+<p><code>public override void OnDisconnected()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 disconnected 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.OnDisconnected();
+</code></pre>
+<h3 id="removelobbyclienthandler">RemoveLobbyClientHandler</h3>
+<p><code>public void RemoveLobbyClientHandler()</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 lobby client handler。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.RemoveLobbyClientHandler();
+</code></pre>
+<h3 id="sendwhisper">SendWhisper</h3>
+<p><code>public void SendWhisper(string playerName, string message)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SendWhisper 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.SendWhisper(&quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="fleebattle">FleeBattle</h3>
+<p><code>public void FleeBattle()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 FleeBattle 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.FleeBattle();
+</code></pre>
+<h3 id="sendpartymessage">SendPartyMessage</h3>
+<p><code>public void SendPartyMessage(string message)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SendPartyMessage 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.SendPartyMessage(&quot;example&quot;);
+</code></pre>
+<h3 id="rejoinbattle">RejoinBattle</h3>
+<p><code>public void RejoinBattle()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RejoinBattle 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.RejoinBattle();
+</code></pre>
+<h3 id="onbattleresultsseen">OnBattleResultsSeen</h3>
+<p><code>public void OnBattleResultsSeen()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 battle results seen 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.OnBattleResultsSeen();
+</code></pre>
+<h3 id="acceptclaninvitation">AcceptClanInvitation</h3>
+<p><code>public void AcceptClanInvitation()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AcceptClanInvitation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.AcceptClanInvitation();
+</code></pre>
+<h3 id="declineclaninvitation">DeclineClanInvitation</h3>
+<p><code>public void DeclineClanInvitation()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DeclineClanInvitation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.DeclineClanInvitation();
+</code></pre>
+<h3 id="marknotificationasread">MarkNotificationAsRead</h3>
+<p><code>public void MarkNotificationAsRead(int notificationID)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MarkNotificationAsRead 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.MarkNotificationAsRead(0);
+</code></pre>
+<h3 id="acceptclancreationrequest">AcceptClanCreationRequest</h3>
+<p><code>public void AcceptClanCreationRequest()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AcceptClanCreationRequest 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.AcceptClanCreationRequest();
+</code></pre>
+<h3 id="declineclancreationrequest">DeclineClanCreationRequest</h3>
+<p><code>public void DeclineClanCreationRequest()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DeclineClanCreationRequest 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.DeclineClanCreationRequest();
+</code></pre>
+<h3 id="promotetoclanleader">PromoteToClanLeader</h3>
+<p><code>public void PromoteToClanLeader(PlayerId playerId, bool dontUseNameForUnknownPlayer)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PromoteToClanLeader 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.PromoteToClanLeader(playerId, false);
+</code></pre>
+<h3 id="kickfromclan">KickFromClan</h3>
+<p><code>public void KickFromClan(PlayerId playerId)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 KickFromClan 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.KickFromClan(playerId);
+</code></pre>
+<h3 id="clannameexists">ClanNameExists</h3>
+<p><code>public async Task&lt;CheckClanParameterValidResult&gt; ClanNameExists(string clanName)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ClanNameExists 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.ClanNameExists(&quot;example&quot;);
+</code></pre>
+<h3 id="clantagexists">ClanTagExists</h3>
+<p><code>public async Task&lt;CheckClanParameterValidResult&gt; ClanTagExists(string clanTag)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ClanTagExists 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.ClanTagExists(&quot;example&quot;);
+</code></pre>
+<h3 id="getclanhomeinfo">GetClanHomeInfo</h3>
+<p><code>public async Task&lt;ClanHomeInfo&gt; GetClanHomeInfo()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 clan home info 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetClanHomeInfo();
+</code></pre>
+<h3 id="assignasclanofficer">AssignAsClanOfficer</h3>
+<p><code>public void AssignAsClanOfficer(PlayerId playerId, bool dontUseNameForUnknownPlayer)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AssignAsClanOfficer 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.AssignAsClanOfficer(playerId, false);
+</code></pre>
+<h3 id="removeclanofficerroleforplayer">RemoveClanOfficerRoleForPlayer</h3>
+<p><code>public void RemoveClanOfficerRoleForPlayer(PlayerId playerId)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 clan officer role for player。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.RemoveClanOfficerRoleForPlayer(playerId);
+</code></pre>
+<h3 id="getclanleaderboardinfo">GetClanLeaderboardInfo</h3>
+<p><code>public async Task&lt;ClanLeaderboardInfo&gt; GetClanLeaderboardInfo()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 clan leaderboard info 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetClanLeaderboardInfo();
+</code></pre>
+<h3 id="getplayerclaninfo">GetPlayerClanInfo</h3>
+<p><code>public async Task&lt;ClanInfo&gt; GetPlayerClanInfo(PlayerId playerId)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 player clan info 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPlayerClanInfo(playerId);
+</code></pre>
+<h3 id="sendclanmessage">SendClanMessage</h3>
+<p><code>public void SendClanMessage(string message)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SendClanMessage 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.SendClanMessage(&quot;example&quot;);
+</code></pre>
+<h3 id="getpremadegamelist">GetPremadeGameList</h3>
+<p><code>public async Task&lt;PremadeGameList&gt; GetPremadeGameList()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 premade game list 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPremadeGameList();
+</code></pre>
+<h3 id="getavailablescenes">GetAvailableScenes</h3>
+<p><code>public async Task&lt;AvailableScenes&gt; GetAvailableScenes()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 available scenes 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetAvailableScenes();
+</code></pre>
+<h3 id="getlobbynews">GetLobbyNews</h3>
+<p><code>public async Task&lt;PublishedLobbyNewsArticle &gt; GetLobbyNews()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 lobby news 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetLobbyNews();
+</code></pre>
+<h3 id="setclaninformationtext">SetClanInformationText</h3>
+<p><code>public void SetClanInformationText(string informationText)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 clan information text 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.SetClanInformationText(&quot;example&quot;);
+</code></pre>
+<h3 id="addclanannouncement">AddClanAnnouncement</h3>
+<p><code>public void AddClanAnnouncement(string announcement)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 clan announcement 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.AddClanAnnouncement(&quot;example&quot;);
+</code></pre>
+<h3 id="editclanannouncement">EditClanAnnouncement</h3>
+<p><code>public void EditClanAnnouncement(int announcementId, string text)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EditClanAnnouncement 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.EditClanAnnouncement(0, &quot;example&quot;);
+</code></pre>
+<h3 id="removeclanannouncement">RemoveClanAnnouncement</h3>
+<p><code>public void RemoveClanAnnouncement(int announcementId)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 clan announcement。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.RemoveClanAnnouncement(0);
+</code></pre>
+<h3 id="changeclanfaction">ChangeClanFaction</h3>
+<p><code>public void ChangeClanFaction(string faction)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ChangeClanFaction 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.ChangeClanFaction(&quot;example&quot;);
+</code></pre>
+<h3 id="changeclansigil">ChangeClanSigil</h3>
+<p><code>public void ChangeClanSigil(string sigil)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ChangeClanSigil 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.ChangeClanSigil(&quot;example&quot;);
+</code></pre>
+<h3 id="destroyclan">DestroyClan</h3>
+<p><code>public void DestroyClan()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DestroyClan 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.DestroyClan();
+</code></pre>
+<h3 id="invitetoclan">InviteToClan</h3>
+<p><code>public void InviteToClan(PlayerId invitedPlayerId, bool dontUseNameForUnknownPlayer)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 InviteToClan 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.InviteToClan(invitedPlayerId, false);
+</code></pre>
+<h3 id="createpremadegame">CreatePremadeGame</h3>
+<p><code>public async void CreatePremadeGame(string name, string gameType, string mapName, string factionA, string factionB, string password, PremadeGameType premadeGameType)</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 premade game 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.CreatePremadeGame(&quot;example&quot;, &quot;example&quot;, &quot;example&quot;, &quot;example&quot;, &quot;example&quot;, &quot;example&quot;, premadeGameType);
+</code></pre>
+<h3 id="cancelcreatingpremadegame">CancelCreatingPremadeGame</h3>
+<p><code>public void CancelCreatingPremadeGame()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否满足 cel creating premade game 的前置条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.CancelCreatingPremadeGame();
+</code></pre>
+<h3 id="requesttojoinpremadegame">RequestToJoinPremadeGame</h3>
+<p><code>public void RequestToJoinPremadeGame(Guid gameId, string password)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RequestToJoinPremadeGame 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.RequestToJoinPremadeGame(gameId, &quot;example&quot;);
+</code></pre>
+<h3 id="acceptjoinpremadegamerequest">AcceptJoinPremadeGameRequest</h3>
+<p><code>public void AcceptJoinPremadeGameRequest(Guid partyId)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AcceptJoinPremadeGameRequest 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.AcceptJoinPremadeGameRequest(partyId);
+</code></pre>
+<h3 id="declinejoinpremadegamerequest">DeclineJoinPremadeGameRequest</h3>
+<p><code>public void DeclineJoinPremadeGameRequest(Guid partyId)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DeclineJoinPremadeGameRequest 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.DeclineJoinPremadeGameRequest(partyId);
+</code></pre>
+<h3 id="invitetoparty">InviteToParty</h3>
+<p><code>public void InviteToParty(PlayerId playerId, bool dontUseNameForUnknownPlayer)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 InviteToParty 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.InviteToParty(playerId, false);
+</code></pre>
+<h3 id="disbandparty">DisbandParty</h3>
+<p><code>public void DisbandParty()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DisbandParty 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.DisbandParty();
+</code></pre>
+<h3 id="kickplayerfromparty">KickPlayerFromParty</h3>
+<p><code>public void KickPlayerFromParty(PlayerId playerId)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 KickPlayerFromParty 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.KickPlayerFromParty(playerId);
+</code></pre>
+<h3 id="onplayernameupdated">OnPlayerNameUpdated</h3>
+<p><code>public void OnPlayerNameUpdated(string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 player name updated 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.OnPlayerNameUpdated(&quot;example&quot;);
+</code></pre>
+<h3 id="toggleuseclansigil">ToggleUseClanSigil</h3>
+<p><code>public void ToggleUseClanSigil(bool isUsed)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ToggleUseClanSigil 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.ToggleUseClanSigil(false);
+</code></pre>
+<h3 id="promoteplayertopartyleader">PromotePlayerToPartyLeader</h3>
+<p><code>public void PromotePlayerToPartyLeader(PlayerId playerId)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PromotePlayerToPartyLeader 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.PromotePlayerToPartyLeader(playerId);
+</code></pre>
+<h3 id="changesigil">ChangeSigil</h3>
+<p><code>public void ChangeSigil(string sigilId)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ChangeSigil 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.ChangeSigil(&quot;example&quot;);
+</code></pre>
+<h3 id="invitetoplatformsession">InviteToPlatformSession</h3>
+<p><code>public async Task&lt;bool&gt; InviteToPlatformSession(PlayerId playerId)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 InviteToPlatformSession 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.InviteToPlatformSession(playerId);
+</code></pre>
+<h3 id="endcustomgame">EndCustomGame</h3>
+<p><code>public async void EndCustomGame()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndCustomGame 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.EndCustomGame();
+</code></pre>
+<h3 id="registercustomgame">RegisterCustomGame</h3>
+<p><code>public async void RegisterCustomGame(string gameModule, string gameType, string serverName, int maxPlayerCount, string map, string uniqueMapId, string gamePassword, string adminPassword, int port)</code></p>
+<p><strong>用途 / Purpose:</strong> 将custom game注册到当前系统，以便后续监听或分发。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.RegisterCustomGame(&quot;example&quot;, &quot;example&quot;, &quot;example&quot;, 0, &quot;example&quot;, &quot;example&quot;, &quot;example&quot;, &quot;example&quot;, 0);
+</code></pre>
+<h3 id="updatecustomgamedata">UpdateCustomGameData</h3>
+<p><code>public void UpdateCustomGameData(string newGameType, string newMap, int newCount)</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 custom game data 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.UpdateCustomGameData(&quot;example&quot;, &quot;example&quot;, 0);
+</code></pre>
+<h3 id="responsecustomgameclientconnection">ResponseCustomGameClientConnection</h3>
+<p><code>public void ResponseCustomGameClientConnection(PlayerJoinGameResponseDataFromHost playerJoinData)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ResponseCustomGameClientConnection 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.ResponseCustomGameClientConnection(playerJoinData);
+</code></pre>
+<h3 id="acceptpartyinvitation">AcceptPartyInvitation</h3>
+<p><code>public void AcceptPartyInvitation()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AcceptPartyInvitation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.AcceptPartyInvitation();
+</code></pre>
+<h3 id="declinepartyinvitation">DeclinePartyInvitation</h3>
+<p><code>public void DeclinePartyInvitation()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DeclinePartyInvitation 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.DeclinePartyInvitation();
+</code></pre>
+<h3 id="acceptpartyjoinrequest">AcceptPartyJoinRequest</h3>
+<p><code>public void AcceptPartyJoinRequest(PlayerId playerId)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AcceptPartyJoinRequest 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.AcceptPartyJoinRequest(playerId);
+</code></pre>
+<h3 id="declinepartyjoinrequest">DeclinePartyJoinRequest</h3>
+<p><code>public void DeclinePartyJoinRequest(PlayerId playerId, PartyJoinDeclineReason reason)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DeclinePartyJoinRequest 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.DeclinePartyJoinRequest(playerId, reason);
+</code></pre>
+<h3 id="updatecharacter">UpdateCharacter</h3>
+<p><code>public void UpdateCharacter(BodyProperties bodyProperties, bool isFemale)</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 character 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.UpdateCharacter(bodyProperties, false);
+</code></pre>
+<h3 id="updateshownbadgeid">UpdateShownBadgeId</h3>
+<p><code>public async Task&lt;bool&gt; UpdateShownBadgeId(string shownBadgeId)</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 shown badge id 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.UpdateShownBadgeId(&quot;example&quot;);
+</code></pre>
+<h3 id="getanotherplayerstate">GetAnotherPlayerState</h3>
+<p><code>public async Task&lt;AnotherPlayerData&gt; GetAnotherPlayerState(PlayerId playerId)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 another player state 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetAnotherPlayerState(playerId);
+</code></pre>
+<h3 id="getanotherplayerdata">GetAnotherPlayerData</h3>
+<p><code>public async Task&lt;PlayerData&gt; GetAnotherPlayerData(PlayerId playerID)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 another player data 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetAnotherPlayerData(playerID);
+</code></pre>
+<h3 id="getplayercountinqueue">GetPlayerCountInQueue</h3>
+<p><code>public async Task&lt;MatchmakingQueueStats&gt; GetPlayerCountInQueue()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 player count in queue 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPlayerCountInQueue();
+</code></pre>
+<h3 id="getmatchmakingwaittimes">GetMatchmakingWaitTimes</h3>
+<p><code>public async Task&lt;MatchmakingWaitTimeStats&gt; GetMatchmakingWaitTimes()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 matchmaking wait times 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetMatchmakingWaitTimes();
+</code></pre>
+<h3 id="getplayerbadges">GetPlayerBadges</h3>
+<p><code>public async Task&lt;Badge &gt; GetPlayerBadges()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 player badges 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPlayerBadges();
+</code></pre>
+<h3 id="getplayerstats">GetPlayerStats</h3>
+<p><code>public async Task&lt;PlayerStatsBase &gt; GetPlayerStats(PlayerId playerID)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 player stats 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPlayerStats(playerID);
+</code></pre>
+<h3 id="getgametyperankinfo">GetGameTypeRankInfo</h3>
+<p><code>public async Task&lt;GameTypeRankInfo &gt; GetGameTypeRankInfo(PlayerId playerID)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 game type rank info 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetGameTypeRankInfo(playerID);
+</code></pre>
+<h3 id="getrankedleaderboardcount">GetRankedLeaderboardCount</h3>
+<p><code>public async Task&lt;int&gt; GetRankedLeaderboardCount(string gameType)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 ranked leaderboard count 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetRankedLeaderboardCount(&quot;example&quot;);
+</code></pre>
+<h3 id="getrankedleaderboard">GetRankedLeaderboard</h3>
+<p><code>public async Task&lt;PlayerLeaderboardData &gt; GetRankedLeaderboard(string gameType, int startIndex, int count)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 ranked leaderboard 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetRankedLeaderboard(&quot;example&quot;, 0, 0);
+</code></pre>
+<h3 id="sendcreateclanmessage">SendCreateClanMessage</h3>
+<p><code>public void SendCreateClanMessage(string clanName, string clanTag, string clanFaction, string clanSigil)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SendCreateClanMessage 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.SendCreateClanMessage(&quot;example&quot;, &quot;example&quot;, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="getfriendlist">GetFriendList</h3>
+<p><code>public void GetFriendList()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 friend list 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.GetFriendList();
+</code></pre>
+<h3 id="addfriend">AddFriend</h3>
+<p><code>public void AddFriend(PlayerId friendId, bool dontUseNameForUnknownPlayer)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 friend 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.AddFriend(friendId, false);
+</code></pre>
+<h3 id="removefriend">RemoveFriend</h3>
+<p><code>public void RemoveFriend(PlayerId friendId)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 friend。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.RemoveFriend(friendId);
+</code></pre>
+<h3 id="respondtofriendrequest">RespondToFriendRequest</h3>
+<p><code>public void RespondToFriendRequest(PlayerId playerId, bool dontUseNameForUnknownPlayer, bool isAccepted, bool isBlocked = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RespondToFriendRequest 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.RespondToFriendRequest(playerId, false, false, false);
+</code></pre>
+<h3 id="reportplayer">ReportPlayer</h3>
+<p><code>public void ReportPlayer(string gameId, PlayerId player, string playerName, PlayerReportType type, string message)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ReportPlayer 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.ReportPlayer(&quot;example&quot;, player, &quot;example&quot;, type, &quot;example&quot;);
+</code></pre>
+<h3 id="changeusername">ChangeUsername</h3>
+<p><code>public void ChangeUsername(string username)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ChangeUsername 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.ChangeUsername(&quot;example&quot;);
+</code></pre>
+<h3 id="addfriendbyusernameandid">AddFriendByUsernameAndId</h3>
+<p><code>public void AddFriendByUsernameAndId(string username, int userId, bool dontUseNameForUnknownPlayer)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 friend by username and id 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+lobbyClient.AddFriendByUsernameAndId(&quot;example&quot;, 0, false);
+</code></pre>
+<h3 id="doesplayerwithusernameandidexist">DoesPlayerWithUsernameAndIdExist</h3>
+<p><code>public async Task&lt;bool&gt; DoesPlayerWithUsernameAndIdExist(string username, int userId)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断player with username and id exist这一条件在当前对象上是否成立。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.DoesPlayerWithUsernameAndIdExist(&quot;example&quot;, 0);
+</code></pre>
+<h3 id="isplayerclanleader">IsPlayerClanLeader</h3>
+<p><code>public bool IsPlayerClanLeader(PlayerId playerID)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 player clan leader 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.IsPlayerClanLeader(playerID);
+</code></pre>
+<h3 id="isplayerclanofficer">IsPlayerClanOfficer</h3>
+<p><code>public bool IsPlayerClanOfficer(PlayerId playerID)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 player clan officer 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.IsPlayerClanOfficer(playerID);
+</code></pre>
+<h3 id="updateusedcosmeticitems">UpdateUsedCosmeticItems</h3>
+<p><code>public async Task&lt;bool&gt; UpdateUsedCosmeticItems(Dictionary&lt;string, List&lt;(string cosmeticId, bool isEquipped)&gt;&gt; usedCosmetics)</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 used cosmetic items 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.UpdateUsedCosmeticItems(dictionary&lt;string, cosmeticId, false);
+</code></pre>
+<h3 id="getdedicatedcustomserverauthtoken">GetDedicatedCustomServerAuthToken</h3>
+<p><code>public async Task&lt;string&gt; GetDedicatedCustomServerAuthToken()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 dedicated custom server auth token 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetDedicatedCustomServerAuthToken();
+</code></pre>
+<h3 id="getofficialserverprovidername">GetOfficialServerProviderName</h3>
+<p><code>public async Task&lt;string&gt; GetOfficialServerProviderName()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 official server provider name 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetOfficialServerProviderName();
+</code></pre>
+<h3 id="getplayerbannerlordid">GetPlayerBannerlordID</h3>
+<p><code>public async Task&lt;string&gt; GetPlayerBannerlordID(PlayerId playerId)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 player bannerlord i d 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPlayerBannerlordID(playerId);
+</code></pre>
+<h3 id="isknownplayer">IsKnownPlayer</h3>
+<p><code>public bool IsKnownPlayer(PlayerId playerID)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 known player 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.IsKnownPlayer(playerID);
+</code></pre>
+<h3 id="getpingtoserver">GetPingToServer</h3>
+<p><code>public async Task&lt;long&gt; GetPingToServer(string IpAddress)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 ping to server 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.GetPingToServer(&quot;example&quot;);
+</code></pre>
+<h3 id="sendpsplayerjoinedtoplayersessionmessage">SendPSPlayerJoinedToPlayerSessionMessage</h3>
+<p><code>public async Task&lt;bool&gt; SendPSPlayerJoinedToPlayerSessionMessage(ulong inviterPlayerId)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SendPSPlayerJoinedToPlayerSessionMessage 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.SendPSPlayerJoinedToPlayerSessionMessage(0);
+</code></pre>
+<h3 id="sendplatformplayerjoinedtoplayersessionmessage">SendPlatformPlayerJoinedToPlayerSessionMessage</h3>
+<p><code>public async Task&lt;bool&gt; SendPlatformPlayerJoinedToPlayerSessionMessage(PlayerId inviterPlayerId)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SendPlatformPlayerJoinedToPlayerSessionMessage 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 LobbyClient 实例
+LobbyClient lobbyClient = ...;
+var result = lobbyClient.SendPlatformPlayerJoinedToPlayerSessionMessage(inviterPlayerId);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+LobbyClient lobbyClient = ...;
+lobbyClient.Logout(logOutReason);
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/zh/api/mission-ext/">mission-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/zh/api/mission-ext/BehaviorValueSet/">&larr; BehaviorValueSet</a>
+          
+          
+            <a rel="next" href="/v1.4.5/zh/api/mission-ext/HandIndex/">HandIndex &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

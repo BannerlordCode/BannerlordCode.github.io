@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IDataStore</title>
+  <meta name="description" content="战役存档的“按 Behavior 分桶”键值容器：仅在 CampaignBehaviorBase.SyncData 调用期间出现，负责把单个 Behavior 的字段写入存档或从存档还原。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/IDataStore/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/IDataStore/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">IDataStore</span>
+    </nav>
+  
+  <h1>IDataStore</h1>
+  <h1 id="idatastore">IDataStore</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public interface IDataStore</code><br />
+<strong>Base:</strong> 无（接口，无基类）<br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/IDataStore.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>IDataStore</code> 是 Bannerlord 战役<strong>存档/读档</strong>机制里的一个极简契约：一个“按 key 存取一段数据”的容器。它只在<strong>一次存档或读档流程中、针对某一个 Behavior</strong> 时短暂存在，由引擎创建并交给你的 <code>CampaignBehaviorBase.SyncData(IDataStore dataStore)</code> 方法。你往里 <code>SyncData</code> 什么，存档就记下什么；读档时引擎再原样喂回来。</p>
+<p>它<strong>不是</strong>一个跨战役的全局数据库，也<strong>不是</strong>运行时读写共享数据的通道。它的唯一职责是：让你把“属于这个 Behavior 的、需要跨存档存活的状态”存进档、读出来。</p>
+<blockquote>
+<p>一句话职责：把单个 Behavior 的私有字段，在存档/读档时与游戏存档做一次 key 化的双向同步。</p>
+</blockquote>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>IDataStore</code> 想成**“一次存档/读档里、发给你的那一只临时托盘”**：</p>
+<ul>
+<li>它的生命周期极短。引擎在存盘前触发 <code>OnBeforeSaveEvent</code>，给每个 Behavior 新建一个 <code>BehaviorSaveData</code>（内部实现了 <code>IDataStore</code>，<code>IsSaving = true</code>），调用你的 <code>SyncData</code>，把你 <code>SyncData(key, ref value)</code> 写入的字段收集进这只托盘；托盘随后被收进 <code>CampaignBehaviorManager</code> 持有的 <code>CampaignBehaviorDataStore</code>（<code>[SaveableField(1)]</code>）并随整个 <code>Campaign</code> 一起落盘。读档时流程相反：引擎为你的 Behavior 准备一只 <code>IsLoading = true</code> 的托盘，调用 <code>SyncData</code>，把你之前存的值按 key 填回 <code>ref</code> 变量，托盘随即被丢弃。</li>
+<li>它是<strong>按 Behavior 分桶</strong>的。底层用 <code>Dictionary&lt;string, BehaviorSaveData&gt;</code>，以 <code>CampaignBehaviorBase.StringId</code> 作键。所以两只不同的 Behavior 用同一个 key（比如都叫 <code>"_counter"</code>）互不干扰；但<strong>同一个 Behavior 内</strong>的 key 会互相覆盖。</li>
+<li>你拿到的 <code>IDataStore</code> 实例是<strong>临时的、只在这次调用里有效</strong>。它背后是 <code>internal</code> 的 <code>CampaignBehaviorDataStore.BehaviorSaveData</code>，mod 既不能 <code>new</code>，也不能从 <code>Campaign</code> 上“取”一个长期持有——<code>Campaign</code> 根本没有 <code>GetDataStore</code> / <code>DataStore</code> 这样的公开成员（只有 <code>CampaignTickCacheDataStore _tickData</code>，那是另一回事）。</li>
+</ul>
+<h2 id="he-shi-yong-he-shi-bu-yao-yong">何时用 / 何时不要用</h2>
+<p><strong>用它（正确场景）：</strong></p>
+<ul>
+<li>在你的 <code>CampaignBehaviorBase</code> 子类里重写 <code>SyncData(IDataStore dataStore)</code>，把需要跨存档保留的私有字段逐个 <code>SyncData("key", ref field)</code> 登记进去。这是持久化你的 mod 状态的<strong>标准、唯一</strong>入口。</li>
+<li>用 <code>IsSaving</code> / <code>IsLoading</code> 判断当前是存盘还是读档，从而决定是否需要做“读档后重建引用/重算缓存”之类的收尾工作。</li>
+</ul>
+<p><strong>不要这样用：</strong></p>
+<ul>
+<li><strong>不要</strong>自己实现 <code>IDataStore</code> 或 <code>new</code> 一个来当 mod 的全局数据容器。引擎只认它自己内部构造的 <code>BehaviorSaveData</code>；你实现的实例永远不会被调用。</li>
+<li><strong>不要</strong>把 <code>SyncData</code> 调用得到的 <code>dataStore</code> 引用存到字段里留待以后用。它只在 <code>SyncData</code> 这一次调用期间有效，调用结束后托盘被丢弃或清空，之后再碰它毫无意义（甚至拿到的是别的 Behavior 的托盘）。</li>
+<li><strong>不要</strong>用它在运行时“共享数据”。想让多个 Behavior 之间、或 Behavior 与 UI 之间共享状态，用 <code>Campaign.Current</code>、各 <code>Manager</code>、或你自己的静态/实例字段；<code>IDataStore</code> 只在存读档那一刻工作。</li>
+<li><strong>正确替代方案</strong>：mod 的持久化状态 → 作为 <code>CampaignBehaviorBase</code> 子类的字段（或 <code>[SaveableField]</code> 字段），在 <code>SyncData</code> 里登记；mod 的运行时共享状态 → 放在 Behavior 实例字段、<code>Campaign.Current.GetCampaignBehavior&lt;T&gt;()</code> 取到的 Behavior、或 <code>Campaign</code> 提供的 Managers 上。</li>
+</ul>
+<h2 id="yi-lai-tu">依赖图</h2>
+<ul>
+<li>↑ 上游：
+<ul>
+<li><a href="../../campaign/Campaign/">Campaign</a> — 整个战役的宿主；<code>CampaignBehaviorManager</code> 是其可存档的子对象，<code>CampaignBehaviorDataStore</code> 随战役存档一起落盘。</li>
+<li><a href="../CampaignBehaviorBase/">CampaignBehaviorBase</a> / <a href="../ICampaignBehavior/">ICampaignBehavior</a> — 你的 Behavior 通过 <code>SyncData(IDataStore)</code> 收到这只托盘。</li>
+<li>存档系统：<a href="../../save-system/SaveManager/">SaveManager</a> —— <code>OnBeforeSaveEvent</code> 触发写盘、<code>LoadBehaviorData</code> 在 <code>OnGameLoaded</code> 之后回填。</li>
+</ul>
+</li>
+<li>↓ 下游：
+<ul>
+<li>每一个重写了 <code>SyncData</code> 的战役 Behavior（原版 <code>WorkshopsCampaignBehavior</code>、<code>VillagerCampaignBehavior</code>、<code>ViewDataTrackerCampaignBehavior</code> 等都在用）。</li>
+<li>内部持有者：<code>CampaignBehaviorManager</code>（<code>[SaveableField(1)]</code> 持有 <code>CampaignBehaviorDataStore</code>）、<code>SaveableCampaignTypeDefiner</code>（把 <code>CampaignBehaviorDataStore</code> 与 <code>BehaviorSaveData</code> 登记进存档类型表）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="feng-xian-duan">风险段</h2>
+<ul>
+<li><strong>寿命只在 SyncData 调用内</strong>：你收到的 <code>dataStore</code> 是当次存/读档流程中临时构造的 <code>BehaviorSaveData</code>。把它赋给字段、在 tick 或事件里再调用它，是不确定的（通常是空托盘或别的 Behavior 的托盘）。需要持久化就用 <code>SyncData</code> 登记字段，需要运行时访问就用 Behavior 自己的字段。</li>
+<li><strong>key 覆盖</strong>：同一个 Behavior 内，两次 <code>SyncData</code> 用相同 key，后一次覆盖前一次。给每个字段起唯一、带前缀的 key（例如 <code>"_myMod_counter"</code>）。不同 Behavior 之间 key 隔离，但同名不冲突只是因为分桶，改 <code>StringId</code> 后旧档会按类型名兜底匹配——见下。</li>
+<li><strong>跨战役/跨版本引用</strong>：<code>SyncData</code> 的 <code>data`` 必须是可序列化、属于存档对象图的对象（基本类型、实现了保存契约的 </code>MBObjectBase<code>派生类、标准容器等）。把“不属于存档图的、跨战役的引用”（例如对某个只存在于本局内存的对象、对</code>MobileParty<code>之外的临时对象）塞进去，会导致存档收集对象失败或读档拿到</code>null<code>。读档时 </code>SyncData<code>返回</code>false<code>即代表该 key 在档里不存在，此时你的</code>ref` 变量保持默认值——务必处理“新档/旧档缺字段”的情况。</li>
+<li><strong>版本演进</strong>：存盘时写的是字段的当前类型。如果你之后改了某字段的类型（比如 <code>int</code> 改 <code>List&lt;int&gt;</code>），旧存档读回来会反序列化失败或抛异常。稳妥做法是<strong>给 key 加版本号</strong>（如 <code>"_myMod_counter_v2"</code>），或在 <code>SyncData</code> 里兼容默认值。</li>
+<li><strong><code>StringId</code> 决定分桶键</strong>：底层用 <code>CampaignBehaviorBase.StringId</code>（<code>StringId</code> 默认是类型名）定位存档片段。load 时若严格按 <code>StringId</code> 找不到，会按“类型名包含”做兜底匹配；所以<strong>不要让两个 Behavior 的类型名互相包含</strong>，否则读档可能串桶。<code>Debug.FailedAssert</code> 也会在“同一 StringId 存了多次”时报警。</li>
+<li><strong><code>IsSaving</code> / <code>IsLoading</code> 只是阶段标志</strong>：不要基于它做游戏逻辑分支（例如“正在存盘就不扣钱”之类），它只说明当前是写档还是读档回填。真正影响游戏状态的是你写进 <code>ref</code> 的值。</li>
+</ul>
+<h2 id="cheng-yuan-shuo-ming">成员说明</h2>
+<p><code>IDataStore</code> 只有三个成员，全部围绕“一次存/读档”的同步。</p>
+<h3 id="shu-ju-du-xie">数据读写</h3>
+<h4 id="bool-syncdata-t-string-key-ref-t-data"><code>bool SyncData&lt;T&gt;(string key, ref T data)</code></h4>
+<p>按 <code>key</code> 与存档做一次双向同步——这是你与存档交互的<strong>唯一方法</strong>。</p>
+<ul>
+<li><strong>存盘时（<code>IsSaving == true</code>）</strong>：把 <code>data</code> 当前值存入该 <code>key</code>，返回 <code>true</code>。引擎随后把它收进当前 Behavior 的托盘并落盘。</li>
+<li><strong>读档时（<code>IsLoading == true</code>）</strong>：若存档中存在该 <code>key</code>，把保存的值填回 <code>data</code>（通过 <code>ref</code>），返回 <code>true</code>；若不存在，保持 <code>data</code> 的默认值，返回 <code>false</code>。</li>
+<li><strong>副作用</strong>：修改 <code>data</code> 的值（读档时）。<code>T</code> 必须可序列化并属于存档对象图。</li>
+<li><strong>何时调用</strong>：只在 <code>CampaignBehaviorBase.SyncData(IDataStore dataStore)</code> 重写体内调用；不要在其他任何地方调用。</li>
+</ul>
+<pre><code data-lang="csharp">public override void SyncData(IDataStore dataStore)
+{
+    // 存盘：把 _raidCount 写入 &quot;_raidCount&quot;；读档：从档里还原，没有则返回 false
+    dataStore.SyncData(&quot;_raidCount&quot;, ref _raidCount);
+    dataStore.SyncData(&quot;_trackedVillages&quot;, ref _trackedVillages);
+}
+</code></pre>
+<h3 id="sheng-ming-zhou-qi-jie-duan-biao-zhi">生命周期 / 阶段标志</h3>
+<h4 id="bool-issaving-get"><code>bool IsSaving { get; }</code></h4>
+<p>当前这只托盘是否处于<strong>存盘</strong>阶段（<code>true</code>）。“是否正在把数据写进档”。实现上等价于 <code>BehaviorSaveData._isSaving</code>。</p>
+<h4 id="bool-isloading-get"><code>bool IsLoading { get; }</code></h4>
+<p>当前这只托盘是否处于<strong>读档</strong>阶段（<code>true</code>）。实现上等价于 <code>!_isSaving</code>，因此 <code>IsSaving</code> 与 <code>IsLoading</code> 在同一只托盘上必定一真一假。典型用途：读档回填后据此重建内存引用或重算派生缓存。</p>
+<pre><code data-lang="csharp">public override void SyncData(IDataStore dataStore)
+{
+    dataStore.SyncData(&quot;_cachedHero&quot;, ref _cachedHero);
+    if (dataStore.IsLoading)
+    {
+        // 读档完成：重建非存档的派生引用
+        RebuildDerivedReferences();
+    }
+}
+</code></pre>
+<h2 id="zui-xiao-zhen-shi-shi-li">最小真实示例</h2>
+<h3 id="shi-li-1-zai-behavior-nei-chi-jiu-hua-si-you-zhuang-tai-zheng-que-zuo-fa">示例 1：在 Behavior 内持久化私有状态（正确做法）</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using System.Collections.Generic;
+
+public class MyTrackerBehavior : CampaignBehaviorBase
+{
+    private int _raidCount;                       // 需要跨存档保留的字段
+    private List&lt;string&gt; _trackedVillageIds;
+
+    public override void RegisterEvents()
+    {
+        // 照常订阅战役事件……
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        // dataStore 就是引擎在存/读档时给你的那只托盘
+        dataStore.SyncData(&quot;_raidCount&quot;, ref _raidCount);
+        dataStore.SyncData(&quot;_trackedVillageIds&quot;, ref _trackedVillageIds);
+
+        // 读档阶段回填完毕后，重建内存里的派生状态
+        if (dataStore.IsLoading)
+        {
+            _trackedVillageIds ??= new List&lt;string&gt;();
+        }
+    }
+}
+</code></pre>
+<p><code>MyTrackerBehavior</code> 被 <code>CampaignGameStarter</code> 注册后，引擎会在存盘前调用它的 <code>SyncData</code>（此时 <code>IsSaving</code>），读档后在 <code>OnGameLoaded</code> 之后调用（此时 <code>IsLoading</code>），<code>_raidCount</code> 与 <code>_trackedVillageIds</code> 便能跨存档存活。</p>
+<h3 id="shi-li-2-ni-bu-ying-gai-zuo-de-shi">示例 2：你不应该做的事</h3>
+<pre><code data-lang="csharp">// ❌ 错误 1：试图从 Campaign 上“取”一个长期 IDataStore——它不存在
+// IDataStore store = Campaign.Current.GetDataStore();   // 编译/运行都不存在此 API
+
+// ❌ 错误 2：把 SyncData 参数存到字段，留到 tick 里用
+private IDataStore _cachedStore;
+public override void SyncData(IDataStore dataStore)
+{
+    _cachedStore = dataStore;   // 这只托盘调用结束就被丢弃，之后用它是未定义行为
+}
+
+// ❌ 错误 3：把 IDataStore 当运行时共享总线，在每日 tick 里读写它
+// 它只在存/读档那一刻存在，运行时根本拿不到。
+</code></pre>
+<p><strong>正确替代</strong>：需要运行时共享，就放在 Behavior 自身字段或 <code>Campaign.Current</code> / 各 <code>Manager</code> 上；只在 <code>SyncData</code> 内用 <code>IDataStore</code> 做持久化登记。</p>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li><code>IDataStore</code> 的接口（<code>IsSaving</code> / <code>IsLoading</code> / <code>SyncData&lt;T&gt;</code>）在 <code>1.3.0</code>、<code>1.3.15</code>、<code>1.4.5</code> 三版中<strong>完全一致</strong>，<code>SyncData</code> 的语义（存盘写入、读档回填并返回是否命中）也一致。</li>
+<li>底层实现 <code>CampaignBehaviorDataStore</code> 与 <code>CampaignBehaviorManager</code>（持有 <code>[SaveableField(1)]</code> 的 data store、监听 <code>OnBeforeSaveEvent</code>）同样稳定，是战役存档的“按 Behavior 分桶”标准机制。</li>
+<li>写跨版本 mod 时，注意 <code>SyncData</code> 的 <code>data</code> 类型要可序列化；版本升级改字段类型时给 key 加版本号，避免旧档反序列化失败。</li>
+</ul>
+<h2 id="dao-hang">导航</h2>
+<ul>
+<li>↑ 父级：<a href="https://bannerlordcode.github.io/v1.3.15/zh/api/campaign-ext/IDataStore/./">campaign-ext 索引</a></li>
+<li>↔ 同级：<a href="../../campaign/Campaign/">Campaign</a> — 战役枢纽；<a href="../CampaignBehaviorBase/">CampaignBehaviorBase</a> / <a href="../ICampaignBehavior/">ICampaignBehavior</a> — 你的 Behavior 在这里收到 <code>IDataStore</code></li>
+<li>相关：<a href="../../save-system/SaveManager/">SaveManager</a> — 存档系统如何触发写盘与回填</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign-ext/">campaign-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign-ext/SiegeAftermathLogEntry/">&larr; SiegeAftermathLogEntry</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign-ext/ClanFinanceExpenseItemVM/">ClanFinanceExpenseItemVM &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

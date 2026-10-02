@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BannerlordConfig</title>
+  <meta name="description" content="Auto-generated class reference for BannerlordConfig.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="active">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/BannerlordConfig/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/BannerlordConfig/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/BannerlordConfig/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/BannerlordConfig/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/BannerlordConfig/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/BannerlordConfig/"
+               class="active">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/en/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/en/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>v1.4.5 Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/api/" class="">Index</a><a href="/v1.4.5/en/api/core/" class="">Core</a><a href="/v1.4.5/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/en/api/mission/" class="">Mission</a><a href="/v1.4.5/en/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.4.5/en/api/campaign/" class="">Campaign</a><a href="/v1.4.5/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/en/api/gui/" class="">GUI</a><a href="/v1.4.5/en/api/save-system/" class="">Save System</a><a href="/v1.4.5/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.4.5/en/api/localization/" class="">Localization</a><a href="/v1.4.5/en/api/engine/" class="">Engine</a><a href="/v1.4.5/en/api/gameplay/" class="">Gameplay</a><a href="/v1.4.5/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/en/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/en/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">BannerlordConfig</span>
+    </nav>
+  
+  <h1>BannerlordConfig</h1>
+  <h1 id="bannerlordconfig">BannerlordConfig</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public static class BannerlordConfig</code>
+<strong>Base:</strong> none
+<strong>File:</strong> <code>bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BannerlordConfig.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>BannerlordConfig</code> lives in <code>TaleWorlds.MountAndBlade</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.MountAndBlade</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>Language</code></td><td><code>public static string Language { get; set; }</code></td></tr>
+<tr><td><code>VoiceLanguage</code></td><td><code>public static string VoiceLanguage { get; set; }</code></td></tr>
+<tr><td><code>MapDoubleClickBehavior</code></td><td><code>public static int MapDoubleClickBehavior { get; set; }</code></td></tr>
+<tr><td><code>PlayerReceivedDamageDifficulty</code></td><td><code>public static int PlayerReceivedDamageDifficulty { get; set; }</code></td></tr>
+<tr><td><code>GyroOverrideForAttackDefend</code></td><td><code>public static bool GyroOverrideForAttackDefend { get; set; }</code></td></tr>
+<tr><td><code>AttackDirectionControl</code></td><td><code>public static int AttackDirectionControl { get; set; }</code></td></tr>
+<tr><td><code>DefendDirectionControl</code></td><td><code>public static int DefendDirectionControl { get; set; }</code></td></tr>
+<tr><td><code>NumberOfCorpses</code></td><td><code>public static int NumberOfCorpses { get; set; }</code></td></tr>
+<tr><td><code>ShowBlood</code></td><td><code>public static bool ShowBlood { get; set; }</code></td></tr>
+<tr><td><code>DisplayAttackDirection</code></td><td><code>public static bool DisplayAttackDirection { get; set; }</code></td></tr>
+<tr><td><code>DisplayTargetingReticule</code></td><td><code>public static bool DisplayTargetingReticule { get; set; }</code></td></tr>
+<tr><td><code>ForceVSyncInMenus</code></td><td><code>public static bool ForceVSyncInMenus { get; set; }</code></td></tr>
+<tr><td><code>BattleSize</code></td><td><code>public static int BattleSize { get; set; }</code></td></tr>
+<tr><td><code>ReinforcementWaveCount</code></td><td><code>public static int ReinforcementWaveCount { get; set; }</code></td></tr>
+<tr><td><code>FirstPersonFov</code></td><td><code>public static float FirstPersonFov { get; set; }</code></td></tr>
+<tr><td><code>UIScale</code></td><td><code>public static float UIScale { get; set; }</code></td></tr>
+<tr><td><code>CombatCameraDistance</code></td><td><code>public static float CombatCameraDistance { get; set; }</code></td></tr>
+<tr><td><code>TurnCameraWithHorseInFirstPerson</code></td><td><code>public static int TurnCameraWithHorseInFirstPerson { get; set; }</code></td></tr>
+<tr><td><code>ReportDamage</code></td><td><code>public static bool ReportDamage { get; set; }</code></td></tr>
+<tr><td><code>ReportBark</code></td><td><code>public static bool ReportBark { get; set; }</code></td></tr>
+<tr><td><code>LockTarget</code></td><td><code>public static bool LockTarget { get; set; }</code></td></tr>
+<tr><td><code>EnableTutorialHints</code></td><td><code>public static bool EnableTutorialHints { get; set; }</code></td></tr>
+<tr><td><code>AutoSaveInterval</code></td><td><code>public static int AutoSaveInterval { get; set; }</code></td></tr>
+<tr><td><code>FriendlyTroopsBannerOpacity</code></td><td><code>public static float FriendlyTroopsBannerOpacity { get; set; }</code></td></tr>
+<tr><td><code>AlwaysShowFriendlyTroopBannersType</code></td><td><code>public static int AlwaysShowFriendlyTroopBannersType { get; set; }</code></td></tr>
+<tr><td><code>KillFeedVisualType</code></td><td><code>public static int KillFeedVisualType { get; set; }</code></td></tr>
+<tr><td><code>ShowFormationDistances</code></td><td><code>public static bool ShowFormationDistances { get; set; }</code></td></tr>
+<tr><td><code>AutoTrackAttackedSettlements</code></td><td><code>public static int AutoTrackAttackedSettlements { get; set; }</code></td></tr>
+<tr><td><code>ReportPersonalDamage</code></td><td><code>public static bool ReportPersonalDamage { get; set; }</code></td></tr>
+<tr><td><code>SlowDownOnOrder</code></td><td><code>public static bool SlowDownOnOrder { get; set; }</code></td></tr>
+<tr><td><code>StopGameOnFocusLost</code></td><td><code>public static bool StopGameOnFocusLost { get; set; }</code></td></tr>
+<tr><td><code>ReportExperience</code></td><td><code>public static bool ReportExperience { get; set; }</code></td></tr>
+<tr><td><code>EnableDamageTakenVisuals</code></td><td><code>public static bool EnableDamageTakenVisuals { get; set; }</code></td></tr>
+<tr><td><code>EnableVerticalAimCorrection</code></td><td><code>public static bool EnableVerticalAimCorrection { get; set; }</code></td></tr>
+<tr><td><code>ZoomSensitivityModifier</code></td><td><code>public static float ZoomSensitivityModifier { get; set; }</code></td></tr>
+<tr><td><code>CrosshairType</code></td><td><code>public static int CrosshairType { get; set; }</code></td></tr>
+<tr><td><code>EnableGenericAvatars</code></td><td><code>public static bool EnableGenericAvatars { get; set; }</code></td></tr>
+<tr><td><code>EnableGenericNames</code></td><td><code>public static bool EnableGenericNames { get; set; }</code></td></tr>
+<tr><td><code>HideFullServers</code></td><td><code>public static bool HideFullServers { get; set; }</code></td></tr>
+<tr><td><code>HideEmptyServers</code></td><td><code>public static bool HideEmptyServers { get; set; }</code></td></tr>
+<tr><td><code>HidePasswordProtectedServers</code></td><td><code>public static bool HidePasswordProtectedServers { get; set; }</code></td></tr>
+<tr><td><code>HideUnofficialServers</code></td><td><code>public static bool HideUnofficialServers { get; set; }</code></td></tr>
+<tr><td><code>HideModuleIncompatibleServers</code></td><td><code>public static bool HideModuleIncompatibleServers { get; set; }</code></td></tr>
+<tr><td><code>ShowOnlyFavoriteServers</code></td><td><code>public static bool ShowOnlyFavoriteServers { get; set; }</code></td></tr>
+<tr><td><code>OrderType</code></td><td><code>public static int OrderType { get; set; }</code></td></tr>
+<tr><td><code>OrderLayoutType</code></td><td><code>public static int OrderLayoutType { get; set; }</code></td></tr>
+<tr><td><code>EnableVoiceChat</code></td><td><code>public static bool EnableVoiceChat { get; set; }</code></td></tr>
+<tr><td><code>EnableDeathIcon</code></td><td><code>public static bool EnableDeathIcon { get; set; }</code></td></tr>
+<tr><td><code>EnableNetworkAlertIcons</code></td><td><code>public static bool EnableNetworkAlertIcons { get; set; }</code></td></tr>
+<tr><td><code>EnableSingleplayerChatBox</code></td><td><code>public static bool EnableSingleplayerChatBox { get; set; }</code></td></tr>
+<tr><td><code>EnableMultiplayerChatBox</code></td><td><code>public static bool EnableMultiplayerChatBox { get; set; }</code></td></tr>
+<tr><td><code>ChatBoxSizeX</code></td><td><code>public static float ChatBoxSizeX { get; set; }</code></td></tr>
+<tr><td><code>ChatBoxSizeY</code></td><td><code>public static float ChatBoxSizeY { get; set; }</code></td></tr>
+<tr><td><code>LatestSaveGameName</code></td><td><code>public static string LatestSaveGameName { get; set; }</code></td></tr>
+<tr><td><code>HideBattleUI</code></td><td><code>public static bool HideBattleUI { get; set; }</code></td></tr>
+<tr><td><code>UnitSpawnPrioritization</code></td><td><code>public static int UnitSpawnPrioritization { get; set; }</code></td></tr>
+<tr><td><code>IAPNoticeConfirmed</code></td><td><code>public static bool IAPNoticeConfirmed { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="isvalidvalue">IsValidValue</h3>
+<p><code>public bool IsValidValue(int value)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the valid value state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of BannerlordConfig from the subsystem API first
+BannerlordConfig bannerlordConfig = ...;
+var result = bannerlordConfig.IsValidValue(0);
+</code></pre>
+<h3 id="initialize">Initialize</h3>
+<p><code>public static void Initialize()</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings the this instance needs before use.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+BannerlordConfig.Initialize();
+</code></pre>
+<h3 id="save">Save</h3>
+<p><code>public static SaveResult Save()</code></p>
+<p><strong>Purpose:</strong> Writes the this instance's data to persistent storage or a stream.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+BannerlordConfig.Save();
+</code></pre>
+<h3 id="getdamagetoplayermultiplier">GetDamageToPlayerMultiplier</h3>
+<p><code>public static float GetDamageToPlayerMultiplier()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the damage to player multiplier value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+BannerlordConfig.GetDamageToPlayerMultiplier();
+</code></pre>
+<h3 id="getrealbattlesize">GetRealBattleSize</h3>
+<p><code>public static int GetRealBattleSize()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the real battle size value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+BannerlordConfig.GetRealBattleSize();
+</code></pre>
+<h3 id="getrealbattlesizeforsiege">GetRealBattleSizeForSiege</h3>
+<p><code>public static int GetRealBattleSizeForSiege()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the real battle size for siege value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+BannerlordConfig.GetRealBattleSizeForSiege();
+</code></pre>
+<h3 id="getrealbattlesizefornaval">GetRealBattleSizeForNaval</h3>
+<p><code>public static int GetRealBattleSizeForNaval()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the real battle size for naval value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+BannerlordConfig.GetRealBattleSizeForNaval();
+</code></pre>
+<h3 id="getreinforcementwavecount">GetReinforcementWaveCount</h3>
+<p><code>public static int GetReinforcementWaveCount()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the reinforcement wave count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+BannerlordConfig.GetReinforcementWaveCount();
+</code></pre>
+<h3 id="getrealbattlesizeforsallyout">GetRealBattleSizeForSallyOut</h3>
+<p><code>public static int GetRealBattleSizeForSallyOut()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the real battle size for sally out value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+BannerlordConfig.GetRealBattleSizeForSallyOut();
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+BannerlordConfig bannerlordConfig = ...;
+bannerlordConfig.IsValidValue(0);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/en/api/mission-ext/">mission-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/en/api/mission-ext/ICastleKeyPosition/">&larr; ICastleKeyPosition</a>
+          
+          
+            <a rel="next" href="/v1.4.5/en/api/mission-ext/WeaponState/">WeaponState &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

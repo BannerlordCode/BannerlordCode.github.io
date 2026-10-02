@@ -1,25 +1,35 @@
 ---
 title: "Bannerlord v1.4.7"
-description: "v1.4.7 模组开发文档入口：对 1.4.5 / 1.3.15 的实测差异、按命名空间重建的 19 个 API 子系统目录，以及两张语言的导航。"
+description: "v1.4.7 模组开发文档入口：按命名空间划分的 17 个 API 子系统目录、中英两棵树，以及实测的版本差异。当前全树 42 篇正文与 40 个目录索引。"
 ---
 # Bannerlord v1.4.7
 
-v1.4.7 的模组开发文档。这一页是整个版本的入口：往下选语言，之后每一页都能一步步走回这里。
+v1.4.7 的模组开发文档。这一页是整个版本的入口：选语言，然后往下走。整棵树是可往返的 —— 每一页都能一步步走回这里。
 
-| 语言 | 入口 | 说明 |
+| 语言 | 入口 | 当前规模 |
 | --- | --- | --- |
-| 中文 | [v1.4.7 中文文档](./zh/) | 1,795 个类页面 + 6 张架构页 + 19 个子系统目录索引 |
-| English | [v1.4.7 English documentation](./en/) | Mirror of the Chinese tree; identical directory set and page set |
+| 中文 | [v1.4.7 中文文档](./zh/) | 23 篇 API 类页 + 5 篇架构页 + 17 个子系统目录索引 |
+| English | [v1.4.7 English documentation](./en/) | 8 API class pages + 5 architecture pages + 16 subsystem index pages |
+
+## 先说清楚现在有什么
+
+这一节的数字很重要，因为它们和这个版本**理论上的**大小差得很远。v1.4.7 源码树有 11,387 个 `.cs` 文件、按命名空间可以划成 17 个子系统桶；但那 3,598 篇由脚本批量生成的类页已经从文档树里撤出，不再对外提供。当前磁盘上真实存在的是：
+
+- **42 篇正文**：31 篇 API 类页（中 23 / 英 8）、10 篇架构页（中英各 5）、1 篇版本根的 [GAPS](./GAPS)。
+- **40 个目录索引**：版本根 1 个、语言首页 2 个、API 总入口 2 个、架构入口 2 个、子系统桶索引 33 个（中 17 / 英 16）。
+- 每个子系统桶的目录里，都写着它覆盖哪个命名空间、约有多少类型，以及这个桶现在有几页。没有页面的桶如实写"本区当前没有页面"。
+
+换句话说：**这是一棵小而手写的小树，而不是一棵生成出来的全树。** 下面每一张表里的数字都是当前的真实页数，不是计划页数。想知道哪些类型还没有页面，看 [GAPS](./GAPS) 或者各桶索引页自己的说明。
 
 ## v1.4.7 是什么
 
-v1.4.7 是 1.4 系列的一个小版本增量。从模组作者的角度看，它相对 1.4.5 **几乎全是增量**：
+v1.4.7 是 1.4 系列的一个小版本增量。对模组作者来说它相对 1.4.5 **几乎全是增量**：
 
 - 源码树 `bannerlord-1.4.7/` 有 **11,387** 个 `.cs` 文件，分在 96 个程序集目录下。
 - 在两边源码转储都覆盖到的 361 个命名空间里，**被删除的类型数是 0**。
 - 新增的 482 个类型里，**390 个是 `System.*` / BCL 噪声**。
 
-**真正变化的是文档的组织方式。** 1.4.7 树按命名空间重新划分成 19 个子系统目录，一个类型只属于一个目录。1.4.5 的树里同一个类型名出现在两个目录共 **2,199** 次、513 个命名空间里有 **171** 个被拆散到多个目录 —— "点进去发现是别的地方、再也回不来"是这个结构造成的，不是内容的问题。v1.4.7 把它变成了硬约束。
+**真正变化的是目录的组织方式。** 1.4.7 的树按命名空间重新划分成 17 个子系统目录，一个类型只属于一个目录。1.4.5 的树里同一个类型名出现在两个目录共 **2,199** 次、513 个命名空间里有 **171** 个被拆散到多个目录 —— "点进去发现是别的地方、再也回不来"是这个结构造成的，不是内容的问题。v1.4.7 把它变成了硬约束。
 
 ## 与相邻版本的差别
 
@@ -27,7 +37,7 @@ v1.4.7 是 1.4 系列的一个小版本增量。从模组作者的角度看，�
 | --- | --- | --- | --- | --- |
 | 源码 `.cs` 数量 | 5,196 | 8,583（转储不完整，缺 35 个程序集目录） | — | 11,387 |
 | 对模组有破坏的删除 | — | — | — | 1.3.15 → 1.4.7 共 **9 个类型**消失 |
-| 文档目录 | A–Z 类型列表 | 22 个手写目录，彼此重复 | 未接入站点导航 | 19 个按命名空间规则生成 |
+| 文档目录 | A–Z 类型列表 | 22 个手写目录，彼此重复 | 未接入站点导航 | 17 个按命名空间规则划分的目录 |
 | 同一类型多 URL | 无 | **2,199 个重复** | — | **0**（硬约束） |
 
 从 1.3.15 升到 1.4.7 时消失的 9 个类型里，值得优先检查的两个：
@@ -48,50 +58,45 @@ v1.4.7 是 1.4 系列的一个小版本增量。从模组作者的角度看，�
 | 改钱、关系、部队 | [Campaign-Ext](./zh/api/campaign-ext/) | [Campaign](./zh/api/campaign/) |
 | 做界面 | [界面栈](./zh/architecture/ui-stack) | [GUI](./zh/api/gui/) |
 | 存自己的数据 | [存档系统](./zh/architecture/save-system) | [Save System](./zh/api/save-system/) |
+| 用调试控制台 | [Engine](./zh/api/engine/) | [MBDebug](./zh/api/engine/MBDebug) |
 | 搞清楚引用哪个程序集 | [SDK 总览](./zh/architecture/sdk-overview) | [API 参考](./zh/api/) |
 | 排查升级后炸了 | [版本差异](./zh/architecture/version-delta) | [跨版本类对比](../versions/) |
+| 查某个类型有没有页面 | [GAPS](./GAPS) | [API 参考](./zh/api/) |
 
-## 这个版本的 19 个 API 目录
+## 17 个 API 子系统目录（中文树，当前页数）
 
-| 目录 | 页面 | 目录 | 页面 |
-| --- | ---: | --- | ---: |
-| [Mission-Ext](./zh/api/mission-ext/) | 1,669 | [Save System](./zh/api/save-system/) | 110 |
-| [Core-Extra](./zh/api/core-extra/) | 1,099 | [Network](./zh/api/network/) | 41 |
-| [Campaign-Ext](./zh/api/campaign-ext/) | 601 | [CustomBattle](./zh/api/custombattle/) | 40 |
-| [Campaign](./zh/api/campaign/) | 589 | [Localization](./zh/api/localization/) | 53 |
-| [SandBox](./zh/api/sandbox/) | 554 | [System](./zh/api/system/) | 15 |
-| [ViewModel](./zh/api/viewmodel/) | 538 | [ModuleManager](./zh/api/modulemanager/) | 8 |
-| [GUI](./zh/api/gui/) | 271 | [ActivitySystem](./zh/api/activitysystem/) | 6 |
-| [Engine](./zh/api/engine/) | 250 | [Mission](./zh/api/mission/) | 5 |
-| [StoryMode](./zh/api/storymode/) | 168 | [AchievementSystem](./zh/api/achievementsystem/) | 4 |
-| | | [Core](./zh/api/core/) | 2 |
+有页的桶先列，因为这些是你现在能点进去读到的：
 
-**没有 `gameplay/` 目录，也没有 `navigationsystem/` 目录。** 前者被拆成 `sandbox` 与 `storymode`（1.4.5 那个目录本身是混合的，无法用命名空间规则复现）；后者在 1.4.7 里没有任何公开类型，归入 `core-extra`。1.4.5 的树里本来也没有 `navigationsystem`，所以后者才是对齐。
+| 目录 | 覆盖 | 当前页数 |
+| --- | --- | ---: |
+| [Campaign](./zh/api/campaign/) | `TaleWorlds.CampaignSystem` 本体 | 5 |
+| [Mission](./zh/api/mission/) | 战斗入口类 `Mission` / `Agent` / `MissionState` / `MissionBehavior` | 4 |
+| [GUI](./zh/api/gui/) | `ScreenSystem` / `GauntletUI` / `TwoDimension` | 3 |
+| [Save System](./zh/api/save-system/) | `TaleWorlds.SaveSystem` | 3 |
+| [Core](./zh/api/core/) | 模块加载入口 `Module` / `MBSubModuleBase` | 2 |
+| [Core-Extra](./zh/api/core-extra/) | `TaleWorlds.Core` 长尾 + 分类法兜底桶 | 2 |
+| [Campaign-Ext](./zh/api/campaign-ext/) | `CampaignSystem` 子命名空间 + `ObjectSystem` | 2 |
+| [Engine](./zh/api/engine/) | `TaleWorlds.Engine` + `Diamond` 访问层 | 2 |
 
-## 跨版本 URL 断裂（已知取舍，5 处）
+以下 9 个目录存在、有索引页，但当前页数为 0：
 
-按命名空间重建目录，必然打散 1.4.5 的少数几个手写目录。下面这张表由 `tools/_dir-map-canonical.json` 的 `parityGaps[]` **直接导入**，不在本页手工誊写：
+[Mission-Ext](./zh/api/mission-ext/)（约 669 个类型，缺口最大）· [ViewModel](./zh/api/viewmodel/)（约 357）· [Sandbox](./zh/api/sandbox/)（约 321）· [CustomBattle](./zh/api/custombattle/)（约 41）· [Network](./zh/api/network/)（约 38）· [System](./zh/api/system/)（约 20）· [ModuleManager](./zh/api/modulemanager/)（8）· [ActivitySystem](./zh/api/activitysystem/)（6）· [AchievementSystem](./zh/api/achievementsystem/)（4）
 
-| `id` | 断掉的 URL | 页数 | 决定 |
-| --- | --- | ---: | --- |
-| `no-gameplay-bucket` | `1.4.5/gameplay/` → 无对应 | 19 | 接受。1.4.5 该目录本身混合了 `SandBox`、`StoryMode.*` 和裸 `TaleWorlds.MountAndBlade` 类型，无命名空间规则可复现 |
-| `mission-bulk-to-mission-ext` | `1.4.5/mission/` 的 52 页 → `mission-ext/` | 52 | 接受。`mission/` 保留为只放 5 个入口类的刻意小目录 |
-| `game-to-core-extra` | `1.4.5/core/Game.md` → `core-extra/Game.md` | 1 | 接受。`Game` 的命名空间是 `TaleWorlds.Core` |
-| `missionstate-to-mission` | `1.4.5 mission-ext/MissionState.md` → `mission/MissionState.md` | 1 | 接受，为了和 `Mission` / `Agent` / `Formation` 放一起 |
-| `boardgames-bucket-removed` | 1.4.5 `boardgames` 家族 → 无对应 | — | 接受。1.4.7 不存在 `TaleWorlds.BoardGames` 命名空间，该桶产出 0 个类型 |
+**没有 `gameplay/` 目录，也没有 `navigationsystem/` 目录。** 前者被拆进 `sandbox`（见 [版本差异](./zh/architecture/version-delta)）；后者在 1.4.7 里没有任何公开类型，归入 `core-extra`。
 
-`mission/`（5 页）与 `core/`（2 页）紧挨着 `mission-ext/`（1,669 页）和 `core-extra/`（1,099 页）**是刻意设计的入口桶布局，不是重复路由**。这两个索引页都会说明"完整类型面在兄弟目录里"，并且双向链接。QA 若把它们"修正"回去，反而会制造 404。
+**英文树的形状和中文树不同。** 英文侧目前只有 `campaign`（5 页）、`campaign-ext`（2 页）、`core`（1 页）有内容；`save-system` 在英文树下**连目录都没有**，那三个页面目前只在中文树里。英文桶索引页由另一条工作线同步维护，页数以各目录自己的索引页为准。
 
 ## 这个站点的导航是树状的
 
 ```text
-类型页 → 同目录索引 → 19 个子系统目录 → API 参考 → 版本首页 → 本页 → 站点首页
+类页 → 同目录索引 → 17 个子系统目录 → API 参考 → 语言首页 → 版本首页
 ```
 
-每一跳都是可解析的真实相对链接。每个目录都有自己的索引页，索引页再链回父级和相邻目录。
+每一跳都是可解析的真实相对链接。每个目录都有自己的索引页，索引页列出该桶的全部现有页面，并同时链回父级和**全部 16 个兄弟桶** —— 所以从任何一个桶跳到相邻桶，再跳回来，不会断。
 
 ## 参见
 
 - ↔ [中文文档](./zh/) · [English documentation](./en/)
+- ↘ [缺口清单](./GAPS)
 - ↘ [跨版本类对比](../versions/)
 - ↘ [v1.4.5 文档](../v1.4.5/) · [v1.4.6 文档](../v1.4.6/) · [v1.3.15 文档](../v1.3.15/) · [v1.3.0 文档](../v1.3.0/)

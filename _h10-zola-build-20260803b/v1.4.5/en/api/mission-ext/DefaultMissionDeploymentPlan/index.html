@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DefaultMissionDeploymentPlan</title>
+  <meta name="description" content="Auto-generated class reference for DefaultMissionDeploymentPlan.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="active">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/DefaultMissionDeploymentPlan/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/DefaultMissionDeploymentPlan/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/DefaultMissionDeploymentPlan/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/DefaultMissionDeploymentPlan/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/DefaultMissionDeploymentPlan/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/DefaultMissionDeploymentPlan/"
+               class="active">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/en/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/en/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>v1.4.5 Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/api/" class="">Index</a><a href="/v1.4.5/en/api/core/" class="">Core</a><a href="/v1.4.5/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/en/api/mission/" class="">Mission</a><a href="/v1.4.5/en/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.4.5/en/api/campaign/" class="">Campaign</a><a href="/v1.4.5/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/en/api/gui/" class="">GUI</a><a href="/v1.4.5/en/api/save-system/" class="">Save System</a><a href="/v1.4.5/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.4.5/en/api/localization/" class="">Localization</a><a href="/v1.4.5/en/api/engine/" class="">Engine</a><a href="/v1.4.5/en/api/gameplay/" class="">Gameplay</a><a href="/v1.4.5/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/en/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/en/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">DefaultMissionDeploymentPlan</span>
+    </nav>
+  
+  <h1>DefaultMissionDeploymentPlan</h1>
+  <h1 id="defaultmissiondeploymentplan">DefaultMissionDeploymentPlan</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public class DefaultMissionDeploymentPlan : IMissionDeploymentPlan</code>
+<strong>Base:</strong> <code>IMissionDeploymentPlan</code>
+<strong>File:</strong> <code>bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/DefaultMissionDeploymentPlan.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>DefaultMissionDeploymentPlan</code> lives in <code>TaleWorlds.MountAndBlade</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.MountAndBlade</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="initialize">Initialize</h3>
+<p><code>public void Initialize()</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings the this instance needs before use.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.Initialize();
+</code></pre>
+<h3 id="cleardeploymentplan">ClearDeploymentPlan</h3>
+<p><code>public void ClearDeploymentPlan(Team team)</code></p>
+<p><strong>Purpose:</strong> Removes all deployment plan from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ClearDeploymentPlan(team);
+</code></pre>
+<h3 id="clearreinforcementplan">ClearReinforcementPlan</h3>
+<p><code>public void ClearReinforcementPlan(Team team)</code></p>
+<p><strong>Purpose:</strong> Removes all reinforcement plan from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ClearReinforcementPlan(team);
+</code></pre>
+<h3 id="hasplayerspawnframe">HasPlayerSpawnFrame</h3>
+<p><code>public bool HasPlayerSpawnFrame(BattleSideEnum battleSide)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds player spawn frame.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.HasPlayerSpawnFrame(battleSide);
+</code></pre>
+<h3 id="getplayerspawnframe">GetPlayerSpawnFrame</h3>
+<p><code>public bool GetPlayerSpawnFrame(BattleSideEnum battleSide, out WorldPosition position, out Vec2 direction)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the player spawn frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetPlayerSpawnFrame(battleSide, position, direction);
+</code></pre>
+<h3 id="hassignificantmountedtroops">HasSignificantMountedTroops</h3>
+<p><code>public static bool HasSignificantMountedTroops(int footTroopCount, int mountedTroopCount)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds significant mounted troops.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+DefaultMissionDeploymentPlan.HasSignificantMountedTroops(0, 0);
+</code></pre>
+<h3 id="clearaddedtroops">ClearAddedTroops</h3>
+<p><code>public void ClearAddedTroops(Team team, bool isReinforcement = false)</code></p>
+<p><strong>Purpose:</strong> Removes all added troops from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ClearAddedTroops(team, false);
+</code></pre>
+<h3 id="clearall">ClearAll</h3>
+<p><code>public void ClearAll()</code></p>
+<p><strong>Purpose:</strong> Removes all all from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ClearAll();
+</code></pre>
+<h3 id="addtroops">AddTroops</h3>
+<p><code>public void AddTroops(Team team, FormationClass formationClass, int footTroopCount, int mountedTroopCount = 0, bool isReinforcement = false)</code></p>
+<p><strong>Purpose:</strong> Adds troops to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.AddTroops(team, formationClass, 0, 0, false);
+</code></pre>
+<h3 id="setspawnwithhorses">SetSpawnWithHorses</h3>
+<p><code>public void SetSpawnWithHorses(Team team, bool spawnWithHorses)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to spawn with horses and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.SetSpawnWithHorses(team, false);
+</code></pre>
+<h3 id="makedefaultdeploymentplans">MakeDefaultDeploymentPlans</h3>
+<p><code>public void MakeDefaultDeploymentPlans()</code></p>
+<p><strong>Purpose:</strong> Executes the MakeDefaultDeploymentPlans logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.MakeDefaultDeploymentPlans();
+</code></pre>
+<h3 id="makedeploymentplan">MakeDeploymentPlan</h3>
+<p><code>public void MakeDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetOffset = 0f)</code></p>
+<p><strong>Purpose:</strong> Executes the MakeDeploymentPlan logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.MakeDeploymentPlan(team, 0, 0);
+</code></pre>
+<h3 id="makereinforcementdeploymentplan">MakeReinforcementDeploymentPlan</h3>
+<p><code>public void MakeReinforcementDeploymentPlan(Team team)</code></p>
+<p><strong>Purpose:</strong> Executes the MakeReinforcementDeploymentPlan logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.MakeReinforcementDeploymentPlan(team);
+</code></pre>
+<h3 id="remakedeploymentplan">RemakeDeploymentPlan</h3>
+<p><code>public bool RemakeDeploymentPlan(Team team)</code></p>
+<p><strong>Purpose:</strong> Executes the RemakeDeploymentPlan logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.RemakeDeploymentPlan(team);
+</code></pre>
+<h3 id="ispositioninsidedeploymentboundaries">IsPositionInsideDeploymentBoundaries</h3>
+<p><code>public bool IsPositionInsideDeploymentBoundaries(Team team, in Vec2 position)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the position inside deployment boundaries state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsPositionInsideDeploymentBoundaries(team, position);
+</code></pre>
+<h3 id="getclosestdeploymentboundaryposition">GetClosestDeploymentBoundaryPosition</h3>
+<p><code>public Vec2 GetClosestDeploymentBoundaryPosition(Team team, in Vec2 position)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the closest deployment boundary position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetClosestDeploymentBoundaryPosition(team, position);
+</code></pre>
+<h3 id="supportsreinforcements">SupportsReinforcements</h3>
+<p><code>public bool SupportsReinforcements()</code></p>
+<p><strong>Purpose:</strong> Executes the SupportsReinforcements logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.SupportsReinforcements();
+</code></pre>
+<h3 id="supportsnavmesh">SupportsNavmesh</h3>
+<p><code>public bool SupportsNavmesh(Team team)</code></p>
+<p><strong>Purpose:</strong> Executes the SupportsNavmesh logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.SupportsNavmesh(team);
+</code></pre>
+<h3 id="getpathdeploymentboundaryintersection">GetPathDeploymentBoundaryIntersection</h3>
+<p><code>public bool GetPathDeploymentBoundaryIntersection(Team team, in WorldPosition startPosition, in WorldPosition endPosition, out WorldPosition intersection)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the path deployment boundary intersection value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetPathDeploymentBoundaryIntersection(team, startPosition, endPosition, intersection);
+</code></pre>
+<h3 id="ispositioninsidesiegedeploymentboundaries">IsPositionInsideSiegeDeploymentBoundaries</h3>
+<p><code>public bool IsPositionInsideSiegeDeploymentBoundaries(in Vec2 position)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the position inside siege deployment boundaries state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsPositionInsideSiegeDeploymentBoundaries(position);
+</code></pre>
+<h3 id="getspawnpathoffset">GetSpawnPathOffset</h3>
+<p><code>public float GetSpawnPathOffset(Team team)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the spawn path offset value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetSpawnPathOffset(team);
+</code></pre>
+<h3 id="gettargetoffset">GetTargetOffset</h3>
+<p><code>public float GetTargetOffset(Team team)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the target offset value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetTargetOffset(team);
+</code></pre>
+<h3 id="gettroopcount">GetTroopCount</h3>
+<p><code>public int GetTroopCount(Team team, bool isReinforcement = false)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the troop count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetTroopCount(team, false);
+</code></pre>
+<h3 id="getformationplan">GetFormationPlan</h3>
+<p><code>public IFormationDeploymentPlan GetFormationPlan(Team team, FormationClass fClass, bool isReinforcement)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the formation plan value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetFormationPlan(team, fClass, false);
+</code></pre>
+<h3 id="isplanmade">IsPlanMade</h3>
+<p><code>public bool IsPlanMade(Team team)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the plan made state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsPlanMade(team);
+</code></pre>
+<h3 id="isplanmade-1">IsPlanMade</h3>
+<p><code>public bool IsPlanMade(Team team, out bool isFirstPlan)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the plan made state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsPlanMade(team, isFirstPlan);
+</code></pre>
+<h3 id="isreinforcementplanmade">IsReinforcementPlanMade</h3>
+<p><code>public bool IsReinforcementPlanMade(Team team)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the reinforcement plan made state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsReinforcementPlanMade(team);
+</code></pre>
+<h3 id="isinitialplansuitableforformations">IsInitialPlanSuitableForFormations</h3>
+<p><code>public bool IsInitialPlanSuitableForFormations(Team team, (int footTroopCount, int mountedTroopCount) troopDataPerFormationClass)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the initial plan suitable for formations state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsInitialPlanSuitableForFormations(team, footTroopCount, 0);
+</code></pre>
+<h3 id="hasdeploymentboundaries">HasDeploymentBoundaries</h3>
+<p><code>public bool HasDeploymentBoundaries(Team team)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds deployment boundaries.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.HasDeploymentBoundaries(team);
+</code></pre>
+<h3 id="getdeploymentframe">GetDeploymentFrame</h3>
+<p><code>public MatrixFrame GetDeploymentFrame(Team team)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the deployment frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetDeploymentFrame(team);
+</code></pre>
+<h3 id="projectpositiontodeploymentboundaries">ProjectPositionToDeploymentBoundaries</h3>
+<p><code>public void ProjectPositionToDeploymentBoundaries(Team team, ref WorldPosition endPosition)</code></p>
+<p><strong>Purpose:</strong> Executes the ProjectPositionToDeploymentBoundaries logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ProjectPositionToDeploymentBoundaries(team, endPosition);
+</code></pre>
+<h3 id="getmeanposition">GetMeanPosition</h3>
+<p><code>public Vec3 GetMeanPosition(Team team, bool isReinforcement = false)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mean position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetMeanPosition(team, false);
+</code></pre>
+<h3 id="updatereinforcementplan">UpdateReinforcementPlan</h3>
+<p><code>public void UpdateReinforcementPlan(Team team)</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of reinforcement plan.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.UpdateReinforcementPlan(team);
+</code></pre>
+<h3 id="getzoomfocusframe">GetZoomFocusFrame</h3>
+<p><code>public MatrixFrame GetZoomFocusFrame(Team team)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the zoom focus frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetZoomFocusFrame(team);
+</code></pre>
+<h3 id="getzoomoffset">GetZoomOffset</h3>
+<p><code>public float GetZoomOffset(Team team, float fovAngle)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the zoom offset value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of DefaultMissionDeploymentPlan from the subsystem API first
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetZoomOffset(team, 0);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.Initialize();
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/en/api/mission-ext/">mission-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/en/api/mission-ext/PremadeGameEntry/">&larr; PremadeGameEntry</a>
+          
+          
+            <a rel="next" href="/v1.4.5/en/api/mission-ext/SiegeTower/">SiegeTower &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

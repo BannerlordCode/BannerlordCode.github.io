@@ -179,4 +179,4 @@ MBObjectManager.Instance.RegisterType<LedgerEntry>(
 - 典型实体：[Hero](../../campaign/Hero) 与 [Settlement](../../campaign/Settlement) — 最常被 `GetObject` / `GetObjectTypeList` 取用的两类。
 - 键类型：`MBGUID` 与 `IObjectManagerHandler` 定义在同一模块的其它文件里。
 - 存档执行方：[SaveManager](../../save-system/SaveManager) — 读档时的对象图恢复由它驱动，途中会回调本类的 `PreAfterLoad` / `AfterLoad`。
-- 父级：campaign-ext API 目录导览位于版本根 `../../../`。
+- 父级：[campaign-ext API 目录导览](../)

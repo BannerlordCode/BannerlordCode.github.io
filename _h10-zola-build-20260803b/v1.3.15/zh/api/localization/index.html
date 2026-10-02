@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>localization 目录</title>
+  <meta name="description" content="本地化系统类参考目录">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/localization/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/localization/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/localization/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/localization/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/localization/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/localization/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="active">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">localization 目录</span>
+    </nav>
+  
+  <h1>localization 目录</h1>
+  <h2 id="mo-kuai-xin-zhi-mo-xing">模块心智模型</h2>
+<p><code>localization</code> 桶是 Bannerlord 里<strong>所有玩家可见文字的流动管道</strong>：代码里几乎不存裸字符串，而是存 <code>TextObject</code> 模板，真正的翻译和变量替换延迟到 <code>ToString()</code> 被调用、且针对当前激活语言时，才由 <code>MBTextManager</code> 一次性完成。</p>
+<p><code>TaleWorlds.Localization</code> 不负责做游戏逻辑，它只负责一件事——把"一段带 <code>{=id}</code> 本地化标记和 <code>{TAG}</code> 占位符的文本"变成玩家屏幕上那种正确语言、正确单复数、正确人称呼格的句子。英雄名、道具名、任务描述、系统消息、UI 文案，底层都是 <code>TextObject</code>；语言数据来自官方/模组的 XML，由 <code>LocalizedTextManager</code> 装入内存。理解这个桶的关键，是看清"写文本"和"渲染文本"是两条分离的时间线：你在编译期或 XML 里定义模板，运行时 <code>MBTextManager</code> 才把它翻译成当前语言并填入变量。</p>
+<p>这条管道可以分成四层：<strong>容器</strong>（<code>TextObject</code> 持有模板与变量表）、<strong>引擎</strong>（<code>MBTextManager</code> 统筹解析顺序）、<strong>数据源</strong>（<code>LocalizedTextManager</code> / <code>LanguageData</code> 提供译文与语言元信息）、<strong>解析与语法</strong>（<code>Tokenizer</code> 切词、<code>MBTextParser</code> 生成表达式 AST、<code>TextGrammarProcessor</code> 执行语法选择、<code>LanguageSpecificTextProcessor</code> 做按语言的性数格处理）。配音走平行的一支：<code>VoiceObject</code> 配 <code>LocalizedVoiceManager</code>。</p>
+<h2 id="he-xin-ru-kou-lei-xing">核心入口类型</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./TextObject">TextObject</a> — 一切用户可见文本的载体：以 <code>{=id}</code> 标记本地化条目、用 <code>Attributes</code> 存 <code>{TAG}</code> 变量，<code>ToString()</code> 时才解析翻译与变量。几乎所有 mod 显示文字的必经入口（deep_pass 重点）。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./MBTextManager">MBTextManager</a> — <code>TextObject.ToString()</code> 背后的真正引擎。<code>ProcessTextToString</code> 依次做 <code>GetLocalizedText</code>（按 id 取译文，缺失回退内联英文）、<code>Tokenizer</code>/<code>MBTextParser</code>/<code>TextGrammarProcessor</code> 解析变量、再交当前语言的 <code>LanguageSpecificTextProcessor</code> 处理性数格。还掌管 <code>ActiveTextLanguage</code> 与 <code>ChangeLanguage</code>。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./LocalizedTextManager">LocalizedTextManager</a> — 文本数据的来源。<code>LoadLocalizationXmls</code> / <code>AddLocalizationXml</code> 从模块 XML 装载语言包，<code>GetTranslatedText</code> / <code>GetLanguageIds</code> / <code>CreateTextProcessorForLanguage</code> 提供译文查询与语言元数据。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./MBTextParser">MBTextParser</a> — 把 <code>Tokenizer</code> 产出的 token 列表解析成 <code>MBTextModel</code> 表达式树（函数、选择、数字、变量等），送给语法处理器执行。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./TextGrammarProcessor">TextGrammarProcessor</a> — 执行解析后的表达式树，按 <code>TextContext</code> 里的变量和函数展开 <code>{TAG}</code>、做条件选择与数字/语法处理。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./Tokenizer">Tokenizer</a> — 句子级的底层切词器，将原始文本切成 <code>MBTextToken</code> 流供 parser 消费；<code>TextObject.CacheTokens</code> 预热的就是它。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./LanguageData">LanguageData</a> — 单种语言的元数据载体（id、标题、处理器配置等），是语言包在内存中的结构化表示。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./LanguageSpecificTextProcessor">LanguageSpecificTextProcessor</a> — 按语言定制的语法处理器基类（如英文/德文/俄文各有一份），负责该语言的性、数、格与复数规则。</li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./VoiceObject">VoiceObject</a> — 与文本平行的本地化配音条目，配合 <code>LocalizedVoiceManager</code> 按语言取对应的语音资源。</li>
+</ul>
+<h2 id="yu-qi-ta-mo-kuai-de-guan-xi">与其他模块的关系</h2>
+<p><code>localization</code> 是展示层的"词源"。任何要把文字抛给玩家的地方都会用到它：例如 <a href="../core-extra/">core-extra</a> 里的 <a href="../core-extra/InformationManager/">InformationManager</a> 显示系统消息时，传入的就是 <code>TextObject</code> 经 <code>ToString()</code> 渲染后的字符串；英雄、道具等名称本身即 <code>TextObject</code>，由 <code>campaign</code>、<code>core</code> 等桶产出后再交本地化管线显示。它也是崩溃边界上的一环——详见 <a href="../../architecture/crash-boundaries/">崩溃边界</a>：在 <code>GameTextManager</code> 尚未初始化的阶段调用 <code>GameTexts.FindText</code> 会拿到错误文本乃至抛 <code>NullReferenceException</code>，因此在游戏启动前解析本地化文本是常见踩坑点。</p>
+<!-- BEGIN SECTION INDEX -->
+<h2 id="shang-ji-dao-hang">↑ 上级导航</h2>
+<ul>
+<li><a href="../">API 参考</a></li>
+<li><a href="../../">版本首页</a></li>
+</ul>
+<h2 id="zi-lei-lie-biao-an-zi-mu-fen-zu">↓ 子类列表 — 按字母分组</h2>
+<h3 id="a">A</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./ArithmeticExpression">ArithmeticExpression</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./ArithmeticOperation">ArithmeticOperation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./ArrayReference">ArrayReference</a></li>
+</ul>
+<h3 id="b">B</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./BooleanOperation">BooleanOperation</a></li>
+</ul>
+<h3 id="c">C</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./CaseInsensitiveComparer">CaseInsensitiveComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./ComparisonExpression">ComparisonExpression</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./ComparisonOperation">ComparisonOperation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./ConditionExpression">ConditionExpression</a></li>
+</ul>
+<h3 id="d">D</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./DateRange">DateRange</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./DefaultTextProcessor">DefaultTextProcessor</a></li>
+</ul>
+<h3 id="e">E</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./EnglishTextProcessor">EnglishTextProcessor</a></li>
+</ul>
+<h3 id="f">F</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./FieldExpression">FieldExpression</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./FrenchTextProcessor">FrenchTextProcessor</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./FunctionCall">FunctionCall</a></li>
+</ul>
+<h3 id="g">G</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./GermanTextProcessor">GermanTextProcessor</a></li>
+</ul>
+<h3 id="i">I</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./ItalianTextProcessor">ItalianTextProcessor</a></li>
+</ul>
+<h3 id="l">L</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./LangaugeMarkerExpression">LangaugeMarkerExpression</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./LanguageData">LanguageData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./LanguageSpecificTextProcessor">LanguageSpecificTextProcessor</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./LocalizationException">LocalizationException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./LocalizedTextManager">LocalizedTextManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./LocalizedVoiceManager">LocalizedVoiceManager</a></li>
+</ul>
+<h3 id="m">M</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./MarkerOccuranceTextExpression">MarkerOccuranceTextExpression</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./MBTextManager">MBTextManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./MBTextModel">MBTextModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./MBTextParser">MBTextParser</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./MBTextToken">MBTextToken</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./MultiStatement">MultiStatement</a></li>
+</ul>
+<h3 id="n">N</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./NumeralExpression">NumeralExpression</a></li>
+</ul>
+<h3 id="p">P</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./ParameterWithAttributeExpression">ParameterWithAttributeExpression</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./ParanthesisExpression">ParanthesisExpression</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./PolishTextProcessor">PolishTextProcessor</a></li>
+</ul>
+<h3 id="q">Q</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./QualifiedIdentifierExpression">QualifiedIdentifierExpression</a></li>
+</ul>
+<h3 id="r">R</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./RussianTextProcessor">RussianTextProcessor</a></li>
+</ul>
+<h3 id="s">S</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./SaveableLocalizationTypeDefiner">SaveableLocalizationTypeDefiner</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./SelectionExpression">SelectionExpression</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./SimpleExpression">SimpleExpression</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./SimpleNumberExpression">SimpleNumberExpression</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./SimpleText">SimpleText</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./SimpleToken">SimpleToken</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./SpanishTextProcessor">SpanishTextProcessor</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./StartsWithExpression">StartsWithExpression</a></li>
+</ul>
+<h3 id="t">T</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./TextExpression">TextExpression</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./TextGrammarProcessor">TextGrammarProcessor</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./TextIdExpression">TextIdExpression</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./TextObject">TextObject</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./TextProcessingContext">TextProcessingContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./TokenDefinition">TokenDefinition</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./Tokenizer">Tokenizer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./TurkishTextProcessor">TurkishTextProcessor</a></li>
+</ul>
+<h3 id="v">V</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./VariableExpression">VariableExpression</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/zh/api/localization/./VoiceObject">VoiceObject</a></li>
+</ul>
+<!-- END SECTION INDEX -->
+
+</article>
+<hr>
+<ul>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;TextIdExpression&#x2F;">TextIdExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;LangaugeMarkerExpression&#x2F;">LangaugeMarkerExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;QualifiedIdentifierExpression&#x2F;">QualifiedIdentifierExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;TextGrammarProcessor&#x2F;">TextGrammarProcessor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;SimpleText&#x2F;">SimpleText</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;SpanishTextProcessor&#x2F;">SpanishTextProcessor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;NumeralExpression&#x2F;">NumeralExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;SelectionExpression&#x2F;">SelectionExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;EnglishTextProcessor&#x2F;">EnglishTextProcessor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;CaseInsensitiveComparer&#x2F;">CaseInsensitiveComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;LocalizedVoiceManager&#x2F;">LocalizedVoiceManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;LanguageSpecificTextProcessor&#x2F;">LanguageSpecificTextProcessor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;MultiStatement&#x2F;">MultiStatement</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;ItalianTextProcessor&#x2F;">ItalianTextProcessor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;StartsWithExpression&#x2F;">StartsWithExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;LocalizationException&#x2F;">LocalizationException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;SaveableLocalizationTypeDefiner&#x2F;">SaveableLocalizationTypeDefiner</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;Tokenizer&#x2F;">Tokenizer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;MBTextParser&#x2F;">MBTextParser</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;VoiceObject&#x2F;">VoiceObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;VariableExpression&#x2F;">VariableExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;ComparisonExpression&#x2F;">ComparisonExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;ComparisonOperation&#x2F;">ComparisonOperation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;ArrayReference&#x2F;">ArrayReference</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;TokenDefinition&#x2F;">TokenDefinition</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;RussianTextProcessor&#x2F;">RussianTextProcessor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;MBTextManager&#x2F;">MBTextManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;ArithmeticOperation&#x2F;">ArithmeticOperation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;ConditionExpression&#x2F;">ConditionExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;ParanthesisExpression&#x2F;">ParanthesisExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;MBTextModel&#x2F;">MBTextModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;FieldExpression&#x2F;">FieldExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;FunctionCall&#x2F;">FunctionCall</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;MBTextToken&#x2F;">MBTextToken</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;SimpleNumberExpression&#x2F;">SimpleNumberExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;BooleanOperation&#x2F;">BooleanOperation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;SimpleToken&#x2F;">SimpleToken</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;ArithmeticExpression&#x2F;">ArithmeticExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;GermanTextProcessor&#x2F;">GermanTextProcessor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;DateRange&#x2F;">DateRange</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;PolishTextProcessor&#x2F;">PolishTextProcessor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;SimpleExpression&#x2F;">SimpleExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;MarkerOccuranceTextExpression&#x2F;">MarkerOccuranceTextExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;LocalizedTextManager&#x2F;">LocalizedTextManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;TextObject&#x2F;">TextObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;TurkishTextProcessor&#x2F;">TurkishTextProcessor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;DefaultTextProcessor&#x2F;">DefaultTextProcessor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;TextExpression&#x2F;">TextExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;ParameterWithAttributeExpression&#x2F;">ParameterWithAttributeExpression</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;TextProcessingContext&#x2F;">TextProcessingContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;FrenchTextProcessor&#x2F;">FrenchTextProcessor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;localization&#x2F;LanguageData&#x2F;">LanguageData</a></li>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

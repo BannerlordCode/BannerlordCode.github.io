@@ -205,9 +205,9 @@ foreach (Hero lord in snapshot)
 - Peers / downstream:
   - [CampaignEvents](../CampaignEvents) broadcasts the faction-facing changes (`OnClanCreatedEvent`, `KingdomCreatedEvent`, `OnClanChangedKingdomEvent`, `OnClanDefectedEvent`, `KingdomDestroyedEvent`, `WarDeclared`, `OnAllianceStartedEvent`) — the correct entry point for reacting to state transitions.
   - Diplomacy Behaviors derived from [CampaignBehaviorBase](../CampaignBehaviorBase) program against `IFaction` internally.
-  - [Mission](../../mission/Mission) handles in-battle hostility; map factions connect to battle sides through `MobileParty.MapFaction`.
+  - `Mission` handles in-battle hostility; map factions connect to battle sides through `MobileParty.MapFaction`. It has no English page — the Chinese [zh `Mission`](../../../../zh/api/mission/Mission) is the only one on disk.
 
 ## See Also
 
 - ↑ Parent: [Campaign API index](../)
-- ↔ Related: [Campaign](../Campaign) · [CampaignEvents](../CampaignEvents) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [Mission](../../mission/Mission)
+- ↔ Related: [Campaign](../Campaign) · [CampaignEvents](../CampaignEvents) · [CampaignBehaviorBase](../CampaignBehaviorBase) · zh [Mission](../../../../zh/api/mission/Mission) (no English page; see [the gap list](../../../../GAPS))

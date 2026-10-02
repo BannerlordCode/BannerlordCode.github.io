@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ItemRoster</title>
+  <meta name="description" content="The flat inventory collection held by a party or settlement — a de-duplicated list of item stacks (ItemObject + optional modifier + amount) with cached derived totals like value, food, and mounts, plus add&#x2F;remove&#x2F;query members and save-game serialization hooks.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/ItemRoster/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/ItemRoster/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">ItemRoster</span>
+    </nav>
+  
+  <h1>ItemRoster</h1>
+  <h1 id="itemroster">ItemRoster</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Roster
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class ItemRoster : IReadOnlyList&lt;ItemRosterElement&gt;, IEnumerable&lt;ItemRosterElement&gt;, IReadOnlyCollection&lt;ItemRosterElement&gt;, ISerializableObject</code>
+<strong>Base:</strong> (no base class; derives directly from <code>object</code> and implements <code>IReadOnlyList&lt;ItemRosterElement&gt;</code> / <code>IEnumerable&lt;ItemRosterElement&gt;</code> / <code>ISerializableObject</code>)
+<strong>Source:</strong> <code>TaleWorlds.CampaignSystem/Roster/ItemRoster.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>ItemRoster</code> is the <strong>flat, de-duplicated collection of every item a party or settlement currently carries</strong> in the campaign — weapons, trade goods, food, horses — each entry being one <code>ItemRosterElement</code> (an <code>EquipmentElement</code> = <code>ItemObject</code> plus an optional <code>ItemModifier</code>, paired with an <code>Amount</code>). The list is keyed by <code>EquipmentElement</code>, so all stacks of the same item-and-modifier are merged into a single element and mutated in place. Almost every system that asks "what is this party hauling" — trade AI, food consumption, party size and wage limits, loot distribution, shop buy/sell — reads this roster or its cached derived totals directly.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of <code>ItemRoster</code> as <strong>a live snapshot of a faction's backpack</strong>, not a free-floating list you can copy at will:</p>
+<ul>
+<li><strong>It is live campaign data.</strong> You usually do not <code>new ItemRoster()</code> yourself (except for throwaway calculations); what you hold is the real <code>PartyBase.ItemRoster</code> field. Any <code>AddToCounts</code> / <code>Remove</code> immediately changes the owning party or settlement's actual inventory, bumps the cached totals, increments <code>VersionNo</code>, and raises <code>RosterUpdatedEvent</code>.</li>
+<li><strong>A settlement can have two rosters.</strong> <code>Settlement.ItemRoster</code> is the same object as its garrison party's <code>Party.ItemRoster</code> (the items carried by the town/castle garrison), while <code>Settlement.Stash</code> (a separate <code>readonly ItemRoster</code>) is the player's independent stash — the two are unrelated.</li>
+<li><strong>The element key is the <code>EquipmentElement</code>.</strong> The same sword, with vs. without an <code>ItemModifier</code>, occupies two separate rows. <code>FindIndexOfElement</code> compares with <code>EquipmentElement.IsEqualTo</code>, so the modifier is included in the match.</li>
+<li><strong>Indexes are volatile.</strong> When an element's amount drops to zero (or negative), it is compacted out of the internal array and every later index shifts left. Do not cache an index and keep assuming it points at the same item after further mutations — prefer <code>FindIndexOfItem</code> / <code>GetItemNumber</code> for item-keyed lookups.</li>
+<li><strong>Layer.</strong> Pure campaign layer (<code>TaleWorlds.CampaignSystem</code>). Once a battle (Mission) starts, items appear as <code>Equipment</code> / <code>Agent</code> and no longer travel as a roster.</li>
+</ul>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p>Use <code>ItemRoster</code> when you need to <strong>read or mutate the inventory of a specific party or settlement</strong>: query how many of an item exist, add or remove stacks, or subscribe to <code>RosterUpdatedEvent</code> to refresh a UI panel.</p>
+<p>Do <strong>NOT</strong> use raw <code>AddToCounts</code> / <code>Remove</code> when the change involves <strong>money or the other side's inventory</strong> (buying, selling, gifting between parties). In those cases call <a href="../GiveItemAction/">GiveItemAction</a> or <a href="../SellItemsAction/">SellItemsAction</a> instead — they keep both inventories, the gold flow, the trade/buy-sell events, and the trade-AI counters consistent. Direct mutation only updates the one roster and leaves the economy out of sync. Also do not mutate a roster from inside a load/deserialize callback (see Risks).</p>
+<h2 id="how-to-acquire-an-itemroster">How to Acquire an ItemRoster</h2>
+<p>You never construct the canonical rosters; you read them off the owning object:</p>
+<pre><code data-lang="csharp">// Most common path: the player main party&#39;s inventory
+ItemRoster mainRoster = MobileParty.MainParty.ItemRoster;
+
+// Any party (AI caravans, enemy armies, garrisons) — ItemRoster is on MobileParty directly
+ItemRoster partyRoster = someMobileParty.ItemRoster;
+
+// Settlement garrison items (== settlement.Party.ItemRoster)
+ItemRoster garrisonRoster = someSettlement.ItemRoster;
+
+// The player&#39;s stash at that settlement — a SEPARATE roster from the garrison
+ItemRoster stash = someSettlement.Stash;
+
+// Loot collected during an encounter
+ItemRoster loot = PlayerEncounter.Current.RosterToReceiveLootItems;
+</code></pre>
+<blockquote>
+<p><code>PartyBase.ItemRoster</code> has a private setter — you <strong>cannot</strong> replace it with <code>party.ItemRoster = new ItemRoster()</code>. You may only add to or remove from its existing elements.</p>
+</blockquote>
+<h2 id="members-by-theme">Members by Theme</h2>
+<p>Each member below notes <strong>purpose + side effect + when to call</strong>, rather than only its signature.</p>
+<h3 id="add-remove-mutating-the-inventory">Add / Remove (mutating the inventory)</h3>
+<h4 id="public-int-addtocounts-itemobject-item-int-number"><code>public int AddToCounts(ItemObject item, int number)</code></h4>
+<p>The core write entry point. Adds (or, when <code>number &lt; 0</code>, removes) <code>number</code> of <code>item</code>. Returns the element's index in the internal array; returns <code>-1</code> and does nothing when <code>number == 0</code>.
+<strong>Side effects:</strong> incrementally refreshes <code>TotalValue</code> / <code>TradeGoodsTotalValue</code> / <code>TotalFood</code> / <code>FoodVariety</code> / mount-and-livestock counters, increments <code>VersionNo</code>, and raises <code>RosterUpdatedEvent</code>. If <code>number &lt; 0</code> but the item is absent, it triggers <code>Debug.FailedAssert("Trying to delete an element from Item Roster that does not exist!")</code>; if the resulting <code>Amount &lt;= 0</code> the element is removed (array compaction → later indexes shift left).
+<strong>When to call:</strong> whenever you directly change a party/settlement's items. If money or the counterparty's inventory is involved, prefer <code>GiveItemAction</code> / <code>SellItemsAction</code>.</p>
+<h4 id="public-int-addtocounts-equipmentelement-rosterelement-int-number"><code>public int AddToCounts(EquipmentElement rosterElement, int number)</code></h4>
+<p>Same as above but expressed as an <code>EquipmentElement</code>, so the same item with different <code>ItemModifier</code> lands in a different element.</p>
+<h4 id="public-void-add-itemrosterelement-element-public-void-add-ienumerable-itemrosterelement-rosterelementlist"><code>public void Add(ItemRosterElement element)</code> / <code>public void Add(IEnumerable&lt;ItemRosterElement&gt; rosterElementList)</code></h4>
+<p>Convenience writers that internally call <code>AddToCounts(EquipmentElement, Amount)</code> per element.</p>
+<h4 id="public-void-remove-itemrosterelement-element"><code>public void Remove(ItemRosterElement element)</code></h4>
+<p>Convenience removal, equivalent to <code>AddToCounts(EquipmentElement, -Amount)</code>.</p>
+<h4 id="public-ienumerable-itemrosterelement-removeif-func-itemrosterelement-int-match"><code>public IEnumerable&lt;ItemRosterElement&gt; RemoveIf(Func&lt;ItemRosterElement, int&gt; match)</code></h4>
+<p>Removes <code>match(el)</code> units from each element (clamped to the element's actual amount), returning the removed elements. Ideal for bulk operations like "take all food" or "clear all trade goods".</p>
+<h4 id="public-void-clear"><code>public void Clear()</code></h4>
+<p>Empties all elements, recomputes the cached totals, raises <code>RosterUpdatedEvent</code> (with <code>default(ItemRosterElement)</code> and <code>0</code>), and increments <code>VersionNo</code>.</p>
+<h3 id="query-count">Query / Count</h3>
+<h4 id="public-itemrosterelement-this-int-index-public-int-count"><code>public ItemRosterElement this[int index]</code> / <code>public int Count</code></h4>
+<p>Indexer (returns a <strong>value copy</strong> of the <code>ItemRosterElement</code>; remember indexes drift as you add/remove) and the count of <strong>distinct elements</strong> (not total item count).</p>
+<h4 id="public-int-findindexofitem-itemobject-item"><code>public int FindIndexOfItem(ItemObject item)</code></h4>
+<p>Finds the index by <code>ItemObject</code> (<strong>ignoring</strong> <code>ItemModifier</code>); returns <code>-1</code> if not found. The safest item-keyed lookup.</p>
+<h4 id="public-int-findindexofelement-equipmentelement-rosterelement"><code>public int FindIndexOfElement(EquipmentElement rosterElement)</code></h4>
+<p>Finds the exact index by <code>EquipmentElement</code> (modifier included).</p>
+<h4 id="public-int-findindex-predicate-itemobject-predicate-findindexfirstafterxthelement-predicate-itemobject-predicate-int-x"><code>public int FindIndex(Predicate&lt;ItemObject&gt; predicate)</code> / <code>FindIndexFirstAfterXthElement(Predicate&lt;ItemObject&gt; predicate, int x)</code></h4>
+<p>Predicate-based search; the latter wraps around from position <code>x</code> and is used in loot random-distribution.</p>
+<h4 id="public-itemobject-getitematindex-int-index-public-int-getelementnumber-int-index-public-int-getelementunitcost-int-index"><code>public ItemObject GetItemAtIndex(int index)</code> / <code>public int GetElementNumber(int index)</code> / <code>public int GetElementUnitCost(int index)</code></h4>
+<p>Read the item, amount, and unit value (<code>ItemObject.Value</code>) at an index. Out-of-range triggers <code>Debug.FailedAssert</code> and returns a default.</p>
+<h4 id="public-int-getitemnumber-itemobject-item"><code>public int GetItemNumber(ItemObject item)</code></h4>
+<p>"How many of this item do I have in total?" (internally uses <code>FindIndexOfItem</code>); returns <code>0</code> if absent. The most common read for inventory checks.</p>
+<h3 id="derived-totals-caches-all-cacheddata-read-them-never-hand-write">Derived totals / caches (all <code>[CachedData]</code> — read them, never hand-write)</h3>
+<table><thead><tr><th>Member</th><th>Meaning</th></tr></thead><tbody>
+<tr><td><code>TotalValue</code></td><td>Sum of <code>ItemObject.Value × Amount</code> over all elements.</td></tr>
+<tr><td><code>TradeGoodsTotalValue</code></td><td>Cumulative value of <code>IsTradeGood</code> items only (excludes gear/food/horses).</td></tr>
+<tr><td><code>TotalFood</code></td><td>Food item count plus livestock meat, where each animal contributes <code>HorseComponent.MeatCount</code>.</td></tr>
+<tr><td><code>FoodVariety</code></td><td>Number of <strong>distinct food types</strong> currently present (incremented when a type goes 0→positive, decremented on positive→0).</td></tr>
+<tr><td><code>NumberOfPackAnimals</code> / <code>NumberOfMounts</code></td><td>Pack animals / mounts (<strong>only counted when <code>ItemModifier == null</code></strong>).</td></tr>
+<tr><td><code>NumberOfLivestockAnimals</code></td><td>Livestock count (regardless of modifier).</td></tr>
+<tr><td><code>VersionNo</code></td><td>Incremented on every change; UI/VMs use it to decide whether to refresh.</td></tr>
+</tbody></table>
+<blockquote>
+<p>These totals are maintained <strong>incrementally</strong> on each <code>AddToCounts</code> / <code>Remove</code> (<code>OnRosterUpdated</code>), and fully recomputed (<code>CalculateCachedStats</code>) on <code>Clear()</code>, copy-construction, and <code>DeserializeFrom</code> (load). They are NOT derived by live enumeration, so if you mutate the internal array via reflection or other non-public means without going through the public write path, the caches will diverge from the real state.</p>
+</blockquote>
+<p><strong>Total weight (no built-in property):</strong> <code>ItemRoster</code> does <strong>not</strong> expose a <code>TotalWeight</code> member. Total weight is obtained by summing <code>ItemRosterElement.GetRosterElementWeight()</code> across elements, where each element's weight equals <code>EquipmentElement.GetEquipmentElementWeight() × Amount</code>. The campaign uses this sum (via <code>PartyBaseHelper.GetSpeedLimitation</code> and similar) to limit party movement speed.</p>
+<h4 id="public-event-rosterupdatedeventdelegate-rosterupdatedevent"><code>public event RosterUpdatedEventDelegate RosterUpdatedEvent</code></h4>
+<p>Signature <code>void(ItemRosterElement item, int count)</code>, where a positive <code>count</code> means added and negative means removed. Subscribe to update your panel or trigger logic when inventory changes — but note it also fires during load, so avoid re-entrant writes inside the handler.</p>
+<h3 id="static-save-hooks">Static / save hooks</h3>
+<h4 id="public-static-bool-rostersareidentical-itemroster-a-itemroster-b"><code>public static bool RostersAreIdentical(ItemRoster a, ItemRoster b)</code></h4>
+<p>Compares two rosters element-by-element (item, modifier, amount) for exact equality.</p>
+<h4 id="public-static-void-calculatecachedstatsonload-public-void-onloadstarted-metadata-metadata"><code>public static void CalculateCachedStatsOnLoad()</code> / <code>public void OnLoadStarted(MetaData metaData)</code></h4>
+<p>Engine load hooks: <code>OnLoadStarted</code> carries <code>[LoadInitializationCallback]</code> and registers every roster into <code>InstanceListForLoadGame</code>; after all objects are loaded the engine calls <code>CalculateCachedStatsOnLoad()</code>, which for each roster replaces any not-yet-ready (<code>!IsReady</code>) item/modifier with <code>DefaultItems.Trash</code> and unregisters the old object, drops zero-amount elements, then recomputes caches. <strong>Mods should not call these manually.</strong></p>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li><strong>Upstream (who owns / supplies elements)</strong>
+<ul>
+<li><a href="../../campaign/PartyBase/">PartyBase</a> — the real owner of an <code>ItemRoster</code> (<code>ItemRoster { get; private set; }</code>).</li>
+<li><a href="../../campaign/MobileParty/">MobileParty</a> / <a href="../../campaign/Settlement/">Settlement</a> — both delegate <code>ItemRoster</code> to <code>Party.ItemRoster</code>; <code>Settlement</code> additionally has its own <code>Stash</code>.</li>
+<li><a href="../../core/ItemObject/">ItemObject</a> — the item body behind every element (<code>EquipmentElement.Item</code>).</li>
+<li><a href="../../core-extra/EquipmentElement/">EquipmentElement</a> / <a href="../../core-extra/ItemModifier/">ItemModifier</a> — an element = item + optional modifier.</li>
+<li><a href="../../core-extra/ItemRosterElement/">ItemRosterElement</a> — the stack struct (<code>ISavedStruct</code>) stored in the array.</li>
+<li><a href="../DefaultItems/">DefaultItems</a> — the source of the <code>Trash</code> item that unresolved items fall back to on load.</li>
+<li><a href="../../core-extra/CachedDataAttribute/">CachedDataAttribute</a> — the attribute marking the incrementally maintained totals.</li>
+</ul>
+</li>
+<li><strong>Downstream (who consumes this data)</strong>
+<ul>
+<li>Trade AI (<code>PartiesSellLootCampaignBehavior</code>, <a href="../SellItemsAction/">SellItemsAction</a>), food consumption (<code>FoodConsumptionBehavior</code>), loot distribution, shop buy/sell.</li>
+<li>Party size &amp; wage: <a href="../PartySizeLimitModel/">PartySizeLimitModel</a> / <a href="../PartyWageModel/">PartyWageModel</a> derive limits and wages from carried items/troops.</li>
+<li>Speed: element weight (via <code>ItemRosterElement.GetRosterElementWeight()</code>) feeds <code>PartyBaseHelper.GetSpeedLimitation</code>.</li>
+</ul>
+</li>
+<li><strong>Related events (<a href="../CampaignEvents/">CampaignEvents</a>)</strong>
+<ul>
+<li><code>ItemsLooted</code>, <code>OnItemSoldEvent</code>, <code>HeroOrPartyGaveItem</code>, <code>OnItemsDiscardedByPlayerEvent</code>, <code>OnCollectLootsItemsEvent</code>, <code>OnLootDistributedToPartyEvent</code>, <code>OnItemsRefinedEvent</code>, <code>PlayerInventoryExchangeEvent</code> — all fired as items enter or leave a roster.</li>
+</ul>
+</li>
+<li><strong>Related types / operations</strong>
+<ul>
+<li><a href="../TroopRoster/">TroopRoster</a> — same <code>Roster</code> family, but manages troops, not items.</li>
+<li><a href="../GiveItemAction/">GiveItemAction</a> / <a href="../SellItemsAction/">SellItemsAction</a> — the correct entry points for transferring/selling items across owners.</li>
+<li><a href="../InventoryLogic/">InventoryLogic</a> — the logic behind the player inventory UI, which moves <code>ItemRosterElement</code>s between two rosters.</li>
+<li><a href="../../save-system/SaveableTypeDefiner/">SaveableTypeDefiner</a> — serializes rosters as part of the save game.</li>
+</ul>
+</li>
+</ul>
+<h2 id="risks">Risks</h2>
+<ol>
+<li><strong>Cached totals diverge if you bypass the public API.</strong> <code>TotalValue</code> and friends are only maintained incrementally inside <code>AddToCounts</code> / the removal path. Mutating <code>_data</code> / <code>_count</code> directly via reflection skips the cache refresh and never raises <code>RosterUpdatedEvent</code> or bumps <code>VersionNo</code>, so dependents read stale data.</li>
+<li><strong>Don't keep element references across a save/load.</strong> <code>ItemRosterElement</code> is a <code>struct</code> (value copy), but the <code>ItemObject</code> / <code>ItemModifier</code> inside are real object references. After load, <code>MBObjectManager</code> re-resolves them, and <code>CalculateCachedStatsOnLoad</code> <strong>replaces unresolved items with <code>Trash</code> and unregisters the old objects</strong>. Never store an <code>ItemRosterElement</code> or its inner <code>ItemObject</code> as long-lived state across saves — re-query by <code>ItemObject</code> (via <code>MBGUID</code> / <code>StringId</code>) when you need it.</li>
+<li><strong>Don't transfer items on only one side.</strong> Giving A's item to B by calling only <code>A.ItemRoster.AddToCounts(x, -n)</code> without adding to B or going through <code>GiveItemAction</code> / <code>SellItemsAction</code> breaks economic consistency (gold, buy/sell events, trade-AI counters all desync). Use an Action whenever money or both inventories are involved.</li>
+<li><strong>Don't confuse gear vs. trade good vs. food.</strong> The list is flat and holds everything. <code>TotalValue</code> counts it all; only <code>TradeGoodsTotalValue</code> is pure trade goods; <code>TotalFood</code> includes livestock meat. Always classify with <code>ItemObject.IsTradeGood</code> / <code>IsFood</code> / <code>HasHorseComponent</code> — don't assume every element is a weapon or a good.</li>
+<li><strong>Negative-removal edge cases.</strong> <code>AddToCounts(item, -n)</code> when the item is absent triggers <code>Debug.FailedAssert</code> (hard assert in dev builds); removing down to <code>&lt;= 0</code> compacts the element and shifts later indexes left. If you cached an index and then operate on that same index again, you may hit the wrong item. Prefer <code>RemoveIf</code> for bulk removal.</li>
+<li><strong><code>ItemRosterElement.Amount</code> cannot be set negative.</strong> The <code>Amount</code> setter throws <code>MBUnderFlowException</code> on a negative value. Normal <code>AddToCounts</code> avoids this (it uses field-level <code>_amount += number</code> addition), but <code>new ItemRosterElement(...)</code> followed by a manual negative <code>Amount</code> assignment will blow up.</li>
+<li><strong>Don't write to a roster inside a load/deserialize callback.</strong> During <code>OnLoadStarted</code> / <code>CalculateCachedStatsOnLoad</code> the object graph is not fully ready; mutating then may touch uninitialized related objects. Wait until <code>Campaign.Current</code> is in normal tick before changing inventories.</li>
+</ol>
+<h2 id="examples">Examples</h2>
+<h3 id="example-1-read-the-player-main-party-s-inventory-and-add-remove-items">Example 1: Read the player main party's inventory and add/remove items</h3>
+<pre><code data-lang="csharp">// Real acquisition path: MobileParty.MainParty.ItemRoster
+ItemRoster roster = MobileParty.MainParty.ItemRoster;
+
+// Iterate (IEnumerable&lt;ItemRosterElement&gt;); element is a value copy, but ItemObject is a live instance
+int elementIndex = 0;
+foreach (ItemRosterElement element in roster)
+{
+    ItemObject item = element.EquipmentElement.Item;
+    int amount = element.Amount;
+    float weight = element.GetRosterElementWeight(); // single-element weight = unit weight x amount
+
+    if (item.IsTradeGood)
+    {
+        int unitValue = roster.GetElementUnitCost(elementIndex); // trade-good unit value only
+    }
+    elementIndex++;
+}
+
+// Direct add/remove (fine when no gold is involved; refreshes caches, VersionNo, and raises the event)
+ItemObject booty = roster.GetItemAtIndex(0); // a real item already in the roster, e.g. first loot element
+int addedIndex = roster.AddToCounts(booty, 10); // +10
+roster.AddToCounts(booty, -3);                  // -3; dropping to zero removes the element, shifting indexes
+int left = roster.GetItemNumber(booty);         // remaining count (prefer item-keyed lookup over index)
+
+// Read the summary derived totals
+int totalValue = roster.TotalValue;            // total value of all items
+int tradeValue = roster.TradeGoodsTotalValue;  // trade goods only
+int food = roster.TotalFood;                   // food (including livestock meat)
+</code></pre>
+<h3 id="example-2-transfer-an-item-between-two-parties-correctly-use-an-action">Example 2: Transfer an item between two parties correctly (use an Action)</h3>
+<pre><code data-lang="csharp">PartyBase giver = MobileParty.MainParty.Party;
+PartyBase receiver = enemyParty.Party;
+
+// Take a real item reference from the giver&#39;s existing stock (avoid hardcoding a StringId)
+ItemObject sword = giver.ItemRoster.GetItemAtIndex(0);
+
+// Must use the Action: it maintains both inventories, the gold flow, buy/sell/gift events, and the caches
+ItemRosterElement toGive = new ItemRosterElement(sword, 1);
+GiveItemAction.ApplyForParties(giver, receiver, in toGive);
+
+// Do not assume the giver still holds this sword afterward — it has been decremented by 1
+int remaining = giver.ItemRoster.GetItemNumber(sword);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">↑ Campaign-ext API index</a></li>
+<li><a href="../../campaign/Campaign/">↑ Campaign</a> — the campaign world hub</li>
+<li><a href="../TroopRoster/">↔ TroopRoster</a> — same family, manages troops not items</li>
+<li><a href="../GiveItemAction/">↔ GiveItemAction</a> — correct entry point for giving items across owners</li>
+<li><a href="../SellItemsAction/">↔ SellItemsAction</a> — correct entry point for selling items</li>
+<li><a href="../CampaignEvents/">↔ CampaignEvents</a> — events broadcast as items enter/leave a roster</li>
+<li><a href="../InventoryLogic/">↔ InventoryLogic</a> — the logic moving elements behind the player inventory UI</li>
+<li><a href="../DefaultItems/">↔ DefaultItems</a> — the <code>Trash</code> item unresolved items fall back to on load</li>
+<li><a href="../PartySizeLimitModel/">↔ PartySizeLimitModel</a> / <a href="../PartyWageModel/">PartyWageModel</a> — derive size/wage from carried load</li>
+<li><a href="../../campaign/PartyBase/">↑ PartyBase</a> — the real owner of an <code>ItemRoster</code></li>
+<li><a href="../../campaign/Settlement/">↑ Settlement</a> — <code>ItemRoster</code> and <code>Stash</code></li>
+<li><a href="../../campaign/MobileParty/">↑ MobileParty</a> — party inventories</li>
+<li><a href="../../core/ItemObject/">↑ ItemObject</a> — the item body behind every element</li>
+<li><a href="../../core-extra/EquipmentElement/">↑ EquipmentElement</a> / <a href="../../core-extra/ItemModifier/">ItemModifier</a> — element = item + optional modifier</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/UpdateRoundScores/">&larr; UpdateRoundScores</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/RestResponseMessage/">RestResponseMessage &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

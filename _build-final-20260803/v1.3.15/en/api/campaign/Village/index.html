@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Village</title>
+  <meta name="description" content="Settlement component for a village: records which town it belongs to (Bound), which town it sells to (TradeBound), its hearth prosperity (Hearth) and daily production. Never construct it yourself and never mutate Hearth&#x2F;Bound references directly.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/Village/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/Village/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/Village/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/Village/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/Village/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/Village/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Village</span>
+    </nav>
+  
+  <h1>Village</h1>
+  <h1 id="village">Village</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Settlements
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class Village : SettlementComponent</code>
+<strong>Base:</strong> <code>SettlementComponent</code>
+<strong>Source:</strong> <code>TaleWorlds.CampaignSystem/Settlements/Village.cs</code> (1.3.15; API cross-checked against 1.4.5)</p>
+<h2 id="overview">Overview</h2>
+<p><code>Village</code> is the economic component attached to a village-type <a href="../Settlement/"><code>Settlement</code></a>: it tells you which town or castle the village belongs to, which town it ships its goods to, how many hearths (population prosperity) remain, what it produces each day, and whether it is currently Normal, being raided, being forcibly recruited/supplied, or looted. It is the modder-facing surface for reading village economy and reacting to village state changes — not a standalone entity you instantiate.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of <code>Village</code> as the <strong>"village economy card" bolted onto a <code>Settlement</code></strong>, not as an independent object:</p>
+<ul>
+<li><strong>It is not a standalone object; it hangs off a Settlement.</strong> The only entry point to a village is <code>someSettlement.Village</code> — every village-type <code>Settlement</code> has exactly one <code>Village</code> component. You never write <code>new Village()</code> yourself; the engine builds it alongside the <code>Settlement</code> during load/<code>Deserialize</code> (reading <code>hearth</code>, <code>bound</code>, and <code>village_type</code> from XML).</li>
+<li><strong>Pure Campaign-layer data, never enters a battle scene.</strong> <code>Village</code> lives only on the campaign map, representing the village settlement on the map. A <code>PartyBase</code>/<code>Agent</code> only appears once a fight starts over it — that is a separate concern.</li>
+<li><strong>Lifecycle:</strong> <code>OnInit()</code> (sets the state to <code>Normal</code> and grants 1000 gold) → every campaign day the <code>Campaign</code> daily-tick loop calls <code>DailyTick()</code> (accumulates <code>Hearth</code> and <code>Militia</code>, caps gold at 1000) → when raided/forced/looted, <code>ChangeVillageStateAction.Apply*</code> flips the <code>VillageState</code> and raises <code>CampaignEventDispatcher</code> events.</li>
+<li><strong>Who holds / enumerates it:</strong> held by its owning <code>Settlement</code>; enumerate all villages on the map via <code>Village.All</code> (<code>= Campaign.Current.AllVillages</code>).</li>
+</ul>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p><strong>Use it when:</strong></p>
+<ul>
+<li>Reading village economy / production / state: <code>Hearth</code>, <code>GetHearthLevel()</code>, <code>VillageType.Productions</code>, <code>IsProducing(...)</code>, <code>GetWarehouseCapacity()</code>.</li>
+<li>Associating a village with its towns in dialogue or quests: <code>Bound</code> (owning town) and <code>TradeBound</code> (selling town).</li>
+<li>Reacting to village state changes: subscribe to <code>OnVillageBecomeNormal</code> / <code>OnVillageBeingRaided</code> / <code>OnVillageLooted</code> events.</li>
+</ul>
+<p><strong>Do NOT use it directly — use the correct replacement:</strong></p>
+<ul>
+<li>❌ <code>new Village()</code> or swapping the <code>VillageType</code> / <code>Bound</code> / <code>TradeBound</code> references at runtime. These are serialized fields rebuilt by <code>MBObjectManager</code> on load; tampering corrupts the save and breaks the town↔village two-way registry.</li>
+<li>❌ Setting <code>Hearth</code> or <code>Gold</code> to an arbitrary value. The per-day hearth delta comes from <code>SettlementProsperityModel</code>; add/take gold only through <code>ChangeGold(int)</code> (floor 0). To influence hearths, replace/extend the model or raise the matching event instead of hard-writing the field.</li>
+<li>❌ Calling <code>DailyTick()</code> yourself. It is driven centrally by the <code>Campaign</code> daily tick (<code>Campaign.cs</code> walks <code>settlement.Village.DailyTick()</code>); calling it manually double-counts the settlement.</li>
+<li>❌ Assigning <code>VillageState</code> directly to switch state. Use <code>ChangeVillageStateAction.ApplyBySettingToNormal</code> / <code>ApplyBySettingToBeingRaided</code> / <code>ApplyBySettingToLooted</code> etc., so the registry is maintained and events are broadcast.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<pre><code>              Settlement (holds the component, .Village)
+                   │  upstream
+   ┌───────────────┼───────────────────────────────┐
+   ▼               ▼                                ▼
+ Town            VillageType                   MBObjectManager
+(Bound is       (drives Productions)          (rebuilds refs on
+ usually a        )                             Deserialize via
+ Town component)                                  ReadObjectReferenceFromXml)
+   │
+   └───────────────┬───────────────────────────────┘
+                   ▼  this object: Village
+   ┌────────── economy / production / state ──────────┐
+   │ Hearth   ← SettlementProsperityModel             │
+   │ Output   ← VillageProductionCalculatorModel      │
+   │ Militia  ← SettlementMilitiaModel                │
+   │ MarketData (stock) ← VillageMarketData           │
+   │ VillagerPartyComponent (villager caravan)        │
+   └──────────────────────────────────────────────────┘
+                   │  downstream / side effects
+   ┌───────────────┼───────────────────────────────┐
+   ▼               ▼                               ▼
+ VillageGoodProduction  VillageHeal           VillageHostileAction
+  CampaignBehavior       CampaignBehavior       CampaignBehavior
+ (food/output)          (hearth recovery)     (raid/force)
+        │             VillageTradeBound             │
+        │             CampaignBehavior              │
+        ▼                                           ▼
+ CampaignEventDispatcher.OnVillage*          ChangeVillageStateAction /
+  (BecomeNormal/BeingRaided/Looted)          IncreaseSettlementHealthAction
+</code></pre>
+<ul>
+<li><strong>Upstream (what it depends on):</strong> <a href="../Settlement/"><code>Settlement</code></a> (holds the component, <code>settlement.Village</code>), <a href="../../campaign-ext/Town/"><code>Town</code></a> (<code>Bound</code> is usually a <code>Town</code>, whose component registers the trade-bound), <a href="../../campaign-ext/VillageType/"><code>VillageType</code></a> (drives the production list), <a href="../../campaign-ext/MBObjectManager/"><code>MBObjectManager</code></a> (rebuilds references on <code>Deserialize</code> via <code>ReadObjectReferenceFromXml</code>).</li>
+<li><strong>Downstream (who consumes it):</strong> <a href="../../campaign-ext/SettlementProsperityModel/"><code>SettlementProsperityModel</code></a> (<code>HearthChange</code>), <a href="../../campaign-ext/VillageProductionCalculatorModel/"><code>VillageProductionCalculatorModel</code></a> (<code>GetWarehouseCapacity</code>, output), <code>SettlementMilitiaModel</code> (<code>MilitiaChange</code>), <code>VillageMarketData</code> (stock/market), <code>VillagerPartyComponent</code> (villager caravan).</li>
+<li><strong>Related events / Actions / Behaviors:</strong> <code>CampaignEventDispatcher.OnVillageBecomeNormal / OnVillageBeingRaided / OnVillageLooted</code>; <a href="../../campaign-ext/ChangeVillageStateAction/"><code>ChangeVillageStateAction</code></a> and <code>IncreaseSettlementHealthAction</code>; <code>VillageGoodProductionCampaignBehavior</code>, <code>VillageHealCampaignBehavior</code>, <code>VillageHostileActionCampaignBehavior</code>, <code>VillageTradeBoundCampaignBehavior</code>, <code>VillagerCampaignBehavior</code>.</li>
+<li><strong>Save points:</strong> <code>[SaveableField]</code>/<code>[SaveableProperty]</code> (<code>Hearth</code>, <code>TradeTaxAccumulated</code>, <code>_villageState</code>, <code>_bound</code>, <code>_marketData</code>), <code>[CachedData]</code> (<code>VillagerPartyComponent</code>).</li>
+</ul>
+<h2 id="risks">Risks</h2>
+<ol>
+<li><strong>Writing <code>Hearth</code> / <code>Gold</code> in the wrong phase.</strong> <code>DailyTick()</code> only runs on the campaign daily tick, where it does <code>Hearth += HearthChange</code> and, when the hearth level crosses a threshold, calls <code>Settlement.Party.SetLevelMaskIsDirty()</code>. If you write <code>Hearth</code> directly from an hourly tick, event callback, or elsewhere, it races with / gets overwritten by <code>DailyTick</code> and may skip the level-mask update (the village's troop level display goes stale). To change hearths, change <code>SettlementProsperityModel</code> or wait for <code>DailyTick</code>.</li>
+<li><strong>Dangling / corrupt refs from cross-save cached references.</strong> <code>Bound</code> / <code>TradeBound</code> / <code>VillageType</code> are rebuilt by <code>MBObjectManager</code> from <code>stringId</code> via <code>ReadObjectReferenceFromXml</code> on load. Do not hold <code>Village</code> / <code>Settlement</code> instances long-term in your own module state (static fields, non-<code>[Saveable]</code> containers); after a load, re-fetch through <code>Campaign.Current</code> or re-query by <code>stringId</code>, otherwise your reference points at a discarded old object.</li>
+<li><strong>Hard-writing <code>Hearth</code> instead of going through the model/event.</strong> <code>Hearth</code> is a <code>[SaveableProperty]</code>, but <em>why</em> it changes is decided by <code>SettlementProsperityModel.CalculateHearthChange</code>. Writing the field bypasses the explanation chain, and <code>DailyTick</code> will <code>+= HearthChange</code> again next day, producing unexpected compounding; also <code>Hearth &lt; 10</code> is clamped back to 10.</li>
+<li><strong><code>Bound</code> / <code>TradeBound</code> reference desync.</strong> The <code>Bound</code> setter calls <code>Settlement.AddBoundVillageInternal</code> / <code>RemoveBoundVillageInternal</code>; the <code>TradeBound</code> setter (only effective when <code>Bound</code> is not a <code>Town</code>) maintains <code>Town.SetTradeBoundVillageInternal</code> / <code>RemoveTradeBoundVillageInternal</code>. Bypassing the property (reflection, or setting <code>Bound</code> without firing the setter) desyncs the town↔village binding, tax, production, and villager caravan. Note: <strong>when <code>Bound</code> itself is a <code>Town</code>, <code>TradeBound</code> simply returns <code>Bound</code></strong> — setting a separate trade-bound has no effect.</li>
+</ol>
+<h2 id="members-grouped-by-theme">Members (grouped by theme)</h2>
+<h3 id="ownership-economy">Ownership &amp; Economy</h3>
+<ul>
+<li><strong><code>Settlement Bound { get; }</code></strong> — the town or castle this village belongs to. <code>MapFaction</code> is read directly from it. The reference is private and set only from the XML <code>bound</code> reference at load; setting it maintains the two-way registry. Do not change it externally.</li>
+<li><strong><code>Settlement TradeBound { get; set; }</code></strong> — the town it sells/trades with. If <code>Bound</code> is itself a <code>Town</code>, this returns <code>Bound</code>; otherwise it returns the separate <code>_tradeBound</code>. The setter only takes effect when <code>Bound</code> is not a <code>Town</code> and maintains the <code>Town</code> trade-bound registry. <code>GetItemPrice</code> uses it to fetch the town's market price.</li>
+<li><strong><code>IFaction MapFaction { get; }</code></strong> — equals <code>Bound.MapFaction</code>; the village's diplomatic owner (used to decide friend or foe).</li>
+<li><strong><code>int Gold</code></strong> (inherited from <code>SettlementComponent</code>, only mutable via <code>ChangeGold</code>) — the village treasury. <code>OnInit</code> grants 1000; <code>DailyTick</code> pulls it back to 1000 if it exceeds that. Add/take via <code>ChangeGold(int)</code> (floor 0).</li>
+<li><strong><code>VillageMarketData MarketData { get; }</code></strong> — the village market / stock data, used by <code>GetWarehouseCapacity</code> and trade pricing.</li>
+<li><strong><code>int TradeTaxAccumulated</code></strong> (<code>[SaveableProperty]</code>) — accumulated trade tax collected from this village.</li>
+<li><strong><code>float LastDemandSatisfiedTime</code></strong> (<code>[SaveableProperty]</code>, private set) — timestamp of the last satisfied lord demand; read by lord-demand / quest events.</li>
+</ul>
+<h3 id="state-combat">State &amp; Combat</h3>
+<ul>
+<li><strong><code>VillageStates VillageState { get; set; }</code></strong> — <code>Normal</code> / <code>BeingRaided</code> / <code>ForcedForVolunteers</code> / <code>ForcedForSupplies</code> / <code>Looted</code>. On change it broadcasts <code>CampaignEventDispatcher</code> events (<code>OnVillageBecomeNormal</code> / <code>OnVillageBeingRaided</code> / <code>OnVillageLooted</code>). Switch state via <code>ChangeVillageStateAction.Apply*</code>.</li>
+<li><strong><code>bool IsDeserted { get; }</code></strong> — <code>_villageState == Looted</code>. A deserted village (hearths at zero) cannot recover on its own.</li>
+<li><strong><code>IEnumerable&lt;PartyBase&gt; GetDefenderParties(MapEvent.BattleTypes)</code></strong> / <strong><code>PartyBase GetNextDefenderParty(ref int, MapEvent.BattleTypes)</code></strong> — return the defender parties (the village's own <code>Party</code> plus same-faction non-caravan parties; <code>Raid</code>/<code>Force</code> battles additionally include militia and villagers) when the village is raided/forced. Called from the <code>MapEvent</code> side; ordinary mods usually only read the state, not call these.</li>
+</ul>
+<h3 id="production-prosperity">Production &amp; Prosperity</h3>
+<ul>
+<li><strong><code>VillageType VillageType</code></strong> — the village type (public field) that decides the <code>Productions</code> list. Set from the XML <code>village_type</code> reference at load; do not swap at runtime (it breaks production and deserialization consistency).</li>
+<li><strong><code>bool IsProducing(ItemObject item)</code></strong> — true if <code>VillageType.Productions</code> contains the item.</li>
+<li><strong><code>int GetWarehouseCapacity()</code></strong> — warehouse capacity = (daily food output + each product's daily output) × 5, rounded up, minimum 1. Used as the stock cap.</li>
+<li><strong><code>float Hearth</code></strong> (<code>[SaveableProperty]</code>) — hearths / prosperity. <code>DailyTick</code> accumulates <code>HearthChange</code>; clamped to a minimum of 10 (<code>Hearth &lt; 10</code> → 10). The derived <code>HearthLevel</code> / <code>ProsperityLevel</code> come from it.</li>
+<li><strong><code>float HearthChange { get; }</code></strong> — today's hearth delta = <code>SettlementProsperityModel.CalculateHearthChange(this).ResultNumber</code>. Read-only query.</li>
+<li><strong><code>float Militia</code></strong> / <strong><code>float MilitiaChange</code></strong> / <strong><code>ExplainedNumber MilitiaChangeExplanation</code></strong> — militia count and its daily change (from <code>SettlementMilitiaModel</code>). <code>MilitiaChange</code> is added into <code>Settlement.Militia</code> inside <code>DailyTick</code>.</li>
+<li><strong><code>ExplainedNumber HearthChangeExplanation</code></strong> — the hearth delta with text explanations; for debugging / UI.</li>
+<li><strong><code>int GetHearthLevel()</code></strong> — <code>Hearth ≥ 600</code> → 2, <code>≥ 200</code> → 1, else 0 (matching the constants <code>MidHearthThreshold = 600</code>, <code>LowHearthThreshold = 200</code>).</li>
+<li><strong><code>ProsperityLevel GetProsperityLevel()</code></strong> — maps the hearth level to <code>High</code> / <code>Mid</code> / <code>Low</code>.</li>
+<li><strong><code>VillagerPartyComponent VillagerPartyComponent</code></strong> (<code>[CachedData]</code>) — the villager caravan component for this village, driven by <code>VillagerCampaignBehavior</code>.</li>
+<li><strong><code>static MBReadOnlyList&lt;Village&gt; All</code></strong> — <code>= Campaign.Current.AllVillages</code>, the entry point to enumerate every village on the map.</li>
+</ul>
+<h2 id="example">Example</h2>
+<h3 id="example-1-get-the-village-from-the-current-settlement-and-read-its-ownership-and-production">Example 1: Get the Village from the current settlement and read its ownership and production</h3>
+<pre><code data-lang="csharp">// e.g. inside a dialogue / quest script, the current settlement is a village
+Settlement settlement = Settlement.CurrentSettlement;
+if (settlement != null &amp;&amp; settlement.Village != null)
+{
+    Village village = settlement.Village;
+
+    Settlement boundTown = village.Bound;       // owning town (may be a Town or Castle)
+    Settlement tradeTown = village.TradeBound;   // selling town; equals Bound when Bound is a Town
+
+    // iterate what this village actually produces (from VillageType.Productions)
+    foreach (var production in village.VillageType.Productions)
+    {
+        ItemObject producedItem = production.Item1;
+        float weight = production.Item2;
+        InformationManager.DisplayMessage(
+            new InformationMessage($&quot;{village.Name} produces: {producedItem.Name} x{weight}&quot;));
+    }
+
+    bool producesFirst = village.IsProducing(village.VillageType.Productions[0].Item1);
+    int warehouseCap = village.GetWarehouseCapacity();
+    int level = village.GetHearthLevel();        // 0 / 1 / 2
+
+    InformationManager.DisplayMessage(
+        new InformationMessage(
+            $&quot;{village.Name}: bound={boundTown.Name}, hearth={village.Hearth}, level={level}, warehouse={warehouseCap}&quot;));
+}
+</code></pre>
+<h3 id="example-2-enumerate-all-villages-and-count-looted-ones-restore-one-via-the-proper-action">Example 2: Enumerate all villages and count looted ones; restore one via the proper Action</h3>
+<pre><code data-lang="csharp">int lootedCount = 0;
+foreach (Village v in Village.All)
+{
+    if (v.VillageState == Village.VillageStates.Looted || v.IsDeserted)
+    {
+        lootedCount++;
+    }
+}
+
+// To return a village to normal, use ChangeVillageStateAction — it maintains the
+// registry and broadcasts events (do NOT write village.VillageState = Normal directly)
+Settlement target = Settlement.CurrentSettlement; // in practice, fetch the target village&#39;s Settlement
+if (target != null &amp;&amp; target.Village != null)
+{
+    ChangeVillageStateAction.ApplyBySettingToNormal(target);
+    // afterwards target.Village.VillageState == Village.VillageStates.Normal
+}
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../Settlement/"><code>Settlement</code></a> — the parent settlement that holds the Village component (↑ Parent)</li>
+<li><a href="../../campaign-ext/Town/"><code>Town</code></a> — the town component <code>Bound</code> usually points at (↔ Sibling component)</li>
+<li><a href="../../campaign-ext/VillageType/"><code>VillageType</code></a> — the upstream type that drives the village production list</li>
+<li><a href="../Clan/"><code>Clan</code></a> — the clan behind the village's owning town</li>
+<li><a href="../Campaign/"><code>Campaign</code></a> — <code>Campaign.Current.AllVillages</code> and the global state entry point</li>
+<li><a href="../../campaign-ext/MBObjectManager/"><code>MBObjectManager</code></a> — rebuilds the <code>Bound</code>/<code>VillageType</code> references on deserialize</li>
+<li><a href="../../campaign-ext/ChangeVillageStateAction/"><code>ChangeVillageStateAction</code></a> — the proper Action to switch village state</li>
+<li><a href="../../campaign-ext/SettlementProsperityModel/"><code>SettlementProsperityModel</code></a> — the model behind the hearth delta</li>
+<li><a href="../../campaign-ext/VillageProductionCalculatorModel/"><code>VillageProductionCalculatorModel</code></a> — the model behind production and warehouse capacity</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign/">campaign index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign/HeroCraftingRecord/">&larr; HeroCraftingRecord</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign/CraftedItemInitializationData/">CraftedItemInitializationData &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

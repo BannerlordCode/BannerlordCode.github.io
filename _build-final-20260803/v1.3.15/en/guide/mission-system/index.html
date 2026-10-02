@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mission System</title>
+  <meta name="description" content="Complete guide to Mission, MissionBehavior, Agent, Formation, Team">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/guide/mission-system/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/guide/mission-system/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="active">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;guide&#x2F;">Getting Started Guide</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Mission System</span>
+    </nav>
+  
+  <h1>Mission System</h1>
+  <h1 id="mission-system">Mission System</h1>
+<p><strong>Namespace</strong>: TaleWorlds.MountAndBlade
+<strong>Key Classes</strong>: <code>Mission</code>, <code>MissionBehavior</code>, <code>Agent</code>, <code>Formation</code>, <code>Team</code>, <code>AgentComponent</code></p>
+<h2 id="overview">Overview</h2>
+<p>Bannerlord's combat system is built on <strong>Mission</strong> (battle). Every battle scene is a Mission containing core concepts like Agent (units), Formation (formations), and Team (sides).</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Treat <code>Mission System</code> as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.</p>
+<h2 id="core-concepts">Core Concepts</h2>
+<table><thead><tr><th>Concept</th><th>Class</th><th>Description</th></tr></thead><tbody>
+<tr><td>Mission</td><td><code>Mission</code></td><td>Container for a single battle/scenario</td></tr>
+<tr><td>Behavior</td><td><code>MissionBehavior</code></td><td>Modular component for mission logic</td></tr>
+<tr><td>Unit</td><td><code>Agent</code></td><td>Single unit on the battlefield (soldier, hero)</td></tr>
+<tr><td>Formation</td><td><code>Formation</code></td><td>A group of Agents in formation</td></tr>
+<tr><td>Team</td><td><code>Team</code></td><td>One side in battle</td></tr>
+</tbody></table>
+<h2 id="contents">Contents</h2>
+<ol>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/guide/mission-system/#missionbehavior-pattern">MissionBehavior Pattern</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/guide/mission-system/#agent-system">Agent System</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/guide/mission-system/#formation-and-team">Formation and Team</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/guide/mission-system/#mission-examples">Mission Examples</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/guide/mission-system/#related-api">Related API</a></li>
+</ol>
+<hr />
+<h2 id="missionbehavior-pattern">MissionBehavior Pattern</h2>
+<h3 id="create-custom-behavior">Create Custom Behavior</h3>
+<pre><code data-lang="csharp">using TaleWorlds.MountAndBlade;
+
+namespace MyModule.Missions
+{
+    // ⭐ Key: Inherit MissionBehavior
+    public class MyMissionBehavior : MissionBehavior
+    {
+        // Mission starts
+        public override void OnMissionStart()
+        {
+            base.OnMissionStart();
+            
+            // Initialization logic
+            Debug.Print(&quot;MyMissionBehavior started!&quot;);
+        }
+        
+        // After mission initialization
+        public override void OnMissionInitialize()
+        {
+            base.OnMissionInitialize();
+        }
+        
+        // Per-frame call (early)
+        public override void OnPreMissionTick(float dt)
+        {
+            base.OnPreMissionTick(dt);
+            // Put per-frame update logic here
+        }
+        
+        // Per-frame call (late)
+        public override void OnMissionTick(float dt)
+        {
+            base.OnMissionTick(dt);
+        }
+        
+        // Mission ends
+        public override void OnMissionFinish(bool isHeroParty)
+        {
+            base.OnMissionFinish(isHeroParty);
+        }
+    }
+}
+</code></pre>
+<h3 id="register-behavior">Register Behavior</h3>
+<p>Register in SubModule:</p>
+<pre><code data-lang="csharp">protected override void OnGameStart(Game game, IGameStarter gameStarter)
+{
+    base.OnGameStart(game, gameStarter);
+    
+    // Add mission behavior
+    gameStarter.AddBehavior(new MyMissionBehavior());
+}
+</code></pre>
+<p>Or add in Mission:</p>
+<pre><code data-lang="csharp">public override void OnMissionStart()
+{
+    base.OnMissionStart();
+    
+    // Get current Mission and add behavior
+    Mission.Current.AddMissionBehavior(new MyMissionBehavior());
+}
+</code></pre>
+<h3 id="missionbehavior-lifecycle">MissionBehavior Lifecycle</h3>
+<pre><code>Mission Created
+    │
+    ├─► OnMissionStart()         ← When mission begins
+    │
+    ├─► OnMissionInitialize()   ← Mission initialization
+    │
+    ├─► OnPreMissionTick(dt)     ← Every frame early (before all Ticks)
+    │
+    ├─► OnMissionTick(dt)        ← Every frame late (after all Ticks)
+    │
+    └─► OnMissionFinish()       ← When mission ends
+</code></pre>
+<h3 id="common-missionbehavior-types">Common MissionBehavior Types</h3>
+<table><thead><tr><th>Type</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><code>AgentStatusBehavior</code></td><td>Manage Agent health, death</td></tr>
+<tr><td><code>AgentWeaponEquippingBehavior</code></td><td>Weapon switching logic</td></tr>
+<tr><td><code>FormationEnrollmentBehavior</code></td><td>Formation management</td></tr>
+<tr><td><code>TeamAIBehavior</code></td><td>AI team behavior</td></tr>
+<tr><td><code>CombatTypeCalculator</code></td><td>Damage calculation</td></tr>
+<tr><td><code>MountCapabilityModel</code></td><td>Mount capability</td></tr>
+</tbody></table>
+<hr />
+<h2 id="agent-system">Agent System</h2>
+<h3 id="agent-overview">Agent Overview</h3>
+<p><code>Agent</code> is a single unit on the battlefield. Heroes, soldiers, and enemies are all Agents.</p>
+<h3 id="create-agent">Create Agent</h3>
+<pre><code data-lang="csharp">// Get Mission
+Mission mission = Mission.Current;
+
+// Create Agent via CharacterObject
+AgentBuildData agentBuildData = new AgentBuildData(characterObject);
+agentBuildData.Equipment(equipment);
+agentBuildData.Team(team);
+
+Agent agent = mission.SpawnAgent(agentBuildData, false, 0);
+
+// Set Agent position
+agent.TeleportToPosition(new Vec3(x, y, z));
+</code></pre>
+<h3 id="agent-components">Agent Components</h3>
+<pre><code data-lang="csharp">// Agent contains multiple components
+AgentComponent[] components = agent.Components;
+
+// Common components
+HorseComponent horse = agent.GetComponent&lt;HorseComponent&gt;();
+AgentAvatarData avatar = agent.GetComponent&lt;AgentAvatarData&gt;();
+</code></pre>
+<h3 id="agent-controllers">Agent Controllers</h3>
+<pre><code data-lang="csharp">// Default controller (AI controlled)
+agent.Controller = Agent.ControllerTypeEnum.None;
+
+// Player control
+agent.Controller = Agent.ControllerTypeEnum.Player;
+
+// AI control
+agent.Controller = Agent.ControllerTypeEnum.AI;
+
+// Scripted control
+agent.Controller = Agent.ControllerTypeEnum.Scripted;
+</code></pre>
+<h3 id="common-agent-operations">Common Agent Operations</h3>
+<pre><code data-lang="csharp">// Get/set position
+Vec3 position = agent.Position;
+agent.TeleportToPosition(newPosition);
+
+// Get facing direction
+Vec2 facing = agent.LookDirection;
+
+// Health
+float health = agent.Health;
+float maxHealth = agent.HealthLimit;
+
+// Set target
+agent.TargetPosition = targetPosition;
+agent.SetScriptedPositionAndFace(queryPosition, facing);
+
+// Weapon operations
+MissionWeapon equippedWeapon = agent.Equipment[EquipmentIndex.WeaponItemPrimarySlot];
+agent.TrySetWeaponIndexAsWielded(EquipmentIndex.WeaponItemPrimarySlot);
+
+// Death
+agent.FatalPush(Mission.DamageTypes.Invalid);
+</code></pre>
+<h3 id="listen-to-agent-events">Listen to Agent Events</h3>
+<pre><code data-lang="csharp">public class MyAgentLogic : MissionBehavior
+{
+    public override void OnAgentCreated(Agent agent)
+    {
+        base.OnAgentCreated(agent);
+        
+        // Listen to specific Agent
+        if (agent.Character.Name == &quot;MyHero&quot;)
+        {
+            agent.AgentHit += OnAgentHit;
+            agent.AgentMounted += OnAgentMounted;
+            agent.AgentDied += OnAgentDied;
+        }
+    }
+    
+    private void OnAgentHit(Agent victim, Agent attacker, int damage, 
+        Vec3 impactPoint, bool isBlocked, bool isSiegeEngineHit)
+    {
+        Debug.Print($&quot;Agent hit: {victim.Name} took {damage} damage&quot;);
+    }
+    
+    private void OnAgentDied(Agent victim, Agent attacker, 
+        AgentState agentState, BitWriter writer)
+    {
+        Debug.Print($&quot;Agent died: {victim.Name}&quot;);
+    }
+}
+</code></pre>
+<hr />
+<h2 id="formation-and-team">Formation and Team</h2>
+<h3 id="team">Team</h3>
+<pre><code data-lang="csharp">// Get all teams
+Team[] teams = Mission.Current.Teams;
+
+// Get enemy team
+Team enemyTeam = Mission.Current.Teams.Where(t =&gt; t.Side != myTeam.Side).First();
+
+// Set team relations
+myTeam.SetIsEnemyOf(enemyTeam, true);  // Set as enemy
+</code></pre>
+<h3 id="formation">Formation</h3>
+<pre><code data-lang="csharp">// Create formation
+Formation formation = myTeam.CreateFormation(&quot;MyFormation&quot;);
+
+// Set formation position
+formation.SetPositioning(new Vec3(x, y, z), 
+                         new Vec3(x2, y2, z2),  // Forward direction
+                         new Vec3(x3, y3, z3));   // Width direction
+
+// Add Agent to formation
+formation.AddAgent(agent, false);
+
+// Formation orders
+formation.SetMovementOrder(MovementOrder.MovementOrderCharge);
+formation.SetFacingOrder(FacingOrder.FacingOrderLookAtEnemy);
+
+// AI behavior
+formation.AI.SetBehaviorWeight&lt;ChargeBehavior&gt;(1.0f);
+</code></pre>
+<h3 id="formation-behaviors">Formation Behaviors</h3>
+<pre><code data-lang="csharp">// Common formation behaviors
+formation.AI.SetBehaviorWeight&lt;DefaultFormationBehavior&gt;(1.0f);
+formation.AI.SetBehaviorWeight&lt;ChargeBehavior&gt;(1.0f);
+formation.AI.SetBehaviorWeight&lt;LineFacingBehavior&gt;(0.5f);
+formation.AI.SetBehaviorWeight&lt;ArrowFormationBehavior&gt;(0.8f);
+</code></pre>
+<hr />
+<h2 id="mission-examples">Mission Examples</h2>
+<h3 id="custom-battle-logic">Custom Battle Logic</h3>
+<pre><code data-lang="csharp">public class CustomBattleLogic : MissionBehavior
+{
+    private Team _playerTeam;
+    private Team _enemyTeam;
+    private int _killsRequired = 10;
+    private int _currentKills = 0;
+    
+    public override void OnMissionStart()
+    {
+        base.OnMissionStart();
+        
+        // Create teams
+        _playerTeam = Mission.Current.CreateNewTeam(Team.Side.Defender);
+        _enemyTeam = Mission.Current.CreateNewTeam(Team.Side.Attacker);
+        
+        // Initialize enemies
+        SpawnEnemies();
+    }
+    
+    public override void OnAgentDied(Agent victim, Agent attacker, 
+        AgentState agentState, BitWriter writer)
+    {
+        base.OnAgentDied(victim, attacker, agentState, writer);
+        
+        if (victim.Team == _enemyTeam &amp;&amp; attacker != null)
+        {
+            _currentKills++;
+            
+            if (_currentKills &gt;= _killsRequired)
+            {
+                // Victory condition met
+                EndBattle(true);
+            }
+        }
+    }
+    
+    private void SpawnEnemies()
+    {
+        // Create enemy Agents
+        foreach (var spawnPoint in GetEnemySpawnPoints())
+        {
+            Agent enemy = CreateEnemyAgent(spawnPoint);
+            enemy.Team = _enemyTeam;
+        }
+    }
+    
+    private void EndBattle(bool playerWon)
+    {
+        // End battle
+        Mission.Current.EndBattle();
+    }
+}
+</code></pre>
+<h3 id="register-custom-mission">Register Custom Mission</h3>
+<pre><code data-lang="csharp">// In SubModule
+public class MySubModule : MBSubModuleBase
+{
+    protected override void OnGameStart(Game game, IGameStarter gameStarter)
+    {
+        base.OnGameStart(game, gameStarter);
+        
+        // Add custom logic
+        gameStarter.AddBehavior(new CustomBattleLogic());
+    }
+}
+</code></pre>
+<hr />
+<h2 id="related-api">Related API</h2>
+<ul>
+<li><a href="../../api/mission/Mission/">Mission API</a></li>
+<li><a href="../../api/mission/MissionBehavior/">MissionBehavior API</a></li>
+<li><a href="../../api/mission/Agent/">Agent API</a></li>
+<li><a href="../../api/mission/Formation/">Formation API</a></li>
+<li><a href="../../api/mission/Team/">Team API</a></li>
+</ul>
+<hr />
+<h2 id="next-section">Next Section</h2>
+<ul>
+<li><a href="../campaign-system/">Campaign System</a> - Learn Campaign world map gameplay</li>
+<li><a href="../gauntlet-ui/">Gauntlet UI</a> - Create custom interfaces</li>
+</ul>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Example: access the active mission
+Mission mission = Mission.Current;
+</code></pre>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/guide/">Getting Started Guide</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/guide/mod-workflow/">&larr; Mod Development Workflow</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/guide/asset-pipeline/">Asset Pipeline &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

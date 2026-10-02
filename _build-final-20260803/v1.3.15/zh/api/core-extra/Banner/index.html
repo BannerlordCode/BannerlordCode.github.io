@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Banner</title>
+  <meta name="description" content="Bannerlord 阵营旗帜的运行时数据对象：以颜色 ID、图标网格与背景组成的旗标列表承载一面旗帜的外观，并序列化为可存档的 BannerCode 字符串；由 Clan &#x2F; Kingdom &#x2F; Hero 持有。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core-extra/Banner/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core-extra/Banner/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/core-extra/Banner/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/core-extra/Banner/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/core-extra/Banner/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/core-extra/Banner/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="active">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;core-extra&#x2F;">core-extra 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Banner</span>
+    </nav>
+  
+  <h1>Banner</h1>
+  <h1 id="banner">Banner</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Core<br />
+<strong>Module:</strong> TaleWorlds.Core<br />
+<strong>Type:</strong> <code>public class Banner</code><br />
+<strong>Base:</strong> 无（不继承 <code>MBObjectBase</code>，因此不入 <code>MBObjectManager</code> 注册表）<br />
+<strong>File:</strong> <code>TaleWorlds.Core/Banner.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>Banner</code> 是一面<strong>旗帜在内存里的全部可渲染数据</strong>：它由一串 <code>BannerData</code> 组成——第 0 项永远是背景（底色 + 底色 2 + 背景网格 + 旋转），第 1 项起是叠在上面的图标（图标网格、图标颜色、位置、是否镜像、旋转）。这些项再被压成一个用 <code>.</code> 分隔的 <code>BannerCode</code> 字符串，既能显示也能随家族/王国一起写进存档。</p>
+<p>它<strong>不是</strong>一个 3D 游戏物体，也<strong>不是</strong> <code>MBObjectBase</code>：你不会把它从 <code>MBObjectManager</code> 里按 ID 取出来，而是从持有它的 <code>Clan</code> / <code>Kingdom</code> 上读到，或用 <code>BannerManager</code> 提供的静态工厂方法凭空造一面。真正把颜色 ID 翻译成屏幕上的颜色、把网格 ID 翻译成网格的，是 <code>BannerManager</code>；真正把 <code>Banner</code> 画出来的是 <code>Game.Current.CreateBannerVisual(this)</code> 返回的 <code>IBannerVisual</code>。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>Banner</code> 当作**“一张用数字描述、可序列化的旗帜贴纸”**，而不是场景里飘动的布料。它的整个状态就藏在 <code>_bannerDataList</code>（<code>MBReadOnlyList&lt;BannerData&gt;</code>）里，所有修改方法（改色、加图标、旋转）本质上都在改这张表，并把缓存的 <code>_bannerCode</code> 置空以便下次重新生成旗标码。</p>
+<ul>
+<li><strong>谁创建 / 谁持有</strong>：游戏世界里绝大多数 <code>Banner</code> 由 <code>Clan</code> 或 <code>Kingdom</code> 在初始化时创建并长期持有（<code>Clan.Banner</code>、<code>Kingdom.Banner</code>）；<code>Hero</code> 自己没有 <code>Banner</code>，要通过 <code>Hero.Clan.Banner</code> 间接取。模组也可以临时用 <code>Banner.CreateRandomClanBanner</code>、<code>Banner.CreateOneColoredBannerWithOneIcon</code> 等工厂造一面自用。</li>
+<li><strong>所在层</strong>：纯数据 + 轻量逻辑，位于 <code>TaleWorlds.Core</code>，不依赖战役系统，但渲染依赖 <code>Game</code>（即必须在一个运行中的游戏会话里）。</li>
+<li><strong>何时用</strong>：需要读取或修改某个阵营旗帜的颜色/图标/背景；需要在 UI 或存档里搬运 <code>BannerCode</code>；需要为新建家族/王国生成旗帜。</li>
+<li><strong>何时不要用</strong>：不要为了纯美术预览而 <code>new</code> 出一面 <code>Banner</code> 再去取 <code>BannerVisual</code>——<code>BannerVisual</code> 的 <code>get</code> 会调用 <code>Game.Current.CreateBannerVisual(this)</code>，没有活动游戏时会出问题；物品栏里“旗杆武器”那种旗帜走的是 <code>BannerComponent</code>，不是这个运行时对象。也不要假设 <code>Clan.Banner</code> 拿到的一定是该家族“独有”的副本（见下方风险段）。</li>
+<li><strong>依赖谁</strong>：<code>BannerManager</code>（颜色与图标注册表）、<code>BannerData</code>（存储单元）、<code>Game</code>（生成视觉）、<code>Clan</code>/<code>Kingdom</code>（持久持有与存档）。</li>
+<li><strong>出错会怎样</strong>：用非法 <code>BannerCode</code> 反序列化会得到一张<strong>空表</strong>的 <code>Banner</code>，之后任何读背景/读颜色的 getter 会直接 <code>IndexOutOfRangeException</code>；传入未在 <code>BannerManager</code> 注册的颜色值，<code>ChangePrimaryColor</code> / <code>ChangeIconColors</code> 会<strong>静默忽略</strong>。</li>
+</ul>
+<h2 id="ru-he-huo-qu-banner">如何获取 Banner</h2>
+<pre><code data-lang="csharp">// 1) 玩家家族的旗帜（最常见的入口）
+Banner clanBanner = Clan.PlayerClan.Banner;
+
+// 2) 任意王国的旗帜
+Banner kingdomBanner = Kingdom.MainKingdom.Banner;
+
+// 3) 通过英雄 → 家族 → 旗帜
+Banner heroBanner = Hero.MainHero.Clan.Banner;
+
+// 4) 以据点所属阵营的旗帜为模板，生成一面单色单图标新旗
+uint bg = settlement.MapFaction.Banner.GetFirstIconColor();
+uint fg = settlement.MapFaction.Banner.GetPrimaryColor();
+Banner newBanner = Banner.CreateOneColoredBannerWithOneIcon(bg, fg, iconMeshId);
+
+// 5) 从存档/配置里读到的 BannerCode 字符串重建（见“序列化”一节）
+string code = Clan.PlayerClan.Banner.BannerCode;
+Banner rebuilt = Banner.CreateOneColoredEmptyBanner(0);
+rebuilt.Deserialize(code);
+</code></pre>
+<blockquote>
+<p>注意：<code>Banner</code> <strong>不</strong>继承 <code>MBObjectBase</code>，所以 <code>MBObjectManager.Instance.GetObject&lt;Banner&gt;(...)</code> 是错误用法——没有这样的注册入口。要拿已有的旗帜，请走上面 1–3 的持有方属性；要造新的，走第 4 点的静态工厂。</p>
+</blockquote>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>属性</th><th>类型</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>BannerCode</code></td><td><code>string</code></td><td>由 <code>_bannerDataList</code> 序列化得到的旗帜码；首次访问时惰性生成（调用 <code>Serialize()</code>）。若表为空则返回空字符串。</td></tr>
+<tr><td><code>BannerDataList</code></td><td><code>MBReadOnlyList&lt;BannerData&gt;</code></td><td>底层旗标列表的只读视图。约定索引 0 为背景，索引 1 起为图标。</td></tr>
+<tr><td><code>BannerVisual</code></td><td><code>IBannerVisual</code></td><td>惰性创建的渲染视觉；首次访问调用 <code>Game.Current.CreateBannerVisual(this)</code>。必须在有活动游戏时访问。</td></tr>
+</tbody></table>
+<p>常用常量：<code>MaxSize = 8000</code>、<code>BannerFullSize = 1528</code>、<code>BannerEditableAreaSize = 512</code>、<code>MaxIconCount = 32</code>、<code>BackgroundDataIndex = 0</code>、<code>BannerIconDataIndex = 1</code>。</p>
+<h2 id="cheng-yuan-shuo-ming-an-zhu-ti-fen-zu">成员说明（按主题分组）</h2>
+<h3 id="gou-zao-han-shu">构造函数</h3>
+<p><code>Banner</code> 提供四个构造函数，但都不进存档、也不进 <code>MBObjectManager</code>：</p>
+<ul>
+<li><code>Banner()</code>：造一张<strong>空表</strong>的旗帜，此时读背景/颜色 getter 会抛 <code>IndexOutOfRangeException</code>，必须先用 <code>AddIconData</code> 或 <code>Deserialize</code> 填充。</li>
+<li><code>Banner(Banner other)</code> / <code>Banner(Banner other, uint color1, uint color2)</code>：深拷贝另一面旗，并可顺带用 <code>color1</code>/<code>color2</code> 改主色与图标色。</li>
+<li><code>Banner(string bannerKey)</code> / <code>Banner(string bannerKey, uint color1, uint color2)</code>：用 <code>BannerCode</code> 直接反序列化构造；<code>bannerKey</code> 为空会 <code>Debug.FailedAssert</code> 且旗为空。</li>
+</ul>
+<p>构造函数一般在战役初始化路径上使用；模组代码更推荐用下面的静态工厂，避免手搓 <code>BannerCode</code>。</p>
+<h3 id="yan-se-yu-bei-jing">颜色与背景</h3>
+<p>这些成员操作 <code>_bannerDataList[0]</code>（背景项）。<strong>前提是表非空</strong>，否则直接越界。</p>
+<ul>
+<li><code>int GetPrimaryColorId()</code> / <code>int GetSecondaryColorId()</code>：读取背景主色/副色的<strong>颜色 ID</strong>（指向 <code>BannerManager</code> 调色板）。仅在你想拿 ID 而非颜色值时用。</li>
+<li><code>uint GetPrimaryColor()</code> / <code>uint GetSecondaryColor()</code>：通过 <code>BannerManager.GetColor(id)</code> 把颜色 ID 翻译成 <code>uint</code> 颜色值；表为空时返回 <code>uint.MaxValue</code>。</li>
+<li><code>void SetPrimaryColorId(int colorId)</code> / <code>void SetSecondaryColorId(int colorId)</code>：直接写入背景的两组颜色 ID。传入的不是 <code>BannerManager</code> 里合法的 ID 时不会报错，但渲染出来颜色会错。</li>
+<li><code>void ChangePrimaryColor(uint mainColor)</code>：把 <code>uint</code> 颜色值经 <code>BannerManager.GetColorId</code> 转成 ID 后同时写入背景主/副色。<strong>若该颜色未在 <code>BannerManager</code> 注册，<code>GetColorId</code> 返回 -1，本次调用被静默忽略</strong>——这是最常见的“改色没反应”原因。</li>
+<li><code>void ChangeBackgroundColor(uint primaryColor, uint secondaryColor)</code>：分别设置背景主色与副色（双色旗）。同样依赖 <code>BannerManager</code> 颜色注册。</li>
+<li><code>int GetBackgroundMeshId()</code> / <code>void SetBackgroundMeshId(int meshId)</code>：背景网格 ID 的读写。</li>
+<li><code>void RotateBackgroundToRight()</code> / <code>void RotateBackgroundToLeft()</code>：把背景旋转一个步长（<code>0.0027777778f</code>，约 1/360 圈），并在 0~1 之间循环。适合做旗帜编辑器里的“转一下”按钮。</li>
+</ul>
+<pre><code data-lang="csharp">// 把玩家家族旗改成正红（uint 0xRRGGBB）；颜色必须在 BannerManager 里已注册
+Clan.PlayerClan.Banner.ChangePrimaryColor(0xFF2A2Au);
+
+// 双色背景：主色红、副色深蓝
+Clan.PlayerClan.Banner.ChangeBackgroundColor(0xFF2A2Au, 0x1A3C8Cu);
+
+// 旋转背景
+Clan.PlayerClan.Banner.RotateBackgroundToRight();
+</code></pre>
+<h3 id="tu-biao">图标</h3>
+<p>图标指 <code>_bannerDataList[1..]</code> 的每一项。背景（索引 0）不算图标。</p>
+<ul>
+<li><code>int GetIconColorId()</code> / <code>Vec2 GetIconSize()</code>：读取第 1 个图标的颜色 ID 与尺寸；表不足 2 项时 <code>GetIconColorId</code> 会越界。</li>
+<li><code>void SetIconColorId(int colorId)</code> / <code>void SetIconSize(int newSize)</code>：改写第 1 个图标的颜色 ID 与尺寸（<code>Size</code> 会被设成 <code>(newSize, newSize)</code> 的方形）。</li>
+<li><code>int GetIconMeshId()</code> / <code>void SetIconMeshId(int meshId)</code>：第 1 个图标的网格 ID 读写。</li>
+<li><code>void ChangeIconColors(uint color)</code>：把<strong>所有</strong>图标（索引 ≥ 1）的颜色 ID 与副色 ID 统一改成某个 <code>uint</code> 颜色值；同样依赖 <code>BannerManager</code> 注册，未注册则静默忽略。</li>
+<li><code>void AddIconData(BannerData iconData)</code> / <code>void AddIconData(BannerData iconData, int index)</code>：追加或在指定位置插入一个图标。<code>_bannerDataList</code> 总数达到 33（背景 + 最多 32 图标）后追加被拒；带 <code>index</code> 的重载还要求 <code>index &gt; 0</code> 且 <code>index &lt;= 总数</code>。</li>
+<li><code>void RemoveIconDataAtIndex(int index)</code>：移除指定图标；要求 <code>index &gt; 0</code> 且 <code>index &lt; 总数</code>（背景删不掉）。</li>
+<li><code>void ClearAllIcons()</code>：保留背景（索引 0），删掉其余所有图标。</li>
+<li><code>BannerData GetBannerDataAtIndex(int index)</code>：取任意一项，不存在返回 <code>null</code>，并把缓存 <code>_bannerCode</code> 置空。</li>
+<li><code>int GetBannerDataListCount()</code> / <code>bool IsBannerDataListEmpty()</code>：列表长度与判空。</li>
+</ul>
+<pre><code data-lang="csharp">Banner banner = Clan.PlayerClan.Banner;
+// 给旗帜再加一个图标：颜色 ID 必须来自 BannerManager（这里用 GetColorId 转 uint）
+int colorId = BannerManager.GetColorId(0xFFD700u);
+if (colorId &gt;= 0)
+{
+    BannerData icon = new BannerData(
+        iconMeshId, colorId, colorId,
+        new Vec2(512f, 512f), new Vec2(764f, 764f), false, false, 0f);
+    banner.AddIconData(icon);
+}
+
+// 把所有图标改成金色
+banner.ChangeIconColors(0xFFD700u);
+
+// 只留背景、清掉全部图标
+banner.ClearAllIcons();
+</code></pre>
+<h3 id="xu-lie-hua">序列化</h3>
+<p><code>Banner</code> 的持久形态就是 <code>BannerCode</code> 字符串。存档时 <code>Clan</code> / <code>Kingdom</code> 会把持有的 <code>Banner</code> 一起写盘（底层存的是 <code>_bannerDataList</code>，<code>[SaveableField(1)]</code>）。</p>
+<ul>
+<li><code>string Serialize()</code>：调用 <code>GetBannerCodeFromBannerDataList(_bannerDataList)</code> 重新生成旗标码。<code>BannerCode</code> 属性就是惰性调用它。</li>
+<li><code>void Deserialize(string message)</code>：用旗标码重建：先清掉缓存视觉，再清空列表，然后 <code>TryGetBannerDataFromCode</code> 解析填入。<strong>若 <code>message</code> 非法，解析失败、列表被清空变成空表</strong>——这张旗之后任何读背景/颜色的 getter 都会越界崩溃。所以反序列化前务必先 <code>IsValidBannerCode</code> 校验。</li>
+<li><code>static bool IsValidBannerCode(string bannerCode)</code>：空串直接返回 <code>false</code>，否则委托 <code>TryGetBannerDataFromCode</code>。</li>
+<li><code>static bool TryGetBannerDataFromCode(string bannerCode, out List&lt;BannerData&gt; bannerDataList)</code>：真正的解析器，按每 10 个字段一段拆分字符串；任一字段解析失败整体返回 <code>false</code> 并清空输出；超过 32 项只保留前 32。</li>
+</ul>
+<pre><code data-lang="csharp">string code = Clan.PlayerClan.Banner.BannerCode;
+if (Banner.IsValidBannerCode(code))
+{
+    Banner copy = Banner.CreateOneColoredEmptyBanner(0);
+    copy.Deserialize(code); // 用校验过的码重建，避免空表崩溃
+    // copy 现在与源旗外观一致，可自由改色而不影响原旗
+    copy.ChangePrimaryColor(0x00AEEFu);
+}
+</code></pre>
+<h3 id="jing-tai-gong-han">静态工厂</h3>
+<p>这些是最常被模组调用的入口，返回全新的 <code>Banner</code>，无需先有实例：</p>
+<ul>
+<li><code>static Banner CreateRandomClanBanner(int seed = -1)</code>：生成一面随机旗，但强制为“居中单图标”布局，适合做家族默认旗。<code>seed = -1</code> 表示用随机种子。</li>
+<li><code>static Banner CreateRandomBanner()</code>：完全随机布局（单图标/双镜像/对角/横排/竖排/四宫格随机选）。</li>
+<li><code>static Banner CreateOneColoredEmptyBanner(int colorIndex)</code>：只有一张单色背景、没有图标的旗；<code>colorIndex</code> 是 <code>BannerManager</code> 的颜色 ID。</li>
+<li><code>static Banner CreateOneColoredBannerWithOneIcon(uint backgroundColor, uint iconColor, int iconMeshId)</code>：单色背景 + 一个居中图标，<code>backgroundColor</code>/<code>iconColor</code> 是 <code>uint</code> 颜色值（<code>BannerManager.GetColorId</code> 转换），<code>iconMeshId</code> 传 -1 则随机选图标。建家族/建国时造旗首选。</li>
+<li><code>static string GetBannerCodeFromBannerDataList(MBList&lt;BannerData&gt; bannerDataList)</code>：把一组 <code>BannerData</code> 直接压成旗标码，可用于纯数据层构造码而无需 <code>Banner</code> 实例。</li>
+</ul>
+<pre><code data-lang="csharp">// 为新建家族造一面旗：底色取文化主色，图标取该文化某个图标网格
+uint bg = cultureBanner.GetPrimaryColor();
+Banner clanBanner = Banner.CreateOneColoredBannerWithOneIcon(bg, 0xFFFFFFFFu, newClanIconId);
+clanToFound.Banner = clanBanner;
+</code></pre>
+<h3 id="shi-jue">视觉</h3>
+<ul>
+<li><code>void SetBannerVisual(IBannerVisual visual)</code>：直接替换缓存的渲染视觉。一般游戏内部在 <code>BannerVisual</code> 的 <code>get</code> 里自动创建，不需要手动调用；若你持有自定义 <code>IBannerVisual</code> 实现，可用它覆盖。</li>
+</ul>
+<h2 id="feng-xian-yu-beng-kui-bian-jie">风险与崩溃边界</h2>
+<ol>
+<li><strong>空表越界</strong>：<code>new Banner()</code> 造出的旗 <code>_bannerDataList</code> 为空。任何 <code>GetPrimaryColorId</code>、<code>GetBackgroundMeshId</code>、<code>GetIconColorId</code>、<code>GetIconSize</code> 等都会 <code>IndexOutOfRangeException</code>。务必先 <code>AddIconData</code> 或 <code>Deserialize</code> 填充，或用工厂方法。</li>
+<li><strong>非法 <code>BannerCode</code> 反序列化</strong>：<code>Deserialize</code> 对非法码不会抛异常，而是把列表清空——留下一张“外表有码、内部为空”的旗，后续 getter 崩溃。<code>Clan</code>/<code>Kingdom</code> 从 XML 加载时若节点缺失会落到 <code>CreateRandomClanBanner</code>，但手动 <code>Deserialize</code> 用户输入前一定先 <code>IsValidBannerCode</code>。</li>
+<li><strong>颜色静默忽略</strong>：<code>ChangePrimaryColor</code> / <code>ChangeBackgroundColor</code> / <code>ChangeIconColors</code> 依赖 <code>BannerManager.GetColorId</code>。传入未注册的颜色值会直接 return，旗“看起来没变”。需要动态上色时，先确认颜色来自 <code>BannerManager</code> 调色板（<code>BannerManager.GetColorId(x) &gt;= 0</code>）。</li>
+<li><strong>Ruling Clan 共享王国旗引用</strong>：<code>Clan.Banner</code> 的 getter 在“该家族是王国统治家族”时直接返回 <code>this.Kingdom.Banner</code>（同一对象引用，见 <code>Clan.cs:738</code>）。此时你改 <code>clan.Banner</code> 的颜色，会<strong>顺带改掉整个王国的旗</strong>。<code>Clan.ClanOriginalBanner</code> 才能拿到该家族自己的那份（仅当 <code>_banner</code> 非空）。给家族换旗前，先确认它不是统治家族，或显式 <code>clan.Banner = newBanner</code> 赋一个新实例覆盖掉继承。</li>
+<li><strong><code>BannerVisual</code> 需要活动游戏</strong>：<code>BannerVisual</code> 的 <code>get</code> 调用 <code>Game.Current.CreateBannerVisual(this)</code>。在战役/任务之外的上下文（如无头工具、菜单早期）访问它可能拿到 null 或失败。只做数据搬运（读/写 <code>BannerCode</code>、改色）不需要它。</li>
+<li><strong><code>Banner</code> 不入 <code>MBObjectManager</code></strong>：它是普通 <code>public class</code>，没有 <code>StringId</code>、不是 <code>MBObjectBase</code>。不要用 <code>MBObjectManager.Instance.GetObject&lt;Banner&gt;</code> 去取——没有这种入口，运行时会找不到。</li>
+</ol>
+<h2 id="yi-lai-tu">依赖图</h2>
+<p><strong>上游（本对象依赖谁）</strong></p>
+<ul>
+<li><a href="../BannerManager/">BannerManager</a> —— 颜色调色板与图标/背景网格注册表；所有颜色 ID 经它翻译。</li>
+<li><a href="../BannerData/">BannerData</a> —— 单条旗标数据（网格、颜色 ID、位置、旋转、镜像）。</li>
+<li><a href="../IBannerVisual/">IBannerVisual</a> —— 旗帜的渲染接口，<code>Game</code> 负责创建具体实现。</li>
+<li><a href="../Game/">Game</a> —— 提供 <code>CreateBannerVisual</code>，把数据变成可显示的视觉。</li>
+</ul>
+<p><strong>下游（谁持有 / 使用本对象）</strong></p>
+<ul>
+<li><a href="../../campaign/Clan/">Clan</a> —— 家族旗帜，存于 <code>Clan.Banner</code> 并与家族一起存档。</li>
+<li><a href="../../campaign/Kingdom/">Kingdom</a> —— 王国旗帜，存于 <code>Kingdom.Banner</code>。</li>
+<li><a href="../../campaign/Hero/">Hero</a> —— 英雄自身无旗，经 <code>Hero.Clan.Banner</code> 间接取。</li>
+<li><a href="../../campaign/CharacterObject/">CharacterObject</a> —— 角色模板，家族/文化关系决定其旗帜来源。</li>
+<li><a href="../BannerComponent/">BannerComponent</a> —— 物品上的“旗杆武器”组件，与运行时 <code>Banner</code> 是两条不同路径。</li>
+<li><a href="../BannerImageIdentifier/">BannerImageIdentifier</a> —— 旗帜图像标识（如外交/议价界面 <code>JoinKingdomAsClanBarterable</code> 用 <code>TargetKingdom.Banner</code> 构造）。</li>
+</ul>
+<h2 id="dian-xing-yong-fa-shi-li">典型用法示例</h2>
+<h3 id="shi-li-1-gei-wan-jia-jia-zu-qi-huan-zhu-se-bing-bi-mian-wu-gai-wang-guo-qi">示例 1：给玩家家族旗换主色（并避免误改王国旗）</h3>
+<pre><code data-lang="csharp">// 取玩家家族旗；若玩家是统治家族，这其实是王国旗的同一引用
+Banner clanBanner = Clan.PlayerClan.Banner;
+if (Clan.PlayerClan == Clan.PlayerClan.Kingdom.RulingClan)
+{
+    // 统治家族：赋一个独立新实例覆盖继承，避免改色波及王国旗
+    clanBanner = Banner.CreateOneColoredBannerWithOneIcon(
+        Clan.PlayerClan.Banner.GetPrimaryColor(), 0xFFFFFFFFu, -1);
+    Clan.PlayerClan.Banner = clanBanner;
+}
+clanBanner.ChangePrimaryColor(0xFF2A2Au);
+</code></pre>
+<h3 id="shi-li-2-wei-xin-jian-jia-zu-sheng-cheng-bing-fu-yi-mian-dan-se-dan-tu-biao-qi">示例 2：为新建家族生成并赋一面单色单图标旗</h3>
+<pre><code data-lang="csharp">uint bg = settlement.MapFaction.Banner.GetPrimaryColor();
+Banner newClanBanner = Banner.CreateOneColoredBannerWithOneIcon(bg, 0xFFFFFFFFu, clanIconMeshId);
+clanToFound.Banner = newClanBanner;
+InformationManager.DisplayMessage(new InformationMessage(&quot;新家族旗帜已生成&quot;));
+</code></pre>
+<h3 id="shi-li-3-xiao-yan-bing-fu-zhi-yi-mian-qi-de-bannercode">示例 3：校验并复制一面旗的 BannerCode</h3>
+<pre><code data-lang="csharp">string code = Kingdom.MainKingdom.Banner.BannerCode;
+if (Banner.IsValidBannerCode(code))
+{
+    Banner snapshot = Banner.CreateOneColoredEmptyBanner(0);
+    snapshot.Deserialize(code);
+    // snapshot 与王国旗外观一致，可单独调色而不动原旗
+    snapshot.ChangeIconColors(0xFFD700u);
+}
+</code></pre>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li><strong>v1.3.15 与 v1.4.5</strong>：<code>Banner</code> 的公开 API 完全一致（构造函数、<code>ChangePrimaryColor</code>、<code>Deserialize</code>/<code>Serialize</code>、各静态工厂、常量均相同）。唯一差异是反编译后的枚举 <code>BannerIconOrientation</code> 在 1.4.5 源码里被提到类顶部，对调用方无影响。</li>
+<li><strong>更早的 v1.3.0</strong>：<code>Banner</code> 同样存在且 API 一致；若你的 mod 同时要兼容旧版，直接使用上述工厂与 <code>Clan.Banner</code> / <code>Kingdom.Banner</code> 即可，无需版本分支。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../BannerManager/">BannerManager</a> —— 颜色与图标注册表，改色前先确认颜色已注册。</li>
+<li><a href="../BannerData/">BannerData</a> —— 单条旗标数据的字段含义。</li>
+<li><a href="../IBannerVisual/">IBannerVisual</a> —— 旗帜渲染接口。</li>
+<li><a href="../../campaign/Clan/">Clan</a> —— <code>Clan.Banner</code> 是拿到家族旗的主要入口。</li>
+<li><a href="../../campaign/Kingdom/">Kingdom</a> —— <code>Kingdom.Banner</code> 是王国旗。</li>
+<li><a href="../../campaign/Hero/">Hero</a> —— 经 <code>Hero.Clan.Banner</code> 取英雄所属家族旗。</li>
+<li><a href="../BannerComponent/">BannerComponent</a> —— 物品上的旗帜组件（另一条路径）。</li>
+</ul>
+<h2 id="dao-hang">导航</h2>
+<ul>
+<li>↑ 父级：<a href="../">core-extra 索引</a></li>
+<li>↔ 同级：<a href="../BannerManager/">BannerManager</a>、<a href="../BannerData/">BannerData</a>、<a href="../BannerColor/">BannerColor</a>、<a href="../IBannerVisual/">IBannerVisual</a>、<a href="../Game/">Game</a></li>
+<li>相关类型：<a href="../../campaign/Clan/">Clan</a>、<a href="../../campaign/Kingdom/">Kingdom</a>、<a href="../../campaign/Hero/">Hero</a>、<a href="../BannerComponent/">BannerComponent</a>、<a href="../BannerImageIdentifier/">BannerImageIdentifier</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/core-extra/">core-extra 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/core-extra/IPlatformFileHelper/">&larr; IPlatformFileHelper</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/core-extra/ViewModel/">ViewModel &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

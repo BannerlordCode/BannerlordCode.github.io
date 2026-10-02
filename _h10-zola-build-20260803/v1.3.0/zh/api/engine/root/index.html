@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Root</title>
+  <meta name="description" content="位于该区域根命名空间的类型集合。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/engine/root/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/engine/root/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="active">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;engine&#x2F;">engine 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Root</span>
+    </nav>
+  
+  <h1>Root</h1>
+  <h2 id="shang-ji-dao-hang">上级导航</h2>
+<ul>
+<li><a href="../">返回 engine 目录</a></li>
+<li><a href="../../">API 目录</a></li>
+<li><a href="../../../">版本首页</a></li>
+</ul>
+<h2 id="zi-xi-tong-gai-shu">子系统概述</h2>
+<p>这里是 <strong>engine 目录</strong> 的 <strong>Root</strong> 子系统。同一命名空间下的类负责相近功能，可从中找到需要的类型后再进入类页查看方法。</p>
+<p>位于该区域根命名空间的类型集合。</p>
+<h2 id="lei-lie-biao">类列表</h2>
+<table><thead><tr><th>类</th><th>用途</th></tr></thead><tbody>
+<tr><td><a href="../AnimResult/"><code>AnimResult</code></a></td><td>AnimResult 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ApplicationHealthChecker/"><code>ApplicationHealthChecker</code></a></td><td>ApplicationHealthChecker 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ApplicationInterfaceBase/"><code>ApplicationInterfaceBase</code></a></td><td>ApplicationInterfaceBase 是一个抽象基类，位于 TaleWorlds.Engine，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../AsyncTask/"><code>AsyncTask</code></a></td><td>AsyncTask 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../BillboardType/"><code>BillboardType</code></a></td><td>BillboardType 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../BodyFlags/"><code>BodyFlags</code></a></td><td>BodyFlags 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../BoundingBox/"><code>BoundingBox</code></a></td><td>BoundingBox 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Camera/"><code>Camera</code></a></td><td>Camera 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../CapsuleData/"><code>CapsuleData</code></a></td><td>CapsuleData 是一个数据载体，位于 TaleWorlds.Engine，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../ClothSimulatorComponent/"><code>ClothSimulatorComponent</code></a></td><td>ClothSimulatorComponent 是一个组件型对象，位于 TaleWorlds.Engine，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../ColorStyle/"><code>ColorStyle</code></a></td><td>ColorStyle 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ComponentType/"><code>ComponentType</code></a></td><td>ComponentType 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../CompositeComponent/"><code>CompositeComponent</code></a></td><td>CompositeComponent 是一个组件型对象，位于 TaleWorlds.Engine，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../CrashInformation/"><code>CrashInformation</code></a></td><td>CrashInformation 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../CrashInformationCollector/"><code>CrashInformationCollector</code></a></td><td>CrashInformationCollector 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../CrashInformationProvider/"><code>CrashInformationProvider</code></a></td><td>CrashInformationProvider 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Decal/"><code>Decal</code></a></td><td>Decal 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../DecalAtlasGroup/"><code>DecalAtlasGroup</code></a></td><td>DecalAtlasGroup 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../EditDataPolicy/"><code>EditDataPolicy</code></a></td><td>EditDataPolicy 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../EditorVisibleScriptComponentVariable/"><code>EditorVisibleScriptComponentVariable</code></a></td><td>EditorVisibleScriptComponentVariable 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../EngineApplicationInterface/"><code>EngineApplicationInterface</code></a></td><td>EngineApplicationInterface 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../EngineCallback/"><code>EngineCallback</code></a></td><td>EngineCallback 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../EngineController/"><code>EngineController</code></a></td><td>EngineController 是一个控制器，位于 TaleWorlds.Engine，接收输入后把系统推向下一个状态。</td></tr>
+<tr><td><a href="../EngineExtensions/"><code>EngineExtensions</code></a></td><td>EngineExtensions 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../EngineFilePaths/"><code>EngineFilePaths</code></a></td><td>EngineFilePaths 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../EngineManaged/"><code>EngineManaged</code></a></td><td>EngineManaged 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../EngineRenderDisplayMode/"><code>EngineRenderDisplayMode</code></a></td><td>EngineRenderDisplayMode 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../EngineScreenManager/"><code>EngineScreenManager</code></a></td><td>EngineScreenManager 是一个管理器，位于 TaleWorlds.Engine，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../EntityFlags/"><code>EntityFlags</code></a></td><td>EntityFlags 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../EntityVisibilityFlags/"><code>EntityVisibilityFlags</code></a></td><td>EntityVisibilityFlags 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Face/"><code>Face</code></a></td><td>Face 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../FaceCorner/"><code>FaceCorner</code></a></td><td>FaceCorner 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../FloaterVolumeDynamicUpAxis/"><code>FloaterVolumeDynamicUpAxis</code></a></td><td>FloaterVolumeDynamicUpAxis 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ForceMode/"><code>ForceMode</code></a></td><td>ForceMode 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../FtlCapsuleData/"><code>FtlCapsuleData</code></a></td><td>FtlCapsuleData 是一个数据载体，位于 TaleWorlds.Engine，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../GameEntity/"><code>GameEntity</code></a></td><td>GameEntity 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../GameEntityComponent/"><code>GameEntityComponent</code></a></td><td>GameEntityComponent 是一个组件型对象，位于 TaleWorlds.Engine，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../GameEntityPhysicsExtensions/"><code>GameEntityPhysicsExtensions</code></a></td><td>GameEntityPhysicsExtensions 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../GameEntityWithWorldPosition/"><code>GameEntityWithWorldPosition</code></a></td><td>GameEntityWithWorldPosition 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../HasTableauCache/"><code>HasTableauCache</code></a></td><td>HasTableauCache 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Highlights/"><code>Highlights</code></a></td><td>Highlights 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IAsyncTask/"><code>IAsyncTask</code></a></td><td>IAsyncTask 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IBodyPart/"><code>IBodyPart</code></a></td><td>IBodyPart 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ICamera/"><code>ICamera</code></a></td><td>ICamera 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IClothSimulatorComponent/"><code>IClothSimulatorComponent</code></a></td><td>IClothSimulatorComponent 是一个组件型对象，位于 TaleWorlds.Engine，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../ICompositeComponent/"><code>ICompositeComponent</code></a></td><td>ICompositeComponent 是一个组件型对象，位于 TaleWorlds.Engine，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../IConfig/"><code>IConfig</code></a></td><td>IConfig 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IDebug/"><code>IDebug</code></a></td><td>IDebug 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IDecal/"><code>IDecal</code></a></td><td>IDecal 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IEngineSizeChecker/"><code>IEngineSizeChecker</code></a></td><td>IEngineSizeChecker 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IGameEntity/"><code>IGameEntity</code></a></td><td>IGameEntity 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IGameEntityComponent/"><code>IGameEntityComponent</code></a></td><td>IGameEntityComponent 是一个组件型对象，位于 TaleWorlds.Engine，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../IHighlights/"><code>IHighlights</code></a></td><td>IHighlights 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IImgui/"><code>IImgui</code></a></td><td>IImgui 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IInput/"><code>IInput</code></a></td><td>IInput 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ILight/"><code>ILight</code></a></td><td>ILight 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ILoadingWindowHandler/"><code>ILoadingWindowHandler</code></a></td><td>ILoadingWindowHandler 是一个处理器，位于 TaleWorlds.Engine，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../ILoadingWindowManager/"><code>ILoadingWindowManager</code></a></td><td>ILoadingWindowManager 是一个管理器，位于 TaleWorlds.Engine，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../IManagedMeshEditOperations/"><code>IManagedMeshEditOperations</code></a></td><td>IManagedMeshEditOperations 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IMaterial/"><code>IMaterial</code></a></td><td>IMaterial 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IMesh/"><code>IMesh</code></a></td><td>IMesh 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IMeshBuilder/"><code>IMeshBuilder</code></a></td><td>IMeshBuilder 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IMetaMesh/"><code>IMetaMesh</code></a></td><td>IMetaMesh 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Imgui/"><code>Imgui</code></a></td><td>Imgui 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IMouseManager/"><code>IMouseManager</code></a></td><td>IMouseManager 是一个管理器，位于 TaleWorlds.Engine，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../IMusic/"><code>IMusic</code></a></td><td>IMusic 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../InputLayout/"><code>InputLayout</code></a></td><td>InputLayout 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Intersection/"><code>Intersection</code></a></td><td>Intersection 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IntersectionDetails/"><code>IntersectionDetails</code></a></td><td>IntersectionDetails 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IntersectionType/"><code>IntersectionType</code></a></td><td>IntersectionType 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IParticleSystem/"><code>IParticleSystem</code></a></td><td>IParticleSystem 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IPath/"><code>IPath</code></a></td><td>IPath 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IPhysicsMaterial/"><code>IPhysicsMaterial</code></a></td><td>IPhysicsMaterial 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IPhysicsShape/"><code>IPhysicsShape</code></a></td><td>IPhysicsShape 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IScene/"><code>IScene</code></a></td><td>IScene 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ISceneView/"><code>ISceneView</code></a></td><td>ISceneView 是一个视图层对象，位于 TaleWorlds.Engine，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../IScreen/"><code>IScreen</code></a></td><td>IScreen 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IScriptComponent/"><code>IScriptComponent</code></a></td><td>IScriptComponent 是一个组件型对象，位于 TaleWorlds.Engine，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../IShader/"><code>IShader</code></a></td><td>IShader 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ISkeleton/"><code>ISkeleton</code></a></td><td>ISkeleton 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ISoundEvent/"><code>ISoundEvent</code></a></td><td>ISoundEvent 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ISoundManager/"><code>ISoundManager</code></a></td><td>ISoundManager 是一个管理器，位于 TaleWorlds.Engine，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../ITableauView/"><code>ITableauView</code></a></td><td>ITableauView 是一个视图层对象，位于 TaleWorlds.Engine，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../ITexture/"><code>ITexture</code></a></td><td>ITexture 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ITextureView/"><code>ITextureView</code></a></td><td>ITextureView 是一个视图层对象，位于 TaleWorlds.Engine，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../IThumbnailCreatorView/"><code>IThumbnailCreatorView</code></a></td><td>IThumbnailCreatorView 是一个视图层对象，位于 TaleWorlds.Engine，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../ITime/"><code>ITime</code></a></td><td>ITime 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ITwoDimensionView/"><code>ITwoDimensionView</code></a></td><td>ITwoDimensionView 是一个视图层对象，位于 TaleWorlds.Engine，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../IUtil/"><code>IUtil</code></a></td><td>IUtil 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../IVideoPlayerView/"><code>IVideoPlayerView</code></a></td><td>IVideoPlayerView 是一个视图层对象，位于 TaleWorlds.Engine，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../IView/"><code>IView</code></a></td><td>IView 是一个视图层对象，位于 TaleWorlds.Engine，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../Job/"><code>Job</code></a></td><td>Job 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../JobManager/"><code>JobManager</code></a></td><td>JobManager 是一个管理器，位于 TaleWorlds.Engine，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../Light/"><code>Light</code></a></td><td>Light 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../LoadingWindow/"><code>LoadingWindow</code></a></td><td>LoadingWindow 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../LoadingWindowHandler/"><code>LoadingWindowHandler</code></a></td><td>LoadingWindowHandler 是一个处理器，位于 TaleWorlds.Engine，在特定事件发生时执行约定好的响应逻辑。</td></tr>
+<tr><td><a href="../MainThreadPerformanceQuery/"><code>MainThreadPerformanceQuery</code></a></td><td>MainThreadPerformanceQuery 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ManagedExtensions/"><code>ManagedExtensions</code></a></td><td>ManagedExtensions 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ManagedMeshEditOperations/"><code>ManagedMeshEditOperations</code></a></td><td>ManagedMeshEditOperations 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ManagedScriptComponent/"><code>ManagedScriptComponent</code></a></td><td>ManagedScriptComponent 是一个组件型对象，位于 TaleWorlds.Engine，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../ManagedScriptHolder/"><code>ManagedScriptHolder</code></a></td><td>ManagedScriptHolder 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Material/"><code>Material</code></a></td><td>Material 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../MaterialFlags/"><code>MaterialFlags</code></a></td><td>MaterialFlags 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../MBAlphaBlendMode/"><code>MBAlphaBlendMode</code></a></td><td>MBAlphaBlendMode 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../MBDebug/"><code>MBDebug</code></a></td><td>MBDebug 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../MBMeshCullingMode/"><code>MBMeshCullingMode</code></a></td><td>MBMeshCullingMode 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../MBMouseButtonState/"><code>MBMouseButtonState</code></a></td><td>MBMouseButtonState 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../MBTextureType/"><code>MBTextureType</code></a></td><td>MBTextureType 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Mesh/"><code>Mesh</code></a></td><td>Mesh 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../MeshBuilder/"><code>MeshBuilder</code></a></td><td>MeshBuilder 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../MessageBoxTypeFlag/"><code>MessageBoxTypeFlag</code></a></td><td>MessageBoxTypeFlag 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../MessageManagerBase/"><code>MessageManagerBase</code></a></td><td>MessageManagerBase 是一个抽象基类，位于 TaleWorlds.Engine，为具体子类提供可重写（override/virtual）的定制点。</td></tr>
+<tr><td><a href="../MetaMesh/"><code>MetaMesh</code></a></td><td>MetaMesh 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Mobility/"><code>Mobility</code></a></td><td>Mobility 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../MouseManager/"><code>MouseManager</code></a></td><td>MouseManager 是一个管理器，位于 TaleWorlds.Engine，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../Music/"><code>Music</code></a></td><td>Music 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../NativeConfig/"><code>NativeConfig</code></a></td><td>NativeConfig 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../NativeParallelDriver/"><code>NativeParallelDriver</code></a></td><td>NativeParallelDriver 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../NativeScriptComponent/"><code>NativeScriptComponent</code></a></td><td>NativeScriptComponent 是一个组件型对象，位于 TaleWorlds.Engine，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../ParticleSystem/"><code>ParticleSystem</code></a></td><td>ParticleSystem 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ParticleSystemManager/"><code>ParticleSystemManager</code></a></td><td>ParticleSystemManager 是一个管理器，位于 TaleWorlds.Engine，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../Path/"><code>Path</code></a></td><td>Path 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../PerformanceAnalyzer/"><code>PerformanceAnalyzer</code></a></td><td>PerformanceAnalyzer 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../PhysicsContact/"><code>PhysicsContact</code></a></td><td>PhysicsContact 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../PhysicsContactInfo/"><code>PhysicsContactInfo</code></a></td><td>PhysicsContactInfo 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../PhysicsContactPair/"><code>PhysicsContactPair</code></a></td><td>PhysicsContactPair 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../PhysicsEventType/"><code>PhysicsEventType</code></a></td><td>PhysicsEventType 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../PhysicsJoint/"><code>PhysicsJoint</code></a></td><td>PhysicsJoint 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../PhysicsMaterial/"><code>PhysicsMaterial</code></a></td><td>PhysicsMaterial 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../PhysicsMaterialFlags/"><code>PhysicsMaterialFlags</code></a></td><td>PhysicsMaterialFlags 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../PhysicsShape/"><code>PhysicsShape</code></a></td><td>PhysicsShape 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../PostfxConfig/"><code>PostfxConfig</code></a></td><td>PostfxConfig 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../RagdollState/"><code>RagdollState</code></a></td><td>RagdollState 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../RenderTargetComponent/"><code>RenderTargetComponent</code></a></td><td>RenderTargetComponent 是一个组件型对象，位于 TaleWorlds.Engine，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../Resource/"><code>Resource</code></a></td><td>Resource 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../RglScriptFieldType/"><code>RglScriptFieldType</code></a></td><td>RglScriptFieldType 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Scene/"><code>Scene</code></a></td><td>Scene 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../SceneInitializationData/"><code>SceneInitializationData</code></a></td><td>SceneInitializationData 是一个数据载体，位于 TaleWorlds.Engine，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../SceneProblemChecker/"><code>SceneProblemChecker</code></a></td><td>SceneProblemChecker 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../SceneView/"><code>SceneView</code></a></td><td>SceneView 是一个视图层对象，位于 TaleWorlds.Engine，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../Screen/"><code>Screen</code></a></td><td>Screen 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ScreenManagerEngineConnection/"><code>ScreenManagerEngineConnection</code></a></td><td>ScreenManagerEngineConnection 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ScriptComponent/"><code>ScriptComponent</code></a></td><td>ScriptComponent 是一个组件型对象，位于 TaleWorlds.Engine，通常依附在 Agent 或实体上承载局部行为。</td></tr>
+<tr><td><a href="../ScriptComponentBehavior/"><code>ScriptComponentBehavior</code></a></td><td>ScriptComponentBehavior 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ScriptComponentFieldHolder/"><code>ScriptComponentFieldHolder</code></a></td><td>ScriptComponentFieldHolder 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Shader/"><code>Shader</code></a></td><td>Shader 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ShadowType/"><code>ShadowType</code></a></td><td>ShadowType 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Significance/"><code>Significance</code></a></td><td>Significance 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../SimpleButton/"><code>SimpleButton</code></a></td><td>SimpleButton 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Skeleton/"><code>Skeleton</code></a></td><td>Skeleton 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../SoundEvent/"><code>SoundEvent</code></a></td><td>SoundEvent 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../SoundEventParameter/"><code>SoundEventParameter</code></a></td><td>SoundEventParameter 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../SoundManager/"><code>SoundManager</code></a></td><td>SoundManager 是一个管理器，位于 TaleWorlds.Engine，拥有子系统的生命周期、查找接口和跨对象协调职责。</td></tr>
+<tr><td><a href="../SphereData/"><code>SphereData</code></a></td><td>SphereData 是一个数据载体，位于 TaleWorlds.Engine，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../TableauView/"><code>TableauView</code></a></td><td>TableauView 是一个视图层对象，位于 TaleWorlds.Engine，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../TextFlags/"><code>TextFlags</code></a></td><td>TextFlags 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Texture/"><code>Texture</code></a></td><td>Texture 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../TextureSaveFormat/"><code>TextureSaveFormat</code></a></td><td>TextureSaveFormat 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../TextureView/"><code>TextureView</code></a></td><td>TextureView 是一个视图层对象，位于 TaleWorlds.Engine，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../ThumbnailCreatorView/"><code>ThumbnailCreatorView</code></a></td><td>ThumbnailCreatorView 是一个视图层对象，位于 TaleWorlds.Engine，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../ThumbnailRenderRequest/"><code>ThumbnailRenderRequest</code></a></td><td>ThumbnailRenderRequest 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../TickRequirement/"><code>TickRequirement</code></a></td><td>TickRequirement 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Time/"><code>Time</code></a></td><td>Time 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../TransformedBoundingBoxPointsContainer/"><code>TransformedBoundingBoxPointsContainer</code></a></td><td>TransformedBoundingBoxPointsContainer 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../TwoDimensionMeshDrawData/"><code>TwoDimensionMeshDrawData</code></a></td><td>TwoDimensionMeshDrawData 是一个数据载体，位于 TaleWorlds.Engine，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../TwoDimensionTextMeshDrawData/"><code>TwoDimensionTextMeshDrawData</code></a></td><td>TwoDimensionTextMeshDrawData 是一个数据载体，位于 TaleWorlds.Engine，封装一组字段供系统之间结构化交换状态。</td></tr>
+<tr><td><a href="../TwoDimensionView/"><code>TwoDimensionView</code></a></td><td>TwoDimensionView 是一个视图层对象，位于 TaleWorlds.Engine，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../UpgradeLevelMask/"><code>UpgradeLevelMask</code></a></td><td>UpgradeLevelMask 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../Utilities/"><code>Utilities</code></a></td><td>Utilities 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../VideoPlayerView/"><code>VideoPlayerView</code></a></td><td>VideoPlayerView 是一个视图层对象，位于 TaleWorlds.Engine，负责把游戏状态投影到屏幕或场景。</td></tr>
+<tr><td><a href="../View/"><code>View</code></a></td><td>View 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ViewRenderOptions/"><code>ViewRenderOptions</code></a></td><td>ViewRenderOptions 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../VisibilityMaskFlags/"><code>VisibilityMaskFlags</code></a></td><td>VisibilityMaskFlags 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../VolumeDataForSubmergeComputation/"><code>VolumeDataForSubmergeComputation</code></a></td><td>VolumeDataForSubmergeComputation 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../WeakGameEntity/"><code>WeakGameEntity</code></a></td><td>WeakGameEntity 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../WorldFrame/"><code>WorldFrame</code></a></td><td>WorldFrame 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../WorldPosition/"><code>WorldPosition</code></a></td><td>WorldPosition 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../WorldPositionEnforcedCache/"><code>WorldPositionEnforcedCache</code></a></td><td>WorldPositionEnforcedCache 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+<tr><td><a href="../ZValidityState/"><code>ZValidityState</code></a></td><td>ZValidityState 是 TaleWorlds.Engine 下的公开类型。</td></tr>
+</tbody></table>
+<h2 id="ben-qu-yu-qi-ta-zi-xi-tong">本区域其他子系统</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/engine/root/./../gauntletui/">GauntletUI</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/engine/root/./../inputsystem/">InputSystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/zh/api/engine/root/./../options/">Options</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MPLobbyVM</title>
+  <meta name="description" content="Auto-generated class reference for MPLobbyVM.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="active">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/MPLobbyVM/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/MPLobbyVM/"
+               class="active">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/en/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/en/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>v1.4.5 Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/api/" class="">Index</a><a href="/v1.4.5/en/api/core/" class="">Core</a><a href="/v1.4.5/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/en/api/mission/" class="">Mission</a><a href="/v1.4.5/en/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.4.5/en/api/campaign/" class="">Campaign</a><a href="/v1.4.5/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/en/api/gui/" class="">GUI</a><a href="/v1.4.5/en/api/save-system/" class="">Save System</a><a href="/v1.4.5/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.4.5/en/api/localization/" class="">Localization</a><a href="/v1.4.5/en/api/engine/" class="">Engine</a><a href="/v1.4.5/en/api/gameplay/" class="">Gameplay</a><a href="/v1.4.5/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/en/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/en/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MPLobbyVM</span>
+    </nav>
+  
+  <h1>MPLobbyVM</h1>
+  <h1 id="mplobbyvm">MPLobbyVM</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public class MPLobbyVM : ViewModel</code>
+<strong>Base:</strong> <code>ViewModel</code>
+<strong>File:</strong> <code>Modules.Multiplayer/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection/TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby/MPLobbyVM.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>MPLobbyVM</code> lives in <code>TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.MountAndBlade.Multiplayer.ViewModelCollection.Lobby</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>CurrentPage</code></td><td><code>public LobbyPage CurrentPage { get; }</code></td></tr>
+<tr><td><code>DisallowedPages</code></td><td><code>public List&lt;LobbyPage&gt; DisallowedPages { get; }</code></td></tr>
+<tr><td><code>IsLoggedIn</code></td><td><code>public bool IsLoggedIn { get; set; }</code></td></tr>
+<tr><td><code>BrightnessPopup</code></td><td><code>public BrightnessOptionVM BrightnessPopup { get; set; }</code></td></tr>
+<tr><td><code>ExposurePopup</code></td><td><code>public ExposureOptionVM ExposurePopup { get; set; }</code></td></tr>
+<tr><td><code>IsArmoryActive</code></td><td><code>public bool IsArmoryActive { get; set; }</code></td></tr>
+<tr><td><code>IsSearchGameRequested</code></td><td><code>public bool IsSearchGameRequested { get; set; }</code></td></tr>
+<tr><td><code>IsInParty</code></td><td><code>public bool IsInParty { get; set; }</code></td></tr>
+<tr><td><code>IsSearchingGame</code></td><td><code>public bool IsSearchingGame { get; set; }</code></td></tr>
+<tr><td><code>IsMatchmakingEnabled</code></td><td><code>public bool IsMatchmakingEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsCustomGameFindEnabled</code></td><td><code>public bool IsCustomGameFindEnabled { get; set; }</code></td></tr>
+<tr><td><code>IsPartyLeader</code></td><td><code>public bool IsPartyLeader { get; set; }</code></td></tr>
+<tr><td><code>BlockerState</code></td><td><code>public MPLobbyBlockerStateVM BlockerState { get; set; }</code></td></tr>
+<tr><td><code>Menu</code></td><td><code>public MPLobbyMenuVM Menu { get; set; }</code></td></tr>
+<tr><td><code>Login</code></td><td><code>public MPAuthenticationVM Login { get; set; }</code></td></tr>
+<tr><td><code>Rejoin</code></td><td><code>public MPLobbyRejoinVM Rejoin { get; set; }</code></td></tr>
+<tr><td><code>Friends</code></td><td><code>public MPLobbyFriendsVM Friends { get; set; }</code></td></tr>
+<tr><td><code>Home</code></td><td><code>public MPLobbyHomeVM Home { get; set; }</code></td></tr>
+<tr><td><code>Matchmaking</code></td><td><code>public MPMatchmakingVM Matchmaking { get; set; }</code></td></tr>
+<tr><td><code>Armory</code></td><td><code>public MPArmoryVM Armory { get; set; }</code></td></tr>
+<tr><td><code>GameSearch</code></td><td><code>public MPLobbyGameSearchVM GameSearch { get; set; }</code></td></tr>
+<tr><td><code>PlayerProfile</code></td><td><code>public MPLobbyPlayerProfileVM PlayerProfile { get; set; }</code></td></tr>
+<tr><td><code>AfterBattlePopup</code></td><td><code>public MPAfterBattlePopupVM AfterBattlePopup { get; set; }</code></td></tr>
+<tr><td><code>PartyInvitationPopup</code></td><td><code>public MPLobbyPartyInvitationPopupVM PartyInvitationPopup { get; set; }</code></td></tr>
+<tr><td><code>PartyJoinRequestPopup</code></td><td><code>public MPLobbyPartyJoinRequestPopupVM PartyJoinRequestPopup { get; set; }</code></td></tr>
+<tr><td><code>InformationPopup</code></td><td><code>public MPLobbyInformationPopup InformationPopup { get; set; }</code></td></tr>
+<tr><td><code>QueryPopup</code></td><td><code>public MPLobbyQueryPopupVM QueryPopup { get; set; }</code></td></tr>
+<tr><td><code>PartyPlayerSuggestionPopup</code></td><td><code>public MPLobbyPartyPlayerSuggestionPopupVM PartyPlayerSuggestionPopup { get; set; }</code></td></tr>
+<tr><td><code>Options</code></td><td><code>public MPOptionsVM Options { get; set; }</code></td></tr>
+<tr><td><code>Profile</code></td><td><code>public MPLobbyProfileVM Profile { get; set; }</code></td></tr>
+<tr><td><code>Clan</code></td><td><code>public MPLobbyClanVM Clan { get; set; }</code></td></tr>
+<tr><td><code>ClanCreationPopup</code></td><td><code>public MPLobbyClanCreationPopupVM ClanCreationPopup { get; set; }</code></td></tr>
+<tr><td><code>ClanCreationInformationPopup</code></td><td><code>public MPLobbyClanCreationInformationVM ClanCreationInformationPopup { get; set; }</code></td></tr>
+<tr><td><code>ClanInvitationPopup</code></td><td><code>public MPLobbyClanInvitationPopupVM ClanInvitationPopup { get; set; }</code></td></tr>
+<tr><td><code>ClanMatchmakingRequestPopup</code></td><td><code>public MPLobbyClanMatchmakingRequestPopupVM ClanMatchmakingRequestPopup { get; set; }</code></td></tr>
+<tr><td><code>ClanInviteFriendsPopup</code></td><td><code>public MPLobbyClanInviteFriendsPopupVM ClanInviteFriendsPopup { get; set; }</code></td></tr>
+<tr><td><code>ClanLeaderboardPopup</code></td><td><code>public MPLobbyClanLeaderboardVM ClanLeaderboardPopup { get; set; }</code></td></tr>
+<tr><td><code>CosmeticObtainPopup</code></td><td><code>public MPCosmeticObtainPopupVM CosmeticObtainPopup { get; set; }</code></td></tr>
+<tr><td><code>BannerlordIDAddFriendPopup</code></td><td><code>public MPLobbyBannerlordIDAddFriendPopupVM BannerlordIDAddFriendPopup { get; set; }</code></td></tr>
+<tr><td><code>BannerlordIDChangePopup</code></td><td><code>public MPLobbyBannerlordIDChangePopup BannerlordIDChangePopup { get; set; }</code></td></tr>
+<tr><td><code>BadgeProgressionInformation</code></td><td><code>public MPLobbyBadgeProgressInformationVM BadgeProgressionInformation { get; set; }</code></td></tr>
+<tr><td><code>BadgeSelectionPopup</code></td><td><code>public MPLobbyBadgeSelectionPopupVM BadgeSelectionPopup { get; set; }</code></td></tr>
+<tr><td><code>ChangeSigilPopup</code></td><td><code>public MPLobbyHomeChangeSigilPopupVM ChangeSigilPopup { get; set; }</code></td></tr>
+<tr><td><code>RecentGames</code></td><td><code>public MPLobbyRecentGamesVM RecentGames { get; set; }</code></td></tr>
+<tr><td><code>RankProgressInformation</code></td><td><code>public MPLobbyRankProgressInformationVM RankProgressInformation { get; set; }</code></td></tr>
+<tr><td><code>RankLeaderboard</code></td><td><code>public MPLobbyRankLeaderboardVM RankLeaderboard { get; set; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="refreshvalues">RefreshValues</h3>
+<p><code>public override void RefreshValues()</code></p>
+<p><strong>Purpose:</strong> Keeps the display or cache of values in sync with the underlying state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.RefreshValues();
+</code></pre>
+<h3 id="createinputkeyvisuals">CreateInputKeyVisuals</h3>
+<p><code>public void CreateInputKeyVisuals(HotKey cancelInputKey, HotKey doneInputKey, HotKey previousInputKey, HotKey nextInputKey, HotKey firstInputKey, HotKey lastInputKey)</code></p>
+<p><strong>Purpose:</strong> Constructs a new input key visuals entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.CreateInputKeyVisuals(cancelInputKey, doneInputKey, previousInputKey, nextInputKey, firstInputKey, lastInputKey);
+</code></pre>
+<h3 id="onfinalize">OnFinalize</h3>
+<p><code>public override void OnFinalize()</code></p>
+<p><strong>Purpose:</strong> Invoked when the finalize event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnFinalize();
+</code></pre>
+<h3 id="onactivate">OnActivate</h3>
+<p><code>public void OnActivate()</code></p>
+<p><strong>Purpose:</strong> Invoked when the activate event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnActivate();
+</code></pre>
+<h3 id="ondeactivate">OnDeactivate</h3>
+<p><code>public void OnDeactivate()</code></p>
+<p><strong>Purpose:</strong> Invoked when the deactivate event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnDeactivate();
+</code></pre>
+<h3 id="ontick">OnTick</h3>
+<p><code>public void OnTick(float dt)</code></p>
+<p><strong>Purpose:</strong> Invoked when the tick event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnTick(0);
+</code></pre>
+<h3 id="onconfirm">OnConfirm</h3>
+<p><code>public void OnConfirm()</code></p>
+<p><strong>Purpose:</strong> Invoked when the confirm event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnConfirm();
+</code></pre>
+<h3 id="onescape">OnEscape</h3>
+<p><code>public async void OnEscape()</code></p>
+<p><strong>Purpose:</strong> Invoked when the escape event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnEscape();
+</code></pre>
+<h3 id="hasanycontextmenuopen">HasAnyContextMenuOpen</h3>
+<p><code>public bool HasAnyContextMenuOpen()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds any context menu open.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+var result = mPLobbyVM.HasAnyContextMenuOpen();
+</code></pre>
+<h3 id="forceclosecontextmenus">ForceCloseContextMenus</h3>
+<p><code>public void ForceCloseContextMenus()</code></p>
+<p><strong>Purpose:</strong> Executes the ForceCloseContextMenus logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.ForceCloseContextMenus();
+</code></pre>
+<h3 id="hasnopopupopen">HasNoPopupOpen</h3>
+<p><code>public bool HasNoPopupOpen()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds no popup open.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+var result = mPLobbyVM.HasNoPopupOpen();
+</code></pre>
+<h3 id="requestexit">RequestExit</h3>
+<p><code>public async Task RequestExit()</code></p>
+<p><strong>Purpose:</strong> Executes the RequestExit logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+var result = mPLobbyVM.RequestExit();
+</code></pre>
+<h3 id="connectionstateupdated">ConnectionStateUpdated</h3>
+<p><code>public void ConnectionStateUpdated(bool isAuthenticated)</code></p>
+<p><strong>Purpose:</strong> Executes the ConnectionStateUpdated logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.ConnectionStateUpdated(false);
+</code></pre>
+<h3 id="showoptionschangedinquiry">ShowOptionsChangedInquiry</h3>
+<p><code>public void ShowOptionsChangedInquiry(Action onAccept = null, Action onDecline = null)</code></p>
+<p><strong>Purpose:</strong> Displays the UI or element associated with options changed inquiry.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.ShowOptionsChangedInquiry(null, null);
+</code></pre>
+<h3 id="setpage">SetPage</h3>
+<p><code>public void SetPage(LobbyPage lobbyPage, MPMatchmakingVM.MatchmakingSubPages matchmakingSubPage = MPMatchmakingVM.MatchmakingSubPages.Default)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to page and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.SetPage(lobbyPage, mPMatchmakingVM.MatchmakingSubPages.Default);
+</code></pre>
+<h3 id="refreshrecentgames">RefreshRecentGames</h3>
+<p><code>public void RefreshRecentGames()</code></p>
+<p><strong>Purpose:</strong> Keeps the display or cache of recent games in sync with the underlying state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.RefreshRecentGames();
+</code></pre>
+<h3 id="ondisconnected">OnDisconnected</h3>
+<p><code>public void OnDisconnected()</code></p>
+<p><strong>Purpose:</strong> Invoked when the disconnected event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnDisconnected();
+</code></pre>
+<h3 id="onserverstatusreceived">OnServerStatusReceived</h3>
+<p><code>public void OnServerStatusReceived(ServerStatus serverStatus)</code></p>
+<p><strong>Purpose:</strong> Invoked when the server status received event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnServerStatusReceived(serverStatus);
+</code></pre>
+<h3 id="onrejoinbattlerequestanswered">OnRejoinBattleRequestAnswered</h3>
+<p><code>public void OnRejoinBattleRequestAnswered(bool isSuccessful)</code></p>
+<p><strong>Purpose:</strong> Invoked when the rejoin battle request answered event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnRejoinBattleRequestAnswered(false);
+</code></pre>
+<h3 id="onrequestedtosearchbattle">OnRequestedToSearchBattle</h3>
+<p><code>public void OnRequestedToSearchBattle()</code></p>
+<p><strong>Purpose:</strong> Invoked when the requested to search battle event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnRequestedToSearchBattle();
+</code></pre>
+<h3 id="onupdatefindinggame">OnUpdateFindingGame</h3>
+<p><code>public void OnUpdateFindingGame(MatchmakingWaitTimeStats matchmakingWaitTimeStats, string gameTypeInfo)</code></p>
+<p><strong>Purpose:</strong> Invoked when the update finding game event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnUpdateFindingGame(matchmakingWaitTimeStats, &quot;example&quot;);
+</code></pre>
+<h3 id="onpremadegamecreated">OnPremadeGameCreated</h3>
+<p><code>public void OnPremadeGameCreated()</code></p>
+<p><strong>Purpose:</strong> Invoked when the premade game created event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnPremadeGameCreated();
+</code></pre>
+<h3 id="onrequestedtocancelsearchbattle">OnRequestedToCancelSearchBattle</h3>
+<p><code>public void OnRequestedToCancelSearchBattle()</code></p>
+<p><strong>Purpose:</strong> Invoked when the requested to cancel search battle event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnRequestedToCancelSearchBattle();
+</code></pre>
+<h3 id="onplayerremovedfromparty">OnPlayerRemovedFromParty</h3>
+<p><code>public void OnPlayerRemovedFromParty(PlayerId playerId, PartyRemoveReason reason)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player removed from party event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnPlayerRemovedFromParty(playerId, reason);
+</code></pre>
+<h3 id="onplayeraddedtoparty">OnPlayerAddedToParty</h3>
+<p><code>public void OnPlayerAddedToParty(PlayerId playerId)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player added to party event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnPlayerAddedToParty(playerId);
+</code></pre>
+<h3 id="onplayerassignedpartyleader">OnPlayerAssignedPartyLeader</h3>
+<p><code>public void OnPlayerAssignedPartyLeader(PlayerId newPartyLeaderId)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player assigned party leader event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnPlayerAssignedPartyLeader(newPartyLeaderId);
+</code></pre>
+<h3 id="onplayersuggestedtoparty">OnPlayerSuggestedToParty</h3>
+<p><code>public void OnPlayerSuggestedToParty(PlayerId playerId, string playerName, PlayerId suggestingPlayerId, string suggestingPlayerName)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player suggested to party event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnPlayerSuggestedToParty(playerId, &quot;example&quot;, suggestingPlayerId, &quot;example&quot;);
+</code></pre>
+<h3 id="onplayernameupdated">OnPlayerNameUpdated</h3>
+<p><code>public void OnPlayerNameUpdated(string playerName)</code></p>
+<p><strong>Purpose:</strong> Invoked when the player name updated event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnPlayerNameUpdated(&quot;example&quot;);
+</code></pre>
+<h3 id="onsearchbattlecanceled">OnSearchBattleCanceled</h3>
+<p><code>public void OnSearchBattleCanceled()</code></p>
+<p><strong>Purpose:</strong> Invoked when the search battle canceled event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnSearchBattleCanceled();
+</code></pre>
+<h3 id="refreshplayerdata">RefreshPlayerData</h3>
+<p><code>public void RefreshPlayerData(PlayerData playerData)</code></p>
+<p><strong>Purpose:</strong> Keeps the display or cache of player data in sync with the underlying state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.RefreshPlayerData(playerData);
+</code></pre>
+<h3 id="refreshsupportedfeatures">RefreshSupportedFeatures</h3>
+<p><code>public void RefreshSupportedFeatures()</code></p>
+<p><strong>Purpose:</strong> Keeps the display or cache of supported features in sync with the underlying state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.RefreshSupportedFeatures();
+</code></pre>
+<h3 id="onnotificationsreceived">OnNotificationsReceived</h3>
+<p><code>public void OnNotificationsReceived(LobbyNotification notifications)</code></p>
+<p><strong>Purpose:</strong> Invoked when the notifications received event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnNotificationsReceived(notifications);
+</code></pre>
+<h3 id="onsigilchanged">OnSigilChanged</h3>
+<p><code>public void OnSigilChanged(int iconID)</code></p>
+<p><strong>Purpose:</strong> Invoked when the sigil changed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnSigilChanged(0);
+</code></pre>
+<h3 id="onclancreationfinished">OnClanCreationFinished</h3>
+<p><code>public void OnClanCreationFinished()</code></p>
+<p><strong>Purpose:</strong> Invoked when the clan creation finished event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnClanCreationFinished();
+</code></pre>
+<h3 id="onenablegenericavatarschanged">OnEnableGenericAvatarsChanged</h3>
+<p><code>public void OnEnableGenericAvatarsChanged()</code></p>
+<p><strong>Purpose:</strong> Invoked when the enable generic avatars changed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnEnableGenericAvatarsChanged();
+</code></pre>
+<h3 id="onenablegenericnameschanged">OnEnableGenericNamesChanged</h3>
+<p><code>public void OnEnableGenericNamesChanged()</code></p>
+<p><strong>Purpose:</strong> Invoked when the enable generic names changed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnEnableGenericNamesChanged();
+</code></pre>
+<h3 id="onfriendlistupdated">OnFriendListUpdated</h3>
+<p><code>public void OnFriendListUpdated(bool forceUpdate = false)</code></p>
+<p><strong>Purpose:</strong> Invoked when the friend list updated event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnFriendListUpdated(false);
+</code></pre>
+<h3 id="onclaninfochanged">OnClanInfoChanged</h3>
+<p><code>public void OnClanInfoChanged()</code></p>
+<p><strong>Purpose:</strong> Invoked when the clan info changed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MPLobbyVM from the subsystem API first
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.OnClanInfoChanged();
+</code></pre>
+<h3 id="getlocalizedgametypesstring">GetLocalizedGameTypesString</h3>
+<p><code>public static string GetLocalizedGameTypesString(string gameTypes)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the localized game types string value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MPLobbyVM.GetLocalizedGameTypesString(&quot;example&quot;);
+</code></pre>
+<h3 id="getlocalizedrankname">GetLocalizedRankName</h3>
+<p><code>public static string GetLocalizedRankName(string rankID)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the localized rank name value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+MPLobbyVM.GetLocalizedRankName(&quot;example&quot;);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+MPLobbyVM mPLobbyVM = ...;
+mPLobbyVM.RefreshValues();
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.4.5/en/api/mission-ext/">mission-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.4.5/en/api/mission-ext/Axis/">&larr; Axis</a>
+          
+          
+            <a rel="next" href="/v1.4.5/en/api/mission-ext/TrainingType/">TrainingType &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

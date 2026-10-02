@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CharacterObject</title>
+  <meta name="description" content="The campaign-layer character TEMPLATE: the read-mostly data card holding skills, equipment slots, body properties, culture, occupation, and upgrade tree. It is shared by troops, NPCs, and the player&#x2F;hero template — understanding its split from the Hero instance is the key to avoiding crashes when mutating a shared template.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/CharacterObject/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CharacterObject</span>
+    </nav>
+  
+  <h1>CharacterObject</h1>
+  <h1 id="characterobject">CharacterObject</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public sealed class CharacterObject : BasicCharacterObject, ICharacterData</code>
+<strong>Base:</strong> <code>BasicCharacterObject</code>
+<strong>Source:</strong> <code>TaleWorlds.CampaignSystem/CharacterObject.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>CharacterObject</code> is the campaign system's "character template / data card": it carries every piece of static data needed to describe a character — skill values, equipment (<code>Equipment</code>), body properties (<code>BodyProperties</code>), culture (<code>CultureObject</code>), occupation (<code>Occupation</code>), age, traits (<code>TraitObject</code>), and upgrade targets (<code>UpgradeTargets</code>). The same object is usually <strong>shared by many instances</strong>: every troop defined in the game XML (e.g. <code>imperial_infantry</code>), and every hero's birth template, maps to one <code>CharacterObject</code>, and every party, caravan, and village militia that uses that troop references the same object. It is a <code>MBObjectBase</code> subclass (via <code>BasicCharacterObject</code>) registered by <code>MBObjectManager</code> at module load, not a runtime individual you spawn yourself.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of a <code>CharacterObject</code> as a <strong>blueprint pulled from XML / factory data</strong>, not an operable runtime individual:</p>
+<ul>
+<li>It is a subclass of <code>MBObjectBase</code> (through <code>BasicCharacterObject</code>), registered into <code>Campaign.Current.Characters</code> by <code>MBObjectManager</code> when the module loads. You almost never <code>new CharacterObject()</code> yourself — the constructor only initializes fields and carries zero XML data. Acquire cards through <code>Find</code> / <code>CreateFrom</code> / natural references.</li>
+<li><strong>A hero's card is cloned.</strong> When <code>HeroCreator</code> builds a hero with <code>useCharacterAsTemplate == true</code>, it first <code>CharacterObject.CreateFrom(template)</code> shallow-clones a private copy, then points that copy back at the hero (<code>Hero.SetCharacterObject</code> internally does <code>_characterObject.HeroObject = this;</code>). So a hero's card is <strong>exclusive</strong>; a regular troop's card is <strong>shared</strong>.</li>
+<li><strong>Use it to:</strong> read skills / equipment / body properties, filter troops by culture or occupation, compute upgrade cost and combat power, add troops to a party, or build battle simulations.</li>
+<li><strong>Do NOT mutate it blindly:</strong> when you hold a <strong>shared troop template</strong> (e.g. <code>Clan.BasicTroop</code>, <code>CultureObject.BasicTroop</code>) and want to change its equipment or skills, you <strong>must <code>CreateFrom</code> it first</strong> — otherwise the change pollutes every entity that references the template. To read "what a hero is actually wearing right now," go through <code>Hero</code>, not by editing <code>CharacterObject.Equipment</code>.</li>
+</ul>
+<h2 id="when-to-use-when-not-to-use">When to Use / When NOT to Use</h2>
+<p><strong>Use <code>CharacterObject</code> when you need</strong> the <em>definition</em> of a character: its skill list, equipment roster, culture, occupation, tier, upgrade tree, or combat power. It is the right type for troop catalogs, auto-formation logic, balance debugging, and pre-battle simulations.</p>
+<p><strong>Do NOT use it when you want the live, mutable state of a specific person.</strong> A concrete campaign character (the player, a lord, a companion) is a <code>Hero</code>, which owns gold, clan, current party, life/death status, and a back-reference to its <code>CharacterObject</code>. If you need a hero's current gold, position, relationships, or the exact equipment they are wearing <em>right now</em>, read those from the <code>Hero</code> (e.g. <code>Hero.BattleEquipment</code>), not by writing to the shared <code>CharacterObject.Equipment</code>.</p>
+<p><strong>Correct alternative for mutations:</strong> instead of editing a shared template's fields directly, call <code>CharacterObject.CreateFrom(template)</code> to get an exclusive clone, then modify the clone and feed it into the party roster. This keeps the original template and all its other references intact.</p>
+<h2 id="how-to-obtain-a-characterobject">How to Obtain a CharacterObject</h2>
+<pre><code data-lang="csharp">// 1) From a Hero, get the template behind it (most common)
+CharacterObject mainTemplate = Hero.MainHero.CharacterObject;
+
+// 2) Enumerate every registered CharacterObject in the campaign (troops + hero cards)
+foreach (CharacterObject character in CharacterObject.All)
+{
+    if (character.IsRegular &amp;&amp; character.Culture == Hero.MainHero.Culture)
+    {
+        // a regular troop template, filterable by culture
+    }
+}
+
+// 3) Exact lookup by stringId (the XML id, e.g. &quot;imperial_infantry&quot;)
+CharacterObject imperialInfantry = CharacterObject.Find(&quot;imperial_infantry&quot;);
+if (imperialInfantry != null)
+{
+    // NOTE: Find returns the SHARED template — do not mutate it directly
+}
+
+// 4) Predicate lookups
+CharacterObject firstElite = CharacterObject.FindFirst(c =&gt; c.Tier &gt;= 5 &amp;&amp; c.IsRegular);
+foreach (CharacterObject cav in CharacterObject.FindAll(c =&gt; c.IsMounted &amp;&amp; c.IsRegular))
+{
+    // iterate all mounted troop templates
+}
+
+// 5) Entry points through culture / clan (BasicTroop lives on Clan / CultureObject, NOT on CharacterObject)
+CharacterObject starterTroop = Clan.PlayerClan.BasicTroop;
+CharacterObject cultureTroop = starterTroop.Culture.BasicTroop;
+
+// 6) Conversation / current player shortcuts
+CharacterObject talkTarget = CharacterObject.OneToOneConversationCharacter;
+CharacterObject playerTroop = CharacterObject.PlayerCharacter; // == Hero.MainHero.CharacterObject
+</code></pre>
+<p><code>All</code> is backed by <code>Campaign.Current.Characters</code> (an <code>MBReadOnlyList&lt;CharacterObject&gt;</code>); <code>Find</code> goes through <code>MBObjectManager.Instance.GetObject&lt;CharacterObject&gt;(idString)</code> and returns <code>null</code> on miss — always null-check before use.</p>
+<h2 id="key-members">Key Members</h2>
+<h3 id="identity-hero-card-vs-troop-template">Identity: Hero card vs Troop template</h3>
+<p>The single most important split on this type is whether the card belongs to a hero or is a shared troop template. It is decided by one back-reference.</p>
+<table><thead><tr><th>Member</th><th>Type</th><th>Notes</th></tr></thead><tbody>
+<tr><td><code>HeroObject</code></td><td><code>Hero</code></td><td>If this card belongs to a hero, points back to that <code>Hero</code>; <code>null</code> for troop templates. <strong>This is the fundamental distinction.</strong> The setter is <code>internal</code> and only assigned from inside <code>Hero</code>.</td></tr>
+<tr><td><code>IsHero</code></td><td><code>bool</code></td><td><code>_heroObject != null</code>. <code>true</code> for a hero's card.</td></tr>
+<tr><td><code>IsRegular</code></td><td><code>bool</code></td><td><code>_heroObject == null</code>. <code>true</code> for a troop / NPC template. Mutually exclusive with <code>IsHero</code>.</td></tr>
+<tr><td><code>IsTemplate</code></td><td><code>bool</code></td><td>Set from the XML <code>is_template</code> flag (<code>private set</code>). Hero cards usually come from a cloned template and are not themselves templates.</td></tr>
+<tr><td><code>IsOriginalCharacter</code></td><td><code>bool</code></td><td><code>_originCharacter == null</code>. After a hero card is <code>CreateFrom</code>-cloned, <code>OriginalCharacter</code> points at the source template, so <code>IsOriginalCharacter</code> is <code>false</code>; the source template itself is <code>true</code>.</td></tr>
+<tr><td><code>OriginalCharacter</code></td><td><code>CharacterObject</code></td><td>The source template this card was cloned from (i.e. <code>Hero.Template</code>). Editing a hero card never writes back to it.</td></tr>
+</tbody></table>
+<blockquote>
+<p>There is <strong>no literal <code>DefaultCharacter</code> member.</strong> The "default / template" relationship the API models is exactly <code>OriginalCharacter</code> / <code>IsOriginalCharacter</code>: a hero card's <code>OriginalCharacter</code> is the factory template it was cloned from, while a troop's <code>BasicTroop</code> entry (on <code>Clan</code> / <code>CultureObject</code> / <code>Kingdom</code>) is the culture's default template. Prefer those members over inventing a <code>DefaultCharacter</code>.</p>
+</blockquote>
+<h3 id="culture-occupation-and-basic-traits">Culture, Occupation, and basic traits</h3>
+<p>Many of these properties are <strong>delegated</strong>: on a hero card they read from <code>HeroObject</code>; on a troop card they read the template's own value.</p>
+<ul>
+<li><code>Culture</code> (<code>CultureObject</code>, <code>new</code>) — on a hero card returns <code>HeroObject.Culture</code>; otherwise the base <code>Culture</code>. Drives appearance, voice, and the default equipment roster.</li>
+<li><code>Occupation</code> (<code>Occupation</code>) — on a hero card reads <code>HeroObject.Occupation</code> (Soldier / Mercenary / Bandit / Lord …); on a troop card reads the internal <code>_occupation</code> (XML <code>occupation</code>).</li>
+<li><code>Age</code> (<code>float</code>) — hero card returns <code>HeroObject.Age</code>; otherwise the template base age.</li>
+<li><code>IsFemale</code> (<code>bool</code>) — hero card reads <code>HeroObject.IsFemale</code>; otherwise the template.</li>
+<li><code>Level</code> (<code>int</code>) — hero card returns <code>HeroObject.Level</code> (hero level); troop card returns the template level (XML <code>level</code>, default 1). Affects <code>TroopWage</code> and power.</li>
+<li><code>TroopWage</code> (<code>int</code>) — hero card: <code>2 + Level * 2</code>; troop card: computed by <code>PartyWageModel.GetCharacterWage(this)</code>.</li>
+<li><code>Tier</code> (<code>int</code>) — troop tier, from <code>CharacterStatsModel.GetTier(this)</code>.</li>
+<li><code>IsBasicTroop</code> (<code>bool</code>) — XML <code>is_basic_troop</code>. Often the leaf of an upgrade tree; <code>Clan.BasicTroop</code> returns the character carrying this flag.</li>
+<li><code>IsMariner</code> (<code>bool</code>) — <code>true</code> when <code>GetTraitLevel(DefaultTraits.NavalSoldier) != 0</code>, decided during <code>Deserialize</code>.</li>
+</ul>
+<h3 id="equipment-and-combat-profiles">Equipment and combat profiles</h3>
+<ul>
+<li><code>Equipment</code> (<code>Equipment</code>) — <strong>hero card</strong> returns <code>HeroObject.BattleEquipment</code> (the hero's <em>current</em> battle gear); <strong>troop card</strong> returns the template's own battle equipment. Marked <code>SyncEquipments = true</code> during <code>AfterRegister</code>.</li>
+<li><code>BattleEquipments</code> / <code>CivilianEquipments</code> / <code>StealthEquipments</code> (<code>IEnumerable&lt;Equipment&gt;</code>) — the three equipment rosters. A hero card returns only its single corresponding set; a troop card returns the template roster (stealth from <code>Culture.DefaultStealthEquipmentRoster</code>).</li>
+<li><code>FirstBattleEquipment</code> / <code>FirstCivilianEquipment</code> / <code>FirstStealthEquipment</code> (<code>Equipment</code>) — the first set in each roster; most troops have only this one, so it is what you touch most when editing gear.</li>
+<li><code>IsMounted</code> (<code>bool</code>) — hero card checks <code>Equipment[10].Item</code> (mount slot); troop card reads the base.</li>
+<li><code>IsRanged</code> (<code>bool</code>) — hero card inspects the first four weapon slots for bow / crossbow / throwing; troop card reads the base.</li>
+<li><code>GetFormationClass()</code> — hero card returns <code>Infantry</code> / <code>Ranged</code> / <code>Cavalry</code> / <code>HorseArcher</code> by mounted + ranged; troop card reads the base default. Used for auto-formation.</li>
+<li><code>GetSimulationAttackPower(out float attackPoints, out float defencePoints, Equipment equipment = null)</code> — computes attack/defense ratings for a pre-battle simulation. <code>equipment</code> defaults to this card's <code>Equipment</code>; it weights weapon <code>Effectiveness</code>, the relevant <code>SkillObject</code>, armor, and mount bonus, returned via <code>out</code> parameters.</li>
+<li><code>GetHeadArmorSum</code> / <code>GetBodyArmorSum</code> / <code>GetLegArmorSum</code> / <code>GetArmArmorSum</code> / <code>GetHorseArmorSum</code> / <code>GetTotalArmorSum</code> — sum armor values across head/body/legs/arms/(horse) for a given <code>Equipment.EquipmentType</code> (default <code>Battle</code>).</li>
+</ul>
+<h3 id="skills-traits-and-perks">Skills, traits, and perks</h3>
+<ul>
+<li><code>GetSkillValue(SkillObject skill)</code> (<code>int</code>) — skill level. Hero card delegates to <code>HeroObject.GetSkillValue(skill)</code>; troop card reads the template's own skill value (<code>base.GetSkillValue</code>).</li>
+<li><code>GetTraitLevel(TraitObject trait)</code> (<code>int</code>) — trait level. Hero card delegates to <code>HeroObject.GetTraitLevel</code>; troop card reads internal <code>_characterTraits</code>.</li>
+<li><code>GetPerkValue(PerkObject perk)</code> (<code>bool</code>) — <strong>always <code>false</code> for a troop card.</strong> Only a hero card (<code>IsHero</code>) delegates to <code>HeroObject.GetPerkValue</code>, because perks are hero runtime attributes.</li>
+<li><code>GetPersona()</code> (<code>TraitObject</code>) — the character's persona archetype (<code>_persona</code>), falling back to <code>DefaultTraits.PersonaSoftspoken</code> when empty. Used to pick dialogue tone.</li>
+</ul>
+<h3 id="power-and-upgrades">Power and upgrades</h3>
+<ul>
+<li><code>GetPower()</code> / <code>GetBattlePower()</code> / <code>GetMoraleResistance()</code> — the combat-power trio. <code>GetPower</code> weights by tier (<code>IsHero</code> uses <code>Level/4+1</code>, else <code>Tier</code>) plus hero/mount bonus; <code>GetBattlePower</code> scales <code>GetPower</code> relative to a baseline (minimum 1); <code>GetMoraleResistance</code> returns morale resistance (heros weighted 1.5×). Used by AI evaluation and auto-formation.</li>
+<li><code>UpgradeTargets</code> (<code>CharacterObject[]</code>) — upgrade destinations (XML <code>upgrade_targets</code>). <code>Hero</code> uses these when re-organizing party members.</li>
+<li><code>GetUpgradeXpCost(PartyBase party, int index)</code> / <code>GetUpgradeGoldCost(PartyBase party, int index)</code> — XP / gold cost to upgrade this troop to the <code>index</code>-th <code>UpgradeTargets</code> entry, from <code>PartyTroopUpgradeModel</code>. <code>party</code> is the owning party and affects the cost coefficient.</li>
+</ul>
+<h3 id="cloning-and-modification">Cloning and modification</h3>
+<ul>
+<li><code>CreateFrom(CharacterObject character, StaticBodyProperties? staticBodyProperties = null)</code> (<code>static</code>) — <strong>clone an exclusive copy.</strong> It builds a new <code>CharacterObject</code>, copies <code>_originCharacter</code>, <code>_occupation</code>, <code>_persona</code>, <code>_characterTraits</code>, <code>_isMariner</code>, the equipment template, etc., then <code>FillFrom(character)</code> copies equipment. If the source is a hero card and <code>staticBodyProperties</code> is supplied, it writes the new card's <code>HeroObject.StaticBodyProperties</code>. <strong>This is the standard "clone before you mutate" path.</strong></li>
+<li><code>SetTransferableInPartyScreen(bool)</code> / <code>SetTransferableInHideouts(bool)</code> — toggle whether the character can be moved in the party screen / hideouts, via the <code>_characterRestrictionFlags</code> bitmask. If you are on a <strong>shared template</strong>, this change hits every entity referencing it — clone first.</li>
+<li><code>ClearAttributes()</code> — clears attribute points; delegates to <code>HeroObject.ClearAttributes()</code> on a hero card (no-op on a troop card).</li>
+</ul>
+<h3 id="body-properties">Body properties</h3>
+<ul>
+<li><code>MaxHitPoints()</code> (<code>int</code>) — max HP, rounded from <code>CharacterStatsModel.MaxHitpoints(this).ResultNumber</code>. Both card kinds go through the model.</li>
+<li><code>HitPoints</code> (<code>int</code>) — hero card returns <code>HeroObject.HitPoints</code> (current HP); troop card returns <code>MaxHitPoints()</code>.</li>
+<li><code>GetBodyProperties(Equipment equipment, int seed = -1)</code> — hero card returns <code>HeroObject.BodyProperties</code>; troop card generates within <code>GetBodyPropertiesMin/Max</code> via <code>FaceGen.GetRandomBodyProperties</code> (<code>seed == -1</code> uses a <code>StringId</code> hash for determinism).</li>
+<li><code>UpdatePlayerCharacterBodyProperties(BodyProperties properties, int race, bool isFemale)</code> — <strong>only effective when <code>IsPlayerCharacter &amp;&amp; IsHero</code>.</strong> Writes <code>properties</code> into the player hero's <code>StaticBodyProperties / Weight / Build / Race / IsFemale</code> and fires <code>OnPlayerBodyPropertiesChanged</code>. This is the entry point for changing the player's appearance.</li>
+</ul>
+<h2 id="example">Example</h2>
+<h3 id="example-1-read-a-troop-template-s-skills-equipment-and-tier">Example 1 — Read a troop template's skills, equipment, and tier</h3>
+<pre><code data-lang="csharp">CharacterObject troop = CharacterObject.Find(&quot;imperial_infantry&quot;);
+if (troop != null &amp;&amp; troop.IsRegular)
+{
+    int oneHanded = troop.GetSkillValue(DefaultSkills.OneHanded);
+    int tier = troop.Tier;
+    int wage = troop.TroopWage;
+    Equipment battle = troop.FirstBattleEquipment;
+    InformationManager.DisplayMessage(new TextObject($&quot;{troop.Name}: 1H {oneHanded}, tier {tier}, wage {wage}&quot;));
+}
+</code></pre>
+<h3 id="example-2-clone-a-shared-template-to-customize-an-exclusive-troop-avoid-polluting-the-original">Example 2 — Clone a shared template to customize an exclusive troop (avoid polluting the original)</h3>
+<pre><code data-lang="csharp">// Editing Clan.PlayerClan.BasicTroop directly would change every place that basic troop is used — clone first.
+CharacterObject customTroop = CharacterObject.CreateFrom(Clan.PlayerClan.BasicTroop);
+customTroop.FirstBattleEquipment[EquipmentIndex.Weapon1] =
+    new EquipmentElement(MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(&quot;javelin&quot;)); // give the clone a javelin
+
+// Add the clone to the player party; the original BasicTroop and all its references are untouched.
+MobileParty.MainParty.MemberRoster.AddToCounts(customTroop, 20);
+</code></pre>
+<h3 id="example-3-enumerate-a-culture-s-cavalry-and-estimate-attack-defense">Example 3 — Enumerate a culture's cavalry and estimate attack/defense</h3>
+<pre><code data-lang="csharp">CultureObject culture = Hero.MainHero.Culture;
+foreach (CharacterObject cav in CharacterObject.FindAll(c =&gt; c.IsRegular &amp;&amp; c.IsMounted &amp;&amp; c.Culture == culture))
+{
+    cav.GetSimulationAttackPower(out float atk, out float def, cav.FirstBattleEquipment);
+    float power = cav.GetBattlePower();
+    // atk / def / power can drive auto-formation or balance debugging
+}
+</code></pre>
+<h2 id="risks">Risks</h2>
+<ul>
+<li><strong>Mutating a shared template is global.</strong> <code>Clan.BasicTroop</code>, <code>CultureObject.BasicTroop</code>, and <code>CharacterObject.Find(...)</code> return the XML-registered <strong>singleton</strong>. Writing its <code>Equipment</code> slots, calling <code>SetTransferableInPartyScreen</code>, changing <code>Level</code> (hero card), or its skills makes every party, caravan, and village militia change — and <strong>the change is baked into the save</strong>. Any "give this troop different gear" need must start with <code>CharacterObject.CreateFrom(template)</code>.</li>
+<li><strong>Hero cards and troop cards behave differently.</strong> Most properties (<code>Equipment</code>, <code>Level</code>, <code>Culture</code>, <code>Occupation</code>, <code>Age</code>, <code>IsFemale</code>, <code>HitPoints</code>, <code>GetSkillValue</code>, <code>GetTraitLevel</code>) delegate to <code>HeroObject</code> on a hero card but read the template on a troop card. <code>GetPerkValue</code> is <strong>always <code>false</code> for a troop card.</strong> When writing generic logic, check <code>IsHero</code> first, or you may read template defaults instead of the hero's real values.</li>
+<li><strong><code>HeroObject</code> is <code>null</code> for troop templates.</strong> A regular troop has no hero, so <code>IsHero == false</code>. Code that assumes "every card has a <code>HeroObject.Name</code>" will null-reference on troop cards — branch on <code>IsHero</code>. (The <code>Name</code> property itself is safe: it returns <code>HeroObject.Name</code> when <code>IsHero</code>, else the template name.)</li>
+<li><strong><code>Find</code> can return <code>null</code>.</strong> A non-existent <code>stringId</code> yields <code>null</code>; null-check before touching members.</li>
+<li><strong>Do not <code>new CharacterObject()</code>.</strong> The constructor only does field <code>Init()</code> with no XML data, so the resulting card has empty <code>Culture</code> / <code>Equipment</code> / <code>Skills</code>, is never registered with <code>MBObjectManager</code>, and never appears in <code>All</code>. Use <code>Find</code> / <code>CreateFrom</code> / <code>HeroCreator</code> instead. (<code>MBObjectManager.Instance.CreateObject&lt;CharacterObject&gt;()</code> is the engine-internal registration path.)</li>
+<li><strong><code>CreateFrom</code> is a shallow clone.</strong> It copies references (equipment template, trait <code>PropertyOwner</code>, upgrade-target array), not deep copies of each <code>ItemObject</code>. Editing a clone's equipment-slot <em>contents</em> is safe, but if you accidentally mutate a shared <code>Equipment</code> object that the clone still references, you can still affect others.</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<p><code>CharacterObject</code> sits in the campaign data layer and binds closely to the hero/party/clan/culture graph:</p>
+<ul>
+<li><a href="../Hero/">Hero</a> — the concrete campaign character instance, two-way bound to its <code>CharacterObject</code> (via <code>HeroObject</code> / <code>CharacterObject</code>).</li>
+<li><a href="../Clan/">Clan</a> — <code>Clan.BasicTroop</code> returns that clan's default troop template.</li>
+<li><a href="../MobileParty/">MobileParty</a> — a party's <code>MemberRoster</code> counts units by <code>CharacterObject</code>.</li>
+<li><a href="../Campaign/">Campaign</a> — <code>Campaign.Current.Characters</code> <em>is</em> <code>CharacterObject.All</code>.</li>
+<li><a href="../../campaign-ext/CultureObject/">CultureObject</a> — culture supplies the default troop, voice, and default equipment roster.</li>
+<li><a href="../../core-extra/Equipment/">Equipment</a> — the equipment-slot data a <code>CharacterObject</code> holds.</li>
+<li><a href="../../core-extra/SkillObject/">SkillObject</a> — the parameter type for <code>GetSkillValue</code>.</li>
+<li><a href="../../core/ItemObject/">ItemObject</a> — the concrete items inside equipment slots.</li>
+<li><a href="../../campaign-ext/MBObjectBase/">MBObjectBase</a> — the registered-object base that makes <code>Find</code> / <code>All</code> work.</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>↑ Parent: <a href="../">Campaign API index</a></li>
+<li>↔ Sibling: <a href="../Hero/">Hero</a>, <a href="../Clan/">Clan</a>, <a href="../MobileParty/">MobileParty</a>, <a href="../Campaign/">Campaign</a></li>
+<li>↝ Related: <a href="../../campaign-ext/CultureObject/">CultureObject</a>, <a href="../../core-extra/Equipment/">Equipment</a>, <a href="../../core-extra/SkillObject/">SkillObject</a>, <a href="../../core/ItemObject/">ItemObject</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign/">campaign index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign/Alliance/">&larr; Alliance</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign/CachedPartyVariables/">CachedPartyVariables &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

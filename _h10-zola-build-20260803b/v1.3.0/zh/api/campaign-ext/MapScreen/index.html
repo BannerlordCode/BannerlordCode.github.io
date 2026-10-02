@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MapScreen</title>
+  <meta name="description" content="MapScreen 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign-ext/MapScreen/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign-ext/MapScreen/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign-ext/MapScreen/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign-ext/MapScreen/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MapScreen</span>
+    </nav>
+  
+  <h1>MapScreen</h1>
+  <h1 id="mapscreen">MapScreen</h1>
+<p><strong>Namespace:</strong> SandBox.View.Map
+<strong>Module:</strong> SandBox.View
+<strong>Type:</strong> <code>public class MapScreen : ScreenBase, IMapStateHandler, IGameStateListener, IChatLogHandlerScreen</code>
+<strong>Base:</strong> <code>ScreenBase</code>
+<strong>File:</strong> <code>SandBox.View/Map/MapScreen.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>MapScreen</code> 位于 <code>SandBox.View.Map</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>SandBox.View.Map</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>Input</code></td><td><code>public IInputContext Input { get; }</code></td></tr>
+<tr><td><code>Instance</code></td><td><code>public static MapScreen Instance { get; }</code></td></tr>
+<tr><td><code>IsReady</code></td><td><code>public bool IsReady { get; set; }</code></td></tr>
+<tr><td><code>NavigationHandler</code></td><td><code>public INavigationHandler NavigationHandler { get; set; }</code></td></tr>
+<tr><td><code>CurrentVisualOfTooltip</code></td><td><code>public MapEntityVisual CurrentVisualOfTooltip { get; }</code></td></tr>
+<tr><td><code>PrefabEntityCache</code></td><td><code>public CampaignMapSiegePrefabEntityCache PrefabEntityCache { get; }</code></td></tr>
+<tr><td><code>EncyclopediaScreenManager</code></td><td><code>public MapEncyclopediaView EncyclopediaScreenManager { get; }</code></td></tr>
+<tr><td><code>IsEscapeMenuOpened</code></td><td><code>public bool IsEscapeMenuOpened { get; }</code></td></tr>
+<tr><td><code>MapNotificationView</code></td><td><code>public MapNotificationView MapNotificationView { get; }</code></td></tr>
+<tr><td><code>BannerTexturedMaterialCache</code></td><td><code>public Dictionary&lt;Tuple&lt;Material, Banner&gt;, Material&gt; BannerTexturedMaterialCache { get; }</code></td></tr>
+<tr><td><code>IsInMenu</code></td><td><code>public bool IsInMenu { get; }</code></td></tr>
+<tr><td><code>SceneLayer</code></td><td><code>public SceneLayer SceneLayer { get; }</code></td></tr>
+<tr><td><code>MapCameraView</code></td><td><code>public MapCameraView MapCameraView { get; }</code></td></tr>
+<tr><td><code>MapSceneCursorActive</code></td><td><code>public bool MapSceneCursorActive { get; set; }</code></td></tr>
+<tr><td><code>ContourMaskEntity</code></td><td><code>public GameEntity ContourMaskEntity { get; }</code></td></tr>
+<tr><td><code>MapCursor</code></td><td><code>public MapCursor MapCursor { get; }</code></td></tr>
+<tr><td><code>InactiveLightMeshes</code></td><td><code>public List&lt;Mesh&gt; InactiveLightMeshes { get; }</code></td></tr>
+<tr><td><code>ActiveLightMeshes</code></td><td><code>public List&lt;Mesh&gt; ActiveLightMeshes { get; }</code></td></tr>
+<tr><td><code>MapScene</code></td><td><code>public Scene MapScene { get; }</code></td></tr>
+<tr><td><code>MapState</code></td><td><code>public MapState MapState { get; }</code></td></tr>
+<tr><td><code>IsInBattleSimulation</code></td><td><code>public bool IsInBattleSimulation { get; }</code></td></tr>
+<tr><td><code>IsInTownManagement</code></td><td><code>public bool IsInTownManagement { get; }</code></td></tr>
+<tr><td><code>IsInHideoutTroopManage</code></td><td><code>public bool IsInHideoutTroopManage { get; }</code></td></tr>
+<tr><td><code>IsInArmyManagement</code></td><td><code>public bool IsInArmyManagement { get; }</code></td></tr>
+<tr><td><code>IsInRecruitment</code></td><td><code>public bool IsInRecruitment { get; }</code></td></tr>
+<tr><td><code>IsBarExtended</code></td><td><code>public bool IsBarExtended { get; }</code></td></tr>
+<tr><td><code>IsInCampaignOptions</code></td><td><code>public bool IsInCampaignOptions { get; }</code></td></tr>
+<tr><td><code>IsMarriageOfferPopupActive</code></td><td><code>public bool IsMarriageOfferPopupActive { get; }</code></td></tr>
+<tr><td><code>IsMapCheatsActive</code></td><td><code>public bool IsMapCheatsActive { get; }</code></td></tr>
+<tr><td><code>IsMapIncidentActive</code></td><td><code>public bool IsMapIncidentActive { get; }</code></td></tr>
+<tr><td><code>IsHeirSelectionPopupActive</code></td><td><code>public bool IsHeirSelectionPopupActive { get; }</code></td></tr>
+<tr><td><code>IsOverlayContextMenuEnabled</code></td><td><code>public bool IsOverlayContextMenuEnabled { get; }</code></td></tr>
+<tr><td><code>IsSoundOn</code></td><td><code>public bool IsSoundOn { get; }</code></td></tr>
+<tr><td><code>VisualsOfEntities</code></td><td><code>public static Dictionary&lt;UIntPtr, MapEntityVisual&gt; VisualsOfEntities { get; }</code></td></tr>
+<tr><td><code>GameEntity</code></td><td><code>public GameEntity GameEntity { get; set; }</code></td></tr>
+<tr><td><code>Decal</code></td><td><code>public Decal Decal { get; set; }</code></td></tr>
+<tr><td><code>RotationChanged</code></td><td><code>public bool RotationChanged { get; }</code></td></tr>
+<tr><td><code>PositionChanged</code></td><td><code>public bool PositionChanged { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="onhovermapentity">OnHoverMapEntity</h3>
+<p><code>public void OnHoverMapEntity(MapEntityVisual mapEntityVisual)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 hover map entity 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.OnHoverMapEntity(mapEntityVisual);
+</code></pre>
+<h3 id="removemaptooltip">RemoveMapTooltip</h3>
+<p><code>public void RemoveMapTooltip()</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 map tooltip。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.RemoveMapTooltip();
+</code></pre>
+<h3 id="cleargpumemory">ClearGPUMemory</h3>
+<p><code>public void ClearGPUMemory()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的g p u memory。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.ClearGPUMemory();
+</code></pre>
+<h3 id="onfocuschangeongamewindow">OnFocusChangeOnGameWindow</h3>
+<p><code>public override void OnFocusChangeOnGameWindow(bool focusGained)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 focus change on game window 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.OnFocusChangeOnGameWindow(false);
+</code></pre>
+<h3 id="removemapview">RemoveMapView</h3>
+<p><code>public void RemoveMapView(MapView mapView)</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 map view。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.RemoveMapView(mapView);
+</code></pre>
+<h3 id="addencounteroverlay">AddEncounterOverlay</h3>
+<p><code>public void AddEncounterOverlay(GameMenu.MenuOverlayType type)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 encounter overlay 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.AddEncounterOverlay(type);
+</code></pre>
+<h3 id="addarmyoverlay">AddArmyOverlay</h3>
+<p><code>public void AddArmyOverlay(MapScreen.MapOverlayType type)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 army overlay 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.AddArmyOverlay(type);
+</code></pre>
+<h3 id="removeencounteroverlay">RemoveEncounterOverlay</h3>
+<p><code>public void RemoveEncounterOverlay()</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 encounter overlay。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.RemoveEncounterOverlay();
+</code></pre>
+<h3 id="removearmyoverlay">RemoveArmyOverlay</h3>
+<p><code>public void RemoveArmyOverlay()</code></p>
+<p><strong>用途 / Purpose:</strong> 从当前容器或状态中移除 army overlay。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.RemoveArmyOverlay();
+</code></pre>
+<h3 id="closemarriageofferpopup">CloseMarriageOfferPopup</h3>
+<p><code>public void CloseMarriageOfferPopup()</code></p>
+<p><strong>用途 / Purpose:</strong> 关闭marriage offer popup对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.CloseMarriageOfferPopup();
+</code></pre>
+<h3 id="onhourlytick">OnHourlyTick</h3>
+<p><code>public void OnHourlyTick()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 hourly tick 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.OnHourlyTick();
+</code></pre>
+<h3 id="beginparleywith">BeginParleyWith</h3>
+<p><code>public void BeginParleyWith(PartyBase party)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 BeginParleyWith 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.BeginParleyWith(party);
+</code></pre>
+<h3 id="onexit">OnExit</h3>
+<p><code>public void OnExit()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 exit 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.OnExit();
+</code></pre>
+<h3 id="getcursorintersectionpoint">GetCursorIntersectionPoint</h3>
+<p><code>public void GetCursorIntersectionPoint(ref Vec3 clippedMouseNear, ref Vec3 clippedMouseFar, out float closestDistanceSquared, out Vec3 intersectionPoint, ref PathFaceRecord currentFace, out bool isOnland, BodyFlags excludedBodyFlags = 79617)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 cursor intersection point 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.GetCursorIntersectionPoint(clippedMouseNear, clippedMouseFar, closestDistanceSquared, intersectionPoint, currentFace, isOnland, 79617);
+</code></pre>
+<h3 id="fastmovecameratoposition">FastMoveCameraToPosition</h3>
+<p><code>public void FastMoveCameraToPosition(CampaignVec2 target)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 FastMoveCameraToPosition 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.FastMoveCameraToPosition(target);
+</code></pre>
+<h3 id="onsiegeengineframeclick">OnSiegeEngineFrameClick</h3>
+<p><code>public void OnSiegeEngineFrameClick(MatrixFrame siegeFrame)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 siege engine frame click 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.OnSiegeEngineFrameClick(siegeFrame);
+</code></pre>
+<h3 id="onfadeinandout">OnFadeInAndOut</h3>
+<p><code>public void OnFadeInAndOut(float fadeOutTime, float blackTime, float fadeInTime)</code></p>
+<p><strong>用途 / Purpose:</strong> 在 fade in and out 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.OnFadeInAndOut(0, 0, 0);
+</code></pre>
+<h3 id="setismapcheatsactive">SetIsMapCheatsActive</h3>
+<p><code>public void SetIsMapCheatsActive(bool isMapCheatsActive)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 is map cheats active 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.SetIsMapCheatsActive(false);
+</code></pre>
+<h3 id="setisintownmanagement">SetIsInTownManagement</h3>
+<p><code>public void SetIsInTownManagement(bool isInTownManagement)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 is in town management 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.SetIsInTownManagement(false);
+</code></pre>
+<h3 id="setisinhideouttroopmanage">SetIsInHideoutTroopManage</h3>
+<p><code>public void SetIsInHideoutTroopManage(bool isInHideoutTroopManage)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 is in hideout troop manage 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.SetIsInHideoutTroopManage(false);
+</code></pre>
+<h3 id="setisinarmymanagement">SetIsInArmyManagement</h3>
+<p><code>public void SetIsInArmyManagement(bool isInArmyManagement)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 is in army management 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.SetIsInArmyManagement(false);
+</code></pre>
+<h3 id="setisoverlaycontextmenuactive">SetIsOverlayContextMenuActive</h3>
+<p><code>public void SetIsOverlayContextMenuActive(bool isOverlayContextMenuEnabled)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 is overlay context menu active 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.SetIsOverlayContextMenuActive(false);
+</code></pre>
+<h3 id="setisinrecruitment">SetIsInRecruitment</h3>
+<p><code>public void SetIsInRecruitment(bool isInRecruitment)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 is in recruitment 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.SetIsInRecruitment(false);
+</code></pre>
+<h3 id="setisbarextended">SetIsBarExtended</h3>
+<p><code>public void SetIsBarExtended(bool isBarExtended)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 is bar extended 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.SetIsBarExtended(false);
+</code></pre>
+<h3 id="setismarriageofferpopupactive">SetIsMarriageOfferPopupActive</h3>
+<p><code>public void SetIsMarriageOfferPopupActive(bool isMarriageOfferPopupActive)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 is marriage offer popup active 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.SetIsMarriageOfferPopupActive(false);
+</code></pre>
+<h3 id="setisincampaignoptions">SetIsInCampaignOptions</h3>
+<p><code>public void SetIsInCampaignOptions(bool isInCampaignOptions)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 is in campaign options 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.SetIsInCampaignOptions(false);
+</code></pre>
+<h3 id="setismapincidentactive">SetIsMapIncidentActive</h3>
+<p><code>public void SetIsMapIncidentActive(bool isMapIncidentActive)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 is map incident active 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.SetIsMapIncidentActive(false);
+</code></pre>
+<h3 id="setmousevisible">SetMouseVisible</h3>
+<p><code>public void SetMouseVisible(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 mouse visible 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.SetMouseVisible(false);
+</code></pre>
+<h3 id="setisheirselectionpopupactive">SetIsHeirSelectionPopupActive</h3>
+<p><code>public void SetIsHeirSelectionPopupActive(bool isHeirSelectionPopupActive)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 is heir selection popup active 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.SetIsHeirSelectionPopupActive(false);
+</code></pre>
+<h3 id="getmousevisible">GetMouseVisible</h3>
+<p><code>public bool GetMouseVisible()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 mouse visible 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+var result = mapScreen.GetMouseVisible();
+</code></pre>
+<h3 id="restartambientsounds">RestartAmbientSounds</h3>
+<p><code>public void RestartAmbientSounds()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RestartAmbientSounds 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.RestartAmbientSounds();
+</code></pre>
+<h3 id="pauseambientsounds">PauseAmbientSounds</h3>
+<p><code>public void PauseAmbientSounds()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PauseAmbientSounds 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.PauseAmbientSounds();
+</code></pre>
+<h3 id="createperiodicuievent">CreatePeriodicUIEvent</h3>
+<p><code>public MBCampaignEvent CreatePeriodicUIEvent(CampaignTime triggerPeriod, CampaignTime initialWait)</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 periodic u i event 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+var result = mapScreen.CreatePeriodicUIEvent(triggerPeriod, initialWait);
+</code></pre>
+<h3 id="deleteperiodicuievent">DeletePeriodicUIEvent</h3>
+<p><code>public void DeletePeriodicUIEvent(MBCampaignEvent campaignEvent)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DeletePeriodicUIEvent 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.DeletePeriodicUIEvent(campaignEvent);
+</code></pre>
+<h3 id="openoptions">OpenOptions</h3>
+<p><code>public void OpenOptions()</code></p>
+<p><strong>用途 / Purpose:</strong> 打开options对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.OpenOptions();
+</code></pre>
+<h3 id="openencyclopedia">OpenEncyclopedia</h3>
+<p><code>public void OpenEncyclopedia()</code></p>
+<p><strong>用途 / Purpose:</strong> 打开encyclopedia对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.OpenEncyclopedia();
+</code></pre>
+<h3 id="opensaveload">OpenSaveLoad</h3>
+<p><code>public void OpenSaveLoad(bool isSaving)</code></p>
+<p><strong>用途 / Purpose:</strong> 打开save load对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.OpenSaveLoad(false);
+</code></pre>
+<h3 id="closeescapemenu">CloseEscapeMenu</h3>
+<p><code>public void CloseEscapeMenu()</code></p>
+<p><strong>用途 / Purpose:</strong> 关闭escape menu对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.CloseEscapeMenu();
+</code></pre>
+<h3 id="openescapemenu">OpenEscapeMenu</h3>
+<p><code>public void OpenEscapeMenu()</code></p>
+<p><strong>用途 / Purpose:</strong> 打开escape menu对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.OpenEscapeMenu();
+</code></pre>
+<h3 id="closegameplaycheats">CloseGameplayCheats</h3>
+<p><code>public void CloseGameplayCheats()</code></p>
+<p><strong>用途 / Purpose:</strong> 关闭gameplay cheats对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.CloseGameplayCheats();
+</code></pre>
+<h3 id="closecampaignoptions">CloseCampaignOptions</h3>
+<p><code>public void CloseCampaignOptions()</code></p>
+<p><strong>用途 / Purpose:</strong> 关闭campaign options对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.CloseCampaignOptions();
+</code></pre>
+<h3 id="openinventory">OpenInventory</h3>
+<p><code>public void OpenInventory()</code></p>
+<p><strong>用途 / Purpose:</strong> 打开inventory对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.OpenInventory();
+</code></pre>
+<h3 id="openfacegenscreenaux">OpenFacegenScreenAux</h3>
+<p><code>public void OpenFacegenScreenAux()</code></p>
+<p><strong>用途 / Purpose:</strong> 打开facegen screen aux对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.OpenFacegenScreenAux();
+</code></pre>
+<h3 id="iscameralockedtoplayerparty">IsCameraLockedToPlayerParty</h3>
+<p><code>public bool IsCameraLockedToPlayerParty()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 camera locked to player party 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+var result = mapScreen.IsCameraLockedToPlayerParty();
+</code></pre>
+<h3 id="fastmovecameratomainparty">FastMoveCameraToMainParty</h3>
+<p><code>public void FastMoveCameraToMainParty()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 FastMoveCameraToMainParty 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.FastMoveCameraToMainParty();
+</code></pre>
+<h3 id="resetcamera">ResetCamera</h3>
+<p><code>public void ResetCamera(bool resetDistance, bool teleportToMainParty)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 camera 重置回默认或初始状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.ResetCamera(false, false);
+</code></pre>
+<h3 id="teleportcameratomainparty">TeleportCameraToMainParty</h3>
+<p><code>public void TeleportCameraToMainParty()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TeleportCameraToMainParty 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.TeleportCameraToMainParty();
+</code></pre>
+<h3 id="create">Create</h3>
+<p><code>public static MapScreen.DecalEntity Create(Scene scene, string material, string entityName = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 创建当前对象的新实例或相关实体。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+MapScreen.Create(scene, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="applyhandlerchangesto">ApplyHandlerChangesTo</h3>
+<p><code>public void ApplyHandlerChangesTo(IConversationStateHandler newHandler)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 handler changes to 的效果应用到当前对象。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 MapScreen 实例
+MapScreen mapScreen = ...;
+mapScreen.ApplyHandlerChangesTo(newHandler);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+MapScreen mapScreen = ...;
+mapScreen.OnHoverMapEntity(mapEntityVisual);
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/api/campaign-ext/">campaign-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/api/campaign-ext/SeeMarkersInMissionTutorial/">&larr; SeeMarkersInMissionTutorial</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/api/campaign-ext/ActivityOutcome/">ActivityOutcome &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

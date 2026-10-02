@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gui 目录</title>
+  <meta name="description" content="Gauntlet UI 系统类参考目录">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="active">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/gui/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/gui/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/gui/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/gui/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/gui/"
+               class="active">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/gui/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/zh/api/" class="">Index</a><a href="/v1.4.5/zh/api/core/" class="">Core 核心</a><a href="/v1.4.5/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/zh/api/mission/" class="">Mission 任务系统</a><a href="/v1.4.5/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/zh/api/campaign/" class="">Campaign 战役系统</a><a href="/v1.4.5/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/zh/api/gui/" class="active">GUI 界面</a><a href="/v1.4.5/zh/api/save-system/" class="">Save System 存档系统</a><a href="/v1.4.5/zh/api/viewmodel/" class="">ViewModel 数据视图模型</a><a href="/v1.4.5/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.4.5/zh/api/engine/" class="">Engine 引擎</a><a href="/v1.4.5/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.4.5/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/zh/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">gui 目录</span>
+    </nav>
+  
+  <h1>gui 目录</h1>
+  <!-- BEGIN SECTION INDEX -->
+<h2 id="shang-ji-dao-hang">↑ 上级导航</h2>
+<ul>
+<li><a href="../">API 参考</a></li>
+<li><a href="../../">版本首页</a></li>
+</ul>
+<h2 id="zi-lei-lie-biao-an-zi-mu-fen-zu">↓ 子类列表 — 按字母分组</h2>
+<h3 id="a">A</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./AlignmentAxis">AlignmentAxis</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./AlphaFormatFlags">AlphaFormatFlags</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./AnimatedDropdownWidget">AnimatedDropdownWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./AnimatedNumberTextWidget">AnimatedNumberTextWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./AnimationInterpolation">AnimationInterpolation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ArrayType">ArrayType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./AttribueMask">AttribueMask</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./AudioProperty">AudioProperty</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./AutoPinner">AutoPinner</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./AutoScrollParameters">AutoScrollParameters</a></li>
+</ul>
+<h3 id="b">B</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BasicContainer">BasicContainer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BeginMode">BeginMode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BitmapFontCharacter">BitmapFontCharacter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BitmapInfo">BitmapInfo</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BitmapInfoHeader">BitmapInfoHeader</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BlendFunction">BlendFunction</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BlendingDestinationFactor">BlendingDestinationFactor</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BlendingSourceFactor">BlendingSourceFactor</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BlurBehindConstraints">BlurBehindConstraints</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Brush">Brush</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushAnimation">BrushAnimation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushAnimationKeyFrame">BrushAnimationKeyFrame</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushAnimationProperty">BrushAnimationProperty</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushAnimationPropertyType">BrushAnimationPropertyType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushFactory">BrushFactory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushLayer">BrushLayer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushLayerAnimation">BrushLayerAnimation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushLayerSizePolicy">BrushLayerSizePolicy</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushLayerState">BrushLayerState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushListPanel">BrushListPanel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushOverlayMethod">BrushOverlayMethod</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushRenderer">BrushRenderer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushRendererAnimationState">BrushRendererAnimationState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushState">BrushState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BrushWidget">BrushWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./BufferBindingTarget">BufferBindingTarget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ButtonType">ButtonType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ButtonWidget">ButtonWidget</a></li>
+</ul>
+<h3 id="c">C</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./CircleActionSelectorWidget">CircleActionSelectorWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./CircleItemPlacerWidget">CircleItemPlacerWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ConstantDefinition">ConstantDefinition</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ConstantDefinitionType">ConstantDefinitionType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Container">Container</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ContainerItemDescription">ContainerItemDescription</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ContextParameter">ContextParameter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./CursorMovementDirection">CursorMovementDirection</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./CursorType">CursorType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./CustomWidgetManager">CustomWidgetManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./CustomWidgetType">CustomWidgetType</a></li>
+</ul>
+<h3 id="d">D</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./D3D_DRIVER_TYPE">D3D_DRIVER_TYPE</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./D3D11">D3D11</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./DataType">DataType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./DefaultLayout">DefaultLayout</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./DelayedStateChanger">DelayedStateChanger</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./DialogButtonsParentWidget">DialogButtonsParentWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./DisabledAlphaChangerWidget">DisabledAlphaChangerWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./DragCarrierLayout">DragCarrierLayout</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./DragCarrierWidget">DragCarrierWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./DropdownWidget">DropdownWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Dwmapi">Dwmapi</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./DwmBlurBehind">DwmBlurBehind</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./DXGI">DXGI</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./DXGI_ADAPTER_DESC">DXGI_ADAPTER_DESC</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./DXGI_OUTPUT_DESC">DXGI_OUTPUT_DESC</a></li>
+</ul>
+<h3 id="e">E</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./EditableText">EditableText</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./EditableTextWidget">EditableTextWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./EditorAttribute">EditorAttribute</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./EmptyWidget">EmptyWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./EventManager">EventManager</a></li>
+</ul>
+<h3 id="f">F</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./FillBar">FillBar</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./FillBarHorizontalWidget">FillBarHorizontalWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./FillBarVerticalClipTierColorsWidget">FillBarVerticalClipTierColorsWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./FillBarVerticalClipWidget">FillBarVerticalClipWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./FillBarVerticalWidget">FillBarVerticalWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./FillBarWidget">FillBarWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./FloatInputTextWidget">FloatInputTextWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Font">Font</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./FontData">FontData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./FontFactory">FontFactory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./FontStyle">FontStyle</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./FrameworkDomain">FrameworkDomain</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Function">Function</a></li>
+</ul>
+<h3 id="g">G</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GamepadNavigationForcedScopeCollection">GamepadNavigationForcedScopeCollection</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GamepadNavigationHelper">GamepadNavigationHelper</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GamepadNavigationScope">GamepadNavigationScope</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GamepadNavigationScopeCollection">GamepadNavigationScopeCollection</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GamepadNavigationTypes">GamepadNavigationTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GauntletEvent">GauntletEvent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GauntletExtensions">GauntletExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GauntletGamepadNavigationManager">GauntletGamepadNavigationManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GauntletInputContext">GauntletInputContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GauntletMovie">GauntletMovie</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GauntletView">GauntletView</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Gdi32">Gdi32</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GeneratedGauntletMovie">GeneratedGauntletMovie</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GeneratedPrefabContext">GeneratedPrefabContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GeneratedPrefabInstantiationResult">GeneratedPrefabInstantiationResult</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GeneratedWidgetData">GeneratedWidgetData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GeoTypeId">GeoTypeId</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GlobalLayer">GlobalLayer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GraphicsContext">GraphicsContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GraphicsForm">GraphicsForm</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GraphLinePointWidget">GraphLinePointWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GraphLineWidget">GraphLineWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GraphWidget">GraphWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GridDirection">GridDirection</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GridHorizontalLayoutMethod">GridHorizontalLayoutMethod</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GridLayout">GridLayout</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GridVerticalLayoutMethod">GridVerticalLayoutMethod</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GridWidget">GridWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GuiEventResult">GuiEventResult</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./GuiEventType">GuiEventType</a></li>
+</ul>
+<h3 id="h">H</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./HintMode">HintMode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./HorizontalAlignment">HorizontalAlignment</a></li>
+</ul>
+<h3 id="i">I</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IBrushAnimationState">IBrushAnimationState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IBrushLayerData">IBrushLayerData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IDataSource">IDataSource</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IDrawObject">IDrawObject</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IDropContainer">IDropContainer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IDXGIAdapter">IDXGIAdapter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IDXGIFactory">IDXGIFactory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IDXGIOutput">IDXGIOutput</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IGauntletMovie">IGauntletMovie</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IGeneratedGauntletMovieRoot">IGeneratedGauntletMovieRoot</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IGeneratedUIPrefabCreator">IGeneratedUIPrefabCreator</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ILanguage">ILanguage</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ILayout">ILayout</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ImageDrawObject">ImageDrawObject</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ImageFit">ImageFit</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ImageFitResult">ImageFitResult</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ImageFitTypes">ImageFitTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ImageHorizontalAlignments">ImageHorizontalAlignments</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ImageSizePolicies">ImageSizePolicies</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ImageVerticalAlignments">ImageVerticalAlignments</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ImageWidget">ImageWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IMessageCommunicator">IMessageCommunicator</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./InputData">InputData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./InputKeyVisualWidget">InputKeyVisualWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./InputRestrictions">InputRestrictions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IntegerInputPercentageTextWidget">IntegerInputPercentageTextWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IntegerInputTextWidget">IntegerInputTextWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IReadonlyInputContext">IReadonlyInputContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IScreenManagerEngineConnection">IScreenManagerEngineConnection</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ItemTemplateUsage">ItemTemplateUsage</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ItemTemplateUsageWithData">ItemTemplateUsageWithData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./IText">IText</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ITexture">ITexture</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ITwoDimensionPlatform">ITwoDimensionPlatform</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ITwoDimensionResourceContext">ITwoDimensionResourceContext</a></li>
+</ul>
+<h3 id="k">K</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Kernel32">Kernel32</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./KeyboardAction">KeyboardAction</a></li>
+</ul>
+<h3 id="l">L</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Language">Language</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./LayeredWindowController">LayeredWindowController</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./LayoutBox">LayoutBox</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./LayoutMethod">LayoutMethod</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ListPanel">ListPanel</a></li>
+</ul>
+<h3 id="m">M</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./MaskedTextureWidget">MaskedTextureWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Material">Material</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./MaterialPool">MaterialPool</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Mathf">Mathf</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./MatrixMode">MatrixMode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./MeshTopology">MeshTopology</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./MONITORINFOEX">MONITORINFOEX</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./MouseCursors">MouseCursors</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./MouseState">MouseState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./MouseWidget">MouseWidget</a></li>
+</ul>
+<h3 id="n">N</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./NativeMessage">NativeMessage</a></li>
+</ul>
+<h3 id="o">O</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./OnlineImageTextureWidget">OnlineImageTextureWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Opengl32">Opengl32</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Opengl32ARB">Opengl32ARB</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./OpenGLTexture">OpenGLTexture</a></li>
+</ul>
+<h3 id="p">P</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./PixelFormat">PixelFormat</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./PixelFormatDescriptor">PixelFormatDescriptor</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./PixelFormatDescriptorFlags">PixelFormatDescriptorFlags</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./PixelFormatDescriptorLayerTypes">PixelFormatDescriptorLayerTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./PixelFormatDescriptorPixelTypes">PixelFormatDescriptorPixelTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Point">Point</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./PrefabDatabindingExtension">PrefabDatabindingExtension</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./PrefabExtension">PrefabExtension</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./PrefabExtensionContext">PrefabExtensionContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./PrimitivePolygonMaterial">PrimitivePolygonMaterial</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./PropertyOwnerObject">PropertyOwnerObject</a></li>
+</ul>
+<h3 id="q">Q</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Quad">Quad</a></li>
+</ul>
+<h3 id="r">R</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./RECT">RECT</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Rectangle2D">Rectangle2D</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ResourceTextureProvider">ResourceTextureProvider</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./RichText">RichText</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./RichTextException">RichTextException</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./RichTextLinkGroup">RichTextLinkGroup</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./RichTextParser">RichTextParser</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./RichTextPart">RichTextPart</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./RichTextPartType">RichTextPartType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./RichTextTag">RichTextTag</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./RichTextTagParser">RichTextTagParser</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./RichTextTagType">RichTextTagType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./RichTextWidget">RichTextWidget</a></li>
+</ul>
+<h3 id="s">S</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ScissorTestInfo">ScissorTestInfo</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ScreenBase">ScreenBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ScreenComponent">ScreenComponent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ScreenLayer">ScreenLayer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ScreenManager">ScreenManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ScrollablePanel">ScrollablePanel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ScrollablePanelFixedHeaderWidget">ScrollablePanelFixedHeaderWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ScrollbarInterpolationController">ScrollbarInterpolationController</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ScrollbarWidget">ScrollbarWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ScrollingRichTextWidget">ScrollingRichTextWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ScrollingTextWidget">ScrollingTextWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SelectedStateBrushWidget">SelectedStateBrushWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Shader">Shader</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ShaderType">ShaderType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ShadingModel">ShadingModel</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SiblingIndexVisibilityWidget">SiblingIndexVisibilityWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SimpleMaterial">SimpleMaterial</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SimpleRectangle">SimpleRectangle</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SizePolicy">SizePolicy</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SliderWidget">SliderWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SmoothDecreaseIndicatorFillBar">SmoothDecreaseIndicatorFillBar</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SoundProperties">SoundProperties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Sprite">Sprite</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SpriteCategory">SpriteCategory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SpriteData">SpriteData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SpriteFromTexture">SpriteFromTexture</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SpriteGeneric">SpriteGeneric</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SpriteNinePatchParameters">SpriteNinePatchParameters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SpritePart">SpritePart</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./SpriteSizeComparer">SpriteSizeComparer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./StackLayout">StackLayout</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./StandaloneApplicationUtility">StandaloneApplicationUtility</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./StandaloneInputManager">StandaloneInputManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./StateSyncWidget">StateSyncWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./StringBasedVisibilityWidget">StringBasedVisibilityWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Style">Style</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./StyleAnimationMode">StyleAnimationMode</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./StyleFontContainer">StyleFontContainer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./StyleLayer">StyleLayer</a></li>
+</ul>
+<h3 id="t">T</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TabControl">TabControl</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TabToggleWidget">TabToggleWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Target">Target</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Text">Text</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextDrawObject">TextDrawObject</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextHelper">TextHelper</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextHorizontalAlignment">TextHorizontalAlignment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextLayout">TextLayout</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextLineOutput">TextLineOutput</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextMaterial">TextMaterial</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextMeshGenerator">TextMeshGenerator</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextOutput">TextOutput</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextParser">TextParser</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextPart">TextPart</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextToken">TextToken</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextTokenOutput">TextTokenOutput</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Texture">Texture</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextureInternalFormat">TextureInternalFormat</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextureMagFilter">TextureMagFilter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextureParameterName">TextureParameterName</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextureProvider">TextureProvider</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextureProviderFactory">TextureProviderFactory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextureUnit">TextureUnit</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextureWidget">TextureWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextureWrapParameter">TextureWrapParameter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextVerticalAlignment">TextVerticalAlignment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TextWidget">TextWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TokenType">TokenType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TooltipPositioningType">TooltipPositioningType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TooltipWidget">TooltipWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TwoDimensionContext">TwoDimensionContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TwoDimensionContextObject">TwoDimensionContextObject</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TwoDimensionDrawContext">TwoDimensionDrawContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TwoDimensionDrawData">TwoDimensionDrawData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TwoDimensionPlatform">TwoDimensionPlatform</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./TwoWaySliderWidget">TwoWaySliderWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Type">Type</a></li>
+</ul>
+<h3 id="u">U</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./UIContext">UIContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./UpdateAction">UpdateAction</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./User32">User32</a></li>
+</ul>
+<h3 id="v">V</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ValueBasedVisibilityWidget">ValueBasedVisibilityWidget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ValueType">ValueType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./VertexArrayObject">VertexArrayObject</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./VerticalAlignment">VerticalAlignment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ViewBindCommandInfo">ViewBindCommandInfo</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./ViewBindDataInfo">ViewBindDataInfo</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./VisualDefinition">VisualDefinition</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./VisualDefinitionTemplate">VisualDefinitionTemplate</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./VisualState">VisualState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./VisualStateAnimationState">VisualStateAnimationState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./VisualStateTemplate">VisualStateTemplate</a></li>
+</ul>
+<h3 id="w">W</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WatchTypes">WatchTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./Widget">Widget</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeContext">WidgetAttributeContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeKeyType">WidgetAttributeKeyType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeKeyTypeAttribute">WidgetAttributeKeyTypeAttribute</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeKeyTypeCommand">WidgetAttributeKeyTypeCommand</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeKeyTypeCommandParameter">WidgetAttributeKeyTypeCommandParameter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeKeyTypeDataSource">WidgetAttributeKeyTypeDataSource</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeKeyTypeId">WidgetAttributeKeyTypeId</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeKeyTypeParameter">WidgetAttributeKeyTypeParameter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeTemplate">WidgetAttributeTemplate</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeValueType">WidgetAttributeValueType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeValueTypeBinding">WidgetAttributeValueTypeBinding</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeValueTypeBindingPath">WidgetAttributeValueTypeBindingPath</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeValueTypeConstant">WidgetAttributeValueTypeConstant</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeValueTypeDefault">WidgetAttributeValueTypeDefault</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetAttributeValueTypeParameter">WidgetAttributeValueTypeParameter</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetComponent">WidgetComponent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetContainer">WidgetContainer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetCreationData">WidgetCreationData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetExtensions">WidgetExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetFactory">WidgetFactory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetInfo">WidgetInfo</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetInstantiationResult">WidgetInstantiationResult</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetInstantiationResultDatabindingExtension">WidgetInstantiationResultDatabindingExtension</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetInstantiationResultExtensionData">WidgetInstantiationResultExtensionData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetPrefab">WidgetPrefab</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WidgetTemplate">WidgetTemplate</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WindowClass">WindowClass</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WindowMessage">WindowMessage</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WindowsForm">WindowsForm</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WindowsFramework">WindowsFramework</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WindowsFrameworkThreadConfig">WindowsFrameworkThreadConfig</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WindowShowStyle">WindowShowStyle</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/zh/api/gui/./WindowStyle">WindowStyle</a></li>
+</ul>
+<!-- END SECTION INDEX -->
+
+</article>
+<hr>
+<ul>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;D3D11&#x2F;">D3D11</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;LayoutMethod&#x2F;">LayoutMethod</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IReadonlyInputContext&#x2F;">IReadonlyInputContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Gdi32&#x2F;">Gdi32</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeKeyTypeId&#x2F;">WidgetAttributeKeyTypeId</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BlendingSourceFactor&#x2F;">BlendingSourceFactor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextureWidget&#x2F;">TextureWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SpriteCategory&#x2F;">SpriteCategory</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TwoWaySliderWidget&#x2F;">TwoWaySliderWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IDataSource&#x2F;">IDataSource</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GeneratedPrefabContext&#x2F;">GeneratedPrefabContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushOverlayMethod&#x2F;">BrushOverlayMethod</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ImageSizePolicies&#x2F;">ImageSizePolicies</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;EditableText&#x2F;">EditableText</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IDXGIFactory&#x2F;">IDXGIFactory</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;InputData&#x2F;">InputData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;RichTextTagType&#x2F;">RichTextTagType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;VisualState&#x2F;">VisualState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextureWrapParameter&#x2F;">TextureWrapParameter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ItemTemplateUsage&#x2F;">ItemTemplateUsage</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeTemplate&#x2F;">WidgetAttributeTemplate</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;VisualDefinitionTemplate&#x2F;">VisualDefinitionTemplate</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushRenderer&#x2F;">BrushRenderer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextParser&#x2F;">TextParser</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;LayeredWindowController&#x2F;">LayeredWindowController</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextLayout&#x2F;">TextLayout</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetContainer&#x2F;">WidgetContainer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ContextParameter&#x2F;">ContextParameter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IScreenManagerEngineConnection&#x2F;">IScreenManagerEngineConnection</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;AnimatedNumberTextWidget&#x2F;">AnimatedNumberTextWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;MatrixMode&#x2F;">MatrixMode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;HorizontalAlignment&#x2F;">HorizontalAlignment</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IDXGIAdapter&#x2F;">IDXGIAdapter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ImageDrawObject&#x2F;">ImageDrawObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DataType&#x2F;">DataType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;AlignmentAxis&#x2F;">AlignmentAxis</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ImageHorizontalAlignments&#x2F;">ImageHorizontalAlignments</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;VertexArrayObject&#x2F;">VertexArrayObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ILanguage&#x2F;">ILanguage</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;FontStyle&#x2F;">FontStyle</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Sprite&#x2F;">Sprite</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TwoDimensionDrawContext&#x2F;">TwoDimensionDrawContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;OnlineImageTextureWidget&#x2F;">OnlineImageTextureWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ShadingModel&#x2F;">ShadingModel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WindowsForm&#x2F;">WindowsForm</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PrimitivePolygonMaterial&#x2F;">PrimitivePolygonMaterial</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BasicContainer&#x2F;">BasicContainer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;CircleItemPlacerWidget&#x2F;">CircleItemPlacerWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;FillBarVerticalClipWidget&#x2F;">FillBarVerticalClipWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ConstantDefinitionType&#x2F;">ConstantDefinitionType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextureInternalFormat&#x2F;">TextureInternalFormat</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;RichText&#x2F;">RichText</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;MONITORINFOEX&#x2F;">MONITORINFOEX</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IDrawObject&#x2F;">IDrawObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetPrefab&#x2F;">WidgetPrefab</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PixelFormat&#x2F;">PixelFormat</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;MeshTopology&#x2F;">MeshTopology</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BlendingDestinationFactor&#x2F;">BlendingDestinationFactor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextWidget&#x2F;">TextWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BitmapFontCharacter&#x2F;">BitmapFontCharacter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetFactory&#x2F;">WidgetFactory</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushWidget&#x2F;">BrushWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;RichTextException&#x2F;">RichTextException</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;EventManager&#x2F;">EventManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GridHorizontalLayoutMethod&#x2F;">GridHorizontalLayoutMethod</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextDrawObject&#x2F;">TextDrawObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Texture&#x2F;">Texture</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SpriteSizeComparer&#x2F;">SpriteSizeComparer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextureUnit&#x2F;">TextureUnit</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ScrollbarWidget&#x2F;">ScrollbarWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GamepadNavigationTypes&#x2F;">GamepadNavigationTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Function&#x2F;">Function</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetTemplate&#x2F;">WidgetTemplate</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ImageFit&#x2F;">ImageFit</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;MaskedTextureWidget&#x2F;">MaskedTextureWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GauntletMovie&#x2F;">GauntletMovie</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;RichTextPartType&#x2F;">RichTextPartType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TokenType&#x2F;">TokenType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ButtonWidget&#x2F;">ButtonWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextHelper&#x2F;">TextHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Opengl32ARB&#x2F;">Opengl32ARB</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Language&#x2F;">Language</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DXGI&#x2F;">DXGI</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GraphicsForm&#x2F;">GraphicsForm</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;StateSyncWidget&#x2F;">StateSyncWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SelectedStateBrushWidget&#x2F;">SelectedStateBrushWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IBrushAnimationState&#x2F;">IBrushAnimationState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DialogButtonsParentWidget&#x2F;">DialogButtonsParentWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WindowShowStyle&#x2F;">WindowShowStyle</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GamepadNavigationForcedScopeCollection&#x2F;">GamepadNavigationForcedScopeCollection</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ImageFitResult&#x2F;">ImageFitResult</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Text&#x2F;">Text</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ButtonType&#x2F;">ButtonType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeKeyTypeCommand&#x2F;">WidgetAttributeKeyTypeCommand</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Brush&#x2F;">Brush</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GraphWidget&#x2F;">GraphWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DragCarrierWidget&#x2F;">DragCarrierWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ITwoDimensionPlatform&#x2F;">ITwoDimensionPlatform</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushAnimationProperty&#x2F;">BrushAnimationProperty</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ValueBasedVisibilityWidget&#x2F;">ValueBasedVisibilityWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;AutoScrollParameters&#x2F;">AutoScrollParameters</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IntegerInputTextWidget&#x2F;">IntegerInputTextWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ItemTemplateUsageWithData&#x2F;">ItemTemplateUsageWithData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IDropContainer&#x2F;">IDropContainer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BlurBehindConstraints&#x2F;">BlurBehindConstraints</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SimpleMaterial&#x2F;">SimpleMaterial</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BeginMode&#x2F;">BeginMode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GraphLinePointWidget&#x2F;">GraphLinePointWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;FillBarVerticalClipTierColorsWidget&#x2F;">FillBarVerticalClipTierColorsWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BitmapInfoHeader&#x2F;">BitmapInfoHeader</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TooltipWidget&#x2F;">TooltipWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TabToggleWidget&#x2F;">TabToggleWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;FillBarHorizontalWidget&#x2F;">FillBarHorizontalWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;CursorType&#x2F;">CursorType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IGauntletMovie&#x2F;">IGauntletMovie</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GauntletGamepadNavigationManager&#x2F;">GauntletGamepadNavigationManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;MouseWidget&#x2F;">MouseWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WindowsFrameworkThreadConfig&#x2F;">WindowsFrameworkThreadConfig</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IBrushLayerData&#x2F;">IBrushLayerData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;VisualStateTemplate&#x2F;">VisualStateTemplate</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeValueType&#x2F;">WidgetAttributeValueType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;EditorAttribute&#x2F;">EditorAttribute</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BufferBindingTarget&#x2F;">BufferBindingTarget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;AnimatedDropdownWidget&#x2F;">AnimatedDropdownWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextureMagFilter&#x2F;">TextureMagFilter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TwoDimensionPlatform&#x2F;">TwoDimensionPlatform</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;RichTextTagParser&#x2F;">RichTextTagParser</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WindowClass&#x2F;">WindowClass</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SpriteNinePatchParameters&#x2F;">SpriteNinePatchParameters</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GridLayout&#x2F;">GridLayout</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ContainerItemDescription&#x2F;">ContainerItemDescription</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushLayer&#x2F;">BrushLayer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DXGI_ADAPTER_DESC&#x2F;">DXGI_ADAPTER_DESC</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushFactory&#x2F;">BrushFactory</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;MouseState&#x2F;">MouseState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SpriteData&#x2F;">SpriteData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TwoDimensionContext&#x2F;">TwoDimensionContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeValueTypeConstant&#x2F;">WidgetAttributeValueTypeConstant</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ConstantDefinition&#x2F;">ConstantDefinition</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeContext&#x2F;">WidgetAttributeContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextPart&#x2F;">TextPart</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PrefabExtension&#x2F;">PrefabExtension</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextTokenOutput&#x2F;">TextTokenOutput</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DropdownWidget&#x2F;">DropdownWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextureProvider&#x2F;">TextureProvider</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PropertyOwnerObject&#x2F;">PropertyOwnerObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SliderWidget&#x2F;">SliderWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushListPanel&#x2F;">BrushListPanel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ListPanel&#x2F;">ListPanel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetInstantiationResult&#x2F;">WidgetInstantiationResult</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextureParameterName&#x2F;">TextureParameterName</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SizePolicy&#x2F;">SizePolicy</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GeneratedGauntletMovie&#x2F;">GeneratedGauntletMovie</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ImageVerticalAlignments&#x2F;">ImageVerticalAlignments</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Opengl32&#x2F;">Opengl32</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;NativeMessage&#x2F;">NativeMessage</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;AudioProperty&#x2F;">AudioProperty</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;AutoPinner&#x2F;">AutoPinner</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SoundProperties&#x2F;">SoundProperties</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SpriteFromTexture&#x2F;">SpriteFromTexture</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ITexture&#x2F;">ITexture</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushAnimationPropertyType&#x2F;">BrushAnimationPropertyType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;StringBasedVisibilityWidget&#x2F;">StringBasedVisibilityWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeValueTypeBinding&#x2F;">WidgetAttributeValueTypeBinding</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;FloatInputTextWidget&#x2F;">FloatInputTextWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;CustomWidgetType&#x2F;">CustomWidgetType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushRendererAnimationState&#x2F;">BrushRendererAnimationState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GamepadNavigationScope&#x2F;">GamepadNavigationScope</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Material&#x2F;">Material</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GamepadNavigationScopeCollection&#x2F;">GamepadNavigationScopeCollection</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;MouseCursors&#x2F;">MouseCursors</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DelayedStateChanger&#x2F;">DelayedStateChanger</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextLineOutput&#x2F;">TextLineOutput</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DragCarrierLayout&#x2F;">DragCarrierLayout</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeValueTypeParameter&#x2F;">WidgetAttributeValueTypeParameter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeKeyType&#x2F;">WidgetAttributeKeyType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PixelFormatDescriptorLayerTypes&#x2F;">PixelFormatDescriptorLayerTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DefaultLayout&#x2F;">DefaultLayout</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;UpdateAction&#x2F;">UpdateAction</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PixelFormatDescriptorFlags&#x2F;">PixelFormatDescriptorFlags</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;CursorMovementDirection&#x2F;">CursorMovementDirection</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SpriteGeneric&#x2F;">SpriteGeneric</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ResourceTextureProvider&#x2F;">ResourceTextureProvider</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ViewBindCommandInfo&#x2F;">ViewBindCommandInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PixelFormatDescriptor&#x2F;">PixelFormatDescriptor</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DXGI_OUTPUT_DESC&#x2F;">DXGI_OUTPUT_DESC</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GridVerticalLayoutMethod&#x2F;">GridVerticalLayoutMethod</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetExtensions&#x2F;">WidgetExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextVerticalAlignment&#x2F;">TextVerticalAlignment</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WindowStyle&#x2F;">WindowStyle</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetComponent&#x2F;">WidgetComponent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;FontData&#x2F;">FontData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ITwoDimensionResourceContext&#x2F;">ITwoDimensionResourceContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeKeyTypeAttribute&#x2F;">WidgetAttributeKeyTypeAttribute</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;StandaloneApplicationUtility&#x2F;">StandaloneApplicationUtility</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Type&#x2F;">Type</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DwmBlurBehind&#x2F;">DwmBlurBehind</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GridDirection&#x2F;">GridDirection</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GeneratedPrefabInstantiationResult&#x2F;">GeneratedPrefabInstantiationResult</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PixelFormatDescriptorPixelTypes&#x2F;">PixelFormatDescriptorPixelTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IGeneratedUIPrefabCreator&#x2F;">IGeneratedUIPrefabCreator</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SmoothDecreaseIndicatorFillBar&#x2F;">SmoothDecreaseIndicatorFillBar</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ArrayType&#x2F;">ArrayType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SpritePart&#x2F;">SpritePart</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextOutput&#x2F;">TextOutput</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WindowMessage&#x2F;">WindowMessage</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Style&#x2F;">Style</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushAnimation&#x2F;">BrushAnimation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ValueType&#x2F;">ValueType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;AttribueMask&#x2F;">AttribueMask</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GamepadNavigationHelper&#x2F;">GamepadNavigationHelper</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ScrollingRichTextWidget&#x2F;">ScrollingRichTextWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;UIContext&#x2F;">UIContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BlendFunction&#x2F;">BlendFunction</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextMeshGenerator&#x2F;">TextMeshGenerator</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetInstantiationResultDatabindingExtension&#x2F;">WidgetInstantiationResultDatabindingExtension</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ScreenManager&#x2F;">ScreenManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Shader&#x2F;">Shader</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ScrollingTextWidget&#x2F;">ScrollingTextWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeKeyTypeCommandParameter&#x2F;">WidgetAttributeKeyTypeCommandParameter</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextToken&#x2F;">TextToken</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WatchTypes&#x2F;">WatchTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Kernel32&#x2F;">Kernel32</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;CircleActionSelectorWidget&#x2F;">CircleActionSelectorWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Mathf&#x2F;">Mathf</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ILayout&#x2F;">ILayout</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;VerticalAlignment&#x2F;">VerticalAlignment</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GraphLineWidget&#x2F;">GraphLineWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ShaderType&#x2F;">ShaderType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;D3D_DRIVER_TYPE&#x2F;">D3D_DRIVER_TYPE</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;InputKeyVisualWidget&#x2F;">InputKeyVisualWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushLayerSizePolicy&#x2F;">BrushLayerSizePolicy</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;StackLayout&#x2F;">StackLayout</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;RichTextPart&#x2F;">RichTextPart</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;User32&#x2F;">User32</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ScreenBase&#x2F;">ScreenBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GlobalLayer&#x2F;">GlobalLayer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetInstantiationResultExtensionData&#x2F;">WidgetInstantiationResultExtensionData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GraphicsContext&#x2F;">GraphicsContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;VisualDefinition&#x2F;">VisualDefinition</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushState&#x2F;">BrushState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetCreationData&#x2F;">WidgetCreationData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;StandaloneInputManager&#x2F;">StandaloneInputManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ScreenComponent&#x2F;">ScreenComponent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IGeneratedGauntletMovieRoot&#x2F;">IGeneratedGauntletMovieRoot</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GeoTypeId&#x2F;">GeoTypeId</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SimpleRectangle&#x2F;">SimpleRectangle</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Point&#x2F;">Point</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GuiEventResult&#x2F;">GuiEventResult</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TwoDimensionContextObject&#x2F;">TwoDimensionContextObject</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GauntletExtensions&#x2F;">GauntletExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;FrameworkDomain&#x2F;">FrameworkDomain</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;AlphaFormatFlags&#x2F;">AlphaFormatFlags</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;RichTextParser&#x2F;">RichTextParser</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;FillBarWidget&#x2F;">FillBarWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeValueTypeBindingPath&#x2F;">WidgetAttributeValueTypeBindingPath</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GauntletView&#x2F;">GauntletView</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;SiblingIndexVisibilityWidget&#x2F;">SiblingIndexVisibilityWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GauntletInputContext&#x2F;">GauntletInputContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PrefabDatabindingExtension&#x2F;">PrefabDatabindingExtension</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;StyleLayer&#x2F;">StyleLayer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ScissorTestInfo&#x2F;">ScissorTestInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;InputRestrictions&#x2F;">InputRestrictions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Quad&#x2F;">Quad</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;AnimationInterpolation&#x2F;">AnimationInterpolation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;DisabledAlphaChangerWidget&#x2F;">DisabledAlphaChangerWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Widget&#x2F;">Widget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;FontFactory&#x2F;">FontFactory</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IntegerInputPercentageTextWidget&#x2F;">IntegerInputPercentageTextWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WindowsFramework&#x2F;">WindowsFramework</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ScrollablePanel&#x2F;">ScrollablePanel</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ScrollbarInterpolationController&#x2F;">ScrollbarInterpolationController</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeValueTypeDefault&#x2F;">WidgetAttributeValueTypeDefault</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushLayerState&#x2F;">BrushLayerState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ViewBindDataInfo&#x2F;">ViewBindDataInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GridWidget&#x2F;">GridWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Rectangle2D&#x2F;">Rectangle2D</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextHorizontalAlignment&#x2F;">TextHorizontalAlignment</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetInfo&#x2F;">WidgetInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;RichTextLinkGroup&#x2F;">RichTextLinkGroup</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GeneratedWidgetData&#x2F;">GeneratedWidgetData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Target&#x2F;">Target</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;CustomWidgetManager&#x2F;">CustomWidgetManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TooltipPositioningType&#x2F;">TooltipPositioningType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IDXGIOutput&#x2F;">IDXGIOutput</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ScrollablePanelFixedHeaderWidget&#x2F;">ScrollablePanelFixedHeaderWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IMessageCommunicator&#x2F;">IMessageCommunicator</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BitmapInfo&#x2F;">BitmapInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;RichTextWidget&#x2F;">RichTextWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Container&#x2F;">Container</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ImageFitTypes&#x2F;">ImageFitTypes</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;IText&#x2F;">IText</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;FillBar&#x2F;">FillBar</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeKeyTypeDataSource&#x2F;">WidgetAttributeKeyTypeDataSource</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextureProviderFactory&#x2F;">TextureProviderFactory</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GauntletEvent&#x2F;">GauntletEvent</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TwoDimensionDrawData&#x2F;">TwoDimensionDrawData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ScreenLayer&#x2F;">ScreenLayer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;OpenGLTexture&#x2F;">OpenGLTexture</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;KeyboardAction&#x2F;">KeyboardAction</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;EmptyWidget&#x2F;">EmptyWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;HintMode&#x2F;">HintMode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;MaterialPool&#x2F;">MaterialPool</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;StyleFontContainer&#x2F;">StyleFontContainer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;ImageWidget&#x2F;">ImageWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Font&#x2F;">Font</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;VisualStateAnimationState&#x2F;">VisualStateAnimationState</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;StyleAnimationMode&#x2F;">StyleAnimationMode</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;EditableTextWidget&#x2F;">EditableTextWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;LayoutBox&#x2F;">LayoutBox</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TextMaterial&#x2F;">TextMaterial</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushLayerAnimation&#x2F;">BrushLayerAnimation</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;BrushAnimationKeyFrame&#x2F;">BrushAnimationKeyFrame</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;RECT&#x2F;">RECT</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;TabControl&#x2F;">TabControl</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;FillBarVerticalWidget&#x2F;">FillBarVerticalWidget</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;PrefabExtensionContext&#x2F;">PrefabExtensionContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;Dwmapi&#x2F;">Dwmapi</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;RichTextTag&#x2F;">RichTextTag</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;GuiEventType&#x2F;">GuiEventType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;zh&#x2F;api&#x2F;gui&#x2F;WidgetAttributeKeyTypeParameter&#x2F;">WidgetAttributeKeyTypeParameter</a></li>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

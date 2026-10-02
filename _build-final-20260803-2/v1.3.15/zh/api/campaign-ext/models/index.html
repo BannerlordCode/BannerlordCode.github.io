@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Models 家族手册</title>
+  <meta name="description" content="战役模型如何计算政策、经济、战斗和队伍结果，以及为什么不应拥有世界变更。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/models/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/models/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Models 家族手册</span>
+    </nav>
+  
+  <h1>Models 家族手册</h1>
+  <h1 id="models-jia-zu-shou-ce">Models 家族手册</h1>
+<p><strong>一句话职责：</strong> <code>*Model</code> 是战役的可替换策略提供者：回答“怎么算、是否允许、选哪一个”，把结果交给 Action、Behavior、菜单或 ViewModel；它不拥有世界状态变更。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<h3 id="yue-du-shun-xu">阅读顺序</h3>
+<p>先看 <a href="../GameModels">GameModels</a>：它在 <code>SandBoxManager</code> 注册默认实现，并在战役启动后暴露 <code>Campaign.Current.Models</code>。接口声明位于 <code>Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.ComponentInterfaces</code>，默认实现位于同一 source root 的 <code>TaleWorlds.CampaignSystem.GameComponents</code>。先读 <a href="../PartySpeedModel">PartySpeedModel</a> → <a href="../DefaultPartySpeedCalculatingModel">DefaultPartySpeedCalculatingModel</a>，或 <a href="../SettlementLoyaltyModel">SettlementLoyaltyModel</a> → <a href="../DefaultSettlementLoyaltyModel">DefaultSettlementLoyaltyModel</a>，再追踪消费方。</p>
+<p>模型可以读取 <code>Campaign.Current</code>、实体和缓存，但不能把计算结果偷偷写回 <code>Hero</code>、<code>Settlement</code> 或 <code>MobileParty</code>。需要改变世界时调用 <a href="../actions">Actions</a>；需要定时推进或保存时交给 Behavior。替换模型应在启动阶段通过 <code>IGameStarter.AddModel</code> 完成，而不是在运行中临时 <code>new</code>。</p>
+<h2 id="he-shi-shi-yong-he-shi-bu-yao-yong">何时使用，何时不要用</h2>
+<ul>
+<li>问题是“多少”“哪个选项”或“是否允许”时使用 Model，例如速度、忠诚度变化、建筑效果、伤害和谈判成功率。</li>
+<li>问题是“现在执行变更”时使用 Action，例如宣战、转移据点所有权、给钱或把英雄加入队伍。</li>
+<li>不要在 <code>Campaign.Current.Models</code> 尚未建立时读取模型，也不要在 UI/mission tick 中反复执行有副作用的模型替换。</li>
+<li>自定义实现必须保留 vanilla fallback、返回确定且有界的值，并遵守 <code>ExplainedNumber</code>/枚举约定；空引用、负数或跨存档不稳定的结果可能延迟成坏档。</li>
+</ul>
+<h2 id="yi-lai-tu-yu-zhen-shi-ru-kou">依赖图与真实入口</h2>
+<pre><code data-lang="mermaid">graph TD
+    START[SandBoxManager / IGameStarter] --&gt; REG[GameStarter.AddModel]
+    REG --&gt; SET[Campaign.Current.Models]
+    SET --&gt; MODEL[Model interface / default implementation]
+    MODEL --&gt; CONSUMER[Entity / Behavior / Action / ViewModel]
+    ACTION[Action.Apply] --&gt; WORLD[世界状态变更]
+</code></pre>
+<pre><code data-lang="csharp">PartySpeedModel speedModel = Campaign.Current.Models.PartySpeedCalculatingModel;
+ExplainedNumber baseSpeed = speedModel.CalculateBaseSpeed(party, includeDescriptions: true);
+ExplainedNumber finalSpeed = speedModel.CalculateFinalSpeed(party, baseSpeed);
+
+SettlementLoyaltyModel loyaltyModel = Campaign.Current.Models.SettlementLoyaltyModel;
+ExplainedNumber loyaltyChange = loyaltyModel.CalculateLoyaltyChange(town, includeDescriptions: true);
+</code></pre>
+<p>这些调用链对应 <code>MobileParty.CalculateSpeed</code>、<code>Town.LoyaltyChange</code> 和 <code>TownManagementVM</code> 的真实调用点。它们读取模型结果；要修改归属、关系或名册，仍应回到 <a href="../actions">Actions</a>。</p>
+<h2 id="you-xian-mo-xing-yong-tu-yu-dian-xing-shi-ji">优先模型：用途与典型时机</h2>
+<p>下表覆盖本目录中最容易造成全局行为变化的接口与默认实现。<code>Purpose</code> 描述业务职责，<code>Timing</code> 描述通常由引擎或战役系统调用的阶段；不是签名重复。其余模型在后续 H5/H9 family wave 按同一契约补入。</p>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartySpeedModel">PartySpeedModel</a></td><td>组合名册、负重、地形和状态，给地图移动提供可解释速度。</td><td>地图 tick 与速度缓存刷新</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartySpeedCalculatingModel">DefaultPartySpeedCalculatingModel</a></td><td>使用 vanilla 负重、编队和地形规则实现队伍基础/最终速度。</td><td>SandBox 注册后由 MobileParty 读取</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartySizeLimitModel">PartySizeLimitModel</a></td><td>计算队伍规模上限，供招募和编队界面判断容量。</td><td>队伍组建、英雄加入和每日更新</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartySizeLimitModel">DefaultPartySizeLimitModel</a></td><td>组合家族等级、perk 与领袖能力，提供 vanilla 队伍上限。</td><td>模型注册后由 Party/Recruitment 消费</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyWageModel">PartyWageModel</a></td><td>将名册与工资规则转换为队伍每日工资。</td><td>每日结算与工资提示</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyWageModel">DefaultPartyWageModel</a></td><td>按 troop tier、perk 和队伍状态计算默认工资。</td><td>Campaign daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyHealingModel">PartyHealingModel</a></td><td>计算队伍伤兵恢复速度，不直接修改伤兵名册。</td><td>地图 tick 的医疗恢复计算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyHealingModel">DefaultPartyHealingModel</a></td><td>提供 vanilla 医疗技能、驻扎地和队伍状态的恢复公式。</td><td>每日/地图 tick 由 MobileParty 调用</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyMoraleModel">PartyMoraleModel</a></td><td>计算粮食、战斗和队伍组成对士气的贡献。</td><td>每日结算、战斗前后和 UI 预览</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyMoraleModel">DefaultPartyMoraleModel</a></td><td>实现默认士气因素与边界，输出可解释的变化量。</td><td>Campaign tick 与队伍状态刷新</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyNavigationModel">PartyNavigationModel</a></td><td>决定队伍地图目标、路线与导航限制。</td><td>目标选择和地图寻路阶段</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyNavigationModel">DefaultPartyNavigationModel</a></td><td>使用 vanilla 目标优先级和地图规则提供导航策略。</td><td>地图 AI tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyFoodBuyingModel">PartyFoodBuyingModel</a></td><td>判断队伍缺粮时应购买的数量和物品类别。</td><td>城镇交易、补给检查和每日经济阶段</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyFoodBuyingModel">DefaultPartyFoodBuyingModel</a></td><td>按规模、消耗和市场库存计算默认补粮计划。</td><td>队伍进入据点或补给行为执行前</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyDesertionModel">PartyDesertionModel</a></td><td>计算缺粮、低士气条件下的逃兵数量与原因。</td><td>每日队伍结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyDesertionModel">DefaultPartyDesertionModel</a></td><td>实现 vanilla 逃兵阈值与数量上限，供 Behavior 执行移除。</td><td>Campaign daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../DiplomacyModel">DiplomacyModel</a></td><td>评估战争、和平、关系与外交选项是否可用。</td><td>王国决策、外交菜单和事件结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultDiplomacyModel">DefaultDiplomacyModel</a></td><td>提供默认外交代价、关系门槛与 AI 选择评分。</td><td>Campaign 决策阶段</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../ClanFinanceModel">ClanFinanceModel</a></td><td>汇总家族收入、支出与资产变化，供财政 UI 和每日结算。</td><td>每日财政结算与家族界面</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultClanFinanceModel">DefaultClanFinanceModel</a></td><td>计算 vanilla 工坊、封臣和 party 财政项目。</td><td>Campaign daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../ClanPoliticsModel">ClanPoliticsModel</a></td><td>计算家族政治影响、政策支持与政治选择结果。</td><td>王国政策和家族决策评估</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultClanPoliticsModel">DefaultClanPoliticsModel</a></td><td>按家族等级、领地和关系实现默认政治评分。</td><td>决策投票与政治 UI 刷新</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SettlementLoyaltyModel">SettlementLoyaltyModel</a></td><td>解释据点忠诚度变化和叛乱阈值，供据点与 UI 读取。</td><td>每日据点更新与叛乱检查</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSettlementLoyaltyModel">DefaultSettlementLoyaltyModel</a></td><td>使用文化、总督、政策和事件实现 vanilla 忠诚度变化。</td><td>Settlement daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SettlementSecurityModel">SettlementSecurityModel</a></td><td>计算安全度变化及其对犯罪、叛乱和繁荣的影响。</td><td>每日据点结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSettlementSecurityModel">DefaultSettlementSecurityModel</a></td><td>提供默认驻军、帮派和犯罪因素的安全度公式。</td><td>Campaign daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SettlementMilitiaModel">SettlementMilitiaModel</a></td><td>计算民兵增长、上限和战斗可用数量。</td><td>每日据点更新与围城前评估</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSettlementMilitiaModel">DefaultSettlementMilitiaModel</a></td><td>将忠诚度、建筑和村庄贡献组合成 vanilla 民兵变化。</td><td>Settlement daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SettlementProsperityModel">SettlementProsperityModel</a></td><td>计算繁荣度变化及粮食、忠诚和交易解释项。</td><td>每日据点结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSettlementProsperityModel">DefaultSettlementProsperityModel</a></td><td>实现 vanilla 繁荣增长/衰减与忠诚度影响。</td><td>Campaign daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SettlementEconomyModel">SettlementEconomyModel</a></td><td>评估据点经济活动、生产和市场结果。</td><td>每日经济更新与交易 UI</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSettlementEconomyModel">DefaultSettlementEconomyModel</a></td><td>使用 vanilla 生产链和需求实现据点经济计算。</td><td>Settlement daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../BuildingModel">BuildingModel</a></td><td>判断建筑类型可用性及其对据点的效果。</td><td>建筑队列、城镇管理和存档加载</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultBuildingModel">DefaultBuildingModel</a></td><td>提供默认建筑类别、前置条件与效果查询。</td><td><code>BuildingsCampaignBehavior</code> 注册/读取</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../BuildingConstructionModel">BuildingConstructionModel</a></td><td>计算建筑施工速度、资源消耗和完成时间。</td><td>每日建筑推进</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultBuildingConstructionModel">DefaultBuildingConstructionModel</a></td><td>实现 vanilla 建筑施工进度与队列规则。</td><td>Settlement daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../BuildingEffectModel">BuildingEffectModel</a></td><td>将建筑状态映射为驻军、繁荣、粮食等效果。</td><td>据点状态刷新和 UI 说明</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultBuildingEffectModel">DefaultBuildingEffectModel</a></td><td>提供默认建筑效果强度与应用条件。</td><td>建筑完成或每日效果计算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../CombatSimulationModel">CombatSimulationModel</a></td><td>为地图战斗估算双方伤亡、胜负和奖励输入。</td><td>MapEvent 模拟结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultCombatSimulationModel">DefaultCombatSimulationModel</a></td><td>使用兵种、装备和地形实现 vanilla 模拟战斗结果。</td><td>非 Mission 战斗结束时</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../CombatXpModel">CombatXpModel</a></td><td>计算战斗参与者获得的经验类别与数量。</td><td>战斗结束奖励阶段</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultCombatXpModel">DefaultCombatXpModel</a></td><td>按兵种、伤害和胜负实现默认战斗经验分配。</td><td>MapEvent/Mission 结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../CharacterDevelopmentModel">CharacterDevelopmentModel</a></td><td>计算英雄和兵种升级、技能成长及开发限制。</td><td>经验应用和角色成长结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultCharacterDevelopmentModel">DefaultCharacterDevelopmentModel</a></td><td>提供 vanilla 技能经验、属性门槛和升级规则。</td><td>战斗/任务奖励与每日成长</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../MarriageModel">MarriageModel</a></td><td>判断婚姻候选、关系门槛和婚姻代价。</td><td>求婚、婚姻决策和事件结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultMarriageModel">DefaultMarriageModel</a></td><td>实现默认婚姻资格、价格和关系规则。</td><td>Campaign 决策阶段</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PregnancyModel">PregnancyModel</a></td><td>计算怀孕资格、周期和生育结果。</td><td>每日英雄生命周期 tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPregnancyModel">DefaultPregnancyModel</a></td><td>提供 vanilla 怀孕概率、冷却与年龄边界。</td><td>Campaign daily tick</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../VolunteerModel">VolunteerModel</a></td><td>计算村庄和据点可提供的志愿兵及刷新概率。</td><td>招募菜单打开与每日刷新</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultVolunteerModel">DefaultVolunteerModel</a></td><td>按文化、村庄和关系实现默认志愿兵池。</td><td>招募结算阶段</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SmithingModel">SmithingModel</a></td><td>计算锻造配方、材料、体力和物品价值。</td><td>锻造菜单预览与完成操作</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSmithingModel">DefaultSmithingModel</a></td><td>提供 vanilla 锻造难度、经验和价格规则。</td><td>Smithing UI 与锻造完成</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SiegeEventModel">SiegeEventModel</a></td><td>计算围城事件的推进、准备和攻击条件。</td><td>围城地图 tick 与决策菜单</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSiegeEventModel">DefaultSiegeEventModel</a></td><td>实现默认围城阶段、部队评估和时间规则。</td><td>SiegeEvent 更新阶段</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SiegeAftermathModel">SiegeAftermathModel</a></td><td>评估围城结束后的战利品、人口和据点后果。</td><td>围城胜负结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSiegeAftermathModel">DefaultSiegeAftermathModel</a></td><td>提供 vanilla 围城后果和奖励计算。</td><td>SiegeEvent 完成时</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SiegeStrategyActionModel">SiegeStrategyActionModel</a></td><td>为围城策略选择计算行动可行性和代价。</td><td>围城策略菜单提交前</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSiegeStrategyActionModel">DefaultSiegeStrategyActionModel</a></td><td>实现默认攻城器械、突破和防守策略评分。</td><td>Siege strategy tick/菜单</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.ComponentInterfaces</td><td><a href="../../mission-ext/AgentApplyDamageModel">AgentApplyDamageModel</a></td><td>把命中、护甲和伤害类型转换为 Agent 伤害结果。</td><td>Mission 命中处理</td></tr>
+<tr><td>TaleWorlds.MountAndBlade.ComponentInterfaces</td><td><a href="../../mission-ext/BattleMoraleModel">BattleMoraleModel</a></td><td>计算战场士气变化和溃败阈值。</td><td>Mission 战斗事件和 morale tick</td></tr>
+</tbody></table>
+<h2 id="mo-xing-yu-bian-geng-bian-jie">模型与变更边界</h2>
+<p>模型可以回答 <code>SettlementLoyaltyModel.CalculateLoyaltyChange</code>，但据点归属必须走 <a href="../ChangeOwnerOfSettlementAction">ChangeOwnerOfSettlementAction</a>，关系变化必须走 <a href="../ChangeRelationAction">ChangeRelationAction</a>。把 Action 放进 Model 会让 UI 预览、AI 评估和实际结算重复写世界；把 Model 当作 setter 则会绕过事件、缓存和存档边界。</p>
+<h2 id="feng-xian-yu-pai-cuo-shun-xu">风险与排错顺序</h2>
+<ol>
+<li>先确认 <code>Campaign.Current</code>、<code>Campaign.Current.Models</code> 和目标模型已经由 <code>GameModels</code> 注册；初始化早期或无战役的主菜单不能读取它们。</li>
+<li>替换模型时保留默认实现的返回范围、<code>ExplainedNumber</code> 说明和枚举分支；不要返回 <code>null</code>、未初始化的集合或依赖随机全局状态的值。</li>
+<li>变更模型后检查消费方（实体、Behavior、Action、ViewModel）是否在同一 tick 重复计算；需要持久化的状态仍由 Behavior/Save 系统保存。</li>
+</ol>
+<h2 id="chang-wei-mo-xing-qi-yue">长尾模型契约</h2>
+<p>以下只把紧密相关的契约放在同一行，并保留完整命名空间，避免同名类型跨子系统错误合并。接口行说明一个策略问题，GameComponents 行说明由 SandBox 注册的 vanilla 实现。</p>
+<table><thead><tr><th>Namespace</th><th>Type</th><th>Purpose</th><th>Timing</th></tr></thead><tbody>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../AccessDetails">AccessDetails</a>; <a href="../AccessLevel">AccessLevel</a>; <a href="../AccessLimitationReason">AccessLimitationReason</a>; <a href="../AccessMethod">AccessMethod</a>; <a href="../AgeModel">AgeModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../AlleyModel">AlleyModel</a>; <a href="../AllianceModel">AllianceModel</a>; <a href="../ArmyManagementCalculationModel">ArmyManagementCalculationModel</a>; <a href="../BanditDensityModel">BanditDensityModel</a>; <a href="../BannerItemModel">BannerItemModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>战役每日经济与据点刷新</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../BarterModel">BarterModel</a>; <a href="../BattleCaptainModel">BattleCaptainModel</a>; <a href="../BattleRewardModel">BattleRewardModel</a>; <a href="../BodyPropertiesModel">BodyPropertiesModel</a>; <a href="../BribeCalculationModel">BribeCalculationModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>战役每日经济与据点刷新</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../BuildingScoreCalculationModel">BuildingScoreCalculationModel</a>; <a href="../CampaignShipDamageModel">CampaignShipDamageModel</a>; <a href="../CampaignShipParametersModel">CampaignShipParametersModel</a>; <a href="../CampaignTimeModel">CampaignTimeModel</a>; <a href="../CaravanModel">CaravanModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../CharacterStatsModel">CharacterStatsModel</a>; <a href="../ClanTierModel">ClanTierModel</a>; <a href="../CompanionHiringPriceCalculationModel">CompanionHiringPriceCalculationModel</a>; <a href="../CrimeModel">CrimeModel</a>; <a href="../CutsceneSelectionModel">CutsceneSelectionModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>英雄生命周期、成长或决策结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../DailyTroopXpBonusModel">DailyTroopXpBonusModel</a>; <a href="../DefectionModel">DefectionModel</a>; <a href="../DelayedTeleportationModel">DelayedTeleportationModel</a>; <a href="../DifficultyModel">DifficultyModel</a>; <a href="../DiplomacyStance">DiplomacyStance</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../DisguiseDetectionModel">DisguiseDetectionModel</a>; <a href="../EmissaryModel">EmissaryModel</a>; <a href="../EncounterModel">EncounterModel</a>; <a href="../EquipmentSelectionModel">EquipmentSelectionModel</a>; <a href="../ExecutionRelationModel">ExecutionRelationModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../FleetManagementModel">FleetManagementModel</a>; <a href="../GenericXpModel">GenericXpModel</a>; <a href="../HeirSelectionCalculationModel">HeirSelectionCalculationModel</a>; <a href="../HeroAgentLocationModel">HeroAgentLocationModel</a>; <a href="../HeroCreationModel">HeroCreationModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../HeroDeathProbabilityCalculationModel">HeroDeathProbabilityCalculationModel</a>; <a href="../HeroLocationDetail">HeroLocationDetail</a>; <a href="../HideoutModel">HideoutModel</a>; <a href="../INavigationCache">INavigationCache</a>; <a href="../IncidentModel">IncidentModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>英雄生命周期、成长或决策结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../InformationRestrictionModel">InformationRestrictionModel</a>; <a href="../InventoryCapacityModel">InventoryCapacityModel</a>; <a href="../ItemDiscardModel">ItemDiscardModel</a>; <a href="../KingdomCreationModel">KingdomCreationModel</a>; <a href="../KingdomDecisionPermissionModel">KingdomDecisionPermissionModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../LimitedAccessSolution">LimitedAccessSolution</a>; <a href="../LocationModel">LocationModel</a>; <a href="../MapDistanceModel">MapDistanceModel</a>; <a href="../MapTrackModel">MapTrackModel</a>; <a href="../MapVisibilityModel">MapVisibilityModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../MapWeatherModel">MapWeatherModel</a>; <a href="../MilitaryPowerModel">MilitaryPowerModel</a>; <a href="../MinorFactionsModel">MinorFactionsModel</a>; <a href="../MissionTypeEnum">MissionTypeEnum</a>; <a href="../MobilePartyAIModel">MobilePartyAIModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>地图 tick、遭遇设置或路线评估</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../MobilePartyFoodConsumptionModel">MobilePartyFoodConsumptionModel</a>; <a href="../MobilePartyMoraleModel">MobilePartyMoraleModel</a>; <a href="../NotablePowerModel">NotablePowerModel</a>; <a href="../NotableSpawnModel">NotableSpawnModel</a>; <a href="../PartyImpairmentModel">PartyImpairmentModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>战役每日经济与据点刷新</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PartyShipLimitModel">PartyShipLimitModel</a>; <a href="../PartyTradeModel">PartyTradeModel</a>; <a href="../PartyTrainingModel">PartyTrainingModel</a>; <a href="../PartyTransitionModel">PartyTransitionModel</a>; <a href="../PartyTroopUpgradeModel">PartyTroopUpgradeModel</a></td><td>定义 party 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PaymentMethod">PaymentMethod</a>; <a href="../PersuasionModel">PersuasionModel</a>; <a href="../PlayerProgressionModel">PlayerProgressionModel</a>; <a href="../PreliminaryActionObligation">PreliminaryActionObligation</a>; <a href="../PreliminaryActionType">PreliminaryActionType</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../PrisonBreakModel">PrisonBreakModel</a>; <a href="../PrisonerDonationModel">PrisonerDonationModel</a>; <a href="../PrisonerRecruitmentCalculationModel">PrisonerRecruitmentCalculationModel</a>; <a href="../RaidModel">RaidModel</a>; <a href="../RansomValueCalculationModel">RansomValueCalculationModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../RomanceModel">RomanceModel</a>; <a href="../SceneModel">SceneModel</a>; <a href="../SettlementAccessModel">SettlementAccessModel</a>; <a href="../SettlementAction">SettlementAction</a>; <a href="../SettlementFoodModel">SettlementFoodModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>英雄生命周期、成长或决策结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../SettlementGarrisonModel">SettlementGarrisonModel</a>; <a href="../SettlementMenuOverlayModel">SettlementMenuOverlayModel</a>; <a href="../SettlementPatrolModel">SettlementPatrolModel</a>; <a href="../SettlementTaxModel">SettlementTaxModel</a>; <a href="../SettlementValueModel">SettlementValueModel</a></td><td>定义 settlement 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>战役每日经济与据点刷新</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../ShipCostModel">ShipCostModel</a>; <a href="../ShipStatModel">ShipStatModel</a>; <a href="../SiegeAction">SiegeAction</a>; <a href="../SiegeLordsHallFightModel">SiegeLordsHallFightModel</a>; <a href="../TargetScoreCalculatingModel">TargetScoreCalculatingModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../TavernMercenaryTroopsModel">TavernMercenaryTroopsModel</a>; <a href="../TournamentModel">TournamentModel</a>; <a href="../TradeAgreementModel">TradeAgreementModel</a>; <a href="../TradeItemPriceFactorModel">TradeItemPriceFactorModel</a>; <a href="../TroopSacrificeModel">TroopSacrificeModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../TroopSupplierProbabilityModel">TroopSupplierProbabilityModel</a>; <a href="../ValuationModel">ValuationModel</a>; <a href="../VassalRewardsModel">VassalRewardsModel</a>; <a href="../VillageProductionCalculatorModel">VillageProductionCalculatorModel</a>; <a href="../VillageTradeModel">VillageTradeModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.ComponentInterfaces</td><td><a href="../VoiceOverModel">VoiceOverModel</a>; <a href="../WallHitPointCalculationModel">WallHitPointCalculationModel</a>; <a href="../WeatherEvent">WeatherEvent</a>; <a href="../WeatherEventEffectOnTerrain">WeatherEventEffectOnTerrain</a>; <a href="../WorkshopModel">WorkshopModel</a></td><td>定义 related campaign subsystems 的可替换策略契约；消费者读取有界结果，世界变更仍由 Action 负责。</td><td>战役启动与功能查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../AlleyMemberAvailabilityDetail">AlleyMemberAvailabilityDetail</a>; <a href="../AssetIncomeType">AssetIncomeType</a>; <a href="../DefaultAgeModel">DefaultAgeModel</a>; <a href="../DefaultAlleyModel">DefaultAlleyModel</a>; <a href="../DefaultAllianceModel">DefaultAllianceModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>战役每日经济与据点刷新</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultArmyManagementCalculationModel">DefaultArmyManagementCalculationModel</a>; <a href="../DefaultBanditDensityModel">DefaultBanditDensityModel</a>; <a href="../DefaultBannerItemModel">DefaultBannerItemModel</a>; <a href="../DefaultBarterModel">DefaultBarterModel</a>; <a href="../DefaultBattleCaptainModel">DefaultBattleCaptainModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultBattleRewardModel">DefaultBattleRewardModel</a>; <a href="../DefaultBodyPropertiesModel">DefaultBodyPropertiesModel</a>; <a href="../DefaultBribeCalculationModel">DefaultBribeCalculationModel</a>; <a href="../DefaultBuildingScoreCalculationModel">DefaultBuildingScoreCalculationModel</a>; <a href="../DefaultCampaignShipDamageModel">DefaultCampaignShipDamageModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>Mission、战斗或围城结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultCampaignShipParametersModel">DefaultCampaignShipParametersModel</a>; <a href="../DefaultCampaignTimeModel">DefaultCampaignTimeModel</a>; <a href="../DefaultCaravanModel">DefaultCaravanModel</a>; <a href="../DefaultCharacterStatsModel">DefaultCharacterStatsModel</a>; <a href="../DefaultClanTierModel">DefaultClanTierModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>战役启动与功能查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultCompanionHiringPriceCalculationModel">DefaultCompanionHiringPriceCalculationModel</a>; <a href="../DefaultCrimeModel">DefaultCrimeModel</a>; <a href="../DefaultCutsceneSelectionModel">DefaultCutsceneSelectionModel</a>; <a href="../DefaultDailyTroopXpBonusModel">DefaultDailyTroopXpBonusModel</a>; <a href="../DefaultDefectionModel">DefaultDefectionModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>英雄生命周期、成长或决策结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultDelayedTeleportationModel">DefaultDelayedTeleportationModel</a>; <a href="../DefaultDifficultyModel">DefaultDifficultyModel</a>; <a href="../DefaultDisguiseDetectionModel">DefaultDisguiseDetectionModel</a>; <a href="../DefaultEmissaryModel">DefaultEmissaryModel</a>; <a href="../DefaultEncounterGameMenuModel">DefaultEncounterGameMenuModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultEncounterModel">DefaultEncounterModel</a>; <a href="../DefaultEquipmentSelectionModel">DefaultEquipmentSelectionModel</a>; <a href="../DefaultExecutionRelationModel">DefaultExecutionRelationModel</a>; <a href="../DefaultFleetManagementModel">DefaultFleetManagementModel</a>; <a href="../DefaultGenericXpModel">DefaultGenericXpModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>地图 tick、遭遇设置或路线评估</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultHeirSelectionCalculationModel">DefaultHeirSelectionCalculationModel</a>; <a href="../DefaultHeroAgentLocationModel">DefaultHeroAgentLocationModel</a>; <a href="../DefaultHeroCreationModel">DefaultHeroCreationModel</a>; <a href="../DefaultHeroDeathProbabilityCalculationModel">DefaultHeroDeathProbabilityCalculationModel</a>; <a href="../DefaultHideoutModel">DefaultHideoutModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>英雄生命周期、成长或决策结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultIncidentModel">DefaultIncidentModel</a>; <a href="../DefaultInformationRestrictionModel">DefaultInformationRestrictionModel</a>; <a href="../DefaultInventoryCapacityModel">DefaultInventoryCapacityModel</a>; <a href="../DefaultItemDiscardModel">DefaultItemDiscardModel</a>; <a href="../DefaultKingdomCreationModel">DefaultKingdomCreationModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>战役启动与功能查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultKingdomDecisionPermissionModel">DefaultKingdomDecisionPermissionModel</a>; <a href="../DefaultLocationModel">DefaultLocationModel</a>; <a href="../DefaultMapDistanceModel">DefaultMapDistanceModel</a>; <a href="../DefaultMapTrackModel">DefaultMapTrackModel</a>; <a href="../DefaultMapVisibilityModel">DefaultMapVisibilityModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultMapWeatherModel">DefaultMapWeatherModel</a>; <a href="../DefaultMilitaryPowerModel">DefaultMilitaryPowerModel</a>; <a href="../DefaultMinorFactionsModel">DefaultMinorFactionsModel</a>; <a href="../DefaultMobilePartyAIModel">DefaultMobilePartyAIModel</a>; <a href="../DefaultMobilePartyFoodConsumptionModel">DefaultMobilePartyFoodConsumptionModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>地图 tick、遭遇设置或路线评估</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultNotablePowerModel">DefaultNotablePowerModel</a>; <a href="../DefaultNotableSpawnModel">DefaultNotableSpawnModel</a>; <a href="../DefaultPartyImpairmentModel">DefaultPartyImpairmentModel</a>; <a href="../DefaultPartyShipLimitModel">DefaultPartyShipLimitModel</a>; <a href="../DefaultPartyTradeModel">DefaultPartyTradeModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPartyTrainingModel">DefaultPartyTrainingModel</a>; <a href="../DefaultPartyTransitionModel">DefaultPartyTransitionModel</a>; <a href="../DefaultPartyTroopUpgradeModel">DefaultPartyTroopUpgradeModel</a>; <a href="../DefaultPersuasionModel">DefaultPersuasionModel</a>; <a href="../DefaultPlayerProgressionModel">DefaultPlayerProgressionModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultPrisonBreakModel">DefaultPrisonBreakModel</a>; <a href="../DefaultPrisonerDonationModel">DefaultPrisonerDonationModel</a>; <a href="../DefaultPrisonerRecruitmentCalculationModel">DefaultPrisonerRecruitmentCalculationModel</a>; <a href="../DefaultRaidModel">DefaultRaidModel</a>; <a href="../DefaultRansomValueCalculationModel">DefaultRansomValueCalculationModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>模型注册与消费者查询</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultRomanceModel">DefaultRomanceModel</a>; <a href="../DefaultSceneModel">DefaultSceneModel</a>; <a href="../DefaultSettlementAccessModel">DefaultSettlementAccessModel</a>; <a href="../DefaultSettlementFoodModel">DefaultSettlementFoodModel</a>; <a href="../DefaultSettlementGarrisonModel">DefaultSettlementGarrisonModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>英雄生命周期、成长或决策结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSettlementPatrolModel">DefaultSettlementPatrolModel</a>; <a href="../DefaultSettlementTaxModel">DefaultSettlementTaxModel</a>; <a href="../DefaultSettlementValueModel">DefaultSettlementValueModel</a>; <a href="../DefaultShipCostModel">DefaultShipCostModel</a>; <a href="../DefaultShipStatModel">DefaultShipStatModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>战役每日经济与据点刷新</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultSiegeLordsHallFightModel">DefaultSiegeLordsHallFightModel</a>; <a href="../DefaultTargetScoreCalculatingModel">DefaultTargetScoreCalculatingModel</a>; <a href="../DefaultTavernMercenaryTroopsModel">DefaultTavernMercenaryTroopsModel</a>; <a href="../DefaultTournamentModel">DefaultTournamentModel</a>; <a href="../DefaultTradeAgreementModel">DefaultTradeAgreementModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>Mission、战斗或围城结算</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultTradeItemPriceFactorModel">DefaultTradeItemPriceFactorModel</a>; <a href="../DefaultTroopSacrificeModel">DefaultTroopSacrificeModel</a>; <a href="../DefaultTroopSupplierProbabilityModel">DefaultTroopSupplierProbabilityModel</a>; <a href="../DefaultValuationModel">DefaultValuationModel</a>; <a href="../DefaultVassalRewardsModel">DefaultVassalRewardsModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>战役每日经济与据点刷新</td></tr>
+<tr><td>TaleWorlds.CampaignSystem.GameComponents</td><td><a href="../DefaultVillageProductionCalculatorModel">DefaultVillageProductionCalculatorModel</a>; <a href="../DefaultVillageTradeModel">DefaultVillageTradeModel</a>; <a href="../DefaultVoiceOverModel">DefaultVoiceOverModel</a>; <a href="../DefaultWallHitPointCalculationModel">DefaultWallHitPointCalculationModel</a>; <a href="../DefaultWorkshopModel">DefaultWorkshopModel</a></td><td>提供 related campaign subsystems 的 vanilla 计算实现；由 SandBox 注册后通过 GameModels 提供给消费者。</td><td>战役每日经济与据点刷新</td></tr>
+</tbody></table>
+<h2 id="dao-hang">导航</h2>
+<ul>
+<li><a href="..">上级：Campaign-Ext</a></li>
+<li><a href="../actions">同级：Actions</a> · <a href="../behaviors">Behaviors</a> · <a href="../party">Party</a> · <a href="../settlements">Settlements</a></li>
+<li><a href="../GameModels">注册入口：GameModels</a></li>
+<li><a href="../../campaign/Campaign">相关：Campaign</a> · <a href="../CampaignEvents">CampaignEvents</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

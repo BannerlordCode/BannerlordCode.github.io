@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ScreenManager</title>
+  <meta name="description" content="Bannerlord 界面（GUI）层的静态门面：持有屏幕栈、管理当前活动屏（TopScreen）与全局层，并把引擎每帧的 Tick&#x2F;LateTick&#x2F;Update 转发给活动屏与其 ScreenLayer。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/gui/ScreenManager/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/gui/ScreenManager/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/gui/ScreenManager/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/gui/ScreenManager/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="active">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;gui&#x2F;">gui 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">ScreenManager</span>
+    </nav>
+  
+  <h1>ScreenManager</h1>
+  <h1 id="screenmanager">ScreenManager</h1>
+<p><strong>Namespace:</strong> TaleWorlds.ScreenSystem<br />
+<strong>Module:</strong> TaleWorlds.ScreenSystem<br />
+<strong>Type:</strong> <code>public static class ScreenManager</code><br />
+<strong>Base:</strong> 无（静态类，无基类）<br />
+<strong>File:</strong> <code>TaleWorlds.ScreenSystem/ScreenManager.cs</code></p>
+<blockquote>
+<p>注意：本页描述的是 <strong>可手写文档</strong>。它来自对 <code>TaleWorlds.ScreenSystem/ScreenManager.cs</code>（1.3.15 / 1.4.5 同源）与 <code>TaleWorlds.Engine/EngineScreenManager.cs</code>、<code>ScreenManagerEngineConnection.cs</code> 的真实阅读，不是签名生成页。</p>
+</blockquote>
+<h2 id="gai-shu">概述</h2>
+<p><code>ScreenManager</code> 是 Bannerlord 界面系统的<strong>静态门面（facade）</strong>，也是 mod 接触屏幕/界面层的唯一公开入口。它维护一个 <code>ObservableCollection&lt;ScreenBase&gt;</code> 屏幕栈（<code>_screenList</code>），并从中选出<strong>最顶端、最后加入的屏</strong>作为「当前屏」<code>TopScreen</code>。每一帧，引擎通过 <code>EngineScreenManager</code> 的 <code>[EngineCallback]</code> 回调把 <code>Tick</code> / <code>LateTick</code> / <code>EarlyUpdate</code> / <code>Update</code> 转发进来，<code>ScreenManager</code> 再把它们派发给 <code>TopScreen</code> 及其 <code>ScreenLayer</code>（以及所有 <code>GlobalLayer</code>）。</p>
+<p>对 mod 来说，绝大多数界面需求都归结为两件事：<strong>压入/弹出自己的 <code>ScreenBase</code></strong>，或<strong>在当前的 <code>TopScreen</code> 上加一个 <code>GauntletLayer</code></strong> 来承载 Gauntlet UI。<code>ScreenManager</code> 就是做这两件事的地方——你通常<strong>不应该</strong>直接去碰 <code>EngineScreenManager</code> 或自己构造 <code>ScreenManagerEngineConnection</code>。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>ScreenManager</code> 理解为**「屏幕栈 + 当前屏 + 输入/渲染派发」的总调度器**：</p>
+<ul>
+<li><strong>屏幕 = 游戏状态单元。</strong> Bannerlord 里没有独立的 <code>GameStateManager</code> 层；一个 <code>ScreenBase</code>（如主菜单屏、战役地图屏、对话屏）本身就是一段界面/游戏状态。入栈一个屏（<code>PushScreen</code>）等于进入该状态，出栈（<code>PopScreen</code>）等于回到上一个状态。栈里的屏按加入顺序从上到下排列，<code>TopScreen</code> 永远是「正在交互的那一个」。</li>
+<li><strong>谁创建、谁持有它。</strong> <code>ScreenManager</code> 是静态类，没有实例，由引擎在启动时通过 <code>Initialize(IScreenManagerEngineConnection)</code> 注入底层连接后一直存活。屏幕栈 <code>_screenList</code> 由它私有持有，mod 只能透过 <code>PushScreen</code> / <code>PopScreen</code> / <code>TopScreen</code> 等公开面与之交互。</li>
+<li><strong>活动屏如何被选中。</strong> 每当 <code>_screenList</code> 变化（<code>CollectionChanged</code>），<code>ScreenManager</code> 取列表中<strong>最后一个</strong>元素作为 <code>TopScreen</code>，并把 <code>TopScreen</code> 的 <code>OnAddLayer</code> / <code>OnRemoveLayer</code> 事件挂上，以便 <code>SortedLayers</code> 反映当前屏的层集合。换句话说：你压入的屏自动成为 <code>TopScreen</code>，无需手动指定。</li>
+<li><strong>每帧心跳来自引擎，不来自你。</strong> 引擎侧的 <code>EngineScreenManager.Tick</code> → <code>ScreenManager.Tick(dt)</code> → <code>TopScreen.FrameTick</code> + 各 <code>ScreenLayer.Tick/RenderTick</code>。mod 一般<strong>不要</strong>手动调用 <code>Tick</code> / <code>LateTick</code> / <code>Update</code> / <code>EarlyUpdate</code>，这些由引擎驱动；你只负责在屏的生命周期钩子里（<code>OnInitialize</code> / <code>OnTick</code> / <code>OnFrameTick</code> 等）写逻辑。</li>
+<li><strong>全局层与屏层并存。</strong> 除屏幕栈外，还有一个 <code>GlobalLayer</code> 集合（如游戏内常驻的提示层、调试层）。它们在所有屏幕之上独立 Tick，与 <code>TopScreen.Layers</code> 一起参与 <code>SortedLayers</code> 的排序与输入命中测试。</li>
+</ul>
+<h2 id="he-shi-yong-he-shi-bu-yao-yong">何时用 / 何时不要用</h2>
+<p><strong>使用 <code>ScreenManager</code> 的场景：</strong></p>
+<ul>
+<li>需要进入一段全新的界面状态：自己写一个 <code>ScreenBase</code> 子类，然后 <code>ScreenManager.PushScreen(new MyScreen())</code>。</li>
+<li>需要在<strong>当前已存在的屏</strong>上叠加一个 Gauntlet UI（最常见）：拿到 <code>ScreenManager.TopScreen</code>，向它 <code>AddLayer(gauntletLayer)</code>。</li>
+<li>想读取/判断当前活动屏：<code>ScreenManager.TopScreen</code>。</li>
+<li>需要常驻于所有屏之上的 UI：用 <code>ScreenManager.AddGlobalLayer(globalLayer, isFocusable)</code>。</li>
+<li>想在屏切换时收到通知：订阅 <code>ScreenManager.OnPushScreen</code> / <code>ScreenManager.OnPopScreen</code> 事件。</li>
+</ul>
+<p><strong>不要使用 <code>ScreenManager</code> 的场景（以及正确替代）：</strong></p>
+<ul>
+<li><strong>不要</strong>手动调用 <code>Tick</code> / <code>LateTick</code> / <code>Update</code> / <code>EarlyUpdate</code>——它们由引擎每帧驱动，手动调用会破坏帧节奏甚至崩溃。</li>
+<li><strong>不要</strong>自己去 <code>new</code> 或持有 <code>EngineScreenManager</code> / <code>ScreenManagerEngineConnection</code>——它们是引擎内部/底层连接（<code>EngineScreenManager</code> 是 <code>internal</code>，<code>ScreenManagerEngineConnection</code> 由引擎在 <code>EngineScreenManager.Initialize()</code> 中构造并注入）。mod 永远走 <code>ScreenManager</code> 这层静态 API。</li>
+<li><strong>不要</strong>以为有 <code>AddScreen</code> / <code>RemoveScreen</code> / <code>CurrentScreen</code>——源码里<strong>没有</strong>这些名字。入栈是 <code>PushScreen</code> / <code>CleanAndPushScreen</code>，出栈是 <code>PopScreen</code> / <code>CleanScreens</code>，当前屏是 <strong><code>TopScreen</code></strong>（不是 <code>Current</code> / <code>CurrentScreen</code>）。</li>
+<li><strong>不要</strong>从非 UI 线程切换屏幕：<code>PushScreen</code> / <code>PopScreen</code> / <code>CleanScreens</code> / <code>CleanAndPushScreen</code> 在 1.4.5 中有主线程 <code>FailedAssert</code> 守卫；即使在 1.3.15 没有断言，它们也<strong>只能在主线程（UI 线程）调用</strong>，否则会因访问 <code>_screenList</code> 与层状态而导致崩溃或状态错乱。</li>
+</ul>
+<h2 id="yu-enginescreenmanager-screenmanagerengineconnection-de-qu-bie">与 EngineScreenManager / ScreenManagerEngineConnection 的区别</h2>
+<p>这三者名字相近，但职责完全不同，mod 只该碰第一个：</p>
+<table><thead><tr><th>类型</th><th>命名空间 / 程序集</th><th>可见性</th><th>角色</th></tr></thead><tbody>
+<tr><td><code>ScreenManager</code></td><td><code>TaleWorlds.ScreenSystem</code></td><td><code>public static</code></td><td><strong>你用的门面</strong>：持有屏幕栈、全局层、当前屏，提供 <code>PushScreen</code> / <code>PopScreen</code> / <code>TopScreen</code> 等。</td></tr>
+<tr><td><code>EngineScreenManager</code></td><td><code>TaleWorlds.Engine</code></td><td><code>internal</code></td><td><strong>引擎桥</strong>：带 <code>[EngineCallback]</code> 标记，接收原生引擎每帧回调并转发给 <code>ScreenManager.Tick/LateTick/EarlyUpdate/Update</code>，以及在启动时 <code>ScreenManager.Initialize(new ScreenManagerEngineConnection())</code>。mod 不可见、不可调用。</td></tr>
+<tr><td><code>ScreenManagerEngineConnection</code>（实现 <code>IScreenManagerEngineConnection</code>）</td><td><code>TaleWorlds.Engine</code> / 接口在 <code>TaleWorlds.ScreenSystem</code></td><td><code>public class</code> / <code>public interface</code></td><td><strong>底层连接实现</strong>：把 <code>ScreenManager</code> 对鼠标光标、分辨率、调试面板（Imgui）的请求翻译成原生 <code>Screen</code> / <code>MouseManager</code> / <code>Imgui</code> 调用。由引擎注入，mod 不构造。</td></tr>
+</tbody></table>
+<p>一句话：<code>ScreenManager</code> 是「你能调用的调度器」，<code>EngineScreenManager</code> 是「引擎驱动它的桥」，而 <code>ScreenManagerEngineConnection</code> 是「它通往原生渲染后端的插头」。</p>
+<h2 id="yi-lai-tu">依赖图</h2>
+<ul>
+<li><strong>上游（创建 / 驱动 / 注入）：</strong>
+<ul>
+<li><a href="../../engine/EngineScreenManager">EngineScreenManager</a> — 引擎每帧回调进入 <code>ScreenManager</code> 的入口（<code>internal</code>，mod 不直接用）。</li>
+<li><code>IScreenManagerEngineConnection</code> / <code>ScreenManagerEngineConnection</code>（位于 <a href="../../engine/EngineScreenManager">EngineScreenManager</a> 同体系）——被 <code>Initialize(...)</code> 注入，提供光标/分辨率/调试面板后端。</li>
+<li><a href="../../campaign-ext/ScreenBase">ScreenBase</a> —— 被压入栈的单元；<code>ScreenManager</code> 持有并驱动它。</li>
+</ul>
+</li>
+<li><strong>下游（被它驱动 / 由你在其上叠加）：</strong>
+<ul>
+<li><a href="../../campaign-ext/ScreenLayer">ScreenLayer</a> —— 屏与全局层中的可输入/可渲染层，<code>SortedLayers</code> 由它们构成。</li>
+<li><a href="../../engine/GauntletLayer">GauntletLayer</a> —— 承载 Gauntlet UI（XAML + ViewModel）的具体 <code>ScreenLayer</code>，通常通过 <code>TopScreen.AddLayer(...)</code> 叠加。</li>
+<li><a href="../../core-extra/ViewModel">ViewModel</a> —— Gauntlet UI 的数据绑定源，挂在某块 <code>GauntletLayer</code> 上。</li>
+</ul>
+</li>
+</ul>
+<h2 id="cheng-yuan-shuo-ming">成员说明</h2>
+<p>下面按主题分组列出 mod 最常用、且从源码逐条确认过的成员。每个都给出<strong>用途 + 副作用 + 调用时机</strong>。源码中没有的 <code>AddScreen</code> / <code>RemoveScreen</code> / <code>CurrentScreen</code> 一律不存在，请勿使用。</p>
+<h3 id="zhan-guan-li-ru-zhan-chu-zhan-qing-ping">栈管理（入栈 / 出栈 / 清屏）</h3>
+<h4 id="public-static-void-pushscreen-screenbase-screen"><code>public static void PushScreen(ScreenBase screen)</code></h4>
+<p>把 <code>screen</code> 压入屏幕栈，使其成为新的 <code>TopScreen</code>。</p>
+<ul>
+<li><strong>副作用</strong>：先把旧 <code>TopScreen</code> 置为暂停（<code>HandlePause</code>）并在仍激活时 <code>HandleDeactivate</code>；然后对新屏依次调用 <code>HandleInitialize</code> → <code>HandleActivate</code> → <code>HandleResume</code>；触发 <code>OnPushScreen</code> 事件；标记全局层顺序脏（<code>_globalOrderDirty</code>）。</li>
+<li><strong>调用时机</strong>：需要进入一段新界面状态时。例如从主菜单进入战役地图、打开一个全屏自定义面板。等价于「进入新游戏状态」。<strong>只能在主线程调用。</strong></li>
+<li><strong>要点</strong>：旧屏只是被暂停/隐藏，仍在栈中；之后调用 <code>PopScreen()</code> 即可返回它。</li>
+</ul>
+<pre><code data-lang="csharp">// 进入一段自定义全屏界面状态
+ScreenManager.PushScreen(new RecruitmentScreen());
+</code></pre>
+<h4 id="public-static-void-popscreen"><code>public static void PopScreen()</code></h4>
+<p>把当前 <code>TopScreen</code> 从栈顶弹出，回到上一个屏。</p>
+<ul>
+<li><strong>副作用</strong>：对旧 <code>TopScreen</code> 依次 <code>HandlePause</code> → <code>HandleDeactivate</code> → <code>HandleFinalize</code>（<strong>会销毁该屏及其层</strong>），触发 <code>OnPopScreen</code>；若栈中还有屏，则重新 <code>HandleActivate</code> 上一个屏（若它仍是同一个实例再 <code>HandleResume</code>）。</li>
+<li><strong>调用时机</strong>：你之前 <code>PushScreen</code> 进入的屏要退出时。<strong>只能弹你自己压入的屏</strong>——不要去弹出你没压入的系统屏，否则会破坏引擎预期的屏序列并可能让上一个屏状态错乱或崩溃。</li>
+<li><strong>风险</strong>：<code>HandleFinalize</code> 会释放该屏持有的层与资源；若该屏上还挂着你的 <code>GauntletLayer</code>，它也会一并被销毁。</li>
+</ul>
+<pre><code data-lang="csharp">// 关闭当前自定义屏，回到上一个屏
+ScreenManager.PopScreen();
+</code></pre>
+<h4 id="public-static-void-cleanscreens"><code>public static void CleanScreens()</code></h4>
+<p><strong>清空整个屏幕栈</strong>：循环对每一个 <code>TopScreen</code> 执行 <code>HandlePause</code> → <code>HandleDeactivate</code> → <code>HandleFinalize</code> 并触发 <code>OnPopScreen</code>，直到栈空。</p>
+<ul>
+<li><strong>副作用</strong>：销毁所有屏。通常只在退出到主菜单、硬切换游戏状态时由引擎/系统调用。</li>
+<li><strong>调用时机</strong>：mod 一般<strong>不要</strong>调用它，除非你明确要丢弃全部界面状态（例如强制回到主菜单）。误用会干掉引擎自身的屏，导致黑屏或崩溃。</li>
+</ul>
+<h4 id="public-static-void-cleanandpushscreen-screenbase-screen"><code>public static void CleanAndPushScreen(ScreenBase screen)</code></h4>
+<p>先 <code>DeactivateAndFinalizeAllScreens()</code> 清掉全部现有屏，再把 <code>screen</code> 作为唯一屏压入（同样走 <code>HandleInitialize</code> → <code>HandleActivate</code> → <code>HandleResume</code> 并触发 <code>OnPushScreen</code>）。</p>
+<ul>
+<li><strong>副作用</strong>：等价于「<code>CleanScreens()</code> + <code>PushScreen(screen)</code>」，但只触发一次 <code>OnPushScreen</code>。</li>
+<li><strong>调用时机</strong>：需要彻底替换当前界面上下文（而非叠加）时，例如从战役地图直接进入某个独立模块的全屏 UI。会丢弃栈中所有已有屏，谨慎使用。</li>
+</ul>
+<pre><code data-lang="csharp">// 彻底替换当前界面上下文，只保留新屏
+ScreenManager.CleanAndPushScreen(new ArenaScreen());
+</code></pre>
+<h4 id="public-static-void-replacetopscreen-screenbase-screen"><code>public static void ReplaceTopScreen(ScreenBase screen)</code></h4>
+<p>仅当栈非空时：把当前 <code>TopScreen</code> 暂停/停用/销毁，再把 <code>screen</code> 作为新的 <code>TopScreen</code> 激活。</p>
+<ul>
+<li><strong>副作用</strong>：与 <code>PopScreen</code> + <code>PushScreen</code> 类似，但<strong>不保留</strong>被替换掉的旧屏（直接 <code>HandleFinalize</code>）。若栈为空则直接把 <code>screen</code> 当作根屏加入。</li>
+<li><strong>调用时机</strong>：用新屏<strong>原地替换</strong>当前屏（而非返回上一个屏）时。</li>
+</ul>
+<h4 id="public-static-void-setandactivaterootscreen-screenbase-screen"><code>public static void SetAndActivateRootScreen(ScreenBase screen)</code></h4>
+<p>把 <code>screen</code> 作为<strong>根屏</strong>（栈中第一个屏）激活。</p>
+<ul>
+<li><strong>副作用</strong>：若 <code>TopScreen</code> 不为 <code>null</code> 会直接 <code>throw new Exception("TopScreen is not null.")</code>。成功则 <code>HandleInitialize</code> → <code>HandleActivate</code> → <code>HandleResume</code> 并触发 <code>OnPushScreen</code>。</li>
+<li><strong>调用时机</strong>：引擎在游戏启动、从启动屏进入第一个真实界面时使用。mod 几乎不需要调用；若误在已有屏时调用会抛异常。</li>
+</ul>
+<h4 id="public-static-bool-screentypeexistsatlist-screenbase-screen"><code>public static bool ScreenTypeExistsAtList(ScreenBase screen)</code></h4>
+<p>检查屏幕栈中是否已有<strong>与 <code>screen</code> 同 <code>Type</code></strong> 的屏存在。</p>
+<ul>
+<li><strong>用途</strong>：避免重复压入同一类型的屏（例如防止多次打开同一个面板）。</li>
+<li><strong>调用时机</strong>：<code>PushScreen</code> 之前做去重判断。</li>
+</ul>
+<pre><code data-lang="csharp">if (!ScreenManager.ScreenTypeExistsAtList(myScreen))
+{
+    ScreenManager.PushScreen(myScreen);
+}
+</code></pre>
+<h3 id="dang-qian-ping-yu-quan-ju-ceng">当前屏与全局层</h3>
+<h4 id="public-static-screenbase-topscreen-get"><code>public static ScreenBase TopScreen { get; }</code></h4>
+<p><strong>当前活动屏</strong>——即屏幕栈中最后一个元素。这是源码里「当前屏」的真实名字（<strong>不是</strong> <code>Current</code> / <code>CurrentScreen</code>）。</p>
+<ul>
+<li><strong>用途</strong>：拿到当前屏以在其上叠加层（最常见用法），或判断当前处于哪个界面状态。</li>
+<li><strong>注意</strong>：<code>get</code> 是 <code>private set</code>，你<strong>不能</strong>赋值；只能通过 <code>PushScreen</code> / <code>PopScreen</code> 等改变它。没有活动屏时返回 <code>null</code>。</li>
+</ul>
+<pre><code data-lang="csharp">// 在当前活动屏上叠加一个 Gauntlet UI 层（最常见的 UI 注入方式）
+GauntletLayer layer = new GauntletLayer(0);
+layer.LoadMovie(&quot;MyWidget&quot;, myViewModel);
+ScreenManager.TopScreen.AddLayer(layer);
+</code></pre>
+<h4 id="public-static-void-addgloballayer-globallayer-layer-bool-isfocusable"><code>public static void AddGlobalLayer(GlobalLayer layer, bool isFocusable)</code></h4>
+<p>把一个 <code>GlobalLayer</code> 加入全局层集合（常驻于所有屏之上）。</p>
+<ul>
+<li><strong>副作用</strong>：按 <code>layer.Layer.InputRestrictions.Order</code> 插入到合适位置，调用 <code>layer.Layer.HandleActivate()</code>，标记全局顺序脏。</li>
+<li><strong>调用时机</strong>：需要跨屏常驻的 UI（如全局输入提示、常驻小地图、调试浮层）时。不要用于只属于某个屏的 UI——那种应加到具体 <code>ScreenBase</code> 上。</li>
+</ul>
+<h4 id="public-static-void-removegloballayer-globallayer-layer"><code>public static void RemoveGlobalLayer(GlobalLayer layer)</code></h4>
+<p>从全局层集合移除一个 <code>GlobalLayer</code>，并 <code>HandleDeactivate()</code> 它。</p>
+<ul>
+<li><strong>调用时机</strong>：你之前 <code>AddGlobalLayer</code> 加入的层要销毁时。只移除你自己的层。</li>
+</ul>
+<h3 id="shu-ru-lu-you-yu-jiao-dian">输入路由与焦点</h3>
+<h4 id="public-static-void-trysetfocus-screenlayer-layer"><code>public static void TrySetFocus(ScreenLayer layer)</code></h4>
+<p>尝试把输入焦点交给 <code>layer</code>。仅当 <code>layer</code> 是焦点层或命中焦点测试、且当前 <code>FocusedLayer</code> 的 <code>InputRestrictions.Order</code> 不高于它时生效。</p>
+<ul>
+<li><strong>调用时机</strong>：你的层需要抢输入焦点时（如打开模态对话框）。</li>
+</ul>
+<h4 id="public-static-void-trylosefocus-screenlayer-layer"><code>public static void TryLoseFocus(ScreenLayer layer)</code></h4>
+<p>若 <code>layer</code> 是 <code>FocusedLayer</code>，释放焦点并尝试把焦点交还给排序最高、仍激活的 <code>IsFocusLayer</code> 层；找不到则 <code>FocusedLayer = null</code>。</p>
+<h4 id="public-static-bool-islayerblockedatposition-screenlayer-layer-vector2-position"><code>public static bool IsLayerBlockedAtPosition(ScreenLayer layer, Vector2 position)</code></h4>
+<p>从最上层向下做命中测试，判断在 <code>position</code> 处 <code>layer</code> 是否被某个更靠上、且消费鼠标按键/滚轮的层挡住。</p>
+<ul>
+<li><strong>用途</strong>：决定某次点击/滚轮是否应穿透到你的层。</li>
+</ul>
+<h4 id="public-static-bool-getmousevisibility-iscontrolleractive-ismousecursoractive-ismousecursorhidden"><code>public static bool GetMouseVisibility()</code> / <code>IsControllerActive()</code> / <code>IsMouseCursorActive()</code> / <code>IsMouseCursorHidden()</code></h4>
+<p>查询当前输入设备与鼠标光标可见性状态。常用于根据当前屏决定 UI 是否显示虚拟光标。</p>
+<h3 id="yin-qing-xin-tiao-yu-sheng-ming-zhou-qi">引擎心跳与生命周期</h3>
+<p>这些成员由引擎每帧调用，<strong>mod 通常不应手动调用</strong>；这里说明它们做什么、谁在驱动。</p>
+<h4 id="public-static-void-initialize-iscreenmanagerengineconnection-engineinterface"><code>public static void Initialize(IScreenManagerEngineConnection engineInterface)</code></h4>
+<p>注入底层引擎连接。引擎在 <code>EngineScreenManager.Initialize()</code> 里调用 <code>ScreenManager.Initialize(new ScreenManagerEngineConnection())</code>，mod 不调用。</p>
+<h4 id="public-static-void-tick-float-dt"><code>public static void Tick(float dt)</code></h4>
+<p>一帧的主体更新：先 Tick 所有 <code>GlobalLayer.EarlyTick</code>，再 <code>Update()</code>，然后 <code>TopScreen.FrameTick</code> + 上一个屏（前驱）的 <code>IdleTick</code>，逐层 <code>ScreenLayer.Tick</code>，<code>LateUpdate</code>，全局层 <code>Tick</code> / <code>LateTick</code>，<code>TopScreen.PostFrameTick</code>，最后绘制调试信息。由 <code>EngineScreenManager.Tick</code> 驱动。</p>
+<h4 id="public-static-void-latetick-float-dt"><code>public static void LateTick(float dt)</code></h4>
+<p>渲染阶段：<code>SortedLayers</code> 中激活且未 finalize 的层 <code>RenderTick(dt)</code>。由 <code>EngineScreenManager.LateTick</code> 驱动。</p>
+<h4 id="public-static-void-update-ireadonlylist-int-lastkeyspressed"><code>public static void Update(IReadOnlyList&lt;int&gt; lastKeysPressed)</code></h4>
+<p>把本帧按键派发给 <code>TopScreen.Update</code> 与各激活全局层。由 <code>EngineScreenManager.Update</code> 驱动。</p>
+<h4 id="public-static-void-earlyupdate-vec2-usablearea"><code>public static void EarlyUpdate(Vec2 usableArea)</code></h4>
+<p>设置可用区域、刷新全局层顺序、做命中测试与输入事件预派发（<code>EarlyProcessEvents</code>）。由 <code>EngineScreenManager.PreTick</code> 驱动。</p>
+<h4 id="public-static-void-onfinalize"><code>public static void OnFinalize()</code></h4>
+<p>反注册所有集合/层事件并清空屏幕栈与全局层，释放 <code>FocusedLayer</code>。游戏关闭时由引擎调用。</p>
+<h4 id="public-static-void-ongamewindowfocuschange-bool-focusgained"><code>public static void OnGameWindowFocusChange(bool focusGained)</code></h4>
+<p>窗口获得/失去焦点时由引擎回调：更新 <code>_isWindowFocused</code>、通知 <code>TopScreen.OnFocusChangeOnGameWindow</code>、获得焦点时触发 <code>FocusGained</code> 事件、重置焦点层按键。</p>
+<h4 id="public-static-void-onconstrainstatechanged-bool-isconstrained"><code>public static void OnConstrainStateChanged(bool isConstrained)</code></h4>
+<p>系统约束状态变化（如 ALT+TAB 锁屏）时回调，等价于 <code>OnGameWindowFocusChange(!isConstrained)</code>。</p>
+<h3 id="shi-jian">事件</h3>
+<h4 id="public-static-event-onpushscreenevent-onpushscreen"><code>public static event OnPushScreenEvent OnPushScreen</code></h4>
+<p>每次有屏被压入（成为 <code>TopScreen</code>）后触发，参数为该屏。适合做「屏切换后」的初始化或统计。</p>
+<h4 id="public-static-event-onpopscreenevent-onpopscreen"><code>public static event OnPopScreenEvent OnPopScreen</code></h4>
+<p>每次有屏被弹出（finalize 前）时触发，参数为被弹出的屏。适合清理你挂在该屏上的层/资源。</p>
+<pre><code data-lang="csharp">// 监听屏切换，清理自己叠加的层
+ScreenManager.OnPopScreen += screen =&gt;
+{
+    foreach (ScreenLayer layer in screen.Layers)
+    {
+        if (layer is GauntletLayer gauntlet &amp;&amp; gauntlet.MovieName == &quot;MyWidget&quot;)
+        {
+            // 资源已随屏销毁，这里仅做日志/统计
+        }
+    }
+};
+</code></pre>
+<h2 id="feng-xian-duan">风险段</h2>
+<ul>
+<li><strong>只能在主线程（UI 线程）切换屏幕。</strong> <code>PushScreen</code> / <code>PopScreen</code> / <code>CleanScreens</code> / <code>CleanAndPushScreen</code> 在 1.4.5 带 <code>TWParallel.IsMainThread()</code> 的 <code>FailedAssert</code>；1.3.15 虽无断言，但同样非线程安全。从后台线程（如网络回调、异步任务）调用会破坏 <code>_screenList</code> 与层状态并崩溃。一律用引擎已处在 UI 线程的时机（屏生命周期钩子、<code>OnTick</code>、事件回调）来切换。</li>
+<li><strong>不要弹出你没压入的屏。</strong> <code>PopScreen()</code> 总是销毁<strong>当前</strong> <code>TopScreen</code>。如果你只压了一个自定义屏，却误调两次 <code>PopScreen</code>，第二次会销毁系统屏（如战役地图屏），导致返回到错误状态甚至黑屏。配对原则：自己 <code>PushScreen</code> 的，自己 <code>PopScreen</code>。</li>
+<li><strong>屏切换会连带销毁其上的层与 ViewModel。</strong> <code>PopScreen</code> / <code>CleanScreens</code> / <code>ReplaceTopScreen</code> 都会 <code>HandleFinalize</code> 当前屏，挂在它上面的 <code>GauntletLayer</code> 与对应 <code>ViewModel</code> 一并释放。若你在屏上叠加了 <code>GauntletLayer</code>，不要在屏销毁后还持有其 <code>ViewModel</code> 的引用去更新——那会访问已释放对象。</li>
+<li><strong>不要把 <code>Tick</code> / <code>LateTick</code> / <code>Update</code> / <code>EarlyUpdate</code> 当普通方法调。</strong> 它们是引擎每帧驱动的心跳，手动调用会打乱帧顺序、双重 Tick 层，造成输入/渲染异常。你的逻辑应写在屏或层的 <code>OnTick</code> / <code>OnFrameTick</code> / <code>OnLateTick</code> 等钩子里。</li>
+<li><strong><code>TopScreen</code> 可能为 <code>null</code>。</strong> 在没有任何活动屏时（理论上仅在启动/关闭瞬间）访问 <code>ScreenManager.TopScreen</code> 会得到 <code>null</code>，直接 <code>TopScreen.AddLayer(...)</code> 会空引用。叠加层前先判空，或确认当前确实处于某个屏内。</li>
+<li><strong>全局层顺序由 <code>InputRestrictions.Order</code> 决定。</strong> <code>AddGlobalLayer</code> 按 order 插入；order 设置不当会导致你的全局层被其他层挡住输入或永远拿不到焦点。</li>
+</ul>
+<h2 id="zui-xiao-zhen-shi-shi-li">最小真实示例</h2>
+<h3 id="shi-li-1-zai-dang-qian-ping-shang-die-jia-yi-ge-gauntlet-ui-ceng-zui-chang-jian-de-ui-zhu-ru">示例 1：在当前屏上叠加一个 Gauntlet UI 层（最常见的 UI 注入）</h3>
+<pre><code data-lang="csharp">// 假设 myViewModel 是某个 ViewModel 实例
+GauntletLayer gauntletLayer = new GauntletLayer(0, &quot;GauntletUI&quot;, false);
+gauntletLayer.LoadMovie(&quot;MyPanel&quot;, myViewModel);
+
+// 真实「当前屏」是 TopScreen，不是 Current / CurrentScreen
+ScreenBase current = ScreenManager.TopScreen;
+if (current != null)
+{
+    current.AddLayer(gauntletLayer);
+}
+</code></pre>
+<h3 id="shi-li-2-ya-ru-yi-ge-zi-ding-yi-quan-ping-screenbase-bing-zai-tui-chu-shi-fan-hui">示例 2：压入一个自定义全屏 ScreenBase，并在退出时返回</h3>
+<pre><code data-lang="csharp">// RecruitmentScreen 是你写的 ScreenBase 子类
+ScreenManager.PushScreen(new RecruitmentScreen());
+
+// 在 RecruitmentScreen 内部决定退出时：
+// 只弹你自己压入的屏，回到上一个屏
+ScreenManager.PopScreen();
+</code></pre>
+<h2 id="dao-hang">导航</h2>
+<ul>
+<li>↑ 上级：<a href="../">gui 目录</a> · <a href="../../">API 参考</a></li>
+<li>↔ 同级 / 相关：
+<ul>
+<li><a href="../../campaign-ext/ScreenBase">ScreenBase</a> — 被压入栈的屏幕/游戏状态单元</li>
+<li><a href="../../campaign-ext/ScreenLayer">ScreenLayer</a> — 屏与全局层中的可输入/可渲染层</li>
+<li><a href="../../engine/EngineScreenManager">EngineScreenManager</a> — 引擎桥（含 <code>ScreenManagerEngineConnection</code> 底层连接），mod 不直接用</li>
+<li><a href="../../engine/GauntletLayer">GauntletLayer</a> — 承载 Gauntlet UI 的 <code>ScreenLayer</code></li>
+<li><a href="../../core-extra/ViewModel">ViewModel</a> — Gauntlet UI 的数据绑定源</li>
+</ul>
+</li>
+<li>跨版本：核心屏幕栈 API 在 1.3.15 与 1.4.5 形状一致；1.4.5 额外为 <code>PushScreen</code> / <code>PopScreen</code> / <code>CleanScreens</code> / <code>CleanAndPushScreen</code> 增加了主线程 <code>FailedAssert</code> 守卫（1.3.15 无断言但同样是主线程专用）。1.4.5 移除了 1.3.15 公开过的 <code>IsWindowFocused</code> 属性。</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/gui/">gui 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/gui/SpriteSizeComparer/">&larr; SpriteSizeComparer</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/gui/Dwmapi/">Dwmapi &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

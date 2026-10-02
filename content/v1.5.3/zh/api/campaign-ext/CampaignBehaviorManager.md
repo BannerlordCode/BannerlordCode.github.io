@@ -74,11 +74,11 @@ public class MyQuestBehavior : CampaignBehaviorBase
 - **`_campaignBehaviorDataStore` 是 `[SaveableField(1)]`**：它是管理器**唯一**被序列化进存档的字段。behavior 列表本身不存档——读档时列表由引擎根据你 `OnGameStart` 里注册的内容重新构建。**这意味着读档后 behavior 实例是新的，旧实例的引用全废。**
 - **替换语义**：`InitializeCampaignBehaviors` 会清掉运行期加的 behavior。动态添加请用 `AddBehavior`。
 - **类型歧义**：`GetBehavior<T>()` 返回第一个匹配。原生 `SettlementProsperityModel` 这类 model 不是 behavior，别在这里找 model，要去 `Campaign.Current.Models`。
-- **命名空间与目录分离**：类在 `TaleWorlds.CampaignSystem.CampaignBehaviors` 命名空间（按 canonical 规则本应落 `campaign-ext`），但作为入口类官方把它归到 `campaign` 桶，页面位置以 `zh/api/campaign/` 为准。
+- **命名空间决定目录**：类在 `TaleWorlds.CampaignSystem.CampaignBehaviors` 命名空间，按 canonical 规则（`tools/_dir-map-canonical.json`）就属 `campaign-ext`，本页也在 `api/campaign-ext/`。别按类型名里的 "Behavior" 去 `campaign/` 找它。
 
 ## 依赖关系
 
 - [CampaignBehaviorBase](../../campaign/CampaignBehaviorBase) — 被管理的元素类型，提供 `SyncData` 与 `StringId`
-- [ICampaignBehavior](../ICampaignBehavior) — 行为侧的最小契约，只要求 `RegisterEvents()`
+- [ICampaignBehavior](../../campaign/ICampaignBehavior) — 行为侧的最小契约，只要求 `RegisterEvents()`
 - [CampaignEventDispatcher](../../campaign/CampaignEventDispatcher) — `RemoveBehavior<T>()` 借它清理事件订阅
 - [Campaign](../../campaign/Campaign) — 通过 `CampaignBehaviorManager` 属性暴露管理器，`GetCampaignBehavior<T>()` 转发到它

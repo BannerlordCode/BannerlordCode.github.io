@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campaign</title>
+  <meta name="description" content="The global entry point for the Bannerlord campaign world: time management, object managers, quest&#x2F;issue systems, behavior manager, and model collection.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/Campaign/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/Campaign/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/Campaign/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/Campaign/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/Campaign/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/Campaign/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Campaign</span>
+    </nav>
+  
+  <h1>Campaign</h1>
+  <h1 id="campaign">Campaign</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public class Campaign : GameType</code><br />
+<strong>Base:</strong> <code>GameType</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Campaign.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Campaign</code> is the “world object” of Bannerlord's <strong>campaign map</strong>. It does not control battle scenes directly; instead it holds the runtime state of the entire campaign sandbox:</p>
+<ul>
+<li>Collection entry points for all <code>Hero</code>, <code>Clan</code>, <code>Kingdom</code>, <code>Settlement</code>, and <code>MobileParty</code> instances.</li>
+<li>The behavior manager (<code>CampaignBehaviorManager</code>) that runs mod logic on daily/hourly ticks.</li>
+<li>Quest (<code>QuestManager</code>) and issue (<code>IssueManager</code>) systems.</li>
+<li>Relation (<code>CharacterRelationManager</code>) and faction (<code>FactionManager</code>) systems.</li>
+<li>The model collection (<code>Models</code>) that encapsulates battle, economy, relation, and other algorithms.</li>
+</ul>
+<p>In short: almost every mod operation on the campaign map starts by grabbing <code>Campaign.Current</code>.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of <code>Campaign</code> as the <strong>campaign-world engine instance</strong>:</p>
+<ul>
+<li>Do not <code>new Campaign()</code> yourself; the game creates and starts it through <code>CampaignGameStarter</code>.</li>
+<li>Access the single instance via <code>Campaign.Current</code>; if it is <code>null</code>, you are not on the campaign map (e.g., main menu or custom battle).</li>
+<li>It is mostly a <strong>coordinator/container</strong>: most “doing” logic lives in <code>CampaignBehaviorBase</code> subclasses or <code>GameModel</code> subclasses, not directly on <code>Campaign</code>.</li>
+<li>It exposes the current game time through <code>CampaignTime.Now</code> (on <code>CampaignTime</code>); time is the axis around which the campaign turns.</li>
+</ul>
+<h2 id="how-to-access-campaign">How to Access Campaign</h2>
+<pre><code data-lang="csharp">// The typical entry point
+Campaign campaign = Campaign.Current;
+if (campaign == null) return; // not on the campaign map
+
+// Reach managers through Campaign
+Hero mainHero = campaign.MainParty?.LeaderHero; // or Hero.MainHero
+MobileParty mainParty = campaign.MainParty;
+Clan playerClan = Clan.PlayerClan;
+CampaignTime now = CampaignTime.Now;
+</code></pre>
+<h2 id="core-properties-managers">Core Properties &amp; Managers</h2>
+<table><thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>Campaign.Current</code></td><td><code>Campaign</code></td><td>Global singleton instance.</td></tr>
+<tr><td><code>MainParty</code></td><td><code>MobileParty</code></td><td>Player party; same as <code>MobileParty.MainParty</code>.</td></tr>
+<tr><td><code>CampaignObjectManager</code></td><td><code>CampaignObjectManager</code></td><td>Manages lifecycle and lookup of <code>MBObjectBase</code>-derived objects (heroes, clans, kingdoms, etc.).</td></tr>
+<tr><td><code>CampaignBehaviorManager</code></td><td><code>ICampaignBehaviorManager</code></td><td>Manages all <code>CampaignBehaviorBase</code> instances; where mods register custom behaviors.</td></tr>
+<tr><td><code>QuestManager</code></td><td><code>QuestManager</code></td><td>Tracks active quests.</td></tr>
+<tr><td><code>IssueManager</code></td><td><code>IssueManager</code></td><td>Tracks available and ongoing issues.</td></tr>
+<tr><td><code>FactionManager</code></td><td><code>FactionManager</code></td><td>Factions (kingdoms, clans, gangs) relations and states.</td></tr>
+<tr><td><code>CharacterRelationManager</code></td><td><code>CharacterRelationManager</code></td><td>Personal relations between heroes.</td></tr>
+<tr><td><code>Models</code></td><td><code>GameModels</code></td><td>Collection of algorithm models (combat, economy, influence, skill growth, etc.).</td></tr>
+<tr><td><code>SaveHandler</code></td><td><code>SaveHandler</code></td><td>Save/load entry point.</td></tr>
+<tr><td><code>GameStarted</code></td><td><code>bool</code></td><td>Whether the campaign has started.</td></tr>
+<tr><td><code>CurrentTickCount</code></td><td><code>int</code></td><td>Current tick count.</td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="public-static-campaign-current-get"><code>public static Campaign Current { get; }</code></h3>
+<p>Global access point. Most campaign mod logic begins with <code>if (Campaign.Current == null) return;</code>.</p>
+<pre><code data-lang="csharp">public override void RegisterEvents()
+{
+    CampaignEvents.DailyTickPartyEvent.AddNonSerializedListener(this, OnDailyTickParty);
+}
+
+private void OnDailyTickParty(MobileParty party)
+{
+    if (Campaign.Current == null) return;
+    // your daily logic
+}
+</code></pre>
+<h3 id="public-gamemodels-models"><code>public GameModels Models</code></h3>
+<p>Get the model collection, used to read or replace algorithms such as influence cost, party speed, or skill XP formulas.</p>
+<pre><code data-lang="csharp">// Note: replacing models should usually be done in CampaignGameStarter&#39;s OnGameStart/OnGameLoaded.
+Campaign.Current.Models.DiplomacyModel = new MyCustomDiplomacyModel();
+</code></pre>
+<h3 id="public-campaignobjectmanager-campaignobjectmanager"><code>public CampaignObjectManager CampaignObjectManager</code></h3>
+<p>Access the object manager to find or iterate objects by id.</p>
+<pre><code data-lang="csharp">Hero hero = Campaign.Current.CampaignObjectManager.Find&lt;Hero&gt;(&quot;lord_derthert&quot;);
+Settlement settlement = Campaign.Current.Settlements.FirstOrDefault(s =&gt; s.IsTown);
+</code></pre>
+<h3 id="public-override-void-onmissionisstarting-string-missionname-missioninitializerrecord-rec"><code>public override void OnMissionIsStarting(string missionName, MissionInitializerRecord rec)</code></h3>
+<p>Campaign-side callback fired before a mission (battle, scene, etc.) starts. Useful for modifying party rosters or adding agents based on campaign state.</p>
+<pre><code data-lang="csharp">public class MyCampaignBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents()
+    {
+        CampaignEvents.OnMissionStartedEvent.AddNonSerializedListener(this, OnMissionStarted);
+    }
+
+    private void OnMissionStarted(IMission mission)
+    {
+        // Mission has started; mission-related data is available here.
+    }
+}
+</code></pre>
+<h2 id="typical-usage-examples">Typical Usage Examples</h2>
+<h3 id="example-1-safe-campaign-access-helper">Example 1: Safe Campaign access helper</h3>
+<pre><code data-lang="csharp">public static class CampaignHelper
+{
+    public static Campaign ActiveCampaign =&gt; Campaign.Current;
+
+    public static bool IsCampaignActive =&gt; Campaign.Current != null &amp;&amp; Campaign.Current.GameStarted;
+}
+</code></pre>
+<h3 id="example-2-iterate-all-clans-on-daily-tick-and-print-their-gold">Example 2: Iterate all clans on daily tick and print their gold</h3>
+<pre><code data-lang="csharp">private void OnDailyTick()
+{
+    if (Campaign.Current == null) return;
+
+    foreach (Clan clan in Clan.AllClans)
+    {
+        if (clan.IsEliminated) continue;
+        InformationManager.DisplayMessage(new InformationMessage($&quot;{clan.Name}: {clan.Gold} gold&quot;));
+    }
+}
+</code></pre>
+<h3 id="example-3-replace-a-gamemodel">Example 3: Replace a GameModel</h3>
+<pre><code data-lang="csharp">public class MyCampaignBehavior : CampaignBehaviorBase
+{
+    public override void RegisterEvents() { }
+
+    public override void SyncData(IDataStore dataStore) { }
+
+    protected void OnGameStart(IGameStarter gameStarter)
+    {
+        if (gameStarter is CampaignGameStarter campaignStarter)
+        {
+            campaignStarter.AddModel(new MyPartySpeedModel());
+        }
+    }
+}
+</code></pre>
+<blockquote>
+<p>You can replace <code>Campaign.Current.Models</code> members at runtime via reflection, but prefer registering models through <code>CampaignGameStarter.AddModel</code>.</p>
+</blockquote>
+<h2 id="cross-version-notes">Cross-Version Notes</h2>
+<ul>
+<li>v1.3.0: <code>Campaign.Current</code> works the same; the <code>Models</code> collection contains fewer model classes.</li>
+<li>v1.4.5: <code>Campaign</code> was split into more sub-managers (e.g., new/separate <code>CampaignInformationManager</code>). For cross-version mods, prefer accessing through interface properties rather than reflecting private fields.</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../../campaign-ext/CampaignBehaviorBase/">CampaignBehaviorBase</a> — inject custom logic into the campaign lifecycle</li>
+<li><a href="../../campaign-ext/CampaignGameStarter/">CampaignGameStarter</a> — register models and behaviors at startup</li>
+<li><a href="../../campaign-ext/CampaignEvents/">CampaignEvents</a> — event bus</li>
+<li><a href="../../campaign-ext/CampaignTime/">CampaignTime</a> — campaign time</li>
+<li><a href="../MobileParty/">MobileParty</a> — player/AI parties</li>
+<li><a href="../Hero/">Hero</a> — hero characters</li>
+<li><a href="../Settlement/">Settlement</a> — towns, castles, villages</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign/">campaign index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign/PartyBase/">&larr; PartyBase</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign/ItemTradeData/">ItemTradeData &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -113,4 +113,4 @@ starter.AddWaitGameMenu("wait_at_my_hideout",
 - 事件来源：[CampaignEvents](../CampaignEvents) — Behavior 注册后订阅的主要目标。
 - 存档接口：[IDataStore](../IDataStore) — Behavior 的 `SyncData` 参数类型。
 - 实现接口：`IGameStarter` 在核心桶，注册点由 `MBSubModuleBase.OnGameStart` 提供。
-- 父级：campaign API 目录导览位于版本根 `../../../`。
+- 父级：[campaign API 目录导览](../)

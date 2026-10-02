@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Issues</title>
+  <meta name="description" content="Quest and issue states, flows and trigger logic.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/issues/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/issues/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="active">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;campaign&#x2F;">campaign index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Issues</span>
+    </nav>
+  
+  <h1>Issues</h1>
+  <h2 id="up">Up</h2>
+<ul>
+<li><a href="../">Back to campaign index</a></li>
+<li><a href="../../">API Index</a></li>
+<li><a href="../../../">Version Home</a></li>
+</ul>
+<h2 id="subsystem-overview">Subsystem overview</h2>
+<p>This is the <strong>Issues</strong> subsystem inside <strong>campaign index</strong>. Classes in the same namespace tackle related concerns; pick a type, then open its page for methods.</p>
+<p>Quest and issue states, flows and trigger logic.</p>
+<h2 id="classes">Classes</h2>
+<table><thead><tr><th>Class</th><th>Purpose</th></tr></thead><tbody>
+<tr><td><a href="../AlternativeSolutionScaleFlag/"><code>AlternativeSolutionScaleFlag</code></a></td><td>AlternativeSolutionScaleFlag is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ArmyNeedsSuppliesIssue/"><code>ArmyNeedsSuppliesIssue</code></a></td><td>ArmyNeedsSuppliesIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ArmyNeedsSuppliesIssueBehavior/"><code>ArmyNeedsSuppliesIssueBehavior</code></a></td><td>ArmyNeedsSuppliesIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ArmyNeedsSuppliesIssueQuest/"><code>ArmyNeedsSuppliesIssueQuest</code></a></td><td>ArmyNeedsSuppliesIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ArmyNeedsSuppliesIssueTypeDefiner/"><code>ArmyNeedsSuppliesIssueTypeDefiner</code></a></td><td>ArmyNeedsSuppliesIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ArtisanCantSellProductsAtAFairPriceIssue/"><code>ArtisanCantSellProductsAtAFairPriceIssue</code></a></td><td>ArtisanCantSellProductsAtAFairPriceIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ArtisanCantSellProductsAtAFairPriceIssueBehavior/"><code>ArtisanCantSellProductsAtAFairPriceIssueBehavior</code></a></td><td>ArtisanCantSellProductsAtAFairPriceIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ArtisanCantSellProductsAtAFairPriceIssueQuest/"><code>ArtisanCantSellProductsAtAFairPriceIssueQuest</code></a></td><td>ArtisanCantSellProductsAtAFairPriceIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner/"><code>ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner</code></a></td><td>ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ArtisanOverpricedGoodsIssue/"><code>ArtisanOverpricedGoodsIssue</code></a></td><td>ArtisanOverpricedGoodsIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ArtisanOverpricedGoodsIssueBehavior/"><code>ArtisanOverpricedGoodsIssueBehavior</code></a></td><td>ArtisanOverpricedGoodsIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ArtisanOverpricedGoodsIssueQuest/"><code>ArtisanOverpricedGoodsIssueQuest</code></a></td><td>ArtisanOverpricedGoodsIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ArtisanOverpricedGoodsIssueTypeDefiner/"><code>ArtisanOverpricedGoodsIssueTypeDefiner</code></a></td><td>ArtisanOverpricedGoodsIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../BettingFraudIssue/"><code>BettingFraudIssue</code></a></td><td>BettingFraudIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../BettingFraudIssueBehavior/"><code>BettingFraudIssueBehavior</code></a></td><td>BettingFraudIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../BettingFraudIssueTypeDefiner/"><code>BettingFraudIssueTypeDefiner</code></a></td><td>BettingFraudIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../BettingFraudQuest/"><code>BettingFraudQuest</code></a></td><td>BettingFraudQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../CaptureAndBringNpcTask/"><code>CaptureAndBringNpcTask</code></a></td><td>CaptureAndBringNpcTask is a public type in TaleWorlds.CampaignSystem.Issues.IssueQuestTasks.</td></tr>
+<tr><td><a href="../CapturedByBountyHuntersIssue/"><code>CapturedByBountyHuntersIssue</code></a></td><td>CapturedByBountyHuntersIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../CapturedByBountyHuntersIssueBehavior/"><code>CapturedByBountyHuntersIssueBehavior</code></a></td><td>CapturedByBountyHuntersIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../CapturedByBountyHuntersIssueQuest/"><code>CapturedByBountyHuntersIssueQuest</code></a></td><td>CapturedByBountyHuntersIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../CapturedByBountyHuntersIssueTypeDefiner/"><code>CapturedByBountyHuntersIssueTypeDefiner</code></a></td><td>CapturedByBountyHuntersIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../CaravanAmbushIssue/"><code>CaravanAmbushIssue</code></a></td><td>CaravanAmbushIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../CaravanAmbushIssueBehavior/"><code>CaravanAmbushIssueBehavior</code></a></td><td>CaravanAmbushIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../CaravanAmbushIssueQuest/"><code>CaravanAmbushIssueQuest</code></a></td><td>CaravanAmbushIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../CaravanAmbushIssueTypeDefiner/"><code>CaravanAmbushIssueTypeDefiner</code></a></td><td>CaravanAmbushIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ChangeCommonAreaOwnerQuestTask/"><code>ChangeCommonAreaOwnerQuestTask</code></a></td><td>ChangeCommonAreaOwnerQuestTask is a public type in TaleWorlds.CampaignSystem.Issues.IssueQuestTasks.</td></tr>
+<tr><td><a href="../ChangeSettlementOwnerTask/"><code>ChangeSettlementOwnerTask</code></a></td><td>ChangeSettlementOwnerTask is a public type in TaleWorlds.CampaignSystem.Issues.IssueQuestTasks.</td></tr>
+<tr><td><a href="../DefaultIssueEffects/"><code>DefaultIssueEffects</code></a></td><td>DefaultIssueEffects is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../DefeatPartyQuestTask/"><code>DefeatPartyQuestTask</code></a></td><td>DefeatPartyQuestTask is a public type in TaleWorlds.CampaignSystem.Issues.IssueQuestTasks.</td></tr>
+<tr><td><a href="../EscortMerchantCaravanIssue/"><code>EscortMerchantCaravanIssue</code></a></td><td>EscortMerchantCaravanIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../EscortMerchantCaravanIssueBehavior/"><code>EscortMerchantCaravanIssueBehavior</code></a></td><td>EscortMerchantCaravanIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../EscortMerchantCaravanIssueQuest/"><code>EscortMerchantCaravanIssueQuest</code></a></td><td>EscortMerchantCaravanIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../EscortMerchantCaravanIssueTypeDefiner/"><code>EscortMerchantCaravanIssueTypeDefiner</code></a></td><td>EscortMerchantCaravanIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ExtortionByDesertersIssue/"><code>ExtortionByDesertersIssue</code></a></td><td>ExtortionByDesertersIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ExtortionByDesertersIssueBehavior/"><code>ExtortionByDesertersIssueBehavior</code></a></td><td>ExtortionByDesertersIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ExtortionByDesertersIssueBehaviorTypeDefiner/"><code>ExtortionByDesertersIssueBehaviorTypeDefiner</code></a></td><td>ExtortionByDesertersIssueBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ExtortionByDesertersIssueQuest/"><code>ExtortionByDesertersIssueQuest</code></a></td><td>ExtortionByDesertersIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ExtortionByDesertersQuestState/"><code>ExtortionByDesertersQuestState</code></a></td><td>ExtortionByDesertersQuestState is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsRecruitsIssue/"><code>GangLeaderNeedsRecruitsIssue</code></a></td><td>GangLeaderNeedsRecruitsIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsRecruitsIssueBehavior/"><code>GangLeaderNeedsRecruitsIssueBehavior</code></a></td><td>GangLeaderNeedsRecruitsIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsRecruitsIssueBehaviorTypeDefiner/"><code>GangLeaderNeedsRecruitsIssueBehaviorTypeDefiner</code></a></td><td>GangLeaderNeedsRecruitsIssueBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsRecruitsIssueQuest/"><code>GangLeaderNeedsRecruitsIssueQuest</code></a></td><td>GangLeaderNeedsRecruitsIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsSpecialWeaponsIssue/"><code>GangLeaderNeedsSpecialWeaponsIssue</code></a></td><td>GangLeaderNeedsSpecialWeaponsIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsSpecialWeaponsIssueBehavior/"><code>GangLeaderNeedsSpecialWeaponsIssueBehavior</code></a></td><td>GangLeaderNeedsSpecialWeaponsIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsSpecialWeaponsIssueQuest/"><code>GangLeaderNeedsSpecialWeaponsIssueQuest</code></a></td><td>GangLeaderNeedsSpecialWeaponsIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsSpecialWeaponsIssueTypeDefiner/"><code>GangLeaderNeedsSpecialWeaponsIssueTypeDefiner</code></a></td><td>GangLeaderNeedsSpecialWeaponsIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsToOffloadStolenGoodsIssue/"><code>GangLeaderNeedsToOffloadStolenGoodsIssue</code></a></td><td>GangLeaderNeedsToOffloadStolenGoodsIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsToOffloadStolenGoodsIssueBehavior/"><code>GangLeaderNeedsToOffloadStolenGoodsIssueBehavior</code></a></td><td>GangLeaderNeedsToOffloadStolenGoodsIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsToOffloadStolenGoodsIssueQuest/"><code>GangLeaderNeedsToOffloadStolenGoodsIssueQuest</code></a></td><td>GangLeaderNeedsToOffloadStolenGoodsIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner/"><code>GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner</code></a></td><td>GangLeaderNeedsToOffloadStolenGoodsIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsWeaponsIssue/"><code>GangLeaderNeedsWeaponsIssue</code></a></td><td>GangLeaderNeedsWeaponsIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsWeaponsIssueQuest/"><code>GangLeaderNeedsWeaponsIssueQuest</code></a></td><td>GangLeaderNeedsWeaponsIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsWeaponsIssueQuestBehavior/"><code>GangLeaderNeedsWeaponsIssueQuestBehavior</code></a></td><td>GangLeaderNeedsWeaponsIssueQuestBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../GangLeaderNeedsWeaponsIssueTypeDefiner/"><code>GangLeaderNeedsWeaponsIssueTypeDefiner</code></a></td><td>GangLeaderNeedsWeaponsIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../HeadmanNeedsGrainIssue/"><code>HeadmanNeedsGrainIssue</code></a></td><td>HeadmanNeedsGrainIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../HeadmanNeedsGrainIssueBehavior/"><code>HeadmanNeedsGrainIssueBehavior</code></a></td><td>HeadmanNeedsGrainIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../HeadmanNeedsGrainIssueQuest/"><code>HeadmanNeedsGrainIssueQuest</code></a></td><td>HeadmanNeedsGrainIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../HeadmanNeedsGrainIssueTypeDefiner/"><code>HeadmanNeedsGrainIssueTypeDefiner</code></a></td><td>HeadmanNeedsGrainIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../HeadmanNeedsToDeliverAHerdIssue/"><code>HeadmanNeedsToDeliverAHerdIssue</code></a></td><td>HeadmanNeedsToDeliverAHerdIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../HeadmanNeedsToDeliverAHerdIssueBehavior/"><code>HeadmanNeedsToDeliverAHerdIssueBehavior</code></a></td><td>HeadmanNeedsToDeliverAHerdIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../HeadmanNeedsToDeliverAHerdIssueQuest/"><code>HeadmanNeedsToDeliverAHerdIssueQuest</code></a></td><td>HeadmanNeedsToDeliverAHerdIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../HeadmanNeedsToDeliverAHerdIssueTypeDefiner/"><code>HeadmanNeedsToDeliverAHerdIssueTypeDefiner</code></a></td><td>HeadmanNeedsToDeliverAHerdIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../HeadmanVillageNeedsDraughtAnimalsIssue/"><code>HeadmanVillageNeedsDraughtAnimalsIssue</code></a></td><td>HeadmanVillageNeedsDraughtAnimalsIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../HeadmanVillageNeedsDraughtAnimalsIssueBehavior/"><code>HeadmanVillageNeedsDraughtAnimalsIssueBehavior</code></a></td><td>HeadmanVillageNeedsDraughtAnimalsIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner/"><code>HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner</code></a></td><td>HeadmanVillageNeedsDraughtAnimalsIssueBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../HeadmanVillageNeedsDraughtAnimalsIssueQuest/"><code>HeadmanVillageNeedsDraughtAnimalsIssueQuest</code></a></td><td>HeadmanVillageNeedsDraughtAnimalsIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../HeroRelatedIssueCoolDownData/"><code>HeroRelatedIssueCoolDownData</code></a></td><td>HeroRelatedIssueCoolDownData is a data carrier in TaleWorlds.CampaignSystem.Issues that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../IssueBase/"><code>IssueBase</code></a></td><td>IssueBase is an abstract base class in TaleWorlds.CampaignSystem.Issues that provides override/virtual customization points for concrete subclasses.</td></tr>
+<tr><td><a href="../IssueCoolDownData/"><code>IssueCoolDownData</code></a></td><td>IssueCoolDownData is a data carrier in TaleWorlds.CampaignSystem.Issues that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../IssueEffect/"><code>IssueEffect</code></a></td><td>IssueEffect is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../IssueFrequency/"><code>IssueFrequency</code></a></td><td>IssueFrequency is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../IssueManager/"><code>IssueManager</code></a></td><td>IssueManager is a manager in TaleWorlds.CampaignSystem.Issues that owns a subsystem's lifecycle, lookup interfaces, and cross-object coordination.</td></tr>
+<tr><td><a href="../IssueState/"><code>IssueState</code></a></td><td>IssueState is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../IssueUpdateDetails/"><code>IssueUpdateDetails</code></a></td><td>IssueUpdateDetails is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LadysKnightOutIssue/"><code>LadysKnightOutIssue</code></a></td><td>LadysKnightOutIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LadysKnightOutIssueBehavior/"><code>LadysKnightOutIssueBehavior</code></a></td><td>LadysKnightOutIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LadysKnightOutIssueQuest/"><code>LadysKnightOutIssueQuest</code></a></td><td>LadysKnightOutIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LadysKnightOutIssueTypeDefiner/"><code>LadysKnightOutIssueTypeDefiner</code></a></td><td>LadysKnightOutIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandLordCompanyOfTroubleIssue/"><code>LandLordCompanyOfTroubleIssue</code></a></td><td>LandLordCompanyOfTroubleIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandLordCompanyOfTroubleIssueBehavior/"><code>LandLordCompanyOfTroubleIssueBehavior</code></a></td><td>LandLordCompanyOfTroubleIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandLordCompanyOfTroubleIssueQuest/"><code>LandLordCompanyOfTroubleIssueQuest</code></a></td><td>LandLordCompanyOfTroubleIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandLordCompanyOfTroubleIssueTypeDefiner/"><code>LandLordCompanyOfTroubleIssueTypeDefiner</code></a></td><td>LandLordCompanyOfTroubleIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandlordNeedsAccessToVillageCommonsIssue/"><code>LandlordNeedsAccessToVillageCommonsIssue</code></a></td><td>LandlordNeedsAccessToVillageCommonsIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandlordNeedsAccessToVillageCommonsIssueBehavior/"><code>LandlordNeedsAccessToVillageCommonsIssueBehavior</code></a></td><td>LandlordNeedsAccessToVillageCommonsIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandlordNeedsAccessToVillageCommonsIssueQuest/"><code>LandlordNeedsAccessToVillageCommonsIssueQuest</code></a></td><td>LandlordNeedsAccessToVillageCommonsIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandlordNeedsAccessToVillageCommonsIssueTypeDefiner/"><code>LandlordNeedsAccessToVillageCommonsIssueTypeDefiner</code></a></td><td>LandlordNeedsAccessToVillageCommonsIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandLordNeedsManualLaborersIssue/"><code>LandLordNeedsManualLaborersIssue</code></a></td><td>LandLordNeedsManualLaborersIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandLordNeedsManualLaborersIssueBehavior/"><code>LandLordNeedsManualLaborersIssueBehavior</code></a></td><td>LandLordNeedsManualLaborersIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandLordNeedsManualLaborersIssueBehaviorTypeDefiner/"><code>LandLordNeedsManualLaborersIssueBehaviorTypeDefiner</code></a></td><td>LandLordNeedsManualLaborersIssueBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandLordNeedsManualLaborersIssueQuest/"><code>LandLordNeedsManualLaborersIssueQuest</code></a></td><td>LandLordNeedsManualLaborersIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandLordTheArtOfTheTradeIssue/"><code>LandLordTheArtOfTheTradeIssue</code></a></td><td>LandLordTheArtOfTheTradeIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandLordTheArtOfTheTradeIssueBehavior/"><code>LandLordTheArtOfTheTradeIssueBehavior</code></a></td><td>LandLordTheArtOfTheTradeIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandLordTheArtOfTheTradeIssueBehaviorTypeDefiner/"><code>LandLordTheArtOfTheTradeIssueBehaviorTypeDefiner</code></a></td><td>LandLordTheArtOfTheTradeIssueBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandLordTheArtOfTheTradeIssueQuest/"><code>LandLordTheArtOfTheTradeIssueQuest</code></a></td><td>LandLordTheArtOfTheTradeIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandlordTrainingForRetainersIssue/"><code>LandlordTrainingForRetainersIssue</code></a></td><td>LandlordTrainingForRetainersIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandlordTrainingForRetainersIssueBehavior/"><code>LandlordTrainingForRetainersIssueBehavior</code></a></td><td>LandlordTrainingForRetainersIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandlordTrainingForRetainersIssueQuest/"><code>LandlordTrainingForRetainersIssueQuest</code></a></td><td>LandlordTrainingForRetainersIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LandlordTrainingForRetainersIssueTypeDefiner/"><code>LandlordTrainingForRetainersIssueTypeDefiner</code></a></td><td>LandlordTrainingForRetainersIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LesserNobleRevoltIssue/"><code>LesserNobleRevoltIssue</code></a></td><td>LesserNobleRevoltIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LesserNobleRevoltIssueBehavior/"><code>LesserNobleRevoltIssueBehavior</code></a></td><td>LesserNobleRevoltIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LesserNobleRevoltIssueBehaviorTypeDefiner/"><code>LesserNobleRevoltIssueBehaviorTypeDefiner</code></a></td><td>LesserNobleRevoltIssueBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LesserNobleRevoltIssueQuest/"><code>LesserNobleRevoltIssueQuest</code></a></td><td>LesserNobleRevoltIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordNeedsGarrisonTroopsIssue/"><code>LordNeedsGarrisonTroopsIssue</code></a></td><td>LordNeedsGarrisonTroopsIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordNeedsGarrisonTroopsIssueQuest/"><code>LordNeedsGarrisonTroopsIssueQuest</code></a></td><td>LordNeedsGarrisonTroopsIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordNeedsGarrisonTroopsIssueQuestBehavior/"><code>LordNeedsGarrisonTroopsIssueQuestBehavior</code></a></td><td>LordNeedsGarrisonTroopsIssueQuestBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordNeedsGarrisonTroopsIssueQuestTypeDefiner/"><code>LordNeedsGarrisonTroopsIssueQuestTypeDefiner</code></a></td><td>LordNeedsGarrisonTroopsIssueQuestTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordNeedsHorsesIssue/"><code>LordNeedsHorsesIssue</code></a></td><td>LordNeedsHorsesIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordNeedsHorsesIssueBehavior/"><code>LordNeedsHorsesIssueBehavior</code></a></td><td>LordNeedsHorsesIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordNeedsHorsesIssueBehaviorTypeDefiner/"><code>LordNeedsHorsesIssueBehaviorTypeDefiner</code></a></td><td>LordNeedsHorsesIssueBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordNeedsHorsesIssueQuest/"><code>LordNeedsHorsesIssueQuest</code></a></td><td>LordNeedsHorsesIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordsNeedsTutorIssue/"><code>LordsNeedsTutorIssue</code></a></td><td>LordsNeedsTutorIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordsNeedsTutorIssueBehavior/"><code>LordsNeedsTutorIssueBehavior</code></a></td><td>LordsNeedsTutorIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordsNeedsTutorIssueQuest/"><code>LordsNeedsTutorIssueQuest</code></a></td><td>LordsNeedsTutorIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordsNeedsTutorIssueTypeDefiner/"><code>LordsNeedsTutorIssueTypeDefiner</code></a></td><td>LordsNeedsTutorIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordWantsRivalCapturedIssue/"><code>LordWantsRivalCapturedIssue</code></a></td><td>LordWantsRivalCapturedIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordWantsRivalCapturedIssueBehavior/"><code>LordWantsRivalCapturedIssueBehavior</code></a></td><td>LordWantsRivalCapturedIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordWantsRivalCapturedIssueQuest/"><code>LordWantsRivalCapturedIssueQuest</code></a></td><td>LordWantsRivalCapturedIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../LordWantsRivalCapturedIssueTypeDefiner/"><code>LordWantsRivalCapturedIssueTypeDefiner</code></a></td><td>LordWantsRivalCapturedIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../MerchantArmyOfPoachersIssue/"><code>MerchantArmyOfPoachersIssue</code></a></td><td>MerchantArmyOfPoachersIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../MerchantArmyOfPoachersIssueBehavior/"><code>MerchantArmyOfPoachersIssueBehavior</code></a></td><td>MerchantArmyOfPoachersIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../MerchantArmyOfPoachersIssueBehaviorTypeDefiner/"><code>MerchantArmyOfPoachersIssueBehaviorTypeDefiner</code></a></td><td>MerchantArmyOfPoachersIssueBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../MerchantArmyOfPoachersIssueQuest/"><code>MerchantArmyOfPoachersIssueQuest</code></a></td><td>MerchantArmyOfPoachersIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../MerchantNeedsHelpWithOutlawsIssue/"><code>MerchantNeedsHelpWithOutlawsIssue</code></a></td><td>MerchantNeedsHelpWithOutlawsIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../MerchantNeedsHelpWithOutlawsIssueQuest/"><code>MerchantNeedsHelpWithOutlawsIssueQuest</code></a></td><td>MerchantNeedsHelpWithOutlawsIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../MerchantNeedsHelpWithOutlawsIssueQuestBehavior/"><code>MerchantNeedsHelpWithOutlawsIssueQuestBehavior</code></a></td><td>MerchantNeedsHelpWithOutlawsIssueQuestBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../MerchantNeedsHelpWithOutlawsIssueTypeDefiner/"><code>MerchantNeedsHelpWithOutlawsIssueTypeDefiner</code></a></td><td>MerchantNeedsHelpWithOutlawsIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../NearbyBanditBaseIssue/"><code>NearbyBanditBaseIssue</code></a></td><td>NearbyBanditBaseIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../NearbyBanditBaseIssueBehavior/"><code>NearbyBanditBaseIssueBehavior</code></a></td><td>NearbyBanditBaseIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../NearbyBanditBaseIssueQuest/"><code>NearbyBanditBaseIssueQuest</code></a></td><td>NearbyBanditBaseIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../NearbyBanditBaseIssueTypeDefiner/"><code>NearbyBanditBaseIssueTypeDefiner</code></a></td><td>NearbyBanditBaseIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../PotentialIssueData/"><code>PotentialIssueData</code></a></td><td>PotentialIssueData is a data carrier in TaleWorlds.CampaignSystem.Issues that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../PreconditionFlags/"><code>PreconditionFlags</code></a></td><td>PreconditionFlags is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../QuestSettlement/"><code>QuestSettlement</code></a></td><td>QuestSettlement is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../RaidAnEnemyTerritoryIssue/"><code>RaidAnEnemyTerritoryIssue</code></a></td><td>RaidAnEnemyTerritoryIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../RaidAnEnemyTerritoryIssueBehavior/"><code>RaidAnEnemyTerritoryIssueBehavior</code></a></td><td>RaidAnEnemyTerritoryIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../RaidAnEnemyTerritoryIssueTypeDefiner/"><code>RaidAnEnemyTerritoryIssueTypeDefiner</code></a></td><td>RaidAnEnemyTerritoryIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../RaidAnEnemyTerritoryQuest/"><code>RaidAnEnemyTerritoryQuest</code></a></td><td>RaidAnEnemyTerritoryQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../RaidVillageQuestTask/"><code>RaidVillageQuestTask</code></a></td><td>RaidVillageQuestTask is a public type in TaleWorlds.CampaignSystem.Issues.IssueQuestTasks.</td></tr>
+<tr><td><a href="../RevenueFarmingIssue/"><code>RevenueFarmingIssue</code></a></td><td>RevenueFarmingIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../RevenueFarmingIssueBehavior/"><code>RevenueFarmingIssueBehavior</code></a></td><td>RevenueFarmingIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../RevenueFarmingIssueBehaviorTypeDefiner/"><code>RevenueFarmingIssueBehaviorTypeDefiner</code></a></td><td>RevenueFarmingIssueBehaviorTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../RevenueFarmingIssueQuest/"><code>RevenueFarmingIssueQuest</code></a></td><td>RevenueFarmingIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../RevenueVillage/"><code>RevenueVillage</code></a></td><td>RevenueVillage is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ScoutEnemyGarrisonsIssue/"><code>ScoutEnemyGarrisonsIssue</code></a></td><td>ScoutEnemyGarrisonsIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ScoutEnemyGarrisonsIssueBehavior/"><code>ScoutEnemyGarrisonsIssueBehavior</code></a></td><td>ScoutEnemyGarrisonsIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ScoutEnemyGarrisonsIssueTypeDefiner/"><code>ScoutEnemyGarrisonsIssueTypeDefiner</code></a></td><td>ScoutEnemyGarrisonsIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../ScoutEnemyGarrisonsQuest/"><code>ScoutEnemyGarrisonsQuest</code></a></td><td>ScoutEnemyGarrisonsQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../SmugglersIssue/"><code>SmugglersIssue</code></a></td><td>SmugglersIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../SmugglersIssueBehavior/"><code>SmugglersIssueBehavior</code></a></td><td>SmugglersIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../SmugglersIssueQuest/"><code>SmugglersIssueQuest</code></a></td><td>SmugglersIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../SmugglersIssueTypeDefiner/"><code>SmugglersIssueTypeDefiner</code></a></td><td>SmugglersIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../TalkToNpcQuestTask/"><code>TalkToNpcQuestTask</code></a></td><td>TalkToNpcQuestTask is a public type in TaleWorlds.CampaignSystem.Issues.IssueQuestTasks.</td></tr>
+<tr><td><a href="../TheConquestOfSettlementIssue/"><code>TheConquestOfSettlementIssue</code></a></td><td>TheConquestOfSettlementIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../TheConquestOfSettlementIssueBehavior/"><code>TheConquestOfSettlementIssueBehavior</code></a></td><td>TheConquestOfSettlementIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../TheConquestOfSettlementIssueQuest/"><code>TheConquestOfSettlementIssueQuest</code></a></td><td>TheConquestOfSettlementIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../TheConquestOfSettlementIssueTypeDefiner/"><code>TheConquestOfSettlementIssueTypeDefiner</code></a></td><td>TheConquestOfSettlementIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../VillageEvent/"><code>VillageEvent</code></a></td><td>VillageEvent is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../VillageEventOptionData/"><code>VillageEventOptionData</code></a></td><td>VillageEventOptionData is a data carrier in TaleWorlds.CampaignSystem.Issues that packages fields for structured state exchange between systems.</td></tr>
+<tr><td><a href="../VillageNeedsCraftingMaterialsIssue/"><code>VillageNeedsCraftingMaterialsIssue</code></a></td><td>VillageNeedsCraftingMaterialsIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../VillageNeedsCraftingMaterialsIssueBehavior/"><code>VillageNeedsCraftingMaterialsIssueBehavior</code></a></td><td>VillageNeedsCraftingMaterialsIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../VillageNeedsCraftingMaterialsIssueQuest/"><code>VillageNeedsCraftingMaterialsIssueQuest</code></a></td><td>VillageNeedsCraftingMaterialsIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../VillageNeedsCraftingMaterialsIssueTypeDefiner/"><code>VillageNeedsCraftingMaterialsIssueTypeDefiner</code></a></td><td>VillageNeedsCraftingMaterialsIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../VillageNeedsToolsIssue/"><code>VillageNeedsToolsIssue</code></a></td><td>VillageNeedsToolsIssue is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../VillageNeedsToolsIssueBehavior/"><code>VillageNeedsToolsIssueBehavior</code></a></td><td>VillageNeedsToolsIssueBehavior is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../VillageNeedsToolsIssueQuest/"><code>VillageNeedsToolsIssueQuest</code></a></td><td>VillageNeedsToolsIssueQuest is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+<tr><td><a href="../VillageNeedsToolsIssueTypeDefiner/"><code>VillageNeedsToolsIssueTypeDefiner</code></a></td><td>VillageNeedsToolsIssueTypeDefiner is a public type in TaleWorlds.CampaignSystem.Issues.</td></tr>
+</tbody></table>
+<h2 id="other-subsystems-in-this-area">Other subsystems in this area</h2>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../root/">Root</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../agentorigins/">AgentOrigins</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../bartersystem/">BarterSystem</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../campaignbehaviors/">CampaignBehaviors</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../charactercreationcontent/">CharacterCreationContent</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../characterdevelopment/">CharacterDevelopment</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../characters/">Characters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../componentinterfaces/">ComponentInterfaces</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../conversation/">Conversation</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../election/">Election</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../encounters/">Encounters</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../encyclopedia/">Encyclopedia</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../extensions/">Extensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../gamecomponents/">GameComponents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../gamemenus/">GameMenus</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../gamestate/">GameState</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../heroes/">Heroes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../inventory/">Inventory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../logentries/">LogEntries</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../map/">Map</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../mapevents/">MapEvents</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../mapnotificationtypes/">MapNotificationTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../naval/">Naval</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../parties/">Parties</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../party/">Party</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../quests/">Quests</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../roster/">Roster</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../savecompability/">SaveCompability</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../sceneinformationpopuptypes/">SceneInformationPopupTypes</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../settlements/">Settlements</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../siege/">Siege</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.0/en/api/campaign/issues/./../tournamentgames/">TournamentGames</a></li>
+</ul>
+
+</article>
+<hr>
+<ul>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

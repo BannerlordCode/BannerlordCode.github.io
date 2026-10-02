@@ -24,7 +24,7 @@ What **did not** happen matters just as much, so you do not panic:
 - **Multiplayer namespaces were not reorganized.** The 12 `TaleWorlds.MountAndBlade.Multiplayer*`
   namespaces are byte-identical across the two versions.
 - **`TaleWorlds.Diamond` was not removed.** It still exists in 1.5.3 (mapped to the
-  [engine](../../api/engine/) bucket). What disappeared is only the `TaleWorlds.Diamond.Socket`
+  `engine` bucket). What disappeared is only the `TaleWorlds.Diamond.Socket`
   sub-namespace and the `ThreadedClient*` threaded-REST family.
 - **`TaleWorlds.ObjectManager` never existed.** Matches for `namespace TaleWorlds.ObjectManager` across
   the 1.3.0 / 1.3.15 / 1.4.5 / 1.5.3 trees: **0, 0, 0, 0**. `TaleWorlds.ObjectSystem` is present in all
@@ -36,7 +36,8 @@ What **did not** happen matters just as much, so you do not panic:
 
 ## 1. What was removed
 
-**58 types** exist in 1.4.5 and do not exist in 1.5.3.
+**58 types** exist in 1.4.5 and do not exist in 1.5.3. The breakdown below is 2 + 10 + 26 + 9 + 10 = 57
+removals plus 1 relocation.
 
 **Verification rule applied to each one**: it must have a real `.cs` file inside the 1.4.5 tree under
 `bannerlord-1.4.5/Bannerlord.Source/bin/**` or `bannerlord-1.4.5/Bannerlord.Source/Modules.*/**`. Anything
@@ -65,7 +66,7 @@ Files matching `namespace TaleWorlds.CampaignSystem.FastMode` in the 1.5.3 tree:
 (1.4.5 and 1.4.7 each have 3). **Impact**: if your mod depends on the FastMode module or subclasses
 `FastModeSubModule`, there is nothing left to hang it on in 1.5.3.
 
-### 1.2 Diamond's threaded REST client was removed (9 types)
+### 1.2 Diamond's threaded REST client was removed (10 types)
 
 | Type | 1.4.5 evidence path (prefix `bannerlord-1.4.5/Bannerlord.Source/`) |
 |---|---|
@@ -79,13 +80,15 @@ Files matching `namespace TaleWorlds.CampaignSystem.FastMode` in the 1.5.3 tree:
 | `TaleWorlds.Diamond.ClientApplication.GenericThreadedRestSessionProvider` | `bin/TaleWorlds.Diamond/TaleWorlds.Diamond.ClientApplication/GenericThreadedRestSessionProvider.cs` |
 
 The entire `TaleWorlds.Diamond.Socket` sub-namespace is also gone (`ClientSocketSession`,
-`SocketMessage`). **Note**: this is a slice of Diamond, **not** Diamond itself.
+`SocketMessage`) — 7 types in the `TaleWorlds.Diamond` namespace, 1 in `TaleWorlds.Diamond.ClientApplication`,
+2 in `TaleWorlds.Diamond.Socket`. **Note**: this is a slice of Diamond, **not** Diamond itself.
 
-### 1.3 The standalone OpenGL backend was removed (21 types)
+### 1.3 The standalone OpenGL backend was removed (26 types)
 
-Everything under `TaleWorlds.TwoDimension.Standalone.Native.OpenGL` — `Opengl32`, `Opengl32ARB` and 15
-enums (`BeginMode`, `DataType`, `ShaderType`, `Target`, `TextureUnit`, …) — is absent in 1.5.3, as are
-`GraphicsContext`, `OpenGLTexture` and `VertexArrayObject`.
+Everything under `TaleWorlds.TwoDimension.Standalone.Native.OpenGL` — `Opengl32`, `Opengl32ARB` and 19
+enums (`BeginMode`, `DataType`, `ShaderType`, `Target`, `TextureUnit`, …) — 22 types in that namespace
+alone — is absent in 1.5.3, as are `GraphicsContext`, `OpenGLTexture`, `Shader` and `VertexArrayObject`
+in the parent `TaleWorlds.TwoDimension.Standalone` namespace. 22 + 4 = 26.
 
 **1.5.3 replaces it with DirectX**: `DirectXGraphicsContext`, `DirectXShader`, `DirectXTexture` and
 `DirectXVertexBuffer` are new under `TaleWorlds.TwoDimension.Standalone`, and
@@ -93,7 +96,7 @@ enums (`BeginMode`, `DataType`, `ShaderType`, `Target`, `TextureUnit`, …) — 
 
 **Impact**: any mod that P/Invokes `Opengl32` must be rewritten for the DirectX path.
 
-### 1.4 Campaign-side removals (10 types)
+### 1.4 Campaign-side removals (9 types, 1 relocation)
 
 | Type | 1.4.5 evidence path (all under `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/`) |
 |---|---|
@@ -108,7 +111,7 @@ enums (`BeginMode`, `DataType`, `ShaderType`, `Target`, `TextureUnit`, …) — 
 | `…ViewModelCollection.ClanManagement.ClanRoleMemberItemVM` | `…ViewModelCollection/…ClanManagement/ClanRoleMemberItemVM.cs` |
 | `…ViewModelCollection.ClanManagement.ClanRoleAssignedThroughClanScreenEvent` | moved to `…ClanManagement.Categories/` in 1.5.3 (type still exists, not a removal) |
 
-### 1.5 The rest (16 types)
+### 1.5 The rest (10 types)
 
 `TaleWorlds.MountAndBlade.UnderAttackType`, `TaleWorlds.MountAndBlade.View.ISiegeDeploymentView`,
 `…View.MissionViews.Singleplayer.MissionEntitySelectionUIHandler`,
@@ -153,13 +156,17 @@ Canonical example: 1.4.5 writes
 | `MapEventComponent.InitializeComponent` | `internal void InitializeComponent()` | `public void InitializeComponent()` | No — widened |
 | `MapEventComponent.OnPartyAdded` | `internal virtual void OnPartyAdded(PartyBase)` | `public virtual void OnPartyAdded(PartyBase)` | No — widened |
 | `LobbyClient.ChangeRegion` | `public void ChangeRegion(string)` | `public async Task<bool> ChangeRegion(string)` | **Yes** — `void` → `Task`; every call site must change |
-| `LobbyClient.ChangeGameTypes` | `public void ChangeGameTypes(string)` | `public async Task<bool> ChangeGameTypes(string)` | **Yes** — same |
+| `LobbyClient.ChangeGameTypes` | `public void ChangeGameTypes(string[])` | `public async Task<bool> ChangeGameTypes(string[])` | **Yes** — `void` → `Task`; every call site must change |
 | `LobbyClient.RequestJoinCustomGame` | `public async Task<bool> RequestJoinCustomGame(CustomBattleId, string, bool = false)` | `public async Task<bool> RequestJoinCustomGame(CustomBattleId, CustomGameJoinType, string)` | **Yes** — parameter count and types both changed |
 | `PerkHelper.AddPerkBonusForParty` | `public static void AddPerkBonusForParty(PerkObject, MobileParty, bool, ref ExplainedNumber, bool = false)` | `public static bool AddPerkBonusForParty(PerkObject, MobileParty, bool, ref ExplainedNumber)` | **Yes** — return type `void`→`bool`, one parameter dropped |
 | `PerkHelper.AddPerkBonusForCharacter` | `public static void AddPerkBonusForCharacter(PerkObject, CharacterObject, bool, ref ExplainedNumber, bool = false)` | `public static bool AddPerkBonusForCharacter(PerkObject, BattleEnvironment, CharacterObject, bool, ref ExplainedNumber)` | **Yes** — return type changed, one parameter added |
 | `PerkHelper.GetCaptainPerksForTroopUsages` | `public static IEnumerable<PerkObject> GetCaptainPerksForTroopUsages(TroopUsageFlags)` | `public static IEnumerable<PerkObject> GetCaptainPerksForTroopUsages(TroopUsageFlags, BattleEnvironment = BattleEnvironment.Any)` | No — new optional parameter |
-| `ClanPartyItemVM.Expense` / `.Income` | `public int Expense` | `public abstract int Expense` | **Yes** — now abstract; subclasses must implement |
-| `ClanPartyType.Expense` / `.Income` | `public int Expense` | `public abstract int Expense` | **Yes** — same |
+| `ClanPartyItemVM.Expense` / `.Income` | `public int Expense` | `public abstract int Expense { get; protected set; }` | **Yes** — now abstract; subclasses must implement |
+
+The 1.5.3 side of every signature above was re-checked by hand against
+`bannerlord-1.5.3/`; the file paths below are the ones to open. A `ClanPartyType` row that earlier
+drafts of this page carried is **not** included: no `ClanPartyType` type exists in the 1.4.5, 1.4.6,
+1.4.7 or 1.5.3 source trees, so there is nothing to migrate.
 
 Evidence paths (structurally identical, only the directory depth differs):
 `bannerlord-1.4.7/TaleWorlds.MountAndBlade/Mission.cs` ↔ `bannerlord-1.5.3/TaleWorlds.MountAndBlade/Mission.cs`;
@@ -182,15 +189,17 @@ class, or a switch turned into a dictionary. The full list lives in `tools/_v153
 
 ---
 
-## 3. Directory mapping changes
+## 3. Bucket mapping changes
 
 This is a **structural** change, a different thing from a type rename. Do not conflate them.
 
 ### 3.1 The `gameplay` bucket is gone in 1.5.3
 
 The v1.4.5 documentation tree has `api/gameplay/`, containing `sandbox/` and `storymode/`. The v1.5.3
-tree has **no `gameplay`**: `SandBox` and `StoryMode` are promoted to top-level buckets
-[sandbox](../../api/sandbox/) and [storymode](../../api/storymode/).
+bucket rules have **no `gameplay`**: `SandBox` and `StoryMode` map to top-level buckets
+`sandbox` and `storymode`. Neither bucket has any written pages yet, so the old
+`api/gameplay/sandbox/...` and `api/gameplay/storymode/...` URLs have no 1.5.3 counterpart — **that is
+expected, not a broken link**, and there is no page on the destination side to point at yet.
 
 **Why this deserves its own section**: the v1.4.5 doc tree is itself dirty — 2 199 type names are
 duplicated across buckets (every `TaleWorlds.CampaignSystem` type exists in both `campaign/` and
@@ -202,7 +211,7 @@ broken link**.
 
 ### 3.2 Bucket reassignments
 
-| v1.4.5 directory | v1.5.3 directory | Note |
+| v1.4.5 directory | v1.5.3 bucket | Note |
 |---|---|---|
 | `core/Game.md` | `core-extra/Game.cs` | `Game` moved from core to core-extra |
 | `campaign-ext/` **and** `campaign/` duplicates | `campaign/` (root namespace) + `campaign-ext/` (sub-domains) | De-duplicated: one type, one page |
@@ -215,7 +224,7 @@ broken link**.
 
 `TaleWorlds.ObjectManager → TaleWorlds.ObjectSystem` is a **type/namespace** rename, and it does **not**
 happen between 1.4.5 and 1.5.3 (see the intro). Meanwhile the `TaleWorlds.ObjectSystem` *namespace* is
-filed under [campaign-ext](../../api/campaign-ext/) in the v1.5.3 docs — that is **directory placement**,
+filed under the `campaign-ext` bucket in the v1.5.3 docs — that is **bucket placement**,
 not a rename. The two live in two different places on this site: [Module Map](../module-map) and this page.
 
 ---
@@ -232,7 +241,7 @@ Grouped by namespace, the highlights:
 |---|---|---|
 | `TaleWorlds.TwoDimension.Standalone.Native.Windows` | 27 | D3D11 structs replacing the OpenGL backend |
 | `TaleWorlds.CampaignSystem.CampaignBehaviors` | 11 | `BattleWreckageCampaignBehavior`, `AdvancedStartWorldOptionsCampaignBehavior`, `HeroDailyXpCampaignBehavior`, `ExecutionCampaignBehavior`, … |
-| `SandBox.AdvancedStartOptions` | 10 | Advanced start options (`AdvancedStartOptionsManager` and its typed options) |
+| `SandBox.AdvancedStartOptions` | 9 | Advanced start options (`AdvancedStartOptionsManager` and its typed options) |
 | `TaleWorlds.MountAndBlade` | 8 | `SpectatorHelper`, `BasicTimer`, `TaskForceDetachment`, `FormationTargetingVisibilityModes`, … |
 | `SandBox.ViewModelCollection.CampaignStartingOptions` | 7 | Start-options ViewModels |
 | `TaleWorlds.CampaignSystem.MapNotificationTypes` | 6 | The Blood Feud notification family |
@@ -321,13 +330,13 @@ same-provenance control chains exist.
    breaking; please confirm by hand.
 4. **API leaf coverage is not level.** This guide's conclusions come from a full source scan, which is a
    different thing from documentation page coverage. Bucket placement is in [Module Map](../module-map);
-   coverage gaps are counted on the documentation side.
+   coverage gaps are counted on the [version home](../../).
 
 ---
 
 ## Migration checklist
 
-1. Search your mod for any of the 58 types in sections [1.1](#11-the-fastmode-module-was-cut-2-types)–[1.5](#15-the-rest-16-types).
+1. Search your mod for any of the 58 types in sections [1.1](#11-the-fastmode-module-was-cut-2-types)–[1.5](#15-the-rest-10-types).
 2. If you use `Mission.SpawnAgent` / `SetFormationPositioningFromDeploymentPlan` /
    `GetCaptainPerksForTroopUsages`: the new parameters are **optional** — no change needed.
 3. If you use `GetReinforcementPathsDataOfSide` / `OnFinish` / `LobbyClient.ChangeRegion` /
@@ -337,12 +346,12 @@ same-provenance control chains exist.
 5. If you subclass `MapEventComponent`: change `internal override OnFinish` to `protected override OnFinish`.
 6. Grep for `TaleWorlds.ObjectManager` — expect 0 hits. If you have some, that is a leftover from a much
    older version, not a 1.5.3 change.
-7. Directory links: old `api/gameplay/...` paths are dead; point at
-   [sandbox](../../api/sandbox/) or [storymode](../../api/storymode/).
+7. Directory names: old `api/gameplay/...` paths are dead; the types now belong to the `sandbox` and
+   `storymode` buckets. Neither bucket has written pages yet, so there is no page to link to.
 
 ## Navigation
 
 - [↑ Architecture hub](../) · [↑ Version Home](../../)
 - [SDK Layering Overview](../sdk-overview) — the layered mental model
-- [Module Map](../module-map) — assembly-to-directory cross-reference
+- [Module Map](../module-map) — assembly-to-bucket cross-reference
 - [Cross-Version Class Comparison](../../../../versions/) — per-class API deltas

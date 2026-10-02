@@ -1,49 +1,46 @@
 ---
-title: "Gui — UI: ScreenSystem, Gauntlet and 2D drawing"
-description: "Three namespaces merged: `TaleWorlds.ScreenSystem` (`ScreenManager`, `ScreenBase`, `ScreenLayer`, `GlobalLayer`), `TaleW"
+title: "Gui — ScreenSystem, Gauntlet and 2D drawing"
+description: "Where TaleWorlds.ScreenSystem, GauntletUI and TwoDimension live. 0 pages in this tree; the 3 pages are Chinese-tree-only."
 ---
-# Gui — UI: ScreenSystem, Gauntlet and 2D drawing
+# Gui — ScreenSystem, Gauntlet and 2D drawing
 
-Three namespaces merged: `TaleWorlds.ScreenSystem` (`ScreenManager`, `ScreenBase`, `ScreenLayer`, `GlobalLayer`), `TaleWorlds.GauntletUI` (`GauntletMovie`, widgets) and `TaleWorlds.TwoDimension` (the `Brush` family and 2D drawing).
+Three namespaces merged into one bucket, because from a mod author's point of view they are one job:
 
-**`GauntletLayer` is not here.** Its namespace is `TaleWorlds.Engine.GauntletUI`, which lands in [Engine](../engine/). See [UI Stack](../../architecture/ui-stack) for the four-layer picture.
+| Namespace | `.cs` files | What it owns |
+| --- | ---: | --- |
+| `TaleWorlds.ScreenSystem` | 8 | the screen stack: push, pop, layers, input restrictions |
+| `TaleWorlds.GauntletUI` | 3 | gamepad navigation contexts |
+| `TaleWorlds.TwoDimension` | 54 | fonts, textures, brushes, 2D drawing |
 
-Pushing a screen needs two types: `ScreenBase` (lifecycle) and `GauntletLayer` (loads XML and binds a [ViewModel](../viewmodel/)).
+The reason to merge them is the actual authoring path: `ScreenBase` (lifecycle) → `ScreenLayer` (attach) → `ScreenManager` (push) → `GauntletLayer` (load the XML and bind a ViewModel). The first three live here; `GauntletLayer` does **not**, because its namespace is `TaleWorlds.Engine.GauntletUI` and it resolves to [engine](../engine/). The four-layer relationship is drawn out in [UI Stack](../../architecture/ui-stack).
 
-## Pages in this area (72)
+A thing that trips people up: `TaleWorlds.ScreenSystem` has only 8 `.cs` files, and the widgets themselves are not among them. Widgets are Gauntlet XML prefabs; the property-notification models they bind to are in [viewmodel](../viewmodel/). Neither is in this bucket, because neither is in `TaleWorlds.ScreenSystem`.
 
-[AlignmentAxis](AlignmentAxis) · [AlphaFormatFlags](AlphaFormatFlags) · [AnimatedDropdownWidget](AnimatedDropdownWidget)
-[AnimatedNumberTextWidget](AnimatedNumberTextWidget) · [AnimationInterpolation](AnimationInterpolation) · [ArrayType](ArrayType)
-[AttribueMask](AttribueMask) · [AudioProperty](AudioProperty) · [AutoPinner](AutoPinner)
-[BasicContainer](BasicContainer) · [BeginMode](BeginMode) · [BitmapFontCharacter](BitmapFontCharacter)
-[BitmapInfo](BitmapInfo) · [BitmapInfoHeader](BitmapInfoHeader) · [BlendFunction](BlendFunction)
-[BlendingDestinationFactor](BlendingDestinationFactor) · [BlendingSourceFactor](BlendingSourceFactor) · [BrushFactory](BrushFactory)
-[BrushWidget](BrushWidget) · [BufferBindingTarget](BufferBindingTarget) · [ButtonType](ButtonType)
-[ButtonWidget](ButtonWidget) · [Container](Container) · [CursorType](CursorType)
-[CustomWidgetManager](CustomWidgetManager) · [DXGI](DXGI) · [DefaultLayout](DefaultLayout)
-[DelayedStateChanger](DelayedStateChanger) · [DialogButtonsParentWidget](DialogButtonsParentWidget) · [DisabledAlphaChangerWidget](DisabledAlphaChangerWidget)
-[DragCarrierLayout](DragCarrierLayout) · [FillBar](FillBar) · [FrameworkDomain](FrameworkDomain)
-[GamepadNavigationForcedScopeCollection](GamepadNavigationForcedScopeCollection) · [GamepadNavigationHelper](GamepadNavigationHelper) · [GamepadNavigationScope](GamepadNavigationScope)
-[GamepadNavigationScopeCollection](GamepadNavigationScopeCollection) · [GamepadNavigationTypes](GamepadNavigationTypes) · [GauntletGamepadNavigationManager](GauntletGamepadNavigationManager)
-[GauntletInputContext](GauntletInputContext) · [GauntletMovie](GauntletMovie) · [GauntletView](GauntletView)
-[GeneratedGauntletMovie](GeneratedGauntletMovie) · [GeneratedWidgetData](GeneratedWidgetData) · [GlobalLayer](GlobalLayer)
-[GraphLinePointWidget](GraphLinePointWidget) · [GraphLineWidget](GraphLineWidget) · [GraphWidget](GraphWidget)
-[GraphicsContext](GraphicsContext) · [GraphicsForm](GraphicsForm) · [GridDirection](GridDirection)
-[GridHorizontalLayoutMethod](GridHorizontalLayoutMethod) · [GridLayout](GridLayout) · [GridVerticalLayoutMethod](GridVerticalLayoutMethod)
-[IGauntletMovie](IGauntletMovie) · [IGeneratedGauntletMovieRoot](IGeneratedGauntletMovieRoot) · [IMessageCommunicator](IMessageCommunicator)
-[IReadonlyInputContext](IReadonlyInputContext) · [IScreenManagerEngineConnection](IScreenManagerEngineConnection) · [InputData](InputData)
-[InputRestrictions](InputRestrictions) · [LayeredWindowController](LayeredWindowController) · [Rectangle2D](Rectangle2D)
-[ScreenComponent](ScreenComponent) · [ScrollablePanel](ScrollablePanel) · [SpriteCategory](SpriteCategory)
-[SpriteData](SpriteData) · [StyleFontContainer](StyleFontContainer) · [TextHelper](TextHelper)
-[TextMeshGenerator](TextMeshGenerator) · [UIContext](UIContext) · [User32](User32)
+## Pages in this area (0 in English)
+
+No pages in this bucket have been written in this tree. The three that exist are in the Chinese tree:
+
+| Page | What it covers |
+| --- | --- |
+| [zh/api/gui/ScreenManager](../../../zh/api/gui/ScreenManager) | pushes and pops screens; owns the layer stack |
+| [zh/api/gui/ScreenBase](../../../zh/api/gui/ScreenBase) | the base class a custom screen derives from |
+| [zh/api/gui/ScreenLayer](../../../zh/api/gui/ScreenLayer) | a transparent overlay layer inside the screen stack |
+
+Those three are a complete path rather than a sample: you cannot push a screen without the manager, and you cannot make a screen without the base class.
+
+## Not yet written
+
+In this tree, all three. Across both trees, the remaining 5 `TaleWorlds.ScreenSystem` types — `GlobalLayer` (the always-on overlay), `CursorType`, `InputRestrictions`, `ScreenComponent`, `IScreenManagerEngineConnection` — plus the 2D drawing family (`Font`, `ITexture`, `PrimitivePolygonMaterial`, `MaterialPool`, `EditableText`, `BitmapFontCharacter`, `TextHelper`) and `TaleWorlds.GauntletUI`'s `IGamepadNavigationContext` with its default implementation. By size the bucket is roughly 72 documented types; three have pages.
 
 ## Sibling areas
 
-[core](../core/) · [core-extra](../core-extra/) · [mission](../mission/) · [mission-ext](../mission-ext/) · [campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [save-system](../save-system/) · [viewmodel](../viewmodel/) · [localization](../localization/) · [engine](../engine/) · [system](../system/) · [custombattle](../custombattle/) · [modulemanager](../modulemanager/) · [network](../network/) · [sandbox](../sandbox/) · [storymode](../storymode/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
+[viewmodel](../viewmodel/) · [engine](../engine/) · [core](../core/) · [core-extra](../core-extra/) · [campaign](../campaign/) · [campaign-ext](../campaign-ext/) · [mission](../mission/) · [mission-ext](../mission-ext/) · [sandbox](../sandbox/) · [custombattle](../custombattle/) · [system](../system/) · [network](../network/) · [modulemanager](../modulemanager/) · [activitysystem](../activitysystem/) · [achievementsystem](../achievementsystem/)
+
+There is no `save-system/` directory in this tree; its pages are Chinese-tree-only — [zh/api/save-system/SaveManager](../../../zh/api/save-system/SaveManager).
 
 ## See also
 
 - ↑ [Version home](../../)
 - ↑ [API reference](../)
 - ↔ [Architecture overview](../../architecture/)
-- ↘ [ui-stack](../../architecture/ui-stack)
+- ↘ [UI Stack](../../architecture/ui-stack)

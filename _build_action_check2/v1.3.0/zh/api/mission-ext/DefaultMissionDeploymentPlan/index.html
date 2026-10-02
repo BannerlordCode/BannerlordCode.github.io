@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DefaultMissionDeploymentPlan</title>
+  <meta name="description" content="DefaultMissionDeploymentPlan 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/DefaultMissionDeploymentPlan/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/DefaultMissionDeploymentPlan/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/DefaultMissionDeploymentPlan/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/DefaultMissionDeploymentPlan/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission-ext/DefaultMissionDeploymentPlan/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission-ext/DefaultMissionDeploymentPlan/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">DefaultMissionDeploymentPlan</span>
+    </nav>
+  
+  <h1>DefaultMissionDeploymentPlan</h1>
+  <h1 id="defaultmissiondeploymentplan">DefaultMissionDeploymentPlan</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public class DefaultMissionDeploymentPlan : IMissionDeploymentPlan</code>
+<strong>Base:</strong> <code>IMissionDeploymentPlan</code>
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/DefaultMissionDeploymentPlan.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>DefaultMissionDeploymentPlan</code> 位于 <code>TaleWorlds.MountAndBlade</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.MountAndBlade</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="initialize">Initialize</h3>
+<p><code>public void Initialize()</code></p>
+<p><strong>用途 / Purpose:</strong> 加载当前对象所需的初始资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.Initialize();
+</code></pre>
+<h3 id="cleardeploymentplan">ClearDeploymentPlan</h3>
+<p><code>public void ClearDeploymentPlan(Team team)</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的deployment plan。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ClearDeploymentPlan(team);
+</code></pre>
+<h3 id="clearreinforcementplan">ClearReinforcementPlan</h3>
+<p><code>public void ClearReinforcementPlan(Team team)</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的reinforcement plan。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ClearReinforcementPlan(team);
+</code></pre>
+<h3 id="hasplayerspawnframe">HasPlayerSpawnFrame</h3>
+<p><code>public bool HasPlayerSpawnFrame(BattleSideEnum battleSide)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 player spawn frame。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.HasPlayerSpawnFrame(battleSide);
+</code></pre>
+<h3 id="getplayerspawnframe">GetPlayerSpawnFrame</h3>
+<p><code>public bool GetPlayerSpawnFrame(BattleSideEnum battleSide, out WorldPosition position, out Vec2 direction)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 player spawn frame 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetPlayerSpawnFrame(battleSide, position, direction);
+</code></pre>
+<h3 id="hassignificantmountedtroops">HasSignificantMountedTroops</h3>
+<p><code>public static bool HasSignificantMountedTroops(int footTroopCount, int mountedTroopCount)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 significant mounted troops。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+DefaultMissionDeploymentPlan.HasSignificantMountedTroops(0, 0);
+</code></pre>
+<h3 id="clearaddedtroops">ClearAddedTroops</h3>
+<p><code>public void ClearAddedTroops(Team team, bool isReinforcement = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的added troops。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ClearAddedTroops(team, false);
+</code></pre>
+<h3 id="clearall">ClearAll</h3>
+<p><code>public void ClearAll()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的all。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ClearAll();
+</code></pre>
+<h3 id="addtroops">AddTroops</h3>
+<p><code>public void AddTroops(Team team, FormationClass formationClass, int footTroopCount, int mountedTroopCount = 0, bool isReinforcement = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 troops 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.AddTroops(team, formationClass, 0, 0, false);
+</code></pre>
+<h3 id="setspawnwithhorses">SetSpawnWithHorses</h3>
+<p><code>public void SetSpawnWithHorses(Team team, bool spawnWithHorses)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 spawn with horses 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.SetSpawnWithHorses(team, false);
+</code></pre>
+<h3 id="makedefaultdeploymentplans">MakeDefaultDeploymentPlans</h3>
+<p><code>public void MakeDefaultDeploymentPlans()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MakeDefaultDeploymentPlans 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.MakeDefaultDeploymentPlans();
+</code></pre>
+<h3 id="makedeploymentplan">MakeDeploymentPlan</h3>
+<p><code>public void MakeDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetOffset = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MakeDeploymentPlan 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.MakeDeploymentPlan(team, 0, 0);
+</code></pre>
+<h3 id="makereinforcementdeploymentplan">MakeReinforcementDeploymentPlan</h3>
+<p><code>public void MakeReinforcementDeploymentPlan(Team team, float spawnPathOffset = 0f, float targetOffset = 0f)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 MakeReinforcementDeploymentPlan 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.MakeReinforcementDeploymentPlan(team, 0, 0);
+</code></pre>
+<h3 id="remakedeploymentplan">RemakeDeploymentPlan</h3>
+<p><code>public bool RemakeDeploymentPlan(Team team)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RemakeDeploymentPlan 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.RemakeDeploymentPlan(team);
+</code></pre>
+<h3 id="ispositioninsidedeploymentboundaries">IsPositionInsideDeploymentBoundaries</h3>
+<p><code>public bool IsPositionInsideDeploymentBoundaries(Team team, in Vec2 position)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 position inside deployment boundaries 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsPositionInsideDeploymentBoundaries(team, position);
+</code></pre>
+<h3 id="getclosestdeploymentboundaryposition">GetClosestDeploymentBoundaryPosition</h3>
+<p><code>public Vec2 GetClosestDeploymentBoundaryPosition(Team team, in Vec2 position)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 closest deployment boundary position 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetClosestDeploymentBoundaryPosition(team, position);
+</code></pre>
+<h3 id="supportsreinforcements">SupportsReinforcements</h3>
+<p><code>public bool SupportsReinforcements()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SupportsReinforcements 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.SupportsReinforcements();
+</code></pre>
+<h3 id="supportsnavmesh">SupportsNavmesh</h3>
+<p><code>public bool SupportsNavmesh()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SupportsNavmesh 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.SupportsNavmesh();
+</code></pre>
+<h3 id="getpathdeploymentboundaryintersection">GetPathDeploymentBoundaryIntersection</h3>
+<p><code>public bool GetPathDeploymentBoundaryIntersection(Team team, in WorldPosition startPosition, in WorldPosition endPosition, out WorldPosition intersection)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 path deployment boundary intersection 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetPathDeploymentBoundaryIntersection(team, startPosition, endPosition, intersection);
+</code></pre>
+<h3 id="ispositioninsidesiegedeploymentboundaries">IsPositionInsideSiegeDeploymentBoundaries</h3>
+<p><code>public bool IsPositionInsideSiegeDeploymentBoundaries(in Vec2 position)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 position inside siege deployment boundaries 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsPositionInsideSiegeDeploymentBoundaries(position);
+</code></pre>
+<h3 id="getspawnpathoffset">GetSpawnPathOffset</h3>
+<p><code>public float GetSpawnPathOffset(Team team)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 spawn path offset 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetSpawnPathOffset(team);
+</code></pre>
+<h3 id="gettargetoffset">GetTargetOffset</h3>
+<p><code>public float GetTargetOffset(Team team)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 target offset 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetTargetOffset(team);
+</code></pre>
+<h3 id="gettroopcount">GetTroopCount</h3>
+<p><code>public int GetTroopCount(Team team, bool isReinforcement = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 troop count 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetTroopCount(team, false);
+</code></pre>
+<h3 id="getformationplan">GetFormationPlan</h3>
+<p><code>public IFormationDeploymentPlan GetFormationPlan(Team team, FormationClass fClass, bool isReinforcement)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 formation plan 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetFormationPlan(team, fClass, false);
+</code></pre>
+<h3 id="isplanmade">IsPlanMade</h3>
+<p><code>public bool IsPlanMade(Team team)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 plan made 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsPlanMade(team);
+</code></pre>
+<h3 id="isplanmade-1">IsPlanMade</h3>
+<p><code>public bool IsPlanMade(Team team, out bool isFirstPlan)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 plan made 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsPlanMade(team, isFirstPlan);
+</code></pre>
+<h3 id="isreinforcementplanmade">IsReinforcementPlanMade</h3>
+<p><code>public bool IsReinforcementPlanMade(Team team)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 reinforcement plan made 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsReinforcementPlanMade(team);
+</code></pre>
+<h3 id="isinitialplansuitableforformations">IsInitialPlanSuitableForFormations</h3>
+<p><code>public bool IsInitialPlanSuitableForFormations(Team team, { "footTroopCount", "mountedTroopCount" })</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 initial plan suitable for formations 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.IsInitialPlanSuitableForFormations(team, &quot;footTroopCount&quot;, });
+</code></pre>
+<h3 id="hasdeploymentboundaries">HasDeploymentBoundaries</h3>
+<p><code>public bool HasDeploymentBoundaries(Team team)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否已经持有 deployment boundaries。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.HasDeploymentBoundaries(team);
+</code></pre>
+<h3 id="getdeploymentframe">GetDeploymentFrame</h3>
+<p><code>public MatrixFrame GetDeploymentFrame(Team team)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 deployment frame 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetDeploymentFrame(team);
+</code></pre>
+<h3 id="projectpositiontodeploymentboundaries">ProjectPositionToDeploymentBoundaries</h3>
+<p><code>public void ProjectPositionToDeploymentBoundaries(Team team, ref WorldPosition endPosition)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ProjectPositionToDeploymentBoundaries 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.ProjectPositionToDeploymentBoundaries(team, endPosition);
+</code></pre>
+<h3 id="getdeploymentboundaries">GetDeploymentBoundaries</h3>
+<p><code>public MBReadOnlyList&lt;ValueTuple&lt;string, List&lt;Vec2&gt;&gt;&gt; GetDeploymentBoundaries(Team team)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 deployment boundaries 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetDeploymentBoundaries(team);
+</code></pre>
+<h3 id="getmeanposition">GetMeanPosition</h3>
+<p><code>public Vec3 GetMeanPosition(Team team, bool isReinforcement = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 mean position 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetMeanPosition(team, false);
+</code></pre>
+<h3 id="updatereinforcementplan">UpdateReinforcementPlan</h3>
+<p><code>public void UpdateReinforcementPlan(Team team)</code></p>
+<p><strong>用途 / Purpose:</strong> 重新计算并更新 reinforcement plan 的最新表示。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.UpdateReinforcementPlan(team);
+</code></pre>
+<h3 id="getzoomfocusframe">GetZoomFocusFrame</h3>
+<p><code>public MatrixFrame GetZoomFocusFrame(Team team)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 zoom focus frame 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetZoomFocusFrame(team);
+</code></pre>
+<h3 id="getzoomoffset">GetZoomOffset</h3>
+<p><code>public float GetZoomOffset(Team team, float fovAngle)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 zoom offset 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 DefaultMissionDeploymentPlan 实例
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+var result = defaultMissionDeploymentPlan.GetZoomOffset(team, 0);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">// 通常从对应子系统 API 获取实例后调用
+DefaultMissionDeploymentPlan defaultMissionDeploymentPlan = ...;
+defaultMissionDeploymentPlan.Initialize();
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/api/mission-ext/">mission-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/api/mission-ext/SingleVisualOrder/">&larr; SingleVisualOrder</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/api/mission-ext/FormationExtensions/">FormationExtensions &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

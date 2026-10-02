@@ -284,4 +284,4 @@ if (nearest != null)
 - 事件源：[CampaignEvents](../CampaignEvents) — `IsSettlementBusy` 会触发 `IsSettlementBusyEvent`。
 - Behavior 层：[CampaignBehaviorBase](../CampaignBehaviorBase) · [IDataStore](../IDataStore)。
 - 对象注册表：[MBObjectManager](../../campaign-ext/MBObjectManager) — `Find` 最终落到它的 `GetObject<Settlement>`。
-- 父级：campaign API 目录导览位于版本根 `../../../`。
+- 父级：[campaign API 目录导览](../)

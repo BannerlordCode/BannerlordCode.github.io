@@ -1,0 +1,2251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mission</title>
+  <meta name="description" content="Auto-generated class reference for Mission.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission/Mission/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission/Mission/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission/Mission/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission/Mission/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission/Mission/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission/Mission/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="active">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;mission&#x2F;">mission index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Mission</span>
+    </nav>
+  
+  <h1>Mission</h1>
+  <h1 id="mission">Mission</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public sealed class Mission : DotNetObject, IMission</code>
+<strong>Base:</strong> <code>DotNetObject</code>
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/Mission.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Mission</code> lives in <code>TaleWorlds.MountAndBlade</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.MountAndBlade</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>IsFinalized</code></td><td><code>public bool IsFinalized { get; }</code></td></tr>
+<tr><td><code>Current</code></td><td><code>public static Mission Current { get; }</code></td></tr>
+<tr><td><code>SceneName</code></td><td><code>public string SceneName { get; }</code></td></tr>
+<tr><td><code>SceneLevels</code></td><td><code>public string SceneLevels { get; }</code></td></tr>
+<tr><td><code>DamageToPlayerMultiplier</code></td><td><code>public float DamageToPlayerMultiplier { get; }</code></td></tr>
+<tr><td><code>DamageToFriendsMultiplier</code></td><td><code>public float DamageToFriendsMultiplier { get; }</code></td></tr>
+<tr><td><code>DamageFromPlayerToFriendsMultiplier</code></td><td><code>public float DamageFromPlayerToFriendsMultiplier { get; }</code></td></tr>
+<tr><td><code>HasValidTerrainType</code></td><td><code>public bool HasValidTerrainType { get; }</code></td></tr>
+<tr><td><code>TerrainType</code></td><td><code>public TerrainType TerrainType { get; }</code></td></tr>
+<tr><td><code>Scene</code></td><td><code>public Scene Scene { get; }</code></td></tr>
+<tr><td><code>CustomCameraTargetLocalOffset</code></td><td><code>public Vec3 CustomCameraTargetLocalOffset { get; }</code></td></tr>
+<tr><td><code>CustomCameraLocalOffset</code></td><td><code>public Vec3 CustomCameraLocalOffset { get; }</code></td></tr>
+<tr><td><code>CustomCameraLocalOffset2</code></td><td><code>public Vec3 CustomCameraLocalOffset2 { get; }</code></td></tr>
+<tr><td><code>CustomCameraGlobalOffset</code></td><td><code>public Vec3 CustomCameraGlobalOffset { get; }</code></td></tr>
+<tr><td><code>CustomCameraLocalRotationalOffset</code></td><td><code>public Vec3 CustomCameraLocalRotationalOffset { get; }</code></td></tr>
+<tr><td><code>CustomCameraIgnoreCollision</code></td><td><code>public bool CustomCameraIgnoreCollision { get; }</code></td></tr>
+<tr><td><code>CustomCameraFovMultiplier</code></td><td><code>public float CustomCameraFovMultiplier { get; }</code></td></tr>
+<tr><td><code>CustomCameraFixedDistance</code></td><td><code>public float CustomCameraFixedDistance { get; }</code></td></tr>
+<tr><td><code>IgnoredEntityForCamera</code></td><td><code>public GameEntity IgnoredEntityForCamera { get; }</code></td></tr>
+<tr><td><code>ActiveMissionObjects</code></td><td><code>public MBReadOnlyList&lt;MissionObject&gt; ActiveMissionObjects { get; }</code></td></tr>
+<tr><td><code>MissionObjects</code></td><td><code>public MBReadOnlyList&lt;MissionObject&gt; MissionObjects { get; }</code></td></tr>
+<tr><td><code>AddedEntitiesInfo</code></td><td><code>public MBReadOnlyList&lt;Mission.DynamicallyCreatedEntity&gt; AddedEntitiesInfo { get; }</code></td></tr>
+<tr><td><code>Boundaries</code></td><td><code>public Mission.MBBoundaryCollection Boundaries { get; }</code></td></tr>
+<tr><td><code>IsMainAgentObjectInteractionEnabled</code></td><td><code>public bool IsMainAgentObjectInteractionEnabled { get; }</code></td></tr>
+<tr><td><code>IsMainAgentItemInteractionEnabled</code></td><td><code>public bool IsMainAgentItemInteractionEnabled { get; }</code></td></tr>
+<tr><td><code>IsTeleportingAgents</code></td><td><code>public bool IsTeleportingAgents { get; set; }</code></td></tr>
+<tr><td><code>ForceTickOccasionally</code></td><td><code>public bool ForceTickOccasionally { get; set; }</code></td></tr>
+<tr><td><code>CombatType</code></td><td><code>public Mission.MissionCombatType CombatType { get; set; }</code></td></tr>
+<tr><td><code>Mode</code></td><td><code>public MissionMode Mode { get; }</code></td></tr>
+<tr><td><code>CurrentTime</code></td><td><code>public float CurrentTime { get; set; }</code></td></tr>
+<tr><td><code>PauseAITick</code></td><td><code>public bool PauseAITick { get; set; }</code></td></tr>
+<tr><td><code>IsLoadingFinished</code></td><td><code>public bool IsLoadingFinished { get; }</code></td></tr>
+<tr><td><code>CameraIsFirstPerson</code></td><td><code>public bool CameraIsFirstPerson { get; set; }</code></td></tr>
+<tr><td><code>CameraAddedDistance</code></td><td><code>public static float CameraAddedDistance { get; set; }</code></td></tr>
+<tr><td><code>ClearSceneTimerElapsedTime</code></td><td><code>public float ClearSceneTimerElapsedTime { get; }</code></td></tr>
+<tr><td><code>MissilesList</code></td><td><code>public MBReadOnlyList&lt;Mission.Missile&gt; MissilesList { get; }</code></td></tr>
+<tr><td><code>MissionEnded</code></td><td><code>public bool MissionEnded { get; }</code></td></tr>
+<tr><td><code>MountsWithoutRiders</code></td><td><code>public MBReadOnlyList&lt;KeyValuePair&lt;Agent, MissionTime&gt;&gt; MountsWithoutRiders { get; }</code></td></tr>
+<tr><td><code>MissionIsEnding</code></td><td><code>public bool MissionIsEnding { get; }</code></td></tr>
+<tr><td><code>IsDeploymentFinished</code></td><td><code>public bool IsDeploymentFinished { get; }</code></td></tr>
+<tr><td><code>RetreatSide</code></td><td><code>public BattleSideEnum RetreatSide { get; }</code></td></tr>
+<tr><td><code>IsFastForward</code></td><td><code>public bool IsFastForward { get; }</code></td></tr>
+<tr><td><code>FixedDeltaTimeMode</code></td><td><code>public bool FixedDeltaTimeMode { get; }</code></td></tr>
+<tr><td><code>FixedDeltaTime</code></td><td><code>public float FixedDeltaTime { get; }</code></td></tr>
+<tr><td><code>CurrentState</code></td><td><code>public Mission.State CurrentState { get; }</code></td></tr>
+<tr><td><code>Teams</code></td><td><code>public Mission.TeamCollection Teams { get; }</code></td></tr>
+<tr><td><code>AttackerTeam</code></td><td><code>public Team AttackerTeam { get; }</code></td></tr>
+<tr><td><code>DefenderTeam</code></td><td><code>public Team DefenderTeam { get; }</code></td></tr>
+<tr><td><code>AttackerAllyTeam</code></td><td><code>public Team AttackerAllyTeam { get; }</code></td></tr>
+<tr><td><code>DefenderAllyTeam</code></td><td><code>public Team DefenderAllyTeam { get; set; }</code></td></tr>
+<tr><td><code>PlayerTeam</code></td><td><code>public Team PlayerTeam { get; set; }</code></td></tr>
+<tr><td><code>PlayerEnemyTeam</code></td><td><code>public Team PlayerEnemyTeam { get; set; }</code></td></tr>
+<tr><td><code>PlayerAllyTeam</code></td><td><code>public Team PlayerAllyTeam { get; set; }</code></td></tr>
+<tr><td><code>SpectatorTeam</code></td><td><code>public Team SpectatorTeam { get; set; }</code></td></tr>
+<tr><td><code>IsMissionEnding</code></td><td><code>public bool IsMissionEnding { get; }</code></td></tr>
+<tr><td><code>MissionLogics</code></td><td><code>public List&lt;MissionLogic&gt; MissionLogics { get; set; }</code></td></tr>
+<tr><td><code>MissionBehaviors</code></td><td><code>public List&lt;MissionBehavior&gt; MissionBehaviors { get; }</code></td></tr>
+<tr><td><code>InputManager</code></td><td><code>public IInputContext InputManager { get; }</code></td></tr>
+<tr><td><code>NeedsMemoryCleanup</code></td><td><code>public bool NeedsMemoryCleanup { get; }</code></td></tr>
+<tr><td><code>MainAgent</code></td><td><code>public Agent MainAgent { get; set; }</code></td></tr>
+<tr><td><code>DeploymentPlan</code></td><td><code>public IMissionDeploymentPlan DeploymentPlan { get; }</code></td></tr>
+<tr><td><code>MainAgentServer</code></td><td><code>public Agent MainAgentServer { get; set; }</code></td></tr>
+<tr><td><code>HasSpawnPath</code></td><td><code>public bool HasSpawnPath { get; }</code></td></tr>
+<tr><td><code>IsFieldBattle</code></td><td><code>public bool IsFieldBattle { get; }</code></td></tr>
+<tr><td><code>IsSiegeBattle</code></td><td><code>public bool IsSiegeBattle { get; }</code></td></tr>
+<tr><td><code>IsSallyOutBattle</code></td><td><code>public bool IsSallyOutBattle { get; }</code></td></tr>
+<tr><td><code>IsNavalBattle</code></td><td><code>public bool IsNavalBattle { get; }</code></td></tr>
+<tr><td><code>AllAgents</code></td><td><code>public AgentReadOnlyList AllAgents { get; }</code></td></tr>
+<tr><td><code>CorpseAgentInfos</code></td><td><code>public MBReadOnlyList&lt;Mission.CorpseAgentInfo&gt; CorpseAgentInfos { get; }</code></td></tr>
+<tr><td><code>Agents</code></td><td><code>public AgentReadOnlyList Agents { get; }</code></td></tr>
+<tr><td><code>IsInventoryAccessAllowed</code></td><td><code>public bool IsInventoryAccessAllowed { get; }</code></td></tr>
+<tr><td><code>IsInventoryAccessible</code></td><td><code>public bool IsInventoryAccessible { get; }</code></td></tr>
+<tr><td><code>MissionResult</code></td><td><code>public MissionResult MissionResult { get; }</code></td></tr>
+<tr><td><code>FocusableObjectInformationProvider</code></td><td><code>public MissionFocusableObjectInformationProvider FocusableObjectInformationProvider { get; }</code></td></tr>
+<tr><td><code>IsQuestScreenAccessible</code></td><td><code>public bool IsQuestScreenAccessible { get; set; }</code></td></tr>
+<tr><td><code>IsQuestScreenAccessAllowed</code></td><td><code>public bool IsQuestScreenAccessAllowed { get; }</code></td></tr>
+<tr><td><code>IsCharacterWindowAccessible</code></td><td><code>public bool IsCharacterWindowAccessible { get; set; }</code></td></tr>
+<tr><td><code>IsCharacterWindowAccessAllowed</code></td><td><code>public bool IsCharacterWindowAccessAllowed { get; }</code></td></tr>
+<tr><td><code>IsPartyWindowAccessible</code></td><td><code>public bool IsPartyWindowAccessible { get; set; }</code></td></tr>
+<tr><td><code>IsPartyWindowAccessAllowed</code></td><td><code>public bool IsPartyWindowAccessAllowed { get; }</code></td></tr>
+<tr><td><code>IsKingdomWindowAccessible</code></td><td><code>public bool IsKingdomWindowAccessible { get; set; }</code></td></tr>
+<tr><td><code>IsKingdomWindowAccessAllowed</code></td><td><code>public bool IsKingdomWindowAccessAllowed { get; }</code></td></tr>
+<tr><td><code>IsClanWindowAccessible</code></td><td><code>public bool IsClanWindowAccessible { get; set; }</code></td></tr>
+<tr><td><code>IsClanWindowAccessAllowed</code></td><td><code>public bool IsClanWindowAccessAllowed { get; }</code></td></tr>
+<tr><td><code>IsEncyclopediaWindowAccessible</code></td><td><code>public bool IsEncyclopediaWindowAccessible { get; set; }</code></td></tr>
+<tr><td><code>IsEncyclopediaWindowAccessAllowed</code></td><td><code>public bool IsEncyclopediaWindowAccessAllowed { get; }</code></td></tr>
+<tr><td><code>IsBannerWindowAccessible</code></td><td><code>public bool IsBannerWindowAccessible { get; set; }</code></td></tr>
+<tr><td><code>IsBannerWindowAccessAllowed</code></td><td><code>public bool IsBannerWindowAccessAllowed { get; }</code></td></tr>
+<tr><td><code>DoesMissionRequireCivilianEquipment</code></td><td><code>public bool DoesMissionRequireCivilianEquipment { get; set; }</code></td></tr>
+<tr><td><code>MissionTeamAIType</code></td><td><code>public Mission.MissionTeamAITypeEnum MissionTeamAIType { get; set; }</code></td></tr>
+<tr><td><code>Recorder</code></td><td><code>public MissionRecorder Recorder { get; }</code></td></tr>
+<tr><td><code>MissionTimeTracker</code></td><td><code>public MissionTimeTracker MissionTimeTracker { get; }</code></td></tr>
+<tr><td><code>Count</code></td><td><code>public int Count { get; }</code></td></tr>
+<tr><td><code>IsReadOnly</code></td><td><code>public bool IsReadOnly { get; }</code></td></tr>
+<tr><td><code>Keys</code></td><td><code>public ICollection&lt;string&gt; Keys { get; }</code></td></tr>
+<tr><td><code>Values</code></td><td><code>public ICollection&lt;ICollection&lt;Vec2&gt;&gt; Values { get; }</code></td></tr>
+<tr><td><code>this</code></td><td><code>public ICollection&lt;Vec2&gt; this { get; }</code></td></tr>
+<tr><td><code>RequestedTimeSpeed</code></td><td><code>public float RequestedTimeSpeed { get; }</code></td></tr>
+<tr><td><code>RequestID</code></td><td><code>public int RequestID { get; }</code></td></tr>
+<tr><td><code>Entity</code></td><td><code>public GameEntity Entity { get; }</code></td></tr>
+<tr><td><code>Weapon</code></td><td><code>public MissionWeapon Weapon { get; }</code></td></tr>
+<tr><td><code>ShooterAgent</code></td><td><code>public Agent ShooterAgent { get; }</code></td></tr>
+<tr><td><code>MissionObjectToIgnore</code></td><td><code>public MissionObject MissionObjectToIgnore { get; }</code></td></tr>
+<tr><td><code>AlreadyHitEntityToIgnore</code></td><td><code>public GameEntity AlreadyHitEntityToIgnore { get; }</code></td></tr>
+<tr><td><code>AgentToFollow</code></td><td><code>public Agent AgentToFollow { get; }</code></td></tr>
+<tr><td><code>AgentVisualToFollow</code></td><td><code>public IAgentVisual AgentVisualToFollow { get; }</code></td></tr>
+<tr><td><code>CameraType</code></td><td><code>public SpectatorCameraTypes CameraType { get; }</code></td></tr>
+<tr><td><code>Attacker</code></td><td><code>public Team Attacker { get; }</code></td></tr>
+<tr><td><code>Defender</code></td><td><code>public Team Defender { get; }</code></td></tr>
+<tr><td><code>AttackerAlly</code></td><td><code>public Team AttackerAlly { get; }</code></td></tr>
+<tr><td><code>DefenderAlly</code></td><td><code>public Team DefenderAlly { get; }</code></td></tr>
+<tr><td><code>Player</code></td><td><code>public Team Player { get; set; }</code></td></tr>
+<tr><td><code>PlayerEnemy</code></td><td><code>public Team PlayerEnemy { get; }</code></td></tr>
+<tr><td><code>PlayerAlly</code></td><td><code>public Team PlayerAlly { get; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="addactivemissionobject">AddActiveMissionObject</h3>
+<p><code>public void AddActiveMissionObject(MissionObject missionObject)</code></p>
+<p><strong>Purpose:</strong> Adds active mission object to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddActiveMissionObject(missionObject);
+</code></pre>
+<h3 id="activatemissionobject">ActivateMissionObject</h3>
+<p><code>public void ActivateMissionObject(MissionObject missionObject)</code></p>
+<p><strong>Purpose:</strong> Activates the resource, state, or feature associated with mission object.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.ActivateMissionObject(missionObject);
+</code></pre>
+<h3 id="deactivatemissionobject">DeactivateMissionObject</h3>
+<p><code>public void DeactivateMissionObject(MissionObject missionObject)</code></p>
+<p><strong>Purpose:</strong> Deactivates the resource, state, or feature associated with mission object.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.DeactivateMissionObject(missionObject);
+</code></pre>
+<h3 id="setmissioncombattype">SetMissionCombatType</h3>
+<p><code>public void SetMissionCombatType(Mission.MissionCombatType missionCombatType)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to mission combat type and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetMissionCombatType(missionCombatType);
+</code></pre>
+<h3 id="conversationcharacterchanged">ConversationCharacterChanged</h3>
+<p><code>public void ConversationCharacterChanged()</code></p>
+<p><strong>Purpose:</strong> Executes the ConversationCharacterChanged logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.ConversationCharacterChanged();
+</code></pre>
+<h3 id="setmissionmode">SetMissionMode</h3>
+<p><code>public void SetMissionMode(MissionMode newMode, bool atStart)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to mission mode and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetMissionMode(newMode, false);
+</code></pre>
+<h3 id="getaveragefps">GetAverageFps</h3>
+<p><code>public float GetAverageFps()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the average fps value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetAverageFps();
+</code></pre>
+<h3 id="getfallavoidsystemactive">GetFallAvoidSystemActive</h3>
+<p><code>public bool GetFallAvoidSystemActive()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the fall avoid system active value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetFallAvoidSystemActive();
+</code></pre>
+<h3 id="setfallavoidsystemactive">SetFallAvoidSystemActive</h3>
+<p><code>public void SetFallAvoidSystemActive(bool fallAvoidActive)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to fall avoid system active and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetFallAvoidSystemActive(false);
+</code></pre>
+<h3 id="ispositioninsideboundaries">IsPositionInsideBoundaries</h3>
+<p><code>public bool IsPositionInsideBoundaries(Vec2 position)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the position inside boundaries state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.IsPositionInsideBoundaries(position);
+</code></pre>
+<h3 id="ispositioninsideanyblockernavmeshface2d">IsPositionInsideAnyBlockerNavMeshFace2D</h3>
+<p><code>public bool IsPositionInsideAnyBlockerNavMeshFace2D(Vec2 position)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the position inside any blocker nav mesh face2 d state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.IsPositionInsideAnyBlockerNavMeshFace2D(position);
+</code></pre>
+<h3 id="ispositiononanyblockernavmeshface">IsPositionOnAnyBlockerNavMeshFace</h3>
+<p><code>public bool IsPositionOnAnyBlockerNavMeshFace(Vec3 position)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the position on any blocker nav mesh face state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.IsPositionOnAnyBlockerNavMeshFace(position);
+</code></pre>
+<h3 id="raycastforclosestagent">RayCastForClosestAgent</h3>
+<p><code>public Agent RayCastForClosestAgent(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastForClosestAgent logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.RayCastForClosestAgent(sourcePoint, targetPoint, 0, 0, collisionDistance);
+</code></pre>
+<h3 id="raycastforclosestagentslimbs">RayCastForClosestAgentsLimbs</h3>
+<p><code>public Agent RayCastForClosestAgentsLimbs(Vec3 sourcePoint, Vec3 targetPoint, int excludedAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastForClosestAgentsLimbs logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.RayCastForClosestAgentsLimbs(sourcePoint, targetPoint, 0, 0, collisionDistance, boneIndex);
+</code></pre>
+<h3 id="raycastforgivenagentslimbs">RayCastForGivenAgentsLimbs</h3>
+<p><code>public bool RayCastForGivenAgentsLimbs(Vec3 sourcePoint, Vec3 rayFinishPoint, int givenAgentIndex, float rayThickness, out float collisionDistance, out sbyte boneIndex)</code></p>
+<p><strong>Purpose:</strong> Executes the RayCastForGivenAgentsLimbs logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.RayCastForGivenAgentsLimbs(sourcePoint, rayFinishPoint, 0, 0, collisionDistance, boneIndex);
+</code></pre>
+<h3 id="getbiggestagentcollisionpadding">GetBiggestAgentCollisionPadding</h3>
+<p><code>public float GetBiggestAgentCollisionPadding()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the biggest agent collision padding value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetBiggestAgentCollisionPadding();
+</code></pre>
+<h3 id="setmissioncorpsefadeouttimeinseconds">SetMissionCorpseFadeOutTimeInSeconds</h3>
+<p><code>public void SetMissionCorpseFadeOutTimeInSeconds(float corpseFadeOutTimeInSeconds)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to mission corpse fade out time in seconds and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetMissionCorpseFadeOutTimeInSeconds(0);
+</code></pre>
+<h3 id="setoverridecorpsecount">SetOverrideCorpseCount</h3>
+<p><code>public void SetOverrideCorpseCount(int overrideCorpseCount)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to override corpse count and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetOverrideCorpseCount(0);
+</code></pre>
+<h3 id="setreportstuckagentsmode">SetReportStuckAgentsMode</h3>
+<p><code>public void SetReportStuckAgentsMode(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to report stuck agents mode and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetReportStuckAgentsMode(false);
+</code></pre>
+<h3 id="resetmission">ResetMission</h3>
+<p><code>public void ResetMission()</code></p>
+<p><strong>Purpose:</strong> Returns mission to its default or initial condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.ResetMission();
+</code></pre>
+<h3 id="initialize">Initialize</h3>
+<p><code>public void Initialize()</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings the this instance needs before use.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.Initialize();
+</code></pre>
+<h3 id="tickagentsandteamsasync">TickAgentsAndTeamsAsync</h3>
+<p><code>public void TickAgentsAndTeamsAsync(float dt)</code></p>
+<p><strong>Purpose:</strong> Advances the agents and teams async state each frame or update cycle.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.TickAgentsAndTeamsAsync(0);
+</code></pre>
+<h3 id="makesound">MakeSound</h3>
+<p><code>public void MakeSound(int soundIndex, Vec3 position, bool soundCanBePredicted, bool isReliable, int relatedAgent1, int relatedAgent2)</code></p>
+<p><strong>Purpose:</strong> Executes the MakeSound logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.MakeSound(0, position, false, false, 0, 0);
+</code></pre>
+<h3 id="makesound-1">MakeSound</h3>
+<p><code>public void MakeSound(int soundIndex, Vec3 position, bool soundCanBePredicted, bool isReliable, int relatedAgent1, int relatedAgent2, ref SoundEventParameter parameter)</code></p>
+<p><strong>Purpose:</strong> Executes the MakeSound logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.MakeSound(0, position, false, false, 0, 0, parameter);
+</code></pre>
+<h3 id="makesoundonlyonrelatedpeer">MakeSoundOnlyOnRelatedPeer</h3>
+<p><code>public void MakeSoundOnlyOnRelatedPeer(int soundIndex, Vec3 position, int relatedAgent)</code></p>
+<p><strong>Purpose:</strong> Executes the MakeSoundOnlyOnRelatedPeer logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.MakeSoundOnlyOnRelatedPeer(0, position, 0);
+</code></pre>
+<h3 id="adddynamicallyspawnedmissionobjectinfo">AddDynamicallySpawnedMissionObjectInfo</h3>
+<p><code>public void AddDynamicallySpawnedMissionObjectInfo(Mission.DynamicallyCreatedEntity entityInfo)</code></p>
+<p><strong>Purpose:</strong> Adds dynamically spawned mission object info to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddDynamicallySpawnedMissionObjectInfo(entityInfo);
+</code></pre>
+<h3 id="getmissilecollisionpoint">GetMissileCollisionPoint</h3>
+<p><code>public Vec3 GetMissileCollisionPoint(Vec3 missileStartingPosition, Vec3 missileDirection, float missileSpeed, in WeaponData weaponData)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the missile collision point value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetMissileCollisionPoint(missileStartingPosition, missileDirection, 0, weaponData);
+</code></pre>
+<h3 id="removemissileasclient">RemoveMissileAsClient</h3>
+<p><code>public void RemoveMissileAsClient(int missileIndex)</code></p>
+<p><strong>Purpose:</strong> Removes missile as client from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.RemoveMissileAsClient(0);
+</code></pre>
+<h3 id="getmissileverticalaimcorrection">GetMissileVerticalAimCorrection</h3>
+<p><code>public static float GetMissileVerticalAimCorrection(Vec3 vecToTarget, float missileStartingSpeed, ref WeaponStatsData weaponStatsData, float airFrictionConstant)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the missile vertical aim correction value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetMissileVerticalAimCorrection(vecToTarget, 0, weaponStatsData, 0);
+</code></pre>
+<h3 id="getmissilerange">GetMissileRange</h3>
+<p><code>public static float GetMissileRange(float missileStartingSpeed, float heightDifference)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the missile range value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetMissileRange(0, 0);
+</code></pre>
+<h3 id="preparemissileweaponfordrop">PrepareMissileWeaponForDrop</h3>
+<p><code>public void PrepareMissileWeaponForDrop(int missileIndex)</code></p>
+<p><strong>Purpose:</strong> Finishes prerequisite setup for the upcoming missile weapon for drop operation.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.PrepareMissileWeaponForDrop(0);
+</code></pre>
+<h3 id="addparticlesystemburstbyname">AddParticleSystemBurstByName</h3>
+<p><code>public void AddParticleSystemBurstByName(string particleSystem, MatrixFrame frame, bool synchThroughNetwork)</code></p>
+<p><strong>Purpose:</strong> Adds particle system burst by name to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddParticleSystemBurstByName(&quot;example&quot;, frame, false);
+</code></pre>
+<h3 id="getclosestboundaryposition">GetClosestBoundaryPosition</h3>
+<p><code>public Vec2 GetClosestBoundaryPosition(Vec2 position)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the closest boundary position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetClosestBoundaryPosition(position);
+</code></pre>
+<h3 id="getfreeruntimemissionobjectid">GetFreeRuntimeMissionObjectId</h3>
+<p><code>public int GetFreeRuntimeMissionObjectId()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the free runtime mission object id value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetFreeRuntimeMissionObjectId();
+</code></pre>
+<h3 id="getfreescenemissionobjectid">GetFreeSceneMissionObjectId</h3>
+<p><code>public int GetFreeSceneMissionObjectId()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the free scene mission object id value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetFreeSceneMissionObjectId();
+</code></pre>
+<h3 id="setcameraframe">SetCameraFrame</h3>
+<p><code>public void SetCameraFrame(ref MatrixFrame cameraFrame, float zoomFactor)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to camera frame and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetCameraFrame(cameraFrame, 0);
+</code></pre>
+<h3 id="setcameraframe-1">SetCameraFrame</h3>
+<p><code>public void SetCameraFrame(ref MatrixFrame cameraFrame, float zoomFactor, ref Vec3 attenuationPosition)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to camera frame and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetCameraFrame(cameraFrame, 0, attenuationPosition);
+</code></pre>
+<h3 id="getcameraframe">GetCameraFrame</h3>
+<p><code>public MatrixFrame GetCameraFrame()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the camera frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetCameraFrame();
+</code></pre>
+<h3 id="resetfirstthirdpersonview">ResetFirstThirdPersonView</h3>
+<p><code>public void ResetFirstThirdPersonView()</code></p>
+<p><strong>Purpose:</strong> Returns first third person view to its default or initial condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.ResetFirstThirdPersonView();
+</code></pre>
+<h3 id="setcustomcameralocaloffset">SetCustomCameraLocalOffset</h3>
+<p><code>public void SetCustomCameraLocalOffset(Vec3 newCameraOffset)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to custom camera local offset and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetCustomCameraLocalOffset(newCameraOffset);
+</code></pre>
+<h3 id="setcustomcameratargetlocaloffset">SetCustomCameraTargetLocalOffset</h3>
+<p><code>public void SetCustomCameraTargetLocalOffset(Vec3 newTargetLocalOffset)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to custom camera target local offset and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetCustomCameraTargetLocalOffset(newTargetLocalOffset);
+</code></pre>
+<h3 id="setcustomcameralocaloffset2">SetCustomCameraLocalOffset2</h3>
+<p><code>public void SetCustomCameraLocalOffset2(Vec3 newCameraOffset)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to custom camera local offset2 and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetCustomCameraLocalOffset2(newCameraOffset);
+</code></pre>
+<h3 id="setcustomcameralocalrotationaloffset">SetCustomCameraLocalRotationalOffset</h3>
+<p><code>public void SetCustomCameraLocalRotationalOffset(Vec3 newCameraRotationalOffset)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to custom camera local rotational offset and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetCustomCameraLocalRotationalOffset(newCameraRotationalOffset);
+</code></pre>
+<h3 id="setcustomcameraglobaloffset">SetCustomCameraGlobalOffset</h3>
+<p><code>public void SetCustomCameraGlobalOffset(Vec3 newCameraOffset)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to custom camera global offset and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetCustomCameraGlobalOffset(newCameraOffset);
+</code></pre>
+<h3 id="setcustomcamerafovmultiplier">SetCustomCameraFovMultiplier</h3>
+<p><code>public void SetCustomCameraFovMultiplier(float newFovMultiplier)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to custom camera fov multiplier and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetCustomCameraFovMultiplier(0);
+</code></pre>
+<h3 id="setcustomcamerafixeddistance">SetCustomCameraFixedDistance</h3>
+<p><code>public void SetCustomCameraFixedDistance(float distance)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to custom camera fixed distance and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetCustomCameraFixedDistance(0);
+</code></pre>
+<h3 id="setignoredentityforcamera">SetIgnoredEntityForCamera</h3>
+<p><code>public void SetIgnoredEntityForCamera(GameEntity ignoredEntity)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to ignored entity for camera and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetIgnoredEntityForCamera(ignoredEntity);
+</code></pre>
+<h3 id="setcustomcameraignorecollision">SetCustomCameraIgnoreCollision</h3>
+<p><code>public void SetCustomCameraIgnoreCollision(bool ignoreCollision)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to custom camera ignore collision and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetCustomCameraIgnoreCollision(false);
+</code></pre>
+<h3 id="addtimespeedrequest">AddTimeSpeedRequest</h3>
+<p><code>public void AddTimeSpeedRequest(Mission.TimeSpeedRequest request)</code></p>
+<p><strong>Purpose:</strong> Adds time speed request to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddTimeSpeedRequest(request);
+</code></pre>
+<h3 id="removetimespeedrequest">RemoveTimeSpeedRequest</h3>
+<p><code>public void RemoveTimeSpeedRequest(int timeSpeedRequestID)</code></p>
+<p><strong>Purpose:</strong> Removes time speed request from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.RemoveTimeSpeedRequest(0);
+</code></pre>
+<h3 id="getrequestedtimespeed">GetRequestedTimeSpeed</h3>
+<p><code>public bool GetRequestedTimeSpeed(int timeSpeedRequestID, out float requestedTime)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the requested time speed value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetRequestedTimeSpeed(0, requestedTime);
+</code></pre>
+<h3 id="clearagentactions">ClearAgentActions</h3>
+<p><code>public void ClearAgentActions()</code></p>
+<p><strong>Purpose:</strong> Removes all agent actions from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.ClearAgentActions();
+</code></pre>
+<h3 id="clearmissiles">ClearMissiles</h3>
+<p><code>public void ClearMissiles()</code></p>
+<p><strong>Purpose:</strong> Removes all missiles from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.ClearMissiles();
+</code></pre>
+<h3 id="clearcorpses">ClearCorpses</h3>
+<p><code>public void ClearCorpses(bool isMissionReset)</code></p>
+<p><strong>Purpose:</strong> Removes all corpses from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.ClearCorpses(false);
+</code></pre>
+<h3 id="isagentinproximitymap">IsAgentInProximityMap</h3>
+<p><code>public bool IsAgentInProximityMap(Agent agent)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the agent in proximity map state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.IsAgentInProximityMap(agent);
+</code></pre>
+<h3 id="onmissionstateactivate">OnMissionStateActivate</h3>
+<p><code>public void OnMissionStateActivate()</code></p>
+<p><strong>Purpose:</strong> Invoked when the mission state activate event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnMissionStateActivate();
+</code></pre>
+<h3 id="onmissionstatedeactivate">OnMissionStateDeactivate</h3>
+<p><code>public void OnMissionStateDeactivate()</code></p>
+<p><strong>Purpose:</strong> Invoked when the mission state deactivate event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnMissionStateDeactivate();
+</code></pre>
+<h3 id="onmissionstatefinalize">OnMissionStateFinalize</h3>
+<p><code>public void OnMissionStateFinalize(bool forceClearGPUResources)</code></p>
+<p><strong>Purpose:</strong> Invoked when the mission state finalize event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnMissionStateFinalize(false);
+</code></pre>
+<h3 id="clearunreferencedresources">ClearUnreferencedResources</h3>
+<p><code>public void ClearUnreferencedResources(bool forceClearGPUResources)</code></p>
+<p><strong>Purpose:</strong> Removes all unreferenced resources from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.ClearUnreferencedResources(false);
+</code></pre>
+<h3 id="getmainagentmaxcamerazoom">GetMainAgentMaxCameraZoom</h3>
+<p><code>public float GetMainAgentMaxCameraZoom()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the main agent max camera zoom value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetMainAgentMaxCameraZoom();
+</code></pre>
+<h3 id="getbestslopetowardsdirection">GetBestSlopeTowardsDirection</h3>
+<p><code>public WorldPosition GetBestSlopeTowardsDirection(ref WorldPosition centerPosition, float halfSize, ref WorldPosition referencePosition)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the best slope towards direction value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetBestSlopeTowardsDirection(centerPosition, 0, referencePosition);
+</code></pre>
+<h3 id="getbestslopeangleheightposfordefending">GetBestSlopeAngleHeightPosForDefending</h3>
+<p><code>public WorldPosition GetBestSlopeAngleHeightPosForDefending(WorldPosition enemyPosition, WorldPosition defendingPosition, int sampleSize, float distanceRatioAllowedFromDefendedPos, float distanceSqrdAllowedFromBoundary, float cosinusOfBestSlope, float cosinusOfMaxAcceptedSlope, float minSlopeScore, float maxSlopeScore, float excessiveSlopePenalty, float nearConeCenterRatio, float nearConeCenterBonus, float heightDifferenceCeiling, float maxDisplacementPenalty)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the best slope angle height pos for defending value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetBestSlopeAngleHeightPosForDefending(enemyPosition, defendingPosition, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+</code></pre>
+<h3 id="getaveragepositionofagents">GetAveragePositionOfAgents</h3>
+<p><code>public Vec2 GetAveragePositionOfAgents(List&lt;Agent&gt; agents)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the average position of agents value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetAveragePositionOfAgents(agents);
+</code></pre>
+<h3 id="setrandomdecidetimeofagentswithindices">SetRandomDecideTimeOfAgentsWithIndices</h3>
+<p><code>public void SetRandomDecideTimeOfAgentsWithIndices(int agentIndices, float? minAIReactionTime = null, float? maxAIReactionTime = null)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to random decide time of agents with indices and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetRandomDecideTimeOfAgentsWithIndices(0, 0, 0);
+</code></pre>
+<h3 id="setbowmissilespeedmodifier">SetBowMissileSpeedModifier</h3>
+<p><code>public void SetBowMissileSpeedModifier(float modifier)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to bow missile speed modifier and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetBowMissileSpeedModifier(0);
+</code></pre>
+<h3 id="setcrossbowmissilespeedmodifier">SetCrossbowMissileSpeedModifier</h3>
+<p><code>public void SetCrossbowMissileSpeedModifier(float modifier)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to crossbow missile speed modifier and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetCrossbowMissileSpeedModifier(0);
+</code></pre>
+<h3 id="setthrowingmissilespeedmodifier">SetThrowingMissileSpeedModifier</h3>
+<p><code>public void SetThrowingMissileSpeedModifier(float modifier)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to throwing missile speed modifier and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetThrowingMissileSpeedModifier(0);
+</code></pre>
+<h3 id="setmissilerangemodifier">SetMissileRangeModifier</h3>
+<p><code>public void SetMissileRangeModifier(float modifier)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to missile range modifier and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetMissileRangeModifier(0);
+</code></pre>
+<h3 id="setlastmovementkeypressed">SetLastMovementKeyPressed</h3>
+<p><code>public void SetLastMovementKeyPressed(Agent.MovementControlFlag lastMovementKeyPressed)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to last movement key pressed and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetLastMovementKeyPressed(lastMovementKeyPressed);
+</code></pre>
+<h3 id="getweightedpointofenemies">GetWeightedPointOfEnemies</h3>
+<p><code>public Vec2 GetWeightedPointOfEnemies(Agent agent, Vec2 basePoint)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the weighted point of enemies value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetWeightedPointOfEnemies(agent, basePoint);
+</code></pre>
+<h3 id="getpathbetweenpositions">GetPathBetweenPositions</h3>
+<p><code>public bool GetPathBetweenPositions(ref NavigationData navData)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the path between positions value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetPathBetweenPositions(navData);
+</code></pre>
+<h3 id="setnavigationfacecostwithidaroundposition">SetNavigationFaceCostWithIdAroundPosition</h3>
+<p><code>public void SetNavigationFaceCostWithIdAroundPosition(int navigationFaceId, Vec3 position, float cost)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to navigation face cost with id around position and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetNavigationFaceCostWithIdAroundPosition(0, position, 0);
+</code></pre>
+<h3 id="getstraightpathtotarget">GetStraightPathToTarget</h3>
+<p><code>public WorldPosition GetStraightPathToTarget(Vec2 targetPosition, WorldPosition startingPosition, float samplingDistance = 1f, bool stopAtObstacle = true)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the straight path to target value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetStraightPathToTarget(targetPosition, startingPosition, 0, false);
+</code></pre>
+<h3 id="skipforwardmissionreplay">SkipForwardMissionReplay</h3>
+<p><code>public void SkipForwardMissionReplay(float startTime, float endTime)</code></p>
+<p><strong>Purpose:</strong> Executes the SkipForwardMissionReplay logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SkipForwardMissionReplay(0, 0);
+</code></pre>
+<h3 id="getdebugagent">GetDebugAgent</h3>
+<p><code>public int GetDebugAgent()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the debug agent value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetDebugAgent();
+</code></pre>
+<h3 id="addaidebugtext">AddAiDebugText</h3>
+<p><code>public void AddAiDebugText(string str)</code></p>
+<p><strong>Purpose:</strong> Adds ai debug text to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddAiDebugText(&quot;example&quot;);
+</code></pre>
+<h3 id="setdebugagent">SetDebugAgent</h3>
+<p><code>public void SetDebugAgent(int index)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to debug agent and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetDebugAgent(0);
+</code></pre>
+<h3 id="getfirstpersonfov">GetFirstPersonFov</h3>
+<p><code>public static float GetFirstPersonFov()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the first person fov value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetFirstPersonFov();
+</code></pre>
+<h3 id="getwaterlevelatposition">GetWaterLevelAtPosition</h3>
+<p><code>public float GetWaterLevelAtPosition(Vec2 position, bool useWaterRenderer)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the water level at position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetWaterLevelAtPosition(position, false);
+</code></pre>
+<h3 id="getwaterlevelatpositionmt">GetWaterLevelAtPositionMT</h3>
+<p><code>public float GetWaterLevelAtPositionMT(Vec2 position, bool useWaterRenderer)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the water level at position m t value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetWaterLevelAtPositionMT(position, false);
+</code></pre>
+<h3 id="canphysicscollidebetweentwoentities">CanPhysicsCollideBetweenTwoEntities</h3>
+<p><code>public bool CanPhysicsCollideBetweenTwoEntities(UIntPtr entity0Ptr, UIntPtr entity1Ptr)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for physics collide between two entities.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.CanPhysicsCollideBetweenTwoEntities(entity0Ptr, entity1Ptr);
+</code></pre>
+<h3 id="getremovedagentratioforside">GetRemovedAgentRatioForSide</h3>
+<p><code>public float GetRemovedAgentRatioForSide(BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the removed agent ratio for side value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetRemovedAgentRatioForSide(side);
+</code></pre>
+<h3 id="getattackerweaponsforfriendlyfirepreventing">GetAttackerWeaponsForFriendlyFirePreventing</h3>
+<p><code>public ref readonly List&lt;SiegeWeapon&gt; GetAttackerWeaponsForFriendlyFirePreventing()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the attacker weapons for friendly fire preventing value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetAttackerWeaponsForFriendlyFirePreventing();
+</code></pre>
+<h3 id="ondeploymentplanmade">OnDeploymentPlanMade</h3>
+<p><code>public void OnDeploymentPlanMade(Team team, bool isFirstPlan)</code></p>
+<p><strong>Purpose:</strong> Invoked when the deployment plan made event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnDeploymentPlanMade(team, false);
+</code></pre>
+<h3 id="getalternatepositionfornavmeshlessoroutofboundsposition">GetAlternatePositionForNavmeshlessOrOutOfBoundsPosition</h3>
+<p><code>public WorldPosition GetAlternatePositionForNavmeshlessOrOutOfBoundsPosition(Vec2 directionTowards, WorldPosition originalPosition, ref float positionPenalty)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the alternate position for navmeshless or out of bounds position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetAlternatePositionForNavmeshlessOrOutOfBoundsPosition(directionTowards, originalPosition, positionPenalty);
+</code></pre>
+<h3 id="getnextdynamicnavmeshidstart">GetNextDynamicNavMeshIdStart</h3>
+<p><code>public int GetNextDynamicNavMeshIdStart()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the next dynamic nav mesh id start value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetNextDynamicNavMeshIdStart();
+</code></pre>
+<h3 id="getagenttroopclass">GetAgentTroopClass</h3>
+<p><code>public FormationClass GetAgentTroopClass(BattleSideEnum battleSide, BasicCharacterObject agentCharacter)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the agent troop class value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetAgentTroopClass(battleSide, agentCharacter);
+</code></pre>
+<h3 id="getclosestfleepositionforagent">GetClosestFleePositionForAgent</h3>
+<p><code>public WorldPosition GetClosestFleePositionForAgent(Agent agent)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the closest flee position for agent value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetClosestFleePositionForAgent(agent);
+</code></pre>
+<h3 id="getclosestfleepositionforformation">GetClosestFleePositionForFormation</h3>
+<p><code>public WorldPosition GetClosestFleePositionForFormation(Formation formation)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the closest flee position for formation value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetClosestFleePositionForFormation(formation);
+</code></pre>
+<h3 id="getfleepositionsforside">GetFleePositionsForSide</h3>
+<p><code>public MBReadOnlyList&lt;FleePosition&gt; GetFleePositionsForSide(BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the flee positions for side value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetFleePositionsForSide(side);
+</code></pre>
+<h3 id="addtoweaponlistforfriendlyfirepreventing">AddToWeaponListForFriendlyFirePreventing</h3>
+<p><code>public void AddToWeaponListForFriendlyFirePreventing(SiegeWeapon weapon)</code></p>
+<p><strong>Purpose:</strong> Adds to weapon list for friendly fire preventing to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddToWeaponListForFriendlyFirePreventing(weapon);
+</code></pre>
+<h3 id="addfleeposition">AddFleePosition</h3>
+<p><code>public void AddFleePosition(FleePosition fleePosition)</code></p>
+<p><strong>Purpose:</strong> Adds flee position to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddFleePosition(fleePosition);
+</code></pre>
+<h3 id="retreatmission">RetreatMission</h3>
+<p><code>public void RetreatMission()</code></p>
+<p><strong>Purpose:</strong> Executes the RetreatMission logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.RetreatMission();
+</code></pre>
+<h3 id="surrendermission">SurrenderMission</h3>
+<p><code>public void SurrenderMission()</code></p>
+<p><strong>Purpose:</strong> Executes the SurrenderMission logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SurrenderMission();
+</code></pre>
+<h3 id="spawnattachedweapononcorpse">SpawnAttachedWeaponOnCorpse</h3>
+<p><code>public void SpawnAttachedWeaponOnCorpse(Agent agent, int attachedWeaponIndex, int forcedSpawnIndex)</code></p>
+<p><strong>Purpose:</strong> Executes the SpawnAttachedWeaponOnCorpse logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SpawnAttachedWeaponOnCorpse(agent, 0, 0);
+</code></pre>
+<h3 id="addmountwithoutrider">AddMountWithoutRider</h3>
+<p><code>public void AddMountWithoutRider(Agent mount)</code></p>
+<p><strong>Purpose:</strong> Adds mount without rider to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddMountWithoutRider(mount);
+</code></pre>
+<h3 id="removemountwithoutrider">RemoveMountWithoutRider</h3>
+<p><code>public void RemoveMountWithoutRider(Agent mount)</code></p>
+<p><strong>Purpose:</strong> Removes mount without rider from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.RemoveMountWithoutRider(mount);
+</code></pre>
+<h3 id="updatemountreservationsafterridermounts">UpdateMountReservationsAfterRiderMounts</h3>
+<p><code>public void UpdateMountReservationsAfterRiderMounts(Agent rider, Agent mount)</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of mount reservations after rider mounts.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.UpdateMountReservationsAfterRiderMounts(rider, mount);
+</code></pre>
+<h3 id="onobjectdisabled">OnObjectDisabled</h3>
+<p><code>public void OnObjectDisabled(DestructableComponent destructionComponent)</code></p>
+<p><strong>Purpose:</strong> Invoked when the object disabled event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnObjectDisabled(destructionComponent);
+</code></pre>
+<h3 id="spawnweaponasdropfrommissile">SpawnWeaponAsDropFromMissile</h3>
+<p><code>public MissionObjectId SpawnWeaponAsDropFromMissile(int missileIndex, MissionObject attachedMissionObject, in MatrixFrame attachLocalFrame, Mission.WeaponSpawnFlags spawnFlags, in Vec3 velocity, in Vec3 angularVelocity, int forcedSpawnIndex)</code></p>
+<p><strong>Purpose:</strong> Executes the SpawnWeaponAsDropFromMissile logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.SpawnWeaponAsDropFromMissile(0, attachedMissionObject, attachLocalFrame, spawnFlags, velocity, angularVelocity, 0);
+</code></pre>
+<h3 id="spawnweaponasdropfromagentaux">SpawnWeaponAsDropFromAgentAux</h3>
+<p><code>public void SpawnWeaponAsDropFromAgentAux(Agent agent, EquipmentIndex equipmentIndex, ref Vec3 globalVelocity, ref Vec3 globalAngularVelocity, Mission.WeaponSpawnFlags spawnFlags, int forcedSpawnIndex)</code></p>
+<p><strong>Purpose:</strong> Executes the SpawnWeaponAsDropFromAgentAux logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SpawnWeaponAsDropFromAgentAux(agent, equipmentIndex, globalVelocity, globalAngularVelocity, spawnFlags, 0);
+</code></pre>
+<h3 id="spawnattachedweapononspawnedweapon">SpawnAttachedWeaponOnSpawnedWeapon</h3>
+<p><code>public void SpawnAttachedWeaponOnSpawnedWeapon(SpawnedItemEntity spawnedWeapon, int attachmentIndex, int forcedSpawnIndex)</code></p>
+<p><strong>Purpose:</strong> Executes the SpawnAttachedWeaponOnSpawnedWeapon logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SpawnAttachedWeaponOnSpawnedWeapon(spawnedWeapon, 0, 0);
+</code></pre>
+<h3 id="spawnweaponwithnewentity">SpawnWeaponWithNewEntity</h3>
+<p><code>public GameEntity SpawnWeaponWithNewEntity(ref MissionWeapon weapon, Mission.WeaponSpawnFlags spawnFlags, MatrixFrame frame)</code></p>
+<p><strong>Purpose:</strong> Executes the SpawnWeaponWithNewEntity logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.SpawnWeaponWithNewEntity(weapon, spawnFlags, frame);
+</code></pre>
+<h3 id="spawnweaponwithnewentityaux">SpawnWeaponWithNewEntityAux</h3>
+<p><code>public GameEntity SpawnWeaponWithNewEntityAux(MissionWeapon weapon, Mission.WeaponSpawnFlags spawnFlags, MatrixFrame frame, int forcedSpawnIndex, MissionObject attachedMissionObject, bool hasLifeTime)</code></p>
+<p><strong>Purpose:</strong> Executes the SpawnWeaponWithNewEntityAux logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.SpawnWeaponWithNewEntityAux(weapon, spawnFlags, frame, 0, attachedMissionObject, false);
+</code></pre>
+<h3 id="attachweaponwithnewentitytospawnedweapon">AttachWeaponWithNewEntityToSpawnedWeapon</h3>
+<p><code>public void AttachWeaponWithNewEntityToSpawnedWeapon(MissionWeapon weapon, SpawnedItemEntity spawnedItem, MatrixFrame attachLocalFrame)</code></p>
+<p><strong>Purpose:</strong> Executes the AttachWeaponWithNewEntityToSpawnedWeapon logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AttachWeaponWithNewEntityToSpawnedWeapon(weapon, spawnedItem, attachLocalFrame);
+</code></pre>
+<h3 id="onequipitemsfromspawnequipmentbegin">OnEquipItemsFromSpawnEquipmentBegin</h3>
+<p><code>public void OnEquipItemsFromSpawnEquipmentBegin(Agent agent, Agent.CreationType creationType)</code></p>
+<p><strong>Purpose:</strong> Invoked when the equip items from spawn equipment begin event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnEquipItemsFromSpawnEquipmentBegin(agent, creationType);
+</code></pre>
+<h3 id="onequipitemsfromspawnequipment">OnEquipItemsFromSpawnEquipment</h3>
+<p><code>public void OnEquipItemsFromSpawnEquipment(Agent agent, Agent.CreationType creationType)</code></p>
+<p><strong>Purpose:</strong> Invoked when the equip items from spawn equipment event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnEquipItemsFromSpawnEquipment(agent, creationType);
+</code></pre>
+<h3 id="makeenemiesfleecheat">MakeEnemiesFleeCheat</h3>
+<p><code>public static string MakeEnemiesFleeCheat(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the MakeEnemiesFleeCheat logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.MakeEnemiesFleeCheat(strings);
+</code></pre>
+<h3 id="maketeamfleecheat">MakeTeamFleeCheat</h3>
+<p><code>public static string MakeTeamFleeCheat(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the MakeTeamFleeCheat logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.MakeTeamFleeCheat(strings);
+</code></pre>
+<h3 id="recalculatebody">RecalculateBody</h3>
+<p><code>public void RecalculateBody(ref WeaponData weaponData, ItemComponent itemComponent, WeaponDesign craftedWeaponData, ref Mission.WeaponSpawnFlags spawnFlags)</code></p>
+<p><strong>Purpose:</strong> Recalculates body to reflect the latest state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.RecalculateBody(weaponData, itemComponent, craftedWeaponData, spawnFlags);
+</code></pre>
+<h3 id="setfacialanimtoagent">SetFacialAnimToAgent</h3>
+<p><code>public static string SetFacialAnimToAgent(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to facial anim to agent and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.SetFacialAnimToAgent(strings);
+</code></pre>
+<h3 id="tickagentsandteamsimp">TickAgentsAndTeamsImp</h3>
+<p><code>public void TickAgentsAndTeamsImp(float dt)</code></p>
+<p><strong>Purpose:</strong> Advances the agents and teams imp state each frame or update cycle.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.TickAgentsAndTeamsImp(0);
+</code></pre>
+<h3 id="enablespeedadjustmentcommand">EnableSpeedAdjustmentCommand</h3>
+<p><code>public static string EnableSpeedAdjustmentCommand(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the EnableSpeedAdjustmentCommand logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.EnableSpeedAdjustmentCommand(strings);
+</code></pre>
+<h3 id="ontick">OnTick</h3>
+<p><code>public void OnTick(float dt, float realDt, bool updateCamera, bool doAsyncAITick)</code></p>
+<p><strong>Purpose:</strong> Invoked when the tick event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnTick(0, 0, false, false);
+</code></pre>
+<h3 id="addtickaction">AddTickAction</h3>
+<p><code>public void AddTickAction(Mission.MissionTickAction action, Agent agent, int param1, int param2)</code></p>
+<p><strong>Purpose:</strong> Adds tick action to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddTickAction(action, agent, 0, 0);
+</code></pre>
+<h3 id="addtickactionmt">AddTickActionMT</h3>
+<p><code>public void AddTickActionMT(Mission.MissionTickAction action, Agent agent, int param1, int param2)</code></p>
+<p><strong>Purpose:</strong> Adds tick action m t to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddTickActionMT(action, agent, 0, 0);
+</code></pre>
+<h3 id="removespawneditemsandmissiles">RemoveSpawnedItemsAndMissiles</h3>
+<p><code>public void RemoveSpawnedItemsAndMissiles()</code></p>
+<p><strong>Purpose:</strong> Removes spawned items and missiles from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.RemoveSpawnedItemsAndMissiles();
+</code></pre>
+<h3 id="afterstart">AfterStart</h3>
+<p><code>public void AfterStart()</code></p>
+<p><strong>Purpose:</strong> Executes the AfterStart logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AfterStart();
+</code></pre>
+<h3 id="onendmissionrequest">OnEndMissionRequest</h3>
+<p><code>public void OnEndMissionRequest()</code></p>
+<p><strong>Purpose:</strong> Invoked when the end mission request event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnEndMissionRequest();
+</code></pre>
+<h3 id="getmissionendtimeinseconds">GetMissionEndTimeInSeconds</h3>
+<p><code>public float GetMissionEndTimeInSeconds()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mission end time in seconds value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetMissionEndTimeInSeconds();
+</code></pre>
+<h3 id="getmissionendtimervalue">GetMissionEndTimerValue</h3>
+<p><code>public float GetMissionEndTimerValue()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mission end timer value value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetMissionEndTimerValue();
+</code></pre>
+<h3 id="getmembercountofside">GetMemberCountOfSide</h3>
+<p><code>public int GetMemberCountOfSide(BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the member count of side value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetMemberCountOfSide(side);
+</code></pre>
+<h3 id="getinitialspawnpath">GetInitialSpawnPath</h3>
+<p><code>public Path GetInitialSpawnPath()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the initial spawn path value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetInitialSpawnPath();
+</code></pre>
+<h3 id="getinitialspawnpathdata">GetInitialSpawnPathData</h3>
+<p><code>public SpawnPathData GetInitialSpawnPathData(BattleSideEnum battleSide)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the initial spawn path data value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetInitialSpawnPathData(battleSide);
+</code></pre>
+<h3 id="getreinforcementpathsdataofside">GetReinforcementPathsDataOfSide</h3>
+<p><code>public MBReadOnlyList&lt;SpawnPathData&gt; GetReinforcementPathsDataOfSide(BattleSideEnum battleSide)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the reinforcement paths data of side value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetReinforcementPathsDataOfSide(battleSide);
+</code></pre>
+<h3 id="gettroopspawnframewithindex">GetTroopSpawnFrameWithIndex</h3>
+<p><code>public void GetTroopSpawnFrameWithIndex(AgentBuildData buildData, int troopSpawnIndex, int troopSpawnCount, out Vec3 troopSpawnPosition, out Vec2 troopSpawnDirection)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the troop spawn frame with index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.GetTroopSpawnFrameWithIndex(buildData, 0, 0, troopSpawnPosition, troopSpawnDirection);
+</code></pre>
+<h3 id="getformationspawnframe">GetFormationSpawnFrame</h3>
+<p><code>public void GetFormationSpawnFrame(Team team, FormationClass formationClass, bool isReinforcement, out WorldPosition spawnPosition, out Vec2 spawnDirection)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the formation spawn frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.GetFormationSpawnFrame(team, formationClass, false, spawnPosition, spawnDirection);
+</code></pre>
+<h3 id="getspawnpathframe">GetSpawnPathFrame</h3>
+<p><code>public WorldFrame GetSpawnPathFrame(BattleSideEnum battleSide, float pathOffset = 0f, float targetOffset = 0f)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the spawn path frame value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetSpawnPathFrame(battleSide, 0, 0);
+</code></pre>
+<h3 id="setbattleagentcount">SetBattleAgentCount</h3>
+<p><code>public void SetBattleAgentCount(int agentCount)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to battle agent count and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetBattleAgentCount(0);
+</code></pre>
+<h3 id="getformationspawnposition">GetFormationSpawnPosition</h3>
+<p><code>public Vec2 GetFormationSpawnPosition(Team team, FormationClass formationClass)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the formation spawn position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetFormationSpawnPosition(team, formationClass);
+</code></pre>
+<h3 id="getformationspawnclass">GetFormationSpawnClass</h3>
+<p><code>public FormationClass GetFormationSpawnClass(Team team, FormationClass formationClass, bool isReinforcement = false)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the formation spawn class value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetFormationSpawnClass(team, formationClass, false);
+</code></pre>
+<h3 id="spawnagent">SpawnAgent</h3>
+<p><code>public Agent SpawnAgent(AgentBuildData agentBuildData, bool spawnFromAgentVisuals = false)</code></p>
+<p><strong>Purpose:</strong> Executes the SpawnAgent logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.SpawnAgent(agentBuildData, false);
+</code></pre>
+<h3 id="setinitialagentcountforside">SetInitialAgentCountForSide</h3>
+<p><code>public void SetInitialAgentCountForSide(BattleSideEnum side, int agentCount)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to initial agent count for side and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetInitialAgentCountForSide(side, 0);
+</code></pre>
+<h3 id="setformationpositioningfromdeploymentplan">SetFormationPositioningFromDeploymentPlan</h3>
+<p><code>public void SetFormationPositioningFromDeploymentPlan(Formation formation)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to formation positioning from deployment plan and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetFormationPositioningFromDeploymentPlan(formation);
+</code></pre>
+<h3 id="spawnmonster">SpawnMonster</h3>
+<p><code>public Agent SpawnMonster(ItemRosterElement rosterElement, ItemRosterElement harnessRosterElement, in Vec3 initialPosition, in Vec2 initialDirection, int forcedAgentIndex = -1)</code></p>
+<p><strong>Purpose:</strong> Executes the SpawnMonster logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.SpawnMonster(rosterElement, harnessRosterElement, initialPosition, initialDirection, 0);
+</code></pre>
+<h3 id="spawnmonster-1">SpawnMonster</h3>
+<p><code>public Agent SpawnMonster(EquipmentElement equipmentElement, EquipmentElement harnessRosterElement, in Vec3 initialPosition, in Vec2 initialDirection, int forcedAgentIndex = -1)</code></p>
+<p><strong>Purpose:</strong> Executes the SpawnMonster logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.SpawnMonster(equipmentElement, harnessRosterElement, initialPosition, initialDirection, 0);
+</code></pre>
+<h3 id="spawntroop">SpawnTroop</h3>
+<p><code>public Agent SpawnTroop(IAgentOriginBase troopOrigin, bool isPlayerSide, bool hasFormation, bool spawnWithHorse, bool isReinforcement, int formationTroopCount, int formationTroopIndex, bool isAlarmed, bool wieldInitialWeapons, bool forceDismounted, Vec3? initialPosition, Vec2? initialDirection, string specialActionSetSuffix = null, ItemObject bannerItem = null, FormationClass formationIndex = FormationClass.NumberOfAllFormations, bool useTroopClassForSpawn = false)</code></p>
+<p><strong>Purpose:</strong> Executes the SpawnTroop logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.SpawnTroop(troopOrigin, false, false, false, false, 0, 0, false, false, false, initialPosition, initialDirection, &quot;example&quot;, null, formationClass.NumberOfAllFormations, false);
+</code></pre>
+<h3 id="replacebotwithplayer">ReplaceBotWithPlayer</h3>
+<p><code>public Agent ReplaceBotWithPlayer(Agent botAgent, MissionPeer missionPeer)</code></p>
+<p><strong>Purpose:</strong> Executes the ReplaceBotWithPlayer logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.ReplaceBotWithPlayer(botAgent, missionPeer);
+</code></pre>
+<h3 id="onagentinteraction">OnAgentInteraction</h3>
+<p><code>public void OnAgentInteraction(Agent requesterAgent, Agent targetAgent, sbyte agentBoneIndex)</code></p>
+<p><strong>Purpose:</strong> Invoked when the agent interaction event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnAgentInteraction(requesterAgent, targetAgent, 0);
+</code></pre>
+<h3 id="endmission">EndMission</h3>
+<p><code>public void EndMission()</code></p>
+<p><strong>Purpose:</strong> Executes the EndMission logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.EndMission();
+</code></pre>
+<h3 id="addmissionbehavior">AddMissionBehavior</h3>
+<p><code>public void AddMissionBehavior(MissionBehavior missionBehavior)</code></p>
+<p><strong>Purpose:</strong> Adds mission behavior to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddMissionBehavior(missionBehavior);
+</code></pre>
+<h3 id="removemissionbehavior">RemoveMissionBehavior</h3>
+<p><code>public void RemoveMissionBehavior(MissionBehavior missionBehavior)</code></p>
+<p><strong>Purpose:</strong> Removes mission behavior from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.RemoveMissionBehavior(missionBehavior);
+</code></pre>
+<h3 id="joinenemyteam">JoinEnemyTeam</h3>
+<p><code>public void JoinEnemyTeam()</code></p>
+<p><strong>Purpose:</strong> Joins several enemy team items into a single whole.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.JoinEnemyTeam();
+</code></pre>
+<h3 id="onendmissionresult">OnEndMissionResult</h3>
+<p><code>public void OnEndMissionResult()</code></p>
+<p><strong>Purpose:</strong> Invoked when the end mission result event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnEndMissionResult();
+</code></pre>
+<h3 id="isagentinteractionallowed">IsAgentInteractionAllowed</h3>
+<p><code>public bool IsAgentInteractionAllowed()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the agent interaction allowed state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.IsAgentInteractionAllowed();
+</code></pre>
+<h3 id="isordergesturesenabled">IsOrderGesturesEnabled</h3>
+<p><code>public bool IsOrderGesturesEnabled()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the order gestures enabled state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.IsOrderGesturesEnabled();
+</code></pre>
+<h3 id="getextraequipmentelementsforcharacter">GetExtraEquipmentElementsForCharacter</h3>
+<p><code>public List&lt;EquipmentElement&gt; GetExtraEquipmentElementsForCharacter(BasicCharacterObject character, bool getAllEquipments = false)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the extra equipment elements for character value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetExtraEquipmentElementsForCharacter(character, false);
+</code></pre>
+<h3 id="isplayerclosetoanenemy">IsPlayerCloseToAnEnemy</h3>
+<p><code>public bool IsPlayerCloseToAnEnemy(float distance = 5f)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the player close to an enemy state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.IsPlayerCloseToAnEnemy(0);
+</code></pre>
+<h3 id="getrandompositionaroundpoint">GetRandomPositionAroundPoint</h3>
+<p><code>public Vec3 GetRandomPositionAroundPoint(Vec3 center, float minDistance, float maxDistance, bool nearFirst = false)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the random position around point value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetRandomPositionAroundPoint(center, 0, 0, false);
+</code></pre>
+<h3 id="findbestdefendingposition">FindBestDefendingPosition</h3>
+<p><code>public WorldPosition FindBestDefendingPosition(WorldPosition enemyPosition, WorldPosition defendedPosition)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching best defending position in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.FindBestDefendingPosition(enemyPosition, defendedPosition);
+</code></pre>
+<h3 id="findpositionwithbiggestslopetowardsdirectioninsquare">FindPositionWithBiggestSlopeTowardsDirectionInSquare</h3>
+<p><code>public WorldPosition FindPositionWithBiggestSlopeTowardsDirectionInSquare(ref WorldPosition center, float halfSize, ref WorldPosition referencePosition)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching position with biggest slope towards direction in square in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.FindPositionWithBiggestSlopeTowardsDirectionInSquare(center, 0, referencePosition);
+</code></pre>
+<h3 id="addcustommissile">AddCustomMissile</h3>
+<p><code>public Mission.Missile AddCustomMissile(Agent shooterAgent, MissionWeapon missileWeapon, Vec3 position, Vec3 direction, Mat3 orientation, float baseSpeed, float speed, bool addRigidBody, MissionObject missionObjectToIgnore, int forcedMissileIndex = -1)</code></p>
+<p><strong>Purpose:</strong> Adds custom missile to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.AddCustomMissile(shooterAgent, missileWeapon, position, direction, orientation, 0, 0, false, missionObjectToIgnore, 0);
+</code></pre>
+<h3 id="onagentmount">OnAgentMount</h3>
+<p><code>public void OnAgentMount(Agent agent)</code></p>
+<p><strong>Purpose:</strong> Invoked when the agent mount event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnAgentMount(agent);
+</code></pre>
+<h3 id="onagentdismount">OnAgentDismount</h3>
+<p><code>public void OnAgentDismount(Agent agent)</code></p>
+<p><strong>Purpose:</strong> Invoked when the agent dismount event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnAgentDismount(agent);
+</code></pre>
+<h3 id="onobjectused">OnObjectUsed</h3>
+<p><code>public void OnObjectUsed(Agent userAgent, UsableMissionObject usableGameObject)</code></p>
+<p><strong>Purpose:</strong> Invoked when the object used event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnObjectUsed(userAgent, usableGameObject);
+</code></pre>
+<h3 id="onobjectstoppedbeingused">OnObjectStoppedBeingUsed</h3>
+<p><code>public void OnObjectStoppedBeingUsed(Agent userAgent, UsableMissionObject usableGameObject)</code></p>
+<p><strong>Purpose:</strong> Invoked when the object stopped being used event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnObjectStoppedBeingUsed(userAgent, usableGameObject);
+</code></pre>
+<h3 id="initializestartingbehaviors">InitializeStartingBehaviors</h3>
+<p><code>public void InitializeStartingBehaviors(MissionLogic logicBehaviors, MissionBehavior otherBehaviors, MissionNetwork networkBehaviors)</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings required by starting behaviors.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.InitializeStartingBehaviors(logicBehaviors, otherBehaviors, networkBehaviors);
+</code></pre>
+<h3 id="getclosestenemyagent">GetClosestEnemyAgent</h3>
+<p><code>public Agent GetClosestEnemyAgent(Team team, Vec3 position, float radius)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the closest enemy agent value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetClosestEnemyAgent(team, position, 0);
+</code></pre>
+<h3 id="getclosestallyagent">GetClosestAllyAgent</h3>
+<p><code>public Agent GetClosestAllyAgent(Team team, Vec3 position, float radius)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the closest ally agent value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetClosestAllyAgent(team, position, 0);
+</code></pre>
+<h3 id="getnearbyenemyagentcount">GetNearbyEnemyAgentCount</h3>
+<p><code>public int GetNearbyEnemyAgentCount(Team team, Vec2 position, float radius)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the nearby enemy agent count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetNearbyEnemyAgentCount(team, position, 0);
+</code></pre>
+<h3 id="hasanyagentsofsideinrange">HasAnyAgentsOfSideInRange</h3>
+<p><code>public bool HasAnyAgentsOfSideInRange(Vec3 origin, float radius, BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds any agents of side in range.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.HasAnyAgentsOfSideInRange(origin, 0, side);
+</code></pre>
+<h3 id="addsoundalarmfactortoagents">AddSoundAlarmFactorToAgents</h3>
+<p><code>public void AddSoundAlarmFactorToAgents(Agent alarmCreatorAgent, in Vec3 soundPosition, float soundLevelSquareRoot)</code></p>
+<p><strong>Purpose:</strong> Adds sound alarm factor to agents to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddSoundAlarmFactorToAgents(alarmCreatorAgent, soundPosition, 0);
+</code></pre>
+<h3 id="onmissionobjectremoved">OnMissionObjectRemoved</h3>
+<p><code>public bool OnMissionObjectRemoved(MissionObject missionObject, int removeReason)</code></p>
+<p><strong>Purpose:</strong> Invoked when the mission object removed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.OnMissionObjectRemoved(missionObject, 0);
+</code></pre>
+<h3 id="agentlookingatagent">AgentLookingAtAgent</h3>
+<p><code>public bool AgentLookingAtAgent(Agent agent1, Agent agent2)</code></p>
+<p><strong>Purpose:</strong> Executes the AgentLookingAtAgent logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.AgentLookingAtAgent(agent1, agent2);
+</code></pre>
+<h3 id="findagentwithindex">FindAgentWithIndex</h3>
+<p><code>public Agent FindAgentWithIndex(int agentId)</code></p>
+<p><strong>Purpose:</strong> Looks up the matching agent with index in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.FindAgentWithIndex(0);
+</code></pre>
+<h3 id="getunderattacktypeofagents">GetUnderAttackTypeOfAgents</h3>
+<p><code>public static Agent.UnderAttackType GetUnderAttackTypeOfAgents(IEnumerable&lt;Agent&gt; agents, float timeLimit = 3f)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the under attack type of agents value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetUnderAttackTypeOfAgents(agents, 0);
+</code></pre>
+<h3 id="getagentteam">GetAgentTeam</h3>
+<p><code>public static Team GetAgentTeam(IAgentOriginBase troopOrigin, bool isPlayerSide)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the agent team value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetAgentTeam(troopOrigin, false);
+</code></pre>
+<h3 id="getteam">GetTeam</h3>
+<p><code>public static Team GetTeam(TeamSideEnum teamSide)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the team value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetTeam(teamSide);
+</code></pre>
+<h3 id="getteamsofside">GetTeamsOfSide</h3>
+<p><code>public static IEnumerable&lt;Team&gt; GetTeamsOfSide(BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the teams of side value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetTeamsOfSide(side);
+</code></pre>
+<h3 id="getbattlesizeoffset">GetBattleSizeOffset</h3>
+<p><code>public static float GetBattleSizeOffset(int battleSize, Path path)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the battle size offset value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetBattleSizeOffset(0, path);
+</code></pre>
+<h3 id="getpathoffsetfromdistance">GetPathOffsetFromDistance</h3>
+<p><code>public static float GetPathOffsetFromDistance(float distance, Path path)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the path offset from distance value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetPathOffsetFromDistance(0, path);
+</code></pre>
+<h3 id="onrenderingstarted">OnRenderingStarted</h3>
+<p><code>public void OnRenderingStarted()</code></p>
+<p><strong>Purpose:</strong> Invoked when the rendering started event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnRenderingStarted();
+</code></pre>
+<h3 id="getbattlesizefactor">GetBattleSizeFactor</h3>
+<p><code>public static float GetBattleSizeFactor(int battleSize, float normalizationFactor)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the battle size factor value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetBattleSizeFactor(0, 0);
+</code></pre>
+<h3 id="getmovementtypeofagents">GetMovementTypeOfAgents</h3>
+<p><code>public unsafe Agent.MovementBehaviorType GetMovementTypeOfAgents(IEnumerable&lt;Agent&gt; agents)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the movement type of agents value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetMovementTypeOfAgents(agents);
+</code></pre>
+<h3 id="showinmissionloadingscreen">ShowInMissionLoadingScreen</h3>
+<p><code>public void ShowInMissionLoadingScreen(int durationInSecond, Action onLoadingEndedAction)</code></p>
+<p><strong>Purpose:</strong> Displays the UI or element associated with in mission loading screen.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.ShowInMissionLoadingScreen(0, onLoadingEndedAction);
+</code></pre>
+<h3 id="canagentrout">CanAgentRout</h3>
+<p><code>public bool CanAgentRout(Agent agent)</code></p>
+<p><strong>Purpose:</strong> Checks whether the this instance meets the preconditions for agent rout.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.CanAgentRout(agent);
+</code></pre>
+<h3 id="handlemissilecollisionreaction">HandleMissileCollisionReaction</h3>
+<p><code>public void HandleMissileCollisionReaction(int missileIndex, Mission.MissileCollisionReaction collisionReaction, MatrixFrame attachLocalFrame, bool isAttachedFrameLocal, Agent attackerAgent, Agent attachedAgent, bool attachedToShield, sbyte attachedBoneIndex, MissionObject attachedMissionObject, Vec3 bounceBackVelocity, Vec3 bounceBackAngularVelocity, int forcedSpawnIndex)</code></p>
+<p><strong>Purpose:</strong> Executes the response logic associated with missile collision reaction.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.HandleMissileCollisionReaction(0, collisionReaction, attachLocalFrame, false, attackerAgent, attachedAgent, false, 0, attachedMissionObject, bounceBackVelocity, bounceBackAngularVelocity, 0);
+</code></pre>
+<h3 id="killagentsonentity">KillAgentsOnEntity</h3>
+<p><code>public void KillAgentsOnEntity(GameEntity entity, Agent destroyerAgent, bool burnAgents)</code></p>
+<p><strong>Purpose:</strong> Executes the KillAgentsOnEntity logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.KillAgentsOnEntity(entity, destroyerAgent, false);
+</code></pre>
+<h3 id="killagentcheat">KillAgentCheat</h3>
+<p><code>public void KillAgentCheat(Agent agent)</code></p>
+<p><strong>Purpose:</strong> Executes the KillAgentCheat logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.KillAgentCheat(agent);
+</code></pre>
+<h3 id="killcheats">KillCheats</h3>
+<p><code>public bool KillCheats(bool killAll, bool killEnemy, bool killHorse, bool killYourself)</code></p>
+<p><strong>Purpose:</strong> Executes the KillCheats logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.KillCheats(false, false, false, false);
+</code></pre>
+<h3 id="getdamagemultiplierofcombatdifficulty">GetDamageMultiplierOfCombatDifficulty</h3>
+<p><code>public float GetDamageMultiplierOfCombatDifficulty(Agent victimAgent, Agent attackerAgent = null)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the damage multiplier of combat difficulty value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetDamageMultiplierOfCombatDifficulty(victimAgent, null);
+</code></pre>
+<h3 id="getshootdifficulty">GetShootDifficulty</h3>
+<p><code>public float GetShootDifficulty(Agent affectedAgent, Agent affectorAgent, bool isHeadShot)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the shoot difficulty value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetShootDifficulty(affectedAgent, affectorAgent, false);
+</code></pre>
+<h3 id="addcombatlogsafe">AddCombatLogSafe</h3>
+<p><code>public void AddCombatLogSafe(Agent attackerAgent, Agent victimAgent, CombatLogData combatLog)</code></p>
+<p><strong>Purpose:</strong> Adds combat log safe to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddCombatLogSafe(attackerAgent, victimAgent, combatLog);
+</code></pre>
+<h3 id="createmissionobjectfromprefab">CreateMissionObjectFromPrefab</h3>
+<p><code>public MissionObject CreateMissionObjectFromPrefab(string prefab, MatrixFrame frame, Action&lt;GameEntity&gt; actionAppliedBeforeScriptInitialization)</code></p>
+<p><strong>Purpose:</strong> Constructs a new mission object from prefab entity and returns it to the caller.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.CreateMissionObjectFromPrefab(&quot;example&quot;, frame, actionAppliedBeforeScriptInitialization);
+</code></pre>
+<h3 id="getnearbyallyagentscount">GetNearbyAllyAgentsCount</h3>
+<p><code>public int GetNearbyAllyAgentsCount(Vec2 center, float radius, Team team)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the nearby ally agents count value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetNearbyAllyAgentsCount(center, 0, team);
+</code></pre>
+<h3 id="getnearbyallyagents">GetNearbyAllyAgents</h3>
+<p><code>public MBList&lt;Agent&gt; GetNearbyAllyAgents(Vec2 center, float radius, Team team, MBList&lt;Agent&gt; agents)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the nearby ally agents value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetNearbyAllyAgents(center, 0, team, agents);
+</code></pre>
+<h3 id="getnearbyenemyagents">GetNearbyEnemyAgents</h3>
+<p><code>public MBList&lt;Agent&gt; GetNearbyEnemyAgents(Vec2 center, float radius, Team team, MBList&lt;Agent&gt; agents)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the nearby enemy agents value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetNearbyEnemyAgents(center, 0, team, agents);
+</code></pre>
+<h3 id="getnearbyagents">GetNearbyAgents</h3>
+<p><code>public MBList&lt;Agent&gt; GetNearbyAgents(Vec2 center, float radius, MBList&lt;Agent&gt; agents)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the nearby agents value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetNearbyAgents(center, 0, agents);
+</code></pre>
+<h3 id="isformationunitpositionavailablemt">IsFormationUnitPositionAvailableMT</h3>
+<p><code>public bool IsFormationUnitPositionAvailableMT(ref WorldPosition formationPosition, ref WorldPosition unitPosition, ref WorldPosition nearestAvailableUnitPosition, float manhattanDistance, Team team)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the formation unit position available m t state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.IsFormationUnitPositionAvailableMT(formationPosition, unitPosition, nearestAvailableUnitPosition, 0, team);
+</code></pre>
+<h3 id="isorderpositionavailable">IsOrderPositionAvailable</h3>
+<p><code>public bool IsOrderPositionAvailable(in WorldPosition orderPosition, Team team)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the order position available state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.IsOrderPositionAvailable(orderPosition, team);
+</code></pre>
+<h3 id="isformationunitpositionavailable">IsFormationUnitPositionAvailable</h3>
+<p><code>public bool IsFormationUnitPositionAvailable(ref WorldPosition unitPosition, Team team)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the formation unit position available state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.IsFormationUnitPositionAvailable(unitPosition, team);
+</code></pre>
+<h3 id="hasscenemappatch">HasSceneMapPatch</h3>
+<p><code>public bool HasSceneMapPatch()</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance already holds scene map patch.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.HasSceneMapPatch();
+</code></pre>
+<h3 id="getpatchsceneencounterposition">GetPatchSceneEncounterPosition</h3>
+<p><code>public bool GetPatchSceneEncounterPosition(out Vec3 position)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the patch scene encounter position value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetPatchSceneEncounterPosition(position);
+</code></pre>
+<h3 id="getpatchsceneencounterdirection">GetPatchSceneEncounterDirection</h3>
+<p><code>public bool GetPatchSceneEncounterDirection(out Vec2 direction)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the patch scene encounter direction value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetPatchSceneEncounterDirection(direction);
+</code></pre>
+<h3 id="addtimertodynamicentity">AddTimerToDynamicEntity</h3>
+<p><code>public void AddTimerToDynamicEntity(GameEntity gameEntity, float timeToKill = 10f)</code></p>
+<p><strong>Purpose:</strong> Adds timer to dynamic entity to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddTimerToDynamicEntity(gameEntity, 0);
+</code></pre>
+<h3 id="addlistener">AddListener</h3>
+<p><code>public void AddListener(IMissionListener listener)</code></p>
+<p><strong>Purpose:</strong> Adds listener to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddListener(listener);
+</code></pre>
+<h3 id="removelistener">RemoveListener</h3>
+<p><code>public void RemoveListener(IMissionListener listener)</code></p>
+<p><strong>Purpose:</strong> Removes listener from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.RemoveListener(listener);
+</code></pre>
+<h3 id="onagentfleeing">OnAgentFleeing</h3>
+<p><code>public void OnAgentFleeing(Agent agent)</code></p>
+<p><strong>Purpose:</strong> Invoked when the agent fleeing event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnAgentFleeing(agent);
+</code></pre>
+<h3 id="onagentpanicked">OnAgentPanicked</h3>
+<p><code>public void OnAgentPanicked(Agent agent)</code></p>
+<p><strong>Purpose:</strong> Invoked when the agent panicked event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnAgentPanicked(agent);
+</code></pre>
+<h3 id="onteamdeployed">OnTeamDeployed</h3>
+<p><code>public void OnTeamDeployed(Team team)</code></p>
+<p><strong>Purpose:</strong> Invoked when the team deployed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnTeamDeployed(team);
+</code></pre>
+<h3 id="onbattlesidedeployed">OnBattleSideDeployed</h3>
+<p><code>public void OnBattleSideDeployed(BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Invoked when the battle side deployed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnBattleSideDeployed(side);
+</code></pre>
+<h3 id="ondeploymentfinished">OnDeploymentFinished</h3>
+<p><code>public void OnDeploymentFinished()</code></p>
+<p><strong>Purpose:</strong> Invoked when the deployment finished event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnDeploymentFinished();
+</code></pre>
+<h3 id="onafterdeploymentfinished">OnAfterDeploymentFinished</h3>
+<p><code>public void OnAfterDeploymentFinished()</code></p>
+<p><strong>Purpose:</strong> Invoked when the after deployment finished event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnAfterDeploymentFinished();
+</code></pre>
+<h3 id="onformationcaptainchanged">OnFormationCaptainChanged</h3>
+<p><code>public void OnFormationCaptainChanged(Formation formation)</code></p>
+<p><strong>Purpose:</strong> Invoked when the formation captain changed event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnFormationCaptainChanged(formation);
+</code></pre>
+<h3 id="setfastforwardingfromui">SetFastForwardingFromUI</h3>
+<p><code>public void SetFastForwardingFromUI(bool fastForwarding)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to fast forwarding from u i and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.SetFastForwardingFromUI(false);
+</code></pre>
+<h3 id="checkifbattleinretreat">CheckIfBattleInRetreat</h3>
+<p><code>public bool CheckIfBattleInRetreat()</code></p>
+<p><strong>Purpose:</strong> Verifies whether if battle in retreat holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.CheckIfBattleInRetreat();
+</code></pre>
+<h3 id="addspawneditementitycreatedatruntime">AddSpawnedItemEntityCreatedAtRuntime</h3>
+<p><code>public void AddSpawnedItemEntityCreatedAtRuntime(SpawnedItemEntity spawnedItemEntity)</code></p>
+<p><strong>Purpose:</strong> Adds spawned item entity created at runtime to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.AddSpawnedItemEntityCreatedAtRuntime(spawnedItemEntity);
+</code></pre>
+<h3 id="triggeronitempickupevent">TriggerOnItemPickUpEvent</h3>
+<p><code>public void TriggerOnItemPickUpEvent(Agent agent, SpawnedItemEntity spawnedItemEntity)</code></p>
+<p><strong>Purpose:</strong> Triggers the logic or event associated with on item pick up event.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.TriggerOnItemPickUpEvent(agent, spawnedItemEntity);
+</code></pre>
+<h3 id="killnallies">KillNAllies</h3>
+<p><code>public static string KillNAllies(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the KillNAllies logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.KillNAllies(strings);
+</code></pre>
+<h3 id="killallallies">KillAllAllies</h3>
+<p><code>public static string KillAllAllies(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the KillAllAllies logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.KillAllAllies(strings);
+</code></pre>
+<h3 id="toggledisabledying">ToggleDisableDying</h3>
+<p><code>public static string ToggleDisableDying(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the ToggleDisableDying logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.ToggleDisableDying(strings);
+</code></pre>
+<h3 id="toggledisabledyingteam">ToggleDisableDyingTeam</h3>
+<p><code>public static string ToggleDisableDyingTeam(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the ToggleDisableDyingTeam logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.ToggleDisableDyingTeam(strings);
+</code></pre>
+<h3 id="killagent">KillAgent</h3>
+<p><code>public static string KillAgent(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the KillAgent logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.KillAgent(strings);
+</code></pre>
+<h3 id="increasebatteringramspeeds">IncreaseBatteringRamSpeeds</h3>
+<p><code>public static string IncreaseBatteringRamSpeeds(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the IncreaseBatteringRamSpeeds logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.IncreaseBatteringRamSpeeds(strings);
+</code></pre>
+<h3 id="increasesiegetowerspeed">IncreaseSiegeTowerSpeed</h3>
+<p><code>public static string IncreaseSiegeTowerSpeed(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Executes the IncreaseSiegeTowerSpeed logic.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.IncreaseSiegeTowerSpeed(strings);
+</code></pre>
+<h3 id="loadparamsdebug">LoadParamsDebug</h3>
+<p><code>public static string LoadParamsDebug(List&lt;string&gt; strings)</code></p>
+<p><strong>Purpose:</strong> Reads params debug from persistent storage or a stream.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.LoadParamsDebug(strings);
+</code></pre>
+<h3 id="getenumerator">GetEnumerator</h3>
+<p><code>public IEnumerator&lt;KeyValuePair&lt;string, ICollection&lt;Vec2&gt;&gt;&gt; GetEnumerator()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the enumerator value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetEnumerator();
+</code></pre>
+<h3 id="getboundaryradius">GetBoundaryRadius</h3>
+<p><code>public float GetBoundaryRadius(string name)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the boundary radius value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.GetBoundaryRadius(&quot;example&quot;);
+</code></pre>
+<h3 id="getorientedboundariesbox">GetOrientedBoundariesBox</h3>
+<p><code>public void GetOrientedBoundariesBox(out Vec2 boxMinimum, out Vec2 boxMaximum, float rotationInRadians = 0f)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the oriented boundaries box value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.GetOrientedBoundariesBox(boxMinimum, boxMaximum, 0);
+</code></pre>
+<h3 id="add">Add</h3>
+<p><code>public void Add(KeyValuePair&lt;string, ICollection&lt;Vec2&gt;&gt; item)</code></p>
+<p><strong>Purpose:</strong> Adds an item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.Add(keyValuePair&lt;string, item);
+</code></pre>
+<h3 id="clear">Clear</h3>
+<p><code>public void Clear()</code></p>
+<p><strong>Purpose:</strong> Removes all content from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.Clear();
+</code></pre>
+<h3 id="contains">Contains</h3>
+<p><code>public bool Contains(KeyValuePair&lt;string, ICollection&lt;Vec2&gt;&gt; item)</code></p>
+<p><strong>Purpose:</strong> Indicates whether the this instance contains the specified item.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.Contains(keyValuePair&lt;string, item);
+</code></pre>
+<h3 id="copyto">CopyTo</h3>
+<p><code>public void CopyTo(KeyValuePair&lt;string, ICollection&lt;Vec2&gt;&gt; array, int arrayIndex)</code></p>
+<p><strong>Purpose:</strong> Copies the to state of the this instance to a target.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.CopyTo(keyValuePair&lt;string, array, 0);
+</code></pre>
+<h3 id="remove">Remove</h3>
+<p><code>public bool Remove(KeyValuePair&lt;string, ICollection&lt;Vec2&gt;&gt; item)</code></p>
+<p><strong>Purpose:</strong> Removes an item from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.Remove(keyValuePair&lt;string, item);
+</code></pre>
+<h3 id="add-1">Add</h3>
+<p><code>public void Add(string name, ICollection&lt;Vec2&gt; points)</code></p>
+<p><strong>Purpose:</strong> Adds an item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.Add(&quot;example&quot;, points);
+</code></pre>
+<h3 id="add-2">Add</h3>
+<p><code>public void Add(string name, ICollection&lt;Vec2&gt; points, bool isAllowanceInside)</code></p>
+<p><strong>Purpose:</strong> Adds an item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.Add(&quot;example&quot;, points, false);
+</code></pre>
+<h3 id="containskey">ContainsKey</h3>
+<p><code>public bool ContainsKey(string name)</code></p>
+<p><strong>Purpose:</strong> Indicates whether the this instance contains key.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.ContainsKey(&quot;example&quot;);
+</code></pre>
+<h3 id="remove-1">Remove</h3>
+<p><code>public bool Remove(string name)</code></p>
+<p><strong>Purpose:</strong> Removes an item from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.Remove(&quot;example&quot;);
+</code></pre>
+<h3 id="trygetvalue">TryGetValue</h3>
+<p><code>public bool TryGetValue(string name, out ICollection&lt;Vec2&gt; points)</code></p>
+<p><strong>Purpose:</strong> Attempts to retrieve get value, usually returning success through an out parameter.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.TryGetValue(&quot;example&quot;, points);
+</code></pre>
+<h3 id="getagentfromindex">GetAgentFromIndex</h3>
+<p><code>public static Agent GetAgentFromIndex(int agentIndex, bool canBeNull = false)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the agent from index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetAgentFromIndex(0, false);
+</code></pre>
+<h3 id="getmbteamfromteamindex">GetMBTeamFromTeamIndex</h3>
+<p><code>public static MBTeam GetMBTeamFromTeamIndex(int teamIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the m b team from team index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetMBTeamFromTeamIndex(0);
+</code></pre>
+<h3 id="getteamfromteamindex">GetTeamFromTeamIndex</h3>
+<p><code>public static Team GetTeamFromTeamIndex(int teamIndex)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the team from team index value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetTeamFromTeamIndex(0);
+</code></pre>
+<h3 id="getmissionobjectfrommissionobjectid">GetMissionObjectFromMissionObjectId</h3>
+<p><code>public static MissionObject GetMissionObjectFromMissionObjectId(MissionObjectId missionObjectId)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the mission object from mission object id value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetMissionObjectFromMissionObjectId(missionObjectId);
+</code></pre>
+<h3 id="getcombatlogdataforcombatlognetworkmessage">GetCombatLogDataForCombatLogNetworkMessage</h3>
+<p><code>public static CombatLogData GetCombatLogDataForCombatLogNetworkMessage(CombatLogNetworkMessage message)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the combat log data for combat log network message value held by the this instance.</p>
+<pre><code data-lang="csharp">// Static call; no instance required
+Mission.GetCombatLogDataForCombatLogNetworkMessage(message);
+</code></pre>
+<h3 id="calculatepassbysoundparametersmt">CalculatePassbySoundParametersMT</h3>
+<p><code>public void CalculatePassbySoundParametersMT(ref SoundEventParameter soundEventParameter)</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of passby sound parameters m t.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.CalculatePassbySoundParametersMT(soundEventParameter);
+</code></pre>
+<h3 id="calculatebouncebackvelocity">CalculateBounceBackVelocity</h3>
+<p><code>public void CalculateBounceBackVelocity(Vec3 rotationSpeed, AttackCollisionData collisionData, out Vec3 velocity, out Vec3 angularVelocity)</code></p>
+<p><strong>Purpose:</strong> Calculates the current value or result of bounce back velocity.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.CalculateBounceBackVelocity(rotationSpeed, collisionData, velocity, angularVelocity);
+</code></pre>
+<h3 id="passthroughentity">PassThroughEntity</h3>
+<p><code>public void PassThroughEntity(GameEntity entity)</code></p>
+<p><strong>Purpose:</strong> Executes the PassThroughEntity logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.PassThroughEntity(entity);
+</code></pre>
+<h3 id="onbeforeagentremoveddelegate">OnBeforeAgentRemovedDelegate</h3>
+<p><code>public delegate void OnBeforeAgentRemovedDelegate(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)</code></p>
+<p><strong>Purpose:</strong> Invoked when the before agent removed delegate event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnBeforeAgentRemovedDelegate(affectedAgent, affectorAgent, agentState, killingBlow);
+</code></pre>
+<h3 id="onaddsoundalarmfactortoagentsdelegate">OnAddSoundAlarmFactorToAgentsDelegate</h3>
+<p><code>public delegate void OnAddSoundAlarmFactorToAgentsDelegate(Agent alarmCreatorAgent, in Vec3 soundPosition, float soundLevelSquareRoot)</code></p>
+<p><strong>Purpose:</strong> Invoked when the add sound alarm factor to agents delegate event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnAddSoundAlarmFactorToAgentsDelegate(alarmCreatorAgent, soundPosition, 0);
+</code></pre>
+<h3 id="onmainagentchangeddelegate">OnMainAgentChangedDelegate</h3>
+<p><code>public delegate void OnMainAgentChangedDelegate(Agent oldAgent)</code></p>
+<p><strong>Purpose:</strong> Invoked when the main agent changed delegate event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.OnMainAgentChangedDelegate(oldAgent);
+</code></pre>
+<h3 id="add-3">Add</h3>
+<p><code>public new void Add(Team t)</code></p>
+<p><strong>Purpose:</strong> Adds an item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.Add(t);
+</code></pre>
+<h3 id="add-4">Add</h3>
+<p><code>public Team Add(BattleSideEnum side, uint color = 4294967295U, uint color2 = 4294967295U, Banner banner = null, bool isPlayerGeneral = true, bool isPlayerSergeant = false, bool isSettingRelations = true)</code></p>
+<p><strong>Purpose:</strong> Adds an item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.Add(side, 0, 0, null, false, false, false);
+</code></pre>
+<h3 id="find">Find</h3>
+<p><code>public Team Find(MBTeam mbTeam)</code></p>
+<p><strong>Purpose:</strong> Finds the matching entry in the current collection or scope.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+var result = mission.Find(mbTeam);
+</code></pre>
+<h3 id="clearresources">ClearResources</h3>
+<p><code>public void ClearResources()</code></p>
+<p><strong>Purpose:</strong> Removes all resources from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.ClearResources();
+</code></pre>
+<h3 id="clear-1">Clear</h3>
+<p><code>public new void Clear()</code></p>
+<p><strong>Purpose:</strong> Removes all content from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of Mission from the subsystem API first
+Mission mission = ...;
+mission.Clear();
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">var mission = Mission.Current;
+mission.AddActiveMissionObject(missionObject);
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/mission/">mission index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/api/mission/IMBActionSet/">&larr; IMBActionSet</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/mission/ScriptingInterfaceBase/">ScriptingInterfaceBase &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

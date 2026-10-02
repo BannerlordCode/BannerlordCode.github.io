@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MissionAgentSpawnLogic</title>
+  <meta name="description" content="Auto-generated class reference for MissionAgentSpawnLogic.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="active">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission-ext/MissionAgentSpawnLogic/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission-ext/MissionAgentSpawnLogic/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission-ext/MissionAgentSpawnLogic/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission-ext/MissionAgentSpawnLogic/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/en/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/en/api/" class="">Index</a><a href="/v1.3.0/en/api/core/" class="">Core (v1.3.0)</a><a href="/v1.3.0/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.0/en/api/mission/" class="">Mission (v1.3.0)</a><a href="/v1.3.0/en/api/mission-ext/" class="active">Mission-Ext</a><a href="/v1.3.0/en/api/campaign/" class="">Campaign (v1.3.0)</a><a href="/v1.3.0/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/en/api/gui/" class="">GUI</a><a href="/v1.3.0/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.0/en/api/localization/" class="">Localization</a><a href="/v1.3.0/en/api/engine/" class="">Engine</a><a href="/v1.3.0/en/api/gameplay/" class="">Gameplay</a><a href="/v1.3.0/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/en/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/en/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;">Bannerlord v1.3.0 Documentation &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;en&#x2F;api&#x2F;mission-ext&#x2F;">mission-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">MissionAgentSpawnLogic</span>
+    </nav>
+  
+  <h1>MissionAgentSpawnLogic</h1>
+  <h1 id="missionagentspawnlogic">MissionAgentSpawnLogic</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade
+<strong>Module:</strong> TaleWorlds.MountAndBlade
+<strong>Type:</strong> <code>public class MissionAgentSpawnLogic : MissionLogic, IMissionAgentSpawnLogic, IMissionBehavior</code>
+<strong>Base:</strong> <code>MissionLogic</code>
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/MissionAgentSpawnLogic.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>MissionAgentSpawnLogic</code> sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Treat <code>MissionAgentSpawnLogic</code> as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>MaxNumberOfAgentsForMission</code></td><td><code>public static int MaxNumberOfAgentsForMission { get; }</code></td></tr>
+<tr><td><code>NumberOfAgents</code></td><td><code>public int NumberOfAgents { get; }</code></td></tr>
+<tr><td><code>NumberOfRemainingTroops</code></td><td><code>public int NumberOfRemainingTroops { get; }</code></td></tr>
+<tr><td><code>NumberOfActiveDefenderTroops</code></td><td><code>public int NumberOfActiveDefenderTroops { get; }</code></td></tr>
+<tr><td><code>NumberOfActiveAttackerTroops</code></td><td><code>public int NumberOfActiveAttackerTroops { get; }</code></td></tr>
+<tr><td><code>NumberOfRemainingDefenderTroops</code></td><td><code>public int NumberOfRemainingDefenderTroops { get; }</code></td></tr>
+<tr><td><code>NumberOfRemainingAttackerTroops</code></td><td><code>public int NumberOfRemainingAttackerTroops { get; }</code></td></tr>
+<tr><td><code>BattleSize</code></td><td><code>public int BattleSize { get; }</code></td></tr>
+<tr><td><code>IsInitialSpawnOver</code></td><td><code>public bool IsInitialSpawnOver { get; }</code></td></tr>
+<tr><td><code>IsDeploymentOver</code></td><td><code>public bool IsDeploymentOver { get; }</code></td></tr>
+<tr><td><code>ReinforcementSpawnSettings</code></td><td><code>public ref readonly MissionSpawnSettings ReinforcementSpawnSettings { get; }</code></td></tr>
+<tr><td><code>NumTroops</code></td><td><code>public int NumTroops { get; }</code></td></tr>
+<tr><td><code>TroopSpawnActive</code></td><td><code>public bool TroopSpawnActive { get; }</code></td></tr>
+<tr><td><code>IsPlayerSide</code></td><td><code>public bool IsPlayerSide { get; }</code></td></tr>
+<tr><td><code>ReinforcementSpawnActive</code></td><td><code>public bool ReinforcementSpawnActive { get; }</code></td></tr>
+<tr><td><code>SpawnWithHorses</code></td><td><code>public bool SpawnWithHorses { get; }</code></td></tr>
+<tr><td><code>ReinforcementsNotifiedOnLastBatch</code></td><td><code>public bool ReinforcementsNotifiedOnLastBatch { get; }</code></td></tr>
+<tr><td><code>NumberOfActiveTroops</code></td><td><code>public int NumberOfActiveTroops { get; }</code></td></tr>
+<tr><td><code>ReinforcementQuotaRequirement</code></td><td><code>public int ReinforcementQuotaRequirement { get; }</code></td></tr>
+<tr><td><code>ReinforcementsSpawnedInLastBatch</code></td><td><code>public int ReinforcementsSpawnedInLastBatch { get; }</code></td></tr>
+<tr><td><code>ReinforcementBatchSize</code></td><td><code>public float ReinforcementBatchSize { get; }</code></td></tr>
+<tr><td><code>HasReservedTroops</code></td><td><code>public bool HasReservedTroops { get; }</code></td></tr>
+<tr><td><code>ReinforcementBatchPriority</code></td><td><code>public float ReinforcementBatchPriority { get; }</code></td></tr>
+<tr><td><code>ReservedTroopsCount</code></td><td><code>public int ReservedTroopsCount { get; }</code></td></tr>
+<tr><td><code>HasSpawnableReinforcements</code></td><td><code>public bool HasSpawnableReinforcements { get; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="afterstart">AfterStart</h3>
+<p><code>public override void AfterStart()</code></p>
+<p><strong>Purpose:</strong> Executes the AfterStart logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.AfterStart();
+</code></pre>
+<h3 id="getnumberofplayercontrollabletroops">GetNumberOfPlayerControllableTroops</h3>
+<p><code>public int GetNumberOfPlayerControllableTroops()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the number of player controllable troops value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetNumberOfPlayerControllableTroops();
+</code></pre>
+<h3 id="initwithsinglephase">InitWithSinglePhase</h3>
+<p><code>public void InitWithSinglePhase(int defenderTotalSpawn, int attackerTotalSpawn, int defenderInitialSpawn, int attackerInitialSpawn, bool spawnDefenders, bool spawnAttackers, in MissionSpawnSettings spawnSettings)</code></p>
+<p><strong>Purpose:</strong> Prepares the resources, state, or bindings required by with single phase.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.InitWithSinglePhase(0, 0, 0, 0, false, false, spawnSettings);
+</code></pre>
+<h3 id="getalltroopsforside">GetAllTroopsForSide</h3>
+<p><code>public IEnumerable&lt;IAgentOriginBase&gt; GetAllTroopsForSide(BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the all troops for side value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetAllTroopsForSide(side);
+</code></pre>
+<h3 id="onmissiontick">OnMissionTick</h3>
+<p><code>public override void OnMissionTick(float dt)</code></p>
+<p><strong>Purpose:</strong> Invoked when the mission tick event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.OnMissionTick(0);
+</code></pre>
+<h3 id="setcustomreinforcementspawntimer">SetCustomReinforcementSpawnTimer</h3>
+<p><code>public void SetCustomReinforcementSpawnTimer(ICustomReinforcementSpawnTimer timer)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to custom reinforcement spawn timer and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetCustomReinforcementSpawnTimer(timer);
+</code></pre>
+<h3 id="setspawntroops">SetSpawnTroops</h3>
+<p><code>public void SetSpawnTroops(BattleSideEnum side, bool spawnTroops, bool enforceSpawning = false)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to spawn troops and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetSpawnTroops(side, false, false);
+</code></pre>
+<h3 id="onbehaviorinitialize">OnBehaviorInitialize</h3>
+<p><code>public override void OnBehaviorInitialize()</code></p>
+<p><strong>Purpose:</strong> Invoked when the behavior initialize event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.OnBehaviorInitialize();
+</code></pre>
+<h3 id="setspawnhorses">SetSpawnHorses</h3>
+<p><code>public void SetSpawnHorses(BattleSideEnum side, bool spawnHorses)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to spawn horses and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetSpawnHorses(side, false);
+</code></pre>
+<h3 id="startspawner">StartSpawner</h3>
+<p><code>public void StartSpawner(BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Starts the spawner flow or state machine.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.StartSpawner(side);
+</code></pre>
+<h3 id="stopspawner">StopSpawner</h3>
+<p><code>public void StopSpawner(BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Stops the spawner flow or state machine.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.StopSpawner(side);
+</code></pre>
+<h3 id="issidespawnenabled">IsSideSpawnEnabled</h3>
+<p><code>public bool IsSideSpawnEnabled(BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the side spawn enabled state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.IsSideSpawnEnabled(side);
+</code></pre>
+<h3 id="onsidedeploymentover">OnSideDeploymentOver</h3>
+<p><code>public void OnSideDeploymentOver(BattleSideEnum battleSide)</code></p>
+<p><strong>Purpose:</strong> Invoked when the side deployment over event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.OnSideDeploymentOver(battleSide);
+</code></pre>
+<h3 id="getreinforcementinterval">GetReinforcementInterval</h3>
+<p><code>public float GetReinforcementInterval()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the reinforcement interval value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetReinforcementInterval();
+</code></pre>
+<h3 id="setreinforcementsspawnenabled">SetReinforcementsSpawnEnabled</h3>
+<p><code>public void SetReinforcementsSpawnEnabled(bool value, bool resetTimers = true)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to reinforcements spawn enabled and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetReinforcementsSpawnEnabled(false, false);
+</code></pre>
+<h3 id="gettotalnumberoftroopsforside">GetTotalNumberOfTroopsForSide</h3>
+<p><code>public int GetTotalNumberOfTroopsForSide(BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the total number of troops for side value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetTotalNumberOfTroopsForSide(side);
+</code></pre>
+<h3 id="getgeneralcharacterofside">GetGeneralCharacterOfSide</h3>
+<p><code>public BasicCharacterObject GetGeneralCharacterOfSide(BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the general character of side value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetGeneralCharacterOfSide(side);
+</code></pre>
+<h3 id="getspawnhorses">GetSpawnHorses</h3>
+<p><code>public bool GetSpawnHorses(BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Reads and returns the spawn horses value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetSpawnHorses(side);
+</code></pre>
+<h3 id="issidedepleted">IsSideDepleted</h3>
+<p><code>public bool IsSideDepleted(BattleSideEnum side)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the side depleted state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.IsSideDepleted(side);
+</code></pre>
+<h3 id="addphasechangeaction">AddPhaseChangeAction</h3>
+<p><code>public void AddPhaseChangeAction(BattleSideEnum side, MissionAgentSpawnLogic.OnPhaseChangedDelegate onPhaseChanged)</code></p>
+<p><strong>Purpose:</strong> Adds phase change action to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.AddPhaseChangeAction(side, onPhaseChanged);
+</code></pre>
+<h3 id="getnumberofplayercontrollabletroops-1">GetNumberOfPlayerControllableTroops</h3>
+<p><code>public int GetNumberOfPlayerControllableTroops()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the number of player controllable troops value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetNumberOfPlayerControllableTroops();
+</code></pre>
+<h3 id="tryreinforcementspawn">TryReinforcementSpawn</h3>
+<p><code>public int TryReinforcementSpawn()</code></p>
+<p><strong>Purpose:</strong> Attempts to retrieve reinforcement spawn, usually returning success through an out parameter.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.TryReinforcementSpawn();
+</code></pre>
+<h3 id="getteamformationsspawndata">GetTeamFormationsSpawnData</h3>
+<p><code>public void GetTeamFormationsSpawnData( { "team", "formationSpawnData" })</code></p>
+<p><strong>Purpose:</strong> Reads and returns the team formations spawn data value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.GetTeamFormationsSpawnData(&quot;team&quot;, });
+</code></pre>
+<h3 id="reservetroops">ReserveTroops</h3>
+<p><code>public void ReserveTroops(int number)</code></p>
+<p><strong>Purpose:</strong> Executes the ReserveTroops logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.ReserveTroops(0);
+</code></pre>
+<h3 id="getgeneralcharacter">GetGeneralCharacter</h3>
+<p><code>public BasicCharacterObject GetGeneralCharacter()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the general character value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetGeneralCharacter();
+</code></pre>
+<h3 id="checkreinforcementbatch">CheckReinforcementBatch</h3>
+<p><code>public unsafe bool CheckReinforcementBatch()</code></p>
+<p><strong>Purpose:</strong> Verifies whether reinforcement batch holds true for the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.CheckReinforcementBatch();
+</code></pre>
+<h3 id="getalltroops">GetAllTroops</h3>
+<p><code>public IEnumerable&lt;IAgentOriginBase&gt; GetAllTroops()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the all troops value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.GetAllTroops();
+</code></pre>
+<h3 id="spawntroops">SpawnTroops</h3>
+<p><code>public int SpawnTroops(int number, bool isReinforcement)</code></p>
+<p><strong>Purpose:</strong> Executes the SpawnTroops logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+var result = missionAgentSpawnLogic.SpawnTroops(0, false);
+</code></pre>
+<h3 id="setspawnwithhorses">SetSpawnWithHorses</h3>
+<p><code>public void SetSpawnWithHorses(bool spawnWithHorses)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to spawn with horses and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetSpawnWithHorses(false);
+</code></pre>
+<h3 id="setbannerbearerlogic">SetBannerBearerLogic</h3>
+<p><code>public void SetBannerBearerLogic(BannerBearerLogic bannerBearerLogic)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to banner bearer logic and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetBannerBearerLogic(bannerBearerLogic);
+</code></pre>
+<h3 id="setreinforcementsnotifiedonlastbatch">SetReinforcementsNotifiedOnLastBatch</h3>
+<p><code>public void SetReinforcementsNotifiedOnLastBatch(bool value)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to reinforcements notified on last batch and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetReinforcementsNotifiedOnLastBatch(false);
+</code></pre>
+<h3 id="setspawntroops-1">SetSpawnTroops</h3>
+<p><code>public void SetSpawnTroops(bool spawnTroops)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to spawn troops and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.SetSpawnTroops(false);
+</code></pre>
+<h3 id="oninitialspawnover">OnInitialSpawnOver</h3>
+<p><code>public void OnInitialSpawnOver()</code></p>
+<p><strong>Purpose:</strong> Invoked when the initial spawn over event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.OnInitialSpawnOver();
+</code></pre>
+<h3 id="oninitialtroopsspawned">OnInitialTroopsSpawned</h3>
+<p><code>public void OnInitialTroopsSpawned()</code></p>
+<p><strong>Purpose:</strong> Invoked when the initial troops spawned event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.OnInitialTroopsSpawned();
+</code></pre>
+<h3 id="onphasechangeddelegate">OnPhaseChangedDelegate</h3>
+<p><code>public delegate void OnPhaseChangedDelegate()</code></p>
+<p><strong>Purpose:</strong> Invoked when the phase changed delegate event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of MissionAgentSpawnLogic from the subsystem API first
+MissionAgentSpawnLogic missionAgentSpawnLogic = ...;
+missionAgentSpawnLogic.OnPhaseChangedDelegate();
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">var behavior = Mission.Current.GetMissionBehavior&lt;MissionAgentSpawnLogic&gt;();
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/en/api/mission-ext/">mission-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/en/api/mission-ext/UsableMachine/">&larr; UsableMachine</a>
+          
+          
+            <a rel="next" href="/v1.3.0/en/api/mission-ext/FacingOrderEnum/">FacingOrderEnum &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

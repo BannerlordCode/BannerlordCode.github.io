@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Utilities</title>
+  <meta name="description" content="Utilities 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/engine/Utilities/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/engine/Utilities/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/engine/Utilities/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/engine/Utilities/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/engine/Utilities/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/engine/Utilities/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="active">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;engine&#x2F;">engine 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Utilities</span>
+    </nav>
+  
+  <h1>Utilities</h1>
+  <h1 id="utilities">Utilities</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Engine
+<strong>Module:</strong> TaleWorlds.Engine
+<strong>Type:</strong> <code>public static class Utilities</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>TaleWorlds.Engine/Utilities.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>Utilities</code> 位于 <code>TaleWorlds.Engine</code>，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>先从命名空间 <code>TaleWorlds.Engine</code> 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>EngineFrameNo</code></td><td><code>public static int EngineFrameNo { get; }</code></td></tr>
+<tr><td><code>EditModeEnabled</code></td><td><code>public static bool EditModeEnabled { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="constructmainthreadjob">ConstructMainThreadJob</h3>
+<p><code>public static void ConstructMainThreadJob(Delegate function, params object parameters)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ConstructMainThreadJob 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.ConstructMainThreadJob(function, parameters);
+</code></pre>
+<h3 id="constructmainthreadjob-1">ConstructMainThreadJob</h3>
+<p><code>public static void ConstructMainThreadJob(Semaphore semaphore, Delegate function, params object parameters)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ConstructMainThreadJob 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.ConstructMainThreadJob(semaphore, function, parameters);
+</code></pre>
+<h3 id="runjobs">RunJobs</h3>
+<p><code>public static void RunJobs()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RunJobs 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.RunJobs();
+</code></pre>
+<h3 id="waitjobs">WaitJobs</h3>
+<p><code>public static void WaitJobs()</code></p>
+<p><strong>用途 / Purpose:</strong> 暂停当前流程，直到jobs条件满足。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.WaitJobs();
+</code></pre>
+<h3 id="outputbenchmarkvaluestoperformancereporter">OutputBenchmarkValuesToPerformanceReporter</h3>
+<p><code>public static void OutputBenchmarkValuesToPerformanceReporter()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 OutputBenchmarkValuesToPerformanceReporter 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.OutputBenchmarkValuesToPerformanceReporter();
+</code></pre>
+<h3 id="setloadingscreenpercentage">SetLoadingScreenPercentage</h3>
+<p><code>public static void SetLoadingScreenPercentage(float value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 loading screen percentage 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetLoadingScreenPercentage(0);
+</code></pre>
+<h3 id="setfixeddt">SetFixedDt</h3>
+<p><code>public static void SetFixedDt(bool enabled, float dt)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 fixed dt 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetFixedDt(false, 0);
+</code></pre>
+<h3 id="setbenchmarkstatus">SetBenchmarkStatus</h3>
+<p><code>public static void SetBenchmarkStatus(int status, string def)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 benchmark status 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetBenchmarkStatus(0, &quot;example&quot;);
+</code></pre>
+<h3 id="getbenchmarkstatus">GetBenchmarkStatus</h3>
+<p><code>public static int GetBenchmarkStatus()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 benchmark status 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetBenchmarkStatus();
+</code></pre>
+<h3 id="getapplicationmemorystatistics">GetApplicationMemoryStatistics</h3>
+<p><code>public static string GetApplicationMemoryStatistics()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 application memory statistics 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetApplicationMemoryStatistics();
+</code></pre>
+<h3 id="isbenchmarkquited">IsBenchmarkQuited</h3>
+<p><code>public static bool IsBenchmarkQuited()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 benchmark quited 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.IsBenchmarkQuited();
+</code></pre>
+<h3 id="getnativememorystatistics">GetNativeMemoryStatistics</h3>
+<p><code>public static string GetNativeMemoryStatistics()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 native memory statistics 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetNativeMemoryStatistics();
+</code></pre>
+<h3 id="commandlineargumentexists">CommandLineArgumentExists</h3>
+<p><code>public static bool CommandLineArgumentExists(string str)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CommandLineArgumentExists 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.CommandLineArgumentExists(&quot;example&quot;);
+</code></pre>
+<h3 id="getconsolehostmachine">GetConsoleHostMachine</h3>
+<p><code>public static string GetConsoleHostMachine()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 console host machine 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetConsoleHostMachine();
+</code></pre>
+<h3 id="exportnavmeshfacemarks">ExportNavMeshFaceMarks</h3>
+<p><code>public static string ExportNavMeshFaceMarks(string file_name)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ExportNavMeshFaceMarks 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.ExportNavMeshFaceMarks(&quot;example&quot;);
+</code></pre>
+<h3 id="takessfromtop">TakeSSFromTop</h3>
+<p><code>public static string TakeSSFromTop(string file_name)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TakeSSFromTop 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.TakeSSFromTop(&quot;example&quot;);
+</code></pre>
+<h3 id="checkifassetsandsourcesaresame">CheckIfAssetsAndSourcesAreSame</h3>
+<p><code>public static void CheckIfAssetsAndSourcesAreSame()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查if assets and sources are same在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.CheckIfAssetsAndSourcesAreSame();
+</code></pre>
+<h3 id="disablecoregame">DisableCoreGame</h3>
+<p><code>public static void DisableCoreGame()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DisableCoreGame 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.DisableCoreGame();
+</code></pre>
+<h3 id="getapplicationmemory">GetApplicationMemory</h3>
+<p><code>public static float GetApplicationMemory()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 application memory 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetApplicationMemory();
+</code></pre>
+<h3 id="gathercoregamereferences">GatherCoreGameReferences</h3>
+<p><code>public static void GatherCoreGameReferences(string scene_names)</code></p>
+<p><strong>用途 / Purpose:</strong> 收集或汇总core game references到当前对象。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GatherCoreGameReferences(&quot;example&quot;);
+</code></pre>
+<h3 id="isonlycorecontentenabled">IsOnlyCoreContentEnabled</h3>
+<p><code>public static bool IsOnlyCoreContentEnabled()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 only core content enabled 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.IsOnlyCoreContentEnabled();
+</code></pre>
+<h3 id="findmesheswithoutlods">FindMeshesWithoutLods</h3>
+<p><code>public static void FindMeshesWithoutLods(string module_name)</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找满足条件的meshes without lods。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.FindMeshesWithoutLods(&quot;example&quot;);
+</code></pre>
+<h3 id="setdisabledumpgeneration">SetDisableDumpGeneration</h3>
+<p><code>public static void SetDisableDumpGeneration(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 disable dump generation 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetDisableDumpGeneration(false);
+</code></pre>
+<h3 id="setprintcallstackatcrahses">SetPrintCallstackAtCrahses</h3>
+<p><code>public static void SetPrintCallstackAtCrahses(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 print callstack at crahses 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetPrintCallstackAtCrahses(false);
+</code></pre>
+<h3 id="getmodulesnames">GetModulesNames</h3>
+<p><code>public static string GetModulesNames()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 modules names 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetModulesNames();
+</code></pre>
+<h3 id="getfullfilepathofscene">GetFullFilePathOfScene</h3>
+<p><code>public static string GetFullFilePathOfScene(string sceneName)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 full file path of scene 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetFullFilePathOfScene(&quot;example&quot;);
+</code></pre>
+<h3 id="trygetfullfilepathofscene">TryGetFullFilePathOfScene</h3>
+<p><code>public static bool TryGetFullFilePathOfScene(string sceneName, out string fullPath)</code></p>
+<p><strong>用途 / Purpose:</strong> 尝试获取 get full file path of scene 的值，通常通过 out 参数返回是否成功。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.TryGetFullFilePathOfScene(&quot;example&quot;, fullPath);
+</code></pre>
+<h3 id="trygetuniqueidentifiersforscene">TryGetUniqueIdentifiersForScene</h3>
+<p><code>public static bool TryGetUniqueIdentifiersForScene(string sceneName, out UniqueSceneId identifiers)</code></p>
+<p><strong>用途 / Purpose:</strong> 尝试获取 get unique identifiers for scene 的值，通常通过 out 参数返回是否成功。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.TryGetUniqueIdentifiersForScene(&quot;example&quot;, identifiers);
+</code></pre>
+<h3 id="trygetuniqueidentifiersforscenefile">TryGetUniqueIdentifiersForSceneFile</h3>
+<p><code>public static bool TryGetUniqueIdentifiersForSceneFile(string xsceneFilePath, out UniqueSceneId identifiers)</code></p>
+<p><strong>用途 / Purpose:</strong> 尝试获取 get unique identifiers for scene file 的值，通常通过 out 参数返回是否成功。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.TryGetUniqueIdentifiersForSceneFile(&quot;example&quot;, identifiers);
+</code></pre>
+<h3 id="pairscenenametomodulename">PairSceneNameToModuleName</h3>
+<p><code>public static void PairSceneNameToModuleName(string sceneName, string moduleName)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 PairSceneNameToModuleName 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.PairSceneNameToModuleName(&quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="getsinglemodulescenesofmodule">GetSingleModuleScenesOfModule</h3>
+<p><code>public static string GetSingleModuleScenesOfModule(string moduleName)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 single module scenes of module 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetSingleModuleScenesOfModule(&quot;example&quot;);
+</code></pre>
+<h3 id="getfullcommandlinestring">GetFullCommandLineString</h3>
+<p><code>public static string GetFullCommandLineString()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 full command line string 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetFullCommandLineString();
+</code></pre>
+<h3 id="setscreentextrenderingstate">SetScreenTextRenderingState</h3>
+<p><code>public static void SetScreenTextRenderingState(bool state)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 screen text rendering state 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetScreenTextRenderingState(false);
+</code></pre>
+<h3 id="setmessagelinerenderingstate">SetMessageLineRenderingState</h3>
+<p><code>public static void SetMessageLineRenderingState(bool state)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 message line rendering state 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetMessageLineRenderingState(false);
+</code></pre>
+<h3 id="checkifterrainshaderheadergenerationfinished">CheckIfTerrainShaderHeaderGenerationFinished</h3>
+<p><code>public static bool CheckIfTerrainShaderHeaderGenerationFinished()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查if terrain shader header generation finished在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.CheckIfTerrainShaderHeaderGenerationFinished();
+</code></pre>
+<h3 id="generateterrainshaderheaders">GenerateTerrainShaderHeaders</h3>
+<p><code>public static void GenerateTerrainShaderHeaders(string targetPlatform, string targetConfig, string output_path)</code></p>
+<p><strong>用途 / Purpose:</strong> 生成terrain shader headers的实例、数据或表示。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GenerateTerrainShaderHeaders(&quot;example&quot;, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="compileterrainshadersdist">CompileTerrainShadersDist</h3>
+<p><code>public static void CompileTerrainShadersDist(string targetPlatform, string targetConfig, string output_path)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CompileTerrainShadersDist 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.CompileTerrainShadersDist(&quot;example&quot;, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="setcrashonasserts">SetCrashOnAsserts</h3>
+<p><code>public static void SetCrashOnAsserts(bool val)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 crash on asserts 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetCrashOnAsserts(false);
+</code></pre>
+<h3 id="setcrashonwarnings">SetCrashOnWarnings</h3>
+<p><code>public static void SetCrashOnWarnings(bool val)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 crash on warnings 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetCrashOnWarnings(false);
+</code></pre>
+<h3 id="setcreatedumponwarnings">SetCreateDumpOnWarnings</h3>
+<p><code>public static void SetCreateDumpOnWarnings(bool val)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 create dump on warnings 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetCreateDumpOnWarnings(false);
+</code></pre>
+<h3 id="togglerender">ToggleRender</h3>
+<p><code>public static void ToggleRender()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ToggleRender 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.ToggleRender();
+</code></pre>
+<h3 id="setrenderagents">SetRenderAgents</h3>
+<p><code>public static void SetRenderAgents(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 render agents 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetRenderAgents(false);
+</code></pre>
+<h3 id="checkshadercompilation">CheckShaderCompilation</h3>
+<p><code>public static bool CheckShaderCompilation()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查shader compilation在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.CheckShaderCompilation();
+</code></pre>
+<h3 id="compileallshaders">CompileAllShaders</h3>
+<p><code>public static void CompileAllShaders(string targetPlatform)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 CompileAllShaders 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.CompileAllShaders(&quot;example&quot;);
+</code></pre>
+<h3 id="getexecutableworkingdirectory">GetExecutableWorkingDirectory</h3>
+<p><code>public static string GetExecutableWorkingDirectory()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 executable working directory 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetExecutableWorkingDirectory();
+</code></pre>
+<h3 id="setdumpfolderpath">SetDumpFolderPath</h3>
+<p><code>public static void SetDumpFolderPath(string path)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 dump folder path 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetDumpFolderPath(&quot;example&quot;);
+</code></pre>
+<h3 id="checksceneforproblems">CheckSceneForProblems</h3>
+<p><code>public static void CheckSceneForProblems(string sceneName)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查scene for problems在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.CheckSceneForProblems(&quot;example&quot;);
+</code></pre>
+<h3 id="setcoregamestate">SetCoreGameState</h3>
+<p><code>public static void SetCoreGameState(int state)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 core game state 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetCoreGameState(0);
+</code></pre>
+<h3 id="getcoregamestate">GetCoreGameState</h3>
+<p><code>public static int GetCoreGameState()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 core game state 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetCoreGameState();
+</code></pre>
+<h3 id="executecommandlinecommand">ExecuteCommandLineCommand</h3>
+<p><code>public static string ExecuteCommandLineCommand(string command)</code></p>
+<p><strong>用途 / Purpose:</strong> 执行 command line command 对应的操作或工作流。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.ExecuteCommandLineCommand(&quot;example&quot;);
+</code></pre>
+<h3 id="quitgame">QuitGame</h3>
+<p><code>public static void QuitGame()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 QuitGame 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.QuitGame();
+</code></pre>
+<h3 id="exitprocess">ExitProcess</h3>
+<p><code>public static void ExitProcess(int exitCode)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ExitProcess 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.ExitProcess(0);
+</code></pre>
+<h3 id="getbasepath">GetBasePath</h3>
+<p><code>public static string GetBasePath()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 base path 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetBasePath();
+</code></pre>
+<h3 id="getvisualtestsvalidatepath">GetVisualTestsValidatePath</h3>
+<p><code>public static string GetVisualTestsValidatePath()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 visual tests validate path 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetVisualTestsValidatePath();
+</code></pre>
+<h3 id="getvisualteststestfilespath">GetVisualTestsTestFilesPath</h3>
+<p><code>public static string GetVisualTestsTestFilesPath()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 visual tests test files path 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetVisualTestsTestFilesPath();
+</code></pre>
+<h3 id="getattachmentspath">GetAttachmentsPath</h3>
+<p><code>public static string GetAttachmentsPath()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 attachments path 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetAttachmentsPath();
+</code></pre>
+<h3 id="startsceneperformancereport">StartScenePerformanceReport</h3>
+<p><code>public static void StartScenePerformanceReport(string folderPath)</code></p>
+<p><strong>用途 / Purpose:</strong> 启动scene performance report流程或状态机。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.StartScenePerformanceReport(&quot;example&quot;);
+</code></pre>
+<h3 id="isscenereportfinished">IsSceneReportFinished</h3>
+<p><code>public static bool IsSceneReportFinished()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 scene report finished 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.IsSceneReportFinished();
+</code></pre>
+<h3 id="getfps">GetFps</h3>
+<p><code>public static float GetFps()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 fps 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetFps();
+</code></pre>
+<h3 id="getmainfps">GetMainFps</h3>
+<p><code>public static float GetMainFps()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 main fps 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetMainFps();
+</code></pre>
+<h3 id="getrendererfps">GetRendererFps</h3>
+<p><code>public static float GetRendererFps()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 renderer fps 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetRendererFps();
+</code></pre>
+<h3 id="enablesinglegpuqueryperframe">EnableSingleGPUQueryPerFrame</h3>
+<p><code>public static void EnableSingleGPUQueryPerFrame()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EnableSingleGPUQueryPerFrame 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.EnableSingleGPUQueryPerFrame();
+</code></pre>
+<h3 id="cleardecalatlas">ClearDecalAtlas</h3>
+<p><code>public static void ClearDecalAtlas(DecalAtlasGroup atlasGroup)</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的decal atlas。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.ClearDecalAtlas(atlasGroup);
+</code></pre>
+<h3 id="flushmanagedobjectsmemory">FlushManagedObjectsMemory</h3>
+<p><code>public static void FlushManagedObjectsMemory()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 FlushManagedObjectsMemory 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.FlushManagedObjectsMemory();
+</code></pre>
+<h3 id="onloadingwindowenabled">OnLoadingWindowEnabled</h3>
+<p><code>public static void OnLoadingWindowEnabled()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 loading window enabled 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.OnLoadingWindowEnabled();
+</code></pre>
+<h3 id="debugsetgloballoadingwindowstate">DebugSetGlobalLoadingWindowState</h3>
+<p><code>public static void DebugSetGlobalLoadingWindowState(bool newState)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DebugSetGlobalLoadingWindowState 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.DebugSetGlobalLoadingWindowState(false);
+</code></pre>
+<h3 id="onloadingwindowdisabled">OnLoadingWindowDisabled</h3>
+<p><code>public static void OnLoadingWindowDisabled()</code></p>
+<p><strong>用途 / Purpose:</strong> 在 loading window disabled 事件触发时调用此回调。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.OnLoadingWindowDisabled();
+</code></pre>
+<h3 id="disablegloballoadingwindow">DisableGlobalLoadingWindow</h3>
+<p><code>public static void DisableGlobalLoadingWindow()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DisableGlobalLoadingWindow 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.DisableGlobalLoadingWindow();
+</code></pre>
+<h3 id="enablegloballoadingwindow">EnableGlobalLoadingWindow</h3>
+<p><code>public static void EnableGlobalLoadingWindow()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EnableGlobalLoadingWindow 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.EnableGlobalLoadingWindow();
+</code></pre>
+<h3 id="enableglobaleditdatacacher">EnableGlobalEditDataCacher</h3>
+<p><code>public static void EnableGlobalEditDataCacher()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EnableGlobalEditDataCacher 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.EnableGlobalEditDataCacher();
+</code></pre>
+<h3 id="dofullbakealllevelsautomated">DoFullBakeAllLevelsAutomated</h3>
+<p><code>public static void DoFullBakeAllLevelsAutomated(string module, string scene)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DoFullBakeAllLevelsAutomated 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.DoFullBakeAllLevelsAutomated(&quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="getreturncode">GetReturnCode</h3>
+<p><code>public static int GetReturnCode()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 return code 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetReturnCode();
+</code></pre>
+<h3 id="disableglobaleditdatacacher">DisableGlobalEditDataCacher</h3>
+<p><code>public static void DisableGlobalEditDataCacher()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DisableGlobalEditDataCacher 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.DisableGlobalEditDataCacher();
+</code></pre>
+<h3 id="dofullbakesinglelevelautomated">DoFullBakeSingleLevelAutomated</h3>
+<p><code>public static void DoFullBakeSingleLevelAutomated(string module, string scene)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DoFullBakeSingleLevelAutomated 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.DoFullBakeSingleLevelAutomated(&quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="dolightonlybakesinglelevelautomated">DoLightOnlyBakeSingleLevelAutomated</h3>
+<p><code>public static void DoLightOnlyBakeSingleLevelAutomated(string module, string scene)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DoLightOnlyBakeSingleLevelAutomated 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.DoLightOnlyBakeSingleLevelAutomated(&quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="dolightonlybakealllevelsautomated">DoLightOnlyBakeAllLevelsAutomated</h3>
+<p><code>public static void DoLightOnlyBakeAllLevelsAutomated(string module, string scene)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DoLightOnlyBakeAllLevelsAutomated 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.DoLightOnlyBakeAllLevelsAutomated(&quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="didautomatedgibakefinished">DidAutomatedGIBakeFinished</h3>
+<p><code>public static bool DidAutomatedGIBakeFinished()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DidAutomatedGIBakeFinished 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.DidAutomatedGIBakeFinished();
+</code></pre>
+<h3 id="getselectedentities">GetSelectedEntities</h3>
+<p><code>public static void GetSelectedEntities(ref List&lt;GameEntity&gt; gameEntities)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 selected entities 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetSelectedEntities(gameEntities);
+</code></pre>
+<h3 id="deleteentitiesineditorscene">DeleteEntitiesInEditorScene</h3>
+<p><code>public static void DeleteEntitiesInEditorScene(List&lt;GameEntity&gt; gameEntities)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DeleteEntitiesInEditorScene 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.DeleteEntitiesInEditorScene(gameEntities);
+</code></pre>
+<h3 id="createselectionineditor">CreateSelectionInEditor</h3>
+<p><code>public static void CreateSelectionInEditor(List&lt;GameEntity&gt; gameEntities, string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 构建一个新的 selection in editor 实体并返回给调用方。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.CreateSelectionInEditor(gameEntities, &quot;example&quot;);
+</code></pre>
+<h3 id="selectentities">SelectEntities</h3>
+<p><code>public static void SelectEntities(List&lt;GameEntity&gt; gameEntities)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SelectEntities 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SelectEntities(gameEntities);
+</code></pre>
+<h3 id="getentitiesofselectionset">GetEntitiesOfSelectionSet</h3>
+<p><code>public static void GetEntitiesOfSelectionSet(string selectionSetName, ref List&lt;GameEntity&gt; gameEntities)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 entities of selection set 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetEntitiesOfSelectionSet(&quot;example&quot;, gameEntities);
+</code></pre>
+<h3 id="addcommandlinefunction">AddCommandLineFunction</h3>
+<p><code>public static void AddCommandLineFunction(string concatName)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 command line function 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.AddCommandLineFunction(&quot;example&quot;);
+</code></pre>
+<h3 id="getnumberofshadercompilationsinprogress">GetNumberOfShaderCompilationsInProgress</h3>
+<p><code>public static int GetNumberOfShaderCompilationsInProgress()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 number of shader compilations in progress 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetNumberOfShaderCompilationsInProgress();
+</code></pre>
+<h3 id="isdetailedsoundlogon">IsDetailedSoundLogOn</h3>
+<p><code>public static int IsDetailedSoundLogOn()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 detailed sound log on 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.IsDetailedSoundLogOn();
+</code></pre>
+<h3 id="getcurrentcpumemoryusagemb">GetCurrentCpuMemoryUsageMB</h3>
+<p><code>public static ulong GetCurrentCpuMemoryUsageMB()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 current cpu memory usage m b 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetCurrentCpuMemoryUsageMB();
+</code></pre>
+<h3 id="getgpumemoryofallocationgroup">GetGpuMemoryOfAllocationGroup</h3>
+<p><code>public static ulong GetGpuMemoryOfAllocationGroup(string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 gpu memory of allocation group 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetGpuMemoryOfAllocationGroup(&quot;example&quot;);
+</code></pre>
+<h3 id="getgpumemorystats">GetGPUMemoryStats</h3>
+<p><code>public static void GetGPUMemoryStats(ref float totalMemory, ref float renderTargetMemory, ref float depthTargetMemory, ref float srvMemory, ref float bufferMemory)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 g p u memory stats 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetGPUMemoryStats(totalMemory, renderTargetMemory, depthTargetMemory, srvMemory, bufferMemory);
+</code></pre>
+<h3 id="getdetailedgpumemorydata">GetDetailedGPUMemoryData</h3>
+<p><code>public static void GetDetailedGPUMemoryData(ref int totalMemoryAllocated, ref int totalMemoryUsed, ref int emptyChunkTotalSize)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 detailed g p u memory data 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetDetailedGPUMemoryData(totalMemoryAllocated, totalMemoryUsed, emptyChunkTotalSize);
+</code></pre>
+<h3 id="setrendermode">SetRenderMode</h3>
+<p><code>public static void SetRenderMode(Utilities.EngineRenderDisplayMode mode)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 render mode 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetRenderMode(mode);
+</code></pre>
+<h3 id="setforcedrawentityid">SetForceDrawEntityID</h3>
+<p><code>public static void SetForceDrawEntityID(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 force draw entity i d 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetForceDrawEntityID(false);
+</code></pre>
+<h3 id="addperformancereporttoken">AddPerformanceReportToken</h3>
+<p><code>public static void AddPerformanceReportToken(string performance_type, string name, float loading_time)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 performance report token 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.AddPerformanceReportToken(&quot;example&quot;, &quot;example&quot;, 0);
+</code></pre>
+<h3 id="addsceneobjectreport">AddSceneObjectReport</h3>
+<p><code>public static void AddSceneObjectReport(string scene_name, string report_name, float report_value)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 scene object report 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.AddSceneObjectReport(&quot;example&quot;, &quot;example&quot;, 0);
+</code></pre>
+<h3 id="outputperformancereports">OutputPerformanceReports</h3>
+<p><code>public static void OutputPerformanceReports()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 OutputPerformanceReports 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.OutputPerformanceReports();
+</code></pre>
+<h3 id="takescreenshot">TakeScreenshot</h3>
+<p><code>public static void TakeScreenshot(PlatformFilePath path)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TakeScreenshot 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.TakeScreenshot(path);
+</code></pre>
+<h3 id="takescreenshot-1">TakeScreenshot</h3>
+<p><code>public static void TakeScreenshot(string path)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TakeScreenshot 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.TakeScreenshot(&quot;example&quot;);
+</code></pre>
+<h3 id="setallocationalwaysvalidscene">SetAllocationAlwaysValidScene</h3>
+<p><code>public static void SetAllocationAlwaysValidScene(Scene scene)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 allocation always valid scene 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetAllocationAlwaysValidScene(scene);
+</code></pre>
+<h3 id="checkresourcemodifications">CheckResourceModifications</h3>
+<p><code>public static void CheckResourceModifications()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查resource modifications在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.CheckResourceModifications();
+</code></pre>
+<h3 id="setgraphicspreset">SetGraphicsPreset</h3>
+<p><code>public static void SetGraphicsPreset(int preset)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 graphics preset 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetGraphicsPreset(0);
+</code></pre>
+<h3 id="getlocaloutputpath">GetLocalOutputPath</h3>
+<p><code>public static string GetLocalOutputPath()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 local output path 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetLocalOutputPath();
+</code></pre>
+<h3 id="getpcinfo">GetPCInfo</h3>
+<p><code>public static string GetPCInfo()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 p c info 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetPCInfo();
+</code></pre>
+<h3 id="getgpumemorymb">GetGPUMemoryMB</h3>
+<p><code>public static int GetGPUMemoryMB()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 g p u memory m b 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetGPUMemoryMB();
+</code></pre>
+<h3 id="getcurrentestimatedgpumemorycostmb">GetCurrentEstimatedGPUMemoryCostMB</h3>
+<p><code>public static int GetCurrentEstimatedGPUMemoryCostMB()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 current estimated g p u memory cost m b 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetCurrentEstimatedGPUMemoryCostMB();
+</code></pre>
+<h3 id="dumpgpumemorystatistics">DumpGPUMemoryStatistics</h3>
+<p><code>public static void DumpGPUMemoryStatistics(string filePath)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DumpGPUMemoryStatistics 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.DumpGPUMemoryStatistics(&quot;example&quot;);
+</code></pre>
+<h3 id="savedataastexture">SaveDataAsTexture</h3>
+<p><code>public static int SaveDataAsTexture(string path, int width, int height, float data)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 data as texture 写入持久化存储或流中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SaveDataAsTexture(&quot;example&quot;, 0, 0, 0);
+</code></pre>
+<h3 id="clearoldresourcesandobjects">ClearOldResourcesAndObjects</h3>
+<p><code>public static void ClearOldResourcesAndObjects()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的old resources and objects。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.ClearOldResourcesAndObjects();
+</code></pre>
+<h3 id="loadvirtualtexturetileset">LoadVirtualTextureTileset</h3>
+<p><code>public static void LoadVirtualTextureTileset(string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 从持久化存储或流中读取 virtual texture tileset。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.LoadVirtualTextureTileset(&quot;example&quot;);
+</code></pre>
+<h3 id="getdeltatime">GetDeltaTime</h3>
+<p><code>public static float GetDeltaTime(int timerId)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 delta time 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetDeltaTime(0);
+</code></pre>
+<h3 id="loadskyboxes">LoadSkyBoxes</h3>
+<p><code>public static void LoadSkyBoxes()</code></p>
+<p><strong>用途 / Purpose:</strong> 从持久化存储或流中读取 sky boxes。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.LoadSkyBoxes();
+</code></pre>
+<h3 id="getapplicationname">GetApplicationName</h3>
+<p><code>public static string GetApplicationName()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 application name 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetApplicationName();
+</code></pre>
+<h3 id="opennavaldlcpurchasepage">OpenNavalDlcPurchasePage</h3>
+<p><code>public static void OpenNavalDlcPurchasePage()</code></p>
+<p><strong>用途 / Purpose:</strong> 打开naval dlc purchase page对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.OpenNavalDlcPurchasePage();
+</code></pre>
+<h3 id="setwindowtitle">SetWindowTitle</h3>
+<p><code>public static void SetWindowTitle(string title)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 window title 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetWindowTitle(&quot;example&quot;);
+</code></pre>
+<h3 id="processwindowtitle">ProcessWindowTitle</h3>
+<p><code>public static string ProcessWindowTitle(string title)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ProcessWindowTitle 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.ProcessWindowTitle(&quot;example&quot;);
+</code></pre>
+<h3 id="getcurrentprocessid">GetCurrentProcessID</h3>
+<p><code>public static uint GetCurrentProcessID()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 current process i d 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetCurrentProcessID();
+</code></pre>
+<h3 id="dodelayedexit">DoDelayedexit</h3>
+<p><code>public static void DoDelayedexit(int returnCode)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DoDelayedexit 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.DoDelayedexit(0);
+</code></pre>
+<h3 id="setassertionsandwarningssetexitcode">SetAssertionsAndWarningsSetExitCode</h3>
+<p><code>public static void SetAssertionsAndWarningsSetExitCode(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 assertions and warnings set exit code 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetAssertionsAndWarningsSetExitCode(false);
+</code></pre>
+<h3 id="setreportmode">SetReportMode</h3>
+<p><code>public static void SetReportMode(bool reportMode)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 report mode 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetReportMode(false);
+</code></pre>
+<h3 id="setassertionatshadercompile">SetAssertionAtShaderCompile</h3>
+<p><code>public static void SetAssertionAtShaderCompile(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 assertion at shader compile 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetAssertionAtShaderCompile(false);
+</code></pre>
+<h3 id="setcrashreportcustomstring">SetCrashReportCustomString</h3>
+<p><code>public static void SetCrashReportCustomString(string customString)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 crash report custom string 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetCrashReportCustomString(&quot;example&quot;);
+</code></pre>
+<h3 id="setcrashreportcustomstack">SetCrashReportCustomStack</h3>
+<p><code>public static void SetCrashReportCustomStack(string customStack)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 crash report custom stack 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetCrashReportCustomStack(&quot;example&quot;);
+</code></pre>
+<h3 id="getsteamappid">GetSteamAppId</h3>
+<p><code>public static int GetSteamAppId()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 steam app id 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetSteamAppId();
+</code></pre>
+<h3 id="setforcevsync">SetForceVsync</h3>
+<p><code>public static void SetForceVsync(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 force vsync 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetForceVsync(false);
+</code></pre>
+<h3 id="loadbannerlordconfigfile">LoadBannerlordConfigFile</h3>
+<p><code>public static string LoadBannerlordConfigFile()</code></p>
+<p><strong>用途 / Purpose:</strong> 从持久化存储或流中读取 bannerlord config file。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.LoadBannerlordConfigFile();
+</code></pre>
+<h3 id="saveconfigfile">SaveConfigFile</h3>
+<p><code>public static SaveResult SaveConfigFile(string configProperties)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 config file 写入持久化存储或流中。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SaveConfigFile(&quot;example&quot;);
+</code></pre>
+<h3 id="openonscreenkeyboard">OpenOnscreenKeyboard</h3>
+<p><code>public static void OpenOnscreenKeyboard(string initialText, string descriptionText, int maxLength, int keyboardTypeEnum)</code></p>
+<p><strong>用途 / Purpose:</strong> 打开onscreen keyboard对应的资源或界面。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.OpenOnscreenKeyboard(&quot;example&quot;, &quot;example&quot;, 0, 0);
+</code></pre>
+<h3 id="getsystemlanguage">GetSystemLanguage</h3>
+<p><code>public static string GetSystemLanguage()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 system language 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetSystemLanguage();
+</code></pre>
+<h3 id="registergpuallocationgroup">RegisterGPUAllocationGroup</h3>
+<p><code>public static int RegisterGPUAllocationGroup(string name)</code></p>
+<p><strong>用途 / Purpose:</strong> 将g p u allocation group注册到当前系统，以便后续监听或分发。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.RegisterGPUAllocationGroup(&quot;example&quot;);
+</code></pre>
+<h3 id="getmemoryusageofcategory">GetMemoryUsageOfCategory</h3>
+<p><code>public static int GetMemoryUsageOfCategory(int category)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 memory usage of category 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetMemoryUsageOfCategory(0);
+</code></pre>
+<h3 id="getdetailedxboxmemoryinfo">GetDetailedXBOXMemoryInfo</h3>
+<p><code>public static string GetDetailedXBOXMemoryInfo()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 detailed x b o x memory info 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetDetailedXBOXMemoryInfo();
+</code></pre>
+<h3 id="setframelimiterwithsleep">SetFrameLimiterWithSleep</h3>
+<p><code>public static void SetFrameLimiterWithSleep(bool value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 frame limiter with sleep 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetFrameLimiterWithSleep(false);
+</code></pre>
+<h3 id="getframelimiterwithsleep">GetFrameLimiterWithSleep</h3>
+<p><code>public static bool GetFrameLimiterWithSleep()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 frame limiter with sleep 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetFrameLimiterWithSleep();
+</code></pre>
+<h3 id="getpossiblecommandlinestartingwith">GetPossibleCommandLineStartingWith</h3>
+<p><code>public static string GetPossibleCommandLineStartingWith(string command, int index)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 possible command line starting with 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetPossibleCommandLineStartingWith(&quot;example&quot;, 0);
+</code></pre>
+<h3 id="isdevkit">IsDevkit</h3>
+<p><code>public static bool IsDevkit()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 devkit 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.IsDevkit();
+</code></pre>
+<h3 id="islockhartplatform">IsLockhartPlatform</h3>
+<p><code>public static bool IsLockhartPlatform()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 lockhart platform 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.IsLockhartPlatform();
+</code></pre>
+<h3 id="getvertexbufferchunksystemmemoryusage">GetVertexBufferChunkSystemMemoryUsage</h3>
+<p><code>public static int GetVertexBufferChunkSystemMemoryUsage()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 vertex buffer chunk system memory usage 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetVertexBufferChunkSystemMemoryUsage();
+</code></pre>
+<h3 id="getbuildnumber">GetBuildNumber</h3>
+<p><code>public static int GetBuildNumber()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 build number 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetBuildNumber();
+</code></pre>
+<h3 id="getapplicationversionwithbuildnumber">GetApplicationVersionWithBuildNumber</h3>
+<p><code>public static ApplicationVersion GetApplicationVersionWithBuildNumber()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 application version with build number 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetApplicationVersionWithBuildNumber();
+</code></pre>
+<h3 id="parallelfor">ParallelFor</h3>
+<p><code>public static void ParallelFor(int startIndex, int endIndex, long curKey, int grainSize)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ParallelFor 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.ParallelFor(0, 0, 0, 0);
+</code></pre>
+<h3 id="parallelforwithoutrenderthread">ParallelForWithoutRenderThread</h3>
+<p><code>public static void ParallelForWithoutRenderThread(int startIndex, int endIndex, long curKey, int grainSize)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ParallelForWithoutRenderThread 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.ParallelForWithoutRenderThread(0, 0, 0, 0);
+</code></pre>
+<h3 id="clearshadermemory">ClearShaderMemory</h3>
+<p><code>public static void ClearShaderMemory()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的shader memory。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.ClearShaderMemory();
+</code></pre>
+<h3 id="registermeshforgpumorph">RegisterMeshForGPUMorph</h3>
+<p><code>public static void RegisterMeshForGPUMorph(string metaMeshName)</code></p>
+<p><strong>用途 / Purpose:</strong> 将mesh for g p u morph注册到当前系统，以便后续监听或分发。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.RegisterMeshForGPUMorph(&quot;example&quot;);
+</code></pre>
+<h3 id="parallelforwithdt">ParallelForWithDt</h3>
+<p><code>public static void ParallelForWithDt(int startIndex, int endIndex, long curKey, int grainSize)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ParallelForWithDt 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.ParallelForWithDt(0, 0, 0, 0);
+</code></pre>
+<h3 id="getmainthreadid">GetMainThreadId</h3>
+<p><code>public static ulong GetMainThreadId()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 main thread id 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetMainThreadId();
+</code></pre>
+<h3 id="getcurrentthreadid">GetCurrentThreadId</h3>
+<p><code>public static ulong GetCurrentThreadId()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 current thread id 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetCurrentThreadId();
+</code></pre>
+<h3 id="setwatchdogvalue">SetWatchdogValue</h3>
+<p><code>public static void SetWatchdogValue(string fileName, string groupName, string key, string value)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 watchdog value 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetWatchdogValue(&quot;example&quot;, &quot;example&quot;, &quot;example&quot;, &quot;example&quot;);
+</code></pre>
+<h3 id="setwatchdogautoreport">SetWatchdogAutoreport</h3>
+<p><code>public static void SetWatchdogAutoreport(bool enabled)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 watchdog autoreport 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.SetWatchdogAutoreport(false);
+</code></pre>
+<h3 id="detachwatchdog">DetachWatchdog</h3>
+<p><code>public static void DetachWatchdog()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DetachWatchdog 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.DetachWatchdog();
+</code></pre>
+<h3 id="getplatformmodulepaths">GetPlatformModulePaths</h3>
+<p><code>public static string GetPlatformModulePaths()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 platform module paths 的结果。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.GetPlatformModulePaths();
+</code></pre>
+<h3 id="isasyncphysicsthread">IsAsyncPhysicsThread</h3>
+<p><code>public static bool IsAsyncPhysicsThread()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 async physics thread 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.IsAsyncPhysicsThread();
+</code></pre>
+<h3 id="startloadingstuckcheckstate">StartLoadingStuckCheckState</h3>
+<p><code>public static void StartLoadingStuckCheckState(float timeoutThresholdSeconds)</code></p>
+<p><strong>用途 / Purpose:</strong> 启动loading stuck check state流程或状态机。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.StartLoadingStuckCheckState(0);
+</code></pre>
+<h3 id="endloadingstuckcheckstate">EndLoadingStuckCheckState</h3>
+<p><code>public static void EndLoadingStuckCheckState()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 EndLoadingStuckCheckState 对应的操作。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+Utilities.EndLoadingStuckCheckState();
+</code></pre>
+<h3 id="dispose">Dispose</h3>
+<p><code>public void Dispose()</code></p>
+<p><strong>用途 / Purpose:</strong> 释放当前对象占用的非托管资源。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 Utilities 实例
+Utilities utilities = ...;
+utilities.Dispose();
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">Utilities.ConstructMainThreadJob(function, parameters);
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/engine/">engine 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/engine/EngineRenderDisplayMode/">&larr; EngineRenderDisplayMode</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/engine/RagdollState/">RagdollState &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

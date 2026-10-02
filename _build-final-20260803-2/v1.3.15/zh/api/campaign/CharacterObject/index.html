@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CharacterObject</title>
+  <meta name="description" content="战役世界里“人物模板”的数据载体：技能、装备槽、身体属性、文化、职业与升级树。它是英雄(Hero)与所有兵种&#x2F;NPC 共享的只读型数据，理清它与 Hero 的区别是避免 mutating 共享模板崩溃的关键。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/CharacterObject/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/CharacterObject/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CharacterObject</span>
+    </nav>
+  
+  <h1>CharacterObject</h1>
+  <h1 id="characterobject">CharacterObject</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public sealed class CharacterObject : BasicCharacterObject, ICharacterData</code><br />
+<strong>Base:</strong> <code>BasicCharacterObject</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/CharacterObject.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>CharacterObject</code> 是 Bannerlord 战役层里**“一张人物模板/数据卡”<strong>：它装着生成一名角色所需的全部静态数据——技能值、装备槽(<code>Equipment</code>)、体型属性(<code>BodyProperties</code>)、文化(<code>CultureObject</code>)、职业(<code>Occupation</code>)、年龄、特性(<code>TraitObject</code>)、可升级目标(<code>UpgradeTargets</code>)等。它通常是</strong>被大量实例共享的单例**：游戏 XML 里定义的每个兵种（如帝国步兵 <code>imperial_infantry</code>）、每个英雄的出身模板都对应一个 <code>CharacterObject</code>，所有用到该兵种的部队、商队、村庄 militia 都引用同一个对象。</p>
+<p>它和 <code>Hero</code> 是新手最容易混淆的一对：</p>
+<ul>
+<li><code>CharacterObject</code> = <strong>模板/数据</strong>：回答“这个角色会什么技能、穿什么装备、属于哪族”。</li>
+<li><code>Hero</code> = <strong>战役世界里的具体角色实例</strong>：玩家、领主、同伴，有自己的金钱、家族、所在部队、生死状态，以及一条 <code>CharacterObject</code> 引用。</li>
+</ul>
+<p>两者通过一条双向指针绑定：<code>Hero.CharacterObject</code> 拿到英雄背后的人物卡；而该人物卡上的 <code>HeroObject</code> 反向指回英雄。当一张 <code>CharacterObject</code> 的 <code>_heroObject</code> 不为空时，<code>IsHero</code> 为 <code>true</code>（它就是某个英雄的化身）；否则 <code>IsRegular</code> 为 <code>true</code>（它是普通兵种/ NPC 的共享模板）。正因为模板是共享的，<strong>直接修改一张兵种模板的装备或技能会同时影响所有引用它的实体</strong>——这就是本页反复强调“先克隆再改”的原因。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>CharacterObject</code> 想成**“从 XML/出厂数据里来的蓝图”**，而不是可操作的运行时个体：</p>
+<ul>
+<li>它是 <code>MBObjectBase</code> 的子类（经 <code>BasicCharacterObject</code>），由 <code>MBObjectManager</code> 在模组加载时从 XML 注册进 <code>Campaign.Current.Characters</code>。你几乎永远<strong>不要 <code>new CharacterObject()</code></strong> 自己造一张（构造器只做字段初始化，不含任何 XML 数据），应走 <code>Find</code>/<code>CreateFrom</code> 或自然引用。</li>
+<li><strong>英雄的人物卡是克隆出来的</strong>：<code>HeroCreator</code> 在生成英雄时若 <code>useCharacterAsTemplate == true</code>，会先 <code>CharacterObject.CreateFrom(template)</code> 浅克隆一张专属副本，再把 <code>HeroObject</code> 指回新英雄（<code>Hero.SetCharacterObject</code> 内部 <code>_characterObject.HeroObject = this;</code>）。所以英雄的卡是“独享”的；而普通兵种卡是“共享”的。</li>
+<li><strong>何时用</strong>：读技能/装备/体格、按文化或职业筛选兵种、计算升级花费与战力、给部队加人、构建战斗模拟。</li>
+<li><strong>何时不用 / 危险</strong>：当你拿到的是一张<strong>共享兵种模板</strong>（如 <code>Clan.BasicTroop</code>、<code>CultureObject.BasicTroop</code>）并想改它的装备或技能时，<strong>必须先 <code>CreateFrom</code> 克隆</strong>，否则改动会污染所有用到该模板的实体。要拿到“某英雄当前实际穿戴”，应通过 <code>Hero</code> 而不是改 <code>CharacterObject.Equipment</code>。</li>
+</ul>
+<h2 id="ru-he-huo-qu-characterobject">如何获取 CharacterObject</h2>
+<pre><code data-lang="csharp">// 1) 从一个 Hero 反查它背后的人物模板（最常见）
+CharacterObject mainTemplate = Hero.MainHero.CharacterObject;
+
+// 2) 遍历战役中所有已注册的 CharacterObject（含兵种与英雄卡）
+foreach (CharacterObject character in CharacterObject.All)
+{
+    if (character.IsRegular &amp;&amp; character.Culture == Hero.MainHero.Culture)
+    {
+        // 这是一支普通兵种模板，可以按文化筛选
+    }
+}
+
+// 3) 按 stringId 精确查找（id 即 XML 中的定义，如 &quot;imperial_infantry&quot;）
+CharacterObject imperialInfantry = CharacterObject.Find(&quot;imperial_infantry&quot;);
+if (imperialInfantry != null)
+{
+    // 注意：Find 返回的是共享模板，不要直接改它
+}
+
+// 4) 按条件查找第一个 / 全部匹配
+CharacterObject firstElite = CharacterObject.FindFirst(c =&gt; c.Tier &gt;= 5 &amp;&amp; c.IsRegular);
+foreach (CharacterObject cav in CharacterObject.FindAll(c =&gt; c.IsMounted &amp;&amp; c.IsRegular))
+{
+    // 遍历所有骑兵兵种
+}
+
+// 5) 通过文化 / 家族拿到“基础兵种”入口（注意 BasicTroop 在 Clan / CultureObject 上，不在 CharacterObject 上）
+CharacterObject starterTroop = Clan.PlayerClan.BasicTroop;          // 玩家家族基础兵
+CharacterObject cultureTroop = starterTroop.Culture.BasicTroop;     // 同一文化的基础兵
+
+// 6) 对话 / 当前玩家角色快捷入口
+CharacterObject talkTarget = CharacterObject.OneToOneConversationCharacter;
+CharacterObject playerTroop = CharacterObject.PlayerCharacter;     // 等价于 Hero.MainHero.CharacterObject
+</code></pre>
+<p><code>All</code> 的实现是 <code>Campaign.Current.Characters</code>（一个 <code>MBReadOnlyList&lt;CharacterObject&gt;</code>），<code>Find</code> 走 <code>MBObjectManager.Instance.GetObject&lt;CharacterObject&gt;(idString)</code>，因此 <code>Find</code> 找不到时返回 <code>null</code>，调用前务必判空。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>属性</th><th>类型</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>HeroObject</code></td><td><code>Hero</code></td><td>若该卡属于某英雄，反向指回该 <code>Hero</code>；兵种模板为 <code>null</code>。<strong>这是区分英雄卡与普通兵种卡的根本</strong>。setter 为 <code>internal</code>，只能由 <code>Hero</code> 内部赋值。</td></tr>
+<tr><td><code>IsHero</code></td><td><code>bool</code></td><td><code>_heroObject != null</code>。英雄卡为 <code>true</code>。</td></tr>
+<tr><td><code>IsRegular</code></td><td><code>bool</code></td><td><code>_heroObject == null</code>。普通兵种/NPC 模板为 <code>true</code>，与 <code>IsHero</code> 互斥。</td></tr>
+<tr><td><code>IsTemplate</code></td><td><code>bool</code></td><td>由 XML <code>is_template</code> 标记，仅 <code>private set</code>。英雄卡多来自模板克隆，本身通常不是模板。</td></tr>
+<tr><td><code>IsOriginalCharacter</code></td><td><code>bool</code></td><td><code>_originCharacter == null</code>。英雄卡经 <code>CreateFrom</code> 克隆后，<code>OriginalCharacter</code> 指向源模板，故 <code>IsOriginalCharacter</code> 为 <code>false</code>；源模板自身为 <code>true</code>。</td></tr>
+<tr><td><code>OriginalCharacter</code></td><td><code>CharacterObject</code></td><td>该卡被克隆出来的源模板（即 <code>Hero.Template</code>）。改英雄卡不会回写到它。</td></tr>
+<tr><td><code>Culture</code></td><td><code>CultureObject</code></td><td>隐藏为 <code>new</code>：英雄卡返回 <code>HeroObject.Culture</code>，否则返回基类 <code>Culture</code>。决定兵种外观、语音、基础装备名册。</td></tr>
+<tr><td><code>Occupation</code></td><td><code>Occupation</code></td><td>职业（Soldier/Mercenary/Bandit/Lord…）。英雄卡读 <code>HeroObject.Occupation</code>；兵种卡读内部 <code>_occupation</code>（XML <code>occupation</code> 字段）。</td></tr>
+<tr><td><code>Age</code></td><td><code>float</code></td><td>英雄卡返回 <code>HeroObject.Age</code>，否则返回模板基础年龄（<code>base.Age</code>）。</td></tr>
+<tr><td><code>IsFemale</code></td><td><code>bool</code></td><td>英雄卡读 <code>HeroObject.IsFemale</code>；兵种卡读模板。</td></tr>
+<tr><td><code>Level</code></td><td><code>int</code></td><td>英雄卡返回 <code>HeroObject.Level</code>（英雄等级）；兵种卡返回模板等级（XML <code>level</code>，默认 1）。影响 <code>TroopWage</code> 与战力。</td></tr>
+<tr><td><code>Equipment</code></td><td><code>Equipment</code></td><td><strong>英雄卡</strong>返回 <code>HeroObject.BattleEquipment</code>（英雄当前战斗装备）；<strong>兵种卡</strong>返回模板自身战斗装备。<code>AfterRegister</code> 时此装备会被标记 <code>SyncEquipments = true</code>。</td></tr>
+<tr><td><code>BattleEquipments</code> / <code>CivilianEquipments</code> / <code>StealthEquipments</code></td><td><code>IEnumerable&lt;Equipment&gt;</code></td><td>三类装备名册。英雄卡只返回其对应单套装备；兵种卡返回模板名册（潜行装来自 <code>Culture.DefaultStealthEquipmentRoster</code>）。</td></tr>
+<tr><td><code>FirstBattleEquipment</code> / <code>FirstCivilianEquipment</code> / <code>FirstStealthEquipment</code></td><td><code>Equipment</code></td><td>各名册里的第一套装备；多数兵种只有这一套，是改装备时最常碰的对象。</td></tr>
+<tr><td><code>RandomBattleEquipment</code> / <code>RandomCivilianEquipment</code> / <code>RandomStealthEquipment</code></td><td><code>Equipment</code></td><td>名册里随机抽一套（潜行装用 <code>GetRandomElement</code>）。</td></tr>
+<tr><td><code>HitPoints</code></td><td><code>int</code></td><td>英雄卡返回 <code>HeroObject.HitPoints</code>（实际当前血量）；兵种卡返回 <code>MaxHitPoints()</code>。</td></tr>
+<tr><td><code>MaxHitPointsExplanation</code></td><td><code>ExplainedNumber</code></td><td>经 <code>CharacterStatsModel.MaxHitpoints(this, includeDescriptions: true)</code> 算出的血量明细（含各项加成说明）。</td></tr>
+<tr><td><code>IsMounted</code></td><td><code>bool</code></td><td>英雄卡看 <code>Equipment[10].Item</code>（坐骑槽）是否非空；兵种卡读基类。</td></tr>
+<tr><td><code>IsRanged</code></td><td><code>bool</code></td><td>英雄卡检查前 4 个武器槽是否含弓/弩/投石；兵种卡读基类。</td></tr>
+<tr><td><code>IsBasicTroop</code></td><td><code>bool</code></td><td>是否“基础兵种”（XML <code>is_basic_troop</code>）。常作为升级树的叶子节点。<code>Clan.BasicTroop</code> 即取此标记的角色。</td></tr>
+<tr><td><code>IsChildTemplate</code></td><td><code>bool</code></td><td>是否儿童模板（<code>private set</code>）。</td></tr>
+<tr><td><code>IsMariner</code></td><td><code>bool</code></td><td>是否水手，由 <code>GetTraitLevel(DefaultTraits.NavalSoldier) != 0</code> 在 <code>Deserialize</code> 时判定。</td></tr>
+<tr><td><code>TroopWage</code></td><td><code>int</code></td><td>雇佣工资。英雄卡为 <code>2 + Level * 2</code>；兵种卡由 <code>PartyWageModel.GetCharacterWage(this)</code> 计算。</td></tr>
+<tr><td><code>Tier</code></td><td><code>int</code></td><td>兵种阶位，<code>CharacterStatsModel.GetTier(this)</code>。</td></tr>
+<tr><td><code>UpgradeTargets</code></td><td><code>CharacterObject[]</code></td><td>升级去向（XML <code>upgrade_targets</code>）。<code>Hero</code> 在重新编组时据此升级部队成员。</td></tr>
+<tr><td><code>UpgradeRequiresItemFromCategory</code></td><td><code>ItemCategory</code></td><td>升级所需物品类别（XML <code>upgrade_requires</code>）。</td></tr>
+<tr><td><code>ConformityNeededToRecruitPrisoner</code></td><td><code>int</code></td><td>招募该俘虏所需“顺从度”，由 <code>PrisonerRecruitmentCalculationModel</code> 计算。</td></tr>
+<tr><td><code>HiddenInEncyclopedia</code></td><td><code>bool</code></td><td>是否在百科中隐藏（可写）。</td></tr>
+<tr><td><code>IsNotTransferableInPartyScreen</code> / <code>IsNotTransferableInHideouts</code></td><td><code>bool</code></td><td>是否禁止在部队界面 / 潜入据点中转移（由 <code>_characterRestrictionFlags</code> 位标记决定）。</td></tr>
+<tr><td><code>PlayerCharacter</code></td><td><code>CharacterObject</code>（static）</td><td><code>Game.Current.PlayerTroop as CharacterObject</code>，即玩家英雄的人物卡。</td></tr>
+<tr><td><code>OneToOneConversationCharacter</code> / <code>ConversationCharacters</code></td><td><code>CharacterObject</code>（static）</td><td>当前一对一对话角色 / 当前对话涉及的所有角色，来自 <code>ConversationManager</code>。</td></tr>
+<tr><td><code>All</code></td><td><code>MBReadOnlyList&lt;CharacterObject&gt;</code>（static）</td><td>战役中所有已注册的人物卡。</td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="cha-xun-yu-bian-li">查询与遍历</h3>
+<h4 id="public-static-characterobject-find-string-idstring"><code>public static CharacterObject Find(string idString)</code></h4>
+<p>按 <code>stringId</code> 从 <code>MBObjectManager</code> 取唯一人物卡；不存在返回 <code>null</code>。</p>
+<pre><code data-lang="csharp">CharacterObject looter = CharacterObject.Find(&quot;looter&quot;);
+if (looter != null &amp;&amp; looter.Tier &lt;= 1)
+{
+    // 低级野怪，适合做早期练级目标
+}
+</code></pre>
+<h4 id="public-static-characterobject-findfirst-predicate-characterobject-predicate"><code>public static CharacterObject FindFirst(Predicate&lt;CharacterObject&gt; predicate)</code></h4>
+<p>返回 <code>All</code> 中第一个满足条件的卡，底层是 <code>All.FirstOrDefault(...)</code>。</p>
+<pre><code data-lang="csharp">CharacterObject eliteCav = CharacterObject.FindFirst(c =&gt; c.IsMounted &amp;&amp; c.Tier &gt;= 4);
+</code></pre>
+<h4 id="public-static-ienumerable-characterobject-findall-predicate-characterobject-predicate"><code>public static IEnumerable&lt;CharacterObject&gt; FindAll(Predicate&lt;CharacterObject&gt; predicate)</code></h4>
+<p>返回 <code>All</code> 中所有满足条件的卡（延迟求值，<code>All.Where(...)</code>）。</p>
+<pre><code data-lang="csharp">var banditTroops = CharacterObject.FindAll(c =&gt; c.Occupation == Occupation.Bandit &amp;&amp; c.IsRegular);
+</code></pre>
+<h4 id="public-static-characterobject-createfrom-characterobject-character-staticbodyproperties-staticbodyproperties-null"><code>public static CharacterObject CreateFrom(CharacterObject character, StaticBodyProperties? staticBodyProperties = null)</code></h4>
+<p><strong>克隆一张独立副本</strong>：新建一个 <code>CharacterObject</code>，拷贝 <code>_originCharacter</code>（源或源之源）、<code>_occupation</code>、<code>_persona</code>、<code>_characterTraits</code>、<code>_isMariner</code>、装备模板等，并 <code>FillFrom(character)</code> 复制装备。若源是英雄卡且传入 <code>staticBodyProperties</code>，会写进新卡的 <code>HeroObject.StaticBodyProperties</code>。<strong>这是“改模板前先克隆”的标准做法</strong>。</p>
+<pre><code data-lang="csharp">// 克隆一支共享兵种，给它换上自定义装备而不影响原模板
+CharacterObject custom = CharacterObject.CreateFrom(Clan.PlayerClan.BasicTroop);
+custom.FirstBattleEquipment[EquipmentIndex.Weapon0] = new EquipmentElement(/* 你的 ItemObject */);
+// 之后把 custom 加入部队名册，原 BasicTroop 不受影响
+</code></pre>
+<blockquote>
+<p>注意：<code>CreateFrom</code> 对英雄卡会进入 <code>if (characterObject.IsHero)</code> 分支操作 <code>HeroObject</code>，普通 mod 多用于克隆兵种卡；生成新英雄请走 <code>HeroCreator</code>。</p>
+</blockquote>
+<h3 id="neng-li-cha-xun">能力查询</h3>
+<h4 id="public-override-int-getskillvalue-skillobject-skill"><code>public override int GetSkillValue(SkillObject skill)</code></h4>
+<p>查技能等级。英雄卡委托 <code>HeroObject.GetSkillValue(skill)</code>；兵种卡读模板自身的技能值（<code>base.GetSkillValue</code>）。</p>
+<pre><code data-lang="csharp">int riding = Hero.MainHero.CharacterObject.GetSkillValue(DefaultSkills.Riding);
+</code></pre>
+<h4 id="public-int-gettraitlevel-traitobject-trait"><code>public int GetTraitLevel(TraitObject trait)</code></h4>
+<p>查特性等级。英雄卡委托 <code>HeroObject.GetTraitLevel(trait)</code>；兵种卡读内部 <code>_characterTraits</code>（<code>PropertyOwner&lt;TraitObject&gt;</code>）。</p>
+<pre><code data-lang="csharp">int valor = someCharacter.GetTraitLevel(DefaultTraits.Valor);
+</code></pre>
+<h4 id="public-bool-getperkvalue-perkobject-perk"><code>public bool GetPerkValue(PerkObject perk)</code></h4>
+<p>查专长效用。<strong>兵种卡永远返回 <code>false</code></strong>——只有英雄卡（<code>IsHero</code>）才委托 <code>HeroObject.GetPerkValue</code>，因为专长是英雄运行时属性。</p>
+<pre><code data-lang="csharp">bool hasPerk = heroCharacter.GetPerkValue(DefaultPerks.TwoHanded.FluidStrikes);
+</code></pre>
+<h4 id="public-traitobject-getpersona"><code>public TraitObject GetPersona()</code></h4>
+<p>返回该角色的性格原型（<code>_persona</code>），为空时回退 <code>DefaultTraits.PersonaSoftspoken</code>。用于对话语气选择。</p>
+<h4 id="public-occupation-getdefaultoccupation"><code>public Occupation GetDefaultOccupation()</code></h4>
+<p>返回内部 <code>_occupation</code>（XML 设定的原始职业），与 <code>Occupation</code> 属性一致；兵种卡用它判断出身职业。</p>
+<h3 id="zhuang-bei-yu-zhan-dou-shu-xing">装备与战斗属性</h3>
+<h4 id="public-bool-hasthrowingweapon"><code>public bool HasThrowingWeapon()</code></h4>
+<p>遍历武器槽（<code>WeaponItemBeginSlot</code> ~ <code>NumAllWeaponSlots</code>），只要有 <code>ItemTypeEnum.Thrown</code> 即返回 <code>true</code>。常用于判定一支兵是否带投武。</p>
+<pre><code data-lang="csharp">if (troop.HasThrowingWeapon())
+{
+    // 可在编队时把它放到后排投弹
+}
+</code></pre>
+<h4 id="public-void-getsimulationattackpower-out-float-attackpoints-out-float-defencepoints-equipment-equipment-null"><code>public void GetSimulationAttackPower(out float attackPoints, out float defencePoints, Equipment equipment = null)</code></h4>
+<p>计算一套装备下的攻防评分（用于战前模拟）：<code>equipment</code> 默认用本卡 <code>Equipment</code>，综合武器 <code>Effectiveness</code>、相关技能（<code>RelevantSkill</code>）、护甲加权和坐骑加成。结果通过 <code>out</code> 参数返回。</p>
+<pre><code data-lang="csharp">troop.GetSimulationAttackPower(out float atk, out float def, troop.FirstBattleEquipment);
+// atk / def 可用于估算这支兵在模拟战斗中的贡献
+</code></pre>
+<h4 id="public-float-getheadarmorsum-equipment-equipmenttype-equipmenttype-equipment-equipmenttype-battle-ji-qi-getbodyarmorsum-getlegarmorsum-getarmarmorsum-gethorsearmorsum"><code>public float GetHeadArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)</code> 及其 <code>GetBodyArmorSum</code> / <code>GetLegArmorSum</code> / <code>GetArmArmorSum</code> / <code>GetHorseArmorSum</code></h4>
+<p>分别累加某类装备（默认战斗装）在头/身/腿/臂/马具上的护甲值，内部转调对应 <code>Equipment</code> 的求和。</p>
+<h4 id="public-float-gettotalarmorsum-equipment-equipmenttype-equipmenttype-equipment-equipmenttype-battle"><code>public float GetTotalArmorSum(Equipment.EquipmentType equipmentType = Equipment.EquipmentType.Battle)</code></h4>
+<p>头部 + 身体 + 腿 + 臂护甲之和（不含马具）。</p>
+<h4 id="public-override-bool-ismounted-public-override-bool-isranged"><code>public override bool IsMounted</code> / <code>public override bool IsRanged</code></h4>
+<p>前者看坐骑槽（英雄卡 <code>Equipment[10]</code>），后者看前四武器槽是否含远程武器，常用于自动编队与阵型分配。</p>
+<h4 id="public-override-formationclass-getformationclass"><code>public override FormationClass GetFormationClass()</code></h4>
+<p>英雄卡按“是否骑马 + 是否带弓弩”返回 <code>Infantry</code> / <code>Ranged</code> / <code>Cavalry</code> / <code>HorseArcher</code>；兵种卡读基类默认值。</p>
+<h3 id="ti-ge-yu-shen-ti-shu-xing">体格与身体属性</h3>
+<h4 id="public-override-int-maxhitpoints"><code>public override int MaxHitPoints()</code></h4>
+<p>返回角色最大生命值，由 <code>CharacterStatsModel.MaxHitpoints(this).ResultNumber</code> 四舍五入。英雄卡与兵种卡都走模型计算。</p>
+<h4 id="public-override-bodyproperties-getbodyproperties-equipment-equipment-int-seed-1"><code>public override BodyProperties GetBodyProperties(Equipment equipment, int seed = -1)</code></h4>
+<p>生成/返回体型属性：英雄卡直接返回 <code>HeroObject.BodyProperties</code>；兵种卡按 <code>seed</code> 经 <code>FaceGen.GetRandomBodyProperties</code> 在 <code>GetBodyPropertiesMin/Max</code> 区间内随机生成（<code>seed == -1</code> 时用 <code>StringId</code> 的哈希保证确定性）。</p>
+<h4 id="public-override-bodyproperties-getbodypropertiesmin-bool-returnbasevalue-false-getbodypropertiesmax"><code>public override BodyProperties GetBodyPropertiesMin(bool returnBaseValue = false)</code> / <code>GetBodyPropertiesMax(...)</code></h4>
+<p>返回体型属性的上下限。英雄卡且 <code>returnBaseValue == false</code> 时返回 <code>HeroObject.BodyProperties</code>（即实际值）；兵种卡返回模板区间。</p>
+<h4 id="public-override-void-updateplayercharacterbodyproperties-bodyproperties-properties-int-race-bool-isfemale"><code>public override void UpdatePlayerCharacterBodyProperties(BodyProperties properties, int race, bool isFemale)</code></h4>
+<p><strong>仅当 <code>IsPlayerCharacter &amp;&amp; IsHero</code> 时生效</strong>：把 <code>properties</code> 写进玩家英雄的 <code>StaticBodyProperties / Weight / Build / Race / IsFemale</code>，并触发 <code>OnPlayerBodyPropertiesChanged</code> 事件。修改玩家外观就走这里。</p>
+<h4 id="public-override-int-getmountkeyseed"><code>public override int GetMountKeySeed()</code></h4>
+<p>返回坐骑外观随机种子：兵种卡用 <code>MBRandom.NondeterministicRandomInt</code>，英雄卡用 <code>HeroObject.RandomValue</code>。</p>
+<h3 id="qiang-du-yu-sheng-ji">强度与升级</h3>
+<h4 id="public-override-float-getpower-getbattlepower-getmoraleresistance"><code>public override float GetPower()</code> / <code>GetBattlePower()</code> / <code>GetMoraleResistance()</code></h4>
+<p>战力三件套：<code>GetPower</code> 按阶位（<code>IsHero</code> 用 <code>Level/4+1</code>，否则用 <code>Tier</code>）与是否英雄/骑马加权；<code>GetBattlePower</code> 在 <code>GetPower</code> 基础上做相对基准的缩放（最低 1）；<code>GetMoraleResistance</code> 返回士气抗性（英雄 1.5 倍权重）。用于 AI 评估与自动编队。</p>
+<h4 id="public-int-getupgradexpcost-partybase-party-int-index-getupgradegoldcost-partybase-party-int-index"><code>public int GetUpgradeXpCost(PartyBase party, int index)</code> / <code>GetUpgradeGoldCost(PartyBase party, int index)</code></h4>
+<p>查询把本兵种升到第 <code>index</code> 个 <code>UpgradeTargets</code> 所需经验/金币，分别由 <code>PartyTroopUpgradeModel.GetXpCostForUpgrade</code> 与 <code>GetGoldCostForUpgrade</code> 计算。<code>party</code> 为拥有该兵的部队，影响花费系数。</p>
+<pre><code data-lang="csharp">int xpCost = recruitTroop.GetUpgradeXpCost(MobileParty.MainParty.Party, 0);
+</code></pre>
+<h3 id="jiao-se-zhuang-tai-yu-xian-zhi">角色状态与限制</h3>
+<h4 id="public-void-settransferableinpartyscreen-bool-istransferable-settransferableinhideouts-bool-istransferable"><code>public void SetTransferableInPartyScreen(bool isTransferable)</code> / <code>SetTransferableInHideouts(bool isTransferable)</code></h4>
+<p>通过位标记 <code>_characterRestrictionFlags</code> 设置该角色能否在部队界面 / 潜入据点中被转移。若你操作的是<strong>共享模板</strong>，此改动会同时作用于所有引用它的实体——务必先 <code>CreateFrom</code> 克隆。</p>
+<h4 id="public-void-clearattributes"><code>public void ClearAttributes()</code></h4>
+<p>清空属性点；英雄卡委托 <code>HeroObject.ClearAttributes()</code>（兵种卡为空操作）。</p>
+<h4 id="public-void-initializeherocharacteronafterload"><code>public void InitializeHeroCharacterOnAfterLoad()</code></h4>
+<p>存档读档后由系统调用：从 <code>OriginalCharacter</code>（源模板）把职业、名称、升级目标、装备模板、特性等<strong>拷贝回</strong>当前英雄卡，并置 <code>IsReady = true</code>。解释了为何英雄卡改了基础数据后重载仍能还原。</p>
+<h2 id="dian-xing-yong-fa-shi-li">典型用法示例</h2>
+<h3 id="shi-li-1-du-qu-yi-zhi-bing-chong-mo-ban-de-ji-neng-zhuang-bei-yu-jie-wei">示例 1：读取一支兵种模板的技能、装备与阶位</h3>
+<pre><code data-lang="csharp">CharacterObject troop = CharacterObject.Find(&quot;imperial_infantry&quot;);
+if (troop != null &amp;&amp; troop.IsRegular)
+{
+    int oneHanded = troop.GetSkillValue(DefaultSkills.OneHanded);
+    int tier = troop.Tier;
+    int wage = troop.TroopWage;
+    Equipment battle = troop.FirstBattleEquipment;
+    InformationManager.DisplayMessage(new TextObject($&quot;{troop.Name}: 单手 {oneHanded}, 阶位 {tier}, 工资 {wage}&quot;));
+}
+</code></pre>
+<h3 id="shi-li-2-ke-long-gong-xiang-mo-ban-yi-ding-zhi-yi-zhi-zhuan-shu-bu-dui-bi-mian-wu-ran-yuan-mo-ban">示例 2：克隆共享模板以定制一支专属部队（避免污染原模板）</h3>
+<pre><code data-lang="csharp">// 直接改 Clan.PlayerClan.BasicTroop 会影响所有用到基础兵的地方——先克隆
+CharacterObject customTroop = CharacterObject.CreateFrom(Clan.PlayerClan.BasicTroop);
+customTroop.FirstBattleEquipment[EquipmentIndex.Weapon1] =
+    new EquipmentElement(MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(&quot;javelin&quot;));   // 给副本加一柄标枪
+
+// 把克隆体加入玩家部队；原 BasicTroop 及其所有引用者完全不受影响
+MobileParty.MainParty.MemberRoster.AddToCounts(customTroop, 20);
+</code></pre>
+<h3 id="shi-li-3-bian-li-dang-qian-wen-hua-de-suo-you-qi-bing-bing-gu-suan-qi-zhan-dou-gong-fang">示例 3：遍历当前文化的所有骑兵并估算其战斗攻防</h3>
+<pre><code data-lang="csharp">CultureObject culture = Hero.MainHero.Culture;
+foreach (CharacterObject cav in CharacterObject.FindAll(c =&gt; c.IsRegular &amp;&amp; c.IsMounted &amp;&amp; c.Culture == culture))
+{
+    cav.GetSimulationAttackPower(out float atk, out float def, cav.FirstBattleEquipment);
+    float power = cav.GetBattlePower();
+    // atk/def/power 可用于自动编队或平衡性调试
+}
+</code></pre>
+<h2 id="feng-xian-yu-beng-kui-bian-jie">风险与崩溃边界</h2>
+<ul>
+<li><strong>改共享模板会全局生效</strong>：<code>Clan.BasicTroop</code>、<code>CultureObject.BasicTroop</code>、<code>CharacterObject.Find(...)</code> 返回的是 XML 注册的<strong>单例</strong>。直接写它的 <code>Equipment</code> 槽、<code>SetTransferableInPartyScreen</code>、<code>Level</code>(英雄卡) 或技能，会让所有部队、商队、村庄民兵一起变化，且<strong>存档后会固化进存档</strong>。任何“想给某支兵换装备”的需求都应先 <code>CharacterObject.CreateFrom(template)</code> 克隆。</li>
+<li><strong>英雄卡与兵种卡行为不同</strong>：多数属性（<code>Equipment</code>、<code>Level</code>、<code>Culture</code>、<code>Occupation</code>、<code>Age</code>、<code>IsFemale</code>、<code>HitPoints</code>、<code>GetSkillValue</code>、<code>GetTraitLevel</code>）在英雄卡上委托给 <code>HeroObject</code>，在兵种卡上读模板自身。<code>GetPerkValue</code> 对兵种卡恒为 <code>false</code>。写通用逻辑时要先判 <code>IsHero</code>，否则可能拿到模板默认值而非英雄实际值。</li>
+<li><strong><code>HeroObject</code> 为 <code>null</code> 的兵种卡</strong>：普通兵种模板没有英雄，<code>IsHero == false</code>。若你的代码假设“每张卡都能拿到 <code>HeroObject.Name</code>”，对兵种卡会拿到 <code>null</code> 进而空引用——访问前用 <code>IsHero</code> 区分。<code>Name</code> 属性自身已处理：<code>IsHero</code> 时返回 <code>HeroObject.Name</code>，否则返回模板名。</li>
+<li><strong><code>Find</code> 可能返回 <code>null</code></strong>：使用了不存在的 <code>stringId</code> 时返回 <code>null</code>，调用其属性前务必判空。</li>
+<li><strong>不要 <code>new CharacterObject()</code></strong>：构造器只做字段初始化（<code>Init()</code>），不含任何 XML 数据，造出的卡 <code>Culture</code>/<code>Equipment</code>/<code>Skills</code> 几乎全空，既不会被 <code>MBObjectManager</code> 注册，也不会出现在 <code>All</code> 中。<code>MBObjectManager.Instance.CreateObject&lt;CharacterObject&gt;()</code> 是引擎内部的注册途径，mod 应使用 <code>Find</code> / <code>CreateFrom</code> / <code>HeroCreator</code>。</li>
+<li><strong><code>CreateFrom</code> 是浅克隆</strong>：它复制引用（装备模板、特性 <code>PropertyOwner</code>、升级目标数组），不是深度拷贝每个 <code>ItemObject</code>。改副本的装备槽内容安全，但意外改了副本引用的共享 <code>Equipment</code> 对象仍会影响他者。</li>
+</ul>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li><strong>命名空间</strong>：<code>CharacterObject</code> 始终位于 <code>TaleWorlds.CampaignSystem</code>（部分文档误写为 <code>TaleWorlds.Core</code>，后者只是它 using 的命名空间）。本仓库核对的 1.3.15 与 1.4.5 两个版本中，<strong>该类的公开 API 完全一致</strong>：<code>CreateFrom</code>、<code>Find</code>/<code>FindFirst</code>/<code>FindAll</code>、<code>All</code>、<code>IsHero</code>/<code>IsRegular</code>、<code>Equipment</code> 系列、<code>GetSkillValue</code>/<code>GetTraitLevel</code> 等均已存在且签名相同。</li>
+<li><strong><code>BasicTroop</code> 的位置</strong>：它定义在 <code>Clan.BasicTroop</code>、<code>CultureObject.BasicTroop</code>、<code>Kingdom.BasicTroop</code> 上，返回 <code>CharacterObject</code>；<code>CharacterObject</code> 自身<strong>没有</strong> <code>BasicTroop</code> 成员。需要基础兵请从家族/文化/王国入口取，而非从 <code>CharacterObject</code> 取。</li>
+<li><strong>1.3.0</strong>：本仓库未包含 1.3.0 的 <code>TaleWorlds.CampaignSystem</code> 源码（仅有 <code>SandBox</code> / <code>StoryMode</code> 工程），无法确认其与 1.3.15 的逐行差异。撰写时以 1.3.15 与 1.4.5 为准，二者在该类上无公开差异。</li>
+<li><strong>英雄生成入口</strong>：跨版本创建英雄建议统一走 <code>HeroCreator.CreateHero</code> / <code>HeroCreator.CreateSpecialHero</code>，由它内部决定是否 <code>CreateFrom</code> 模板——不要在 mod 里手动拼 <code>new Hero(...)</code> + <code>CreateFrom</code>，以免漏掉 <code>HeroInitializationArgs</code> 里的文化/家族/出身结算。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../Hero/">Hero</a> — 战役世界里的具体角色实例，与 <code>CharacterObject</code> 双向绑定</li>
+<li><a href="../Clan/">Clan</a> — <code>Clan.BasicTroop</code> 返回该家族基础兵种模板</li>
+<li><a href="../MobileParty/">MobileParty</a> — 部队名册(<code>MemberRoster</code>)以 <code>CharacterObject</code> 为计数单位</li>
+<li><a href="../Campaign/">Campaign</a> — <code>Campaign.Current.Characters</code> 即 <code>CharacterObject.All</code></li>
+<li><a href="../../campaign-ext/CultureObject/">CultureObject</a> — 文化决定基础兵、语音与默认装备名册</li>
+<li><a href="../../core-extra/Equipment/">Equipment</a> — <code>CharacterObject</code> 持有的装备槽数据</li>
+<li><a href="../../core-extra/SkillObject/">SkillObject</a> — <code>GetSkillValue</code> 的入参类型</li>
+<li><a href="../../core/ItemObject/">ItemObject</a> — 装备槽里具体的物品</li>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <span class="page-navigation-disabled" aria-disabled="true">&larr; First item</span>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign/GrievanceType/">GrievanceType &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StartBattleAction</title>
+  <meta name="description" content="Official exit to create or join a map MapEvent: open field&#x2F;raid&#x2F;sally&#x2F;wall assault via EncounterModel by type, OnStartBattle; never hand-new MapEvent.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/StartBattleAction/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/StartBattleAction/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign-ext/StartBattleAction/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign-ext/StartBattleAction/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign-ext/StartBattleAction/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign-ext/StartBattleAction/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">StartBattleAction</span>
+    </nav>
+  
+  <h1>StartBattleAction</h1>
+  <h1 id="startbattleaction">StartBattleAction</h1>
+<p><strong>Namespace:</strong> <code>TaleWorlds.CampaignSystem.Actions</code><br />
+<strong>Module:</strong> <code>TaleWorlds.CampaignSystem</code><br />
+<strong>Type:</strong> <code>public static class StartBattleAction</code><br />
+<strong>Base:</strong> —<br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Actions/StartBattleAction.cs</code></p>
+<h2 id="one-sentence-responsibility">One-sentence responsibility</h2>
+<p>Puts two <a href="../../campaign/PartyBase"><code>PartyBase</code></a> sides (mobile parties or settlement parties) <strong>into or onto</strong> a map <a href="../MapEvent"><code>MapEvent</code></a>: <code>EncounterModel.CreateMapEventComponentForEncounter</code> picks <code>MapEvent.BattleTypes</code>, may interrupt the player encounter, and broadcasts <code>OnStartBattle</code> → <code>CampaignEvents.BattleStarted</code>.</p>
+<h2 id="mental-model">Mental Model</h2>
+<pre><code>Intent: &quot;open a fight&quot; or &quot;join a fight already on the map&quot;
+        │
+        ├─ dedicated entries (clear semantics, prefer for scripts)
+        │    ApplyStartBattle(attMP, defMP)           → FieldBattle, subject=null
+        │    ApplyStartRaid(attMP, settlement)        → Raid, subject=settlement
+        │    ApplyStartSallyOut(settlement, defMP)    → SallyOut, attacker=GarrisonParty
+        │    ApplyStartAssaultAgainstWalls(attMP, s)  → Siege, subject=settlement
+        │
+        └─ generic Apply(attackerParty, defenderParty)   ← EncounterManager main path
+             · defender has no MapEvent yet → infer BattleTypes from garrison/town/siege/village
+             · already has MapEvent → inherit type, attach attacker to opposite MapEventSide
+             · subject usually the related Settlement
+                    │
+                    ▼
+ApplyInternal(attacker, defender, subject, battleType)
+  1) defender.MapEvent == null
+       → EncounterModel.CreateMapEventComponentForEncounter(att, def, type)
+       → if MapEvent still null → return (create failed, silent)
+  2) else
+       → attacker.MapEventSide = opposite of defender.Side
+  3) player MapEvent, not SallyOut, main party in settlement, PlayerEncounter exists
+       → PlayerEncounter.Current.InterruptEncounter(&quot;encounter_interrupted&quot;)
+  4) showNotification-style flag: both sides (army → leader) as &quot;main combatants&quot; heuristics
+       → OnStartBattle(attacker, defender, subject, flag)
+</code></pre>
+<table><thead><tr><th>Question</th><th>Answer</th></tr></thead><tbody>
+<tr><td>What is this</td><td>Campaign-layer <strong>map battle (MapEvent) open/join</strong> official exit.</td></tr>
+<tr><td>When to use</td><td>Two armies meet, start a village raid, garrison sally, wall assault; scripted forced encounter.</td></tr>
+<tr><td>When not to use</td><td>Agent-vs-agent inside Mission (already on the battlefield); diplomacy only → <a href="../DeclareWarAction"><code>DeclareWarAction</code></a>; enter town only → <a href="../EnterSettlementAction"><code>EnterSettlementAction</code></a>.</td></tr>
+<tr><td>Vs MapEvent</td><td><strong>Do not</strong> <code>new MapEvent</code> or only set <code>MapEventSide</code>; component creation must go through EncounterModel.</td></tr>
+<tr><td>Generic vs dedicated</td><td>Clear gameplay meaning → <code>ApplyStart*</code>; complex type inference / join existing fight → <code>Apply</code> (<code>EncounterManager</code>).</td></tr>
+<tr><td>Vs aftermath</td><td>Casualties/captives/destroy party → <a href="../KillCharacterAction"><code>KillCharacterAction</code></a> / <a href="../TakePrisonerAction"><code>TakePrisonerAction</code></a> / <a href="../DestroyPartyAction"><code>DestroyPartyAction</code></a>; take town → <a href="../ChangeOwnerOfSettlementAction"><code>ChangeOwnerOfSettlementAction</code></a>.</td></tr>
+</tbody></table>
+<p>Hard rule:</p>
+<blockquote>
+<p><strong>Map fights go through <code>StartBattleAction</code>. Mission owns Agents; post-battle write-back uses other Actions.</strong></p>
+</blockquote>
+<h3 id="public-layer-overview">Public layer overview</h3>
+<table><thead><tr><th>API</th><th>Fixed / inferred type</th><th>subject</th><th>Attacker / defender shape</th></tr></thead><tbody>
+<tr><td><code>ApplyStartBattle</code></td><td>FieldBattle</td><td>null</td><td><code>MobileParty</code> vs <code>MobileParty</code></td></tr>
+<tr><td><code>ApplyStartRaid</code></td><td>Raid</td><td>settlement</td><td>attacker MP vs <code>settlement.Party</code></td></tr>
+<tr><td><code>ApplyStartSallyOut</code></td><td>SallyOut</td><td>settlement</td><td><strong>garrison Party</strong> vs outside MP</td></tr>
+<tr><td><code>ApplyStartAssaultAgainstWalls</code></td><td>Siege</td><td>settlement</td><td>attacker MP vs <code>settlement.Party</code></td></tr>
+<tr><td><code>Apply</code></td><td>inferred or inherit existing MapEvent type</td><td>usually settlement</td><td>any <code>PartyBase</code></td></tr>
+</tbody></table>
+<p><code>ApplyInternal</code> is private.</p>
+<h3 id="how-generic-apply-infers-type-defender-has-no-mapevent-yet">How generic <code>Apply</code> infers type (defender has no MapEvent yet)</h3>
+<p>Source order highlights (1.4.5):</p>
+<ol>
+<li>Attacker is <strong>Garrison</strong> → <code>SallyOut</code> or <code>BlockadeSallyOutBattle</code> (<code>IsTargetingPort</code>).</li>
+<li>Else take <code>CurrentSettlement</code> / <code>BesiegedSettlement</code> as settlement clues.</li>
+<li>Siege-related and defender is not settlement Party → <code>SiegeOutside</code>.</li>
+<li>No settlement clue → <code>FieldBattle</code>.</li>
+<li>Settlement present and type still None: town → <code>Siege</code> (port blockade may become <code>BlockadeBattle</code>); hideout → <code>Hideout</code>; village → <code>FieldBattle</code>.</li>
+</ol>
+<p>When defender <strong>already has</strong> a MapEvent: inherit from <code>IsFieldBattle</code> / <code>IsRaid</code> / <code>IsSiegeAssault</code> / <code>IsSallyOut</code> / <code>IsSiegeOutside</code> / <code>IsBlockade</code> / <code>IsBlockadeSallyOut</code> and similar. Special case: naval Raid where settlement side has no healthy troops may strip defender MapEventSide and flip to FieldBattle.</p>
+<h2 id="dependencies">Dependencies</h2>
+<table><thead><tr><th>Direction</th><th>Type / system</th><th>Relationship</th></tr></thead><tbody>
+<tr><td><strong>Upstream entities</strong></td><td><a href="../../campaign/PartyBase"><code>PartyBase</code></a> / <a href="../../campaign/MobileParty"><code>MobileParty</code></a> / <a href="../../campaign/Settlement"><code>Settlement</code></a></td><td>Sides and siege subject</td></tr>
+<tr><td><strong>Upstream Model</strong></td><td><code>Campaign.Current.Models.EncounterModel</code></td><td><code>CreateMapEventComponentForEncounter</code></td></tr>
+<tr><td><strong>Downstream</strong></td><td><a href="../MapEvent"><code>MapEvent</code></a> / <code>MapEvent.BattleTypes</code></td><td>FieldBattle, Raid, Siege, SallyOut, SiegeOutside, Hideout, Blockade* (1.4.x)</td></tr>
+<tr><td><strong>Downstream</strong></td><td><code>PlayerEncounter</code></td><td>In-town player may get <code>InterruptEncounter</code></td></tr>
+<tr><td><strong>Downstream events</strong></td><td><a href="../CampaignEvents"><code>CampaignEvents</code></a><code>.BattleStarted</code></td><td>dispatcher <code>OnStartBattle</code>; also watch <code>MapEventStarted</code> etc.</td></tr>
+<tr><td><strong>Stock call sites</strong></td><td><code>EncounterManager</code>: <code>Apply</code> (contact), <code>ApplyStartRaid</code>, <code>ApplyStartAssaultAgainstWalls</code></td><td>Map encounter main path</td></tr>
+<tr><td><strong>Aftermath chain</strong></td><td><a href="../TakePrisonerAction"><code>TakePrisonerAction</code></a>, <a href="../DestroyPartyAction"><code>DestroyPartyAction</code></a>, <a href="../KillCharacterAction"><code>KillCharacterAction</code></a>, <a href="../ChangeOwnerOfSettlementAction"><code>ChangeOwnerOfSettlementAction</code></a></td><td>Settlement and ownership</td></tr>
+<tr><td><strong>Parent</strong></td><td><a href="../actions-index">Actions family</a></td><td></td></tr>
+</tbody></table>
+<h2 id="risks-crash-save-boundaries">Risks / crash-save boundaries</h2>
+<table><thead><tr><th>Risk</th><th>Symptom</th><th>Correct approach</th></tr></thead><tbody>
+<tr><td><strong>Hand-built MapEvent / only set MapEventSide</strong></td><td>Missing components, AI/UI ignore, weird saves</td><td>Only this class + EncounterModel</td></tr>
+<tr><td><strong>Create fails</strong></td><td><code>MapEvent</code> still null, <strong>silent return</strong>, no throw</td><td>After Apply, check both sides' <code>MapEvent</code>; verify hostility, distance, siege and model conditions</td></tr>
+<tr><td><strong>Not at war / cannot engage</strong></td><td>Model refuses create or gameplay breaks</td><td>Fix diplomacy (<a href="../DeclareWarAction"><code>DeclareWarAction</code></a> etc.) and position state first</td></tr>
+<tr><td><strong>SallyOut without Garrison</strong></td><td><code>settlement.Town.GarrisonParty</code> <strong>NRE</strong></td><td>Ensure garrison exists before sally</td></tr>
+<tr><td><strong>Join existing fight side</strong></td><td>Source takes opposite of defender's current Side</td><td>Trust <code>Apply</code>; do not hand-set Side</td></tr>
+<tr><td><strong>Player in-town interrupt</strong></td><td><code>InterruptEncounter("encounter_interrupted")</code></td><td>Expected; mod UI must handle interrupt</td></tr>
+<tr><td><strong>Mission confusion</strong></td><td>Battle already open and you StartBattle again</td><td>Separate MapEvent lifecycle from Mission</td></tr>
+<tr><td><strong>1.4 naval types</strong></td><td>Blockade / BlockadeSallyOut</td><td>Prefer <code>Apply</code> inference or read existing MapEvent; land mods rarely hardcode</td></tr>
+<tr><td><strong>Both already in different MapEvents</strong></td><td>Undefined / dirty state</td><td>Before open, check <code>MapEvent == null</code> or explicitly take the "join" path</td></tr>
+</tbody></table>
+<h2 id="key-members">Key members</h2>
+<h3 id="applystartbattle-mobileparty-attackerparty-mobileparty-defenderparty"><code>ApplyStartBattle(MobileParty attackerParty, MobileParty defenderParty)</code></h3>
+<ul>
+<li><strong>Purpose:</strong> Two mobile parties field fight (<code>FieldBattle</code>).</li>
+<li><strong>Timing:</strong> Most common open-field scripted fight; skips complex <code>Apply</code> inference.</li>
+<li><strong>Note:</strong> Parameters are <code>MobileParty</code>; internal takes <code>.Party</code>.</li>
+</ul>
+<h3 id="applystartraid-mobileparty-attackerparty-settlement-settlement"><code>ApplyStartRaid(MobileParty attackerParty, Settlement settlement)</code></h3>
+<ul>
+<li><strong>Purpose:</strong> Attacker vs <code>settlement.Party</code>, type Raid, subject=settlement.</li>
+<li><strong>Timing:</strong> Start raid; one of <code>EncounterManager</code>'s stock entries.</li>
+</ul>
+<h3 id="applystartsallyout-settlement-settlement-mobileparty-defenderparty"><code>ApplyStartSallyOut(Settlement settlement, MobileParty defenderParty)</code></h3>
+<ul>
+<li><strong>Purpose:</strong> <strong>Garrison is attacker</strong>, sallies against outside <code>defenderParty</code>.</li>
+<li><strong>Timing:</strong> Under siege sally menu.</li>
+<li><strong>Prerequisite:</strong> <code>Town.GarrisonParty</code> non-null.</li>
+</ul>
+<h3 id="applystartassaultagainstwalls-mobileparty-attackerparty-settlement-settlement"><code>ApplyStartAssaultAgainstWalls(MobileParty attackerParty, Settlement settlement)</code></h3>
+<ul>
+<li><strong>Purpose:</strong> Siege-type map fight against walls/fort.</li>
+<li><strong>Timing:</strong> Assault; stock <code>EncounterManager</code> entry.</li>
+</ul>
+<h3 id="apply-partybase-attackerparty-partybase-defenderparty"><code>Apply(PartyBase attackerParty, PartyBase defenderParty)</code></h3>
+<ul>
+<li><strong>Purpose:</strong> Generic: infer or inherit BattleTypes, <strong>create or join</strong> MapEvent.</li>
+<li><strong>Timing:</strong> <code>EncounterManager</code> contact, reinforce an existing fight.</li>
+<li><strong>Note:</strong> Inference depends on real <code>CurrentSettlement</code> / <code>BesiegedSettlement</code> / garrison flags; fails silently.</li>
+</ul>
+<h2 id="real-examples">Real examples</h2>
+<h3 id="example-1-two-party-field-battle">Example 1: Two-party field battle</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
+
+namespace MyMod
+{
+    public static class FieldFight
+    {
+        public static bool StartFieldBattle(MobileParty attacker, MobileParty defender)
+        {
+            if (attacker == null || defender == null)
+                return false;
+            if (attacker.MapEvent != null || defender.MapEvent != null)
+                return false; // joining an existing fight: use Apply(PartyBase, PartyBase)
+
+            StartBattleAction.ApplyStartBattle(attacker, defender);
+            return attacker.MapEvent != null || defender.MapEvent != null;
+        }
+    }
+}
+</code></pre>
+<h3 id="example-2-raid-wall-assault-mirrors-encountermanager-subscribe-battle-start">Example 2: Raid + wall assault (mirrors EncounterManager) + subscribe battle start</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
+
+namespace MyMod
+{
+    public class BattleStartBehavior : CampaignBehaviorBase
+    {
+        public override void RegisterEvents()
+        {
+            // StartBattleAction → OnStartBattle → CampaignEvents.BattleStarted
+            CampaignEvents.BattleStarted.AddNonSerializedListener(this, OnBattleStarted);
+        }
+
+        public override void SyncData(IDataStore dataStore) { }
+
+        /// &lt;summary&gt;Mirrors EncounterManager.StartRaid…&lt;/summary&gt;
+        public void RaidVillage(MobileParty raiders, Settlement village)
+        {
+            if (raiders == null || village == null || !village.IsVillage)
+                return;
+            StartBattleAction.ApplyStartRaid(raiders, village);
+        }
+
+        /// &lt;summary&gt;Mirrors EncounterManager wall assault.&lt;/summary&gt;
+        public void AssaultWalls(MobileParty besiegers, Settlement fort)
+        {
+            if (besiegers == null || fort == null || !fort.IsFortification)
+                return;
+            StartBattleAction.ApplyStartAssaultAgainstWalls(besiegers, fort);
+        }
+
+        private void OnBattleStarted(
+            PartyBase attacker,
+            PartyBase defender,
+            object subject,
+            bool showNotification)
+        {
+            // Stats; subject is often Settlement (raid/siege)
+            // Aftermath captives/destroy/ownership: TakePrisoner / DestroyParty / ChangeOwnerOfSettlement
+            // Do not StartBattle the same pair again here
+        }
+    }
+}
+</code></pre>
+<h3 id="example-3-sally-out-needs-garrison">Example 3: Sally out (needs garrison)</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.CampaignSystem.Settlements;
+
+namespace MyMod
+{
+    public static class SallyHelper
+    {
+        public static void TrySallyOut(Settlement fort, MobileParty enemyOutside)
+        {
+            if (fort?.Town?.GarrisonParty == null || enemyOutside == null)
+                return;
+
+            StartBattleAction.ApplyStartSallyOut(fort, enemyOutside);
+        }
+    }
+}
+</code></pre>
+<h3 id="example-4-wrong-vs-right">Example 4: Wrong vs right</h3>
+<pre><code data-lang="csharp">// Wrong: bypass EncounterModel — do not assign MapEventSide by hand
+// or construct MapEvent directly.
+
+// Right: field fight
+StartBattleAction.ApplyStartBattle(attacker, defender);
+
+// Right: complex contact / join existing fight
+StartBattleAction.Apply(attacker.Party, defender.Party);
+</code></pre>
+<h2 id="cross-version-notes">Cross-version notes</h2>
+<ul>
+<li>Four dedicated entries + generic <code>Apply</code> stay stable across 1.3.x/1.4.5; 1.4.5 inference includes naval <code>BattleTypes</code> such as Blockade.</li>
+<li>Public event: <code>CampaignEvents.BattleStarted</code> (dispatcher <code>OnStartBattle</code>).</li>
+<li>URL: <code>campaign-ext/StartBattleAction</code>.</li>
+</ul>
+<h2 id="parent-navigation">↑ Parent Navigation</h2>
+<ul>
+<li><a href="../actions-index">Actions — campaign world-change family</a> — <strong>parent of this page</strong></li>
+<li><a href="https://bannerlordcode.github.io/v1.3.15/en/api/campaign-ext/StartBattleAction/./">campaign-ext area</a></li>
+<li><a href="../">API index</a></li>
+<li><a href="../../../architecture/crash-boundaries">Crash and save boundaries §2</a></li>
+<li><a href="../../../architecture/doc-contract">Doc contract</a></li>
+</ul>
+<h2 id="sibling-navigation">↔ Sibling Navigation</h2>
+<table><thead><tr><th>Page</th><th>Relationship</th></tr></thead><tbody>
+<tr><td><a href="../MapEvent">MapEvent</a></td><td>Map battle entity</td></tr>
+<tr><td><a href="../TakePrisonerAction">TakePrisonerAction</a></td><td>Post-battle captives</td></tr>
+<tr><td><a href="../DestroyPartyAction">DestroyPartyAction</a></td><td>Post-battle wipe cleanup</td></tr>
+<tr><td><a href="../KillCharacterAction">KillCharacterAction</a></td><td>Post-battle death</td></tr>
+<tr><td><a href="../DeclareWarAction">DeclareWarAction</a></td><td>Diplomatic war ≠ MapEvent</td></tr>
+<tr><td><a href="../EnterSettlementAction">EnterSettlementAction</a></td><td>In-town / enter-exit and encounter interrupt</td></tr>
+<tr><td><a href="../ChangeOwnerOfSettlementAction">ChangeOwnerOfSettlementAction</a></td><td>Ownership after capture</td></tr>
+<tr><td><a href="../../campaign/PartyBase">PartyBase</a> · <a href="../../campaign/MobileParty">MobileParty</a> · <a href="../../campaign/Settlement">Settlement</a></td><td>Combatants</td></tr>
+<tr><td><a href="../CampaignEvents">CampaignEvents</a></td><td><code>BattleStarted</code></td></tr>
+</tbody></table>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="../../../guide/campaign-system">Campaign system guide</a></li>
+<li><a href="../../../guide/mission-system">Mission system</a> — Agent layer after you enter the battlefield</li>
+<li><a href="../../../architecture/developer-roadmap">Developer task roadmap</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/DisbandPartyMessage/">&larr; DisbandPartyMessage</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/RecruitingDetail/">RecruitingDetail &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

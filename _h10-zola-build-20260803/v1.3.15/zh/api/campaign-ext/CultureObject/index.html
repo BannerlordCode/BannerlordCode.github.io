@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CultureObject</title>
+  <meta name="description" content="Bannerlord 战役里一个文化阵营的完整数据定义：它的兵种、平民 NPC 模板、家族&#x2F;领主名表、旗帜配色、默认政策与各类部队模板，是 Clan &#x2F; Kingdom &#x2F; Settlement &#x2F; CharacterObject 引用共享的只读配置对象。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/CultureObject/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/CultureObject/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">CultureObject</span>
+    </nav>
+  
+  <h1>CultureObject</h1>
+  <h1 id="cultureobject">CultureObject</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public sealed class CultureObject : BasicCultureObject</code><br />
+<strong>Base:</strong> <code>BasicCultureObject</code>（位于 <code>TaleWorlds.Core</code>）<br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/CultureObject.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>CultureObject</code> 是战役世界里<strong>一个文化阵营的全部静态数据</strong>：它定义了这个文化出什么兵（<code>BasicTroop</code> / 民兵）、城镇里刷什么平民与工匠 NPC、用什么家族名和英雄名、旗帜主色是什么、建国时默认走哪些政策、以及领主/商队/巡逻队用哪套 <code>PartyTemplateObject</code>。<code>Clan</code>、<code>Kingdom</code>、<code>Settlement</code>、<code>CharacterObject</code> 都只保存一个对 <code>CultureObject</code> 的引用，运行时绝大多数“文化相关”表现（兵种、配色、命名）都是去读这个共享对象得到的。它是从 <code>SPCultures</code> XML 反序列化出来的、全局唯一的只读配置，几乎所有涉及“按阵营区分外观与单位”的 mod 都要和它打交道。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>CultureObject</code> 当作**“一个阵营的户口本 + 兵工厂配置表”**，而不是一个会自己活动的对象：</p>
+<ul>
+<li>它本身不参与 tick、不持有逻辑；它只是被别的系统读取的<strong>数据容器</strong>。</li>
+<li>每个文化在战役初始化时由 <code>MBObjectManager</code> 从 <code>SPCultures</code> XML 一次性反序列化，之后作为单例被全局共享。你通常<strong>不应该 <code>new</code> 一个 <code>CultureObject</code></strong>，而是通过 <code>Clan.Culture</code>、<code>Kingdom.Culture</code>、<code>Settlement.Culture</code>、<code>CharacterObject.Culture</code> 或 <code>MBObjectManager</code> 去拿到已存在的实例。</li>
+<li>它处在<strong>数据层 / 配置层</strong>（属于 <code>TaleWorlds.CampaignSystem</code> 的对象系统，继承自 <code>TaleWorlds.Core</code> 的 <code>BasicCultureObject</code>），不是行为层（<code>CampaignBehavior</code>）、也不是模型层（<code>Model</code>）。想“改某个阵营的行为”，应当改引用它的 <code>Clan</code>/<code>Kingdom</code> 或对应的 <code>Behavior</code>/<code>Model</code>，而不是直接改写这份共享配置。</li>
+<li><strong>何时用</strong>：需要读取某阵营的兵种、配色、命名表、装备、部队模板时；需要根据文化做招募、命名、旗帜、叛军生成等逻辑时。</li>
+<li><strong>何时不要用</strong>：想改变一个家族/王国的实际归属阵营时，应改 <code>Clan.Culture</code>（可写）或走建王国流程，而不是去复制/新建 <code>CultureObject</code>；想改变“某次战斗里某单位的表现”，应改 <code>CharacterObject</code> 或装备，而不是改文化的全局模板（会影响该文化所有单位）。</li>
+<li><strong>依赖</strong>：被 <code>MBObjectManager</code> 加载与存档引用收集；被 <code>NameGenerator</code> 读取命名表；被各类 <code>PartyTemplateObject</code> / <code>CharacterObject</code> / <code>ItemObject</code> / <code>FeatObject</code> / <code>PolicyObject</code> 反向引用。</li>
+<li><strong>失败模式</strong>：大量系统直接解引用 <code>culture.DefaultPartyTemplate</code>、<code>culture.BasicTroop</code>、<code>culture.MaleNameList</code> 等；一个缺失这些引用的文化会在相关系统运行（部队生成、锦标赛、命名）时抛 <code>NullReferenceException</code>。文化中绝大多数字段是 <code>private set</code>，只有 <code>MilitiaBonus</code> / <code>ProsperityBonus</code> 可写。</li>
+</ul>
+<h2 id="yi-lai-tu">依赖图</h2>
+<h3 id="shang-you-shui-chuang-jian-yong-you-cun-dang">上游（谁创建 / 拥有 / 存档）</h3>
+<ul>
+<li><a href="../MBObjectManager/">MBObjectManager</a> — 战役初始化时从 <code>SPCultures</code> XML 反序列化全部 <code>CultureObject</code>，并在每次存档时通过 <code>AutoGeneratedInstanceCollectObjects</code> 收集其引用的 <code>CharacterObject</code> / <code>PartyTemplateObject</code> / <code>ItemObject</code> 等。<strong>这是文化对象的存档点。</strong></li>
+<li><a href="../../core-extra/BasicCultureObject/">BasicCultureObject</a> — 基类，提供 <code>Name</code>、<code>IsMainCulture</code>、<code>IsBandit</code>、<code>Color</code> / <code>Color2</code>、<code>ClothAlternativeColor*</code>、<code>BackgroundColor*</code> / <code>ForegroundColor*</code>、<code>Banner</code>、<code>EncounterBackgroundMesh</code> 等身份与外观字段。</li>
+<li><a href="../../localization/TextObject/">TextObject</a> — <code>Name</code>、<code>MaleNameList</code>、<code>FemaleNameList</code>、<code>ClanNameList</code>、<code>EncyclopediaText</code> 均为 <code>TextObject</code>。</li>
+<li><a href="../../core-extra/MBReadOnlyList/">MBReadOnlyList</a> / <a href="../../core-extra/Banner/">Banner</a> — 多数集合与旗帜类型来自这两个底层类型。</li>
+</ul>
+<h3 id="xia-you-shui-xiao-fei-zhe-fen-pei-zhi">下游（谁消费这份配置）</h3>
+<ul>
+<li><a href="../../campaign/Clan/">Clan</a> — <code>Clan.Culture</code>（<code>{ get; set; }</code>）决定家族兵种、家族名、旗帜色；它是可写的，可在运行时切换家族阵营。</li>
+<li><a href="../../campaign/Kingdom/">Kingdom</a> — <code>Kingdom.Culture</code>（<code>{ get; private set; }</code>）决定王国兵种与旗帜，外部只读。</li>
+<li><a href="../../campaign/Settlement/">Settlement</a> — <code>Settlement.Culture</code>（<code>public CultureObject Culture;</code>）决定据点里的平民/工匠 NPC 模板与民兵兵种。</li>
+<li><a href="../../campaign/CharacterObject/">CharacterObject</a> — <code>CharacterObject.Culture</code>（<code>public new CultureObject Culture</code>）决定人物默认装备 rosters 与阵营。</li>
+<li><a href="../NameGenerator/">NameGenerator</a> — 生成英雄名/家族名时读取 <code>MaleNameList</code> / <code>FemaleNameList</code> / <code>ClanNameList</code>。</li>
+<li><a href="../FeatObject/">FeatObject</a> / <a href="../PolicyObject/">PolicyObject</a> / <a href="../PartyTemplateObject/">PartyTemplateObject</a> / <a href="../../core/ItemObject/">ItemObject</a> — 文化的特性、默认政策、各类部队模板与奖励物品。</li>
+</ul>
+<h3 id="xing-wei-mo-xing-zhen-shi-diao-yong-dian">行为 / 模型（真实调用点）</h3>
+<ul>
+<li><a href="../CampaignBehaviorBase/">CampaignBehaviorBase</a> — 多数战役 <code>Behavior</code> 通过 <code>MBObjectManager.Instance.GetObjectTypeList&lt;CultureObject&gt;()</code> 遍历所有文化。</li>
+<li><a href="../RebellionsCampaignBehavior/">RebellionsCampaignBehavior</a> — 起义/叛军逻辑遍历文化以选取 <code>RebelliousHeroTemplates</code>。</li>
+<li><a href="../GovernorCampaignBehavior/">GovernorCampaignBehavior</a> 与 <a href="../KingdomCreationModel/">KingdomCreationModel</a> — 玩家建王国时通过 <code>KingdomCreationModel.GetAvailablePlayerKingdomCultures()</code> 暴露可选文化列表。</li>
+</ul>
+<h3 id="cun-dang-dian">存档点</h3>
+<p>文化对象由 <code>MBObjectManager</code> 持有；<code>Clan</code> / <code>Kingdom</code> / <code>Settlement</code> / <code>CharacterObject</code> 以 <strong>id 字符串</strong>形式保存对文化的引用，读档时由 <code>MBObjectManager</code> 解析回同一实例。修改或删除某个文化的 id 会导致读档时引用无法解析（得到 <code>null</code>），进而在下游解引用处崩溃——这是主要的坏档风险。</p>
+<h2 id="feng-xian-duan">风险段</h2>
+<ul>
+<li><strong>改 id / 删除文化 = 坏档</strong>：<code>Clan.Culture</code>、<code>Kingdom.Culture</code>、<code>Settlement.Culture</code>、<code>CharacterObject.Culture</code> 都以字符串 id 存进存档。若你新增的文化 id 与已存档引用不匹配，或改了原版文化的 id，读档时 <code>MBObjectManager</code> 解析为 <code>null</code>，随后领主部队生成、命名、旗帜等解引用会抛异常。新增文化请在模组 XML 里使用稳定、唯一的 id，并保持向后兼容。</li>
+<li><strong>别直接写只读模板字段</strong>：<code>BasicTroop</code>、<code>DefaultPartyTemplate</code>、<code>Color</code>、<code>MaleNameList</code> 等都是 <code>private set</code>，从外部赋值会被编译器拒绝；强行走反序列化或反射改写会影响该文化<strong>所有</strong>家族/据点/单位，且不会被存档自然恢复。需要“定制单位”应改具体的 <code>CharacterObject</code> 或 <code>PartyTemplateObject</code>。</li>
+<li><strong>缺模板的文化会运行时崩溃</strong>：很多系统直接解引用 <code>culture.DefaultPartyTemplate</code> / <code>culture.BasicTroop</code> / <code>culture.MilitiaPartyTemplate</code>。自建文化务必填齐这些引用，否则领主队、民兵、锦标赛生成时会 <code>NullReferenceException</code>。</li>
+<li><strong><code>MilitiaBonus</code> / <code>ProsperityBonus</code> 可写但有全局副作用</strong>：这是 <code>CultureObject</code> 上仅有的两个可写属性。在战役中改它们会立刻影响该文化所有据点的民兵/繁荣加成；它们不属于常规的“平衡修改”入口，改之前确认这正是你想要的范围。</li>
+<li><strong>命名表可能为空</strong>：<code>NameGenerator</code> 内部已用 <code>IsEmpty()</code> 保护，但若你直接读 <code>MaleNameList</code> / <code>FemaleNameList</code> 并假设非空，对某些特殊文化（如 <code>neutral_culture</code>）可能拿不到名字。</li>
+</ul>
+<h2 id="cheng-yuan-shuo-ming">成员说明</h2>
+<h3 id="shen-fen-yu-wai-guan-ji-cheng-zi-basiccultureobject">身份与外观（继承自 <code>BasicCultureObject</code>）</h3>
+<ul>
+<li><code>Name</code>（<code>TextObject</code>，只读）— 文化的显示名（如“斯特吉亚”）。<code>ToString()</code> 与 <code>GetName()</code> 都直接返回它。</li>
+<li><code>IsMainCulture</code>（<code>bool</code>，只读）— 是否为可游玩的主文化；<code>KingdomCreationModel.GetAvailablePlayerKingdomCultures()</code> 通常只返回 <code>IsMainCulture == true</code> 的文化。</li>
+<li><code>IsBandit</code>（<code>bool</code>，只读）— 是否为强盗文化（如山贼、海寇）。</li>
+<li><code>CanHaveSettlement</code>（<code>bool</code>，只读）— 该文化能否拥有定居点。</li>
+<li><code>Color</code> / <code>Color2</code>（<code>uint</code>，只读）— 阵营主色与副色（ARGB 十六进制，对应“势力颜色”）。<code>Clan</code> / <code>Kingdom</code> 的旗帜与地图色块读这里。</li>
+<li><code>ClothAlternativeColor</code> / <code>ClothAlternativeColor2</code>（<code>uint</code>，只读）— 布料备用色。</li>
+<li><code>BackgroundColor1</code> / <code>BackgroundColor2</code> / <code>ForegroundColor1</code> / <code>ForegroundColor2</code>（<code>uint</code>，只读）— 旗帜背景/前景配色。</li>
+<li><code>Banner</code>（<code>Banner</code>，只读）— 该文化的默认阵营旗帜。</li>
+<li><code>EncounterBackgroundMesh</code>（<code>string</code>，可读写）— 野外遭遇战背景网格名。</li>
+</ul>
+<h3 id="ji-chu-bing-chong-yu-min-bing-characterobject">基础兵种与民兵（<code>CharacterObject</code>）</h3>
+<ul>
+<li><code>BasicTroop</code>（<code>CharacterObject</code>，只读）— 该文化的<strong>一级新兵</strong>模板，是招募链的起点。<code>Clan</code> / 城镇招募都从这里开始升级。</li>
+<li><code>EliteBasicTroop</code>（<code>CharacterObject</code>，只读）— 精英版基础兵种。</li>
+<li><code>MeleeMilitiaTroop</code> / <code>RangedMilitiaTroop</code> / <code>MeleeEliteMilitiaTroop</code> / <code>RangedEliteMilitiaTroop</code>（<code>CharacterObject</code>，只读）— 据点民兵与精英民兵模板，由 <code>MilitiaPartyTemplate</code> 与村庄民兵生成使用。</li>
+<li>强盗模板 <code>BanditChief</code> / <code>BanditRaider</code> / <code>BanditBandit</code> / <code>BanditBoss</code>（<code>CharacterObject</code>，只读）— 该强盗文化各档位的单位；其中 <code>BanditBossPartyTemplate</code> 对应 <code>BanditBoss</code> 的部队模板。</li>
+</ul>
+<p>读取示例（见下方“真实示例”）里用 <code>culture.BasicTroop</code> 即可拿到招募起点，不要自己凭 id 猜测兵种。</p>
+<h3 id="cheng-zhen-ping-min-gong-jiang-npc-mo-ban-characterobject">城镇 / 平民 / 工匠 NPC 模板（<code>CharacterObject</code>）</h3>
+<p>以下字段是一组<strong>在属于该文化的据点中刷新的平民与功能 NPC</strong> 模板，通常供 <code>Settlement</code> / <code>Town</code> / <code>Village</code> 与工坊、任务系统使用：</p>
+<p><code>TournamentMaster</code>、<code>Villager</code>、<code>CaravanMaster</code>、<code>CaravanGuard</code>、<code>PrisonGuard</code>、<code>Guard</code>、<code>Blacksmith</code>、<code>Weaponsmith</code>、<code>Townswoman</code>（及其 <code>Infant</code> / <code>Child</code> / <code>Teenager</code> 变体）、<code>Townsman</code>（含 <code>Infant</code> / <code>Child</code> / <code>Teenager</code>）、<code>VillageWoman</code>、<code>Villager</code>（含 <code>MaleChild</code> / <code>MaleTeenager</code> / <code>FemaleChild</code> / <code>FemaleTeenager</code>）、<code>RansomBroker</code>、<code>GangleaderBodyguard</code>、<code>MerchantNotary</code> / <code>ArtisanNotary</code> / <code>PreacherNotary</code> / <code>RuralNotableNotary</code>、<code>ShopWorker</code>、<code>Tavernkeeper</code>、<code>TavernGamehost</code>、<code>Musician</code>、<code>TavernWench</code>、<code>Armorer</code>、<code>HorseMerchant</code>、<code>Barber</code>、<code>Merchant</code>、<code>Beggar</code> / <code>FemaleBeggar</code>、<code>FemaleDancer</code>、<code>Shipwright</code>、<code>MilitiaVeteranArcher</code>、<code>GearDummy</code>。</p>
+<p>这些字段都是只读的 <code>CharacterObject</code>；它们决定了“某个文化的城镇长什么样”。自定义据点生态时应从这里取模板，而不是另建一套。</p>
+<h3 id="ming-cheng-ling-zhu-jia-zu-mo-ban-ji-he">名称 / 领主 / 家族模板集合</h3>
+<ul>
+<li><code>MaleNameList</code> / <code>FemaleNameList</code>（<code>MBReadOnlyList&lt;TextObject&gt;</code>，只读）— 英雄名库；<code>NameGenerator.Current.GetNameListForCulture(culture, isFemale)</code> 与英雄命名都读这里。</li>
+<li><code>ClanNameList</code>（<code>MBReadOnlyList&lt;TextObject&gt;</code>，只读）— 家族名库；<code>NameGenerator.Current.GenerateClanName(culture, settlement)</code> 读这里。</li>
+<li><code>NotableTemplates</code> / <code>LordTemplates</code> / <code>RebelliousHeroTemplates</code>（<code>MBReadOnlyList&lt;CharacterObject&gt;</code>，只读）— 名望人士、领主、叛军英雄的模板集合；叛军/家族生成从这些里挑。</li>
+<li><code>BasicMercenaryTroops</code>（<code>MBReadOnlyList&lt;CharacterObject&gt;</code>，只读）— 该文化可招募的雇佣兵基础单位。</li>
+<li><code>TournamentTeamTemplatesForOneParticipant</code> / <code>ForTwoParticipant</code> / <code>ForFourParticipant</code>（<code>MBReadOnlyList&lt;CharacterObject&gt;</code>，只读）— 锦标赛队伍模板（按参赛人数分组）。</li>
+</ul>
+<h3 id="zhuang-bei-roster-mbequipmentroster">装备 Roster（<code>MBEquipmentRoster</code>）</h3>
+<ul>
+<li><code>DefaultBattleEquipmentRoster</code> — 该文化单位的默认战斗装备。</li>
+<li><code>DefaultCivilianEquipmentRoster</code> — 平民默认装备。</li>
+<li><code>DefaultStealthEquipmentRoster</code> — 潜行装备（被 <code>CharacterObject</code> 的装备选取逻辑读取）。</li>
+<li><code>DuelPresetEquipmentRoster</code> — 决斗预设装备。</li>
+<li><code>MarriageBrideEquipmentRoster</code> — 婚礼新娘装备。</li>
+</ul>
+<h3 id="bu-dui-mo-ban-partytemplateobject">部队模板（<code>PartyTemplateObject</code>）</h3>
+<ul>
+<li><code>DefaultPartyTemplate</code>（<code>PartyTemplateObject</code>，只读）— <strong>最关键的模板</strong>：领主队 / 家族部队生成时解引用它来决定编成。自建或替换文化时务必保证非空。</li>
+<li><code>VillagerPartyTemplate</code> / <code>FishingPartyTemplate</code> / <code>MilitiaPartyTemplate</code> / <code>RebelsPartyTemplate</code> — 村民队、渔船队、民兵队、叛军队的模板。</li>
+<li><code>BanditBossPartyTemplate</code> / <code>VassalRewardTroopsPartyTemplate</code> — 强盗首领队、封臣奖励部队模板。</li>
+<li><code>SettlementPatrolPartyTemplateWeak</code> / <code>Moderate</code> / <code>Strong</code> / <code>Naval</code> — 据点巡逻队的弱/中/强/海军四档模板。</li>
+<li><code>CaravanPartyTemplates</code> / <code>EliteCaravanPartyTemplates</code>（<code>MBReadOnlyList&lt;PartyTemplateObject&gt;</code>）— 普通与精英商队模板集合。</li>
+</ul>
+<h3 id="te-xing-zheng-ce-shu-zhi-za-xiang">特性 / 政策 / 数值 / 杂项</h3>
+<ul>
+<li><code>Traits</code>（<code>CultureTrait[]</code>，只读）— 该文化的文化特性数组；用 <code>HasTrait</code> 判定。</li>
+<li><code>CultureFeats</code>（<code>MBReadOnlyList&lt;FeatObject&gt;</code>，只读）— 文化特性（feat）集合；用 <code>HasFeat</code> / <code>GetCulturalFeats</code> 读取。</li>
+<li><code>DefaultPolicyList</code>（<code>MBReadOnlyList&lt;PolicyObject&gt;</code>，只读）— 建国时默认采用的政策集合。</li>
+<li><code>PossibleClanBannerIconsIDs</code>（<code>MBReadOnlyList&lt;int&gt;</code>，只读）— 该文化家族可使用的旗帜图标 id 列表。</li>
+<li><code>MilitiaBonus</code> / <code>ProsperityBonus</code>（<code>int</code>，<strong>可读写</strong>）— 民兵/繁荣加成；这是整类里仅有的两个可写属性。</li>
+<li><code>NavalFactor</code>（<code>float</code>，只读）— 海军权重，影响海军相关逻辑。</li>
+<li><code>BoardGame</code>（<code>BoardGameType</code> 枚举，只读）— 该文化的棋类游戏类型（<code>None</code> / <code>Seega</code> / <code>Puluc</code> / <code>Konane</code> / <code>MuTorere</code> / <code>Tablut</code> / <code>BaghChal</code>）。</li>
+<li><code>StartingPoint</code>（<code>CampaignVec2</code>，只读）— 战役起始点坐标。</li>
+<li><code>EncyclopediaText</code>（<code>TextObject</code>，只读）— 百科条目描述文本。</li>
+<li><code>DefaultCharacterCreationBodyProperty</code>（<code>MBBodyProperty</code>，只读）— 角色创建时的默认体型。</li>
+<li><code>AvailableShipHulls</code>（<code>MBReadOnlyList&lt;ShipHull&gt;</code>，只读）— 可用船体集合（海军）。</li>
+<li><code>VassalRewardItems</code> / <code>BannerBearerReplacementWeapons</code>（<code>MBReadOnlyList&lt;ItemObject&gt;</code>，只读）— 封臣奖励物品、旗手替换武器集合。</li>
+</ul>
+<h3 id="fang-fa">方法</h3>
+<h4 id="public-bool-hastrait-culturetrait-trait"><code>public bool HasTrait(CultureTrait trait)</code></h4>
+<p>判断该文化是否拥有某个 <code>CultureTrait</code>。</p>
+<pre><code data-lang="csharp">CultureObject culture = Clan.PlayerClan.Culture;
+if (culture.Traits != null &amp;&amp; culture.Traits.Length &gt; 0)
+{
+    CultureTrait first = culture.Traits[0];
+    if (culture.HasTrait(first)) // 判断该文化是否具备某个 CultureTrait
+    {
+        // 针对该特性做阵营加成或事件分支
+    }
+}
+</code></pre>
+<h4 id="public-bool-hasfeat-featobject-feat"><code>public bool HasFeat(FeatObject feat)</code></h4>
+<p>判断该文化是否包含某个 <code>FeatObject</code>（特性，例如“森林适应”“沙漠适应”）。</p>
+<pre><code data-lang="csharp">CultureObject culture = Settlement.CurrentSettlement.Culture;
+foreach (FeatObject feat in culture.CultureFeats)
+{
+    if (culture.HasFeat(feat) &amp;&amp; feat.IsPositive)
+    {
+        // 读取 feat 的战斗/地图修正（EffectBonus / IncrementType）
+    }
+}
+</code></pre>
+<h4 id="public-ienumerable-featobject-getculturalfeats-func-featobject-bool-predicate-null"><code>public IEnumerable&lt;FeatObject&gt; GetCulturalFeats(Func&lt;FeatObject, bool&gt; predicate = null)</code></h4>
+<p>返回文化特性，可传入过滤委托。空参则返回全部。</p>
+<pre><code data-lang="csharp">var positiveFeats = Clan.PlayerClan.Culture.GetCulturalFeats(f =&gt; f.IsPositive);
+</code></pre>
+<h4 id="public-override-textobject-getname"><code>public override TextObject GetName()</code></h4>
+<p>返回文化的显示名（<code>base.Name</code>）。<code>ToString()</code> 同样返回 <code>Name</code> 的字符串形式。</p>
+<pre><code data-lang="csharp">TextObject name = Clan.PlayerClan.Culture.GetName();
+InformationManager.DisplayMessage(new InformationMessage(name.ToString()));
+</code></pre>
+<h4 id="public-override-void-deserialize-mbobjectmanager-objectmanager-xmlnode-node"><code>public override void Deserialize(MBObjectManager objectManager, XmlNode node)</code></h4>
+<p>内部方法：从 <code>SPCultures</code> XML 节点反序列化全部字段与子集合。<strong>不是给 mod 调用的 API</strong>，由对象系统在加载阶段调用；手动调用会破坏已初始化的全局状态。</p>
+<h2 id="zhen-shi-shi-li">真实示例</h2>
+<h3 id="shi-li-1-na-dao-wan-jia-jia-zu-de-wen-hua-bing-du-qu-bing-chong-yu-pei-se">示例 1：拿到玩家家族的文化并读取兵种与配色</h3>
+<pre><code data-lang="csharp">// 真实获取路径：Clan.Culture（可写属性）
+CultureObject playerCulture = Clan.PlayerClan.Culture;
+if (playerCulture != null)
+{
+    CharacterObject recruit = playerCulture.BasicTroop;          // 一级新兵模板
+    uint primaryColor = playerCulture.Color;                     // 阵营主色（ARGB）
+    bool isBandit = playerCulture.IsBandit;                      // 是否强盗文化
+    InformationManager.DisplayMessage(new InformationMessage(
+        $&quot;{playerCulture.Name}：基础兵种 {recruit.Name}，主色 #{primaryColor:X8}&quot;));
+}
+</code></pre>
+<h3 id="shi-li-2-bian-li-suo-you-wen-hua-tiao-chu-zhu-wen-hua-bing-yong-qi-ming-ming-biao-sheng-cheng-jia-zu-ming">示例 2：遍历所有文化，挑出主文化并用其命名表生成家族名</h3>
+<pre><code data-lang="csharp">// 真实获取路径：MBObjectManager.Instance.GetObjectTypeList&lt;CultureObject&gt;()
+foreach (CultureObject culture in MBObjectManager.Instance.GetObjectTypeList&lt;CultureObject&gt;())
+{
+    if (!culture.IsMainCulture)
+    {
+        continue; // 只处理可游玩的主文化
+    }
+
+    // NameGenerator 读取该文化的 ClanNameList / MaleNameList / FemaleNameList
+    TextObject clanName = NameGenerator.Current.GenerateClanName(culture, null);
+    CharacterObject elite = culture.EliteBasicTroop;
+
+    // 例如：为自定义招募逻辑收集每个文化的精英兵种
+    if (elite != null)
+    {
+        // 加入你的招募池 ...
+    }
+}
+</code></pre>
+<h3 id="shi-li-3-an-id-cong-qi-ta-dui-xiang-qu-de-wen-hua-chang-yong-huo-qu-lu-jing-hui-zong">示例 3：按 id / 从其他对象取得文化（常用获取路径汇总）</h3>
+<pre><code data-lang="csharp">// 1) 按字符串 id 直接取（原版文化 id 如 &quot;empire&quot;、&quot;aserai&quot;、&quot;vlandia&quot;、&quot;sturgia&quot;、&quot;khuzait&quot;、&quot;battania&quot;、&quot;nord&quot;、&quot;neutral_culture&quot;）
+CultureObject empire = MBObjectManager.Instance.GetObject&lt;CultureObject&gt;(&quot;empire&quot;);
+
+// 2) 从据点取
+CultureObject settlementCulture = Settlement.CurrentSettlement.Culture;
+
+// 3) 从王国取（Kingdom.Culture 只读）
+CultureObject kingdomCulture = Clan.PlayerClan.Kingdom?.Culture;
+
+// 4) 从英雄/人物取（CharacterObject.Culture 是 public new CultureObject Culture）
+CultureObject heroCulture = Hero.MainHero.CharacterObject.Culture;
+</code></pre>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li><strong>v1.3.0</strong>：本类已存在，但缺少 <code>SettlementPatrolPartyTemplateNaval</code>、<code>NotableTemplates</code>、<code>RebelliousHeroTemplates</code>、<code>LordTemplates</code>、<code>TournamentTeamTemplatesForOneParticipant</code> / <code>ForTwoParticipant</code> / <code>ForFourParticipant</code>、<code>BasicMercenaryTroops</code> 这些成员；这些是在 <strong>v1.3.15</strong> 加入的。</li>
+<li><strong>v1.3.15（本页）</strong>：命名空间仍为 <code>TaleWorlds.CampaignSystem</code>，字段集与 1.4.5 基本一致。语义以 1.4.5 权威源为准。</li>
+<li><strong>v1.4.5</strong>：与 1.3.15 对本类无实质差异；<code>Clan.Culture</code> 仍为可写、<code>Kingdom.Culture</code> 仍为只读。</li>
+</ul>
+<h2 id="can-jian-dao-hang">参见 / 导航</h2>
+<ul>
+<li>↑ 父级：<a href="../">campaign-ext 模块索引</a> · <a href="../../">API 总索引</a></li>
+<li>↔ 同级（同模块紧密类型）：<a href="../NameGenerator/">NameGenerator</a> · <a href="../FeatObject/">FeatObject</a> · <a href="../PolicyObject/">PolicyObject</a> · <a href="../PartyTemplateObject/">PartyTemplateObject</a> · <a href="../MBObjectManager/">MBObjectManager</a> · <a href="../CampaignBehaviorBase/">CampaignBehaviorBase</a></li>
+<li>相关类型（下游消费者 / 基类）：<a href="../../campaign/Clan/">Clan</a> · <a href="../../campaign/Kingdom/">Kingdom</a> · <a href="../../campaign/Settlement/">Settlement</a> · <a href="../../campaign/CharacterObject/">CharacterObject</a> · <a href="../../campaign/Hero/">Hero</a> · <a href="../../core-extra/BasicCultureObject/">BasicCultureObject</a> · <a href="../../core/ItemObject/">ItemObject</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign-ext/">campaign-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign-ext/Crafting/">&larr; Crafting</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign-ext/ILayout/">ILayout &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

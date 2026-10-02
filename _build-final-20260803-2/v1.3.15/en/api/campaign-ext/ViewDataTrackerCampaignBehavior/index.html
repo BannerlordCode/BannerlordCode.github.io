@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ViewDataTrackerCampaignBehavior</title>
+  <meta name="description" content="Auto-generated class reference for ViewDataTrackerCampaignBehavior.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/ViewDataTrackerCampaignBehavior/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/ViewDataTrackerCampaignBehavior/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">ViewDataTrackerCampaignBehavior</span>
+    </nav>
+  
+  <h1>ViewDataTrackerCampaignBehavior</h1>
+  <h1 id="viewdatatrackercampaignbehavior">ViewDataTrackerCampaignBehavior</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.CampaignBehaviors
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class ViewDataTrackerCampaignBehavior : CampaignBehaviorBase, IViewDataTracker</code>
+<strong>Base:</strong> <code>CampaignBehaviorBase</code>
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/CampaignBehaviors/ViewDataTrackerCampaignBehavior.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>ViewDataTrackerCampaignBehavior</code> lives in <code>TaleWorlds.CampaignSystem.CampaignBehaviors</code> and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Start from namespace <code>TaleWorlds.CampaignSystem.CampaignBehaviors</code> to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.</p>
+<h2 id="key-properties">Key Properties</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>IsPartyNotificationActive</code></td><td><code>public bool IsPartyNotificationActive { get; }</code></td></tr>
+<tr><td><code>IsQuestNotificationActive</code></td><td><code>public bool IsQuestNotificationActive { get; }</code></td></tr>
+<tr><td><code>UnExaminedQuestLogs</code></td><td><code>public IReadOnlyList&lt;JournalLog&gt; UnExaminedQuestLogs { get; }</code></td></tr>
+<tr><td><code>UnExaminedArmies</code></td><td><code>public List&lt;Army&gt; UnExaminedArmies { get; }</code></td></tr>
+<tr><td><code>NumOfKingdomArmyNotifications</code></td><td><code>public int NumOfKingdomArmyNotifications { get; }</code></td></tr>
+<tr><td><code>IsCharacterNotificationActive</code></td><td><code>public bool IsCharacterNotificationActive { get; }</code></td></tr>
+<tr><td><code>UnexaminedFigureheads</code></td><td><code>public IReadOnlyList&lt;Figurehead&gt; UnexaminedFigureheads { get; }</code></td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="getpartynotificationtext">GetPartyNotificationText</h3>
+<p><code>public TextObject GetPartyNotificationText()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the party notification text value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.GetPartyNotificationText();
+</code></pre>
+<h3 id="clearpartynotification">ClearPartyNotification</h3>
+<p><code>public void ClearPartyNotification()</code></p>
+<p><strong>Purpose:</strong> Removes all party notification from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.ClearPartyNotification();
+</code></pre>
+<h3 id="updatepartynotification">UpdatePartyNotification</h3>
+<p><code>public void UpdatePartyNotification()</code></p>
+<p><strong>Purpose:</strong> Recalculates and stores the latest representation of party notification.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.UpdatePartyNotification();
+</code></pre>
+<h3 id="getquestnotificationtext">GetQuestNotificationText</h3>
+<p><code>public TextObject GetQuestNotificationText()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the quest notification text value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.GetQuestNotificationText();
+</code></pre>
+<h3 id="onquestlogexamined">OnQuestLogExamined</h3>
+<p><code>public void OnQuestLogExamined(JournalLog log)</code></p>
+<p><strong>Purpose:</strong> Invoked when the quest log examined event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.OnQuestLogExamined(log);
+</code></pre>
+<h3 id="onarmyexamined">OnArmyExamined</h3>
+<p><code>public void OnArmyExamined(Army army)</code></p>
+<p><strong>Purpose:</strong> Invoked when the army examined event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.OnArmyExamined(army);
+</code></pre>
+<h3 id="clearcharacternotification">ClearCharacterNotification</h3>
+<p><code>public void ClearCharacterNotification()</code></p>
+<p><strong>Purpose:</strong> Removes all character notification from the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.ClearCharacterNotification();
+</code></pre>
+<h3 id="getcharacternotificationtext">GetCharacterNotificationText</h3>
+<p><code>public TextObject GetCharacterNotificationText()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the character notification text value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.GetCharacterNotificationText();
+</code></pre>
+<h3 id="getmapbarextendedstate">GetMapBarExtendedState</h3>
+<p><code>public bool GetMapBarExtendedState()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the map bar extended state value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.GetMapBarExtendedState();
+</code></pre>
+<h3 id="setmapbarextendedstate">SetMapBarExtendedState</h3>
+<p><code>public void SetMapBarExtendedState(bool isExtended)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to map bar extended state and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.SetMapBarExtendedState(false);
+</code></pre>
+<h3 id="setinventorylocks">SetInventoryLocks</h3>
+<p><code>public void SetInventoryLocks(IEnumerable&lt;string&gt; locks)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to inventory locks and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.SetInventoryLocks(locks);
+</code></pre>
+<h3 id="getinventorylocks">GetInventoryLocks</h3>
+<p><code>public IEnumerable&lt;string&gt; GetInventoryLocks()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the inventory locks value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.GetInventoryLocks();
+</code></pre>
+<h3 id="inventorysetsortpreference">InventorySetSortPreference</h3>
+<p><code>public void InventorySetSortPreference(int inventoryMode, int sortOption, int sortState)</code></p>
+<p><strong>Purpose:</strong> Executes the InventorySetSortPreference logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.InventorySetSortPreference(0, 0, 0);
+</code></pre>
+<h3 id="inventorygetsortpreference">InventoryGetSortPreference</h3>
+<p><code>public Tuple&lt;int, int&gt; InventoryGetSortPreference(int inventoryMode)</code></p>
+<p><strong>Purpose:</strong> Executes the InventoryGetSortPreference logic.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.InventoryGetSortPreference(0);
+</code></pre>
+<h3 id="setpartytrooplocks">SetPartyTroopLocks</h3>
+<p><code>public void SetPartyTroopLocks(IEnumerable&lt;string&gt; locks)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to party troop locks and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.SetPartyTroopLocks(locks);
+</code></pre>
+<h3 id="setpartyprisonerlocks">SetPartyPrisonerLocks</h3>
+<p><code>public void SetPartyPrisonerLocks(IEnumerable&lt;string&gt; locks)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to party prisoner locks and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.SetPartyPrisonerLocks(locks);
+</code></pre>
+<h3 id="setpartysorttype">SetPartySortType</h3>
+<p><code>public void SetPartySortType(int sortType)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to party sort type and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.SetPartySortType(0);
+</code></pre>
+<h3 id="setispartysortascending">SetIsPartySortAscending</h3>
+<p><code>public void SetIsPartySortAscending(bool isAscending)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to is party sort ascending and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.SetIsPartySortAscending(false);
+</code></pre>
+<h3 id="getpartytrooplocks">GetPartyTroopLocks</h3>
+<p><code>public IEnumerable&lt;string&gt; GetPartyTroopLocks()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the party troop locks value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.GetPartyTroopLocks();
+</code></pre>
+<h3 id="getpartyprisonerlocks">GetPartyPrisonerLocks</h3>
+<p><code>public IEnumerable&lt;string&gt; GetPartyPrisonerLocks()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the party prisoner locks value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.GetPartyPrisonerLocks();
+</code></pre>
+<h3 id="getpartysorttype">GetPartySortType</h3>
+<p><code>public int GetPartySortType()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the party sort type value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.GetPartySortType();
+</code></pre>
+<h3 id="getispartysortascending">GetIsPartySortAscending</h3>
+<p><code>public bool GetIsPartySortAscending()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the is party sort ascending value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.GetIsPartySortAscending();
+</code></pre>
+<h3 id="addencyclopediabookmarktoitem">AddEncyclopediaBookmarkToItem</h3>
+<p><code>public void AddEncyclopediaBookmarkToItem(Hero item)</code></p>
+<p><strong>Purpose:</strong> Adds encyclopedia bookmark to item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.AddEncyclopediaBookmarkToItem(item);
+</code></pre>
+<h3 id="addencyclopediabookmarktoitem-1">AddEncyclopediaBookmarkToItem</h3>
+<p><code>public void AddEncyclopediaBookmarkToItem(ShipHull shipHull)</code></p>
+<p><strong>Purpose:</strong> Adds encyclopedia bookmark to item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.AddEncyclopediaBookmarkToItem(shipHull);
+</code></pre>
+<h3 id="addencyclopediabookmarktoitem-2">AddEncyclopediaBookmarkToItem</h3>
+<p><code>public void AddEncyclopediaBookmarkToItem(Clan clan)</code></p>
+<p><strong>Purpose:</strong> Adds encyclopedia bookmark to item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.AddEncyclopediaBookmarkToItem(clan);
+</code></pre>
+<h3 id="addencyclopediabookmarktoitem-3">AddEncyclopediaBookmarkToItem</h3>
+<p><code>public void AddEncyclopediaBookmarkToItem(Concept concept)</code></p>
+<p><strong>Purpose:</strong> Adds encyclopedia bookmark to item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.AddEncyclopediaBookmarkToItem(concept);
+</code></pre>
+<h3 id="addencyclopediabookmarktoitem-4">AddEncyclopediaBookmarkToItem</h3>
+<p><code>public void AddEncyclopediaBookmarkToItem(Kingdom kingdom)</code></p>
+<p><strong>Purpose:</strong> Adds encyclopedia bookmark to item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.AddEncyclopediaBookmarkToItem(kingdom);
+</code></pre>
+<h3 id="addencyclopediabookmarktoitem-5">AddEncyclopediaBookmarkToItem</h3>
+<p><code>public void AddEncyclopediaBookmarkToItem(Settlement settlement)</code></p>
+<p><strong>Purpose:</strong> Adds encyclopedia bookmark to item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.AddEncyclopediaBookmarkToItem(settlement);
+</code></pre>
+<h3 id="addencyclopediabookmarktoitem-6">AddEncyclopediaBookmarkToItem</h3>
+<p><code>public void AddEncyclopediaBookmarkToItem(CharacterObject unit)</code></p>
+<p><strong>Purpose:</strong> Adds encyclopedia bookmark to item to the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.AddEncyclopediaBookmarkToItem(unit);
+</code></pre>
+<h3 id="removeencyclopediabookmarkfromitem">RemoveEncyclopediaBookmarkFromItem</h3>
+<p><code>public void RemoveEncyclopediaBookmarkFromItem(Hero hero)</code></p>
+<p><strong>Purpose:</strong> Removes encyclopedia bookmark from item from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.RemoveEncyclopediaBookmarkFromItem(hero);
+</code></pre>
+<h3 id="removeencyclopediabookmarkfromitem-1">RemoveEncyclopediaBookmarkFromItem</h3>
+<p><code>public void RemoveEncyclopediaBookmarkFromItem(ShipHull shipHull)</code></p>
+<p><strong>Purpose:</strong> Removes encyclopedia bookmark from item from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.RemoveEncyclopediaBookmarkFromItem(shipHull);
+</code></pre>
+<h3 id="removeencyclopediabookmarkfromitem-2">RemoveEncyclopediaBookmarkFromItem</h3>
+<p><code>public void RemoveEncyclopediaBookmarkFromItem(Clan clan)</code></p>
+<p><strong>Purpose:</strong> Removes encyclopedia bookmark from item from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.RemoveEncyclopediaBookmarkFromItem(clan);
+</code></pre>
+<h3 id="removeencyclopediabookmarkfromitem-3">RemoveEncyclopediaBookmarkFromItem</h3>
+<p><code>public void RemoveEncyclopediaBookmarkFromItem(Concept concept)</code></p>
+<p><strong>Purpose:</strong> Removes encyclopedia bookmark from item from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.RemoveEncyclopediaBookmarkFromItem(concept);
+</code></pre>
+<h3 id="removeencyclopediabookmarkfromitem-4">RemoveEncyclopediaBookmarkFromItem</h3>
+<p><code>public void RemoveEncyclopediaBookmarkFromItem(Kingdom kingdom)</code></p>
+<p><strong>Purpose:</strong> Removes encyclopedia bookmark from item from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.RemoveEncyclopediaBookmarkFromItem(kingdom);
+</code></pre>
+<h3 id="removeencyclopediabookmarkfromitem-5">RemoveEncyclopediaBookmarkFromItem</h3>
+<p><code>public void RemoveEncyclopediaBookmarkFromItem(Settlement settlement)</code></p>
+<p><strong>Purpose:</strong> Removes encyclopedia bookmark from item from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.RemoveEncyclopediaBookmarkFromItem(settlement);
+</code></pre>
+<h3 id="removeencyclopediabookmarkfromitem-6">RemoveEncyclopediaBookmarkFromItem</h3>
+<p><code>public void RemoveEncyclopediaBookmarkFromItem(CharacterObject unit)</code></p>
+<p><strong>Purpose:</strong> Removes encyclopedia bookmark from item from the current collection or state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.RemoveEncyclopediaBookmarkFromItem(unit);
+</code></pre>
+<h3 id="isencyclopediabookmarked">IsEncyclopediaBookmarked</h3>
+<p><code>public bool IsEncyclopediaBookmarked(Hero hero)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the encyclopedia bookmarked state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.IsEncyclopediaBookmarked(hero);
+</code></pre>
+<h3 id="isencyclopediabookmarked-1">IsEncyclopediaBookmarked</h3>
+<p><code>public bool IsEncyclopediaBookmarked(ShipHull shipHull)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the encyclopedia bookmarked state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.IsEncyclopediaBookmarked(shipHull);
+</code></pre>
+<h3 id="isencyclopediabookmarked-2">IsEncyclopediaBookmarked</h3>
+<p><code>public bool IsEncyclopediaBookmarked(Clan clan)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the encyclopedia bookmarked state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.IsEncyclopediaBookmarked(clan);
+</code></pre>
+<h3 id="isencyclopediabookmarked-3">IsEncyclopediaBookmarked</h3>
+<p><code>public bool IsEncyclopediaBookmarked(Concept concept)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the encyclopedia bookmarked state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.IsEncyclopediaBookmarked(concept);
+</code></pre>
+<h3 id="isencyclopediabookmarked-4">IsEncyclopediaBookmarked</h3>
+<p><code>public bool IsEncyclopediaBookmarked(Kingdom kingdom)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the encyclopedia bookmarked state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.IsEncyclopediaBookmarked(kingdom);
+</code></pre>
+<h3 id="isencyclopediabookmarked-5">IsEncyclopediaBookmarked</h3>
+<p><code>public bool IsEncyclopediaBookmarked(Settlement settlement)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the encyclopedia bookmarked state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.IsEncyclopediaBookmarked(settlement);
+</code></pre>
+<h3 id="isencyclopediabookmarked-6">IsEncyclopediaBookmarked</h3>
+<p><code>public bool IsEncyclopediaBookmarked(CharacterObject unit)</code></p>
+<p><strong>Purpose:</strong> Determines whether the this instance is in the encyclopedia bookmarked state or condition.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.IsEncyclopediaBookmarked(unit);
+</code></pre>
+<h3 id="setquestselection">SetQuestSelection</h3>
+<p><code>public void SetQuestSelection(QuestBase selection)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to quest selection and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.SetQuestSelection(selection);
+</code></pre>
+<h3 id="getquestselection">GetQuestSelection</h3>
+<p><code>public QuestBase GetQuestSelection()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the quest selection value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.GetQuestSelection();
+</code></pre>
+<h3 id="getplunderitems">GetPlunderItems</h3>
+<p><code>public MBReadOnlyList&lt;ItemRosterElement&gt; GetPlunderItems()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the plunder items value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.GetPlunderItems();
+</code></pre>
+<h3 id="onfigureheadexamined">OnFigureheadExamined</h3>
+<p><code>public void OnFigureheadExamined(Figurehead figurehead)</code></p>
+<p><strong>Purpose:</strong> Invoked when the figurehead examined event is raised.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.OnFigureheadExamined(figurehead);
+</code></pre>
+<h3 id="registerevents">RegisterEvents</h3>
+<p><code>public override void RegisterEvents()</code></p>
+<p><strong>Purpose:</strong> Registers events with the current system so it can later be observed or dispatched.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.RegisterEvents();
+</code></pre>
+<h3 id="setquestsorttypeselection">SetQuestSortTypeSelection</h3>
+<p><code>public void SetQuestSortTypeSelection(int questSortTypeSelection)</code></p>
+<p><strong>Purpose:</strong> Assigns a new value to quest sort type selection and updates the object's internal state.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.SetQuestSortTypeSelection(0);
+</code></pre>
+<h3 id="getquestsorttypeselection">GetQuestSortTypeSelection</h3>
+<p><code>public int GetQuestSortTypeSelection()</code></p>
+<p><strong>Purpose:</strong> Reads and returns the quest sort type selection value held by the this instance.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+var result = viewDataTrackerCampaignBehavior.GetQuestSortTypeSelection();
+</code></pre>
+<h3 id="syncdata">SyncData</h3>
+<p><code>public override void SyncData(IDataStore dataStore)</code></p>
+<p><strong>Purpose:</strong> Synchronizes data across the relevant contexts or systems.</p>
+<pre><code data-lang="csharp">// Obtain an instance of ViewDataTrackerCampaignBehavior from the subsystem API first
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.SyncData(dataStore);
+</code></pre>
+<h2 id="usage-example">Usage Example</h2>
+<pre><code data-lang="csharp">// Typically call this after obtaining an instance from the subsystem API
+ViewDataTrackerCampaignBehavior viewDataTrackerCampaignBehavior = ...;
+viewDataTrackerCampaignBehavior.GetPartyNotificationText();
+</code></pre>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../">Area Index</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/campaign-ext/">campaign-ext index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/campaign-ext/SPItemVM/">&larr; SPItemVM</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/campaign-ext/StringHelpers/">StringHelpers &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/en/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

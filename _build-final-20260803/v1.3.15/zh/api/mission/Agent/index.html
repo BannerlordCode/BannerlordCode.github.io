@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent</title>
+  <meta name="description" content="Mission 场景中的单个实体：士兵、玩家、马匹的战场状态、属性与行为控制。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/mission/Agent/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/mission/Agent/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/mission/Agent/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/mission/Agent/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/mission/Agent/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/mission/Agent/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="active">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;mission&#x2F;">mission 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Agent</span>
+    </nav>
+  
+  <h1>Agent</h1>
+  <h1 id="agent">Agent</h1>
+<p><strong>Namespace:</strong> TaleWorlds.MountAndBlade<br />
+<strong>Module:</strong> TaleWorlds.MountAndBlade<br />
+<strong>Type:</strong> <code>public class Agent : Entity, IAgent</code><br />
+<strong>Base:</strong> <code>Entity</code><br />
+<strong>File:</strong> <code>TaleWorlds.MountAndBlade/Agent.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>Agent</code> 代表 Mission 场景里的<strong>一个具体实体</strong>：玩家角色、AI 士兵、马匹、攻城器械操作员等。与 <code>Hero</code>（战役角色卡片）不同，<code>Agent</code> 是战场上的实时对象，拥有位置、方向、生命值、装备、动画状态和 AI 控制器。</p>
+<p>它是战斗 mod 最常操作的对象之一：刷兵、修改血量、给武器、控制移动、播放动画、切换队伍等。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>Agent</code> 想象成**“场景里的一个可控制角色实例”**：</p>
+<ul>
+<li><code>Agent</code> 只在 <code>Mission</code> 存活期间存在；切换场景后全部销毁。</li>
+<li>同一个 <code>Hero</code> 在不同战斗里会生成不同的 <code>Agent</code> 实例。</li>
+<li>不要 new <code>Agent()</code>；通过 <code>Mission.Current.SpawnAgent(...)</code> 创建。</li>
+<li>它同时承载<strong>物理/渲染状态</strong>（位置、动画）和<strong>游戏逻辑状态</strong>（血量、队伍、装备）。</li>
+</ul>
+<h2 id="ru-he-huo-qu-agent">如何获取 Agent</h2>
+<pre><code data-lang="csharp">// 玩家控制的 Agent
+Agent main = Mission.Current?.MainAgent;
+
+// 遍历所有 Agent
+foreach (Agent agent in Mission.Current.Agents)
+{
+    if (agent.IsActive() &amp;&amp; agent.IsHuman)
+    {
+        // ...
+    }
+}
+
+// 从事件参数拿到 Agent
+public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent, ...)
+{
+    if (affectedAgent == Mission.Current.MainAgent)
+    {
+        // 玩家被击中
+    }
+}
+</code></pre>
+<h2 id="he-xin-shu-xing">核心属性</h2>
+<table><thead><tr><th>属性</th><th>类型</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>Mission.MainAgent</code></td><td><code>Agent</code></td><td>玩家 Agent。</td></tr>
+<tr><td><code>IsActive</code></td><td><code>bool</code></td><td>是否还活着且在场景中。</td></tr>
+<tr><td><code>IsHuman</code></td><td><code>bool</code></td><td>是否是人类（非马匹等）。</td></tr>
+<tr><td><code>IsMount</code></td><td><code>bool</code></td><td>是否是坐骑。</td></tr>
+<tr><td><code>Team</code></td><td><code>Team</code></td><td>所属队伍。</td></tr>
+<tr><td><code>Formation</code></td><td><code>Formation</code></td><td>所属编队。</td></tr>
+<tr><td><code>Health</code> / `HealthLimit</td><td><code>float</code></td><td>当前生命值 / 上限。</td></tr>
+<tr><td><code>Character</code></td><td><code>CharacterObject</code></td><td>底层角色模板。</td></tr>
+<tr><td><code>Hero</code> (extension)</td><td><code>Hero</code></td><td>若该 Agent 有对应英雄，可通过扩展或 <code>Character.HeroObject</code> 拿到。</td></tr>
+<tr><td><code>Position</code> / <code>LookDirection</code></td><td><code>Vec3</code></td><td>位置与朝向。</td></tr>
+<tr><td><code>WieldedWeapon</code></td><td><code>MissionWeapon</code></td><td>当前手持武器。</td></tr>
+<tr><td><code>Origin</code></td><td><code>IAgentOriginBase</code></td><td>生成来源（部队、英雄、场景放置等）。</td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="public-bool-isactive"><code>public bool IsActive()</code></h3>
+<p>判断 Agent 是否仍然存活且有效。</p>
+<pre><code data-lang="csharp">Agent target = Mission.Current.Agents.FirstOrDefault(a =&gt; a.IsActive() &amp;&amp; a.IsHuman);
+</code></pre>
+<h3 id="public-void-telegraphattacktoagent-agent-target"><code>public void TelegraphAttackToAgent(Agent target)</code></h3>
+<p>让 Agent 向目标发起攻击（AI 控制）。</p>
+<pre><code data-lang="csharp">myAgent.TelegraphAttackToAgent(enemy);
+</code></pre>
+<h3 id="public-void-settargetposition-ref-worldposition-targetposition"><code>public void SetTargetPosition(ref WorldPosition targetPosition)</code></h3>
+<p>设置移动目标点。</p>
+<pre><code data-lang="csharp">WorldPosition pos = new WorldPosition(Mission.Current.Scene, new Vec3(100f, 50f, 0f));
+agent.SetTargetPosition(pos);
+</code></pre>
+<h3 id="public-void-setlookdirection-vec3-direction"><code>public void SetLookDirection(Vec3 direction)</code></h3>
+<p>设置朝向。</p>
+<pre><code data-lang="csharp">agent.SetLookDirection(enemy.Position - agent.Position);
+</code></pre>
+<h3 id="public-void-setweaponamountinslot-public-void-wieldnextweapon"><code>public void SetWeaponAmountInSlot(...)</code> / <code>public void WieldNextWeapon(...)</code></h3>
+<p>管理装备与武器切换。</p>
+<pre><code data-lang="csharp">agent.WieldNextWeapon(Agent.HandIndex.MainHand);
+</code></pre>
+<h3 id="public-void-die"><code>public void Die(...)</code></h3>
+<p>立即杀死 Agent。常用于自定义任务逻辑。</p>
+<pre><code data-lang="csharp">agent.Die(new Blow(agent.Index), Agent.KillInfoFlags.None);
+</code></pre>
+<h3 id="public-void-makevoice-public-void-setactionchannel"><code>public void MakeVoice(...)</code> / <code>public void SetActionChannel(...)</code></h3>
+<p>播放语音与动画。</p>
+<pre><code data-lang="csharp">agent.MakeVoice(SkinVoiceManager.VoiceType.Yell, SkinVoiceManager.CombatVoiceNetworkPredictionType.NoPrediction);
+</code></pre>
+<h2 id="dian-xing-yong-fa-shi-li">典型用法示例</h2>
+<h3 id="shi-li-1-zhi-liao-wan-jia-agent">示例 1：治疗玩家 Agent</h3>
+<pre><code data-lang="csharp">Agent main = Mission.Current?.MainAgent;
+if (main != null &amp;&amp; main.IsActive())
+{
+    main.Health = main.HealthLimit;
+}
+</code></pre>
+<h3 id="shi-li-2-gei-fu-jin-suo-you-you-jun-jia-lin-shi-sheng-ming-zhi">示例 2：给附近所有友军加临时生命值</h3>
+<pre><code data-lang="csharp">public override void OnMissionTick(float dt)
+{
+    if (Mission.Current?.PlayerTeam == null) return;
+    foreach (Agent agent in Mission.Current.Agents)
+    {
+        if (agent.IsActive() &amp;&amp; agent.Team == Mission.Current.PlayerTeam &amp;&amp; agent.IsHuman)
+        {
+            if (agent.Health &lt; agent.HealthLimit)
+            {
+                agent.Health = Math.Min(agent.Health + 5f * dt, agent.HealthLimit);
+            }
+        }
+    }
+}
+</code></pre>
+<h3 id="shi-li-3-jian-ce-wan-jia-ji-sha">示例 3：检测玩家击杀</h3>
+<pre><code data-lang="csharp">public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent, AgentState agentState, KillingBlow killingBlow)
+{
+    if (affectorAgent == Mission.Current?.MainAgent &amp;&amp; affectedAgent.IsHuman)
+    {
+        InformationManager.DisplayMessage(new InformationMessage($&quot;Killed {affectedAgent.Name}&quot;));
+    }
+}
+</code></pre>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li>v1.3.0 / v1.3.15 / v1.4.5 核心 API 一致。</li>
+<li>v1.4.5 增加了更多 <code>Agent.Controller</code> 和 <code>AgentComponent</code> 的拆分，复杂 AI 行为建议通过 <code>AgentComponent</code> 或 <code>MissionLogic</code> 实现。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../Mission/">Mission</a> — Agent 所在场景</li>
+<li><a href="../Team/">Team</a> — 队伍与阵营</li>
+<li><a href="../Formation/">Formation</a> — 编队</li>
+<li><a href="../MissionBehavior/">MissionBehavior</a> — 接收 Agent 相关事件</li>
+<li><a href="../../mission-ext/MissionObject/">MissionObject</a> — 场景交互对象</li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/mission/">mission 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/mission/PlayerTypes/">&larr; PlayerTypes</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/mission/IMBGameEntityExtensions/">IMBGameEntityExtensions &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

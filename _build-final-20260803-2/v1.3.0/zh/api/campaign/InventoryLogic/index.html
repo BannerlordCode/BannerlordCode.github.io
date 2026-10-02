@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InventoryLogic</title>
+  <meta name="description" content="InventoryLogic 的自动生成类参考。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="active">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="https://bannerlordcode.github.io/v1.3.15/zh/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.15/en/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/InventoryLogic/"
+               class="active">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/InventoryLogic/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/InventoryLogic/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/InventoryLogic/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/" class="">Bannerlord v1.3.0 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture (v1.3.0)</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.0/zh/api/" class="">Index</a><a href="/v1.3.0/zh/api/core/" class="">Core 核心 (v1.3.0)</a><a href="/v1.3.0/zh/api/core-extra/" class="">Core-Extra 核心扩展</a><a href="/v1.3.0/zh/api/mission/" class="">Mission 任务 (v1.3.0)</a><a href="/v1.3.0/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.0/zh/api/campaign/" class="active">Campaign 战役 (v1.3.0)</a><a href="/v1.3.0/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.0/zh/api/gui/" class="">GUI 界面</a><a href="/v1.3.0/zh/api/viewmodel/" class="">ViewModel 视图模型</a><a href="/v1.3.0/zh/api/localization/" class="">Localization 本地化</a><a href="/v1.3.0/zh/api/engine/" class="">Engine</a><a href="/v1.3.0/zh/api/gameplay/" class="">Gameplay 玩法模块</a><a href="/v1.3.0/zh/api/system/" class="">System 系统层</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/native/" class="">Native Interface (v1.3.0)</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.3.0/zh/xml-reference/" class="">XML Reference (v1.3.0)</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;">Bannerlord v1.3.0 文档 &#x2F; Bannerlord v1.3.0 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.0&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">InventoryLogic</span>
+    </nav>
+  
+  <h1>InventoryLogic</h1>
+  <h1 id="inventorylogic">InventoryLogic</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Inventory
+<strong>Module:</strong> TaleWorlds.CampaignSystem
+<strong>Type:</strong> <code>public class InventoryLogic</code>
+<strong>Base:</strong> 无
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Inventory/InventoryLogic.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>InventoryLogic</code> 更偏向行为逻辑层：它响应事件、驱动流程，并在每帧或关键节点更新系统状态。</p>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>InventoryLogic</code> 当作一个 Logic 型扩展点来理解：先确认谁创建它、谁持有它、谁调用它，再决定是继承、组合还是只读使用。</p>
+<h2 id="zhu-yao-shu-xing">主要属性</h2>
+<table><thead><tr><th>Name</th><th>Signature</th></tr></thead><tbody>
+<tr><td><code>DisableNetwork</code></td><td><code>public bool DisableNetwork { get; set; }</code></td></tr>
+<tr><td><code>TotalAmountChange</code></td><td><code>public Action&lt;int&gt; TotalAmountChange { get; set; }</code></td></tr>
+<tr><td><code>DonationXpChange</code></td><td><code>public Action DonationXpChange { get; set; }</code></td></tr>
+<tr><td><code>RightMemberRoster</code></td><td><code>public TroopRoster RightMemberRoster { get; }</code></td></tr>
+<tr><td><code>LeftMemberRoster</code></td><td><code>public TroopRoster LeftMemberRoster { get; }</code></td></tr>
+<tr><td><code>InitialEquipmentCharacter</code></td><td><code>public CharacterObject InitialEquipmentCharacter { get; }</code></td></tr>
+<tr><td><code>IsTrading</code></td><td><code>public bool IsTrading { get; }</code></td></tr>
+<tr><td><code>IsSpecialActionsPermitted</code></td><td><code>public bool IsSpecialActionsPermitted { get; }</code></td></tr>
+<tr><td><code>OwnerCharacter</code></td><td><code>public CharacterObject OwnerCharacter { get; }</code></td></tr>
+<tr><td><code>OwnerParty</code></td><td><code>public MobileParty OwnerParty { get; }</code></td></tr>
+<tr><td><code>OtherParty</code></td><td><code>public PartyBase OtherParty { get; }</code></td></tr>
+<tr><td><code>MarketData</code></td><td><code>public IMarketData MarketData { get; }</code></td></tr>
+<tr><td><code>OtherSideCapacityData</code></td><td><code>public InventoryLogic.CapacityData OtherSideCapacityData { get; }</code></td></tr>
+<tr><td><code>OtherSideCurrentWeight</code></td><td><code>public int OtherSideCurrentWeight { get; }</code></td></tr>
+<tr><td><code>LeftRosterName</code></td><td><code>public TextObject LeftRosterName { get; }</code></td></tr>
+<tr><td><code>IsDiscardDonating</code></td><td><code>public bool IsDiscardDonating { get; }</code></td></tr>
+<tr><td><code>IsOtherPartyFromPlayerClan</code></td><td><code>public bool IsOtherPartyFromPlayerClan { get; }</code></td></tr>
+<tr><td><code>InventoryListener</code></td><td><code>public InventoryListener InventoryListener { get; }</code></td></tr>
+<tr><td><code>TotalAmount</code></td><td><code>public int TotalAmount { get; }</code></td></tr>
+<tr><td><code>OppositePartyFromListener</code></td><td><code>public PartyBase OppositePartyFromListener { get; }</code></td></tr>
+<tr><td><code>CurrentSettlementComponent</code></td><td><code>public SettlementComponent CurrentSettlementComponent { get; }</code></td></tr>
+<tr><td><code>CurrentMobileParty</code></td><td><code>public MobileParty CurrentMobileParty { get; }</code></td></tr>
+<tr><td><code>TransactionDebt</code></td><td><code>public int TransactionDebt { get; }</code></td></tr>
+<tr><td><code>XpGainFromDonations</code></td><td><code>public float XpGainFromDonations { get; }</code></td></tr>
+<tr><td><code>CharacterEquipments</code></td><td><code>public Dictionary&lt;CharacterObject, Equipment &gt; CharacterEquipments { get; }</code></td></tr>
+<tr><td><code>IsSelling</code></td><td><code>public bool IsSelling { get; }</code></td></tr>
+<tr><td><code>Count</code></td><td><code>public int Count { get; }</code></td></tr>
+<tr><td><code>IsEmpty</code></td><td><code>public bool IsEmpty { get; }</code></td></tr>
+</tbody></table>
+<h2 id="zhu-yao-fang-fa">主要方法</h2>
+<h3 id="initialize">Initialize</h3>
+<p><code>public void Initialize(ItemRoster leftItemRoster, MobileParty party, bool isTrading, bool isSpecialActionsPermitted, CharacterObject initialCharacterOfRightRoster, InventoryScreenHelper.InventoryCategoryType merchantItemType, IMarketData marketData, bool useBasePrices, InventoryScreenHelper.InventoryMode inventoryMode, TextObject leftRosterName = null, TroopRoster leftMemberRoster = null, InventoryLogic.CapacityData otherSideCapacityData = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 加载当前对象所需的初始资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.Initialize(leftItemRoster, party, false, false, initialCharacterOfRightRoster, merchantItemType, marketData, false, inventoryMode, null, null, null);
+</code></pre>
+<h3 id="initialize-1">Initialize</h3>
+<p><code>public void Initialize(ItemRoster leftItemRoster, ItemRoster rightItemRoster, TroopRoster rightMemberRoster, bool isTrading, bool isSpecialActionsPermitted, CharacterObject initialCharacterOfRightRoster, InventoryScreenHelper.InventoryCategoryType merchantItemType, IMarketData marketData, bool useBasePrices, InventoryScreenHelper.InventoryMode inventoryMode, TextObject leftRosterName = null, TroopRoster leftMemberRoster = null, InventoryLogic.CapacityData otherSideCapacityData = null)</code></p>
+<p><strong>用途 / Purpose:</strong> 加载当前对象所需的初始资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.Initialize(leftItemRoster, rightItemRoster, rightMemberRoster, false, false, initialCharacterOfRightRoster, merchantItemType, marketData, false, inventoryMode, null, null, null);
+</code></pre>
+<h3 id="getitemtotalprice">GetItemTotalPrice</h3>
+<p><code>public int GetItemTotalPrice(ItemRosterElement itemRosterElement, int absStockChange, out int lastPrice, bool isBuying)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 item total price 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetItemTotalPrice(itemRosterElement, 0, lastPrice, false);
+</code></pre>
+<h3 id="setplayeraccepttraderoffer">SetPlayerAcceptTraderOffer</h3>
+<p><code>public void SetPlayerAcceptTraderOffer()</code></p>
+<p><strong>用途 / Purpose:</strong> 为 player accept trader offer 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.SetPlayerAcceptTraderOffer();
+</code></pre>
+<h3 id="donelogic">DoneLogic</h3>
+<p><code>public bool DoneLogic()</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DoneLogic 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.DoneLogic();
+</code></pre>
+<h3 id="getboughtitems">GetBoughtItems</h3>
+<p><code>public List&lt;ValueTuple&lt;ItemRosterElement, int&gt;&gt; GetBoughtItems()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 bought items 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetBoughtItems();
+</code></pre>
+<h3 id="getsolditems">GetSoldItems</h3>
+<p><code>public List&lt;ValueTuple&lt;ItemRosterElement, int&gt;&gt; GetSoldItems()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 sold items 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetSoldItems();
+</code></pre>
+<h3 id="caninventorycapacityincrease">CanInventoryCapacityIncrease</h3>
+<p><code>public bool CanInventoryCapacityIncrease(InventoryLogic.InventorySide side)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否满足 inventory capacity increase 的前置条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.CanInventoryCapacityIncrease(side);
+</code></pre>
+<h3 id="getcanitemincreaseinventorycapacity">GetCanItemIncreaseInventoryCapacity</h3>
+<p><code>public bool GetCanItemIncreaseInventoryCapacity(ItemObject item)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 can item increase inventory capacity 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetCanItemIncreaseInventoryCapacity(item);
+</code></pre>
+<h3 id="getaveragepricefactoritemcategory">GetAveragePriceFactorItemCategory</h3>
+<p><code>public float GetAveragePriceFactorItemCategory(ItemCategory category)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 average price factor item category 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetAveragePriceFactorItemCategory(category);
+</code></pre>
+<h3 id="isthereanychanges">IsThereAnyChanges</h3>
+<p><code>public bool IsThereAnyChanges()</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 there any changes 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.IsThereAnyChanges();
+</code></pre>
+<h3 id="reset">Reset</h3>
+<p><code>public void Reset(bool fromCancel)</code></p>
+<p><strong>用途 / Purpose:</strong> 将当前对象重置为默认或初始状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.Reset(false);
+</code></pre>
+<h3 id="canplayercompletetransaction">CanPlayerCompleteTransaction</h3>
+<p><code>public bool CanPlayerCompleteTransaction()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否满足 player complete transaction 的前置条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.CanPlayerCompleteTransaction();
+</code></pre>
+<h3 id="canslaughteritem">CanSlaughterItem</h3>
+<p><code>public bool CanSlaughterItem(ItemRosterElement element, InventoryLogic.InventorySide sideOfItem)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否满足 slaughter item 的前置条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.CanSlaughterItem(element, sideOfItem);
+</code></pre>
+<h3 id="isslaughterable">IsSlaughterable</h3>
+<p><code>public bool IsSlaughterable(ItemObject item)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 slaughterable 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.IsSlaughterable(item);
+</code></pre>
+<h3 id="candonateitem">CanDonateItem</h3>
+<p><code>public bool CanDonateItem(ItemRosterElement element, InventoryLogic.InventorySide sideOfItem)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否满足 donate item 的前置条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.CanDonateItem(element, sideOfItem);
+</code></pre>
+<h3 id="isdonatable">IsDonatable</h3>
+<p><code>public bool IsDonatable(ItemObject item)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 donatable 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.IsDonatable(item);
+</code></pre>
+<h3 id="setinventorylistener">SetInventoryListener</h3>
+<p><code>public void SetInventoryListener(InventoryListener inventoryListener)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 inventory listener 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.SetInventoryListener(inventoryListener);
+</code></pre>
+<h3 id="getitemprice">GetItemPrice</h3>
+<p><code>public int GetItemPrice(EquipmentElement equipmentElement, bool isBuying = false)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 item price 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetItemPrice(equipmentElement, false);
+</code></pre>
+<h3 id="getcostofitemrosterelement">GetCostOfItemRosterElement</h3>
+<p><code>public int GetCostOfItemRosterElement(ItemRosterElement itemRosterElement, InventoryLogic.InventorySide side)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 cost of item roster element 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetCostOfItemRosterElement(itemRosterElement, side);
+</code></pre>
+<h3 id="addtransfercommand">AddTransferCommand</h3>
+<p><code>public void AddTransferCommand(TransferCommand command)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 transfer command 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.AddTransferCommand(command);
+</code></pre>
+<h3 id="addtransfercommands">AddTransferCommands</h3>
+<p><code>public void AddTransferCommands(IEnumerable&lt;TransferCommand&gt; commands)</code></p>
+<p><strong>用途 / Purpose:</strong> 将 transfer commands 添加到当前容器或状态中。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.AddTransferCommands(commands);
+</code></pre>
+<h3 id="checkitemrosterhaselement">CheckItemRosterHasElement</h3>
+<p><code>public bool CheckItemRosterHasElement(InventoryLogic.InventorySide side, ItemRosterElement rosterElement, int number)</code></p>
+<p><strong>用途 / Purpose:</strong> 检查item roster has element在当前对象中是否成立。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.CheckItemRosterHasElement(side, rosterElement, 0);
+</code></pre>
+<h3 id="isequipmentside">IsEquipmentSide</h3>
+<p><code>public static bool IsEquipmentSide(InventoryLogic.InventorySide side)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 equipment side 状态或条件。</p>
+<pre><code data-lang="csharp">// 静态调用，不需要实例
+InventoryLogic.IsEquipmentSide(side);
+</code></pre>
+<h3 id="slaughteritem">SlaughterItem</h3>
+<p><code>public void SlaughterItem(ItemRosterElement itemRosterElement)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 SlaughterItem 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.SlaughterItem(itemRosterElement);
+</code></pre>
+<h3 id="donateitem">DonateItem</h3>
+<p><code>public void DonateItem(ItemRosterElement itemRosterElement)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 DonateItem 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.DonateItem(itemRosterElement);
+</code></pre>
+<h3 id="transferone">TransferOne</h3>
+<p><code>public void TransferOne(ItemRosterElement itemRosterElement)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TransferOne 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.TransferOne(itemRosterElement);
+</code></pre>
+<h3 id="getelementcountonside">GetElementCountOnSide</h3>
+<p><code>public int GetElementCountOnSide(InventoryLogic.InventorySide side)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 element count on side 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetElementCountOnSide(side);
+</code></pre>
+<h3 id="getelementsininitialroster">GetElementsInInitialRoster</h3>
+<p><code>public IReadOnlyList&lt;ItemRosterElement&gt; GetElementsInInitialRoster(InventoryLogic.InventorySide side)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 elements in initial roster 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetElementsInInitialRoster(side);
+</code></pre>
+<h3 id="getelementsinroster">GetElementsInRoster</h3>
+<p><code>public IReadOnlyList&lt;ItemRosterElement&gt; GetElementsInRoster(InventoryLogic.InventorySide side)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 elements in roster 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetElementsInRoster(side);
+</code></pre>
+<h3 id="finditemfromside">FindItemFromSide</h3>
+<p><code>public ItemRosterElement? FindItemFromSide(InventoryLogic.InventorySide side, EquipmentElement item)</code></p>
+<p><strong>用途 / Purpose:</strong> 在当前集合/范围内查找满足条件的item from side。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.FindItemFromSide(side, item);
+</code></pre>
+<h3 id="afterresetdelegate">AfterResetDelegate</h3>
+<p><code>public delegate void AfterResetDelegate(InventoryLogic inventoryLogic, bool fromCancel)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 AfterResetDelegate 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.AfterResetDelegate(inventoryLogic, false);
+</code></pre>
+<h3 id="totalamountchangedelegate">TotalAmountChangeDelegate</h3>
+<p><code>public delegate void TotalAmountChangeDelegate(int newTotalAmount)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 TotalAmountChangeDelegate 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.TotalAmountChangeDelegate(0);
+</code></pre>
+<h3 id="processresultlistdelegate">ProcessResultListDelegate</h3>
+<p><code>public delegate void ProcessResultListDelegate(InventoryLogic inventoryLogic, List&lt;TransferCommandResult&gt; results)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 ProcessResultListDelegate 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.ProcessResultListDelegate(inventoryLogic, results);
+</code></pre>
+<h3 id="initializecopyfrom">InitializeCopyFrom</h3>
+<p><code>public void InitializeCopyFrom(MobileParty party)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 copy from 初始化必要的资源、状态或绑定。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.InitializeCopyFrom(party);
+</code></pre>
+<h3 id="setreference">SetReference</h3>
+<p><code>public void SetReference(InventoryLogic.PartyEquipment partyEquipment)</code></p>
+<p><strong>用途 / Purpose:</strong> 为 reference 赋新值，并同步更新对象内部状态。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.SetReference(partyEquipment);
+</code></pre>
+<h3 id="isequal">IsEqual</h3>
+<p><code>public bool IsEqual(InventoryLogic.PartyEquipment partyEquipment)</code></p>
+<p><strong>用途 / Purpose:</strong> 判断当前对象是否处于 equal 状态或条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.IsEqual(partyEquipment);
+</code></pre>
+<h3 id="recordtransaction">RecordTransaction</h3>
+<p><code>public void RecordTransaction(int price, bool isSelling)</code></p>
+<p><strong>用途 / Purpose:</strong> 调用 RecordTransaction 对应的操作。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.RecordTransaction(0, false);
+</code></pre>
+<h3 id="getlasttransaction">GetLastTransaction</h3>
+<p><code>public bool GetLastTransaction(out int price, out bool isSelling)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 last transaction 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetLastTransaction(price, isSelling);
+</code></pre>
+<h3 id="getenumerator">GetEnumerator</h3>
+<p><code>public IEnumerator&lt;int&gt; GetEnumerator()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 enumerator 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetEnumerator();
+</code></pre>
+<h3 id="getcapacity">GetCapacity</h3>
+<p><code>public int GetCapacity()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 capacity 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetCapacity();
+</code></pre>
+<h3 id="canforcetransaction">CanForceTransaction</h3>
+<p><code>public bool CanForceTransaction()</code></p>
+<p><strong>用途 / Purpose:</strong> 检查当前对象是否满足 force transaction 的前置条件。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.CanForceTransaction();
+</code></pre>
+<h3 id="getcapacityexceededwarningtext">GetCapacityExceededWarningText</h3>
+<p><code>public TextObject GetCapacityExceededWarningText()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 capacity exceeded warning text 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetCapacityExceededWarningText();
+</code></pre>
+<h3 id="getcapacityexceededhinttext">GetCapacityExceededHintText</h3>
+<p><code>public TextObject GetCapacityExceededHintText()</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 capacity exceeded hint text 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetCapacityExceededHintText();
+</code></pre>
+<h3 id="clear">Clear</h3>
+<p><code>public void Clear()</code></p>
+<p><strong>用途 / Purpose:</strong> 清空当前对象中的内容。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+inventoryLogic.Clear();
+</code></pre>
+<h3 id="getlasttransfer">GetLastTransfer</h3>
+<p><code>public bool GetLastTransfer(EquipmentElement equipmentElement, out int lastPrice, out bool lastIsSelling)</code></p>
+<p><strong>用途 / Purpose:</strong> 读取并返回当前对象中 last transfer 的结果。</p>
+<pre><code data-lang="csharp">// 先通过子系统 API 拿到 InventoryLogic 实例
+InventoryLogic inventoryLogic = ...;
+var result = inventoryLogic.GetLastTransfer(equipmentElement, lastPrice, lastIsSelling);
+</code></pre>
+<h2 id="shi-yong-shi-li">使用示例</h2>
+<pre><code data-lang="csharp">var behavior = Mission.Current.GetMissionBehavior&lt;InventoryLogic&gt;();
+</code></pre>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li><a href="../">本区域目录</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.0/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.0/zh/api/campaign/ImportanceEnum/">&larr; ImportanceEnum</a>
+          
+          
+            <a rel="next" href="/v1.3.0/zh/api/campaign/CampaignBehaviorDataStore/">CampaignBehaviorDataStore &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

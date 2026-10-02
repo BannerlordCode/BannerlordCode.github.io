@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>save-system index</title>
+  <meta name="description" content="Save system class reference index">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="active">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/save-system/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/save-system/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/save-system/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/save-system/"
+               class="active">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.4.5/en/" class="">Bannerlord v1.4.5</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><a href="/v1.4.5/en/guide/" class="">Getting Started Guide</a></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>v1.4.5 Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/architecture/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.4.5/en/api/" class="">Index</a><a href="/v1.4.5/en/api/core/" class="">Core</a><a href="/v1.4.5/en/api/core-extra/" class="">Core-Extra</a><a href="/v1.4.5/en/api/mission/" class="">Mission</a><a href="/v1.4.5/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.4.5/en/api/campaign/" class="">Campaign</a><a href="/v1.4.5/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.4.5/en/api/gui/" class="">GUI</a><a href="/v1.4.5/en/api/save-system/" class="active">Save System</a><a href="/v1.4.5/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.4.5/en/api/localization/" class="">Localization</a><a href="/v1.4.5/en/api/engine/" class="">Engine</a><a href="/v1.4.5/en/api/gameplay/" class="">Gameplay</a><a href="/v1.4.5/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><a href="/v1.4.5/en/native/" class="">Native Reference</a></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><a href="/v1.4.5/en/xml-reference/" class="">XML Reference</a></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;">Bannerlord v1.4.5</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">save-system index</span>
+    </nav>
+  
+  <h1>save-system index</h1>
+  <!-- BEGIN SECTION INDEX -->
+<h2 id="parent-navigation">Parent Navigation</h2>
+<ul>
+<li><a href="../">API Reference</a></li>
+<li><a href="../../">Version Home</a></li>
+</ul>
+<h2 id="child-classes-alphabetical">Child Classes — Alphabetical</h2>
+<h3 id="a">A</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ArchiveConcurrentSerializer">ArchiveConcurrentSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ArchiveDeserializer">ArchiveDeserializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ArchiveSerializer">ArchiveSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./AsyncFileSaveDriver">AsyncFileSaveDriver</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./AutoGeneratedSaveManager">AutoGeneratedSaveManager</a></li>
+</ul>
+<h3 id="b">B</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./BasicTypeDefinition">BasicTypeDefinition</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./BinaryWriterFactory">BinaryWriterFactory</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./BoolBasicTypeSerializer">BoolBasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ByteBasicTypeSerializer">ByteBasicTypeSerializer</a></li>
+</ul>
+<h3 id="c">C</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ColorBasicTypeSerializer">ColorBasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ContainerDefinition">ContainerDefinition</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ContainerHeaderLoadData">ContainerHeaderLoadData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ContainerLoadData">ContainerLoadData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ContainerSaveData">ContainerSaveData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ContainerSaveId">ContainerSaveId</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ContainerType">ContainerType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./CustomField">CustomField</a></li>
+</ul>
+<h3 id="d">D</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./DefinitionContext">DefinitionContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./DoubleBasicTypeSerializer">DoubleBasicTypeSerializer</a></li>
+</ul>
+<h3 id="e">E</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ElementLoadData">ElementLoadData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ElementSaveData">ElementSaveData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./EntryId">EntryId</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./EnumDefinition">EnumDefinition</a></li>
+</ul>
+<h3 id="f">F</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./FieldDefinition">FieldDefinition</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./FieldLoadData">FieldLoadData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./FieldSaveData">FieldSaveData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./FileDriver">FileDriver</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./FloatBasicTypeSerializer">FloatBasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./FolderId">FolderId</a></li>
+</ul>
+<h3 id="g">G</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./GameData">GameData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./GenericSaveId">GenericSaveId</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./GenericTypeDefinition">GenericTypeDefinition</a></li>
+</ul>
+<h3 id="i">I</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./IArchiveContext">IArchiveContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./IAutoGeneratedSaveManager">IAutoGeneratedSaveManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./IBasicTypeSerializer">IBasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./IConflictResolver">IConflictResolver</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./IEnumResolver">IEnumResolver</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./InMemDriver">InMemDriver</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./IntBasicTypeSerializer">IntBasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./InterfaceDefinition">InterfaceDefinition</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./IObjectResolver">IObjectResolver</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ISaveContext">ISaveContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ISaveDriver">ISaveDriver</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ISavedStruct">ISavedStruct</a></li>
+</ul>
+<h3 id="l">L</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./LateLoadInitializationCallback">LateLoadInitializationCallback</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./LegacyGameDataDeserializer">LegacyGameDataDeserializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./LegacySaveContext">LegacySaveContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./LoadCallbackInitializator">LoadCallbackInitializator</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./LoadContext">LoadContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./LoadData">LoadData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./LoadError">LoadError</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./LoadInitializationCallback">LoadInitializationCallback</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./LoadResult">LoadResult</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./LongBasicTypeSerializer">LongBasicTypeSerializer</a></li>
+</ul>
+<h3 id="m">M</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./Mat2BasicTypeSerializer">Mat2BasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./Mat3BasicTypeSerializer">Mat3BasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./MatrixFrameBasicTypeSerializer">MatrixFrameBasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./MemberDefinition">MemberDefinition</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./MemberLoadData">MemberLoadData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./MemberSaveData">MemberSaveData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./MemberTypeId">MemberTypeId</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./MetaData">MetaData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./MetaDataExtensions">MetaDataExtensions</a></li>
+</ul>
+<h3 id="o">O</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ObjectHeaderLoadData">ObjectHeaderLoadData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ObjectLoadData">ObjectLoadData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ObjectSaveData">ObjectSaveData</a></li>
+</ul>
+<h3 id="p">P</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./PropertyDefinition">PropertyDefinition</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./PropertyLoadData">PropertyLoadData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./PropertySaveData">PropertySaveData</a></li>
+</ul>
+<h3 id="q">Q</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./QuaternionBasicTypeSerializer">QuaternionBasicTypeSerializer</a></li>
+</ul>
+<h3 id="s">S</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveableBasicTypeDefiner">SaveableBasicTypeDefiner</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveableFieldAttribute">SaveableFieldAttribute</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveableInterfaceAttribute">SaveableInterfaceAttribute</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveablePropertyAttribute">SaveablePropertyAttribute</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveableRootClassAttribute">SaveableRootClassAttribute</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveableTypeDefiner">SaveableTypeDefiner</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveCodeGenerationContext">SaveCodeGenerationContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveCodeGenerationContextAssembly">SaveCodeGenerationContextAssembly</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveContext">SaveContext</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SavedMemberType">SavedMemberType</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveEntry">SaveEntry</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveEntryExtension">SaveEntryExtension</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveEntryFolder">SaveEntryFolder</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveError">SaveError</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveFolderExtension">SaveFolderExtension</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveGameFileInfo">SaveGameFileInfo</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveId">SaveId</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveManager">SaveManager</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveOutput">SaveOutput</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SaveStatistics">SaveStatistics</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./SbyteBasicTypeSerializer">SbyteBasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ShortBasicTypeSerializer">ShortBasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./StringSerializer">StringSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./StructDefinition">StructDefinition</a></li>
+</ul>
+<h3 id="t">T</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./TypeDefinition">TypeDefinition</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./TypeDefinitionBase">TypeDefinitionBase</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./TypeExtensions">TypeExtensions</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./TypeSaveId">TypeSaveId</a></li>
+</ul>
+<h3 id="u">U</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./UintBasicTypeSerializer">UintBasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./UlongBasicTypeSerializer">UlongBasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./UshortBasicTypeSerializer">UshortBasicTypeSerializer</a></li>
+</ul>
+<h3 id="v">V</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./VariableLoadData">VariableLoadData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./VariableSaveData">VariableSaveData</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./Vec2BasicTypeSerializer">Vec2BasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./Vec2iBasicTypeSerializer">Vec2iBasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./Vec3BasicTypeSerializer">Vec3BasicTypeSerializer</a></li>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./Vec3iBasicTypeSerializer">Vec3iBasicTypeSerializer</a></li>
+</ul>
+<h3 id="z">Z</h3>
+<ul>
+<li><a href="https://bannerlordcode.github.io/v1.4.5/en/api/save-system/./ZipExtensions">ZipExtensions</a></li>
+</ul>
+<!-- END SECTION INDEX -->
+
+</article>
+<hr>
+<ul>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveStatistics&#x2F;">SaveStatistics</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;IObjectResolver&#x2F;">IObjectResolver</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ISavedStruct&#x2F;">ISavedStruct</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;MemberLoadData&#x2F;">MemberLoadData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;IntBasicTypeSerializer&#x2F;">IntBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;LoadData&#x2F;">LoadData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;MemberTypeId&#x2F;">MemberTypeId</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;FloatBasicTypeSerializer&#x2F;">FloatBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;EnumDefinition&#x2F;">EnumDefinition</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;FileDriver&#x2F;">FileDriver</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;GenericSaveId&#x2F;">GenericSaveId</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ArchiveSerializer&#x2F;">ArchiveSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveableTypeDefiner&#x2F;">SaveableTypeDefiner</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;StringSerializer&#x2F;">StringSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ElementLoadData&#x2F;">ElementLoadData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveContext&#x2F;">SaveContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ObjectSaveData&#x2F;">ObjectSaveData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SbyteBasicTypeSerializer&#x2F;">SbyteBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ContainerHeaderLoadData&#x2F;">ContainerHeaderLoadData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ISaveContext&#x2F;">ISaveContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;TypeSaveId&#x2F;">TypeSaveId</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;AsyncFileSaveDriver&#x2F;">AsyncFileSaveDriver</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;CustomField&#x2F;">CustomField</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ContainerSaveData&#x2F;">ContainerSaveData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveableFieldAttribute&#x2F;">SaveableFieldAttribute</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveCodeGenerationContextAssembly&#x2F;">SaveCodeGenerationContextAssembly</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;GameData&#x2F;">GameData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ContainerDefinition&#x2F;">ContainerDefinition</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;PropertyDefinition&#x2F;">PropertyDefinition</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ObjectLoadData&#x2F;">ObjectLoadData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveableRootClassAttribute&#x2F;">SaveableRootClassAttribute</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ZipExtensions&#x2F;">ZipExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;EntryId&#x2F;">EntryId</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;FieldLoadData&#x2F;">FieldLoadData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;UintBasicTypeSerializer&#x2F;">UintBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ContainerLoadData&#x2F;">ContainerLoadData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;FieldSaveData&#x2F;">FieldSaveData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;BasicTypeDefinition&#x2F;">BasicTypeDefinition</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;QuaternionBasicTypeSerializer&#x2F;">QuaternionBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveablePropertyAttribute&#x2F;">SaveablePropertyAttribute</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;TypeDefinitionBase&#x2F;">TypeDefinitionBase</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveableInterfaceAttribute&#x2F;">SaveableInterfaceAttribute</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;FieldDefinition&#x2F;">FieldDefinition</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SavedMemberType&#x2F;">SavedMemberType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ElementSaveData&#x2F;">ElementSaveData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;LoadInitializationCallback&#x2F;">LoadInitializationCallback</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;LoadContext&#x2F;">LoadContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ObjectHeaderLoadData&#x2F;">ObjectHeaderLoadData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ContainerType&#x2F;">ContainerType</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;VariableSaveData&#x2F;">VariableSaveData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveCodeGenerationContext&#x2F;">SaveCodeGenerationContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ColorBasicTypeSerializer&#x2F;">ColorBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;BinaryWriterFactory&#x2F;">BinaryWriterFactory</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveError&#x2F;">SaveError</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;MetaDataExtensions&#x2F;">MetaDataExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;IArchiveContext&#x2F;">IArchiveContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ISaveDriver&#x2F;">ISaveDriver</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveFolderExtension&#x2F;">SaveFolderExtension</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;LongBasicTypeSerializer&#x2F;">LongBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;InterfaceDefinition&#x2F;">InterfaceDefinition</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveManager&#x2F;">SaveManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;AutoGeneratedSaveManager&#x2F;">AutoGeneratedSaveManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveId&#x2F;">SaveId</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;UlongBasicTypeSerializer&#x2F;">UlongBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveEntry&#x2F;">SaveEntry</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;FolderId&#x2F;">FolderId</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;TypeDefinition&#x2F;">TypeDefinition</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;TypeExtensions&#x2F;">TypeExtensions</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ByteBasicTypeSerializer&#x2F;">ByteBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveableBasicTypeDefiner&#x2F;">SaveableBasicTypeDefiner</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;IAutoGeneratedSaveManager&#x2F;">IAutoGeneratedSaveManager</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;DoubleBasicTypeSerializer&#x2F;">DoubleBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;Vec2iBasicTypeSerializer&#x2F;">Vec2iBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;PropertySaveData&#x2F;">PropertySaveData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;LateLoadInitializationCallback&#x2F;">LateLoadInitializationCallback</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;InMemDriver&#x2F;">InMemDriver</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;LoadError&#x2F;">LoadError</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;DefinitionContext&#x2F;">DefinitionContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;LegacyGameDataDeserializer&#x2F;">LegacyGameDataDeserializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveGameFileInfo&#x2F;">SaveGameFileInfo</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;IEnumResolver&#x2F;">IEnumResolver</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;MemberSaveData&#x2F;">MemberSaveData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;Vec2BasicTypeSerializer&#x2F;">Vec2BasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;StructDefinition&#x2F;">StructDefinition</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ArchiveDeserializer&#x2F;">ArchiveDeserializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ContainerSaveId&#x2F;">ContainerSaveId</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;LegacySaveContext&#x2F;">LegacySaveContext</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;Vec3iBasicTypeSerializer&#x2F;">Vec3iBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ArchiveConcurrentSerializer&#x2F;">ArchiveConcurrentSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;Mat2BasicTypeSerializer&#x2F;">Mat2BasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;BoolBasicTypeSerializer&#x2F;">BoolBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;GenericTypeDefinition&#x2F;">GenericTypeDefinition</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;IConflictResolver&#x2F;">IConflictResolver</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;LoadResult&#x2F;">LoadResult</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;ShortBasicTypeSerializer&#x2F;">ShortBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveEntryFolder&#x2F;">SaveEntryFolder</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;LoadCallbackInitializator&#x2F;">LoadCallbackInitializator</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;Mat3BasicTypeSerializer&#x2F;">Mat3BasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveOutput&#x2F;">SaveOutput</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;IBasicTypeSerializer&#x2F;">IBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;SaveEntryExtension&#x2F;">SaveEntryExtension</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;MatrixFrameBasicTypeSerializer&#x2F;">MatrixFrameBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;MemberDefinition&#x2F;">MemberDefinition</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;MetaData&#x2F;">MetaData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;UshortBasicTypeSerializer&#x2F;">UshortBasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;VariableLoadData&#x2F;">VariableLoadData</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;Vec3BasicTypeSerializer&#x2F;">Vec3BasicTypeSerializer</a></li>
+  
+    <li><a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.4.5&#x2F;en&#x2F;api&#x2F;save-system&#x2F;PropertyLoadData&#x2F;">PropertyLoadData</a></li>
+  
+  
+</ul>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -360,7 +360,7 @@ public class InitBehavior : CampaignBehaviorBase
 - **Event ordering is not guaranteed.** `OnMissionStartedEvent` and `AfterMissionStarted` exist separately precisely because of that: when you need "battle fully ready", use the latter.
 - **Intermediate state during callbacks.** Events fire while the engine mutates the world, so reading the just-changed object can return partial data. Habit: mark in the callback, act on a tick.
 - **A wrong owner leaks listeners.** Registering under a temporary lambda host that `ClearListeners` can never match leaves callbacks attached to dead objects. Always pass a stable `this`.
-- **Cross-layer access.** Reading `Mission.Current` or `Agent.MainAgent` from a campaign event crosses layers; the mission may not exist yet or may already be gone. Battle logic belongs in [MissionBehavior](../../mission/MissionBehavior).
+- **Cross-layer access.** Reading `Mission.Current` or `Agent.MainAgent` from a campaign event crosses layers; the mission may not exist yet or may already be gone. Battle logic belongs in `MissionBehavior`, which has no English page ([zh `MissionBehavior`](../../../../zh/api/mission/MissionBehavior)).
 - **Single-thread.** Every `IMbEvent.Invoke` happens on the main game thread. Triggering an `Invoke` from a network sync callback races the main thread over the collections.
 - **Static properties, short-lived instance.** The `CampaignEvents` instance lives and dies with the campaign; caching an `IMbEvent` handle in a static field and reusing it across campaigns points at a dead instance.
 - **The private fields in source are not API.** Fields like `_heroLevelledUp` are bulk-cleared by `RemoveListeners`; that is the engine's internal owner bookkeeping.
@@ -374,9 +374,9 @@ public class InitBehavior : CampaignBehaviorBase
   - [CampaignBehaviorBase](../CampaignBehaviorBase) is the most common event host — subscribing in `RegisterEvents`, persisting in `SyncData`.
   - [CampaignGameStarter](../CampaignGameStarter) arrives in mods through `OnSessionLaunchedEvent` and friends.
   - [IFaction](../IFaction) state transitions (clan defection, kingdom destruction, war declaration) are broadcast through here.
-  - Battle-layer events live in [MissionBehavior](../../mission/MissionBehavior), on a separate bus from this one.
+  - Battle-layer events live in `MissionBehavior`, on a separate bus from this one ([zh `MissionBehavior`](../../../../zh/api/mission/MissionBehavior) — no English page).
 
 ## See Also
 
 - ↑ Parent: [Campaign API index](../)
-- ↔ Related: [Campaign](../Campaign) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [CampaignGameStarter](../CampaignGameStarter) · [IFaction](../IFaction) · [MissionBehavior](../../mission/MissionBehavior)
+- ↔ Related: [Campaign](../Campaign) · [CampaignBehaviorBase](../CampaignBehaviorBase) · [CampaignGameStarter](../CampaignGameStarter) · [IFaction](../IFaction) · zh [MissionBehavior](../../../../zh/api/mission/MissionBehavior) (no English page; see [the gap list](../../../../GAPS))

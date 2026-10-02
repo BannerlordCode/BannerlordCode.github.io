@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SiegeEvent</title>
+  <meta name="description" content="战役地图上一次围城（攻城&#x2F;守城）的完整运行时状态机：它持有被围据点、攻城营与攻守双方的攻城器械建造&#x2F;轰击进度，并在战役每日 tick 中推进战略、建造与炮击，直到围城被撤走或分出胜负。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign-ext/SiegeEvent/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign-ext/SiegeEvent/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/zh/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.3.0/en/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/zh/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="https://bannerlordcode.github.io/v1.4.5/en/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="active">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign-ext&#x2F;">campaign-ext 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">SiegeEvent</span>
+    </nav>
+  
+  <h1>SiegeEvent</h1>
+  <h1 id="siegeevent">SiegeEvent</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Siege<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public class SiegeEvent</code><br />
+<strong>Base:</strong> 无（不继承任何类，也不是 <code>MBObjectBase</code>，因此不能通过 <code>MBObjectManager</code> 取得）<br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Siege/SiegeEvent.cs</code></p>
+<h2 id="gai-shu">概述</h2>
+<p><code>SiegeEvent</code> 表示战役地图上<strong>正在进行的一次围城</strong>：某支部队正在围攻某个据点。它把这次围城的"真相"集中在一个对象里——被围的据点、攻城营、攻守双方的攻城器械（建造进度 / 血量 / 重新部署进度）、海上封锁状态，以及每帧如何推进建造与炮击。它是战役<strong>战略层</strong>的对象，与真正开打时的战斗（<code>MapEvent</code> + 任务场景）相互独立：围城在战斗之外照常运转，战斗只是围城过程中的一个插曲。</p>
+<blockquote>
+<p>注意：<code>SiegeEvent</code> 不是 <code>MBObjectBase</code> 的子类，所以<strong>没有</strong> <code>MBObjectManager.Instance.GetObject&lt;SiegeEvent&gt;</code> 这种取法。拿到它的唯一现实入口是 <code>Settlement.SiegeEvent</code>、玩家参与的 <code>PlayerSiege.PlayerSiegeEvent</code>，或 <code>Campaign.Current.SiegeEventManager.SiegeEvents</code>。详见下文「如何获取 SiegeEvent」。</p>
+</blockquote>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>SiegeEvent</code> 想成**"一个据点头顶上挂着的围城记事板"**：</p>
+<ul>
+<li><strong>它是什么</strong>：围城期间，被围据点 <code>Settlement.SiegeEvent</code> 指向同一个 <code>SiegeEvent</code> 实例；攻城方 <code>MobileParty.BesiegerCamp</code> 也反向挂在这个对象上。它不负责打战斗，只负责"围"——布器械、造器械、轰城墙、算伤亡、最终由撤离或战斗结果收尾。</li>
+<li><strong>谁创建 / 持有</strong>：由 <code>Campaign.Current.SiegeEventManager</code> 通过 <code>StartSiegeEvent(settlement, attackerParty)</code> 创建，并被放进 <code>SiegeEventManager</code> 内部的 <code>MBList&lt;SiegeEvent&gt;</code>。引擎在战役每日 tick 里遍历这个列表对每个围城调用 <code>Tick</code>。<strong>mod 不应自己 <code>new SiegeEvent(...)</code></strong>——围城由遭遇流程（玩家选择围城菜单或 AI 抵达据点）触发创建。</li>
+<li><strong>生命周期</strong>：<code>StartSiegeEvent</code> → 构造函数写入 <code>settlement.SiegeEvent</code>、建 <code>BesiegerCamp</code>、给攻城主将与据点所属家族首领之间施加 -5 关系、记录 <code>SiegeStartTime</code>、有港口且带船时自动开封锁、广播 <code>OnSiegeEventStarted</code> → 之后每日 <code>Tick</code> 推进建造/炮击/战略 → 攻城方撤离或突击/出城战分出胜负 → <code>OnBeforeSiegeEventEnd</code> 记录胜负 → <code>FinalizeSiegeEvent</code> 收尾并把 <code>Settlement.SiegeEvent</code> 清空（<code>ReadyToBeRemoved</code> 变 true）→ <code>SiegeEventManager</code> 在下一次 tick 把它从列表移除。</li>
+<li><strong>所在层</strong>：战役（Campaign）战略层，非任务（Mission）层。真正开打时，<code>PlayerSiege.StartSiegeMission</code> 会调用 <code>GetPreparedAndActiveSiegeEngines</code> 把本对象的器械"投影"成任务场景里的 <code>MissionSiegeWeapon</code>。</li>
+<li><strong>与 <code>MapEvent</code> 的关系</strong>：围城中的突击（Assault）、出城（SallyOut）等战斗各自是一次 <code>MapEvent</code>；<code>SiegeEvent.Tick</code> 在任意一方的 <code>MapEvent</code> 仍活跃时会<strong>跳过</strong>引擎推进，避免与战斗逻辑冲突。战斗结算后通过 <code>OnBeforeSiegeEventEnd</code> 把胜负写回围城。</li>
+<li><strong>何时用</strong>：读取/判断当前围城状态（被围据点、攻城方、器械进度、是否玩家围城）、在菜单/任务里决定 AI 战术、查询参战方、编程式摧毁某台器械、或让攻城方合法撤离（<code>LiftSiegeAction</code>）。</li>
+<li><strong>何时不要用</strong>：不要自己 <code>new SiegeEvent</code>、不要直接把 <code>Settlement.SiegeEvent = null</code>、不要在战斗/任务期间手动调 <code>Tick</code>/<code>ConstructionTick</code>/<code>BombardTick</code>/<code>AdvanceStrategy</code>（见风险段）；结束围城请用 <code>LiftSiegeAction</code> 而非手动 <code>FinalizeSiegeEvent</code>。</li>
+<li><strong>依赖</strong>：创建/持有依赖 <code>SiegeEventManager</code>、<code>Settlement</code>、<code>MobileParty</code>；推进依赖 <code>SiegeEventModel</code>（建造速度/伤害/命中率）与 <code>SiegeStrategyActionModel</code>（每帧决定造什么）；攻守两侧统一表现为 <code>ISiegeEventSide</code>（<code>BesiegerCamp</code> 为攻方，<code>Settlement</code> 本身即守方）。</li>
+<li><strong>失败模式</strong>：见下方「风险段」。</li>
+</ul>
+<h2 id="ru-he-huo-qu-siegeevent">如何获取 SiegeEvent</h2>
+<pre><code data-lang="csharp">// 1) 从据点拿到它正在进行的围城（最常用）
+Settlement besieged = MobileParty.MainParty.BesiegedSettlement;
+SiegeEvent siegeEvent = besieged?.SiegeEvent;   // 不在被围时为 null
+
+// 2) 玩家当前正在参与的围城（无论攻方还是守方）
+SiegeEvent playerSiege = PlayerSiege.PlayerSiegeEvent;
+
+// 3) 遍历世界上所有进行中的围城
+foreach (SiegeEvent evt in Campaign.Current.SiegeEventManager.SiegeEvents)
+{
+    if (evt.ReadyToBeRemoved)
+        continue;
+    // evt.BesiegedSettlement / evt.BesiegerCamp ...
+}
+</code></pre>
+<h2 id="yi-lai-tu">依赖图</h2>
+<h3 id="shang-you-chuang-jian-chi-you">上游（创建 / 持有）</h3>
+<ul>
+<li><a href="../SiegeEventManager/">SiegeEventManager</a> — 唯一创建入口 <code>StartSiegeEvent</code>，持有 <code>MBList&lt;SiegeEvent&gt;</code>，驱动每日 <code>Tick</code>，读档时 <code>OnAfterLoad</code>。</li>
+<li><a href="../../campaign/Settlement/">Settlement</a> — <code>BesiegedSettlement</code>；据点把自身 <code>.SiegeEvent</code> 指向本对象，是"这个据点是否被围"的真相源。</li>
+<li><a href="../../campaign/MobileParty/">MobileParty</a> — 攻城方领袖 <code>BesiegerCamp.LeaderParty</code>，以及 <code>MobileParty.BesiegedSettlement</code> / <code>.BesiegerCamp</code> 反向关联。</li>
+<li><a href="../EncounterManager/">EncounterManager</a> — 在部队抵达据点时触发 <code>StartSiegeEvent</code>。</li>
+</ul>
+<h3 id="xia-you-xiao-fei-fang">下游 / 消费方</h3>
+<ul>
+<li><a href="../SiegeEventCampaignBehavior/">SiegeEventCampaignBehavior</a> — 订阅围城相关事件、提供 <code>menu_siege_strategies</code> 等围城菜单、设置默认战术。</li>
+<li><a href="../PlayerSiege/">PlayerSiege</a> — 玩家围城的静态入口；<code>PlayerSiegeEvent</code> 即"玩家当前参与的 SiegeEvent"。</li>
+<li><a href="../SiegeAftermathCampaignBehavior/">SiegeAftermathCampaignBehavior</a> / <a href="../SiegeAftermathAction/">SiegeAftermathAction</a> — 围城分出胜负后处理占领/附庸等后果。</li>
+<li><a href="../LiftSiegeAction/">LiftSiegeAction</a> — 结束/撤离围城的<strong>正确</strong>入口（清掉攻城方，使 <code>Settlement.SiegeEvent</code> 置空）。</li>
+</ul>
+<h3 id="xiang-guan-shi-jian-mo-xing-shu-ju">相关事件 / 模型 / 数据</h3>
+<ul>
+<li>事件：<a href="../CampaignEvents/">CampaignEvents</a> 与 <a href="../CampaignEventDispatcher/">CampaignEventDispatcher</a> 中的 <code>OnSiegeEventStarted</code> / <code>OnSiegeEventEnded</code> / <code>OnSiegeEngineBuilt</code> / <code>OnSiegeBombardmentHit</code> / <code>OnSiegeEngineDestroyed</code> / <code>OnBlockadeActivated</code> / <code>OnBlockadeDeactivated</code>。</li>
+<li>模型：<a href="../SiegeEventModel/">SiegeEventModel</a>（建造速度、伤害、命中率）、<a href="../SiegeStrategyActionModel/">SiegeStrategyActionModel</a>（每帧决定造什么/部署什么）、<a href="../SiegeStrategy/">SiegeStrategy</a>（战术）、<a href="../SiegeBombardTargets/">SiegeBombardTargets</a>（炮击目标类型）。</li>
+<li>类型：<a href="../BesiegerCamp/">BesiegerCamp</a>（攻方 <code>ISiegeEventSide</code>）、<a href="../ISiegeEventSide/">ISiegeEventSide</a>（攻守双方统一接口）、<a href="../../core-extra/BattleSideEnum/">BattleSideEnum</a>、<a href="../../core-extra/DefaultSiegeEngineTypes/">DefaultSiegeEngineTypes</a>、<a href="../../campaign/MapEvent/">MapEvent</a>（围城中的突击/出城战是对应的 <code>MapEvent</code>）、<a href="../../campaign/Town/">Town</a>（守方城墙/总督）。</li>
+</ul>
+<h3 id="cun-dang-dian">存档点</h3>
+<ul>
+<li><code>SiegeEvent</code> 通过 <code>[SaveableField]</code> / <code>[SaveableProperty]</code> 序列化，作为 <code>SiegeEventManager</code> 的一部分随战役存档持久化；<code>OnAfterLoad</code> 负责跨版本修复（旧档补激活封锁等）。</li>
+</ul>
+<h2 id="feng-xian-duan">风险段</h2>
+<ul>
+<li><strong>坏档 / 悬空引用</strong>：<code>SiegeEvent</code> 持有 <code>BesiegedSettlement</code> 与 <code>BesiegerCamp</code>。若 mod 在据点仍被围时把它<strong>摧毁/移除/改所属</strong>，而未先通过 <code>LiftSiegeAction</code> 撤走攻城方，则 <code>Settlement.SiegeEvent</code> 仍指向一个失效对象，<code>SiegeEventManager</code> 后续 <code>Tick</code> 可能崩溃或产生坏档。正确顺序：先 <code>LiftSiegeAction.GetGameAction(party)</code> 或直接清掉 <code>BesiegerCamp</code>，让 <code>Settlement.SiegeEvent</code> 自然清空，再处理据点。</li>
+<li><strong>错误的阶段里手动驱动 tick</strong>：<code>Tick</code> / <code>ConstructionTick</code> / <code>BombardTick</code> / <code>AdvanceStrategy</code> 由战役每日 tick 调用，内部用 <code>CampaignTime.DeltaTime == CampaignTime.Zero</code> 保护。在任务/战斗期间（DeltaTime 为 0）或任何一方 <code>MapEvent</code> 仍活跃时手动调用会提前返回、无效；在战斗外手动调用又可能与正常 tick 重叠，导致建造进度/血量被<strong>重复计算</strong>、器械状态不一致。</li>
+<li><strong>不要直接 <code>FinalizeSiegeEvent</code></strong>：它负责解引用 <code>Settlement.SiegeEvent</code>、结束挂着的 <code>MapEvent</code>、切换玩家菜单。若不清掉攻城方就直接调用，会留下悬空的 <code>SiegeEvent</code> 且 <code>ReadyToBeRemoved</code> 逻辑错乱。结束围城请走 <code>LiftSiegeAction</code>。</li>
+<li><strong><code>GetPreparedAndActiveSiegeEngines</code> 的状态前提</strong>：<code>PlayerSiege.StartSiegeMission</code> 只在 <code>BesiegedSettlement.CurrentSiegeState == Settlement.SiegeState.OnTheWalls</code> 时调用它来生成攻城战器械；若在其他围城状态下调用同名链路会触发 <code>Debug.FailedAssert</code>。</li>
+<li><strong><code>IsPlayerSiegeEvent</code> 的瞬时性</strong>：它依赖 <code>PlayerSiege.PlayerSiegeEvent</code> 与 <code>BesiegerCamp.LeaderParty.IsMainParty</code>；在围城正在收尾（<code>FinalizeSiegeEvent</code>）的过程中读取可能得到不一致结果，用它做关键分支时先判空 <code>PlayerSiege.PlayerSiegeEvent</code>。</li>
+<li><strong>封锁与主角锚点</strong>：<code>ActivateBlockade</code> / <code>DeactivateBlockade</code> 会切换 <code>MobileParty.MainParty.Anchor.IsDisabled</code>（仅当主角是攻城方一员时）。对<strong>非玩家</strong>围城调用也会遍历参战方刷新海军视觉，但这对主角锚点无影响；不要把它当作"冻结某部队"的通用开关。</li>
+</ul>
+<h2 id="cheng-yuan-shuo-ming">成员说明</h2>
+<h3 id="he-xin-yun-xing-shi-zhuang-tai">核心运行时状态</h3>
+<h4 id="public-readonly-settlement-besiegedsettlement"><code>public readonly Settlement BesiegedSettlement</code></h4>
+<p>被围的据点（城镇/城堡）。构造时 <code>settlement.SiegeEvent = this</code>，所以它是"这个据点是否被围"的直接来源。攻城相关的城墙血量、总督、人口都通过它访问（见 <a href="../../campaign/Town/">Town</a>）。</p>
+<h4 id="public-readonly-besiegercamp-besiegercamp"><code>public readonly BesiegerCamp BesiegerCamp</code></h4>
+<p>攻城营，实现 <code>ISiegeEventSide</code>，代表攻方。持有攻城方参战部队列表、攻方器械容器、领袖 <code>LeaderParty</code>。</p>
+<h4 id="public-campaigntime-siegestarttime"><code>public CampaignTime SiegeStartTime</code></h4>
+<p>围城开始的时刻（<code>CampaignTime.Now</code>）。用于计算上面的随机种子，也常在 UI 显示"已围 X 天"。</p>
+<h4 id="public-bool-isplayersiegeevent"><code>public bool IsPlayerSiegeEvent</code></h4>
+<p>是否为玩家参与的围城。实现：若攻城营领袖是主部队则返回 true，否则比较 <code>PlayerSiege.PlayerSiegeEvent == this</code>。只读查询，无副作用。</p>
+<h4 id="public-bool-readytoberemoved"><code>public bool ReadyToBeRemoved</code></h4>
+<p><code>=&gt; BesiegedSettlement.Party.SiegeEvent == null</code>。当据点的围城引用已被清空（攻城方撤走/收尾完毕），<code>SiegeEventManager</code> 下一次 tick 会据此把它从列表移除。只读。</p>
+<h4 id="public-int-siegewallseed-public-int-siegepeopleseed"><code>public int SiegeWallSeed</code> / <code>public int SiegePeopleSeed</code></h4>
+<p>基于 <code>SiegeStartTime</code>、<code>BesiegedSettlement.StringId</code>、城墙总血量、双方伤亡数算出的确定性随机种子，保证同一围城的城墙破损分布/人群分布在不同会话中一致。只读。</p>
+<h4 id="public-bool-blockadeshouldbeactivated-public-bool-isblockadeactive"><code>public bool BlockadeShouldBeActivated</code> / <code>public bool IsBlockadeActive</code></h4>
+<p>有港口据点的海上封锁状态。<code>BlockadeShouldBeActivated</code> 标记"应该开但还没开"（读档旧版本时由 <code>OnAfterLoad</code> 据此补激活）；<code>IsBlockadeActive</code> 是当前是否已在封锁中。只读。</p>
+<h3 id="can-zhan-fang-yu-zhen-ying">参战方与阵营</h3>
+<h4 id="public-isiegeeventside-getsiegeeventside-battlesideenum-side"><code>public ISiegeEventSide GetSiegeEventSide(BattleSideEnum side)</code></h4>
+<p>把阵营映射到实际的攻/守方对象：<strong>攻方 → <code>BesiegerCamp</code>，守方 → <code>BesiegedSettlement</code></strong>（据点自身实现了 <code>ISiegeEventSide</code>）。几乎所有需要"某一侧的器械/参战方/战略"的方法（<code>AdvanceStrategy</code>、<code>ConstructionTick</code>、<code>BreakSiegeEngine</code>、<code>GetPreparedAndActiveSiegeEngines</code> 等）都先用它拿到对应 <code>ISiegeEventSide</code>。纯查询，无副作用。</p>
+<pre><code data-lang="csharp">ISiegeEventSide attacker = siegeEvent.GetSiegeEventSide(BattleSideEnum.Attacker);
+ISiegeEventSide defender = siegeEvent.GetSiegeEventSide(BattleSideEnum.Defender);
+</code></pre>
+<h4 id="public-bool-canpartyjoinside-partybase-party-battlesideenum-side"><code>public bool CanPartyJoinSide(PartyBase party, BattleSideEnum side)</code></h4>
+<p>判断某部队能否加入指定一侧：它所在阵营必须与目标侧所有参战方<strong>不交战</strong>，且与另一侧所有参战方<strong>交战</strong>。纯查询。</p>
+<h4 id="public-list-partybase-getinvolvedpartiesforeventtype-mapevent-battletypes-battletype"><code>public List&lt;PartyBase&gt; GetInvolvedPartiesForEventType(MapEvent.BattleTypes battleType)</code></h4>
+<p>合并 <code>BesiegerCamp</code> 与 <code>BesiegedSettlement</code> 在该战斗类型下的参战方，返回 <code>List&lt;PartyBase&gt;</code>。需要枚举围城涉及哪些部队（发战利品、算伤亡、判可加入性）时调用。</p>
+<h4 id="public-mapevent-battletypes-getcurrentbattletype"><code>public MapEvent.BattleTypes GetCurrentBattleType()</code></h4>
+<p>当前进行的战斗类型：攻城方领袖的 <code>MapEvent</code> 存在则取其 <code>EventType</code>，否则默认 <code>MapEvent.BattleTypes.Siege</code>。常与 <code>IsPartyInvolved</code> 配合判定某部队是否卷入当前围城战斗。</p>
+<h4 id="public-bool-ispartyinvolved-partybase-party"><code>public bool IsPartyInvolved(PartyBase party)</code></h4>
+<p><code>=&gt; GetInvolvedPartiesForEventType(GetCurrentBattleType()).Contains(party)</code>，判断某部队是否卷入"当前战斗类型"的围城。纯查询。</p>
+<h3 id="sheng-ming-zhou-qi-tui-jin-yu-jie-shu">生命周期：推进与结束</h3>
+<h4 id="gou-zao-han-shu-public-siegeevent-settlement-settlement-mobileparty-besiegerparty">构造函数 <code>public SiegeEvent(Settlement settlement, MobileParty besiegerParty)</code></h4>
+<p>建立一次围城。<strong>副作用很大</strong>：写入 <code>settlement.SiegeEvent</code>、新建 <code>BesiegerCamp</code> 并把 <code>besiegerParty.BesiegerCamp</code> 指向它、给攻城主将与据点所属家族首领间施加 -5 关系（玩家家族据点除外）、初始化攻守双方攻城侧、记录 <code>SiegeStartTime</code>、有港口且攻城方带船时自动 <code>ActivateBlockade</code>、广播 <code>OnSiegeEventStarted</code>。<strong>不要</strong>从 mod 里手动 <code>new</code>；创建入口是 <code>SiegeEventManager.StartSiegeEvent</code>，由遭遇流程触发。</p>
+<h4 id="public-void-tick-float-dt"><code>public void Tick(float dt)</code></h4>
+<p>由 <code>SiegeEventManager</code> 在战役每日 tick 调用，推进整个围城：先 <code>CheckBesiegerPartiesAndMakeThemLeave</code>，若 <code>!ReadyToBeRemoved</code> 则对攻方与守方依次执行 <code>AdvanceStrategy</code> → <code>ConstructionTick</code> → <code>BombardTick</code>。<strong>副作用</strong>：可能创建/销毁器械、推进建造与重新部署进度、生成 <code>SiegeEngineMissile</code>、触发 <code>OnSiegeEngineBuilt</code> / <code>OnSiegeBombardmentHit</code> 等事件，并可能造成守军伤亡。<strong>不要从 mod 手动调用</strong>——它在 <code>CampaignTime.DeltaTime == CampaignTime.Zero</code> 或任一方 <code>MapEvent</code> 活跃时会提前返回。</p>
+<h4 id="public-void-onbeforesiegeeventend-battlestate-winnerside-mapevent-battletypes-battletype"><code>public void OnBeforeSiegeEventEnd(BattleState winnerSide, MapEvent.BattleTypes battleType)</code></h4>
+<p>战斗结束时记录胜负：对 <code>SallyOut</code>、以及 <code>Siege</code>/<code>SiegeOutside</code> 分别设置内部 <code>_isBesiegerDefeated</code> 标志。这是战役层把"战斗结果"写回围城状态的关键钩子。由战斗结算流程调用，mod 通常不直接调。</p>
+<h4 id="public-void-onafterload"><code>public void OnAfterLoad()</code></h4>
+<p>读档后回调：<code>BesiegerCamp.OnAfterLoad()</code> 重建内部计数；对小于 <code>v1.3.13.105378</code> 的旧档补激活封锁（<code>BlockadeShouldBeActivated</code> 为真时调 <code>ActivateBlockade</code>）。由 <code>SiegeEventManager.OnAfterLoad</code> 遍历调用，mod 不直调。</p>
+<h4 id="public-void-setpositionaftermapchange-campaignvec2-newposition"><code>public void SetPositionAfterMapChange(CampaignVec2 newPosition)</code></h4>
+<p>地图变更后把攻城营位置同步过去，并对仍在进行中的围城突击 <code>MapEvent</code> 同步位置。由系统处理地图变更时调用。</p>
+<h4 id="public-void-finalizesiegeevent"><code>public void FinalizeSiegeEvent()</code></h4>
+<p>正式结束围城：广播 <code>OnSiegeEventEnded</code>、收尾 <code>BesiegerCamp</code> 与 <code>BesiegedSettlement</code>、结束仍挂着的 <code>MapEvent</code>、把玩家相关界面切到 <code>siege_attacker_defeated</code>/<code>siege_attacker_left</code>，并在适当时调 <code>PlayerSiege.FinalizePlayerSiege()</code>。<strong>副作用</strong>：解引用 <code>Settlement.SiegeEvent</code>（使 <code>ReadyToBeRemoved</code> 为 true）、可能切换游戏菜单。<strong>不要直接调用</strong>——让围城随战斗/撤离自然结束，或用 <code>LiftSiegeAction</code> 使攻城方撤走。</p>
+<h3 id="gong-cheng-ce-lue-yu-qi-jie-tui-jin">攻城策略与器械推进</h3>
+<h4 id="public-void-advancestrategy-isiegeeventside-siegeeventside"><code>public void AdvanceStrategy(ISiegeEventSide siegeEventSide)</code></h4>
+<p>推进某一侧的攻城策略：向 <code>SiegeStrategyActionModel.GetLogicalActionForStrategy</code> 询问该侧此刻应做的动作（造新器械 / 从预备队部署 / 移回预备队 / 拆除 / 待命），再转交 <code>DoSiegeAction</code> 执行。由 <code>Tick</code> → <code>TickSiegeEventSide</code> 调用；mod 一般不直接调。</p>
+<h4 id="public-void-dosiegeaction-isiegeeventside-siegeeventside-siegestrategyactionmodel-siegeaction-siegeaction-siegeenginetype-siegeenginetype-int-deploymentindex-int-reserveindex"><code>public void DoSiegeAction(ISiegeEventSide siegeEventSide, SiegeStrategyActionModel.SiegeAction siegeAction, SiegeEngineType siegeEngineType, int deploymentIndex, int reserveIndex)</code></h4>
+<p>实际执行一个攻城动作：新建并部署器械、从预备队部署、移到预备队、拆除部署的器械，或待命。会按情况刷新 <code>BesiegedSettlement.Party.SetVisualAsDirty()</code>。动作决策来自 <code>AdvanceStrategy</code>，mod 想编程式改变某侧布局时也可直接调（需同时给出正确的 <code>deploymentIndex</code> / <code>reserveIndex</code>）。</p>
+<h4 id="public-void-constructiontick-isiegeeventside-siegeeventside"><code>public void ConstructionTick(ISiegeEventSide siegeEventSide)</code></h4>
+<p>推进某一侧器械的<strong>建造与重新部署</strong>：对未完成且不在重新部署的器械按 <code>SiegeEventModel.GetConstructionProgressPerHour</code> 累加 <code>Progress</code>（0→1）；建成的调用 <code>CreateSiegeObject</code> 生成 <code>RangedSiegeEngine</code>；正在重新部署的按比例推进 <code>RedeploymentProgress</code>。会清理过期的已移除器械。由 <code>Tick</code> 调用，mod 不直调。</p>
+<h4 id="public-void-bombardtick-isiegeeventside-siegeeventside"><code>public void BombardTick(ISiegeEventSide siegeEventSide)</code></h4>
+<p>推进某一侧的<strong>炮击</strong>：处理已命中的 <code>SiegeEngineMissile</code>（砸墙或砸对方远程器械），并对所有已就绪（<code>IsReadyToFire</code>）的远程器械决定目标、记录 <code>OnFireDecisionTaken</code>、按 <code>SiegeEventModel.GetSiegeEngineHitChance</code> 掷骰生成新的 <code>SiegeEngineMissile</code>。由 <code>Tick</code> 调用，mod 不直调。</p>
+<h4 id="public-void-breaksiegeengine-isiegeeventside-siegeeventside-siegeenginetype-siegeenginetype"><code>public void BreakSiegeEngine(ISiegeEventSide siegeEventSide, SiegeEngineType siegeEngineType)</code></h4>
+<p>摧毁指定一侧、指定类型的一台<strong>已激活</strong>器械（从部署位移除，不进预备队）。<code>Preparations</code> 类型会把进度清零；远程/近战类型则按 <code>DeployedRangedSiegeEngines</code> / <code>DeployedMeleeSiegeEngines</code> 找到后 <code>RemoveDeployedSiegeEngine</code>，并刷新地图视觉。<strong>调用时机</strong>：需要编程式摧毁某台器械时（任务奖励、特殊事件），最好在事件回调里、与 <code>Tick</code> 不冲突的时机调用。</p>
+<pre><code data-lang="csharp">// 把攻城方正在使用的一台攻城塔拆掉
+ISiegeEventSide attacker = siegeEvent.GetSiegeEventSide(BattleSideEnum.Attacker);
+siegeEvent.BreakSiegeEngine(attacker, DefaultSiegeEngineTypes.SiegeTower);
+</code></pre>
+<h3 id="du-qu-yu-bu-zhi-gong-cheng-qi-jie">读取与布置攻城器械</h3>
+<h4 id="public-dictionary-siegeenginetype-int-getpreparedsiegeenginesasdictionary-isiegeeventside-siegeeventside"><code>public Dictionary&lt;SiegeEngineType, int&gt; GetPreparedSiegeEnginesAsDictionary(ISiegeEventSide siegeEventSide)</code></h4>
+<p>返回该侧"已建成且存活（Hitpoints &gt; 0、非 <code>Preparations</code>）"的器械按类型聚合的数量 <code>Dictionary&lt;SiegeEngineType, int&gt;</code>。只读。</p>
+<h4 id="public-list-missionsiegeweapon-getpreparedandactivesiegeengines-isiegeeventside-siegeeventside"><code>public List&lt;MissionSiegeWeapon&gt; GetPreparedAndActiveSiegeEngines(ISiegeEventSide siegeEventSide)</code></h4>
+<p>返回该侧可投入战斗的器械列表（元素 <code>MissionSiegeWeapon</code>），用于把战役层器械投影到任务场景。只读。被 <code>PlayerSiege.StartSiegeMission</code> 在 <code>CurrentSiegeState == OnTheWalls</code> 时调用以生成可操控攻城武器。<strong>注意</strong>：不在 <code>OnTheWalls</code> 状态下进入此链路会触发 <code>Debug.FailedAssert</code>。</p>
+<pre><code data-lang="csharp">if (PlayerSiege.PlayerSiegeEvent != null &amp;&amp; MobileParty.MainParty.BesiegerCamp != null
+    &amp;&amp; MobileParty.MainParty.BesiegedSettlement.CurrentSiegeState == Settlement.SiegeState.OnTheWalls)
+{
+    SiegeEvent playerSiege = PlayerSiege.PlayerSiegeEvent;
+    List&lt;MissionSiegeWeapon&gt; attackerWeapons =
+        playerSiege.GetPreparedAndActiveSiegeEngines(playerSiege.GetSiegeEventSide(BattleSideEnum.Attacker));
+    List&lt;MissionSiegeWeapon&gt; defenderWeapons =
+        playerSiege.GetPreparedAndActiveSiegeEngines(playerSiege.GetSiegeEventSide(BattleSideEnum.Defender));
+}
+</code></pre>
+<h4 id="public-void-createsiegeobject-siegeengineconstructionprogress-siegeengineconstructionprogress-isiegeeventside-siegeside"><code>public void CreateSiegeObject(SiegeEngineConstructionProgress siegeEngineConstructionProgress, ISiegeEventSide siegeSide)</code></h4>
+<p>当一台器械建造完成时，为远程器械生成 <code>RangedSiegeEngine</code> 子对象并广播 <code>OnSiegeEngineBuilt</code>、刷新地图视觉。由 <code>ConstructionTick</code> 在 <code>IsActive</code> 达成时调用。</p>
+<h4 id="public-void-setsiegeenginestatesaftersiegemission-ienumerable-imissionsiegeweapon-attackermissionsiegeenginedata-ienumerable-imissionsiegeweapon-defendermissionsiegeenginedata"><code>public void SetSiegeEngineStatesAfterSiegeMission(IEnumerable&lt;IMissionSiegeWeapon&gt; attackerMissionSiegeEngineData, IEnumerable&lt;IMissionSiegeWeapon&gt; defenderMissionSiegeEngineData)</code></h4>
+<p>战斗结束后，把任务场景里各器械的剩余血量/存活状态写回战役层：存活的回写 <code>Hitpoints</code>，被摧毁的调用 <code>BreakSiegeEngine</code>。在攻城战结算后由系统调用。</p>
+<h4 id="public-void-findattackablerangedenginewithhighestpriority-isiegeeventside-siegeeventside-int-attackerslotindex-out-int-targetindex-out-float-targetpriority"><code>public void FindAttackableRangedEngineWithHighestPriority(ISiegeEventSide siegeEventSide, int attackerSlotIndex, out int targetIndex, out float targetPriority)</code></h4>
+<p>为某台攻击方远程器械在对方部署的远程器械中挑选优先级最高（距离最近）的目标，通过 <code>out</code> 参数返回 <code>targetIndex</code> 与 <code>targetPriority</code>。由 <code>BombardTick</code> 内部调用，mod 一般不直接调。</p>
+<h4 id="qian-tao-shu-ju-siegeenginescontainer-siegeengineconstructionprogress-rangedsiegeengine-siegeenginemissile">嵌套数据：<code>SiegeEnginesContainer</code> / <code>SiegeEngineConstructionProgress</code> / <code>RangedSiegeEngine</code> / <code>SiegeEngineMissile</code></h4>
+<ul>
+<li><code>SiegeEnginesContainer</code>（经 <code>ISiegeEventSide.SiegeEngines</code> 访问）：某一侧的器械容器。容量常量——攻方最多 <strong>3</strong> 近战 + <strong>4</strong> 远程，守方 <strong>0</strong> 近战 + <strong>4</strong> 远程。暴露 <code>DeployedSiegeEngines</code> / <code>ReservedSiegeEngines</code> / <code>RemovedSiegeEngines</code>（均为 <code>MBReadOnlyList&lt;SiegeEngineConstructionProgress&gt;</code>）、<code>AllSiegeEngines()</code>，以及 <code>AddPrebuiltEngineToReserve</code> / <code>DeploySiegeEngineAtIndex</code> / <code>RemoveDeployedSiegeEngine</code> / <code>RemovedSiegeEngineFromReservedSiegeEngines</code> / <code>FindDeploymentIndexOfDeployedEngine</code> / <code>ClearRemovedEnginesIfNecessary</code>。</li>
+<li><code>SiegeEngineConstructionProgress</code>：单台器械的进度记录。<code>IsConstructed =&gt; Progress &gt;= 1f</code>，<code>IsActive =&gt; IsConstructed &amp;&amp; !IsBeingRedeployed</code>；含 <code>Hitpoints</code> / <code>MaxHitPoints</code> / <code>RedeploymentProgress</code> 及（远程器械的）<code>RangedSiegeEngine</code>。提供 <code>SetProgress</code> / <code>SetHitpoints</code> / <code>SetRedeploymentProgress</code> / <code>SetRangedSiegeEngine</code>。</li>
+<li><code>RangedSiegeEngine</code>：远程器械的炮击子状态——<code>EngineType</code>、<code>IsReadyToFire</code>（<code>NextTimeEngineCanBombard.IsPast</code>）、当前/上次目标、命中时间；方法 <code>Hold</code> / <code>Reload</code> / <code>OnFireDecisionTaken</code>。</li>
+<li><code>SiegeEngineMissile</code>：已发射炮弹的快照（射手类型/槽位、目标类型/槽位、是否命中、碰撞与决策时间），由 <code>BombardTick</code> 消费。</li>
+</ul>
+<h3 id="hai-shang-feng-suo">海上封锁</h3>
+<h4 id="public-void-activateblockade-public-void-deactivateblockade"><code>public void ActivateBlockade()</code> / <code>public void DeactivateBlockade()</code></h4>
+<p>对有港口的据点开启/关闭海上封锁。会切换 <code>MobileParty.MainParty.Anchor.IsDisabled</code>（仅当主角是攻城方一员时）、广播 <code>OnBlockadeActivated</code> / <code>OnBlockadeDeactivated</code>、刷新涉及的海战视觉。<code>ActivateBlockade</code> 还会把 <code>BlockadeShouldBeActivated</code> 置 false。一般由构造函数在"有港口且攻城方带船"时自动开启，或旧档由 <code>OnAfterLoad</code> 补激活；mod 通常不需手动调。</p>
+<h3 id="public-override-string-tostring"><code>public override string ToString()</code></h3>
+<p>返回 <code>"Siege of " + BesiegedSettlement.Name</code>，便于日志/调试。</p>
+<h2 id="dian-xing-yong-fa-shi-li">典型用法示例</h2>
+<h3 id="shi-li-1-sao-miao-suo-you-jin-xing-zhong-de-wei-cheng-shi-bie-wan-jia-zheng-zai-can-yu-de-na-ge">示例 1：扫描所有进行中的围城，识别玩家正在参与的那个</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Siege;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.Core;
+
+foreach (SiegeEvent siegeEvent in Campaign.Current.SiegeEventManager.SiegeEvents)
+{
+    if (siegeEvent.ReadyToBeRemoved)
+        continue;
+
+    Settlement besieged = siegeEvent.BesiegedSettlement;
+    MobileParty besieger = siegeEvent.BesiegerCamp.LeaderParty;
+
+    if (siegeEvent.IsPlayerSiegeEvent)
+    {
+        InformationManager.DisplayMessage(new InformationMessage(
+            $&quot;玩家正在围攻 {besieged.Name}（攻城方领袖：{besieger.Name}）&quot;));
+    }
+}
+</code></pre>
+<h3 id="shi-li-2-cong-ju-dian-na-dao-wei-cheng-bing-cui-hui-gong-cheng-fang-yi-tai-yi-jian-cheng-de-qi-jie">示例 2：从据点拿到围城，并摧毁攻城方一台已建成的器械</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Siege;
+using TaleWorlds.CampaignSystem.Party;
+using TaleWorlds.Core;
+
+Settlement besieged = MobileParty.MainParty.BesiegedSettlement;
+SiegeEvent siegeEvent = besieged?.SiegeEvent;
+if (siegeEvent != null &amp;&amp; !siegeEvent.ReadyToBeRemoved)
+{
+    ISiegeEventSide attacker = siegeEvent.GetSiegeEventSide(BattleSideEnum.Attacker);
+    siegeEvent.BreakSiegeEngine(attacker, DefaultSiegeEngineTypes.SiegeTower);
+}
+</code></pre>
+<h3 id="shi-li-3-wan-jia-wei-cheng-kai-zhan-qian-qu-chu-shuang-fang-ke-yong-qi-jie-tou-ying-dao-ren-wu-chang-jing-de-lai-yuan">示例 3：玩家围城开战前，取出双方可用器械（投影到任务场景的来源）</h3>
+<pre><code data-lang="csharp">using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Siege;
+using TaleWorlds.CampaignSystem.Party;
+using System.Collections.Generic;
+
+if (PlayerSiege.PlayerSiegeEvent != null
+    &amp;&amp; MobileParty.MainParty.BesiegerCamp != null
+    &amp;&amp; MobileParty.MainParty.BesiegedSettlement.CurrentSiegeState == Settlement.SiegeState.OnTheWalls)
+{
+    SiegeEvent playerSiege = PlayerSiege.PlayerSiegeEvent;
+    List&lt;MissionSiegeWeapon&gt; attackerWeapons =
+        playerSiege.GetPreparedAndActiveSiegeEngines(playerSiege.GetSiegeEventSide(BattleSideEnum.Attacker));
+    List&lt;MissionSiegeWeapon&gt; defenderWeapons =
+        playerSiege.GetPreparedAndActiveSiegeEngines(playerSiege.GetSiegeEventSide(BattleSideEnum.Defender));
+    // 交给场景/UI 使用；不要在 OnTheWalls 之外的状态下走这条链路
+}
+</code></pre>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li><strong>API 稳定性</strong>：<code>SiegeEvent</code> 的公开成员在 v1.3.0 / v1.3.15 / v1.4.5 之间基本一致（构造、<code>BesiegedSettlement</code>/<code>BesiegerCamp</code>、<code>IsPlayerSiegeEvent</code>、<code>ReadyToBeRemoved</code>、各 <code>Tick</code>/<code>ConstructionTick</code>/<code>BombardTick</code>、<code>GetPreparedAndActiveSiegeEngines</code>、<code>BreakSiegeEngine</code> 等均在）。</li>
+<li><strong>唯一差异</strong>在内部存档迁移逻辑：<code>OnAfterLoad</code> 会对 <code>&lt; v1.3.13.105378</code> 的旧档补激活封锁；<code>SetPositionAfterMapChange</code> 对 <code>&lt; v1.3.0</code> 的旧档做 <code>BesiegerCamp.OnAfterLoad</code> 兼容。这些不影响 mod 对公开 API 的使用。</li>
+<li>本页以 v1.4.5 权威源码为准；v1.3.15 文档沿用同一套 API。</li>
+</ul>
+<h2 id="dao-hang-kuai">导航块</h2>
+<ul>
+<li>↑ 父级：<a href="../">战役扩展模块 (campaign-ext)</a> · <a href="../../campaign/">战役模块 (campaign)</a></li>
+<li>↔ 同级（同桶）：<a href="../SiegeEventManager/">SiegeEventManager</a> · <a href="../BesiegerCamp/">BesiegerCamp</a> · <a href="../PlayerSiege/">PlayerSiege</a> · <a href="../SiegeStrategy/">SiegeStrategy</a> · <a href="../SiegeAftermathAction/">SiegeAftermathAction</a> · <a href="../LiftSiegeAction/">LiftSiegeAction</a> · <a href="../CampaignEvents/">CampaignEvents</a> · <a href="../CampaignEventDispatcher/">CampaignEventDispatcher</a> · <a href="../SiegeEventCampaignBehavior/">SiegeEventCampaignBehavior</a> · <a href="../SiegeEventModel/">SiegeEventModel</a> · <a href="../SiegeStrategyActionModel/">SiegeStrategyActionModel</a> · <a href="../ISiegeEventSide/">ISiegeEventSide</a></li>
+<li>相关类型（其他桶）：<a href="../../campaign/Settlement/">Settlement</a> · <a href="../../campaign/MobileParty/">MobileParty</a> · <a href="../../campaign/MapEvent/">MapEvent</a> · <a href="../../campaign/Campaign/">Campaign</a> · <a href="../../campaign/Hero/">Hero</a> · <a href="../../campaign/PartyBase/">PartyBase</a> · <a href="../../campaign/Town/">Town</a> · <a href="../../campaign/Clan/">Clan</a> · <a href="../../core-extra/BattleSideEnum/">BattleSideEnum</a> · <a href="../../core-extra/DefaultSiegeEngineTypes/">DefaultSiegeEngineTypes</a> · <a href="../SiegeBombardTargets/">SiegeBombardTargets</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign-ext/">campaign-ext 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign-ext/PartyRole/">&larr; PartyRole</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign-ext/WeaponDesignResultPopupVM/">WeaponDesignResultPopupVM &rarr;</a>
+          
+        </div>
+      </div>
+      
+        <div class="page-navigation-related">
+          <span class="page-navigation-label">Related</span>
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions/">Actions Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/actions-index/">Actions Reference (61)</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/models/">Models Family Handbook</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/issues/">Issues Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/quests/">Quests Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/behaviors/">Behaviors Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/dialogs/">Dialogs Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/party/">Party Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/settlements/">Settlements Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/mapevents/">MapEvents Family</a>
+            
+          
+            
+              <a href="/v1.3.15/zh/api/campaign-ext/gamemenus/">GameMenus Family</a>
+            
+          
+        </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equipment</title>
+  <meta name="description" content="The full set of items a character wears at a moment — 12 fixed weapon&#x2F;armor&#x2F;mount slots of EquipmentElement, plus the derived armor totals, weight, body-mesh coverage, and equipment code used by both Campaign and Mission layers.">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="active">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/core-extra/Equipment/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/core-extra/Equipment/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/core-extra/Equipment/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/core-extra/Equipment/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/core-extra/Equipment/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/core-extra/Equipment/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/en/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/architecture/" class="">Index</a><a href="/v1.3.15/en/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/en/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/en/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/en/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/en/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/en/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/en/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/en/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/en/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/en/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/api/" class="">Index</a><a href="/v1.3.15/en/api/core/" class="">Core</a><a href="/v1.3.15/en/api/core-extra/" class="active">Core-Extra</a><a href="/v1.3.15/en/api/mission/" class="">Mission</a><a href="/v1.3.15/en/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/en/api/campaign/" class="">Campaign</a><a href="/v1.3.15/en/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/en/api/gui/" class="">GUI</a><a href="/v1.3.15/en/api/save-system/" class="">Save-System</a><a href="/v1.3.15/en/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/en/api/localization/" class="">Localization</a><a href="/v1.3.15/en/api/engine/" class="">Engine</a><a href="/v1.3.15/en/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/en/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;">Bannerlord v1.3.15 Documentation &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;">API Reference</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;en&#x2F;api&#x2F;core-extra&#x2F;">core-extra index</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">Equipment</span>
+    </nav>
+  
+  <h1>Equipment</h1>
+  <h1 id="equipment">Equipment</h1>
+<p><strong>Namespace:</strong> TaleWorlds.Core
+<strong>Module:</strong> TaleWorlds.Core
+<strong>Type:</strong> <code>public class Equipment</code>
+<strong>Base:</strong> none (does not inherit any base class)
+<strong>Source:</strong> <code>TaleWorlds.Core/Equipment.cs</code></p>
+<h2 id="overview">Overview</h2>
+<p><code>Equipment</code> represents <strong>everything a single character is wearing at one moment</strong>: main hand, off hand, spare weapons, helmet, body armor, leg armor, gloves, cape, mount, and mount harness — a fixed 12 slots (<code>EquipmentSlotLength = 12</code>). Each slot holds one <code>EquipmentElement</code> (an item plus an optional <code>ItemModifier</code>, cosmetic item, and quest flag). The instance also records whether it is the Battle, Civilian, or Stealth outfit, and derives from that the summed armor, total weight, hair/beard coverage, and body-mesh type.</p>
+<p><code>Equipment</code> is a mutable reference type that is serialized directly by the save system: a <code>Hero</code> in the campaign holds three <code>Equipment</code> instances (<code>BattleEquipment</code>, <code>CivilianEquipment</code>, <code>StealthEquipment</code>), and any mutation you make to them is persisted into the save game. It appears in both the campaign layer (the <code>CharacterObject</code> equipment template, the <code>MBEquipmentRoster</code> roster) and the mission layer (the穿戴 snapshot taken before an <code>Agent</code> is spawned).</p>
+<h2 id="mental-model">Mental Model</h2>
+<p>Think of <code>Equipment</code> as <strong>a 12-cell "what this character is wearing" checklist</strong>, not as a service or a process:</p>
+<ul>
+<li><strong>What it is:</strong> a <code>EquipmentElement[]</code> of length 12, addressed by the <code>EquipmentIndex</code> enum (0–4 are weapon slots, 5–9 armor slots, 10 mount, 11 mount harness). The type field says whether it is one of the Battle / Civilian / Stealth outfits.</li>
+<li><strong>Lifecycle:</strong> it is usually created and owned by <code>Hero</code>, <code>CharacterObject</code>, <code>MBEquipmentRoster</code>, or the equipment-selection model. You generally should <strong>not</strong> <code>new Equipment()</code> and keep your own long-lived copy — either take the existing instance from <code>Hero</code> / <code>CharacterObject</code>, or <code>Clone()</code> a temporary copy.</li>
+<li><strong>Layer:</strong> lives in <code>TaleWorlds.Core</code>, a foundation data structure shared by both Campaign and Mission.</li>
+<li><strong>When to use:</strong> whenever you need to read or rewrite "what this character is wearing now" — re-equipping a hero, looting items from a defeated troop, computing armor/weight from gear, or serializing the outfit into a code for network/save transfer.</li>
+<li><strong>When NOT to use:</strong>
+<ul>
+<li>To safely swap a hero's <em>whole</em> outfit, use <code>EquipmentHelper.AssignHeroEquipmentFromEquipment(hero, equipment)</code> — it writes into the correct Battle/Civilian/Stealth slots by type automatically. Do <strong>not</strong> hand-assign 12 slots yourself.</li>
+<li>To change inventory stock rather than worn state, use <code>ItemRoster</code> / <code>ItemRosterElement</code>, not <code>EquipmentElement</code>.</li>
+<li>To roll random/probabilistic gear by culture, use <code>EquipmentSelectionModel</code> (see <a href="../../campaign/">Campaign</a>) or <code>Equipment.GetRandomEquipmentElements</code>, not manual assembly.</li>
+</ul>
+</li>
+<li><strong>Dependencies:</strong> the items in the slots come from <code>ItemObject</code> registered in <code>MBObjectManager</code>; coverage types come from <code>ItemObject.ArmorComponent</code>; face generation depends on <code>BodyProperties.GetBodyProperties(Equipment)</code>.</li>
+<li><strong>What breaks:</strong> writing a slot runs <code>IsItemFitsToSlot</code> validation — the wrong item type only triggers <code>Debug.FailedAssert</code> (no exception, but it pollutes the log and visuals). <code>CreateFromEquipmentCode</code> / <code>Deserialize</code> depend on <code>MBObjectManager.Instance</code>; calling them before the object system is ready yields <code>null</code> and then crashes. Mutating <code>Hero.BattleEquipment</code> directly writes into the save game.</li>
+</ul>
+<h2 id="how-to-acquire-construct-an-equipment">How to Acquire / Construct an Equipment</h2>
+<pre><code data-lang="csharp">// 1) Read from a campaign hero (the most common path)
+Equipment battleEq   = Hero.MainHero.BattleEquipment;     // battle outfit
+Equipment civilianEq = Hero.MainHero.CivilianEquipment;   // civilian outfit
+Equipment stealthEq  = Hero.MainHero.StealthEquipment;    // stealth outfit
+
+// 2) Read the equipment sets from a character template (troop / culture defaults)
+foreach (Equipment eq in someCharacter.BattleEquipments)
+{
+    // enumerate every battle-equipment option this character can wear
+}
+
+// 3) Read from an equipment roster (culture / troop defaults)
+MBEquipmentRoster roster = MBEquipmentRosterExtensions.All
+    .Find(x =&gt; x.StringId == &quot;generic_bat_dummy&quot;);
+Equipment firstBattle = roster.GetBattleEquipments().First();
+
+// 4) Build from an equipment code (empty code =&gt; 12 empty slots; with args it restores items)
+Equipment fromCode = Equipment.CreateFromEquipmentCode(&quot;&quot;);
+// Deep-copy an existing instance (the safest &quot;new&quot; way — avoids a wrong type/category mismatch)
+Equipment copied   = Hero.MainHero.BattleEquipment.Clone();
+Equipment fromCode = Equipment.CreateFromEquipmentCode(            // restore from a string code
+    &quot;0-iron_sword-@null+5-northern_helmet-@null&quot;);
+Equipment random   = Equipment.GetRandomEquipmentElements(         // template + category, random
+    someCharacter, randomEquipmentModifier: false, Equipment.EquipmentType.Civilian);
+</code></pre>
+<h2 id="the-12-slot-collection-equipmentelement-per-equipmentindex">The 12-Slot Collection (<code>EquipmentElement</code> per <code>EquipmentIndex</code>)</h2>
+<p>The slots are a fixed <code>EquipmentElement[]</code> of length <code>EquipmentSlotLength = 12</code>, addressed by the <code>EquipmentIndex</code> enum. The mapping (verified against <code>EquipmentIndex.cs</code>) is:</p>
+<table><thead><tr><th>Index</th><th><code>EquipmentIndex</code></th><th>Slot meaning</th></tr></thead><tbody>
+<tr><td>0</td><td><code>Weapon0</code> (<code>WeaponItemBeginSlot</code>)</td><td>Main hand</td></tr>
+<tr><td>1</td><td><code>Weapon1</code></td><td>Off hand</td></tr>
+<tr><td>2</td><td><code>Weapon2</code></td><td>Spare weapon</td></tr>
+<tr><td>3</td><td><code>Weapon3</code></td><td>Spare weapon</td></tr>
+<tr><td>4</td><td><code>ExtraWeaponSlot</code></td><td>Thrown / extra weapon (<code>NumAllWeaponSlots = 5</code> boundary)</td></tr>
+<tr><td>5</td><td><code>Head</code> (<code>NonWeaponItemBeginSlot</code>)</td><td>Helmet</td></tr>
+<tr><td>6</td><td><code>Body</code></td><td>Body armor</td></tr>
+<tr><td>7</td><td><code>Leg</code></td><td>Leg armor</td></tr>
+<tr><td>8</td><td><code>Gloves</code></td><td>Gloves</td></tr>
+<tr><td>9</td><td><code>Cape</code></td><td>Cape</td></tr>
+<tr><td>10</td><td><code>Horse</code> (<code>ArmorItemEndSlot</code>)</td><td>Mount</td></tr>
+<tr><td>11</td><td><code>HorseHarness</code></td><td>Mount harness</td></tr>
+</tbody></table>
+<p><code>EquipmentIndex.None = -1</code> means "no slot". Each slot stores an <code>EquipmentElement</code> (item + optional <code>ItemModifier</code> + <code>CosmeticItem</code> + <code>IsQuestItem</code> flag). The integer indexer <code>this[int]</code> and the enum indexer <code>this[EquipmentIndex]</code> both read/write the same <code>_itemSlots</code> array; prefer the enum so you never exceed 11.</p>
+<h2 id="key-properties">Key Properties</h2>
+<h3 id="category-and-identity">Category and identity</h3>
+<table><thead><tr><th>Property</th><th>Type</th><th>Notes</th></tr></thead><tbody>
+<tr><td><code>ItemEquipmentType</code></td><td><code>EquipmentType</code></td><td>Internal category (Battle / Civilian / Stealth / Invalid). Read-only; set at construction.</td></tr>
+<tr><td><code>IsBattle</code></td><td><code>bool</code></td><td>Whether this is the battle outfit.</td></tr>
+<tr><td><code>IsCivilian</code></td><td><code>bool</code></td><td>Whether this is the civilian outfit.</td></tr>
+<tr><td><code>IsStealth</code></td><td><code>bool</code></td><td>Whether this is the stealth outfit.</td></tr>
+</tbody></table>
+<h3 id="slot-access">Slot access</h3>
+<table><thead><tr><th>Property / indexer</th><th>Type</th><th>Notes</th></tr></thead><tbody>
+<tr><td><code>this[EquipmentIndex index]</code></td><td><code>EquipmentElement</code></td><td>Read/write a slot by enum (<code>Weapon0</code>, <code>Head</code>, <code>Body</code>, <code>Horse</code>, <code>HorseHarness</code>). <strong>The setter calls <code>IsItemFitsToSlot</code> for type validation</strong>; a wrong type triggers <code>Debug.FailedAssert</code> but does not block the assignment.</td></tr>
+<tr><td><code>this[int index]</code></td><td><code>EquipmentElement</code></td><td>Read/write by 0–11 integer. Out of range (&gt;11) throws <code>IndexOutOfRangeException</code>; prefer <code>EquipmentIndex</code>.</td></tr>
+<tr><td><code>Horse</code></td><td><code>EquipmentElement</code></td><td>Equal to <code>_itemSlots[10]</code>, the mount slot. Read-only convenience.</td></tr>
+</tbody></table>
+<h3 id="appearance-body-shape-derivation-from-itemobject-armorcomponent">Appearance / body-shape derivation (from <code>ItemObject.ArmorComponent</code>)</h3>
+<p>These read-only properties are computed from the <code>ArmorComponent</code> of the helmet, body armor, and mount harness, and feed <code>BodyProperties</code> face generation and rendering:</p>
+<table><thead><tr><th>Property</th><th>Type</th><th>Notes</th></tr></thead><tbody>
+<tr><td><code>HairCoverType</code></td><td><code>ArmorComponent.HairCoverTypes</code></td><td>How helmet/body armor covers hair; if body armor is empty it is treated as <code>Type4</code>.</td></tr>
+<tr><td><code>BeardCoverType</code></td><td><code>ArmorComponent.BeardCoverTypes</code></td><td>How it covers the beard.</td></tr>
+<tr><td><code>ManeCoverType</code></td><td><code>ArmorComponent.HorseHarnessCoverTypes</code></td><td>How the harness covers the horse mane.</td></tr>
+<tr><td><code>ReinsMeshName</code></td><td><code>string</code></td><td>Mount-harness reins mesh name.</td></tr>
+<tr><td><code>EarsAreHidden</code></td><td><code>bool</code></td><td>Derived from <code>HairCoverType</code>.</td></tr>
+<tr><td><code>MouthIsHidden</code></td><td><code>bool</code></td><td>Derived from <code>BeardCoverType == All</code>.</td></tr>
+<tr><td><code>BodyMeshType</code></td><td><code>ArmorComponent.BodyMeshTypes</code></td><td>Body mesh type decided by body armor.</td></tr>
+<tr><td><code>BodyDeformType</code></td><td><code>ArmorComponent.BodyDeformTypes</code></td><td>Body deformation decided by body armor.</td></tr>
+</tbody></table>
+<h2 id="key-methods">Key Methods</h2>
+<h3 id="construction-and-copy">Construction and copy</h3>
+<h4 id="public-equipment"><code>public Equipment()</code></h4>
+<p>Creates an empty equipment of category <code>Invalid</code> (12 empty slots). Mainly for deserialization or as a temporary container.</p>
+<h4 id="public-equipment-equipmenttype-equipmenttype"><code>public Equipment(EquipmentType equipmentType)</code></h4>
+<p>Creates an empty equipment of a given category (Battle / Civilian / Stealth). <strong>Use this</strong> when you want to build a fresh outfit that "belongs" to a category, rather than the parameterless constructor.</p>
+<h4 id="public-equipment-equipment-equipment"><code>public Equipment(Equipment equipment)</code></h4>
+<p>Deep-copies an existing instance (per-slot <code>new EquipmentElement</code>). Copies only the items and modifiers, not runtime flags such as <code>SyncEquipments</code>.</p>
+<h4 id="public-equipment-clone-bool-clonewithoutweapons-false"><code>public Equipment Clone(bool cloneWithoutWeapons = false)</code></h4>
+<p>Returns a new <code>Equipment</code>. With <code>cloneWithoutWeapons: true</code>, the first 5 weapon slots are set to <code>EquipmentElement.Invalid</code> and only armor/mount remain — useful as a base before "strip for battle" re-equipping.
+<strong>When to call:</strong> when you need a temporary edit that must not pollute the original equipment/save (e.g. a穿戴 snapshot before agent spawn, or a stealth preview).</p>
+<pre><code data-lang="csharp">Equipment baseCivilian = Hero.MainHero.CivilianEquipment.Clone(cloneWithoutWeapons: true);
+baseCivilian[EquipmentIndex.Body] = new EquipmentElement(cleanTunic);
+</code></pre>
+<h4 id="public-void-fillfrom-equipment-sourceequipment-bool-usesourceequipmenttype-true"><code>public void FillFrom(Equipment sourceEquipment, bool useSourceEquipmentType = true)</code></h4>
+<p>Overwrites all 12 slots with <code>source</code>'s slots; with <code>useSourceEquipmentType: true</code> it also copies the category. <strong>Side effect:</strong> it rewrites the caller's own slots, which is reflected on the owning <code>Hero</code> if the caller <em>is</em> <code>Hero.BattleEquipment</code>.
+<strong>When to call:</strong> when moving a whole outfit into an existing instance (as <code>MBEquipmentRoster.InitializeDefaultEquipment</code> does internally).</p>
+<h3 id="slot-read-write">Slot read / write</h3>
+<h4 id="public-void-addequipmenttoslotwithoutagent-equipmentindex-equipmentindex-equipmentelement-itemrosterelement"><code>public void AddEquipmentToSlotWithoutAgent(EquipmentIndex equipmentIndex, EquipmentElement itemRosterElement)</code></h4>
+<p>Equivalent to <code>this[equipmentIndex] = itemRosterElement</code> — writes a slot. The name stresses that it changes the data "without going through an Agent (combat entity)". <strong>The write also passes through <code>IsItemFitsToSlot</code> validation.</strong></p>
+<h4 id="public-equipmentelement-getequipmentfromslot-equipmentindex-equipmentindex"><code>public EquipmentElement GetEquipmentFromSlot(EquipmentIndex equipmentIndex)</code></h4>
+<p>Returns the <code>EquipmentElement</code> at that slot (an empty slot returns an element with <code>Item == null</code>). Reading does not trigger validation.</p>
+<h4 id="public-static-bool-isitemfitstoslot-equipmentindex-slotindex-itemobject-item"><code>public static bool IsItemFitsToSlot(EquipmentIndex slotIndex, ItemObject item)</code></h4>
+<p>Static: decides whether <code>item</code> can go into <code>slotIndex</code> (mapped by <code>ItemType</code>). <code>item == null</code> is always <code>true</code>; books and invalid items return <code>false</code>. <strong>When to call:</strong> pre-check before bulk writes so you never trigger <code>Debug.FailedAssert</code>. Note it only asserts — it does not throw.</p>
+<h4 id="public-equipmentindex-getweaponpickupslotindex-equipmentelement-itemrosterelement-bool-isstuckmissile"><code>public EquipmentIndex GetWeaponPickUpSlotIndex(EquipmentElement itemRosterElement, bool isStuckMissile)</code></h4>
+<p>Finds an empty weapon slot for a picked-up weapon: items with <code>DropOnWeaponChange</code>/<code>DropOnAnyAction</code> go to <code>ExtraWeaponSlot</code>, otherwise the first empty weapon slot (<code>Weapon0</code>–<code>Weapon3</code>); if none is free it returns <code>EquipmentIndex.None</code>. Used by combat pickup logic to decide the landing slot.</p>
+<h4 id="public-static-void-swapweapons-equipment-equipment-equipmentindex-index1-equipmentindex-index2"><code>public static void SwapWeapons(Equipment equipment, EquipmentIndex index1, EquipmentIndex index2)</code></h4>
+<p>Static: swaps the contents of two slots (value swap, no Agent involved). Underlies weapon-swap animation / quick-swap.</p>
+<h3 id="queries-and-statistics">Queries and statistics</h3>
+<h4 id="public-bool-isempty"><code>public bool IsEmpty()</code></h4>
+<p>Returns <code>true</code> when all 12 slots have <code>Item == null</code>. Used during hero adulthood init to decide whether re-equipping is needed.</p>
+<h4 id="public-bool-hasweapon"><code>public bool HasWeapon()</code></h4>
+<p>Whether any of the first 5 weapon slots holds a weapon carrying the <code>WeaponMask</code> flag.</p>
+<h4 id="public-bool-hasweaponofclass-weaponclass-weaponclass"><code>public bool HasWeaponOfClass(WeaponClass weaponClass)</code></h4>
+<p>Whether a weapon of the given class (e.g. <code>WeaponClass.OneHanded</code>) exists.</p>
+<h4 id="public-float-gettotalweightofarmor-bool-forhuman-and-public-float-gettotalweightofweapons"><code>public float GetTotalWeightOfArmor(bool forHuman)</code> and <code>public float GetTotalWeightOfWeapons()</code></h4>
+<p>Sums armor (human / horse) and weapon weight respectively, internally via <code>EquipmentElement.GetEquipmentElementWeight()</code>. Used by encumbrance / movement-speed models.</p>
+<h4 id="getheadarmorsum-gethumanbodyarmorsum-getlegarmorsum-getarmarmorsum-gethorsearmorsum"><code>GetHeadArmorSum</code> / <code>GetHumanBodyArmorSum</code> / <code>GetLegArmorSum</code> / <code>GetArmArmorSum</code> / <code>GetHorseArmorSum</code></h4>
+<p>Per-region armor totals, based on <code>EquipmentElement.GetModified*Armor()</code> (already includes <code>ItemModifier</code> bonuses). Combat damage resolution and equipment rating depend on these.</p>
+<h4 id="public-underweartypes-getunderweartype-bool-isfemale"><code>public UnderwearTypes GetUnderwearType(bool isFemale)</code></h4>
+<p>From whether body armor exists and whether it is female <code>DoesNotHideChest</code>, returns <code>NoUnderwear</code> / <code>FullUnderwear</code> / <code>OnlyTop</code>, deciding underwear rendering.</p>
+<h4 id="public-bool-isequipmentequalto-equipment-other"><code>public bool IsEquipmentEqualTo(Equipment other)</code></h4>
+<p>Compares each slot via <code>EquipmentElement.IsEqualTo</code> plus three flag groups. Used to tell whether a hero's gear "still matches the template" and thus whether re-equipping is needed.</p>
+<h3 id="equipment-code-serialization-network-helper">Equipment code (serialization / network helper)</h3>
+<h4 id="public-string-calculateequipmentcode"><code>public string CalculateEquipmentCode()</code></h4>
+<p>Encodes the 12 slots into a <code>"slot-itemStringId-modifierStringId"</code> string joined by <code>+</code> (empty items use <code>@null</code>). Describes the worn state for save / network sync.
+<strong>Example:</strong> <code>0-iron_sword-@null+5-northern_helmet-@null+10-horse-@null</code>.</p>
+<h4 id="public-static-equipment-createfromequipmentcode-string-equipmentcode"><code>public static Equipment CreateFromEquipmentCode(string equipmentCode)</code></h4>
+<p>The inverse of <code>CalculateEquipmentCode</code>: parses the string and restores items via <code>MBObjectManager.Instance.GetObject&lt;ItemObject&gt;</code> / <code>GetObject&lt;ItemModifier&gt;</code>. <strong>Depends on <code>MBObjectManager</code> being initialized</strong>; calling before the object system is ready yields <code>null</code> items.</p>
+<h4 id="public-void-deserialize-mbobjectmanager-objectmanager-xmlnode-node-deserializenode"><code>public void Deserialize(MBObjectManager objectManager, XmlNode node)</code> / <code>DeserializeNode(...)</code></h4>
+<p>Restores equipment from an XML node (troop templates, save loading). <code>DeserializeNode</code> internally also runs <code>IsItemFitsToSlot</code>; a mismatch triggers <code>Debug.FailedAssert</code>.</p>
+<h4 id="public-static-equipmentindex-getequipmentindexfromoldequipmentindexname-string-oldequipmentindexname"><code>public static EquipmentIndex GetEquipmentIndexFromOldEquipmentIndexName(string oldEquipmentIndexName)</code></h4>
+<p>Maps old XML slot names (<code>Item0</code>–<code>Item4</code>) to the new enum (<code>Weapon0</code>–<code>ExtraWeaponSlot</code>), for compatibility with old equipment definitions.</p>
+<h3 id="weapon-init-and-random">Weapon init and random</h3>
+<h4 id="public-void-getinitialweaponindicestoequip-out-equipmentindex-mainhandweaponindex-out-equipmentindex-offhandweaponindex-out-bool-ismainhandnotusablewithonehand-initialweaponequippreference-initialweaponequippreference-initialweaponequippreference-any"><code>public void GetInitialWeaponIndicesToEquip(out EquipmentIndex mainHandWeaponIndex, out EquipmentIndex offHandWeaponIndex, out bool isMainHandNotUsableWithOneHand, InitialWeaponEquipPreference initialWeaponEquipPreference = InitialWeaponEquipPreference.Any)</code></h4>
+<p>From the 5 weapon slots, picks the main-hand and off-hand slots according to <code>InitialWeaponEquipPreference</code> (Any / MeleeMainHand / RangedMainHand) and flags whether the main hand cannot be used one-handed. The <code>Agent</code> initial-weapon logic at battle entry depends on it.</p>
+<h4 id="public-static-equipment-getrandomequipmentelements-basiccharacterobject-character-bool-randomequipmentmodifier-equipmenttype-equipmenttype-int-seed-1"><code>public static Equipment GetRandomEquipmentElements(BasicCharacterObject character, bool randomEquipmentModifier, EquipmentType equipmentType, int seed = -1)</code></h4>
+<p>Randomly assembles one outfit from <code>character</code>'s equipment set of the matching category (optional fixed <code>seed</code>, and <code>randomEquipmentModifier</code> decides whether to attach random modifiers). <code>EquipmentSelectionModel</code> uses it internally to roll gear for troops/heroes.</p>
+<h2 id="examples">Examples</h2>
+<h3 id="example-1-read-and-temporarily-modify-the-player-hero-s-battle-equipment">Example 1: Read and temporarily modify the player hero's battle equipment</h3>
+<p>Writing <code>Hero.BattleEquipment</code> directly writes into the save game, so here we use <code>Clone()</code> for the demo; for a real persistent swap use <code>EquipmentHelper.AssignHeroEquipmentFromEquipment</code>.</p>
+<pre><code data-lang="csharp">// The player hero&#39;s battle equipment (real acquisition path: Hero.MainHero)
+Equipment battleEq = Hero.MainHero.BattleEquipment;
+
+// Pull the item through MBObjectManager, then write the slot (indexer validates the type)
+ItemObject sword = MBObjectManager.Instance.GetObject&lt;ItemObject&gt;(&quot;iron_sword_a&quot;);
+if (Equipment.IsItemFitsToSlot(EquipmentIndex.Weapon0, sword))
+{
+    battleEq[EquipmentIndex.Weapon0] = new EquipmentElement(sword);
+}
+
+// Temporary copy: drop weapons, used as a civilian snapshot before agent spawn
+Equipment preview = Hero.MainHero.CivilianEquipment.Clone(cloneWithoutWeapons: true);
+EquipmentElement helm = preview.GetEquipmentFromSlot(EquipmentIndex.Head);
+if (!helm.IsEmpty)
+{
+    // helm.Item is an ItemObject; you can read its armor / value
+    float headArmor = preview.GetHeadArmorSum();
+}
+</code></pre>
+<h3 id="example-2-loot-from-an-enemy-character-template">Example 2: Loot from an enemy character template</h3>
+<p><code>CharacterObject.BattleEquipments</code> returns every battle-equipment option for that character; the loot model (<code>DefaultBattleRewardModel.GetLootedItemFromTroop</code>) works exactly this way.</p>
+<pre><code data-lang="csharp">// Real acquisition path: the CharacterObject equipment set
+CharacterObject enemy = someCombatant.Character; // e.g. an enemy unit template in battle
+Equipment randomBattle = enemy.BattleEquipments.GetRandomElementInefficiently();
+
+// Pull the main-hand slot item as loot
+EquipmentElement loot = randomBattle.GetEquipmentFromSlot(EquipmentIndex.Weapon0);
+if (!loot.IsEmpty &amp;&amp; loot.Item != null &amp;&amp; !loot.Item.NotMerchandise)
+{
+    ItemObject dropped = loot.Item;        // a real ItemObject
+    int value = loot.GetBaseValue();        // value including modifiers
+}
+</code></pre>
+<h3 id="example-3-equipment-code-for-save-network-sync">Example 3: Equipment code for save / network sync</h3>
+<pre><code data-lang="csharp">// Serialize current worn state
+string code = Hero.MainHero.BattleEquipment.CalculateEquipmentCode();
+
+// Restore elsewhere (make sure MBObjectManager is ready)
+Equipment restored = Equipment.CreateFromEquipmentCode(code);
+</code></pre>
+<h2 id="dependencies">Dependencies</h2>
+<h3 id="upstream-who-creates-owns-the-equipment">Upstream (who creates / owns the Equipment)</h3>
+<ul>
+<li><a href="../../campaign/Hero/">Hero</a> — <code>BattleEquipment</code> / <code>CivilianEquipment</code> / <code>StealthEquipment</code> are three <code>Equipment</code> instances, saved with the hero.</li>
+<li><a href="../../campaign/CharacterObject/">CharacterObject</a> — <code>BattleEquipments</code> / <code>CivilianEquipments</code> / <code>StealthEquipments</code> supply the template equipment sets.</li>
+<li><a href="../MBEquipmentRoster/">MBEquipmentRoster</a> — culture/troop default equipment roster; internally <code>MBList&lt;Equipment&gt;</code>.</li>
+</ul>
+<h3 id="downstream-subsystems-that-consume-equipment">Downstream (subsystems that consume Equipment)</h3>
+<ul>
+<li><a href="../EquipmentElement/">EquipmentElement</a> — the actual per-slot item unit (<code>Item</code> + <code>ItemModifier</code> + <code>CosmeticItem</code> + <code>IsQuestItem</code>).</li>
+<li><a href="../../core/ItemObject/">ItemObject</a> — the real item behind <code>EquipmentElement.Item</code>, providing <code>ArmorComponent</code> / <code>WeaponComponent</code>.</li>
+<li><a href="../BodyProperties/">BodyProperties</a> — <code>BasicCharacterObject.GetBodyProperties(Equipment)</code> uses <code>HairCoverType</code> / <code>BeardCoverType</code> for face generation.</li>
+<li><a href="../../campaign/">Campaign</a> — the <code>EquipmentSelectionModel</code> rolls gear for heroes/troops via <code>GetRandomEquipmentElements</code>.</li>
+</ul>
+<h3 id="save-points">Save points</h3>
+<ul>
+<li><a href="../../save-system/SaveManager/">SaveManager</a> — <code>Equipment</code>'s slot array carries <code>[SaveableField]</code> and <code>EquipmentElement</code>'s <code>Item</code> / <code>ItemModifier</code> carry <code>[SaveableProperty]</code>; they serialize together with the owning <code>Hero</code> / roster, and object references resolve through <code>MBObjectManager</code>'s <code>MBGUID</code>.</li>
+</ul>
+<h2 id="risks">Risks</h2>
+<ol>
+<li><strong>Restoring before the object system is ready:</strong> <code>CreateFromEquipmentCode</code>, <code>Deserialize</code>, and <code>DeserializeNode</code> all call <code>MBObjectManager.Instance.GetObject(...)</code>. If you call them before <code>MBObjectManager</code> has loaded game objects (e.g. early in <code>MBSubModuleBase.OnSubModuleLoad</code>, or anywhere <code>Game</code> has not started), the result is <code>null</code>; continuing to read <code>.Name</code> or build an <code>EquipmentElement</code> then throws <code>NullReferenceException</code>. <strong>Only call after the campaign/mission has loaded.</strong></li>
+<li><strong>Writing <code>Hero.BattleEquipment</code> directly writes into the save game:</strong> <code>Hero.BattleEquipment</code> returns the <strong>same mutable instance</strong>. Writing it directly during agent spawn, preview, or temporary calculation pollutes the hero's persistent gear and can corrupt the save. For temporary wear, always <code>Clone()</code> first; for a real full swap, use <code>EquipmentHelper.AssignHeroEquipmentFromEquipment</code>.</li>
+<li><strong>Slot type validation is only an assert:</strong> the indexer setter calls <code>IsItemFitsToSlot</code>, but a wrong type (e.g. a weapon in the helmet slot) only triggers <code>Debug.FailedAssert</code> — <strong>it does not block the assignment</strong>, yet causes render/armor-computation anomalies. Pre-check with <code>IsItemFitsToSlot</code> before bulk writes.</li>
+<li><strong>Integer index out of range:</strong> <code>_itemSlots</code> is fixed at length 12. Using <code>this[int]</code> with an index &gt;11 throws <code>IndexOutOfRangeException</code>. Prefer the <code>EquipmentIndex</code> enum (<code>Horse = 10</code>, <code>HorseHarness = 11</code> is the upper bound).</li>
+<li><strong>Mutation during save / serialization:</strong> concurrently editing <code>Equipment</code> inside save read/write callbacks or while <code>MBObjectManager</code> is collecting serializable objects (<code>AutoGeneratedInstanceCollectObjects</code>) yields an inconsistent object graph. Change equipment in campaign tick / behavior / dialog logic, not in the save critical section.</li>
+</ol>
+<h2 id="cross-version-notes">Cross-version Notes</h2>
+<ul>
+<li>v1.3.15 / v1.3.0: the public API matches 1.4.5 — same 12-slot <code>EquipmentElement[]</code>, same <code>EquipmentIndex</code> mapping, and the same <code>Clone</code> / <code>FillFrom</code> / <code>CalculateEquipmentCode</code> signatures. This page follows the authoritative 1.4.5 source.</li>
+<li>v1.4.5: the indexer setter now explicitly calls <code>IsItemFitsToSlot</code> for the assert; earlier decompiled versions behave the same. Cross-version mods reading equipment codes (<code>CalculateEquipmentCode</code> / <code>CreateFromEquipmentCode</code>) can reuse them safely.</li>
+<li><code>Equipment</code> has no base class and implements no interface; its coupling to <code>Hero</code> / <code>CharacterObject</code> is composition, not inheritance.</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<ul>
+<li><a href="../EquipmentElement/">EquipmentElement</a> — the single-slot item unit (Item + modifier + cosmetic)</li>
+<li><a href="../EquipmentIndex/">EquipmentIndex</a> — the 12-slot enum mapping</li>
+<li><a href="../MBEquipmentRoster/">MBEquipmentRoster</a> — equipment roster (a set of Equipment)</li>
+<li><a href="../../core/ItemObject/">ItemObject</a> — the real item in a slot</li>
+<li><a href="../ItemModifier/">ItemModifier</a> — modifier entries</li>
+<li><a href="../BodyProperties/">BodyProperties</a> — face generation that depends on equipment coverage</li>
+<li><a href="../../campaign/Hero/">Hero</a> — holds the Battle/Civilian/Stealth three <code>Equipment</code></li>
+<li><a href="../../campaign/CharacterObject/">CharacterObject</a> — supplies the Battle/Civilian equipment template sets</li>
+<li><a href="../../save-system/SaveManager/">SaveManager</a> — the mechanism by which Equipment serializes with Hero</li>
+</ul>
+<h2 id="navigation">Navigation</h2>
+<ul>
+<li>↑ Parent: <a href="../../core-extra/">Core-Extra module index</a> (served as <code>/v1.3.15/en/api/core-extra/</code>)</li>
+<li>↔ Siblings: <a href="../EquipmentElement/">EquipmentElement</a> · <a href="../MBEquipmentRoster/">MBEquipmentRoster</a> · <a href="../../core/ItemObject/">ItemObject</a> · <a href="../EquipmentIndex/">EquipmentIndex</a> · <a href="../ItemRosterElement/">ItemRosterElement</a> · <a href="../BodyProperties/">BodyProperties</a></li>
+<li>Related types: <a href="../../campaign/Hero/">Hero</a> · <a href="../../campaign/CharacterObject/">CharacterObject</a> · <a href="../../campaign/">Campaign</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/en/api/core-extra/">core-extra index</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/en/api/core-extra/CodeBlock/">&larr; CodeBlock</a>
+          
+          
+            <a rel="next" href="/v1.3.15/en/api/core-extra/TWException/">TWException &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PartyBase</title>
+  <meta name="description" content="战役世界里「部队」的统一句柄：既包裹移动中的 MobileParty，也包裹据点的守军；集中暴露名册、规模上限、位置、阵营与战斗力。不对外继承、不直接 new。">
+  
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666666;
+      --accent: #646cff;
+      --border: #e5e5e5;
+      --code-bg: #f4f4f4;
+      --sidebar-width: 260px;
+      --nav-height: 56px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { background: var(--code-bg); padding: 0.15rem 0.35rem; border-radius: 4px; font-size: 0.9em; }
+    pre { background: var(--code-bg); padding: 1rem; border-radius: 8px; overflow-x: auto; }
+    pre code { background: transparent; padding: 0; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem; text-align: left; }
+    th { background: #fafafa; }
+
+    .top-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      gap: 1.5rem;
+      z-index: 100;
+    }
+    .top-nav .brand { font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
+    .top-nav .brand img { height: 24px; width: 24px; }
+    .top-nav .menu { display: flex; gap: 1.25rem; align-items: center; }
+    .top-nav .menu a { color: var(--text); font-weight: 500; }
+    .top-nav .menu a.active { color: var(--accent); }
+    .top-nav .dropdown { position: relative; }
+    .top-nav .dropdown summary { list-style: none; cursor: pointer; font-weight: 500; }
+    .top-nav .dropdown[open] summary { color: var(--accent); }
+    .top-nav .dropdown-menu {
+      position: absolute; top: 100%; left: 0; min-width: 180px;
+      background: #fff; border: 1px solid var(--border); border-radius: 8px;
+      padding: 0.5rem 0; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-top: 0.5rem;
+    }
+    .top-nav .dropdown-menu a { display: block; padding: 0.4rem 0.9rem; color: var(--text); }
+    .top-nav .dropdown-menu a:hover { background: #f7f7f7; text-decoration: none; }
+
+    .layout { display: flex; margin-top: var(--nav-height); min-height: calc(100vh - var(--nav-height)); }
+    .sidebar {
+      width: var(--sidebar-width);
+      border-right: 1px solid var(--border);
+      padding: 1.25rem;
+      position: fixed;
+      top: var(--nav-height); bottom: 0; left: 0;
+      overflow-y: auto;
+      font-size: 0.92rem;
+    }
+    .sidebar h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 1.25rem 0 0.5rem; }
+    .sidebar a { color: var(--text); display: block; padding: 0.25rem 0; }
+    .sidebar a.active { color: var(--accent); font-weight: 600; }
+    .sidebar .group { margin-bottom: 0.75rem; }
+    .sidebar .group summary { font-weight: 600; cursor: pointer; padding: 0.3rem 0; }
+    .sidebar .group-items { padding-left: 0.9rem; }
+
+    .page-navigation {
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .page-navigation-row,
+    .page-navigation-related {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.65rem 1rem;
+    }
+    .page-navigation-row { justify-content: space-between; }
+    .page-navigation-parent,
+    .page-navigation-siblings,
+    .page-navigation-related { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem; }
+    .page-navigation-label { font-weight: 600; color: var(--text); }
+    .page-navigation-disabled { color: var(--muted); opacity: 0.75; }
+    .page-navigation-related { margin-top: 0.65rem; }
+
+    .main { margin-left: var(--sidebar-width); flex: 1; padding: 2rem 2.5rem; max-width: 900px; }
+    .main h1 { font-size: 2rem; margin-top: 0; }
+
+    @media (max-width: 768px) {
+      .sidebar { display: none; }
+      .main { margin-left: 0; padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="top-nav">
+  <a class="brand" href="https://bannerlordcode.github.io/">
+    Bannerlord Modding Wiki
+  </a>
+  <div class="menu" role="menubar">
+    <a href="https://bannerlordcode.github.io/" class="">
+      Home
+    </a>
+
+    <details class="dropdown">
+      <summary>指南 Guide</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/guide/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/guide/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/guide/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/guide/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/guide/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/guide/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>API</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/api/"
+                 class="active">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/api/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/api/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/api/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/api/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/api/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>架构 Architecture</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/architecture/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/architecture/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/architecture/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/architecture/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/architecture/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/architecture/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>原生 Native</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/native/"
+                 class="">
+                v1.3.15 原生
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/zh/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native 源码
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/native/"
+                 class="">
+                v1.3.15 Native
+              </a>
+                <a href="https://bannerlordcode.github.io/v1.3.15/en/native-1.3.15-src/"
+                   class="">
+                  v1.3.15 Native Source
+                </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/native/"
+                 class="">
+                v1.3.0 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/native/"
+                 class="">
+                v1.3.0 Native
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/native/"
+                 class="">
+                v1.4.5 原生
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/native/"
+                 class="">
+                v1.4.5 Native
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>XML Reference</summary>
+      <div class="dropdown-menu">
+              <a href="https://bannerlordcode.github.io/v1.3.15/zh/xml-reference/"
+                 class="">
+                v1.3.15 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.15/en/xml-reference/"
+                 class="">
+                v1.3.15 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/zh/xml-reference/"
+                 class="">
+                v1.3.0 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.3.0/en/xml-reference/"
+                 class="">
+                v1.3.0 English
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/zh/xml-reference/"
+                 class="">
+                v1.4.5 中文
+              </a>
+              <a href="https://bannerlordcode.github.io/v1.4.5/en/xml-reference/"
+                 class="">
+                v1.4.5 English
+              </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>版本 Version</summary>
+      <div class="dropdown-menu"><a href="/v1.3.15/zh/api/campaign/PartyBase/"
+               class="active">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.15/en/api/campaign/PartyBase/"
+               class="">
+              Bannerlord v1.3.15 Documentation
+            </a><a href="/v1.3.0/zh/api/campaign/PartyBase/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.3.0/en/api/campaign/PartyBase/"
+               class="">
+              Bannerlord v1.3.0 Documentation
+            </a><a href="/v1.4.5/zh/api/campaign/PartyBase/"
+               class="">
+              Bannerlord v1.4.5
+            </a><a href="/v1.4.5/en/api/campaign/PartyBase/"
+               class="">
+              Bannerlord v1.4.5
+            </a>
+      </div>
+    </details>
+
+    <details class="dropdown">
+      <summary>语言 Language</summary>
+      <div class="dropdown-menu">
+        
+      </div>
+    </details>
+  </div>
+</nav>
+
+  <div class="layout"><aside class="sidebar">
+      <details class="group" open>
+          <summary>Start</summary>
+          <div class="group-items"><a href="/v1.3.15/zh/" class="">Bannerlord v1.3.15 Documentation</a></div>
+        </details><details class="group" open>
+          <summary>Guide</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Getting Started Guide</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/guide/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Architecture</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Architecture</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/architecture/" class="">Index</a><a href="/v1.3.15/zh/architecture/doc-contract/" class="">Doc Contract</a><a href="/v1.3.15/zh/architecture/sdk-overview/" class="">SDK Overview</a><a href="/v1.3.15/zh/architecture/module-system/" class="">Module System</a><a href="/v1.3.15/zh/architecture/save-system/" class="">Save System</a><a href="/v1.3.15/zh/architecture/version-delta/" class="">Version Delta</a><a href="/v1.3.15/zh/architecture/native-interop/" class="">Managed-Native Interop</a><a href="/v1.3.15/zh/architecture/developer-roadmap/" class="">Developer Roadmap</a><a href="/v1.3.15/zh/architecture/crash-boundaries/" class="">Crash Boundaries</a><a href="/v1.3.15/zh/architecture/noise-policy/" class="">Noise Policy</a><a href="/v1.3.15/zh/architecture/sandbox-native-policy/" class="">SandBox&#x2F;StoryMode&#x2F;Native Policy</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>API Reference</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>API Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/api/" class="">Index</a><a href="/v1.3.15/zh/api/core/" class="">Core</a><a href="/v1.3.15/zh/api/core-extra/" class="">Core-Extra</a><a href="/v1.3.15/zh/api/mission/" class="">Mission</a><a href="/v1.3.15/zh/api/mission-ext/" class="">Mission-Ext</a><a href="/v1.3.15/zh/api/campaign/" class="active">Campaign</a><a href="/v1.3.15/zh/api/campaign-ext/" class="">Campaign-Ext</a><a href="/v1.3.15/zh/api/gui/" class="">GUI</a><a href="/v1.3.15/zh/api/save-system/" class="">Save-System</a><a href="/v1.3.15/zh/api/viewmodel/" class="">ViewModel</a><a href="/v1.3.15/zh/api/localization/" class="">Localization</a><a href="/v1.3.15/zh/api/engine/" class="">Engine</a><a href="/v1.3.15/zh/api/system/" class="">System</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>Native</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>Native Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native/" class="">Index</a></div>
+                </details><details class="group" >
+                  <summary>Native 1.3.15 Source Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/native-1.3.15-src/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" >
+          <summary>XML Reference</summary>
+          <div class="group-items"><details class="group" >
+                  <summary>XML Reference</summary>
+                  <div class="group-items">
+                    <a href="/v1.3.15/zh/xml-reference/" class="">Index</a></div>
+                </details></div>
+        </details><details class="group" open>
+          <summary>Cross-Version</summary>
+          <div class="group-items"><details class="group" open>
+                  <summary>Cross-Version Class Comparison</summary>
+                  <div class="group-items">
+                    <a href="/versions/" class="">Index</a></div>
+                </details></div>
+        </details>
+    </aside>
+    <main class="main">
+      
+<article>
+  
+  
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="https://bannerlordcode.github.io/">Home</a>
+      <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;">Bannerlord Modding Wiki</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;">Bannerlord v1.3.15 文档 &#x2F; Bannerlord v1.3.15 Documentation</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;">API 参考</a>
+        <span aria-hidden="true"> → </span>
+      
+        
+        <a href="https:&#x2F;&#x2F;bannerlordcode.github.io&#x2F;v1.3.15&#x2F;zh&#x2F;api&#x2F;campaign&#x2F;">campaign 目录</a>
+        <span aria-hidden="true"> → </span>
+      
+      <span class="current">PartyBase</span>
+    </nav>
+  
+  <h1>PartyBase</h1>
+  <h1 id="partybase">PartyBase</h1>
+<p><strong>Namespace:</strong> TaleWorlds.CampaignSystem.Party<br />
+<strong>Module:</strong> TaleWorlds.CampaignSystem<br />
+<strong>Type:</strong> <code>public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint</code><br />
+<strong>Base:</strong> 无（直接继承 <code>System.Object</code>）；实现 <code>IBattleCombatant</code>、<code>IRandomOwner</code>、<code>IInteractablePoint</code><br />
+<strong>File:</strong> <code>TaleWorlds.CampaignSystem/Party/PartyBase.cs</code></p>
+<h2 id="yi-ju-hua-zhi-ze">一句话职责</h2>
+<p><code>PartyBase</code> 是战役地图上**「一支部队」的统一抽象句柄**：它要么包裹一支会移动的 <code>MobileParty</code>，要么包裹一个据点（<code>Settlement</code>）的守军，并对外提供同一套接口——成员/俘虏名册、物品栏、规模上限、地图位置、阵营、领袖与战斗力——让遭遇、战斗、可见性、补给等系统不必区分「这是移动的还是驻扎的」。</p>
+<blockquote>
+<p>注意：源码里 <code>PartyBase</code> 是 <code>sealed</code> 的<strong>具体类</strong>，不是抽象基类。它靠 <code>IsMobile</code> / <code>IsSettlement</code> 两个布尔来判断自己当前是哪一副面孔，而不是靠子类化。你的 mod 不应继承它，也不应自己 <code>new</code> 它。</p>
+</blockquote>
+<h2 id="xin-zhi-mo-xing">心智模型</h2>
+<p>把 <code>PartyBase</code> 想成**「贴在 MobileParty 或 Settlement 上的同一张身份证」**：</p>
+<ul>
+<li><strong>两种形态，永远只有其一。</strong> 构造时二选一：<code>new PartyBase(MobileParty)</code> 或 <code>new PartyBase(Settlement)</code>（见 <code>PartyBase.cs:899</code> 与 <code>:904</code>）。由此 <code>IsMobile</code> 与 <code>IsSettlement</code> 互斥，<code>MobileParty</code> 和 <code>Settlement</code> 属性恰好一个为 <code>null</code>。</li>
+<li><strong>谁创建、谁持有。</strong> 引擎在 <code>MobileParty</code> 与 <code>Settlement</code> 的构造流程里各自 <code>new</code> 出配套的 <code>PartyBase</code>，并分别挂在 <code>MobileParty.Party</code> / <code>Settlement.Party</code> 上。你拿到的 <code>PartyBase</code> 永远来自这两个属性，而不是自己构造——私有构造器里会调用 <code>Campaign.Current.GeneratePartyId(this)</code> 分配 <code>Index</code>，脱离战役上下文无法正确创建。</li>
+<li><strong>所在层。</strong> 纯 <strong>Campaign（战役）层</strong> 对象，由 <code>SaveSystem</code> 跟踪存档。它跟战斗场景（Mission）无关；进入战斗后，它的 <code>MapEvent</code>/<code>MapEventSide</code> 才被临时指派。</li>
+<li><strong>它是「被传递的那个对象」。</strong> 遭遇判定、兵力计算、可见性刷新、守军/商队逻辑，拿到的参数类型都是 <code>PartyBase</code>，而不是具体的 <code>MobileParty</code> 或 <code>Settlement</code>。</li>
+</ul>
+<h2 id="he-shi-yong-he-shi-bu-yao-yong">何时用 / 何时不要用</h2>
+<p><strong>用 <code>PartyBase</code> 当：</strong></p>
+<ul>
+<li>你手上有 <code>MobileParty</code> 或 <code>Settlement</code>，但需要的是「部队」层面的通用能力：读名册、读规模上限、读位置/阵营/领袖、算战斗力。</li>
+<li>你在写接收 <code>PartyBase</code> 参数的 Behavior / Action / Model（例如自定义遭遇、自定义兵力模型、遍历所有部队）。</li>
+</ul>
+<p><strong>不要：</strong></p>
+<ul>
+<li><strong>不要 <code>new PartyBase(...)</code>。</strong> 直接读 <code>mobileParty.Party</code> 或 <code>settlement.Party</code>。自己 new 出来的实例没有合法 <code>Index</code>，也不会被战役追踪。</li>
+<li><strong>不要继承它。</strong> 它是 <code>sealed</code>。</li>
+<li><strong>不要给英雄直接改名册。</strong> 给部队加英雄要用 <code>AddHeroToPartyAction</code> / <code>TakePrisonerAction</code>，而不是 <code>AddMember</code> / <code>AddPrisoner</code>（见风险段）。</li>
+<li><strong>不要在 Mission（战斗场景）里改名册或读 <code>MapEvent</code>。</strong> 这些是战役态数据，场景里改会和每帧同步冲突，可能坏档。</li>
+<li><strong>不要把 <code>MapEvent</code> / <code>MapEventSide</code> 当成长期状态。</strong> 只在「正处于一场地图事件」期间有效，事件结束后会变 <code>null</code> 或被重新指派。</li>
+</ul>
+<h2 id="yi-lai-tu">依赖图</h2>
+<pre><code data-lang="text">                    Campaign.Current (GeneratePartyId / Models / CameraFollowParty)
+                                  │
+              ┌───────────────────┴───────────────────┐
+         MobileParty (IsMobile)                  Settlement (IsSettlement)
+              │  .PartyComponent                       │  .PartyComponent (SettlementPartyComponent)
+              └───────────────────┬───────────────────┘
+                              PartyBase  ◄── 你通常通过 .Party 拿到它
+                 │   │   │   │   │
+        ┌────────┘   │   │   └────────┐
+   TroopRoster   ItemRoster      MapEvent / MapEventSide      Hero (Owner / LeaderHero)
+   (MemberRoster,                (仅事件期间)
+    PrisonRoster)
+</code></pre>
+<p><strong>上游（它依赖谁）</strong></p>
+<ul>
+<li><a href="../MobileParty/">MobileParty</a> — <code>IsMobile</code> 形态时的本体，<code>MobileParty.Party</code> 返回它。</li>
+<li><a href="../Settlement/">Settlement</a> — <code>IsSettlement</code> 形态时的本体（守军），<code>Settlement.Party</code> 返回它。</li>
+<li><a href="../../campaign-ext/PartyComponent/">PartyComponent</a> — <code>MobileParty</code> 持有的组件基类（守军用 <code>SettlementPartyComponent</code>）；决定部队的「类型」与行为。</li>
+<li><a href="../../campaign-ext/TroopRoster/">TroopRoster</a> / <a href="../../campaign-ext/ItemRoster/">ItemRoster</a> — 实际存成员、俘虏、物品的数据容器。</li>
+<li><a href="../Campaign/">Campaign</a> — <code>Campaign.Current</code> 提供 <code>Models</code>、<code>GeneratePartyId</code>、<code>CameraFollowParty</code>。</li>
+</ul>
+<p><strong>下游 / 消费者</strong></p>
+<ul>
+<li><a href="../../campaign-ext/MapEvent/">MapEvent</a> — 战斗事件把参战双方收纳进 <code>MapEventSide</code>，并反向挂到 <code>PartyBase.MapEventSide</code>。</li>
+<li>遭遇/可见性/兵力 系统（见下方相关 Models）。</li>
+</ul>
+<p><strong>相关 Models（点击即真实页）</strong></p>
+<ul>
+<li><a href="../../campaign-ext/PartySizeLimitModel/">PartySizeLimitModel</a> — <code>PartySizeLimit</code> / <code>PrisonerSizeLimit</code> 的计算来源。</li>
+<li><a href="../../campaign-ext/PartyWageModel/">PartyWageModel</a> — 部队工资（由 <code>MobileParty</code> 汇总，规划人力成本时参考）。</li>
+<li><a href="../../campaign-ext/PartyHealingModel/">PartyHealingModel</a> — <code>HealingRateForMember*</code> 的计算来源。</li>
+<li><a href="../../campaign-ext/MilitaryPowerModel/">MilitaryPowerModel</a> — <code>EstimatedStrength</code> / <code>CalculateCurrentStrength</code> / <code>GetCustomStrength</code> 的算力来源。</li>
+<li><a href="../../campaign-ext/EncounterModel/">EncounterModel</a> — <code>IsPartyUnderPlayerCommand</code> 与遭遇距离判定。</li>
+<li><a href="../../campaign-ext/MapVisibilityModel/">MapVisibilityModel</a> — <code>UpdateVisibilityAndInspected</code> 中的可见性计算。</li>
+</ul>
+<p><strong>相关 Actions（改名册/英雄的正确入口）</strong></p>
+<ul>
+<li><a href="../../campaign-ext/AddHeroToPartyAction/">AddHeroToPartyAction</a> — 把英雄加入某部队（触发英雄状态）。</li>
+<li><a href="../../campaign-ext/TakePrisonerAction/">TakePrisonerAction</a> — 把英雄收为俘虏。</li>
+<li><a href="../../campaign-ext/TransferPrisonerAction/">TransferPrisonerAction</a> — 转移俘虏。</li>
+</ul>
+<h2 id="feng-xian-duan-beng-kui-pi-dang">风险段（崩溃 / 坏档）</h2>
+<blockquote>
+<p>以下用法<strong>可能导致 NullReferenceException 或存档损坏</strong>，务必规避。</p>
+</blockquote>
+<ol>
+<li>
+<p><strong>形态判断与空引用。</strong> <code>PartyBase</code> 是 <code>sealed</code>，无子类可转型。访问前先用 <code>IsMobile</code> / <code>IsSettlement</code> 判断形态：对守军直接读 <code>party.MobileParty</code> 会得到 <code>null</code>（反之亦然）。例如 <code>party.MobileParty.Position</code> 在据点守军上会直接 NRE。</p>
+</li>
+<li>
+<p><strong>直接改名册而不走 Action（英雄）。</strong> <code>AddMember</code> / <code>AddPrisoner</code> 只是 <code>TroopRoster.AddToCounts</code> 的薄封装（见 <code>PartyBase.cs:966</code> / <code>:971</code>），<strong>不会</strong>触发 <code>Hero.OnAddedToPartyAsPrisoner</code>、<code>PartyBase.OnHeroAdded</code>，也<strong>不会</strong>更新英雄的 <code>PartyBelongedTo</code> / <code>PartyBelongedToAsPrisoner</code>。给部队加英雄必须用 <code>AddHeroToPartyAction.Apply</code> / <code>TakePrisonerAction.Apply</code>；只有<strong>普通兵种</strong>才用 <code>AddMember</code>。</p>
+</li>
+<li>
+<p><strong>名册改动时机。</strong> 这些方法直接改战役状态，应在 Campaign 的 tick / Behavior / Action 中调用。在 Mission（战斗场景）里改 <code>MemberRoster</code> / <code>PrisonRoster</code>，会和每帧同步逻辑冲突，导致视觉不一致甚至坏档。</p>
+</li>
+<li>
+<p><strong>需要 <code>Campaign.Current</code> 的属性。</strong> <code>PartySizeLimit</code>、<code>PartySizeLimitExplainer</code>、<code>Culture</code>（= <code>MapFaction.Culture</code>）、<code>HealingRateForMember*</code>、<code>EstimatedStrength</code>、<code>CalculateCurrentStrength</code> 内部都访问 <code>Campaign.Current.Models.*</code>。在 <code>Campaign.Current == null</code>（主菜单、战役外）或 <code>MapFaction == null</code> 时调用会抛 <strong>NullReferenceException</strong>。<code>Culture</code> 对无阵营的瞬态部队尤其危险——先确认 <code>MapFaction != null</code>。</p>
+</li>
+<li>
+<p><strong>跨存档持有引用 / 瞬态字段。</strong> <code>PartyBase</code> 是 <code>SaveSystem</code> 跟踪对象，会话内引用稳定；但 <code>MapEvent</code> / <code>MapEventSide</code> 是<strong>瞬态</strong>的，事件结束后变 <code>null</code> 或被复用，不要当作长期状态缓存。另外 <code>RandomValue</code> 在旧档升级载入时若读到 0 会被重新随机（<code>AfterLoad</code>），<strong>不要依赖它在存档间的确定性</strong>。</p>
+</li>
+<li>
+<p><strong>类型转换陷阱。</strong> 没有「PartyBase 抽象基类」可供你向下转型的集合——它本身就已是具体实例，形态由 <code>IsMobile</code> / <code>IsSettlement</code> 决定，不要尝试在两者间强转或当成同一基类族处理。</p>
+</li>
+</ol>
+<h2 id="cheng-yuan-shuo-ming-an-zhu-ti">成员说明（按主题）</h2>
+<h3 id="gui-mo-yu-shang-xian">规模与上限</h3>
+<table><thead><tr><th>成员</th><th>含义 / 副作用 / 调用时机</th></tr></thead><tbody>
+<tr><td><code>PartySizeLimit</code> (<code>int</code>)</td><td>部队可容纳的成员上限。<strong>缓存值</strong>：以 <code>MemberRoster.VersionNo</code> 为版本号，名册变化才重算；重算走 <code>PartySizeLimitModel.GetPartyMemberSizeLimit</code>。需在战役内调用（依赖 <code>Campaign.Current</code>）。UI 显示容量、招募判定时读它。</td></tr>
+<tr><td><code>PrisonerSizeLimit</code> (<code>int</code>)</td><td>俘虏上限，逻辑同上但基于 <code>PrisonRoster</code>。</td></tr>
+<tr><td><code>PartySizeLimitExplainer</code> / <code>PrisonerSizeLimitExplainer</code> (<code>ExplainedNumber</code>)</td><td>带逐项拆解的上限来源（便于 tooltip 显示「为什么是这个数」）。同样依赖 <code>Campaign.Current</code>。</td></tr>
+<tr><td><code>NumberOfHealthyMembers</code> / <code>NumberOfRegularMembers</code> / <code>NumberOfWoundedTotalMembers</code> / <code>NumberOfAllMembers</code></td><td>全部由 <code>MemberRoster</code> 派生（<code>TotalManCount - TotalWounded</code> 等）。只读，随时可查。</td></tr>
+<tr><td><code>NumberOfPrisoners</code></td><td>来自 <code>PrisonRoster.TotalManCount</code>。</td></tr>
+<tr><td><code>NumberOfMounts</code> / <code>NumberOfPackAnimals</code></td><td>来自 <code>ItemRoster</code>。</td></tr>
+<tr><td><code>NumberOfMenWithHorse</code> / <code>NumberOfMenWithoutHorse</code></td><td>按 <code>CharacterObject.IsMounted</code> 统计；带版本缓存，名册变化才重算。</td></tr>
+<tr><td><code>EstimatedStrength</code> (<code>float</code>)</td><td>估算战斗力（用于 AI/显示），走 <code>MilitaryPowerModel.GetPowerOfParty(... Estimated)</code>。移动部队才有值，据点守军返回 0。依赖 <code>Campaign.Current</code>。</td></tr>
+<tr><td><code>CalculateCurrentStrength()</code></td><td>基于当前 <code>MapEvent</code>/位置实时算战斗力；非移动部队返回 0。</td></tr>
+<tr><td><code>GetCustomStrength(BattleSideEnum, MapEvent.PowerCalculationContext)</code></td><td>用你指定的阵营与上下文算战力，常用于自定义兵力评估。</td></tr>
+<tr><td><code>HealingRateForMemberRegulars</code> / <code>HealingRateForMemberHeroes</code> (<code>float</code>) 及其 <code>*Explained</code> (<code>ExplainedNumber</code>)</td><td>每日治疗量，走 <code>PartyHealingModel</code>。依赖 <code>Campaign.Current</code>。</td></tr>
+</tbody></table>
+<h3 id="xing-tai-shen-fen-yu-gui-shu">形态、身份与归属</h3>
+<table><thead><tr><th>成员</th><th>含义 / 副作用 / 调用时机</th></tr></thead><tbody>
+<tr><td><code>IsMobile</code> / <code>IsSettlement</code> (<code>bool</code>)</td><td><strong>形态判别首选</strong>。两者互斥，恰好一个为 <code>true</code>。</td></tr>
+<tr><td><code>MobileParty</code> (<code>MobileParty</code>)</td><td><code>IsMobile</code> 时为本体，否则 <code>null</code>。</td></tr>
+<tr><td><code>Settlement</code> (<code>Settlement</code>)</td><td><code>IsSettlement</code> 时为本体（守军），否则 <code>null</code>。</td></tr>
+<tr><td><code>Owner</code> (<code>Hero</code>)</td><td>优先返回自定义拥有者 <code>_customOwner</code>，否则退回 <code>MobileParty.Owner</code> / <code>Settlement.Owner</code>。</td></tr>
+<tr><td><code>LeaderHero</code> (<code>Hero</code>)</td><td>仅移动部队有（<code>MobileParty.LeaderHero</code>），守军为 <code>null</code>。</td></tr>
+<tr><td><code>MapFaction</code> (<code>IFaction</code>)</td><td>取 <code>MobileParty.MapFaction</code> 或 <code>Settlement.MapFaction</code>；两者皆无则为 <code>null</code>（见风险 4）。</td></tr>
+<tr><td><code>Culture</code> (<code>CultureObject</code>)</td><td>= <code>MapFaction.Culture</code>。<code>MapFaction</code> 为 <code>null</code> 时抛 NRE。</td></tr>
+<tr><td><code>Id</code> (<code>string</code>)</td><td>= <code>MobileParty?.StringId ?? Settlement.StringId</code>，全战役唯一。</td></tr>
+<tr><td><code>Index</code> (<code>int</code>)</td><td>引擎分配的部队序号（<code>Campaign.GeneratePartyId</code>）；<code>IsValid =&gt; Index &gt;= 0</code>。</td></tr>
+<tr><td><code>IsValid</code> (<code>bool</code>)</td><td><code>Index &gt;= 0</code>。</td></tr>
+<tr><td><code>RandomValue</code> (<code>int</code>)</td><td>随机种子；升级载入时若为 0 会重随机（见风险 5）。</td></tr>
+<tr><td><code>CustomName</code> (<code>TextObject</code>) / <code>CustomBanner</code> (<code>Banner</code>) / <code>Banner</code> (<code>Banner</code>)</td><td>自定义名/旗；<code>Banner</code> 退回 <code>MobileParty.Banner</code> / <code>Settlement.Banner</code>。</td></tr>
+<tr><td><code>MainParty</code> (<code>static PartyBase</code>)</td><td>= <code>Campaign.Current.MainParty.Party</code>；战役外返回 <code>null</code>。</td></tr>
+<tr><td><code>General</code> (<code>BasicCharacterObject</code>)</td><td>部队主将角色：若在军团中返回军团领袖英雄的 <code>CharacterObject</code>，否则返回 <code>LeaderHero?.CharacterObject</code>。</td></tr>
+</tbody></table>
+<h3 id="ming-ce-zhen-shi-shu-ju-rong-qi">名册（真实数据容器）</h3>
+<table><thead><tr><th>成员</th><th>含义 / 副作用 / 调用时机</th></tr></thead><tbody>
+<tr><td><code>MemberRoster</code> (<code>TroopRoster</code>)</td><td>成员名册（含英雄与普通兵种）。<strong>直接改它请用下方方法或 <code>*Action</code></strong>。</td></tr>
+<tr><td><code>PrisonRoster</code> (<code>TroopRoster</code>)</td><td>俘虏名册。</td></tr>
+<tr><td><code>ItemRoster</code> (<code>ItemRoster</code>)</td><td>物品/马匹栏。</td></tr>
+<tr><td><code>PrisonerHeroes</code> (<code>IEnumerable&lt;CharacterObject&gt;</code>)</td><td>遍历俘虏中的英雄角色。</td></tr>
+<tr><td><code>AddMember(CharacterObject, int, int wounded = 0)</code></td><td><code>MemberRoster.AddToCounts</code> 薄封装。<strong>普通兵种</strong>用这个；英雄请用 <code>AddHeroToPartyAction</code>。</td></tr>
+<tr><td><code>AddPrisoner(CharacterObject, int)</code></td><td>同上，作用于 <code>PrisonRoster</code>。</td></tr>
+<tr><td><code>AddMembers(TroopRoster)</code> / <code>AddPrisoners(TroopRoster)</code></td><td>整份名册合并。</td></tr>
+<tr><td><code>AddElementToMemberRoster(CharacterObject, int, bool insertAtFront = false)</code></td><td>指定插入位置加成员。</td></tr>
+<tr><td><code>AddToMemberRosterElementAtIndex(int, int, int wounded = 0)</code></td><td>按索引加人/伤员。</td></tr>
+<tr><td><code>WoundMemberRosterElements(CharacterObject, int)</code> / <code>WoundMemberRosterElementsWithIndex(int, int)</code></td><td>把现有成员标记为伤员（等价于 <code>AddToCounts(..., woundedCount)</code>）。</td></tr>
+<tr><td><code>SetCustomOwner(Hero)</code> / <code>SetCustomName(TextObject)</code> / <code>SetCustomBanner(Banner)</code></td><td>写入自定义归属/名/旗，并 <code>SetVisualAsDirty()</code> 触发地图视觉刷新。</td></tr>
+</tbody></table>
+<h3 id="di-tu-wei-zhi-zao-yu-yu-zhuang-tai">地图位置、遭遇与状态</h3>
+<table><thead><tr><th>成员</th><th>含义 / 副作用 / 调用时机</th></tr></thead><tbody>
+<tr><td><code>Position</code> (<code>CampaignVec2</code>)</td><td>退回 <code>Settlement.Position</code> 或 <code>MobileParty.Position</code>。</td></tr>
+<tr><td><code>IsVisible</code> / <code>IsActive</code></td><td>退回被包裹对象的可见性/激活态。</td></tr>
+<tr><td><code>IsStarving</code> / <code>DaysStarving</code> / <code>RemainingFoodPercentage</code></td><td>断粮状态；<code>RemainingFoodPercentage &lt; 0</code> 即 <code>IsStarving</code>。</td></tr>
+<tr><td><code>MapEvent</code> (<code>MapEvent</code>) / <code>MapEventSide</code> (<code>MapEventSide</code>)</td><td><strong>仅事件期间</strong>有效；事件结束后变 <code>null</code>。写 <code>MapEventSide</code> 会自动从旧边移除、加入新边，并级联同步附属部队。</td></tr>
+<tr><td><code>Side</code> (<code>BattleSideEnum</code>) / <code>OpponentSide</code></td><td>当前所处战斗边；非事件期间为 <code>None</code>。</td></tr>
+<tr><td><code>SiegeEvent</code> (<code>SiegeEvent</code>)</td><td>包围事件（若有）。</td></tr>
+<tr><td><code>Ships</code> (<code>MBReadOnlyList&lt;Ship&gt;</code>) / <code>FlagShip</code> (<code>Ship</code>)</td><td>海军：本部队船只与旗舰（按 <code>FlagshipScore</code> 取最高）。</td></tr>
+<tr><td><code>UpdateVisibilityAndInspected(CampaignVec2, float mainPartySeeingRange = 0f)</code></td><td>引擎在地图 tick 中重算可见性/已侦察；mod 极少需要手动调用。</td></tr>
+<tr><td><code>IsPartyUnderPlayerCommand(PartyBase)</code> (<code>static</code>) / <code>IsUnderPlayersCommand(BattleSideEnum)</code></td><td>是否处于玩家指挥下，走 <code>EncounterModel.IsPartyUnderPlayerCommand</code>。</td></tr>
+<tr><td><code>SetAsCameraFollowParty()</code></td><td>设置 <code>Campaign.Current.CameraFollowParty = this</code>（地图镜头跟随）。</td></tr>
+<tr><td><code>OnConsumedFood()</code></td><td>重置 <code>_lastEatingTime</code>；由补给逻辑调用，mod 一般不直接用。</td></tr>
+<tr><td><code>OnVisibilityChanged(bool)</code> / <code>SetVisualAsDirty()</code> / <code>OnVisualsUpdated()</code></td><td>视觉脏标记与事件分发，通常由引擎在状态变化时触发。</td></tr>
+</tbody></table>
+<h2 id="zui-xiao-zhen-shi-shi-li">最小真实示例</h2>
+<h3 id="shi-li-1-cong-mobileparty-settlement-na-dao-partybase-du-qu-gui-mo-yu-ming-ce">示例 1：从 MobileParty / Settlement 拿到 PartyBase，读取规模与名册</h3>
+<pre><code data-lang="csharp">// 移动部队：MobileParty.Party 就是它的 PartyBase
+MobileParty party = MobileParty.MainParty;
+PartyBase pb = party.Party;
+
+int memberLimit   = pb.PartySizeLimit;       // 成员上限（依赖 Campaign.Current）
+int regulars      = pb.NumberOfRegularMembers;
+int wounded       = pb.NumberOfWoundedTotalMembers;
+int prisoners     = pb.NumberOfPrisoners;
+TroopRoster roster = pb.MemberRoster;         // 真实名册容器
+
+// 据点守军：Settlement.Party 是它的 PartyBase
+Settlement town = Settlement.CurrentSettlement;
+if (town != null &amp;&amp; town.IsTown)
+{
+    PartyBase garrison = town.Party;
+    if (garrison.IsSettlement)                // 永远先判断形态
+    {
+        int garrisonSize = garrison.NumberOfAllMembers;
+    }
+}
+</code></pre>
+<h3 id="shi-li-2-jia-ren-yao-yong-dui-ru-kou-bing-chong-zou-addmember-ying-xiong-zou-action">示例 2：加人要用对入口——兵种走 AddMember，英雄走 Action</h3>
+<pre><code data-lang="csharp">PartyBase party = MobileParty.MainParty.Party;
+
+// 普通兵种：直接走名册封装即可
+CharacterObject recruit = CharacterObject.All.FirstOrDefault(c =&gt; c.StringId == &quot;looter&quot;);
+if (recruit != null)
+{
+    party.AddMember(recruit, 5);   // 加 5 个，不触发英雄逻辑，安全
+}
+
+// 英雄：必须走 Action，否则英雄的 PartyBelongedTo / 俘虏状态不会更新
+Hero someLord = Hero.FindFirst(h =&gt; h.IsLord &amp;&amp; h.IsPrisoner);
+if (someLord != null)
+{
+    // 错误：party.AddPrisoner(someLord.CharacterObject, 1);  ← 不更新英雄状态
+    TakePrisonerAction.Apply(party, someLord);   // 正确：走 Action
+}
+</code></pre>
+<h3 id="shi-li-3-bian-li-suo-you-bu-dui-bing-du-qu-zhan-dou-li-jin-zai-zhan-yi-yun-xing-zhong">示例 3：遍历所有部队并读取战斗力（仅在战役运行中）</h3>
+<pre><code data-lang="csharp">// 所有移动部队
+foreach (MobileParty mp in MobileParty.All)
+{
+    PartyBase pb = mp.Party;
+    float strength = pb.EstimatedStrength;   // 仅移动部队有值
+    IFaction faction = pb.MapFaction;        // 先判 null 再用 Culture
+    if (faction != null)
+    {
+        CultureObject culture = pb.Culture;
+    }
+}
+</code></pre>
+<h2 id="kua-ban-ben-ti-shi">跨版本提示</h2>
+<ul>
+<li>本页语义以 <strong>bannerlord-1.4.5</strong> 源码为准（<code>PartyBase</code> 为 <code>sealed</code> 具体类，<code>PartySizeLimit</code> 等带版本缓存）。</li>
+<li>v1.3.15 中 <code>PartyBase</code> 同样是 <code>sealed class</code>，核心接口一致；v1.4.5 在 <code>AfterLoad</code> 增加了旧档（<code>&lt; v1.3.11</code>）主角俘虏迁移与船队初始化逻辑，写跨版本 mod 时无需特殊处理 <code>PartyBase</code> 本身。</li>
+</ul>
+<h2 id="can-jian">参见</h2>
+<ul>
+<li>↑ 父级：<a href="../Campaign/">Campaign</a> — 战役枢纽，<code>Campaign.Current</code> 提供 Models 与 <code>GeneratePartyId</code></li>
+<li>↑ 区域索引：<a href="../">本区域目录</a></li>
+<li>↔ 同级（形态本体）：<a href="../MobileParty/">MobileParty</a> · <a href="../Settlement/">Settlement</a></li>
+<li>↔ 同层数据：<a href="../CharacterObject/">CharacterObject</a> — 名册里的角色模板</li>
+<li>相关组件：<a href="../../campaign-ext/PartyComponent/">PartyComponent</a></li>
+<li>相关名册：<a href="../../campaign-ext/TroopRoster/">TroopRoster</a> · <a href="../../campaign-ext/ItemRoster/">ItemRoster</a></li>
+<li>相关事件：<a href="../../campaign-ext/MapEvent/">MapEvent</a></li>
+<li>相关模型：<a href="../../campaign-ext/PartySizeLimitModel/">PartySizeLimitModel</a> · <a href="../../campaign-ext/PartyWageModel/">PartyWageModel</a> · <a href="../../campaign-ext/PartyHealingModel/">PartyHealingModel</a> · <a href="../../campaign-ext/MilitaryPowerModel/">MilitaryPowerModel</a> · <a href="../../campaign-ext/EncounterModel/">EncounterModel</a> · <a href="../../campaign-ext/MapVisibilityModel/">MapVisibilityModel</a></li>
+<li>相关行动：<a href="../../campaign-ext/AddHeroToPartyAction/">AddHeroToPartyAction</a> · <a href="../../campaign-ext/TakePrisonerAction/">TakePrisonerAction</a> · <a href="../../campaign-ext/TransferPrisonerAction/">TransferPrisonerAction</a></li>
+<li>对象管理：<a href="../../campaign-ext/MBObjectManager/">MBObjectManager</a></li>
+</ul>
+
+  <nav class="page-navigation" aria-label="Page navigation">
+      <div class="page-navigation-row">
+        <div class="page-navigation-parent">
+          <span class="page-navigation-label">Parent</span>
+          <a href="/v1.3.15/zh/api/campaign/">campaign 目录</a>
+        </div>
+        <div class="page-navigation-siblings">
+          
+            <a rel="prev" href="/v1.3.15/zh/api/campaign/Workshop/">&larr; Workshop</a>
+          
+          
+            <a rel="next" href="/v1.3.15/zh/api/campaign/Kingdom/">Kingdom &rarr;</a>
+          
+        </div>
+      </div>
+      
+    </nav>
+</article>
+
+    </main>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function normalize(p) {
+        return p.replace(/\/index\.html$/, '').replace(/\/$/, '');
+      }
+      var here = normalize(location.pathname);
+      document.querySelectorAll('.top-nav a, .sidebar a').forEach(function (a) {
+        var path = normalize(a.pathname || new URL(a.getAttribute('href'), location.href).pathname);
+        if (path && path === here) {
+          a.classList.add('active');
+          var details = a.closest && a.closest('details');
+          if (details) details.open = true;
+        }
+      });
+    });
+  </script>
+</body>
+</html>

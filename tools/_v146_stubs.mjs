@@ -18,6 +18,7 @@
  */
 import { readFileSync, existsSync, readdirSync, statSync } from 'fs';
 import { writeGuarded, mkdirGuarded, unlinkGuarded, rmdirGuarded } from './_v146_content_freeze.mjs';
+import { assertDirMapSchemaExit } from './_dir_map_contract.mjs';
 import { join, dirname, posix } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -27,10 +28,7 @@ const VERSION = 'v1.4.6';
 const DOCS = join(REPO, 'content', VERSION);
 const inv = JSON.parse(readFileSync(join(REPO, 'tools', '_v146_inventory.json'), 'utf8'));
 const CANON = JSON.parse(readFileSync(join(REPO, 'tools', '_dir-map-canonical.json'), 'utf8'));
-if (CANON.schemaVersion !== 3) {
-  console.error('FATAL: _dir-map-canonical.json schemaVersion=' + CANON.schemaVersion + '; this tool only understands 3');
-  process.exit(1);
-}
+const DIR_MAP_SCHEMA = assertDirMapSchemaExit(CANON, '_v146_stubs');
 for (const k of ['linkRules', 'entryPointDirs', 'rules', 'defaultDir', 'parityGaps']) {
   if (CANON[k] === undefined) { console.error('FATAL: artifact missing key ' + k); process.exit(1); }
 }
@@ -741,7 +739,7 @@ if (badLinks.length) failures.push('G5 unresolvable links: ' + badLinks.slice(0,
 gateNotes.push('G5 ' + seenLinks.size + ' distinct emitted links checked route-relative: ' + badForms.length + ' forbidden-form, ' + badLinks.length + ' unresolvable');
 
 // gate 6: schemaVersion asserted at load time; re-affirm here for the report
-if (CANON.schemaVersion !== 3) failures.push('G6 artifact schemaVersion != 3');
+if (CANON.schemaVersion !== DIR_MAP_SCHEMA) failures.push('G6 artifact schemaVersion != contract-declared ' + DIR_MAP_SCHEMA);
 gateNotes.push('G6 artifact schemaVersion=' + CANON.schemaVersion + ' asserted fail-closed at load');
 
 // extra: en pages must contain no CJK outside code fences

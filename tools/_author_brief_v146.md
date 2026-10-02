@@ -20,9 +20,10 @@ C:\WorkSpace\Bannerlord\bannerlord-1.4.5\Bannerlord.Source\bin\<Assembly>\<Assem
 
 手抄副本已造成实际事故（`TextObject` 被误搬到 `core-extra/`，1.4.5 磁盘先例与 artifact 都是 `localization/`），根因就是手抄了机器可读表。**规则表会变，凭记忆的副本不会跟着变。**
 
-- **必须断言 `schemaVersion === 3`**，遇到任何不认识的形状**报错退出，绝不静默忽略**（历史上 worker 只认旧 `entryPointDirs` 数组形状，静默丢掉整个覆写层，`mission`/`core` 两桶归零却不报错）。
+- **必须断言 artifact 自报的 `schemaVersion` 等于它自己 `_parseContract` 里声明的值（当前 = 5），遇到任何不认识的形状**报错退出，绝不静默忽略**（历史上 worker 只认旧 `entryPointDirs` 数组形状，静默丢掉整个覆写层，`mission`/`core` 两桶归零却不报错）。
+  **断言值不要写死在自己脚本里** —— 用 `tools/_dir_map_contract.mjs` 的 `assertDirMapSchema(map, '你的工具名')` / `expectedDirMapSchema(map)`。写死 `5` 只是把同一个坑推迟到下一次 bump：v3→v5 那一次就让 extract / stubs / v153 / nav-check 四个工具同时 fail-closed 退出（不是读错数据，是直接拒绝运行），权威本来就在 `_parseContract` 里。
 - 实现 `resolutionOrder` 时**第 2 步不要提前 return**，第 3 步对每个类型都执行一次；对照 artifact 的 `_resolutionPseudocode`。
-- 当前规模：`rules 36` / `overrides 7` / `excludes 47` / `parityGaps 5` / `linkRules 16`。artifact **没有** `unmapped` 字段 —— 那是各线 inventory 侧自己产出的概念。
+- 当前规模（2026-10 实测，改动后请重读 artifact 复核）：`rules 34` / `overrides 7` / `excludeNamespaces 47` + `excludeSuffixes 3` / `parityGaps 5` / `linkRules 16 键`。artifact **没有** `unmapped` 字段 —— 那是各线 inventory 侧自己产出的概念。
 - **一个类型 = 一个路径**，绝不写两份；同桶同名 → `<NamespaceLeaf>__<TypeName>.md`。
 - 没命中任何规则的命名空间 → 进你自己 inventory 的 `unmapped` 数组并回报点名，**不要猜桶**。
 - `ModuleManager` **在任何版本都不存在**（四版本全树扫 0 命中），永远不要建这个页面。
@@ -35,7 +36,7 @@ C:\WorkSpace\Bannerlord\bannerlord-1.4.5\Bannerlord.Source\bin\<Assembly>\<Assem
 3. **断言「声明存在的桶不得为空」**（每个声明桶必须有 `_index.md`）。
 4. **`fs.existsSync` 确认源文件存在才建页**；按命名空间/命名模式推出来但找不到源文件的类型一律跳过记账，**绝不凭空建页**。虚构 API 是本项目最不可接受的失败模式，比漏页严重得多。
 5. **每条发出的链接按 route-relative 解析并断言目标 route 存在**。`fs.existsSync` 不是有效检查 —— 错层级的链接作为文件是真实存在的。
-6. **`schemaVersion === 3` 断言**（见 §0）。
+6. **schemaVersion 断言（见 §0）** —— 期望值从 `_dir-map-canonical.json` 的 `_parseContract` 读（`tools/_dir_map_contract.mjs`），**不要写死数字**。
 
 ### 链接检查按 Boss 锚定版（旧的未锚定 grep 已作废）
 

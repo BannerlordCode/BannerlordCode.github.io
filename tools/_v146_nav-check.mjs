@@ -25,6 +25,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { expectedDirMapSchema } from './_dir_map_contract.mjs';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT_ROOT = join(REPO_ROOT, 'content');
@@ -47,10 +48,19 @@ const REQUIRED_DIR_MAP_KEYS = ['rules', 'defaultDir', 'entryPointDirs', 'linkRul
 
 function loadDirMap() {
   const raw = JSON.parse(readFileSync(DIR_MAP_PATH, 'utf8'));
-  const expected = spec.dirMapSchemaVersion;
-  if (typeof expected !== 'number') failClosed(`spec.dirMapSchemaVersion must be a number (got ${JSON.stringify(expected)})`);
+  // 期望值来自 artifact 自己的 _parseContract —— spec.dirMapSchemaVersion 不再是真值副本
+  // （v3→v5 那次 bump 就是因为 spec 与 artifact 各存一份而双双过期、门禁 fail-closed 停摆）。
+  let expected;
+  try {
+    expected = expectedDirMapSchema(raw);
+  } catch (e) {
+    failClosed('dir map contract unreadable: ' + e.message);
+  }
   if (raw.schemaVersion !== expected) {
-    failClosed(`dir map schemaVersion ${raw.schemaVersion} != spec.dirMapSchemaVersion ${expected}. Re-read tools/_dir-map-canonical.json; update the spec deliberately instead of degrading silently.`);
+    failClosed(`dir map schemaVersion ${raw.schemaVersion} != _parseContract-declared ${expected}. Re-read tools/_dir-map-canonical.json; update deliberately instead of degrading silently.`);
+  }
+  if (typeof spec.dirMapSchemaVersion === 'number' && spec.dirMapSchemaVersion !== expected) {
+    console.warn(`WARN: spec.dirMapSchemaVersion=${spec.dirMapSchemaVersion} is stale (artifact declares ${expected}); that field is advisory only.`);
   }
   for (const key of REQUIRED_DIR_MAP_KEYS) {
     if (!(key in raw)) failClosed(`dir map is missing required key "${key}"`);

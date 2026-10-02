@@ -3,7 +3,10 @@
  * _v146_extract.mjs — bannerlord-1.4.6 public type inventory, driven by the
  * canonical namespace -> bucket map.
  *
- * Authority for the tree layout: tools/_dir-map-canonical.json (schemaVersion 3).
+ * Authority for the tree layout: tools/_dir-map-canonical.json. The schemaVersion
+ * this tool asserts is NOT hardcoded here: it is read from the artifact's own
+ * `_parseContract` (see _dir_map_contract.mjs), so a v3->v5 bump does not
+ * fail-close this tool.
  * Resolution order is the artifact's, verbatim:
  *   1. excludeNamespaces / excludeSuffixes / sourceTypoNamespaces -> hard skip, counted
  *   2. rules[] longest-prefix-wins, recording the matched prefix
@@ -22,6 +25,7 @@
  */
 import { readdirSync, readFileSync, existsSync, statSync } from 'fs';
 import { writeGuarded, mkdirGuarded, unlinkGuarded, rmdirGuarded } from './_v146_content_freeze.mjs';
+import { assertDirMapSchemaExit } from './_dir_map_contract.mjs';
 import { join, relative, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -34,10 +38,7 @@ const OUT_JSON = join(REPO, 'tools', '_v146_inventory.json');
 /* ------------------------------------------------- canonical map (fail closed) */
 
 const CANON = JSON.parse(readFileSync(CANON_PATH, 'utf8'));
-if (CANON.schemaVersion !== 3) {
-  console.error('FATAL: _dir-map-canonical.json schemaVersion=' + CANON.schemaVersion + ', this tool only understands 3');
-  process.exit(1);
-}
+assertDirMapSchemaExit(CANON, '_v146_extract');
 for (const key of ['rules', 'entryPointDirs', 'excludeNamespaces', 'excludeSuffixes', 'defaultDir', 'sourceTypoNamespaces', 'parityGaps']) {
   if (CANON[key] === undefined) {
     console.error('FATAL: _dir-map-canonical.json is missing required key: ' + key);
@@ -575,6 +576,10 @@ const stats = {
   sourceRoot: SRC_ROOT,
   dirMap: 'tools/_dir-map-canonical.json schemaVersion=' + CANON.schemaVersion + ' version=' + CANON.version,
   moduleDirs: moduleDirs.length,
+  // 口径：`find bannerlord-1.4.6 -name '*.cs'` 会多出 90 个，全是 Properties/AssemblyInfo.cs
+  // （90/90，声明级 0 个类型），walkCs 按目录名跳过 Properties|obj|bin。
+  // 所以 11295 vs 11385 的 90 个差额是**口径差**，不是 inventory 过期，别再当成 stale。
+  csFilesScannedScope: 'bannerlord-1.4.6 全树，排除目录 Properties|obj|bin（= 90 个 Properties/AssemblyInfo.cs，0 个类型声明）。与 find 的 11385 差 90 个文件，差在口径而非时间。',
   csFilesScanned: scannedFiles,
   typesParsed: allTypes.length,
   pagedPublicTopLevelTypes: types.length,

@@ -172,11 +172,11 @@ created: 2026-10-03
 | `tools/_DEAD-MEMBER-LIST.md` | 死成员线 | 不提交（它正在写） |
 | `tools/_deadmember-scope.txt` | 死成员线 | 不提交 |
 | `tools/_deadmember.mjs` | 死成员线 | 不提交 |
-| `tools/_deadmember-verify.md` | 死成员线 | 不提交 |
+| `tools/_deadmember-verify.md` | 死成员线 | **已于 checkpoint `92e331e4fa` 提交**，见 B6 |
 | `tools/_nav-auditlinks-dbg.txt` | 导航线 | 不提交 |
 | `tools/_nav-report-dbg.json` | 导航线 | 不提交 |
 | `tools/nav-verify.mjs` | 导航线 | 不提交 |
-| `tools/_COVERAGE-LEDGER.md` | 死成员线（19:53 修改） | 不提交：在我快照后被修改，diff 不再只代表盘点时状态 |
+| `tools/_COVERAGE-LEDGER.md` | 死成员线（19:53 修改） | **已于 checkpoint `92e331e4fa` 提交**，见 B6（提交时仍待 writers 放行） |
 | `tools/_BASELINE-20261003.md` | 我 | 属 A 区，单独提交 |
 | `tools/_STASH-UNCOMMITTED.md` | 我 | 属 A 区，单独提交 |
 
@@ -201,6 +201,44 @@ created: 2026-10-03
 **这些不是我的改动，不进我的任何 commit。** 它们的变脏时间晚于我的快照，
 证明 lead-2 / lead-3 确实在我提交期间仍在写 `content/` —— 这一点也反过来印证了
 「本 checkpoint 提交的是静止终态」那个结论（我提交的 121 个 content/ 文件 mtime 全部早于快照）。
+
+## B6. tools 止血 checkpoint（commit `92e331e4fa`）：收什么、不收什么
+
+这是**止血**，不是发布。起因：另一条线一个 792 行的产物被并发写入者覆盖，
+而它**未被 git 跟踪 → git 无历史 → 无法 checkout 恢复**。
+每个文件在提交时刻重新验证过静默 ≥15 分钟，逐路径显式 add，**无扫目录、无 `-A`**。
+
+**已收（5 个）**
+
+| 文件 | 变更 | 归属方声明的完成度（如实转述） |
+|---|---|---|
+| `tools/_deadmember-verify.md` | 未跟踪 → 已跟踪，+563 | 已交付：27KB、31 条 file:line。**真正不可恢复的那批** |
+| `tools/_HANDOFF.md` | +36/-0 | 单 hunk（§3.9 修订），已自证 |
+| `tools/_INTEGRATION-GATES.md` | +102/-1 | **六条已验；第七/第八条尚未落盘** |
+| `tools/RETIRED_BODY_GENERATORS.md` | +49/-1 | 两条登记在 75/76 行，绝对口径完好 |
+| `tools/_COVERAGE-LEDGER.md` | +8/-1 | **§1 本线成果待 writers 放行后再补** |
+
+> 后两行带「未完」的写在这里，是为了防止下个会话把它们读成定稿。
+
+**不收：提交时仍在写（当场复核 mtime 仅 0–8 分钟）**
+
+| 文件 | 不收原因 |
+|---|---|
+| `tools/_DEAD-MEMBER-LIST.md` | §2 全量清单仍 PENDING，归属方未回填；提交时它是最可能在写的那个 |
+| `tools/_NAV-ARCHITECTURE.md` | 重建中 |
+| `tools/_NAV-BASELINE.md` | 仍缺 CALIBER / 自链节 / fence 未归因 |
+| `tools/_NAV-SECTION-INDEX-WRITE-DESIGN.md` | worker-5 产物，仍在写 |
+
+**不收：历史记录、pin 已过期（本轮不入库）**
+
+| 文件 | pin | 不收原因 |
+|---|---|---|
+| `tools/_orphan_resolver_derivation.md` | `29a6946d` | pin 已落后 HEAD。入库就需写「pin 过期」，而**那份解释成本比下轮重新判断它是否还有价值更贵** |
+| `tools/_review_frozen_A.md` | `bb41caf9ee` | 同上 |
+| `tools/_review_frozen_B.md` | `bb41caf9ee` | 同上 |
+
+**行尾说明**：`_INTEGRATION-GATES.md`（1368 行 CRLF）与 `RETIRED_BODY_GENERATORS.md`（149 行 CRLF）
+在工作区是 CRLF，git 按本仓库现有配置入库时归一化为 LF（与此前content 文件同一行为）。
 
 ## D4. 逐条覆盖：剩余全部脏文件的判定规则（可校验，非泛泛声明）
 

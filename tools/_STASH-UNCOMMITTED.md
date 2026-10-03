@@ -678,3 +678,38 @@ git status --porcelain          # 每一行都应能在本文件中找到
 - 权威门禁数字：`_BASELINE-20261003.md`
 - 门禁规范：`_INTEGRATION-GATES.md`
 - 硬前提（禁止脚本写 content/）：`../AGENTS.md`
+## B27. 两个负向数据变更的**实测范围**（供下个会话查证 `-982` / `-17246`）
+
+本会话有两个「基线清零」类的**大量删除**。看到大 numstat 会怀疑连带清了别的，
+所以此处**实测固定**：
+
+| commit | 文件数 | 文件 | numstat |
+|---|---|---|---|
+| `30606a5c20` | **1** | `tools/data/known-failures-links.json` | `+17 / -982` |
+| `cbabcb9b98` | **1** | `tools/data/known-failures-orphans.json` | `+10 / -17246` |
+
+```
+git show --pretty=format: --name-only 30606a5c20   # 只列出上面那一个文件
+git show --pretty=format: --name-only cbabcb9b98   # 同上
+```
+
+**两次提交时工作区各有 168 个脏文件，两个 commit 各只取一个路径。**
+删除量全部来自那个文件自身的 `known[]` 数组，**没有连带任何其它文件**。
+
+（不需要也不应该改写这两个 commit 的 message 来加这句话：它们已不是 HEAD，
+而多条线共用 index，改写会让别人手上的 SHA 失效。**实测固定在台账里更安全。**）
+
+## B28. 两把尺此刻的真实状态：**一绿一红，且各自都是真的**
+
+```
+轴① dead-links     绿   dead=0 / 145,602        net new=0      exit 0
+orphan             红   orphans=8 / 39,027      net new=8      exit 1
+轴② xml-id         红   107 / 107               net new=107    exit 1   （唯一在下降，此前 151）
+轴③ declare-site   红   28,539 / 493,827       net new=28539  exit 1
+```
+
+**orphan 变红是有意的**：`baseline 4311 → 0` 之后，门禁重新说真话，
+8 个真孤儿从基线后面走回前台。**「可达判据」≠「问题消失」。**
+
+> **一绿一红、各自为真，比全绿有价值**：全绿里那个绿可能只是基线挡着。
+

@@ -1,0 +1,175 @@
+{
+ "bucket": "campaign-ext",
+ "A": [
+  {
+   "n": "AccessObject",
+   "kb": 1,
+   "ty": "public abstract class AccessObject",
+   "src": "TaleWorlds.Diamond/AccessObject.cs"
+  },
+  {
+   "n": "Achievement",
+   "kb": 1,
+   "ty": "public class Achievement",
+   "src": "TaleWorlds.AchievementSystem/Achievement.cs"
+  },
+  {
+   "n": "AchievementsCampaignBehavior",
+   "kb": 3,
+   "ty": "public class AchievementsCampaignBehavior : CampaignBehaviorBase",
+   "src": "StoryMode/GameComponents/CampaignBehaviors/AchievementsCampaignBehavior.cs"
+  },
+  {
+   "n": "Activity",
+   "kb": 1,
+   "ty": "public class Activity",
+   "src": "TaleWorlds.ActivitySystem/Activity.cs"
+  },
+  {
+   "n": "Add1000GoldCheat",
+   "kb": 1,
+   "ty": "public class Add1000GoldCheat : GameplayCheatItem",
+   "src": "SandBox/Add1000GoldCheat.cs"
+  },
+  {
+   "n": "AddMissionObjectBodyFlags",
+   "kb": 1,
+   "ty": "public sealed class AddMissionObjectBodyFlags : GameNetworkMessage",
+   "src": "TaleWorlds.MountAndBlade/NetworkMessages/FromServer/AddMissionObjectBodyFlags.cs"
+  },
+  {
+   "n": "AgentAlarmStateEnum",
+   "kb": 1,
+   "ty": "public enum AgentAlarmStateEnum",
+   "src": "SandBox.ViewModelCollection/Missions/MainAgentDetection/MissionDisguiseMarkerItemVM.cs"
+  },
+  {
+   "n": "ArmyCohesionStep1Tutorial",
+   "kb": 2,
+   "ty": "public class ArmyCohesionStep1Tutorial : TutorialItemBase",
+   "src": "StoryMode.GauntletUI/Tutorial/ArmyCohesionStep1Tutorial.cs"
+  },
+  {
+   "n": "AxisType",
+   "kb": 1,
+   "ty": "public enum AxisType",
+   "src": "TaleWorlds.InputSystem/GameAxisKey.cs"
+  },
+  {
+   "n": "BannerEditorView",
+   "kb": 2,
+   "ty": "public class BannerEditorView",
+   "src": "SandBox.GauntletUI/BannerEditor/BannerEditorView.cs"
+  },
+  {
+   "n": "BattleSimulationMapView",
+   "kb": 1,
+   "ty": "public class BattleSimulationMapView : MapView",
+   "src": "SandBox.View/Map/BattleSimulationMapView.cs"
+  },
+  {
+   "n": "BattleSimulationResult",
+   "kb": 1,
+   "ty": "public class BattleSimulationResult",
+   "src": "TaleWorlds.CampaignSystem/BattleSimulationResult.cs"
+  },
+  {
+   "n": "Canvas",
+   "kb": 2,
+   "ty": "public class Canvas",
+   "src": "TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/Canvas/Canvas.cs"
+  },
+  {
+   "n": "ConspiracyQuestMapNotificationItemVM",
+   "kb": 1,
+   "ty": "public class ConspiracyQuestMapNotificationItemVM : MapNotificationItemBaseVM",
+   "src": "StoryMode.ViewModelCollection/Map/ConspiracyQuestMapNotificationItemVM.cs"
+  }
+ ],
+ "B": [
+  {
+   "n": "DependedModule",
+   "kb": 1,
+   "ty": "public struct DependedModule",
+   "src": "TaleWorlds.ModuleManager/DependedModule.cs"
+  },
+  {
+   "n": "LinQuick",
+   "kb": 1,
+   "ty": "public static class LinQuick",
+   "src": "TaleWorlds.LinQuick/LinQuick.cs"
+  },
+  {
+   "n": "MissionGauntletObjectiveView",
+   "kb": 2,
+   "ty": "public class MissionGauntletObjectiveView : MissionObjectiveView",
+   "src": "TaleWorlds.MountAndBlade.GauntletUI/SandBox/GauntletUI/Missions/MissionGauntletObjectiveView.cs"
+  },
+  {
+   "n": "PrefabTooltipExtension",
+   "kb": 1,
+   "ty": "public class PrefabTooltipExtension : PrefabExtension",
+   "src": "TaleWorlds.GauntletUI.TooltipExtensions/PrefabTooltipExtension.cs"
+  },
+  {
+   "n": "WindingOrder",
+   "kb": 1,
+   "ty": "public enum WindingOrder",
+   "src": "TaleWorlds.Library/WindingOrder.cs"
+  },
+  {
+   "n": "AchievementManager",
+   "kb": 1,
+   "ty": "public class AchievementManager",
+   "src": "TaleWorlds.AchievementSystem/AchievementManager.cs"
+  },
+  {
+   "n": "ArzagosBannerPieceQuest",
+   "kb": 1,
+   "ty": "public class ArzagosBannerPieceQuest : StoryModeQuestBase",
+   "src": "StoryMode/Quests/FirstPhase/ArzagosBannerPieceQuest.cs"
+  },
+  {
+   "n": "ActivityManager",
+   "kb": 2,
+   "ty": "public class ActivityManager",
+   "src": "TaleWorlds.ActivitySystem/ActivityManager.cs"
+  },
+  {
+   "n": "Add100InfluenceCheat",
+   "kb": 1,
+   "ty": "public class Add100InfluenceCheat : GameplayCheatItem",
+   "src": "SandBox/Add100InfluenceCheat.cs"
+  },
+  {
+   "n": "AddPeerComponent",
+   "kb": 1,
+   "ty": "public sealed class AddPeerComponent : GameNetworkMessage",
+   "src": "TaleWorlds.MountAndBlade/NetworkMessages/FromServer/AddPeerComponent.cs"
+  },
+  {
+   "n": "AgentStealthOffenseType",
+   "kb": 1,
+   "ty": "public enum AgentStealthOffenseType",
+   "src": "SandBox.ViewModelCollection/Missions/MainAgentDetection/MissionDisguiseMarkerItemVM.cs"
+  },
+  {
+   "n": "ArmyCohesionStep2Tutorial",
+   "kb": 2,
+   "ty": "public class ArmyCohesionStep2Tutorial : TutorialItemBase",
+   "src": "StoryMode.GauntletUI/Tutorial/ArmyCohesionStep2Tutorial.cs"
+  },
+  {
+   "n": "ControllerTypes",
+   "kb": 1,
+   "ty": "public enum ControllerTypes",
+   "src": "TaleWorlds.InputSystem/Input.cs"
+  },
+  {
+   "n": "CharacterCreationBannerEditorView",
+   "kb": 3,
+   "ty": "public class CharacterCreationBannerEditorView : CharacterCreationStageViewBase",
+   "src": "SandBox.GauntletUI/CharacterCreation/CharacterCreationBannerEditorView.cs"
+  }
+ ]
+}

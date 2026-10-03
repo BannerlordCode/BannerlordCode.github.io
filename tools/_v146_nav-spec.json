@@ -3,7 +3,8 @@
   "spec": "v1.4.6 tree-navigation patch",
   "target_version": "v1.4.6",
   "author": "worker-10",
-  "dirMapSchemaVersion": 3,
+  "dirMapSchemaVersion": null,
+  "_dirMapSchemaVersion_note": "Advisory only. The authoritative expected schemaVersion is read from _dir-map-canonical.json's own _parseContract by tools/_v146_nav-check.mjs (tools/_dir_map_contract.mjs). Keeping a second copy here is what made v3->v5 fail-close the whole nav gate. null = 'not pinned, read the artifact'.",
   "dirMapPath": "tools/_dir-map-canonical.json",
   "read_only_note": "This spec describes patches to shared files. worker-10 did NOT apply them. Whoever applies them must re-run tools/_v146_nav-check.mjs afterwards.",
 
@@ -18,7 +19,7 @@
   },
 
   "bucket_authority": {
-    "source": "tools/_dir-map-canonical.json (schemaVersion 3, 36 rules, 7 overrides, 47 exclusions, 16 linkRules)",
+    "source": "tools/_dir-map-canonical.json (schemaVersion 由其 _parseContract 声明，现为 5, 34 rules, 7 overrides, 47 excludeNamespaces + 3 excludeSuffixes, 16 linkRules)",
     "rule": "worker-10 pages never hard-code a namespace->bucket table of their own; every api/<bucket>/ href is checked against the buckets the artifact can produce",
     "buckets": ["achievementsystem", "activitysystem", "campaign", "campaign-ext", "core", "core-extra", "custombattle", "engine", "gui", "localization", "mission", "mission-ext", "modulemanager", "network", "sandbox", "save-system", "storymode", "system", "viewmodel"],
     "intentional_carve_out_buckets": {

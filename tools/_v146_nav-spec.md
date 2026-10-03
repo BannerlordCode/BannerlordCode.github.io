@@ -6,11 +6,11 @@
 
 ---
 
-## 0. 唯一权威：`tools/_dir-map-canonical.json`（schemaVersion 3）
+## 0. 唯一权威：`tools/_dir-map-canonical.json`（schemaVersion 由它自己的 `_parseContract` 声明）
 
 目录映射、噪声排除、入口类覆写、链接层级、parity gap **全部只从这个文件读**，本规格不手抄映射表。
 
-- 我的页面引用的 19 个桶全部由该 artifact 现算产生：checker 启动时断言 `schemaVersion === 3`（断言值写在 spec 的 `dirMapSchemaVersion`），并断言 `rules` / `defaultDir` / `entryPointDirs` / `linkRules` / `excludeNamespaces` / `excludeSuffixes` / `resolutionOrder` 七个键都在，**任一形状不认识就 exit 2，不静默降级**。
+- 我的页面引用的 19 个桶全部由该 artifact 现算产生：checker 启动时断言 `schemaVersion` 等于该 artifact 自己在 `_parseContract` 里声明的值（**不写死数字** —— 写死的副本正是 v3→v5 那次 bump 让整条导航门禁 fail-closed 停摆的原因，见 `tools/_dir_map_contract.mjs`；本 spec 的 `dirMapSchemaVersion` 字段已降级为 advisory，`null` = 不钉版本），并断言 `rules` / `defaultDir` / `entryPointDirs` / `linkRules` / `excludeNamespaces` / `excludeSuffixes` / `resolutionOrder` 七个键都在，**任一形状不认识就 exit 2，不静默降级**。
 - 本轮我在自己页面里清掉的作废桶名（旧 §1 slug，已作废）：`library/`、`core/`(作为 Core 的桶)、`objectsystem/`、`screensystem/`、`savesystem/`、`engine-gauntletui/`、`inputsystem/`、`dotnet/`、`campaignsystem/`、`campaignsystem-viewmodelcollection/`、`mountandblade/`、`mountandblade-view/`、`sandbox-gauntletui/`、`twodimension/`、`gauntletui-data/`。
 - `TextObject` 归 **`localization/`**（不是 `core-extra/`）。我的页面只在 `TaleWorlds.Localization` 行链 `api/localization/`，没有任何地方把 `TextObject` 说成在 `core-extra`。
 - `ModuleManager` **类型在任何版本都不存在**，永远不建这个页面。`modulemanager/` 桶装的是该命名空间里**其它**类型（`ModuleInfo`、`SubModuleInfo`、`ModuleHelper`、`ModuleCategory`、`ModuleType`、`DependedModule`、`Extensions`、`IPlatformModuleExtension`）——我的 module-map 就是这么写的。
@@ -192,7 +192,7 @@ AUDIT_MODE=url AUDIT_CONTENT_ROOT=content/v1.4.6 node tools/audit-links.mjs
 交付时实测（我的 10 个页面 + spec/checker）：
 
 ```
-dir map OK: schemaVersion=3 rules=36 buckets=19 overrides=7
+dir map OK: schemaVersion=5 rules=34 buckets=19 overrides=7
 ROUTES_MISSING=0  EDGES_MISSING=0
 OWNED_LINKS_OK=238  OWNED_LINKS_PENDING=0  OWNED_LINKS_BROKEN=0
 LINK_RULE_VIOLATIONS=0

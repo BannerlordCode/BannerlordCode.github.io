@@ -225,8 +225,8 @@ const batchRaw = readBatch();
 const SELFTEST_GOOD = ['content/v1.4.6/zh/api/core-extra/ItemObject.md', 'content/v1.5.3/zh/api/campaign/Campaign.md', 'content/v1.4.7/en/api/campaign/Campaign.md'];
 const SELFTEST_BAD_DISK = 'content/v1.3.0/en/api/core-extra/AgentAttackType.md';
 const SELFTEST_BAD_GIT = [
-  { spec: '361b5fdf6e:docs/v1.3.0/zh/api/mission/MissionBehavior.md', expect: 'CustomMissionBehavior' },
-  { spec: 'e8356e504c:content/v1.4.5/zh/api/core-extra/GameModelsManager.md', expect: 'CustomGameModelsManager' },
+  { spec: '361b5fdf6e:docs/v1.3.0/zh/api/mission/MissionBehavior.md', expect: 'CustomMissionBehavior', category: 'category=fabricated' },
+  { spec: 'e8356e504c:content/v1.4.5/zh/api/core-extra/GameModelsManager.md', expect: 'CustomGameModelsManager', category: 'category=fabricated' },
 ];
 const usage = () => {
   sayErr('usage:');
@@ -304,7 +304,7 @@ function versionTokensIn(s) {
 //   'block' — a version-difference token or wording sits next to the fence (strong signal)
 //   'page'  — some other version is named somewhere on the page (weak signal)
 //   null    — no framing found anywhere
-function framingEvidence(text, blockText, blockIndex, pageVersion) {
+function framingEvidence(text, blockText, pageVersion) {
   const othersPage = [...versionTokensIn(text)].filter((v) => v !== pageVersion);
   const window = blockText; // caller passes the fence-local context
   const othersBlock = [...versionTokensIn(window)].filter((v) => v !== pageVersion);
@@ -383,7 +383,7 @@ const classifyOne = (abs, r, text, origin, corpus) => {
           for (const f of absent) {
           const abs_ = f.identifier;
           const ctx = blockContext(text, f.block);
-          const ev = framingEvidence(text, ctx.before + '\n' + ctx.body + '\n' + ctx.after, ctx.body, f.block, pageVersion);
+          const ev = framingEvidence(text, ctx.before + '\n' + ctx.body + '\n' + ctx.after, pageVersion);
           const tag = `${abs_}() [block ${f.block}] identifier_absent_in_${c.src.replace(/^.*bannerlord-/, '')}`;
           if (ev.tier === 'block') {
             suspect.push(`${tag} category=cross_version_reference_suspected framing=block versions=[${ev.others.join(',') || 'n/a'}]${ev.words ? ' + version-difference wording' : ''} -> HUMAN DECIDES`);
@@ -494,9 +494,9 @@ if (SELFTEST) {
   for (const g of SELFTEST_BAD_GIT) {
     const r = g.spec.slice(g.spec.indexOf(':') + 1);
     const row = rows.find((x) => x.path === r && x.origin !== 'worktree');
-    const found = row && !row.fab.notRun && row.fab.detail.some((d) => d.includes(g.expect));
-    check('bad:absent-identifier:' + g.spec, !!found, found ? 'detected ' + g.expect : 'expected ' + g.expect + ', got ' + (row ? (row.fab.notRun ? 'DID NOT RUN' : JSON.stringify(row.fab.detail)) : 'ROW MISSING'));
-    say('    ' + (found ? 'OK  ' : 'FAIL') + '  ' + g.spec + '  expect ' + g.expect);
+    const found = row && !row.fab.notRun && row.fab.detail.some((d) => d.includes(g.expect) && d.includes(g.category));
+    check('bad:absent-identifier:' + g.spec, !!found, found ? 'detected ' + g.expect + ' as ' + g.category : 'expected ' + g.expect + ' with ' + g.category + ', got ' + (row ? (row.fab.notRun ? 'DID NOT RUN' : JSON.stringify(row.fab.detail)) : 'ROW MISSING'));
+    say('    ' + (found ? 'OK  ' : 'FAIL') + '  ' + g.spec + '  expect ' + g.expect + ' with ' + g.category);
     if (row) for (const d of row.fab.detail) say('              ' + d);
   }
   say('');

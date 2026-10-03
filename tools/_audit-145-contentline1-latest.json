@@ -1,0 +1,9 @@
+{
+ "deepPass": 80,
+ "missing": 0,
+ "stubMarkerLeaks": 0,
+ "memberClaims": 544,
+ "gateGlobalFabrications": 1772,
+ "gateScopedFabrications": 0,
+ "scoped": []
+}

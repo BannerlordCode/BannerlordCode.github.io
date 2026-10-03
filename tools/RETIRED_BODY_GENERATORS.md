@@ -72,10 +72,58 @@ write class-page or other product body prose.
 | `cleanup-entry-page-examples.mjs` | **Retired** — writes/replaces product guide and entry-page example bodies |
 | `fix-remaining-quality-blockers.mjs` | **Retired** — writes product-page quality fixes and body prose |
 | `gen-class-catalog.mjs` | **Retired** — requires an explicit structural-only redesign before it may write catalog output |
-| `generate-section-indexes.mjs` | **Retired** — requires an explicit structural-only redesign before it may write index output |
+| `generate-section-indexes.mjs` | **Structural-only, marker-scoped** — see "Narrow exception: `_index.md` marker block" below. Retired *for body output*; re-authorised *only* for the mechanical child listing inside `<!-- BEGIN SECTION INDEX --> … <!-- END SECTION INDEX -->`, under the external guard |
+| `nav-section-index.mjs` | **Structural-only, marker-scoped** — same scope, same guard. It MUST **call** `assertStructuralScope()`; it must not self-certify |
 | `create-catalog-sections.mjs` | **Structural-only** — writes only `api/catalog/_index.md` and `api/catalog-campaign/_index.md`; it must not write class-page bodies |
 | `ensure-sections.mjs` | **Structural-only** — writes only missing section `_index.md` files; it must not write class-page bodies |
 | `cleanup-orphan-api.mjs` | **Destructive and fail-closed** — deletes API pages only with explicit local `BANNERLORD_ALLOW_CONTENT_CLEANUP=1` opt-in |
+
+## Narrow exception: `_index.md` marker block
+
+**This is a modification of the hard premise, not an explanation of it.** The
+wording of the premise in `tools/lib/content-write-freeze.mjs` is unchanged by
+this section; the exception is registered here, alongside it.
+
+Two scripts are registered as structural-only, marker-scoped writers:
+`generate-section-indexes.mjs` and `nav-section-index.mjs`.
+
+| Field | Rule |
+|---|---|
+| **Allowed scope** | Only the mechanical child-page listing between `<!-- BEGIN SECTION INDEX -->` and `<!-- END SECTION INDEX -->`. Nothing else. |
+| **Forbidden** | Any line outside the marker block — prose, mental-model sections, hand-written links. Any file that is not `_index.md`. Any deletion or rewrite of an existing hand-written link; additive-only. |
+| **Guard** | `assertStructuralScope()`, supplied by lead-4 in `tools/lib/content-write-freeze.mjs` (lead-4's file; nobody on this line may edit it). The writer **calls** it. Non-zero exit on scope violation. A writer self-certifying its own compliance is not an acceptable guard. |
+| **Ordering** | The guard must land first. Do not run the writer until lead-4's allowlist entry is on disk. |
+| **Idempotence** | Two consecutive runs; the second produces zero changes, proven by `git diff`. |
+| **Dry-run** | `--dry-run` report must be produced and read by a human before any write. The report must state `deleted_lines = 0` and `rewritten_lines = 0` explicitly. If either is non-zero, the run is forbidden. |
+
+**Why this holds only for `_index.md`.** The test is *"does this content carry
+author judgement?"*, not *"is this Markdown?"*. A bucket `_index.md` child
+listing is mechanical: its correct content is uniquely determined by which files
+exist in the directory, and two different authors would produce identical output.
+The hard premise protects the opposite thing — prose, mental models, method
+purposes and examples all carry author judgement, and those stay forbidden.
+
+> Do not generalise this test. "Has no author judgement" is a property of the
+> *content*, not a blanket exemption for a file type. Any future automation must
+> answer that question first; "yes" means it is out of scope immediately.
+
+**Relation to the earlier retirement.** `generate-section-indexes.mjs` was retired
+by a bulk rename-freeze across 45 `content/`-writing scripts (see `git log
+--follow`, commit `df15c2ff8e`). That freeze was an accident-guard, **not** a
+finding that this script had corrupted `_index.md`. This registration is
+therefore best read as the structural-only repair of that script.
+
+**Duplicate markers.** Three files currently carry `BEGIN=2 / END=1`
+(`content/v1.3.15/en/api/campaign-ext/_index.md`,
+`content/v1.3.15/zh/api/campaign-ext/_index.md`,
+`content/v1.4.5/zh/api/campaign-ext/_index.md`). Readers must tolerate this
+deterministically (first BEGIN to first END) **and report it explicitly**;
+writers must not delete the extra marker. Removal is a separate decision.
+
+Navigation shape and link syntax for this exception live in
+`tools/_NAV-ARCHITECTURE.md` §7. That file is third-tier documentation; this
+table is the policy registration, and `tools/lib/content-write-freeze.mjs` is the
+guard.
 
 ## Special cases
 

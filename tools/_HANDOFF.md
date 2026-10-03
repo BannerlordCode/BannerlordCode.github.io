@@ -249,6 +249,42 @@ AgeModel.MiddleAdultHoodAge       仅 HeroHelper.cs:291 一个引用点
 **Boss 已裁定：单独立项，优先级高于把剩余页刷成 deep_pass。**
 格式：`成员名 | 声明 file:line | override 数 | 调用点数 | 一句话说明「声明存在但没人调它意味着什么」`
 
+#### 🔺 3.9.1 更正（2026-10-03，本节所有样本已被独立复核推翻，以本小节为准）
+
+**上面那 6 条是上一会话的结论，不是可用作阳性对照的事实。**
+假阳性对照比没有对照更坏——它会让失败的探针显得通过。**引用本节任何数字前必须先读这段更正。**
+
+| 样本 | 复核结论（worker-4 · 另一套探针 · 31 条 file:line 全部机器回验） |
+|---|---|
+| `AgeModel.MiddleAdultHoodAge` | **不是死成员，作废。** 实测 1 声明 + 1 override（`DefaultAgeModel.cs:41`）+ **3 个引用点**（`HeroHelper.cs:291` / `BackstoryCampaignBehavior.cs:45` / `:52`）。根因：把「调用点」当成 `.Name(`，而这三处全是**纯属性读，没有括号**。 |
+| `GetVirtualStageCount` | override 数改为 **7 override + 1 abstract 声明**（第 8 处是 `CharacterCreationStageViewBase.cs:76` 的 `public abstract`，不是 override）。原表的输出格式把「声明」与「override」分列，口径混了。「0 调用点」仍成立。 |
+| `ArmyTypes.Patrolling` | 「58」**不可复现**：9 种口径 × 6 棵源码树都得不到（`-w` 6 行 / 子串 112 / `-i` 139 / `patrol` 564）。原因不可考，**不要编一个**。「无一涉及该值」成立：`ArmyTypes.X` 取值分布 Besieger 27 / Raider 23 / Defender 23 / Patrolling 0。 |
+| `BoardGameAIBase.AIDecisionDuration` / `CampaignMusicHandler.Min/MaxRestDurationInSeconds` | 数字复现，但**它们是 `private const`**：外部程序集在 C# 层面根本无法引用，**0 引用是语言必然，不是 modder 陷阱**。写进文档时必须讲清这个区别，否则会吓出不必要的规避写法。 |
+| `ArmyTypes.NumberOfArmyTypes` | 「全树仅出现一次」成立，但**「出现」≠「被引用」**：那 1 次就是声明处本身。**属「枚举哨兵惯用法」**，真实存在但不构成 modder 陷阱。 |
+
+**这 6 条里真正站得住的 modder 价值点只有 `GetVirtualStageCount` 一条。**
+「6 条发现」这个数本身有误导性，引用时必须带这个限定。
+
+**死成员判定的六类静默错判（本节工具必须处理，全文见 `tools/_deadmember-verify.md`）：**
+```
+B-1 「出现 N 次」≠「被引用 N 次」。必须分栏：声明数 / 引用数 / 排除数+理由。
+B-2 同名成员属不同类型会串味：Army.ArmyTypes.Patrolling vs Agent.WatchState.Patrolling（6 处里 3 处是后者）。
+B-3 本地化字符串字面量含人类可读英文单词（MobileParty.cs:2547/2552 的 "{=BifGz0h4}Patrolling."）。
+   需区分标识符位 / 字符串 / 注释 / XML 文档位。
+B-4 abstract 声明被当成 override —— GetVirtualStageCount 的 7 vs 8 就是这么来的。
+B-5 属性读没有 `(` —— §5 已登记 anti-fabrication 有这病，此处坐实：三个引用点全被漏掉，
+   差点把活成员发成死成员。
+B-6 ⚠️ 反射消费枚举成员，文本探针看不见（比其余五条都重要）：
+   SaveableCampaignTypeDefiner.cs:312 有 AddEnumDefinition(typeof(Army.ArmyTypes), 2021)，全树 72 处。
+   枚举按底层整数序列化，成员名一次都不出现 → **「0 引用」不成立，老存档里可能就存着那个值。**
+   规则：枚举成员报 0 引用前必须查该 enum 的 typeof 是否出现在
+   AddEnumDefinition / Enum.GetValues / Enum.Parse，检到即降级 UNSUPPORTED。
+```
+
+另两条已知边界：本树是 ILSpy 10.1.0 反编译产物（`//IL_` 标注覆盖 1,827/8,583 文件，**0 个 `.xml``**），
+所以「没找到 XML 文档」在本树恒真，**不能当「原版也没文档」的证据**；
+`private` / `public` 的「0 引用」信息量不同，必须分级。
+
 ---
 
 ## 4. 已沉淀的规范（`tools/_INTEGRATION-GATES.md`，52+ 条）

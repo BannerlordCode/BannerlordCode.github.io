@@ -5,84 +5,170 @@ extra:
   layout: home
   titleTemplate: false
 ---
+
 # Bannerlord Modding Wiki / 骑砍2模组编辑维基
 
-## Mental Model
+> **这个站回答三个问题**：一个 modder **从哪进入**、**先学什么**、**六个版本是什么关系**。
+> 不是又一层 API 列表 —— API 列表在下面每一层的桶索引里。
 
-Treat `Bannerlord Modding Wiki` as an entry point or data node for this subsystem: inspect its properties first, then decide which methods to call.
+站内收录 6 个游戏版本的文档。下面每一句结论要么是实测数字，要么标了「推断」。
 
-> **推荐起点 / Recommended starting point**
-> 先从 **版本首页** 进入，再走 **架构总览 → API 目录 → 类页** 这条树；需要迁移时再回到 **跨版本对比**。
-> Start from a **version home**, then follow **architecture → API catalog → class page**; use **cross-version compare** when migrating.
+---
 
-## 选择版本 / Select Version
+## 30 秒上手
 
-| 版本 Version | 描述 Description | 文档 Documentation |
-|-------------|-----------------|-------------------|
-| **v1.3.15** | 最新稳定版 / Latest stable | [查看文档 / View Docs](./v1.3.15/) |
-| **v1.4.5**  | 源码可用 / Source available | [查看文档 / View Docs](./v1.4.5/) |
-| **v1.3.0**  | 早期版本 / Earlier version | [查看文档 / View Docs](./v1.3.0/) |
+一个从没写过 Bannerlord mod 的人，按这四步走完就能开工。
 
-## 版本对比 / Version Comparison
+| # | 做什么 | 打开这一页 |
+| --- | --- | --- |
+| 1 | 选一个版本当你的目标 | [我该读哪一版](#我该读哪一版) —— 先看下面那张表 |
+| 2 | 搞清 mod 是怎么被游戏加载的 | [模块系统](./v1.3.15/zh/architecture/module-system) · [模组工作流](./v1.3.15/zh/guide/mod-workflow) |
+| 3 | 读你的第一个要碰的类 | [MBSubModuleBase](./v1.3.15/zh/api/core/MBSubModuleBase) |
+| 4 | 挂第一个战役行为，让它有东西可做 | [CampaignBehaviorBase](./v1.3.15/zh/api/campaign-ext/CampaignBehaviorBase) · [完整路径](./versions/task-mod-bootstrap) |
 
-> **跨版本迁移 / Cross-version migration**
-> - [🔀 跨版本类对比（逐类 API 差异）](./versions/) — 同一类在 1.3.0/1.3.15/1.4.5 的 API 变化
-> - [版本差异（模块 + 类级速览）](./v1.3.15/zh/architecture/version-delta) — 破坏性移除/新功能/稳定类总表
-> - [🔀 Cross-Version Class Comparison](./versions/) — per-class API deltas across 1.3.0/1.3.15/1.4.5
+**第 3 步是唯一不可跳过的。** 全站每个 mod 都必须有一个 `MBSubModuleBase` 的子类被游戏回调；
+其余所有事情都挂在那之后。整条路径的心智模型在
+[让 mod 被加载](./versions/task-mod-bootstrap)。
 
-### v1.3.15 (最新 / Latest)
-- SaveSystem 重构 / SaveSystem refactored
-- 更多 [Obsolete] 标记 / More [Obsolete] markers
-- 23 个新模块 / 23 new modules
-- TaleWorlds.Native.dll v1.3.15 源码索引 / TaleWorlds.Native.dll v1.3.15 source index
+---
 
-### v1.4.5 (整理中 / In preparation)
-- 65 个 TaleWorlds DLL；多人/自定义战斗拆分 / 65 TaleWorlds DLLs; multiplayer/custom battle split
-- 14 新模块、4 移除 / 14 new, 4 removed modules
-- 源码反编译进行中 / Source decompilation in progress
+## 我想做的事 → 从哪进
 
-### v1.3.0 (早期 / Earlier)
-- 原始版本 / Original version
-- 基础文档 / Base documentation
+**这是全局观层的核心。** 每一行给：一句话说明 → 关键类型在哪 → 一段你要注意什么。
+心智模型和下钻路径在「任务页」里，签名表在类页里。
 
-## 关于 / About
+| 我要做的事 | 一句话 | 从这里进 |
+| --- | --- | --- |
+| 让 mod 被加载 | 游戏只认一个入口基类，其余都挂在它之后 | [让 mod 被加载](./versions/task-mod-bootstrap) |
+| 做一个新的战役动作 | 玩家点一下菜单，你的代码改一次世界状态 | [做一个新的战役动作](./versions/task-campaign-action) |
+| 处理一场战斗 | 战斗是独立生命周期，与战役世界并列而非嵌套 | [处理一场战斗](./versions/task-mission-action) |
+| 替换游戏默认的算法 | 模块初始化期的装饰器，不是运行期 setter | [接一个 GameModel](./versions/task-gamemodel) |
+| 给战役挂常驻逻辑 | 一组被游戏在固定阶段回调的方法 | [加一个 CampaignBehavior](./versions/task-campaign-behavior) |
+| 让自定义数据存进存档 | 存档存的是「带 id 的对象图」，不是字段快照 | [读写存档](./versions/task-save) |
+| 加一个界面 | XML 布局 / Movie 生命周期 / ViewModel 数据，三层分开 | [挂一个 UI 面板](./versions/task-ui-screen) |
+| 改 AI 决策 | 地图侧与战斗侧是两套完全独立的 AI | [改 AI 决策](./versions/task-ai) |
+| 让 mod 在网络上说话 | 先分清是后端通信还是对局同步 | [加一条网络消息](./versions/task-network) |
 
-这里是 Bannerlord 模块编辑器的完整文档。
+每张任务页最后都有「该用哪个 / 不该用哪个」的对照表 —— 选错机制是新手最贵的浪费。
 
-欢迎来到 Bannerlord Modding Wiki!
+---
 
-## 内容 / Contents
+## 我该读哪一版
 
-- **架构总览 / Architecture hub** - 先看模块地图，再进入 API 目录和版本差异
-- **API 目录 / API catalog** - 按领域找到类，再沿面包屑回到领域入口
-- **跨版本对比 / Cross-version compare** - 逐类看 1.3.0 / 1.3.15 / 1.4.5 的 API 演化
-- **原生接口 / Native interface** - P/Invoke 与原生引擎交互 / Interact with native engine via P/Invoke
-- **源码索引 / Source index** - 导出函数、类型定义和反编译函数索引 / Exports, type definitions, and decompiled function index
+六个版本不是六个副本。它们的**源码完整度**和**文档覆盖度**严重错位，
+所以「最新」和「最好用」根本不是同一版。
 
-## 状态 / Status
+**实测数据**（`.cs` 数是 `bannerlord-*/` 源码树实数；文档页数是 `content/<版本>/` 下
+非索引 `.md` 实数）：
 
-> **文档已迁移 / Migration Complete**
-> 本站已从 VitePress 迁移至 Zola，现有路由和文档内容保持不变。
->
-> The site has been migrated from VitePress to Zola. Existing routes and documentation are preserved.
+| 版本 | 源码 `.cs` | 文档页 zh / en | 它是什么 | 进 |
+| --- | ---: | ---: | --- | --- |
+| **v1.5.3** | 11 487 | 141 / 3 | **源码最完整**：68 个 `TaleWorlds.*` 程序集，无缺口 | [v1.5.3](./v1.5.3/) · [中文](./v1.5.3/zh/) |
+| **v1.4.7** | 11 387 | 28 / 28 | 小而手写的小树，桶结构最干净（同一类型只有 1 个 URL） | [v1.4.7](./v1.4.7/) |
+| **v1.4.6** | 11 385 | 83 / 3 | 架构散文完整，类页少；英文树无任何桶目录 | [v1.4.6](./v1.4.6/) |
+| **v1.4.5** | 8 583 | 9 384 / 7 129 | **文档覆盖最大**：唯一有成规模 API 树的版本 | [v1.4.5](./v1.4.5/) |
+| **v1.3.15** | 5 208 | 5 643 / 5 636 | **长期稳定基线**，也是唯一有完整 `guide` 散文层的版本 | [v1.3.15](./v1.3.15/) |
+| **v1.3.0** | 4 596 | 5 190 / 5 190 | 历史版本，跨版本对比的下界 | [v1.3.0](./v1.3.0/) |
 
-## 链接 / Links
+**怎么选**：
+
+| 你的处境 | 选 |
+| --- | --- |
+| 针对当前游戏版本开发 | **v1.5.3**（源码最完整，分桶清单没有猜的部分） |
+| 要「查得到某个类的页面」 | **v1.4.5**（9 384 个中文类页，其余版本加起来都没它多） |
+| 要和大多数 mod 社区对得上 | **v1.3.15**（长期基线，且是唯一有教程散文层的） |
+| 只关心某个 1.4.x 小版本 | 进 [v1.4.6](./v1.4.6/) 或 [v1.4.7](./v1.4.7/)，两者都有各自的 `version-delta` |
+
+> ⚠ **别把两棵树并排读来比较。** 桶名集合逐版不同（v1.3.0 有 `gameplay`、v1.4.5 有 `perks`/`boardgames`、
+> v1.4.6 起有 `network`/`sandbox`），按直觉去对面找同名路径大概率扑空。
+> 逐类差异一律走 [跨版本对比](./versions/)。
+
+### 六个版本的关系
+
+```text
+   v1.3.0 ──→ v1.3.15 ──→ v1.4.5 ──→ v1.4.6 ──→ v1.4.7 ──→ v1.5.3
+   历史       稳定基线      覆盖最大    增量        增量       源码最全
+   └──────────── 逐类 API 对比只覆盖到这里 ────────────┘
+```
+
+**跨版本差异去哪查**（实测：`tools/class-version-diff.mjs` 的源码根写死为
+1.3.0 / 1.3.15 / 1.4.5 三棵，所以它**查不了** 1.4.6+）：
+
+| 你想知道 | 去 |
+| --- | --- |
+| 某个类在 1.3.0/1.3.15/1.4.5 之间的成员级增删 | [跨版本类对比](./versions/) |
+| 1.3.15 → 1.4.7 消失了哪些类型、桶怎么重划 | [v1.4.7 版本差异](./v1.4.7/zh/architecture/version-delta) |
+| 1.4.5 → 1.5.3 删了什么、签名变了什么 | [从 1.4.5 迁移到 1.5.3](./v1.5.3/zh/architecture/migration-from-1.4.5) |
+| 1.4.6 的模块与覆盖状态 | [v1.4.6 版本差异](./v1.4.6/zh/architecture/version-delta/) |
+
+---
+
+## 站点地图
+
+四层。每一层都能往回走 —— 这是「跳过去回不来」的修法。
+
+```text
+你在这里 ── 站点首页 /
+  ├── 版本层 ── 选语言、选相邻版本、看本版状态
+  │     v1.3.0 · v1.3.15 · v1.4.5 · v1.4.6 · v1.4.7 · v1.5.3
+  │       └── 域层 ── 一个域的散文与入口
+  │             architecture/  模块地图、SDK 分层、存档原理、版本差异
+  │             guide/         上手教程、战役与任务系统讲解、常见模式
+  │             api/           桶的集合（按命名空间划分）
+  │               └── 桶层 ── 一个命名空间桶的入口 + 桶内子页清单
+  │                     └── 类页 ── 这个类是干什么的、每个成员做什么用、能跑的示例
+  │             native/        P/Invoke 接口类型
+  │             xml-reference/ XML 配置参考
+  │             native-1.3.15-src/  反编译的 Native 源码索引（v1.3.15 / v1.4.5 特有）
+  └── 跨版本层 ── 逐类 API 差异 + 按任务进入
+        versions/
+```
+
+| 层 | 负责回答 | 入口 |
+| --- | --- | --- |
+| **architecture/** | 模块结构、SDK 分层、加载顺序、存档原理、版本差异 | [v1.3.15 架构](./v1.3.15/zh/architecture/) · [v1.5.3 模块地图](./v1.5.3/zh/architecture/module-map) |
+| **guide/** | 「怎么做」—— 上手流程、子系统讲解、常见模式、排错 | [v1.3.15 指南](./v1.3.15/zh/guide/) |
+| **api/** | 「是什么」—— 按命名空间分桶，逐类参考 | [v1.3.15 API](./v1.3.15/zh/api/) · [v1.5.3 API](./v1.5.3/zh/api/) |
+| **native/** | P/Invoke 边界 —— 哪些东西在托管侧之外 | [原生接口](./v1.3.15/zh/native/) |
+| **xml-reference/** | XML 配置文件字段 | [XML 参考](./v1.3.15/zh/xml-reference/) |
+| **versions/** | 跨版本差异，以及「按任务进入」 | [跨版本中枢](./versions/) |
+
+> 域名是 **`guide`（单数）**，不是 `guides`。
+
+---
+
+## 关于这个站
+
+### 文档是怎么写的
+
+- **正文散文是手写的。** 每篇说明「这个类负责什么 → 每个成员是干什么用的 → 心智模型 → 能跑的示例」。
+- **桶的 `_index.md` 里有一段机械子页清单由工具维护**（只覆盖 `<!-- BEGIN SECTION INDEX -->` 与
+  `<!-- END SECTION INDEX -->` 两块之间），因为那段内容的正确取值由「该目录下有哪些文件」唯一决定；
+  marker 块之外的散文、心智模型段、手写链接一律是手写的。
+- **带生成标记的类页不算文档。** 查到签名后请回源码核对 —— 尤其是 1.4.5 之后，
+  那些源码树是反编译产物。
+
+### 覆盖度是诚实的
+
+不是所有版本都写满了。**缺口在各版本自己的首页上如实写着**，别默认「查不到 = 不存在」：
+
+- [v1.4.7 缺口清单](./v1.4.7/GAPS) · [v1.5.3 覆盖实况](./v1.5.3/zh/architecture/module-map)
+- [v1.5.3 桶索引页尚未撰写](./v1.5.3/) —— 所以 v1.5.3 树里「点桶名进目录」的走法走不通
+
+### 关于「最新」
+
+站内六版里版本号最高的是 v1.5.3，文档覆盖最多的是 v1.4.5，长期基线是 v1.3.15。
+这三个「最」指的是不同的东西，见上面的选版表。
+
+## 链接
 
 - **GitHub Organization**: https://github.com/BannerlordCode
 - **Official Modding Forum**: https://forums.taleworlds.com/
 
+## 导航
 
-## 使用方式 / How to Use
-
-1. 先选择版本。
-2. 再从架构总览或 API 目录进入具体子系统。
-3. 进入类页后，使用 breadcrumb 返回版本页、领域页或跨版本对比页。
-
-## Usage Example
-
-```csharp
-// Pick a version from the top navigation: v1.3.15, v1.3.0, or v1.4.5.
-```
+- ↘ [跨版本中枢 / 按任务进入](./versions/) —— 18 个类的逐类差异 + 9 张任务页
+- ↘ [v1.5.3](./v1.5.3/) · [v1.4.7](./v1.4.7/) · [v1.4.6](./v1.4.6/) · [v1.4.5](./v1.4.5/) · [v1.3.15](./v1.3.15/) · [v1.3.0](./v1.3.0/)
 
 <!-- BEGIN SECTION INDEX -->
 
@@ -91,6 +177,9 @@ Treat `Bannerlord Modding Wiki` as an entry point or data node for this subsyste
 - [Bannerlord v1.3.0 文档 / Bannerlord v1.3.0 Documentation](./v1.3.0/)
 - [Bannerlord v1.3.15 文档 / Bannerlord v1.3.15 Documentation](./v1.3.15/)
 - [Bannerlord v1.4.5](./v1.4.5/)
+- [Bannerlord v1.4.6](./v1.4.6/)
+- [Bannerlord v1.4.7](./v1.4.7/)
+- [Bannerlord v1.5.3](./v1.5.3/)
 - [跨版本类对比 / Cross-Version Class Comparison](./versions/)
 
 <!-- END SECTION INDEX -->

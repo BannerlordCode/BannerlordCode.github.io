@@ -18,6 +18,22 @@ description: Bannerlord v1.4.6 文档入口 — 当前覆盖范围与阅读顺�
 | [中文 / Chinese](zh/) | 全 3 篇 | 40 张 |
 | [English](en/) | 全 3 篇 | 暂未手写 / none yet |
 
+## 本版本怎么用
+
+**定位：1.4 系列的中间增量版，架构散文写完了、类页刚开始。**
+
+- **modder 的第一步**：进 [中文落地页](zh/) → [SDK 分层](zh/architecture/sdk-overview/) → [模块地图](zh/architecture/module-map/) → [API 参考](zh/api/)。
+- **这一版特有的坑**（实测，非推测）：
+  - **类页少。** 中文侧 83 篇、英文侧 3 篇。`mission-ext/`、`viewmodel/`、`system/`、
+    `modulemanager/`、`sandbox/`、`storymode/`、`custombattle/`、`network/`、
+    `achievementsystem/`、`activitysystem/` 这些桶还没有页。查不到不等于不存在 ——
+    先去 [模块地图](zh/architecture/module-map/) 确认它归哪个桶，再回 `bannerlord-1.4.6/` 源码核实。
+  - **英文树没有任何桶目录**，只有 `api/_index.md`。要英文内容先去中文树。
+  - **它的页面自己就写着「要一个能用的 v1.4.x 文档 → v1.4.5」**（见上方「现在该读哪一版」）。
+    也就是说这一版自己也承认覆盖不如 1.4.5 —— 别在它身上耗太久。
+  - **顶层目录名就是程序集名**，所以它的模块地图比别的版本好读，但也因此与其它版本的
+    桶划分对不上。跨版本查差异走 [跨版本类对比](../versions/) 或本版的 [版本差异](zh/architecture/version-delta/)。
+
 ## 从哪里开始读 / Where to start
 
 - 中文：[版本落地页](zh/) → [SDK 分层](zh/architecture/sdk-overview/) → [模块地图](zh/architecture/module-map/) → [API 参考](zh/api/)
@@ -35,3 +51,7 @@ description: Bannerlord v1.4.6 文档入口 — 当前覆盖范围与阅读顺�
 ## 上级导航 / Up
 
 - [站点首页 / Site home](../)
+- ↔ [中文文档](./zh/) · [English documentation](./en/)
+- ↘ [架构](./zh/architecture/) · [API 参考](./zh/api/) · [跨版本类对比](../versions/)
+- ↘ [按任务进入](../versions/) · [v1.5.3](../v1.5.3/) · [v1.4.5](../v1.4.5/)
+- ⚠ 这一版没有 `guide/` 域 —— 教程散文只在 v1.3.15 与 v1.4.5 两棵树上。

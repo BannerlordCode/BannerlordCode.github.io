@@ -1,0 +1,69 @@
+# This file exists to stop ONE class of false accusation, discovered during a
+# documentation-rewrite session:
+#
+#   content/v1.4.5/zh/api/_index.md was silently converted LF -> CRLF. The
+#   resulting diff read "+93 -68", which looks exactly like a wholesale rewrite
+#   of the title, description, H1 and every section heading. It was not:
+#   after normalising line endings the file differed by 13 added lines and
+#   ZERO deletions. Two more files converted in the same batch.
+#
+#   A verifier read that diffstat and reported "this worker rewrote the
+#   headings". Both the accusation and its rebuttal were wrong, and the whole
+#   round was spent re-deriving it.
+#
+# `core.autocrlf` was false on the machine that did it, which is the SAFE
+# setting -- but it says nothing about the repository's convention, so each
+# tool re-decided for itself. That is the gap this closes.
+#
+# ---------------------------------------------------------------------------
+# SCOPE IS DELIBERATELY NARROW. Do not widen it.
+# ---------------------------------------------------------------------------
+# Measured before writing this rule:
+#
+#   tracked files in HEAD          132,832
+#   text files with CRLF in HEAD    63,455   <- 47.8%
+#
+# The repository is full of CRLF in git history, largely under `_audit_l1/`
+# (mirror/selfcheck trees). A blanket `* text=auto eol=lf` would normalise all
+# 63,455 of them on the next commit that touched them, burying real edits under
+# a repo-wide diff. So the rule is scoped to the trees this project authors.
+#
+# Verified: with this file in place,
+#   git check-attr text eol -- content/v1.4.5/zh/api/_index.md
+#     -> text: auto   eol: lf
+#
+# If the historical trees are ever migrated, migrate them in their own commit
+# with `--renormalize`, and review that diff on its own terms. Do not fold it
+# into unrelated work.
+
+# Documentation this project authors. Also the only tree measured clean of
+# legacy CRLF at the time of writing.
+content/**    text=auto eol=lf
+
+# Tooling and gates: short, diff-reviewed, churn would hide real logic changes.
+tools/**      text=auto eol=lf
+
+# Deliberately NOT covered: _audit_l1/, _withdrawn/, public/, and anything else
+# carried over from before this rule existed. Those are historical; normalising
+# them is a separate, explicitly-scoped migration.
+
+# Binary assets -- eol normalisation must never touch these.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.ico  binary
+*.pdf  binary
+*.zip  binary
+*.gz   binary
+*.woff  binary
+*.woff2 binary
+*.ttf  binary
+*.otf  binary
+*.mp3  binary
+*.mp4  binary
+
+# Patches and diffs carry meaning in their line structure.
+*.patch text eol=lf
+*.diff  text eol=lf

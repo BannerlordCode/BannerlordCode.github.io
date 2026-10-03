@@ -50,6 +50,11 @@ description: "一个约 2200 行的静态提示框构建库，每种提示框对
 - [CampaignUIHelper](../CampaignUIHelper) —— 提供 `SortState` 以及本类为制作资源去重而复用的 `ProductInputOutputEqualityComparer`。
 - [MobilePartyPrecedenceComparer](../MobilePartyPrecedenceComparer) —— 同桶的配套比较器，当你需要与提示框相同的排序时可用。
 - [MBSubModuleBase](../../core/MBSubModuleBase) —— 拥有你自定义屏幕与 widget 生命周期的 mod 入口点。
+- [CharacterObject](../../campaign/CharacterObject) —— `RefreshCharacterTooltip` 的 `args[0]`，是共享的**兵种模板**而不是具体士兵。
+- [Building](../../campaign/Building) / [BuildingType](../../campaign/BuildingType) —— `RefreshBuildingTooltip` 的 `args[0]` 及其类型；`IsDailyProject` 与 `Explanation` 都挂在类型上。
+- [Workshop](../../campaign/Workshop) / [WorkshopType](../../campaign/WorkshopType) —— `RefreshWorkshopTooltip` 的 `args[0]` 及其类型；`Productions` 是类型上的静态定义。
+- [AnchorPoint](../../campaign/AnchorPoint) —— `RefreshAnchorTooltip` 的 `args[0]`，只有 `Name` 可显示。
+- [AgentDrivenProperties](../../mission-ext/AgentDrivenProperties) —— 战斗中的属性由 `AgentDrivenProperties` 持有；`RefreshCharacterTooltip` 显示的是**模板**，两者不要混。
 
 ## 主要成员
 
@@ -93,6 +98,70 @@ description: "一个约 2200 行的静态提示框构建库，每种提示框对
 ### `public static void RefreshCraftingPartTooltip(PropertyBasedTooltipVM propertyBasedTooltipVM, object[] args)`
 
 追加某物品所需的制作材料，使用 `itemCategoryDistinctComparer`（一个 `CampaignUIHelper.ProductInputOutputEqualityComparer`），使共享同一 `ItemCategory` 的投入被合并而不是重复列出。
+
+### `public static void RefreshCharacterTooltip(PropertyBasedTooltipVM propertyBasedTooltipVM, object[] args)`
+
+`TooltipRefresherCollection.cs:412`。`args[0]` 是 `CharacterObject`（用 `as` 解包后**立即解引用，没有判空**）。这是「士兵模板卡片」而不是「某个具体士兵」的提示框：它描述的是**兵种模板**，不是场上那一个 Agent。
+
+流程固定为五段：
+
+1. `Mode = 1`——**固定中立，无外交分支**。这跟 `RefreshHeroTooltip` / `RefreshSettlementTooltip` 的三档 mode 形成对比：兵种卡片对谁都一样可见，所以没必要分敌我。
+2. 标题行：`characterObject.Name.ToString()` 带 `TooltipPropertyFlags.Title`。
+3. 兵种等级：取 `str_party_troop_tier` 文本，把 `TIER_LEVEL` 变量设为 `characterObject.Tier`。
+4. **仅当 `characterObject.UpgradeTargets.Length != 0`** 才追加升级经验行。它调用 `GameTexts.SetVariable("XP_AMOUNT", characterObject.GetUpgradeXpCost(PartyBase.MainParty, 0))`——**升级费用是按玩家主力部队算的**，所以同一张卡片在战役外或主力部队不存在时会抛异常。注意第二个参数写死 `0`，即**只显示升到下一级的费用**，不是满级费用。
+5. 技能表：只要 `characterObject.TroopWage > 0` 就显示日薪（带一枚金币图标的内嵌 img 标签），随后遍历 `Skills.All`，**只列出 `GetSkillValue(item) > 0` 的技能**——零值技能被整体跳过，而不是显示成 0。
+
+- **什么时候用**：给兵种选择界面、招募界面、部队编辑界面上的「兵种」格子加悬停提示。
+- **什么时候不要用**：想知道场上某个具体士兵的当前负重/当前生命，那属于 `AgentDrivenProperties` 而不是 `CharacterObject`；也不要拿它显示单个 Agent 的名字以外的状态，因为 `CharacterObject` 是**共享模板**，上面没有个体状态。
+- **两个坑**：一是 `GameTexts.SetVariable` 写的是**全局文本变量**，不是局部变量——紧跟着显示别的提示框会看到被污染的文本；二是 `Skills.All` 是全局技能表，加了新技能 mod 之后这张卡片会自己多出几行，不需要改这里。
+
+### `public static void RefreshBuildingTooltip(PropertyBasedTooltipVM propertyBasedTooltipVM, object[] args)`
+
+`TooltipRefresherCollection.cs:674`。`args[0]` 是 `Building`（`as` 解包后无判空）。这是城镇里**某栋具体建筑实例**的卡片，`Mode = 1`。
+
+四行内容，其中第二行有一个分支：
+
+- 标题：`building.Name.ToString()`，带 `Title` 标志。
+- **若 `building.BuildingType.IsDailyProject` 为真，只写一行 `Daily`**；否则写 `Current Level: {building.CurrentLevel}`。也就是说每日项目类建筑（进度条型，如工坊/训练场）的卡片**故意不显示等级**——它的进度由别处表达，`CurrentLevel` 对它没有意义。
+- `building.Explanation.ToString()`，带 `MultiLine` 标志（这是建筑类型自己写的长描述文本，天然多行）。
+- `building.GetBonusExplanation().ToString()`，普通单行。
+
+- **什么时候用**：城镇界面 / 地图上悬停一栋具体建筑（铁匠铺、铁匠炉、训练场……）。
+- **什么时候不要用**：想知道「这座建筑提供什么效果」——那是 `BuildingType` 的事，不是 `Building` 实例；本方法只描述**这一个实例**的当前状态。
+- **注意 `building.Name` 与 `building.BuildingType.Name` 是两个东西**。本方法用的是实例名（可以被 mod 改），而下一条 `RefreshWorkshopTooltip` 用的是类型名。想统一显示类型名，得自己改。
+
+### `public static void RefreshAnchorTooltip(PropertyBasedTooltipVM propertyBasedTooltipVM, object[] args)`
+
+`TooltipRefresherCollection.cs:691`。**全文最短的方法，只有三句**：
+
+```csharp
+AnchorPoint anchorPoint = args[0] as AnchorPoint;
+propertyBasedTooltipVM.Mode = 1;
+propertyBasedTooltipVM.AddProperty("", anchorPoint.Name.ToString, 0, TooltipProperty.TooltipPropertyFlags.Title);
+```
+
+它只做两件事：设 `Mode = 1`，加一条带 `Title` 标志的名称属性。**没有第二行内容、没有条件分支、没有任何 `Campaign.Current` 依赖。**
+
+- **什么时候用**：海上航行时悬停一个舰队锚点（玩家可以把舰队调过去的那个可交互点）。锚点本身除了名字没有别的可显示数据——没有归属、没有部队、没有等级——所以游戏只给一行标题。
+- **什么时候不要用**：想要锚点的更多上下文（当前有哪些舰队能去、航程多远）——游戏没有提供这个提示框，别指望改 `args` 就能挖出来。
+- **它是写自定义提示框的最小模板**。想写自己的 `Refresh*`，照抄这五行比照抄 `RefreshHeroTooltip`（近 200 行）安全得多：没有全局状态依赖、没有 LINQ、没有分配。当然它也是**最脆弱的模板**——`args[0]` 为 null 或类型不符时立刻 `NullReferenceException`，因为它连 `Mode` 之后的第一处解引用都没有保护。可以和同样只写标题的 `RefreshMapMarkerTooltip`（`:2189`，`MapMarker`）对照看，两者形状完全一致。
+
+### `public static void RefreshWorkshopTooltip(PropertyBasedTooltipVM propertyBasedTooltipVM, object[] args)`
+
+`TooltipRefresherCollection.cs:698`。`args[0]` 是 `Workshop`（城镇里一座具体的工坊实例）。`Mode = 1`。
+
+与 `RefreshBuildingTooltip` 的关键区别是**标题取自类型而非实例**：
+
+- 标题：`workshop.WorkshopType.Name.ToString()`（类型名，如「铁匠铺」），带 `Title` 标志。
+- `Owner` 行：`workshop.Owner.Name.ToString()`。
+- 空行 + `Productions` 小节标题 + 空行。
+- **原料（Materials）**：把 `workshop.WorkshopType.Productions` 里每条 `Production` 的 `Inputs` 用 `SelectMany` 摊平，再过 `Distinct(itemCategoryDistinctComparer)` 去重。有原料时逐行 `AddProperty(" ", category.GetName())`。注意去重比较器就是类字段 `itemCategoryDistinctComparer`（`CampaignUIHelper.ProductInputOutputEqualityComparer`），所以**同时是多种产物原料的物品类别只会出现一次**。
+- **产物（Production）**：同样的摊平 + 去重流程。如果产物列表为空，方法在这里**提前 return**，整张卡片就只有标题、Owner 和一个空的 `Productions` 小节标题。
+
+- **什么时候用**：城镇界面里悬停一座具体工坊。想显示「这座城镇现在有什么产能」。
+- **什么时候不要用**：想知道工坊当前**实际产出了多少、库存多少**——本方法只列 `WorkshopType.Productions` 这个**静态定义**，不读 `Town.Workshops` 的运行时产出状态，也不读任何进度。
+- **两个坑**：一是 `workshop.Owner` **未判空**，无主工坊会直接 `NullReferenceException`；二是每行的 `AddProperty` 只有一个参数（`AddProperty(" ", name)`），靠**前导空格**做缩进而非 `TooltipPropertyFlags`——照抄这个形态时注意别以为漏了参数。
+- **`Productions` 的静态性意味着 mod 改产能必须改 `WorkshopType.Productions`**，而不是改某个 `Workshop` 实例；否则这张提示框不会变。
 
 ### `public static void RefreshSiegeEventTooltip(...)` / `RefreshMapEventTooltip(...)`
 

@@ -32,7 +32,9 @@ public class AgentDrivenProperties
 }
 ```
 
-**92 个具名属性 + 一个 `int` 属性（`AiSpeciesIndex`）**，共 93 个成员，与 `DrivenProperty` 的槽位数正好对上（下面解释为什么正好）。
+**92 个 public 标量属性**（91 个 `float` + 1 个 `int`，那个 `int` 就是 `AiSpeciesIndex`）。注意「92 个具名属性」**已经包含** `AiSpeciesIndex`，不是 92 + 1。它们与 93 个槽位正好差一格——下面解释那一格去哪了。
+
+> **本页所有数字均为实测**，不是估计。来源文件与计数方法见下面「计数怎么来的」小节。
 
 ## 心智模型
 
@@ -46,6 +48,24 @@ public class AgentDrivenProperties
 - `DrivenPropertiesCalculatedAtSpawnEnd = 61` —— **这是 `WeaponsEncumbrance = 61` 的别名**，同一个数值
 
 所以 `AgentDrivenProperties` 的 `new float[93]` 有效下标是 **0..92**，而 `DrivenProperty.Count = 93` **恰好越界一格**。这不是巧合，是设计：`Count` 是哨兵，不是有效槽位。**`GetStat(DrivenProperty.Count)` 会抛 `IndexOutOfRangeException`。**
+
+### 计数怎么来的
+
+本节每个数字都可复现。源文件都在 **v1.3.0 反编译源码树**里：
+
+| 数字 | 值 | 来源 | 计数方法 |
+| --- | --- | --- | --- |
+| 枚举成员总数 | 96 | `TaleWorlds.Core/DrivenProperty.cs`（全文 201 行；enum 声明 `:6`，成员区 `:9`-`:199`，闭合括号 `:200`） | 逐行解析 enum 体。**只有两个显式赋值**：`None = -1`（`:9`）与 `DrivenPropertiesCalculatedAtSpawnEnd = 61`（`:199`，末项无逗号）；其余 94 个是 C# 隐式递增，按 `previous + 1` 推值（`Count` 在 `:197`，同样无显式值，靠累加落到 93）。 |
+| 真实槽位数 | **93** | 同上 | 96 减去 `None`、`Count`、`DrivenPropertiesCalculatedAtSpawnEnd` 三个非槽位成员。 |
+| 槽位区间 | 0..92 | 同上 | 93 个真实成员排序后的最小/最大值。**区间内无空洞**（逐值检查 `0..92` 全部命中）。 |
+| `Count` | 93 | `DrivenProperty.cs:197` | 隐式递增落在这里。 |
+| 别名 | `DrivenPropertiesCalculatedAtSpawnEnd = 61` = `WeaponsEncumbrance = 61` | `DrivenProperty.cs:199` | 把 93 个真实成员按数值分组，只有值 61 这一组有 2 个名字。 |
+| 数组长度 | `new float[93]` | `TaleWorlds.MountAndBlade/AgentDrivenProperties.cs:23` | 全文只出现**一次** `new float[...]`，唯一实参是字面量 `93`。 |
+| 具名属性数 | **92**（91 `float` + 1 `int`） | 同上（全文 1436 行） | 匹配形如 `public float Name` / `public int Name` 的属性声明行，得 92 个；按类型分得 91 `float` + 1 `int`。**无重名**。 |
+| 缺包装的槽位 | **1**（`UseRealisticBlocking` = 56） | `AgentDrivenProperties.cs` + `DrivenProperty.cs:123` | 收集本类全部 `GetStat(DrivenProperty.X)` / `SetStat(DrivenProperty.X, …)` 的 `X`，得 92 个互不相同的枚举成员；与 93 个真实槽位求差集，差 1 个：`UseRealisticBlocking`。**差集里没有哨兵或别名成员。** |
+| 槽位→属性映射 | 一对一 | 同上 | 92 个属性解析出的槽位集合是 `{0..92} \ {56}`，**92 个互不相同的值，无一对多**。 |
+
+**成员名与枚举名不一致的只有两处**：槽位 69/70（见下）。其余 90 个属性的名字与其索引的枚举成员**完全同名**。
 
 **那 93 个槽位 vs 92 个具名属性的差额去哪了？** 我把 `AgentDrivenProperties.cs` 里所有 `GetStat(DrivenProperty.X)` / `SetStat(DrivenProperty.X, ...)` 的 `X` 收集起来去和 93 个真实属性求差集，结果是**只有一个**：
 
@@ -84,12 +104,12 @@ internal float[] UpdateDrivenProperties(Agent agent)
 两个都是 `internal`，返回 `float[]` 本身。它们的调用方是 [Agent](../../mission/Agent)：
 
 ```csharp
-// Agent.cs:3780-3786  InitializeAgentProperties
+// TaleWorlds.MountAndBlade/Agent.cs:3780-3790  InitializeAgentProperties
 this.AgentDrivenProperties = new AgentDrivenProperties();
 float[] values = this.AgentDrivenProperties.InitializeDrivenProperties(this, spawnEquipment, agentBuildData);
 this.UpdateDrivenProperties(values);
 
-// Agent.cs:3810-3815  UpdateAgentProperties
+// TaleWorlds.MountAndBlade/Agent.cs:3808-3815  UpdateAgentProperties
 if (this.AgentDrivenProperties != null)
 {
     float[] values = this.AgentDrivenProperties.UpdateDrivenProperties(this);
@@ -157,7 +177,7 @@ public float WeaponMaxMovementAccuracyPenalty
 | 61 | `WeaponsEncumbrance` | 武器负重（**与 `DrivenPropertiesCalculatedAtSpawnEnd` 同格**） |
 | 62 | `DamageMultiplierBonus` | 减伤加成 |
 
-**护甲与负重（5 个，槽位 51–55）**——`ArmorEncumbrance`(51) 护甲负重，加上四个**护甲有效值** `ArmorHead`(52) / `ArmorTorso`(53) / `ArmorLegs`(54) / `ArmorArms`(55)。`GetTotalEncumbrance()`（`Agent.cs:3103`）用 `ArmorEncumbrance + WeaponsEncumbrance` 求和。
+**护甲与负重（5 个，槽位 51–55）**——`ArmorEncumbrance`(51) 护甲负重，加上四个**护甲有效值** `ArmorHead`(52) / `ArmorTorso`(53) / `ArmorLegs`(54) / `ArmorArms`(55)。`GetTotalEncumbrance()`（`Agent.cs:3101-3104`）用 `ArmorEncumbrance + WeaponsEncumbrance` 求和。
 
 **坐骑（5 个，槽位 49–50、87–89）**——`MountChargeDamage`(49)、`MountDifficulty`(50)、`MountManeuver`(87)、`MountSpeed`(88)、`MountDashAccelerationMultiplier`(89)。
 
@@ -173,13 +193,87 @@ public float WeaponMaxMovementAccuracyPenalty
 - `AiWeaponFavorMultiplierMelee`(39) / `Ranged`(40) / `Polearm`(41) 三个是倍率，不是加成，初始值都是 `1f`。
 - `AiShooterError`(38) 被官方硬编码为常量 `0.008f`（`AgentStatCalculateModel.cs:232`），**不随 AI 等级变化**——想改只能覆写模型。
 
-**92 + 49 + 5 + 12 + 4 + 2 = 92 个具名属性**（分类有重叠计数时以槽位唯一性为准，槽位 0..92 共 93 格减去 `UseRealisticBlocking`）。
+**92 = 49（AI）+ 43（其余）**。上面各分类有重叠计数，**唯一的权威口径是槽位集合 `{0..92} \ {56}`，共 92 个值**。
+
+#### AI 决策属性的完整名单（槽位 0–48，全部 49 个）
+
+这是全类最大的一组，也是原文最容易漏列的一段，所以逐个列出。第三列是**该属性在 `AgentDrivenProperties.cs` 里的声明行号**（声明行，不是 `GetStat` 那一行）。
+
+| 槽位 | 具名属性 | 索引的枚举成员 | 声明行 |
+| --- | --- | --- | --- |
+| 0 | `AiRangedHorsebackMissileRange` | `AiRangedHorsebackMissileRange` | `:671` |
+| 1 | `AiFacingMissileWatch` | `AiFacingMissileWatch` | `:686` |
+| 2 | `AiFlyingMissileCheckRadius` | `AiFlyingMissileCheckRadius` | `:701` |
+| 3 | `AiShootFreq` | `AiShootFreq` | `:716` |
+| 4 | `AiWaitBeforeShootFactor` | `AiWaitBeforeShootFactor` | `:731` |
+| 5 | `AIBlockOnDecideAbility` | `AIBlockOnDecideAbility` | `:746` |
+| 6 | `AIParryOnDecideAbility` | `AIParryOnDecideAbility` | `:761` |
+| 7 | `AiTryChamberAttackOnDecide` | `AiTryChamberAttackOnDecide` | `:776` |
+| 8 | `AIAttackOnParryChance` | `AIAttackOnParryChance` | `:791` |
+| 9 | `AiAttackOnParryTiming` | `AiAttackOnParryTiming` | `:806` |
+| 10 | `AIDecideOnAttackChance` | `AIDecideOnAttackChance` | `:821` |
+| 11 | `AIParryOnAttackAbility` | `AIParryOnAttackAbility` | `:836` |
+| 12 | `AiKick` | `AiKick` | `:851` |
+| 13 | `AiAttackCalculationMaxTimeFactor` | `AiAttackCalculationMaxTimeFactor` | `:866` |
+| 14 | `AiDecideOnAttackWhenReceiveHitTiming` | `AiDecideOnAttackWhenReceiveHitTiming` | `:881` |
+| 15 | `AiDecideOnAttackContinueAction` | `AiDecideOnAttackContinueAction` | `:896` |
+| 16 | `AiDecideOnAttackingContinue` | `AiDecideOnAttackingContinue` | `:911` |
+| 17 | `AIParryOnAttackingContinueAbility` | `AIParryOnAttackingContinueAbility` | `:926` |
+| 18 | `AIDecideOnRealizeEnemyBlockingAttackAbility` | `AIDecideOnRealizeEnemyBlockingAttackAbility` | `:941` |
+| 19 | `AIRealizeBlockingFromIncorrectSideAbility` | `AIRealizeBlockingFromIncorrectSideAbility` | `:956` |
+| 20 | `AiAttackingShieldDefenseChance` | `AiAttackingShieldDefenseChance` | `:971` |
+| 21 | `AiAttackingShieldDefenseTimer` | `AiAttackingShieldDefenseTimer` | `:986` |
+| 22 | `AiCheckMovementIntervalFactor` | `AiCheckMovementIntervalFactor` | `:1001` |
+| 23 | `AiMovementDelayFactor` | `AiMovementDelayFactor` | `:1016` |
+| 24 | `AiParryDecisionChangeValue` | `AiParryDecisionChangeValue` | `:1031` |
+| 25 | `AiDefendWithShieldDecisionChanceValue` | `AiDefendWithShieldDecisionChanceValue` | `:1046` |
+| 26 | `AiMoveEnemySideTimeValue` | `AiMoveEnemySideTimeValue` | `:1061` |
+| 27 | `AiMinimumDistanceToContinueFactor` | `AiMinimumDistanceToContinueFactor` | `:1076` |
+| 28 | `AiChargeHorsebackTargetDistFactor` | `AiChargeHorsebackTargetDistFactor` | `:1091` |
+| 29 | `AiRangerLeadErrorMin` | `AiRangerLeadErrorMin` | `:1106` |
+| 30 | `AiRangerLeadErrorMax` | `AiRangerLeadErrorMax` | `:1121` |
+| 31 | `AiRangerVerticalErrorMultiplier` | `AiRangerVerticalErrorMultiplier` | `:1136` |
+| 32 | `AiRangerHorizontalErrorMultiplier` | `AiRangerHorizontalErrorMultiplier` | `:1151` |
+| 33 | `AIAttackOnDecideChance` | `AIAttackOnDecideChance` | `:1166` |
+| 34 | `AiRaiseShieldDelayTimeBase` | `AiRaiseShieldDelayTimeBase` | `:1181` |
+| 35 | `AiUseShieldAgainstEnemyMissileProbability` | `AiUseShieldAgainstEnemyMissileProbability` | `:1196` |
+| 36 | `AiSpeciesIndex`（**唯一的 `int` 属性**） | `AiSpeciesIndex` | `:1211` |
+| 37 | `AiRandomizedDefendDirectionChance` | `AiRandomizedDefendDirectionChance` | `:1226` |
+| 38 | `AiShooterError` | `AiShooterError` | `:1241` |
+| 39 | `AiWeaponFavorMultiplierMelee` | `AiWeaponFavorMultiplierMelee` | `:1256` |
+| 40 | `AiWeaponFavorMultiplierRanged` | `AiWeaponFavorMultiplierRanged` | `:1271` |
+| 41 | `AiWeaponFavorMultiplierPolearm` | `AiWeaponFavorMultiplierPolearm` | `:1286` |
+| 42 | `AISetNoAttackTimerAfterBeingHitAbility` | `AISetNoAttackTimerAfterBeingHitAbility` | `:1301` |
+| 43 | `AISetNoAttackTimerAfterBeingParriedAbility` | `AISetNoAttackTimerAfterBeingParriedAbility` | `:1316` |
+| 44 | `AISetNoDefendTimerAfterHittingAbility` | `AISetNoDefendTimerAfterHittingAbility` | `:1331` |
+| 45 | `AISetNoDefendTimerAfterParryingAbility` | `AISetNoDefendTimerAfterParryingAbility` | `:1346` |
+| 46 | `AIEstimateStunDurationPrecision` | `AIEstimateStunDurationPrecision` | `:1361` |
+| 47 | `AIHoldingReadyMaxDuration` | `AIHoldingReadyMaxDuration` | `:1376` |
+| 48 | `AIHoldingReadyVariationPercentage` | `AIHoldingReadyVariationPercentage` | `:1391` |
+
+读这张表的两个实用要点：**槽位 42–45 是「惩罚冷却」**（被打 / 被招架后多久不进攻、不防御），**槽位 29–32 是「远程弹道误差」的上下界与两个轴向倍率**——这两组是调远程 AI 手感时最常动的四个值，而它们的量纲**不一致**（29/30 是绝对误差距离，31/32 是倍率）。槽位 39–41 三个武器偏好倍率初始值均为 `1f`。
 
 ### 没有具名包装的那一个
 
 | 属性 | 值 | 说明 |
 | --- | --- | --- |
-| `DrivenProperty.UseRealisticBlocking` | 56 | **无具名属性包装**。官方通过 `SetStat` 写入：非玩家操控的 Agent 写 `1f`、玩家写 `0f`。含义是「AI 是否用真实的格挡判定而非简化判定」。**要改它只能走 `SetStat` / `GetStat`。** |
+| `DrivenProperty.UseRealisticBlocking` | 56（`DrivenProperty.cs:123`） | **无具名属性包装**。含义是「AI 是否用真实的格挡判定而非简化判定」。**要改它只能走 `SetStat` / `GetStat`。** |
+
+**它有两条官方写入路径**，都不是具名属性：
+
+```csharp
+// TaleWorlds.MountAndBlade/AgentStatCalculateModel.cs:256
+// 在 protected void SetAiRelatedProperties(...)（:201 起）的尾部：
+agentDrivenProperties.SetStat(DrivenProperty.UseRealisticBlocking,
+    (agent.Controller != AgentControllerType.Player) ? 1f : 0f);
+
+// TaleWorlds.MountAndBlade/MultiplayerAgentStatCalculateModel.cs:63
+// 联机模型按当前房间的选项覆盖同一条：
+agentDrivenProperties.SetStat(DrivenProperty.UseRealisticBlocking,
+    MultiplayerOptions.OptionType.UseRealisticBlocking.GetBoolValue(...) ? 1f : 0f);
+```
+
+也就是说：**战役模式由「这个 Agent 是不是玩家操控」决定，联机模式由房间选项决定**，后者优先于前者。你想在战役里强制开启，只改 `AgentStatCalculateModel` 那一行会在联机房间失效。
 
 ## 真实示例
 
@@ -235,7 +329,7 @@ public static string Describe(Agent agent)
 }
 ```
 
-`GetAgentDrivenPropertyValue(DrivenProperty)` 是 [Agent](../../mission/Agent) 上的转发（`Agent.cs:3121`），它在 [Agent](../../mission/Agent) 里传的是「不在 `AgentDrivenProperties` 上具名」的属性时才方便：
+`GetAgentDrivenPropertyValue(DrivenProperty)` 是 [Agent](../../mission/Agent) 上的转发（声明在 `Agent.cs:3120`，函数体 `return this.AgentDrivenProperties.GetStat(type);` 在 `:3122`），它在「想读的属性**不**在 `AgentDrivenProperties` 上具名」时才方便：
 
 ```csharp
 using TaleWorlds.Core;

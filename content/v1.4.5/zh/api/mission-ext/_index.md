@@ -39,6 +39,13 @@ description: 战斗扩展类（MissionBehavior/AgentComponent 等）参考目录
 - [API 参考](../)
 - [版本首页](../../)
 
+## 区域索引 / Area Hubs
+
+- [Agent Behaviors 家族](./AgentBehaviors/) — 城镇/据点任务中 NPC 的 AI 行为树：待机、行走、巡逻、交谈、护送到逃跑、战斗、站岗与日程调度。
+- [SandBox.View.Missions 沙盒任务视图](./SandBoxViewMissions/) — 沙盒任务视图的 38 个业务类型索引，含心智模型、依赖与风险。
+- [MountAndBlade 托管长尾](./mountandblade-tail/) — 托管 Mission、Agent、UI、网络与选项类型的源码依据与调用边界。
+- [Source Mission Handlers 源码家族](./source-handlers/) — MountAndBlade.Source 的真实 Mission 处理器索引，用于追踪官方调用顺序。
+
 ## ↓ 子类列表 — 按字母分组
 
 ### A

@@ -17,7 +17,7 @@ description: "队伍 AI 的「一条候选行为」值类型：目标点 + 行�
 
 它真正的价值不在数据本身，而在**自己实现的相等语义**。这个类型手写了 `Equals(object)`、`Equals(AIBehaviorData)`、`GetHashCode()` 与 `==` / `!=` 两个运算符，等价于「七个字段逐个比」。而 `GetHashCode` 的写法很有信息量：它按 `AiBehavior → Party → WillGatherArmy → IsTargetingPort → IsFromPort → NavigationType → Position` 的顺序乘 397 混合，**这个顺序就是哈希对字段排列的敏感度顺序**——调换顺序会让所有已缓存的哈希全部失效。
 
-它的消费者是 [PartyThinkParams](../PartyThinkParams)：`MBList<(AIBehaviorData, float)> _aiBehaviorScores` 是一个**线性扫描**的评分表，`TryGetBehaviorScore(in AIBehaviorData, out float)` 逐条 `Equals` 比较，`SetBehaviorScore(in AIBehaviorData, float)` 找到就替换、**找不到就 `Debug.FailedAssert("AIBehaviorScore not found.")`**。所以往表里写分之前必须先 `AddBehaviorScore`，否则断言会响。
+它的消费者是 [PartyThinkParams](../../campaign/PartyThinkParams)：`MBList<(AIBehaviorData, float)> _aiBehaviorScores` 是一个**线性扫描**的评分表，`TryGetBehaviorScore(in AIBehaviorData, out float)` 逐条 `Equals` 比较，`SetBehaviorScore(in AIBehaviorData, float)` 找到就替换、**找不到就 `Debug.FailedAssert("AIBehaviorScore not found.")`**。所以往表里写分之前必须先 `AddBehaviorScore`，否则断言会响。
 
 ## 心智模型
 

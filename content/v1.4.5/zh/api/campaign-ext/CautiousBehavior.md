@@ -193,5 +193,5 @@ public class MyAlertStanceBehavior : AgentBehavior
 - 动画：`ActionIndexCache.act_guard_cautious_look_around_1` / `act_guard_patrolling_cautious_look_around_1` / `act_none` 与 `Agent.SetActionChannel(...)` 是全部视觉输出
 - 计时：[Timer](../../core-extra/Timer) 的 `Check(float)` / `Reset(float)` / `Reset(float, float)` 三个方法构成本类的时间轴
 - 枚举判据：`EquipmentIndex`（`None = -1`、`ExtraWeaponSlot = 4`）与 `Mission.MissionTickAction`（第 0 项 `TryToSheathWeaponInHand`）是两个魔数的解释
-- 移动：[Mission](../../mission-ext/Mission) 的 `AddTickAction` / `AddTickActionMT` / `CurrentTime` 与 `Agent.FindLongestDirectMoveToPosition` / `SetAILastSuspiciousPosition` / `GetAILastSuspiciousPosition` 一起构成挪步的落点
+- 移动：[Mission](../../mission/Mission) 的 `AddTickAction` / `AddTickActionMT` / `CurrentTime` 与 `Agent.FindLongestDirectMoveToPosition` / `SetAILastSuspiciousPosition` / `GetAILastSuspiciousPosition` 一起构成挪步的落点
 - 桶首页：[campaign-ext API 分区](../)

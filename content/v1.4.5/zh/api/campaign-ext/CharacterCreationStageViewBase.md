@@ -191,7 +191,7 @@ public override void SetGenericScene(Scene scene)
 - 刷新落点：[CharacterCreationState](../CharacterCreationState) 的 `Refresh()` 是 `_refreshAction` 的唯一目标（注意它在状态对象上，不在 Manager 上）
 - 结束回调：[ICharacterCreationStageListener](../ICharacterCreationStageListener) 只有一个 `OnStageFinalize()`，本类以显式实现把它转到 `protected virtual OnFinalize()`
 - 阶段数据侧：[CharacterCreationStageBase](../CharacterCreationStageBase) 的 `Listener` 属性就是本类实例的落点
-- 委托类型：[ControlCharacterCreationStage](../ControlCharacterCreationStage) 与同族的 `ControlCharacterCreationStageReturnInt` / `ControlCharacterCreationStageWithInt` 定义在 `TaleWorlds.Core.ViewModelCollection`
+- 委托类型：`ControlCharacterCreationStage` 与同族的 `ControlCharacterCreationStageReturnInt` / `ControlCharacterCreationStageWithInt` 定义在 `TaleWorlds.Core.ViewModelCollection`（本项目文档库暂无这三个委托的页面，所以只列类型名不链接）
 - 撤退菜单：[EscapeMenuItemVM](../../mission-ext/EscapeMenuItemVM) 是 `GetEscapeMenuItems` 的返回元素类型
 - 屏幕层：[ScreenBase](../ScreenBase) 负责把 `GetLayers()` 的结果挂上屏
 - 桶首页：[campaign-ext API 分区](../)

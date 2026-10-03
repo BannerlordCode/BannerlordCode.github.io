@@ -1,0 +1,43 @@
+# 本次 apply 被护栏拒绝，零字节写入；target=v1.4.7/en/api/engine rule="begin marker missing in originalText"；非 batch 1 成果（batch 1 的成功记录是 tools/_nav-apply-batch1b.txt）
+DELETED_OR_REWRITTEN_LINES=0
+BATCH=1/3  ACCEPTANCE_SCOPE=通路正确 + 断链净增0（不含 orphan 下降；orphan 效应在 batch2/3）
+BUCKET=content/v1.4.7/en/api/engine  children=2  ALREADY_IN_BLOCK=0  ADD=2  ALSO_LINKED_IN_PROSE=0  MARKER=new  BEGIN=0 END=0
+   + ./GauntletLayer  |  route=content/v1.4.7/en/api/engine/GauntletLayer/  |  SIBLING  |  leaf
+   + ./MBDebug  |  route=content/v1.4.7/en/api/engine/MBDebug/  |  SIBLING  |  leaf
+BUCKET=content/v1.3.15/en/api/campaign-ext  children=2851  ALREADY_IN_BLOCK=2825  ADD=26  ALSO_LINKED_IN_PROSE=0  MARKER=existing  BEGIN=2 END=1  **DUPLICATE_MARKER**
+   + ./actions/  |  route=content/v1.3.15/en/api/campaign-ext/actions/  |  SIBLING  |  subdir
+   + ./behaviors/  |  route=content/v1.3.15/en/api/campaign-ext/behaviors/  |  SIBLING  |  subdir
+   + ./behaviors-priority/  |  route=content/v1.3.15/en/api/campaign-ext/behaviors-priority/  |  SIBLING  |  subdir
+   + ./campaign-behaviors-tail/  |  route=content/v1.3.15/en/api/campaign-ext/campaign-behaviors-tail/  |  SIBLING  |  subdir
+   + ./campaign-tail/  |  route=content/v1.3.15/en/api/campaign-ext/campaign-tail/  |  SIBLING  |  subdir
+   + ./CampaignMission  |  route=content/v1.3.15/en/api/campaign-ext/CampaignMission/  |  SIBLING  |  leaf
+   + ./character-development/  |  route=content/v1.3.15/en/api/campaign-ext/character-development/  |  SIBLING  |  subdir
+   + ./ClanFinanceModel  |  route=content/v1.3.15/en/api/campaign-ext/ClanFinanceModel/  |  SIBLING  |  leaf
+   + ./DefaultSettlementMilitiaModel  |  route=content/v1.3.15/en/api/campaign-ext/DefaultSettlementMilitiaModel/  |  SIBLING  |  leaf
+   + ./dialogs/  |  route=content/v1.3.15/en/api/campaign-ext/dialogs/  |  SIBLING  |  subdir
+   ... 共 26 条
+   PROPOSAL_NOT_DONE_DUPLICATE_MARKER: content/v1.3.15/en/api/campaign-ext BEGIN=2 END=1。删掉多余 BEGIN 行属于 marker 块之外的改动，落在「禁止改动已有人工内容」与「只写 marker 块内」的缝里，本轮按 boss 裁定【不删】。需要单独授权才能修。
+TOTAL_ADD=28  BUCKETS=2  MODE=apply
+GUARD_STATUS=PRESENT
+file:///C:/WorkSpace/Bannerlord/BannerlordCode.github.io/tools/lib/content-write-freeze.mjs:127
+    const err = new Error(
+                ^
+
+Error: STRUCTURAL SCOPE VIOLATION
+  tool       : nav-section-index
+  mode       : apply
+  targetPath : content\v1.4.7\en\api\engine\_index.md
+  rule       : begin marker missing in originalText
+  detail     : <!-- BEGIN SECTION INDEX -->
+  No bytes were written. The fence only widens by adding a line to STRUCTURAL_ALLOWLIST.
+    at deny (file:///C:/WorkSpace/Bannerlord/BannerlordCode.github.io/tools/lib/content-write-freeze.mjs:127:17)
+    at Object.assertStructuralScope [as fn] (file:///C:/WorkSpace/Bannerlord/BannerlordCode.github.io/tools/lib/content-write-freeze.mjs:159:22)
+    at callGuard (file:///C:/WorkSpace/Bannerlord/BannerlordCode.github.io/tools/nav-section-index.mjs:67:33)
+    at file:///C:/WorkSpace/Bannerlord/BannerlordCode.github.io/tools/nav-section-index.mjs:385:14 {
+  code: 'STRUCTURAL_SCOPE_VIOLATION',
+  rule: 'begin marker missing in originalText',
+  tool: 'nav-section-index',
+  targetPath: 'content\\v1.4.7\\en\\api\\engine\\_index.md'
+}
+
+Node.js v24.13.0

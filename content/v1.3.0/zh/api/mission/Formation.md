@@ -1,1255 +1,209 @@
 ---
 title: "Formation"
-description: "Formation 的自动生成类参考。"
+description: "编队：队伍下面的一格兵。CountOfUnits 是「阵型内 + 脱离」的加法而非列表长度，Interval/Distance 由 unitSpacing 与骑兵占比现算，ApplyActionOnEachUnit 会遍历脱离单位，TransferUnits/Split 都要经过 MasterOrderController。"
 ---
+
 # Formation
 
-**Namespace:** TaleWorlds.MountAndBlade
-**Module:** TaleWorlds.MountAndBlade
+**Namespace:** `TaleWorlds.MountAndBlade`
+**Module:** `TaleWorlds.MountAndBlade`
 **Type:** `public sealed class Formation : IFormation`
-**Base:** `IFormation`
-**File:** `TaleWorlds.MountAndBlade/Formation.cs`
+**Base:** 无（仅隐式 `System.Object`；实现 `IFormation`，另有若干显式接口实现 `IFormation.GetIsLocalPositionAvailable` / `GetClosestUnitTo` / `SetUnitToFollow` / `BatchUnitPositions`）
+**File:** `TaleWorlds.MountAndBlade/Formation.cs`（3812 行 / 133 KB；类型本体 2890 行，其余是嵌套类型与静态几何工具）
 
 ## 概述
 
-`Formation` 位于 `TaleWorlds.MountAndBlade`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`Formation` 是「一支队伍里的一格兵」——步兵、弓兵、骑兵、弓骑各自是一个 `Formation`，它们挂在 [Team](../../mission-ext/Team) 上，而不是挂在任务上。一个编队同时持有多份名单：阵型里的单位（在 `Arrangement` 里排阵）、脱离的单位（`_detachedUnits`）、松散脱离的单位（`_looseDetachedUnits`，是前者的**子集**），以及攻击实体脱离队（`AttackEntityOrderDetachment`）。绝大多数看起来像「队伍人数」的属性，其实是这几份名单的加减。
+
+最能代表这种结构的是 `public int CountOfUnits`，实现只有一行：`return this.Arrangement.UnitCount + this._detachedUnits.Count;`。它不是某个内部列表的 `Count`，是**两个来源的求和**。同族的还有 `CountOfUnitsWithoutDetachedOnes`（`Arrangement.UnitCount + _looseDetachedUnits.Count`）、`CountOfUnitsWithoutLooseDetachedOnes`（等于 `Arrangement.UnitCount`，因为 getter 直接返回 `this.Arrangement.GetAllUnits()`）、`CountOfDetachedUnits`、`CountOfDetachableNonPlayerUnits`、`CountOfUndetachableNonPlayerUnits`（后者是一个纯计数器字段 `_undetachableNonPlayerUnitCount`，不是实时统计）。
+
+编队的另一个身份是**空间锚点**：`OrderPosition`（2D 阵型原点）、`Direction`（朝向单位向量）、`OrderGroundPosition`、`OrderPositionIsValid`，以及由此派生出来的 `Depth` / `Width` / `MinimumWidth` / `MaximumWidth`（全部直接转发 `Arrangement` 的同名成员）。`SetPositioning(WorldPosition? position = null, Vec2? direction = null, int? unitSpacing = null)` 是唯一的正规改法——它三个参数全可选，且内部做了边界吸附、间距变化时触发 `OnUnitSpacingChanged` 事件、必要时 `Arrangement.TurnBackwards()`。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.MountAndBlade` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
-
-## 主要属性
-
-| Name | Signature |
-|------|-----------|
-| `RetreatPositionCache` | `public Formation.RetreatPositionCacheSystem RetreatPositionCache { get; }` |
-| `RepresentativeClass` | `public FormationClass RepresentativeClass { get; }` |
-| `IsAIControlled` | `public bool IsAIControlled { get; }` |
-| `Direction` | `public Vec2 Direction { get; }` |
-| `UnitSpacing` | `public int UnitSpacing { get; }` |
-| `OrderPositionLock` | `public object OrderPositionLock { get; }` |
-| `CountOfUnits` | `public int CountOfUnits { get; }` |
-| `CountOfDetachedUnits` | `public int CountOfDetachedUnits { get; }` |
-| `CountOfUndetachableNonPlayerUnits` | `public int CountOfUndetachableNonPlayerUnits { get; }` |
-| `CountOfUnitsWithoutDetachedOnes` | `public int CountOfUnitsWithoutDetachedOnes { get; }` |
-| `UnitsWithoutLooseDetachedOnes` | `public MBReadOnlyList<IFormationUnit> UnitsWithoutLooseDetachedOnes { get; }` |
-| `CountOfUnitsWithoutLooseDetachedOnes` | `public int CountOfUnitsWithoutLooseDetachedOnes { get; }` |
-| `CountOfDetachableNonPlayerUnits` | `public int CountOfDetachableNonPlayerUnits { get; }` |
-| `OrderPosition` | `public Vec2 OrderPosition { get; }` |
-| `OrderGroundPosition` | `public Vec3 OrderGroundPosition { get; }` |
-| `OrderPositionIsValid` | `public bool OrderPositionIsValid { get; }` |
-| `Depth` | `public float Depth { get; }` |
-| `MinimumWidth` | `public float MinimumWidth { get; }` |
-| `MaximumWidth` | `public float MaximumWidth { get; }` |
-| `UnitDiameter` | `public float UnitDiameter { get; }` |
-| `CurrentDirection` | `public Vec2 CurrentDirection { get; }` |
-| `SmoothedAverageUnitPosition` | `public Vec2 SmoothedAverageUnitPosition { get; }` |
-| `LooseDetachedUnits` | `public MBReadOnlyList<Agent> LooseDetachedUnits { get; }` |
-| `DetachedUnits` | `public MBReadOnlyList<Agent> DetachedUnits { get; }` |
-| `AttackEntityOrderDetachment` | `public AttackEntityOrderDetachment AttackEntityOrderDetachment { get; }` |
-| `AI` | `public FormationAI AI { get; }` |
-| `TargetFormation` | `public Formation TargetFormation { get; }` |
-| `QuerySystem` | `public FormationQuerySystem QuerySystem { get; }` |
-| `CachedFormationIntegrityData` | `public Formation.FormationIntegrityDataGroup CachedFormationIntegrityData { get; }` |
-| `CachedAveragePosition` | `public Vec2 CachedAveragePosition { get; }` |
-| `CachedMedianPosition` | `public WorldPosition CachedMedianPosition { get; }` |
-| `CachedCurrentVelocity` | `public Vec2 CachedCurrentVelocity { get; }` |
-| `CachedMovementSpeed` | `public float CachedMovementSpeed { get; }` |
-| `CachedClosestEnemyFormation` | `public FormationQuerySystem CachedClosestEnemyFormation { get; }` |
-| `Detachments` | `public MBReadOnlyList<IDetachment> Detachments { get; }` |
-| `OverridenUnitCount` | `public int? OverridenUnitCount { get; }` |
-| `IsSpawning` | `public bool IsSpawning { get; }` |
-| `IsAITickedAfterSplit` | `public bool IsAITickedAfterSplit { get; }` |
-| `HasPlayerControlledTroop` | `public bool HasPlayerControlledTroop { get; }` |
-| `IsPlayerTroopInFormation` | `public bool IsPlayerTroopInFormation { get; }` |
-| `ContainsAgentVisuals` | `public bool ContainsAgentVisuals { get; set; }` |
-| `PlayerOwner` | `public Agent PlayerOwner { get; set; }` |
-| `BannerCode` | `public string BannerCode { get; set; }` |
-| `IsSplittableByAI` | `public bool IsSplittableByAI { get; }` |
-| `IsAIOwned` | `public bool IsAIOwned { get; }` |
-| `IsConvenientForTransfer` | `public bool IsConvenientForTransfer { get; }` |
-| `OrderLocalAveragePosition` | `public Vec2 OrderLocalAveragePosition { get; }` |
-| `FacingOrder` | `public FacingOrder FacingOrder { get; }` |
-| `ArrangementOrder` | `public ArrangementOrder ArrangementOrder { get; }` |
-| `FormOrder` | `public FormOrder FormOrder { get; }` |
-| `RidingOrder` | `public RidingOrder RidingOrder { get; }` |
-| `FiringOrder` | `public FiringOrder FiringOrder { get; }` |
-| `HasAnyMountedUnit` | `public bool HasAnyMountedUnit { get; }` |
-| `Width` | `public float Width { get; }` |
-| `IsDeployment` | `public bool IsDeployment { get; }` |
-| `LogicalClass` | `public FormationClass LogicalClass { get; }` |
-| `SecondaryLogicalClasses` | `public IEnumerable<FormationClass> SecondaryLogicalClasses { get; }` |
-| `Arrangement` | `public IFormationArrangement Arrangement { get; set; }` |
-| `PhysicalClass` | `public FormationClass PhysicalClass { get; }` |
-| `SecondaryPhysicalClasses` | `public IEnumerable<FormationClass> SecondaryPhysicalClasses { get; }` |
-| `Interval` | `public float Interval { get; }` |
-| `CalculateHasSignificantNumberOfMounted` | `public bool CalculateHasSignificantNumberOfMounted { get; }` |
-| `Distance` | `public float Distance { get; }` |
-| `CurrentPosition` | `public Vec2 CurrentPosition { get; }` |
-| `Captain` | `public Agent Captain { get; set; }` |
-| `MinimumDistance` | `public float MinimumDistance { get; }` |
-| `IsLoose` | `public bool IsLoose { get; }` |
-| `MinimumInterval` | `public float MinimumInterval { get; }` |
-| `MaximumInterval` | `public float MaximumInterval { get; }` |
-| `MaximumDistance` | `public float MaximumDistance { get; }` |
-| `Formation` | `public IFormationArrangement Formation { get; }` |
-| `FormationFileIndex` | `public int FormationFileIndex { get; set; }` |
-| `FormationRankIndex` | `public int FormationRankIndex { get; set; }` |
-| `FollowedUnit` | `public IFormationUnit FollowedUnit { get; }` |
-| `IsShieldUsageEncouraged` | `public bool IsShieldUsageEncouraged { get; }` |
-| `IsPlayerUnit` | `public bool IsPlayerUnit { get; }` |
-
-## 主要方法
-
-### CreateNewOrderWorldPosition
-`public WorldPosition CreateNewOrderWorldPosition(WorldPosition.WorldPositionEnforcedCache worldPositionEnforcedCache)`
-
-**用途 / Purpose:** 构建一个新的 new order world position 实体并返回给调用方。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.CreateNewOrderWorldPosition(worldPositionEnforcedCache);
-```
-
-### SetMovementOrder
-`public void SetMovementOrder(MovementOrder input)`
-
-**用途 / Purpose:** 为 movement order 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.SetMovementOrder(input);
-```
-
-### SetFacingOrder
-`public void SetFacingOrder(FacingOrder order)`
-
-**用途 / Purpose:** 为 facing order 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.SetFacingOrder(order);
-```
-
-### SetArrangementOrder
-`public void SetArrangementOrder(ArrangementOrder order)`
-
-**用途 / Purpose:** 为 arrangement order 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.SetArrangementOrder(order);
-```
-
-### SetFormOrder
-`public void SetFormOrder(FormOrder order, bool updateDesiredFileCount = true)`
-
-**用途 / Purpose:** 为 form order 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.SetFormOrder(order, false);
-```
-
-### SetRidingOrder
-`public void SetRidingOrder(RidingOrder order)`
-
-**用途 / Purpose:** 为 riding order 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.SetRidingOrder(order);
-```
-
-### SetFiringOrder
-`public void SetFiringOrder(FiringOrder order)`
-
-**用途 / Purpose:** 为 firing order 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.SetFiringOrder(order);
-```
-
-### SetControlledByAI
-`public void SetControlledByAI(bool isControlledByAI, bool enforceNotSplittableByAI = false)`
-
-**用途 / Purpose:** 为 controlled by a i 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.SetControlledByAI(false, false);
-```
-
-### SetTargetFormation
-`public void SetTargetFormation(Formation targetFormation)`
-
-**用途 / Purpose:** 为 target formation 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.SetTargetFormation(targetFormation);
-```
-
-### OnDeploymentFinished
-`public void OnDeploymentFinished()`
-
-**用途 / Purpose:** 在 deployment finished 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.OnDeploymentFinished();
-```
-
-### ResetArrangementOrderTickTimer
-`public void ResetArrangementOrderTickTimer()`
-
-**用途 / Purpose:** 将 arrangement order tick timer 重置回默认或初始状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.ResetArrangementOrderTickTimer();
-```
-
-### SetPositioning
-`public void SetPositioning(WorldPosition? position = null, Vec2? direction = null, int? unitSpacing = null)`
-
-**用途 / Purpose:** 为 positioning 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.SetPositioning(null, null, 0);
-```
-
-### GetCountOfUnitsWithCondition
-`public int GetCountOfUnitsWithCondition(Func<Agent, bool> function)`
-
-**用途 / Purpose:** 读取并返回当前对象中 count of units with condition 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetCountOfUnitsWithCondition(func<Agent, false);
-```
-
-### GetReadonlyMovementOrderReference
-`public ref readonly MovementOrder GetReadonlyMovementOrderReference()`
-
-**用途 / Purpose:** 读取并返回当前对象中 readonly movement order reference 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetReadonlyMovementOrderReference();
-```
-
-### GetFirstUnit
-`public Agent GetFirstUnit()`
-
-**用途 / Purpose:** 读取并返回当前对象中 first unit 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetFirstUnit();
-```
-
-### GetCountOfUnitsBelongingToLogicalClass
-`public int GetCountOfUnitsBelongingToLogicalClass(FormationClass logicalClass)`
-
-**用途 / Purpose:** 读取并返回当前对象中 count of units belonging to logical class 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetCountOfUnitsBelongingToLogicalClass(logicalClass);
-```
-
-### GetCountOfUnitsBelongingToPhysicalClass
-`public int GetCountOfUnitsBelongingToPhysicalClass(FormationClass physicalClass, bool excludeBannerBearers)`
-
-**用途 / Purpose:** 读取并返回当前对象中 count of units belonging to physical class 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetCountOfUnitsBelongingToPhysicalClass(physicalClass, false);
-```
-
-### SetSpawnIndex
-`public void SetSpawnIndex(int value = 0)`
-
-**用途 / Purpose:** 为 spawn index 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.SetSpawnIndex(0);
-```
-
-### GetNextSpawnIndex
-`public int GetNextSpawnIndex()`
-
-**用途 / Purpose:** 读取并返回当前对象中 next spawn index 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetNextSpawnIndex();
-```
-
-### GetUnitWithIndex
-`public Agent GetUnitWithIndex(int unitIndex)`
-
-**用途 / Purpose:** 读取并返回当前对象中 unit with index 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetUnitWithIndex(0);
-```
-
-### GetAveragePositionOfUnits
-`public Vec2 GetAveragePositionOfUnits(bool excludeDetachedUnits, bool excludePlayer)`
-
-**用途 / Purpose:** 读取并返回当前对象中 average position of units 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetAveragePositionOfUnits(false, false);
-```
-
-### GetMedianAgent
-`public Agent GetMedianAgent(bool excludeDetachedUnits, bool excludePlayer, Vec2 averagePosition)`
-
-**用途 / Purpose:** 读取并返回当前对象中 median agent 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetMedianAgent(false, false, averagePosition);
-```
-
-### GetUnderAttackTypeOfUnits
-`public Agent.UnderAttackType GetUnderAttackTypeOfUnits(float timeLimit = 3f)`
-
-**用途 / Purpose:** 读取并返回当前对象中 under attack type of units 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetUnderAttackTypeOfUnits(0);
-```
-
-### GetMovementTypeOfUnits
-`public Agent.MovementBehaviorType GetMovementTypeOfUnits()`
-
-**用途 / Purpose:** 读取并返回当前对象中 movement type of units 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetMovementTypeOfUnits();
-```
-
-### GetUnitsWithoutDetachedOnes
-`public IEnumerable<Agent> GetUnitsWithoutDetachedOnes()`
-
-**用途 / Purpose:** 读取并返回当前对象中 units without detached ones 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetUnitsWithoutDetachedOnes();
-```
-
-### GetWallDirectionOfRelativeFormationLocation
-`public Vec2 GetWallDirectionOfRelativeFormationLocation(Agent unit)`
-
-**用途 / Purpose:** 读取并返回当前对象中 wall direction of relative formation location 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetWallDirectionOfRelativeFormationLocation(unit);
-```
-
-### GetDirectionOfUnit
-`public Vec2 GetDirectionOfUnit(Agent unit)`
-
-**用途 / Purpose:** 读取并返回当前对象中 direction of unit 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetDirectionOfUnit(unit);
-```
-
-### GetMovementState
-`public MovementOrder.MovementStateEnum GetMovementState()`
-
-**用途 / Purpose:** 读取并返回当前对象中 movement state 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetMovementState();
-```
-
-### GetOrderPositionOfUnit
-`public WorldPosition GetOrderPositionOfUnit(Agent unit)`
-
-**用途 / Purpose:** 读取并返回当前对象中 order position of unit 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetOrderPositionOfUnit(unit);
-```
-
-### GetCurrentGlobalPositionOfUnit
-`public Vec2 GetCurrentGlobalPositionOfUnit(Agent unit, bool blendWithOrderDirection)`
-
-**用途 / Purpose:** 读取并返回当前对象中 current global position of unit 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetCurrentGlobalPositionOfUnit(unit, false);
-```
-
-### GetAverageMaximumMovementSpeedOfUnits
-`public float GetAverageMaximumMovementSpeedOfUnits()`
-
-**用途 / Purpose:** 读取并返回当前对象中 average maximum movement speed of units 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetAverageMaximumMovementSpeedOfUnits();
-```
-
-### GetFormationPower
-`public float GetFormationPower()`
-
-**用途 / Purpose:** 读取并返回当前对象中 formation power 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetFormationPower();
-```
-
-### GetFormationMeleeFightingPower
-`public float GetFormationMeleeFightingPower()`
-
-**用途 / Purpose:** 读取并返回当前对象中 formation melee fighting power 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetFormationMeleeFightingPower();
-```
-
-### GetDetachmentOrDefault
-`public IDetachment GetDetachmentOrDefault(Agent agent)`
-
-**用途 / Purpose:** 读取并返回当前对象中 detachment or default 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetDetachmentOrDefault(agent);
-```
-
-### GetDetachmentFrame
-`public WorldFrame? GetDetachmentFrame(Agent agent)`
-
-**用途 / Purpose:** 读取并返回当前对象中 detachment frame 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetDetachmentFrame(agent);
-```
-
-### GetMiddleFrontUnitPositionOffset
-`public Vec2 GetMiddleFrontUnitPositionOffset()`
-
-**用途 / Purpose:** 读取并返回当前对象中 middle front unit position offset 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetMiddleFrontUnitPositionOffset();
-```
-
-### GetUnitsToPopWithReferencePosition
-`public List<IFormationUnit> GetUnitsToPopWithReferencePosition(int count, Vec3 targetPosition)`
-
-**用途 / Purpose:** 读取并返回当前对象中 units to pop with reference position 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetUnitsToPopWithReferencePosition(0, targetPosition);
-```
-
-### GetUnitsToPop
-`public List<IFormationUnit> GetUnitsToPop(int count)`
-
-**用途 / Purpose:** 读取并返回当前对象中 units to pop 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetUnitsToPop(0);
-```
-
-### GetUnavailableUnitPositionsAccordingToNewOrder
-`public IEnumerable<ValueTuple<WorldPosition, Vec2>> GetUnavailableUnitPositionsAccordingToNewOrder(Formation simulationFormation, in WorldPosition position, in Vec2 direction, float width, int unitSpacing)`
-
-**用途 / Purpose:** 读取并返回当前对象中 unavailable unit positions according to new order 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetUnavailableUnitPositionsAccordingToNewOrder(simulationFormation, position, direction, 0, 0);
-```
-
-### GetUnitSpawnFrameWithIndex
-`public void GetUnitSpawnFrameWithIndex(int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitCount, int unitSpacing, bool isMountedFormation, out WorldPosition? unitSpawnPosition, out Vec2? unitSpawnDirection)`
-
-**用途 / Purpose:** 读取并返回当前对象中 unit spawn frame with index 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.GetUnitSpawnFrameWithIndex(0, formationPosition, formationDirection, 0, 0, 0, false, unitSpawnPosition, unitSpawnDirection);
-```
-
-### GetUnitPositionWithIndexAccordingToNewOrder
-`public void GetUnitPositionWithIndexAccordingToNewOrder(Formation simulationFormation, int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitSpacing, out WorldPosition? unitSpawnPosition, out Vec2? unitSpawnDirection)`
-
-**用途 / Purpose:** 读取并返回当前对象中 unit position with index according to new order 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.GetUnitPositionWithIndexAccordingToNewOrder(simulationFormation, 0, formationPosition, formationDirection, 0, 0, unitSpawnPosition, unitSpawnDirection);
-```
-
-### GetUnitPositionWithIndexAccordingToNewOrder
-`public void GetUnitPositionWithIndexAccordingToNewOrder(Formation simulationFormation, int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitSpacing, int overridenUnitCount, out WorldPosition? unitPosition, out Vec2? unitDirection)`
-
-**用途 / Purpose:** 读取并返回当前对象中 unit position with index according to new order 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.GetUnitPositionWithIndexAccordingToNewOrder(simulationFormation, 0, formationPosition, formationDirection, 0, 0, 0, unitPosition, unitDirection);
-```
-
-### GetUnitPositionWithIndexAccordingToNewOrder
-`public void GetUnitPositionWithIndexAccordingToNewOrder(Formation simulationFormation, int unitIndex, in WorldPosition formationPosition, in Vec2 formationDirection, float width, int unitSpacing, out WorldPosition? unitSpawnPosition, out Vec2? unitSpawnDirection, out float actualWidth)`
-
-**用途 / Purpose:** 读取并返回当前对象中 unit position with index according to new order 的结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.GetUnitPositionWithIndexAccordingToNewOrder(simulationFormation, 0, formationPosition, formationDirection, 0, 0, unitSpawnPosition, unitSpawnDirection, actualWidth);
-```
-
-### HasUnitsWithCondition
-`public bool HasUnitsWithCondition(Func<Agent, bool> function)`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 units with condition。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.HasUnitsWithCondition(func<Agent, false);
-```
-
-### HasUnitsWithCondition
-`public bool HasUnitsWithCondition(Func<Agent, bool> function, out Agent result)`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 units with condition。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.HasUnitsWithCondition(func<Agent, false, result);
-```
-
-### HasAnyEnemyFormationsThatIsNotEmpty
-`public bool HasAnyEnemyFormationsThatIsNotEmpty()`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 any enemy formations that is not empty。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.HasAnyEnemyFormationsThatIsNotEmpty();
-```
-
-### HasUnitWithConditionLimitedRandom
-`public bool HasUnitWithConditionLimitedRandom(Func<Agent, bool> function, int startingIndex, int willBeCheckedUnitCount, out Agent resultAgent)`
-
-**用途 / Purpose:** 判断当前对象是否已经持有 unit with condition limited random。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.HasUnitWithConditionLimitedRandom(func<Agent, false, 0, 0, resultAgent);
-```
-
-### CollectUnitIndices
-`public int CollectUnitIndices()`
-
-**用途 / Purpose:** 调用 CollectUnitIndices 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.CollectUnitIndices();
-```
-
-### ApplyActionOnEachUnit
-`public void ApplyActionOnEachUnit(Action<Agent> action, Agent ignoreAgent = null)`
-
-**用途 / Purpose:** 将 action on each unit 的效果应用到当前对象。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.ApplyActionOnEachUnit(action, null);
-```
-
-### ApplyActionOnEachAttachedUnit
-`public void ApplyActionOnEachAttachedUnit(Action<Agent> action)`
-
-**用途 / Purpose:** 将 action on each attached unit 的效果应用到当前对象。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.ApplyActionOnEachAttachedUnit(action);
-```
-
-### ApplyActionOnEachDetachedUnit
-`public void ApplyActionOnEachDetachedUnit(Action<Agent> action)`
-
-**用途 / Purpose:** 将 action on each detached unit 的效果应用到当前对象。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.ApplyActionOnEachDetachedUnit(action);
+把 `Formation` 想成**「一个带缓存的位置 + 一组兵 + 一堆延迟求值的空间常量」**。三条线决定你该怎么用它。
+
+**第一条线：单位遍历的顺序与范围。** `ApplyActionOnEachUnit(Action<Agent> action, Agent ignoreAgent = null)` 的实现是**先遍历 `Arrangement.GetAllUnits()`，再 for 循环遍历 `_detachedUnits`**——松散脱离单位属于 `_detachedUnits` 的子集，所以它们在这一步会被访问一次而不是两次。想要「只看阵型内的」用 `ApplyActionOnEachAttachedUnit`，想要「只看脱离的」用 `ApplyActionOnEachDetachedUnit`。`GetUnitWithIndex(int unitIndex)` 同样是两段式：先在阵型名单里按索引取，取不到就把索引减去阵型人数再去 `_detachedUnits` 里取，仍取不到返回 `null`。`GetFirstUnit()` 就是 `GetUnitWithIndex(0)`——**编队空时返回 null**，不抛异常。
+
+**第二条线：所有几何量都是现算的，不是缓存的。** `Interval` 的 getter 是 `if (CalculateHasSignificantNumberOfMounted && !(RidingOrder == RidingOrder.Dismount)) return CavalryInterval(UnitSpacing) * Arrangement.IntervalMultiplier; return InfantryInterval(UnitSpacing) * Arrangement.IntervalMultiplier;`，而静态常量是：
+
+```csharp
+public static float InfantryInterval(int unitSpacing) { return 0.38f * (float)unitSpacing; }
+public static float CavalryInterval(int unitSpacing) { return 0.18f + 0.32f * (float)unitSpacing; }
+public static float InfantryDistance(int unitSpacing) { return 0.4f * (float)unitSpacing; }
+public static float CavalryDistance(int unitSpacing) { return 1.7f + 0.3f * (float)unitSpacing; }
+```
+
+注意 `UnitSpacing` 的常量 `MinimumUnitSpacing = 0`，于是**默认（spacing = 0）时步兵的 `Interval` 和 `Distance` 都是 0**——0.38 × 0 和 0.4 × 0。骑兵则因为有常数项，spacing = 0 时分别是 0.18 和 1.7。想给步兵调队列间距，必须显式 `SetPositioning(unitSpacing: n)` 或设 `ArrangementOrder`。
+
+**第三条线：缓存只在三处，而且带覆盖开关。** 成员名带 `Cached` 的都真的缓：`CachedAveragePosition` / `CachedMedianPosition` / `CachedCurrentVelocity` / `CachedMovementSpeed` / `CachedClosestEnemyFormation`，它们由 `Tick(float dt)` 里的五个独立 `Timer` 驱动——`_cachedPositionAndVelocityUpdateTimer`、`_cachedClosestEnemyFormationUpdateTimer`、`_cachedFormationIntegrityDataUpdateTimer`、`_cachedMovementSpeedUpdateTimer`，其中最近敌人那一项还额外带了 `|| this._cachedClosestEnemyFormation == null || this._cachedClosestEnemyFormation.CountOfUnits == 0` 的兜底（敌编队被打空时立刻重算）。真正需要警惕的是 `CalculateHasSignificantNumberOfMounted`：它的 getter 是 `if (this._overridenHasAnyMountedUnit != null) return this._overridenHasAnyMountedUnit.Value; return this.QuerySystem.CavalryUnitRatio + this.QuerySystem.RangedCavalryUnitRatio >= 0.1f;`——**有一个可被覆盖的缓存字段，一旦被设过就再也不看真实比例**。`Interval`、`Distance`、`UnitDiameter` 三者全都依赖它，所以覆盖它的副作用会一路传到间距计算。
+
+## 关键成员
+
+| 成员 | 签名 | 这个成员是做什么用的 |
+| --- | --- | --- |
+| `CountOfUnits` | `public int CountOfUnits` | `Arrangement.UnitCount + _detachedUnits.Count`。**编队的真实人数**，含全部脱离单位。 |
+| `CountOfUnitsWithoutDetachedOnes` | `public int CountOfUnitsWithoutDetachedOnes` | `Arrangement.UnitCount + _looseDetachedUnits.Count`。把「非松散脱离」也算进来，用于阵型占位判断。 |
+| `CountOfUnitsWithoutLooseDetachedOnes` | `public int CountOfUnitsWithoutLooseDetachedOnes` | getter 直接 `return this.Arrangement.UnitCount;`，只看阵型。 |
+| `UnitsWithoutLooseDetachedOnes` | `public MBReadOnlyList<IFormationUnit> UnitsWithoutLooseDetachedOnes` | `return this.Arrangement.GetAllUnits();`——阵型单位名单，不是 Agent 列表，取用要转型。 |
+| `LooseDetachedUnits` / `DetachedUnits` | `public MBReadOnlyList<Agent> LooseDetachedUnits` / `DetachedUnits` | 直接暴露内部 `MBList<Agent>`。`LooseDetachedUnits` 是 `DetachedUnits` 的子集。 |
+| `ApplyActionOnEachUnit` | `public void ApplyActionOnEachUnit(Action<Agent> action, Agent ignoreAgent = null)` | **先阵型名单、后脱离名单**两次遍历；`ignoreAgent` 非 null 时两段都过滤同一个对象。要在遍历中改名单请改用 `ApplyActionOnEachUnitViaBackupList`。 |
+| `ApplyActionOnEachAttachedUnit` | `public void ApplyActionOnEachAttachedUnit(Action<Agent> action)` | 只遍历 `Arrangement.GetAllUnits()`，不碰脱离单位。 |
+| `ApplyActionOnEachDetachedUnit` | `public void ApplyActionOnEachDetachedUnit(Action<Agent> action)` | 只遍历脱离名单。 |
+| `GetUnitWithIndex` | `public Agent GetUnitWithIndex(int unitIndex)` | 两段式取人：先阵型，再「索引减去阵型人数」后查脱离名单，都落空返回 `null`。 |
+| `GetFirstUnit` | `public Agent GetFirstUnit()` | `GetUnitWithIndex(0)`。**空编队返回 null。** |
+| `AddUnit` | `public void AddUnit(Agent unit)` | 加入阵型。会顺带处理：弹药补给逻辑（`AmmoSupplyLogic` 命中就置 `IgnoreAmmoLimitForRangeCalculation`）、设置 `HasPlayerControlledTroop` / `IsPlayerTroopInFormation`、累加 `_logicalClassCounts` 并可能触发 `CalculateLogicalClass()`、把编队的 FiringOrder / RidingOrder / TargetFormationIndex 同步给该单位，最后发 `OnUnitAdded`。 |
+| `RemoveUnit` | `public void RemoveUnit(Agent unit)` | 移除。脱离单位走 `unit.Detachment.RemoveAgent(unit)` 并把 `DetachmentWeight` 设为 -1；阵型单位走 `Arrangement.RemoveUnit(unit)`。最后发 `OnUnitRemoved`。 |
+| `DetachUnit` | `public void DetachUnit(Agent unit, bool isLoose)` | 把单位移出阵型放进 `_detachedUnits`，`isLoose` 时**额外**加进 `_looseDetachedUnits`，并把 AI 行为值集设为 `HumanAIComponent.BehaviorValueSet.DefaultDetached`。 |
+| `AttachUnit` | `public void AttachUnit(Agent unit)` | 反向：从两份脱离名单移除、放回 `Arrangement`、`Detachment = null`、`DetachmentWeight = -1`，发 `OnUnitAttached`。 |
+| `TransferUnits` | `public void TransferUnits(Formation target, int unitCount)` | 转移单位。**实际工作委派给 `Team.MasterOrderController.TransferUnits(this, target, unitCount)`**；前后把双方的 `PostponeCostlyOperations` 置 true 再复位，中途强制 `CalculateLogicalClass()`，最后 `Expire()` 两边的 `QuerySystem` 并调 `Team.QuerySystem.ExpireAfterUnitAddRemove()`。 |
+| `Split` | `public IEnumerable<Formation> Split(int count = 2)` | 拆分编队。同样委派 `Team.MasterOrderController.SplitFormation(this, count)`；会给全队所有编队（含空的 `FormationsIncludingEmpty`）打上/摘掉 `PostponeCostlyOperations`，并对结果逐个 `QuerySystem.Expire()`。 |
+| `Tick` | `public void Tick(float dt)` | 每帧入口。跑四类缓存刷新、队伍 AI（`AI.Tick()`）、最多 10 次的 `MovementOrder` 替换重试、`ArrangementOrder.TickOccasionally`、`MovementOrder.Tick`、`SetPositioning(...)` 重定位、脱离队 tick、`SmoothAverageUnitPosition`。 |
+| `Interval` | `public float Interval` | 队列内相邻单位的横向间距。骑兵分支用 `CavalryInterval`、否则 `InfantryInterval`，最后乘 `Arrangement.IntervalMultiplier`。**spacing = 0 时步兵为 0。** |
+| `Distance` | `public float Distance` | 队列之间的纵深间距。形状同 `Interval`，常量是 `0.4f * spacing`（步兵）/ `1.7f + 0.3f * spacing`（骑兵）。 |
+| `CalculateHasSignificantNumberOfMounted` | `public bool CalculateHasSignificantNumberOfMounted` | 判据是 `QuerySystem.CavalryUnitRatio + QuerySystem.RangedCavalryUnitRatio >= 0.1f`，**但 `_overridenHasAnyMountedUnit` 一旦被赋值就短路**。`Interval`/`Distance`/`UnitDiameter` 都吃它的结果。 |
+| `Width` | `public float Width { get; private set; }` | setter 是 `private`，内容只有 `this.Arrangement.Width = value;`。要对齐宽度请改 `Arrangement`，不要指望 `Formation.Width`。 |
+| `Depth` / `MinimumWidth` / `MaximumWidth` / `UnitDiameter` | `public float Depth` 等 | 全部转发 `Arrangement`；`UnitDiameter` 是 `GetDefaultUnitDiameter(CalculateHasSignificantNumberOfMounted && RidingOrder != Dismount)`。 |
+| `SetPositioning` | `public void SetPositioning(WorldPosition? position = null, Vec2? direction = null, int? unitSpacing = null)` | 唯一的正规改位入口。三参数全可选，内部做边界吸附（`Mission.Current.GetClosestBoundaryPosition`）、间距变化时发 `OnUnitSpacingChanged` 并置 `Arrangement.AreLocalPositionsDirty = true`、必要时 `TurnBackwards()`。 |
+| `CurrentPosition` | `public Vec2 CurrentPosition` | 若阵型是 `ColumnFormation` 就返回**前锋 Agent 的位置**（`agent.Position.AsVec2`），否则用 `CachedAveragePosition + CurrentDirection.TransformToParentUnitF(-OrderLocalAveragePosition)` 算。 |
+| `CurrentDirection` | `public Vec2 CurrentDirection` | `(QuerySystem.EstimatedDirection * 0.8f + Direction * 0.2f).Normalized()`——八二混合后归一化。 |
+| `LogicalClass` / `PhysicalClass` | `public FormationClass LogicalClass` / `PhysicalClass` | 逻辑类是「重新计算出来的多数派」，物理类是编队身份。`SecondaryLogicalClasses` / `SecondaryPhysicalClasses` 是次要分类。 |
+| `GetCountOfUnitsBelongingToPhysicalClass` | `public int GetCountOfUnitsBelongingToPhysicalClass(FormationClass physicalClass, bool excludeBannerBearers)` | 遍历阵型名单**和**脱离名单，按 `QueryLibrary.IsInfantry/IsRanged/IsCavalry/IsRangedCavalry` 计数；`excludeBannerBearers` 决定用带不带 `WithoutBanner` 的那套判定。 |
+| `GetFormationPower` | `public float GetFormationPower()` | `ApplyActionOnEachUnit` 把每个单位的 `Agent.CharacterPowerCached` 求和——**是缓存值不是现算属性**。 |
+| `GetFormationMeleeFightingPower` | `public float GetFormationMeleeFightingPower()` | 同上，但弓兵/弓骑编队（`FormationIndex` 为 `Ranged` 或 `HorseArcher`）每单位乘 `0.4f`。 |
+| `Team` / `Index` / `FormationIndex` / `Banner` | `public readonly Team Team` / `public readonly int Index` / `public readonly FormationClass FormationIndex` / `public Banner Banner` | 身份三元组。注意构造器里 `this.FormationIndex = (FormationClass)index;` 是**直接把 int 位转成枚举**——传非法 index 会得到一个未定义的 `FormationClass` 值。 |
+| `OnUnitAdded` / `OnUnitAttached` / `OnUnitSpacingChanged` / `OnWidthChanged` / `OnAfterArrangementOrderApplied` | `public event ...` | 五个公开事件。`OnUnitAdded` 是 `Action<Formation, Agent>`，在 `AddUnit` 的**最后一步**触发（此时逻辑类已更新）；`OnAfterArrangementOrderApplied` 是 `Action<Formation, ArrangementOrder.ArrangementOrderEnum>`。 |
+| `InfantryInterval` / `CavalryInterval` / `InfantryDistance` / `CavalryDistance` | `public static float InfantryInterval(int unitSpacing)` 等 | 四个纯函数：`0.38f * spacing` / `0.18f + 0.32f * spacing` / `0.4f * spacing` / `1.7f + 0.3f * spacing`。 |
+| `GetDefaultUnitDiameter` | `public static float GetDefaultUnitDiameter(bool isMounted)` | 骑马取 `ManagedParameters.Instance.GetManagedParameter(ManagedParametersEnum.QuadrupedalRadius) * 2f`，步行取 `BipedalRadius * 2f`。 |
+| `GetDefaultFileWidth` / `GetDefaultRankDepth` | `public static float GetDefaultFileWidth(int fileUnitCount, int unitSpacing, bool isMounted)` | `(count - 1) * (interval + diameter)`——**减 1**，因为 N 个人只有 N-1 个间隔。`fileUnitCount <= 1` 时返回 0 或负数。 |
+| `AveragePositionCalculatePeriod` | `public const float AveragePositionCalculatePeriod = 0.1f` | 平均位置缓存的目标刷新周期（秒）。 |
+| `MinimumUnitSpacing` | `public const int MinimumUnitSpacing = 0` | 间距下界；也是 `GetDefaultMinimumUnitInterval` 等函数传入的默认值。 |
+
+## 真实示例
+
+第一种：遍历一个编队的所有人并判断编制。官方逻辑里大量出现这个形状，注意 `GetFirstUnit()` 可能返回 null：
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public class MyFormationReporter : MissionLogic
+{
+    public override void OnMissionTick(float dt)
+    {
+        Team team = Mission.Current.PlayerTeam;
+        if (team == null)
+        {
+            return;
+        }
+        Formation infantry = team.GetFormation(FormationClass.Infantry);
+        if (infantry.CountOfUnits == 0)
+        {
+            return;
+        }
+
+        int ranged = infantry.GetCountOfUnitsBelongingToPhysicalClass(FormationClass.Ranged, true);
+        int total = 0;
+        float power = 0f;
+
+        infantry.ApplyActionOnEachUnit(agent =>
+        {
+            total++;
+            power += agent.CharacterPowerCached;
+            if (agent.IsPlayerControlled)
+            {
+                Debug.Print("player unit in infantry, hp=" + agent.Health, 0);
+            }
+        });
+
+        Agent first = infantry.GetFirstUnit();
+        if (first != null)
+        {
+            Debug.Print("interval=" + infantry.Interval + " distance=" + infantry.Distance
+                + " width=" + infantry.Width + " power=" + power, 0);
+        }
+        Debug.Print("ranged(without banner)=" + ranged + "/" + total, 0);
+    }
+}
 ```
 
-### ApplyActionOnEachUnitViaBackupList
-`public void ApplyActionOnEachUnitViaBackupList(Action<Agent> action)`
+第二种：改阵型位置与间距。`SetPositioning` 三参数全可选，所以「只转朝向」和「只挪位置」都是合法的：
 
-**用途 / Purpose:** 将 action on each unit via backup list 的效果应用到当前对象。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.ApplyActionOnEachUnitViaBackupList(action);
-```
-
-### ApplyActionOnEachUnit
-`public void ApplyActionOnEachUnit(Action<Agent, List<WorldPosition>> action, List<WorldPosition> list)`
-
-**用途 / Purpose:** 将 action on each unit 的效果应用到当前对象。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.ApplyActionOnEachUnit(action<Agent, action, list);
-```
-
-### CountUnitsOnNavMeshIDMod10
-`public int CountUnitsOnNavMeshIDMod10(int navMeshID, bool includeOnlyPositionedUnits)`
-
-**用途 / Purpose:** 调用 CountUnitsOnNavMeshIDMod10 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.CountUnitsOnNavMeshIDMod10(0, false);
-```
-
-### OnAgentControllerChanged
-`public void OnAgentControllerChanged(Agent agent, AgentControllerType oldController)`
-
-**用途 / Purpose:** 在 agent controller changed 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.OnAgentControllerChanged(agent, oldController);
-```
-
-### OnMassUnitTransferStart
-`public void OnMassUnitTransferStart()`
-
-**用途 / Purpose:** 在 mass unit transfer start 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.OnMassUnitTransferStart();
-```
-
-### OnMassUnitTransferEnd
-`public void OnMassUnitTransferEnd()`
-
-**用途 / Purpose:** 在 mass unit transfer end 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.OnMassUnitTransferEnd();
-```
-
-### OnBatchUnitRemovalStart
-`public void OnBatchUnitRemovalStart()`
-
-**用途 / Purpose:** 在 batch unit removal start 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.OnBatchUnitRemovalStart();
-```
-
-### OnBatchUnitRemovalEnd
-`public void OnBatchUnitRemovalEnd()`
-
-**用途 / Purpose:** 在 batch unit removal end 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.OnBatchUnitRemovalEnd();
-```
-
-### OnUnitAddedOrRemoved
-`public void OnUnitAddedOrRemoved()`
-
-**用途 / Purpose:** 在 unit added or removed 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.OnUnitAddedOrRemoved();
-```
-
-### OnAgentLostMount
-`public void OnAgentLostMount(Agent agent)`
-
-**用途 / Purpose:** 在 agent lost mount 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.OnAgentLostMount(agent);
-```
-
-### OnFormationDispersed
-`public void OnFormationDispersed()`
-
-**用途 / Purpose:** 在 formation dispersed 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.OnFormationDispersed();
-```
-
-### OnUnitDetachmentChanged
-`public void OnUnitDetachmentChanged(Agent unit, bool isOldDetachmentLoose, bool isNewDetachmentLoose)`
-
-**用途 / Purpose:** 在 unit detachment changed 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.OnUnitDetachmentChanged(unit, false, false);
-```
-
-### OnUndetachableNonPlayerUnitAdded
-`public void OnUndetachableNonPlayerUnitAdded(Agent unit)`
-
-**用途 / Purpose:** 在 undetachable non player unit added 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.OnUndetachableNonPlayerUnitAdded(unit);
-```
-
-### OnUndetachableNonPlayerUnitRemoved
-`public void OnUndetachableNonPlayerUnitRemoved(Agent unit)`
-
-**用途 / Purpose:** 在 undetachable non player unit removed 事件触发时调用此回调。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.OnUndetachableNonPlayerUnitRemoved(unit);
-```
-
-### ResetMovementOrderPositionCache
-`public void ResetMovementOrderPositionCache()`
-
-**用途 / Purpose:** 将 movement order position cache 重置回默认或初始状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.ResetMovementOrderPositionCache();
-```
-
-### Reset
-`public void Reset()`
-
-**用途 / Purpose:** 将当前对象重置为默认或初始状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.Reset();
-```
-
-### Split
-`public IEnumerable<Formation> Split(int count = 2)`
-
-**用途 / Purpose:** 将split拆分为多个部分或子项。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.Split(0);
-```
-
-### TransferUnits
-`public void TransferUnits(Formation target, int unitCount)`
-
-**用途 / Purpose:** 调用 TransferUnits 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.TransferUnits(target, 0);
-```
-
-### TransferUnitsAux
-`public void TransferUnitsAux(Formation target, int unitCount, bool isPlayerOrder, bool useSelectivePop)`
-
-**用途 / Purpose:** 调用 TransferUnitsAux 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.TransferUnitsAux(target, 0, false, false);
-```
-
-### DebugArrangements
-`public void DebugArrangements()`
-
-**用途 / Purpose:** 调用 DebugArrangements 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.DebugArrangements();
-```
-
-### AddUnit
-`public void AddUnit(Agent unit)`
-
-**用途 / Purpose:** 将 unit 添加到当前容器或状态中。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.AddUnit(unit);
-```
-
-### RemoveUnit
-`public void RemoveUnit(Agent unit)`
-
-**用途 / Purpose:** 从当前容器或状态中移除 unit。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.RemoveUnit(unit);
-```
-
-### DetachUnit
-`public void DetachUnit(Agent unit, bool isLoose)`
-
-**用途 / Purpose:** 调用 DetachUnit 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.DetachUnit(unit, false);
-```
-
-### AttachUnit
-`public void AttachUnit(Agent unit)`
-
-**用途 / Purpose:** 调用 AttachUnit 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.AttachUnit(unit);
-```
-
-### SwitchUnitLocations
-`public void SwitchUnitLocations(Agent firstUnit, Agent secondUnit)`
-
-**用途 / Purpose:** 调用 SwitchUnitLocations 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.SwitchUnitLocations(firstUnit, secondUnit);
-```
-
-### ForceCalculateCaches
-`public void ForceCalculateCaches()`
-
-**用途 / Purpose:** 调用 ForceCalculateCaches 对应的操作。
-
 ```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.ForceCalculateCaches();
-```
-
-### Tick
-`public void Tick(float dt)`
-
-**用途 / Purpose:** 推进当前对象一帧/一个更新周期的状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.Tick(0);
-```
-
-### SetHasPendingUnitPositions
-`public void SetHasPendingUnitPositions(bool hasPendingUnitPositions)`
-
-**用途 / Purpose:** 为 has pending unit positions 赋新值，并同步更新对象内部状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.SetHasPendingUnitPositions(false);
-```
-
-### JoinDetachment
-`public void JoinDetachment(IDetachment detachment)`
-
-**用途 / Purpose:** 把若干detachment连接成一个整体。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.JoinDetachment(detachment);
-```
-
-### FormAttackEntityDetachment
-`public void FormAttackEntityDetachment(GameEntity targetEntity)`
-
-**用途 / Purpose:** 调用 FormAttackEntityDetachment 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.FormAttackEntityDetachment(targetEntity);
-```
-
-### LeaveDetachment
-`public void LeaveDetachment(IDetachment detachment)`
-
-**用途 / Purpose:** 调用 LeaveDetachment 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.LeaveDetachment(detachment);
-```
-
-### DisbandAttackEntityDetachment
-`public void DisbandAttackEntityDetachment()`
-
-**用途 / Purpose:** 调用 DisbandAttackEntityDetachment 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.DisbandAttackEntityDetachment();
-```
-
-### Rearrange
-`public void Rearrange(IFormationArrangement arrangement)`
-
-**用途 / Purpose:** 调用 Rearrange 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.Rearrange(arrangement);
-```
-
-### TickForColumnArrangementInitialPositioning
-`public void TickForColumnArrangementInitialPositioning(Formation formation)`
-
-**用途 / Purpose:** 在每一帧或每个更新周期内推进for column arrangement initial positioning的状态。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.TickForColumnArrangementInitialPositioning(formation);
-```
-
-### CalculateFormationDirectionEnforcingFactorForRank
-`public float CalculateFormationDirectionEnforcingFactorForRank(int rankIndex)`
-
-**用途 / Purpose:** 计算formation direction enforcing factor for rank的当前值或结果。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.CalculateFormationDirectionEnforcingFactorForRank(0);
-```
-
-### BeginSpawn
-`public void BeginSpawn(int unitCount, bool isMounted)`
-
-**用途 / Purpose:** 调用 BeginSpawn 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.BeginSpawn(0, false);
-```
-
-### EndSpawn
-`public void EndSpawn()`
-
-**用途 / Purpose:** 调用 EndSpawn 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.EndSpawn();
-```
-
-### GetHashCode
-`public override int GetHashCode()`
-
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
-
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetHashCode();
-```
-
-### GetLastSimulatedFormationsOccupationWidthIfLesserThanActualWidth
-`public static float GetLastSimulatedFormationsOccupationWidthIfLesserThanActualWidth(Formation simulationFormation)`
-
-**用途 / Purpose:** 读取并返回当前对象中 last simulated formations occupation width if lesser than actual width 的结果。
+Formation target = team.GetFormation(FormationClass.Cavalry);
 
-```csharp
-// 静态调用，不需要实例
-Formation.GetLastSimulatedFormationsOccupationWidthIfLesserThanActualWidth(simulationFormation);
-```
-
-### GetFormationFramesForBeforeFormationCreation
-`public static List<WorldFrame> GetFormationFramesForBeforeFormationCreation(float width, int manCount, bool areMounted, WorldPosition spawnOrigin, Mat3 spawnRotation)`
-
-**用途 / Purpose:** 读取并返回当前对象中 formation frames for before formation creation 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Formation.GetFormationFramesForBeforeFormationCreation(0, 0, false, spawnOrigin, spawnRotation);
-```
-
-### GetDefaultUnitDiameter
-`public static float GetDefaultUnitDiameter(bool isMounted)`
-
-**用途 / Purpose:** 读取并返回当前对象中 default unit diameter 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Formation.GetDefaultUnitDiameter(false);
-```
-
-### GetDefaultMinimumUnitInterval
-`public static float GetDefaultMinimumUnitInterval(bool isMounted)`
-
-**用途 / Purpose:** 读取并返回当前对象中 default minimum unit interval 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Formation.GetDefaultMinimumUnitInterval(false);
-```
-
-### GetDefaultUnitInterval
-`public static float GetDefaultUnitInterval(bool isMounted, int unitSpacing)`
-
-**用途 / Purpose:** 读取并返回当前对象中 default unit interval 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Formation.GetDefaultUnitInterval(false, 0);
-```
-
-### GetDefaultMinimumUnitDistance
-`public static float GetDefaultMinimumUnitDistance(bool isMounted)`
-
-**用途 / Purpose:** 读取并返回当前对象中 default minimum unit distance 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Formation.GetDefaultMinimumUnitDistance(false);
-```
-
-### GetDefaultUnitDistance
-`public static float GetDefaultUnitDistance(bool isMounted, int unitSpacing)`
-
-**用途 / Purpose:** 读取并返回当前对象中 default unit distance 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Formation.GetDefaultUnitDistance(false, 0);
-```
-
-### GetDefaultFileWidth
-`public static float GetDefaultFileWidth(int fileUnitCount, int unitSpacing, bool isMounted)`
-
-**用途 / Purpose:** 读取并返回当前对象中 default file width 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Formation.GetDefaultFileWidth(0, 0, false);
-```
-
-### GetDefaultRankDepth
-`public static float GetDefaultRankDepth(int rankUnitCount, int unitSpacing, bool isMounted)`
-
-**用途 / Purpose:** 读取并返回当前对象中 default rank depth 的结果。
-
-```csharp
-// 静态调用，不需要实例
-Formation.GetDefaultRankDepth(0, 0, false);
-```
-
-### InfantryInterval
-`public static float InfantryInterval(int unitSpacing)`
-
-**用途 / Purpose:** 调用 InfantryInterval 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Formation.InfantryInterval(0);
-```
+// 只转朝向：单位给一个方向向量，长度会被归一化语义接管
+Vec2 facing = new Vec2(1f, 0f);
+target.SetPositioning(null, facing, null);
 
-### CavalryInterval
-`public static float CavalryInterval(int unitSpacing)`
+// 只挪位置：越界时引擎会自动吸附回合法边界，并置 HasBeenPositioned
+WorldPosition spot = new WorldPosition(Mission.Current.Scene, new Vec3(120f, 80f, 0f));
+target.SetPositioning(spot, null, null);
 
-**用途 / Purpose:** 调用 CavalryInterval 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Formation.CavalryInterval(0);
+// 三个一起改：spacing 变化会触发 OnUnitSpacingChanged 事件并把
+// Arrangement.AreLocalPositionsDirty 置 true
+target.SetPositioning(spot, facing, 1);
 ```
 
-### InfantryDistance
-`public static float InfantryDistance(int unitSpacing)`
+第三种：在编队之间搬运单位。注意 `TransferUnits` 的真实路径是 `MasterOrderController`，不是本类内部改名单：
 
-**用途 / Purpose:** 调用 InfantryDistance 对应的操作。
-
 ```csharp
-// 静态调用，不需要实例
-Formation.InfantryDistance(0);
-```
+Formation infantry = team.GetFormation(FormationClass.Infantry);
+Formation archer = team.GetFormation(FormationClass.Ranged);
 
-### CavalryDistance
-`public static float CavalryDistance(int unitSpacing)`
+if (infantry.CountOfUnits > 10)
+{
+    // 引擎内部：先让两边 PostponeCostlyOperations = true，
+    // 走 MasterOrderController.TransferUnits，再 CalculateLogicalClass，最后 Expire 查询缓存
+    infantry.TransferUnits(archer, 4);
 
-**用途 / Purpose:** 调用 CavalryDistance 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Formation.CavalryDistance(0);
+    // 挂事件观察单位进出（OnUnitAdded 在 AddUnit 的最后一步触发）
+    archer.OnUnitAdded += (formation, unit) =>
+    {
+        Debug.Print("archer now " + formation.CountOfUnits + " / " + unit.Name, 0);
+    };
+}
 ```
-
-### IsDefenseRelatedAIDrivenComponent
-`public static bool IsDefenseRelatedAIDrivenComponent(DrivenProperty drivenProperty)`
-
-**用途 / Purpose:** 判断当前对象是否处于 defense related a i driven component 状态或条件。
 
-```csharp
-// 静态调用，不需要实例
-Formation.IsDefenseRelatedAIDrivenComponent(drivenProperty);
-```
+⚠️ 事件是在 `TransferUnits` **之后**才挂上就收不到这次转移的通知——`TransferUnits` 内部走 `MasterOrderController`，事件在那之前就发完了。想全程观察就要在转移前挂。
 
-### GetRetreatPositionFromCache
-`public WorldPosition GetRetreatPositionFromCache(Vec2 agentPosition)`
+## 风险与边界
 
-**用途 / Purpose:** 读取并返回当前对象中 retreat position from cache 的结果。
+- **`CountOfUnits` 不是某个列表的长度。** 它是 `Arrangement.UnitCount + _detachedUnits.Count`。任何「按 CountOfUnits 索引取人」的想法都是错的，要取人用 `GetUnitWithIndex`（它也是两段式）。
+- **`GetFirstUnit()` 在空编队返回 null。** 没有异常、没有断言。
+- **`Width` 的 setter 是 private。** 它只写 `Arrangement.Width`。从外部改宽度请改 `Arrangement`。
+- **`FormationIndex` 是 `(FormationClass)index` 的位转。** 构造器不做校验，传错 index 得到未定义枚举值，后面所有 `FormationIndex == FormationClass.Ranged` 之类的比较都会静默失效。
+- **`CalculateHasSignificantNumberOfMounted` 有覆盖开关。** `_overridenHasAnyMountedUnit` 被设过就永久短路真实比例，`Interval` / `Distance` / `UnitDiameter` 随之全部失真。要改就必须同时改回 `null`。
+- **默认 `UnitSpacing = 0` 时步兵 `Interval` 与 `Distance` 都是 0。** 0.38 × 0、0.4 × 0。骑兵有常数项所以不为 0。步兵想要非零间距必须显式设置。
+- **间距公式是硬编码常量，不是配置。** `0.38f` / `0.18f + 0.32f` / `0.4f` / `1.7f + 0.3f` 全是 `Formation` 上的静态方法字面量。想改编队密度只能自己算或改 `Arrangement`。
+- **`ApplyActionOnEachUnit` 会遍历脱离单位。** 在回调里增删单位会破坏正在进行的遍历。需要改动名单时用 `ApplyActionOnEachUnitViaBackupList`。
+- **`GetDefaultFileWidth` / `GetDefaultRankDepth` 会减 1。** `count = 0` 时返回 `-1 * (interval + diameter)`，是负数。判断前先确认 count ≥ 1。
+- **构造器要求 `Team` 非 null。** 静态工具 `GetFormationFramesForBeforeFormationCreation` 里就 `new Formation(null, -1)` 当临时阵型用；你自己 new 出来的编队**不是**任务里的编队，`Mission.Current` 相关调用会出问题。
+- **有终结器 `~Formation()`，且它会改静态状态。** `if (!this.IsSimulationFormation) { Formation._simulationFormationTemp = null; }`——任何一个真实编队被 GC 回收都会把静态临时槽清空。依赖 `_simulationFormationTemp` 的代码对 GC 时序敏感。
+- **`QuerySystem` 有过期机制。** `TransferUnits` / `Split` 结束时才 `Expire()`。在这两个调用之前读 `QuerySystem` 的统计量可能拿到旧值。
+- **`GetFormationPower` 读的是 `Agent.CharacterPowerCached`。** 属性/武器变了但缓存没刷时，编队战力是旧数。
 
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-var result = formation.GetRetreatPositionFromCache(agentPosition);
-```
+## 跨版本提示
 
-### AddNewPositionToCache
-`public void AddNewPositionToCache(Vec2 agentPostion, WorldPosition retreatingPosition)`
+`Formation` 的公开面在 1.3.0 是 185 个 public/protected 成员（含嵌套类型与静态工具），跨版本最可能变的是三处：
 
-**用途 / Purpose:** 将 new position to cache 添加到当前容器或状态中。
+一是**编队类集合**。`FormationClass` 在后续版本继续细分，`Formation.FormationIndex` 的取值域跟着变；`GetCountOfUnitsBelongingToPhysicalClass` 内部那个 `switch (physicalClass)` 只列了 `Infantry` / `Ranged` / `Cavalry` / `HorseArcher` 四支——**新类默认落到 `flag = false`，即不计数且不报错**。这是最容易在升级后静默出错的地方。
 
-```csharp
-// 先通过子系统 API 拿到 Formation 实例
-Formation formation = ...;
-formation.AddNewPositionToCache(agentPostion, retreatingPosition);
-```
+二是**间距常量**。`0.38f` / `0.18f + 0.32f` 这些字面量属于平衡数值，官方随时可能调；硬编码期望值的 mod 升级后要重测。
 
-## 使用示例
+三是**缓存刷新周期**。`AveragePositionCalculatePeriod = 0.1f` 与 `ResetArrangementOrderTickTimer` 里的 `0.5f` 是公开常量；一旦改动，读 `CachedAveragePosition` 的代码会看到不同的滞后量。
 
-```csharp
-// 通常从对应子系统 API 获取实例后调用
-Formation formation = ...;
-formation.CreateNewOrderWorldPosition(worldPositionEnforcedCache);
-```
+方法签名层面最稳的是 `ApplyActionOnEachUnit` / `GetUnitWithIndex` / `SetPositioning` / `TransferUnits` 这几族——它们被大量官方与 mod 代码依赖，改动成本很高。
 
-## 参见
+## 依赖关系
 
-- [本区域目录](../)
+- 容器：[Team](../../mission-ext/Team) 持有全部编队，`GetFormation(FormationClass)` 是取编队的标准入口，`TransferUnits` / `Split` 都经 `Team.MasterOrderController`
+- 成员单位：[Agent](../Agent) 既是编队的成员（`Agent.Formation` 指回编队），也是 `ApplyActionOnEachUnit` 的回调参数
+- 空间后端：[IFormationArrangement](../../mission-ext/IFormationArrangement) 决定阵型形状，`Width` / `Depth` / `IntervalMultiplier` / `DistanceMultiplier` / `TurnBackwards()` 全在它身上；[LineFormation](../../mission-ext/LineFormation) 与 [ColumnFormation](../../mission-ext/ColumnFormation) 是两种常见实现
+- 统计：[FormationQuerySystem](../../mission-ext/FormationQuerySystem) 提供 `EstimatedDirection` / `CavalryUnitRatio` / `RangedCavalryUnitRatio`，有独立的过期语义
+- 脱离队：[IDetachment](../../mission-ext/IDetachment) / [AttackEntityOrderDetachment](../../mission-ext/AttackEntityOrderDetachment) 与 [Agent](../Agent) 的 `Detachment` / `DetachmentWeight` 对接
+- 顺序：[MovementOrder](../../mission-ext/MovementOrder) / [FacingOrder](../../mission-ext/FacingOrder) / [FormOrder](../../mission-ext/FormOrder) / [ArrangementOrder](../../mission-ext/ArrangementOrder) / [FiringOrder](../../mission-ext/FiringOrder) / [RidingOrder](../../mission-ext/RidingOrder) 六个 setter 都收在编队上
+- 枚举：[FormationClass](../../core-extra/FormationClass)、[TeamSideEnum](../../core-extra/TeamSideEnum)、[BattleSideEnum](../../core-extra/BattleSideEnum) 的定义都在 `TaleWorlds.Core`
+- 几何常量：[ManagedParameters](../../core-extra/ManagedParameters) / [ManagedParametersEnum](../../core-extra/ManagedParametersEnum) 提供 `BipedalRadius` / `QuadrupedalRadius`
+- 挂载点：[MissionBehavior](../MissionBehavior) / [MissionLogic](../../mission-ext/MissionLogic) 是示例里驱动这些遍历的回调
+- 桶首页：[mission API 分区](../)

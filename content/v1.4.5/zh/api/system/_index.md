@@ -40,6 +40,10 @@ system 桶只负责「桥与底座」，不负责业务。SubModule 的加载阶
 - [API 参考](../)
 - [版本首页](../../)
 
+## 区域索引 / Area Hubs
+
+- [Managed runtime long tail](./runtime-tail/) — 托管 UI、渲染、存档、本地化、输入与互操作类型的源码依据与运行时边界。
+
 ## ↓ 子类列表 — 按字母分组
 
 ### C

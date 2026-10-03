@@ -1,37 +1,106 @@
 ---
 title: "ArmyDispersionMapNotification"
-description: "Auto-generated class reference for ArmyDispersionMapNotification."
+description: "Map notice payload for 'army dispersed': an Army reference plus the dispersion reason, inspected by opening that army's kingdom panel."
 ---
+
 # ArmyDispersionMapNotification
 
-**Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
-**Module:** TaleWorlds.CampaignSystem
+**Namespace:** `TaleWorlds.CampaignSystem.MapNotificationTypes`
+**Module:** `TaleWorlds.CampaignSystem`
 **Type:** `public class ArmyDispersionMapNotification : InformationData`
 **Base:** `InformationData`
 **File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/ArmyDispersionMapNotification.cs`
 
 ## Overview
 
-`ArmyDispersionMapNotification` lives in `TaleWorlds.CampaignSystem.MapNotificationTypes` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`ArmyDispersionMapNotification` is the data carrier behind the "army dispersed" map notice, and it carries one extra dimension its siblings do not: **why** it broke up. Alongside `[SaveableProperty(1)] public Army DispersedArmy` it has `[SaveableProperty(2)] public Army.ArmyDispersionReason DispersionReason`.
+
+Its UI behaviour differs completely from [ArmyCreationMapNotification](../ArmyCreationMapNotification), which is the single most important thing to remember here. The VM behind it, `ArmyDispersionItemVM`, subscribes to no campaign events and has **no self-removal logic**; its "inspect" action runs `NavigationHandler?.OpenKingdom(data.DispersedArmy)` and then `ExecuteRemove()`. The creation notice moves the camera to the army's position; the dispersion notice opens the kingdom panel of the army that just fell apart.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Read it as **a static snapshot of "reason + army reference"**. Three stages:
 
-## Key Properties
+1. **Write.** `Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(data)` is the only entry point. Note that officially this fires only when the player is **not** in that army: `army.LeaderParty.MapFaction == Hero.MainHero.MapFaction && army.Parties.IndexOf(MobileParty.MainParty) < 0`. When the player is inside the army, the chat-bar entry [ArmyDispersionLogEntry](../ArmyDispersionLogEntry) is the only reminder.
 
-| Name | Signature |
-|------|-----------|
-| `DispersedArmy` | `public Army DispersedArmy { get; }` |
-| `DispersionReason` | `public Army.ArmyDispersionReason DispersionReason { get; }` |
+2. **Lookup.** `_itemConstructors.Add(typeof(ArmyDispersionMapNotification), typeof(ArmyDispersionItemVM))` in the `MapNotificationVM` constructor (`Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map/MapNotificationVM.cs:111`). An unregistered type is discarded silently.
 
-## Usage Example
+3. **Cleanup is click-driven.** This type **does not override `IsValid()`**, so the base returns true and the notice never ages out. `ArmyDispersionItemVM._onInspect` calls `OpenKingdom(data.DispersedArmy)` and then `ExecuteRemove()` — **the notice stays in the map corner until the player clicks it**. That is a different mechanism from the timed eviction used by [AllianceOfferMapNotification](../AllianceOfferMapNotification) via `IsValid()`, and the two should not be conflated.
+
+The second anchor is that **`DispersedArmy` is a live reference and the inspect chain dereferences it**. The VM's `NavigationHandler?.OpenKingdom(data.DispersedArmy)` resolves to `MapNavigationExtensions.OpenKingdom(this INavigationHandler, Army)` (`Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem/MapNavigationExtensions.cs:68`), which hands the `Army` straight to `GetElement(handler, MapNavigationItemType.Kingdom).OpenView(army)` with no null check anywhere. The official call site constructs this inside the dispersion event callback, where the `Army` object still exists but may already be hollowed out; a mod that constructs it later must guard for that itself.
+
+The third anchor: **`DispersionReason` is stored but the VM never reads it**. `ArmyDispersionItemVM`'s constructor only touches `data.DispersedArmy`. The field exists for the save graph and for **mods and log tooling** — it is the only data source when you need to answer "why did the player not get a dispersion notice" versus "why did the chat bar stay quiet".
+
+## Key members
+
+| Member | Signature | What it is for |
+| --- | --- | --- |
+| `DispersedArmy` | `[SaveableProperty(1)] public Army DispersedArmy { get; private set; }` | The army that broke up. A **live reference** pulled into the save graph by `AutoGeneratedInstanceCollectObjects`. The VM hands it to `NavigationHandler.OpenKingdom`. `private set` — constructor-only writes. |
+| `DispersionReason` | `[SaveableProperty(2)] public Army.ArmyDispersionReason DispersionReason { get; private set; }` | Why it dispersed. **The official VM never reads it**; its purpose is save fidelity and mod queries. On the save side [ArmyDispersionReasonEnumResolver](../ArmyDispersionReasonEnumResolver) migrates the old enum name (`"LowPartySizeRatio"` → `NotEnoughTroop`). |
+| `TitleText` | `public override TextObject TitleText => new TextObject("{=84vpd3LI}Army Dispersed")` | The notice title: hard-coded English plus a key. **A fresh `TextObject` on every access**, no caching. |
+| `SoundEventPath` | `public override string SoundEventPath => "event:/ui/notification/army_dispersion"` | The audio event name. A missing resource produces silence, not an exception. |
+| Constructor | `public ArmyDispersionMapNotification(Army dispersedArmy, Army.ArmyDispersionReason reason, TextObject descriptionText)` | Calls `: base(descriptionText)` then assigns `DispersionReason` and `DispersedArmy`. **One overload only** — there is no data-less overload reserved for deserialization. |
+
+## Examples
+
+The only official construction shape, copied from [DefaultLogsCampaignBehavior](../DefaultLogsCampaignBehavior).OnArmyDispersed:
 
 ```csharp
-// Obtain an instance from the relevant subsystem API
-ArmyDispersionMapNotification instance = ...;
+ArmyDispersionLogEntry entry = new ArmyDispersionLogEntry(army, reason);
+LogEntry.AddLogEntry(entry);
+if (army.LeaderParty.MapFaction == Hero.MainHero.MapFaction && army.Parties.IndexOf(MobileParty.MainParty) < 0)
+{
+    Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(
+        new ArmyDispersionMapNotification(army, reason, entry.GetEncyclopediaText()));
+}
 ```
 
-## See Also
+Ask whether a dispersion notice is still pending and what its reason was:
 
-- [Area Index](../)
+```csharp
+CampaignInformationManager infoManager = Campaign.Current.CampaignInformationManager;
+bool pending = infoManager.InformationDataExists<ArmyDispersionMapNotification>(
+    (ArmyDispersionMapNotification notice) => notice.DispersionReason == Army.ArmyDispersionReason.CohesionDepleted);
+Debug.Print("pending cohesion-depleted notices = " + pending, 0);
+```
+
+Raise your own dispersion notice with custom wording and the reason folded into the text:
+
+```csharp
+if (army.LeaderParty.MapFaction == Hero.MainHero.MapFaction)
+{
+    TextObject note = new TextObject("{=mykey2}The host warband of {ARMY_NAME} has broken up.");
+    note.SetTextVariable("ARMY_NAME", army.EncyclopediaLinkWithName);
+    Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(
+        new ArmyDispersionMapNotification(army, Army.ArmyDispersionReason.ObjectiveFinished, note));
+}
+```
+
+## Risks and crash boundaries
+
+- **The notice never expires on its own.** `IsValid()` is not overridden, so the base returns true. Cleanup happens only when the player clicks inspect (the VM's `_onInspect` calls `ExecuteRemove()`). In unattended contexts — automated tests, background save flows — posted notices pile up permanently in `CampaignInformationManager._mapNotices`, and `OnGameLoaded`'s `RemoveAll(t => t == null || !t.IsValid())` cannot clear them either.
+- **The VM subscribes to no events.** Unlike `ArmyCreationNotificationItemVM`, it does not listen to `ArmyDispersed` / `OnPartyJoinedArmyEvent` / `OnClanChangedKingdomEvent`. **A dispersion notice does not vanish because the army changed again.**
+- **`DispersedArmy` may be hollow.** It is a live reference, and officially it is constructed inside the dispersion callback where `Parties` / `LeaderParty` may already be emptied. The VM's `OpenKingdom(data.DispersedArmy)` has no null check, so a mod constructing it later must guard.
+- **`DispersionReason` has no consumer.** The official VM ignores it; the map UI shows only `TitleText` and `DescriptionText`. Showing "because cohesion ran out" requires deriving a notification type and registering a new VM.
+- **The constructor validates nothing.** A null `army` yields a null `DispersedArmy` with no `Debug.FailedAssert`; `reason` is a value type so it cannot be wrong.
+- **`TitleText` allocates per access.** Do not read it in a loop.
+- **The VM must be registered.** A type absent from `_itemConstructors` is discarded without an error and without display.
+- **Save ids are 1 and 2.** New fields start at 3, and you **must** update `AutoGeneratedSaveManager`'s `AutoGeneratedGetMemberValueDispersedArmy` / `...DispersionReason` registrations alongside `SaveableCampaignTypeDefiner`, or old saves lose the field.
+- **`DispersionReason` depends on stable enum names.** Renaming an enum member breaks string parsing of old saves; 1.4.5 covers the known `"LowPartySizeRatio"` rename via [ArmyDispersionReasonEnumResolver](../ArmyDispersionReasonEnumResolver), but an uncovered rename still corrupts saves.
+
+## Cross-Version Notes
+
+`bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/ArmyDispersionMapNotification.cs` is 47 lines with 5 public members and `SaveableProperty` ids 1 and 2. The 1.4.6 file of the same name exposes an identical public surface; 1.3.15 has no file of that name.
+
+Its companion `ArmyDispersionItemVM` is only 18 lines with a single constructor in 1.4.5, against `ArmyCreationNotificationItemVM` at 56 lines and three event listeners — **the two notices are not in the same UI-complexity class**.
+
+## Dependencies
+
+- Base: [InformationData](../../core-extra/InformationData) supplies `DescriptionText`, the abstract `TitleText` / `SoundEventPath`, and an `IsValid()` defaulting to true.
+- Write and query: [CampaignInformationManager](../CampaignInformationManager) — `NewMapNoticeAdded` / `InformationDataExists<T>`, ultimately handing off to `MBInformationManager.AddNotice`.
+- UI mapping: `_itemConstructors.Add(typeof(ArmyDispersionMapNotification), typeof(ArmyDispersionItemVM))` at `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map/MapNotificationVM.cs:111`.
+- Payload: [Army](../Army) and its nested `Army.ArmyDispersionReason` (16 members).
+- Text source: [ArmyDispersionLogEntry](../ArmyDispersionLogEntry).GetEncyclopediaText() supplies the official `DescriptionText`.
+- Sole construction site: [DefaultLogsCampaignBehavior](../DefaultLogsCampaignBehavior).OnArmyDispersed at `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/DefaultLogsCampaignBehavior.cs:100`.
+- Save migration: [ArmyDispersionReasonEnumResolver](../ArmyDispersionReasonEnumResolver) maps `"LowPartySizeRatio"` to `NotEnoughTroop`.
+- Inspect behaviour: the VM's `NavigationHandler?.OpenKingdom(data.DispersedArmy)`, resolving to `MapNavigationExtensions.OpenKingdom(INavigationHandler, Army)` at `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem/MapNavigationExtensions.cs:68`.

@@ -1,51 +1,128 @@
 ---
 title: "AllianceOfferMapNotification"
-description: "Auto-generated class reference for AllianceOfferMapNotification."
+description: "Alliance-offer map notice: a Kingdom plus a TriggerTime (24h by default) after which IsValid turns false; single-clan realms only."
 ---
+
 # AllianceOfferMapNotification
 
-**Namespace:** TaleWorlds.CampaignSystem.MapNotificationTypes
-**Module:** TaleWorlds.CampaignSystem
+**Namespace:** `TaleWorlds.CampaignSystem.MapNotificationTypes`
+**Module:** `TaleWorlds.CampaignSystem`
 **Type:** `public class AllianceOfferMapNotification : InformationData`
 **Base:** `InformationData`
 **File:** `bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/AllianceOfferMapNotification.cs`
 
 ## Overview
 
-`AllianceOfferMapNotification` lives in `TaleWorlds.CampaignSystem.MapNotificationTypes` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`AllianceOfferMapNotification` is the data carrier behind "a kingdom proposes an alliance to you". Structurally minimal: one [Kingdom](../Kingdom) reference (who is offering), one `CampaignTime` (deadline), one text. The real information sits in the **gap between two `if` branches** — the notice is only produced while the player's realm has a single clan; a multi-clan realm never reaches it and instead pushes a decision into `Kingdom.UnresolvedDecisions` for a vote.
+
+It is one of the few notices in this bucket that **expire on their own**: `IsValid() => !TriggerTime.IsPast`, with `TriggerTime` computed in the constructor as `CampaignTime.Now + Campaign.Current.Models.AllianceModel.DurationForOffers`, 24 hours in vanilla (`Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultAllianceModel.cs:117`).
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.CampaignSystem.MapNotificationTypes` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+Read it as **a limited-time offer card that runs its own lifecycle**. Four stages:
 
-## Key Properties
+1. **Who decides to raise it.** `AllianceCampaignBehavior.OnAllianceOfferedToPlayerKingdom` (`Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/AllianceCampaignBehavior.cs:181`):
 
-| Name | Signature |
-|------|-----------|
-| `OfferingKingdom` | `public Kingdom OfferingKingdom { get; }` |
-| `TriggerTime` | `public CampaignTime TriggerTime { get; }` |
+   ```csharp
+   if (Clan.PlayerClan.Kingdom.Clans.Count == 1)
+   {
+       TextObject textObject = new TextObject("{=1V8f9vRM}A courier bearing an alliance offer from the {PROPOSER_KINGDOM} has arrived at the court of your realm.");
+       textObject.SetTextVariable("PROPOSER_KINGDOM", offeringKingdom.InformalName);
+       Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(new AllianceOfferMapNotification(offeringKingdom, textObject));
+   }
+   else
+   {
+       AddAllianceDecision(Clan.PlayerClan.Kingdom, offeringKingdom);
+   }
+   ```
 
-## Key Methods
+   **`Clans.Count == 1` is the gate.** While the player is still in a one-clan realm — a fresh campaign, not in any kingdom, or in a kingdom where they are the only clan — "your realm" means "you", so a direct personal prompt is enough. Once the player joins any multi-clan kingdom the same offer goes through `AddAllianceDecision` into the decision system and **this notice stops appearing**.
 
-### IsValid
-`public override bool IsValid()`
+2. **Write.** `NewMapNoticeAdded` → `AddInformationData` → `MBInformationManager.AddNotice`.
 
-**Purpose:** Determines whether the this instance is in the valid state or condition.
+3. **Lookup.** `_itemConstructors.Add(typeof(AllianceOfferMapNotification), typeof(AllianceOfferNotificationItemVM))` (`Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map/MapNotificationVM.cs:131`). An unregistered type is discarded silently.
+
+4. **Expiry.** `CampaignInformationManager.OnGameLoaded` runs `_mapNotices.RemoveAll(t => t == null || !t.IsValid())` on every load. **This is the dividing line from [ArmyCreationMapNotification](../ArmyCreationMapNotification)**, which does not override `IsValid()` and therefore never expires; this one does, so it gets swept on load.
+
+The mental anchor that matters most is **why the second constructor overload exists**. Besides the normal `(Kingdom, TextObject)`, there is a `(TextObject description)` overload that **sets neither `OfferingKingdom` nor `TriggerTime`** — both stay at type defaults (null and `CampaignTime.Zero`). That is not a mod convenience; it is the **shape the save system deserializes into** when an old save only stored a description. Such an instance has `IsValid()` return false immediately, because `CampaignTime.Zero.IsPast` is true, and is dropped on the next load. **Never use the single-argument overload to raise a notice** — the card you post disappears at the next save/load.
+
+The second anchor is that **`TriggerTime` depends on `Campaign.Current.Models.AllianceModel`**. Line 46 of the constructor dereferences it unconditionally, so constructing before a `Campaign` exists NREs. The single-argument overload does not read it, so the two paths differ in dependency strength.
+
+## Key members
+
+| Member | Signature | What it is for |
+| --- | --- | --- |
+| `OfferingKingdom` | `[SaveableProperty(1)] public Kingdom OfferingKingdom { get; private set; }` | The kingdom making the offer. **Only the `(Kingdom, TextObject)` overload assigns it**; the single-argument overload leaves it null. The VM's button callback feeds it to `AllianceCampaignBehavior.AcceptStartingAlliance`. `AutoGeneratedInstanceCollectObjects` pulls it into the save graph. |
+| `TriggerTime` | `[SaveableProperty(2)] public CampaignTime TriggerTime { get; private set; }` | Expiry moment, `CampaignTime.Now + AllianceModel.DurationForOffers` (24 hours in vanilla). **It is the sole input to `IsValid()`.** Unassigned by the single-argument overload it stays `CampaignTime.Zero`, which is already expired. |
+| `IsValid` | `public override bool IsValid() => !TriggerTime.IsPast` | Overrides the base, which always returns true. Used by `CampaignInformationManager.OnGameLoaded` (line 91) for the load-time sweep. **It is not polled during play** — how long the card sits on the map depends on when the UI layer asks. |
+| `TitleText` | `public override TextObject TitleText => new TextObject("{=kuweQPQz}Alliance Offer")` | The title: hard-coded English plus a key. **A fresh `TextObject` on every access.** |
+| `SoundEventPath` | `public override string SoundEventPath => "event:/ui/notification/peace_offer"` | Audio event name, **shared with [AcceptCallToWarOfferMapNotification](../AcceptCallToWarOfferMapNotification)** — both use `peace_offer`. A missing resource fails silently. |
+| Constructor A | `public AllianceOfferMapNotification(Kingdom offeringKingdom, TextObject descriptionText)` | `: base(descriptionText)` → assigns `OfferingKingdom` → `TriggerTime = CampaignTime.Now + Campaign.Current.Models.AllianceModel.DurationForOffers`. **The only shape suitable for posting a live notice.** |
+| Constructor B | `public AllianceOfferMapNotification(TextObject description)` | Calls `: base(description)` only. **Neither `OfferingKingdom` nor `TriggerTime` is set** — this is the deserialization shape, and using it to post a notice gets the card swept by `IsValid()` at the next load. |
+
+## Examples
+
+The only official construction shape, copied from `AllianceCampaignBehavior.OnAllianceOfferedToPlayerKingdom`:
 
 ```csharp
-// Obtain an instance of AllianceOfferMapNotification from the subsystem API first
-AllianceOfferMapNotification allianceOfferMapNotification = ...;
-var result = allianceOfferMapNotification.IsValid();
+if (Clan.PlayerClan.Kingdom.Clans.Count == 1)
+{
+    TextObject textObject = new TextObject("{=1V8f9vRM}A courier bearing an alliance offer from the {PROPOSER_KINGDOM} has arrived at the court of your realm.");
+    textObject.SetTextVariable("PROPOSER_KINGDOM", offeringKingdom.InformalName);
+    Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(new AllianceOfferMapNotification(offeringKingdom, textObject));
+}
+else
+{
+    AddAllianceDecision(Clan.PlayerClan.Kingdom, offeringKingdom);
+}
 ```
 
-## Usage Example
+Ask whether an offer is still pending. `IsValid()` is public, but the notice list itself is **private**, so `InformationDataExists<T>` is the only sanctioned query:
 
 ```csharp
-// Typically call this after obtaining an instance from the subsystem API
-AllianceOfferMapNotification allianceOfferMapNotification = ...;
-allianceOfferMapNotification.IsValid();
+bool hasOffer = Campaign.Current.CampaignInformationManager.InformationDataExists<AllianceOfferMapNotification>(null);
+Debug.Print("pending alliance offers = " + hasOffer, 0);
+Debug.Print("offer window = " + Campaign.Current.Models.AllianceModel.DurationForOffers.ToString(), 0);
 ```
 
-## See Also
+Post your own alliance offer (find the kingdom through `Kingdom.All` — there is no `GetKingdomByStringId` — and use `HoursFromNow` rather than a non-existent `Add`):
 
-- [Area Index](../)
+```csharp
+Kingdom target = Kingdom.All.Find((Kingdom k) => k.StringId == "empire");
+if (target != null)
+{
+    TextObject note = new TextObject("{=mykey3}{PROPOSER} offers you an alliance.");
+    note.SetTextVariable("PROPOSER", target.InformalName);
+    Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(new AllianceOfferMapNotification(target, note));
+    Debug.Print("expires around " + CampaignTime.HoursFromNow(24f).ToString(), 0);
+}
+```
+
+## Risks and crash boundaries
+
+- **The single-argument overload is a trap.** `AllianceOfferMapNotification(TextObject)` leaves `TriggerTime` at `CampaignTime.Zero`, so `IsValid()` is permanently false. **Posting through it means a card the next load deletes.** Only deserialization should take that path.
+- **The gate is "single-clan player realm".** The notice requires `Clans.Count == 1`; a multi-clan realm goes down the `AddAllianceDecision` voting route. A mod that bypasses the gate is effectively assuming the player's realm can decide unilaterally.
+- **The constructor depends on `Campaign.Current.Models.AllianceModel`.** Line 46 dereferences `Campaign.Current` and `Models` unconditionally. **Constructing during `OnSubModuleLoad` NREs**; the single-argument overload does not read it, and that is the only difference in dependency strength between the two paths.
+- **`IsValid()` is only swept in bulk on load.** `RemoveAll(t => t == null || !t.IsValid())` inside `CampaignInformationManager.OnGameLoaded` (line 91) is the only automatic eviction point. Whether the UI polls it during play is a separate matter — do not assume the card removes itself after 24 hours of unpaused time.
+- **The notice list is private and not enumerable.** `CampaignInformationManager._mapNotices` is a `private List<InformationData>` (line 25); the public surface offers only `NewMapNoticeAdded` (write) and `InformationDataExists<T>` (query). To walk every live notice you must reflect or keep your own ledger.
+- **`OfferingKingdom` can be null.** Only the save shape produces that; the VM's button callback passes it straight into the behavior method, so null-checking is the caller's job.
+- **`DurationForOffers` is a swappable model value.** Replacing `AllianceModel` replaces this type's lifetime; lengthen it by overriding `DurationForOffers`, not by editing this class.
+- **The VM must be registered.** A type missing from `_itemConstructors` is discarded without an error.
+- **Save ids are 1 and 2.** New fields start at 3, and `AutoGeneratedSaveManager`'s `AutoGeneratedGetMemberValueOfferingKingdom` / `...TriggerTime` registrations must be updated alongside.
+- **The sound is shared with the call-to-war offer.** `event:/ui/notification/peace_offer` serves both this type and [AcceptCallToWarOfferMapNotification](../AcceptCallToWarOfferMapNotification) — an audio mod that touches it affects both notices.
+
+## Cross-Version Notes
+
+`bannerlord-1.4.5/Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.MapNotificationTypes/AllianceOfferMapNotification.cs` is 58 lines with 7 public members and `SaveableProperty` ids 1 and 2. The 1.4.6 file of the same name exposes an identical public surface; 1.3.15 has no file of that name.
+
+The default values come from `DefaultAllianceModel` (`Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.GameComponents/DefaultAllianceModel.cs`): `MaxDurationOfAlliance => CampaignTime.Days(84f)` at line 111, `MaxDurationOfWarParticipation => CampaignTime.Days(42f)` at line 113, `MaxNumberOfAlliances => 2` at line 115, and `DurationForOffers => CampaignTime.Hours(24f)` at line 117. **This type's 24-hour expiry comes straight from that last one.**
+
+## Dependencies
+
+- Base: [InformationData](../../core-extra/InformationData) supplies `DescriptionText` (`[SaveableField(2)]`), the abstract `TitleText` / `SoundEventPath`, and an `IsValid()` that always returns true.
+- Duration source: [AllianceModel](../AllianceModel).DurationForOffers; the official implementation [DefaultAllianceModel](../DefaultAllianceModel) line 117 gives `CampaignTime.Hours(24f)`.
+- Sole construction site: [AllianceCampaignBehavior](../AllianceCampaignBehavior).OnAllianceOfferedToPlayerKingdom at `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.CampaignBehaviors/AllianceCampaignBehavior.cs:181`.
+- Payload: [Kingdom](../Kingdom), plus `Clan.PlayerClan.Kingdom.Clans.Count` as the admission test.
+- Write and eviction: [CampaignInformationManager](../CampaignInformationManager) — `NewMapNoticeAdded`, and `OnGameLoaded`'s `RemoveAll(t => t == null || !t.IsValid())`.
+- UI mapping: `_itemConstructors.Add(typeof(AllianceOfferMapNotification), typeof(AllianceOfferNotificationItemVM))` at `Bannerlord.Source/bin/TaleWorlds.CampaignSystem.ViewModelCollection/TaleWorlds.CampaignSystem.ViewModelCollection.Map/MapNotificationVM.cs:131`.
+- Decision-side alternative: the [KingdomDecision](../KingdomDecision) produced by `AddAllianceDecision`; accepting it calls `AllianceCampaignBehavior.AcceptStartingAlliance`.

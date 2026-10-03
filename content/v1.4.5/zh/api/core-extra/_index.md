@@ -42,6 +42,10 @@ description: Core / Library 相关扩展类参考目录
 - [API 参考](../)
 - [版本首页](../../)
 
+## 区域索引 / Area Hubs
+
+- [Core、Library、Engine 平台长尾](./platform-tail/) — 托管 Core、Library、Engine 类型、运行时包装器与原生边界的源码依据与使用边界。
+
 ## ↓ 子类列表 — 按字母分组
 
 ### A

@@ -1,402 +1,189 @@
 ---
 title: "Vec3"
-description: "Vec3 的自动生成类参考。"
+description: "引擎的三维向量 struct：x/y/z 参与全部数学运算，第四个分量 w 默认 -1f 表示「未设置」且被 DotProduct/Length/Normalize 完全忽略；ToARGB 把它映射成 alpha，Parse 从 XML 属性读回。"
 ---
+
 # Vec3
 
-**Namespace:** TaleWorlds.Library
-**Module:** TaleWorlds.Library
+**Namespace:** `TaleWorlds.Library`
+**Module:** `TaleWorlds.Library`
 **Type:** `public struct Vec3`
-**Base:** 无
-**File:** `TaleWorlds.Library/Vec3.cs`
+**Base:** 无（`System.ValueType`；不实现任何接口）
+**File:** `TaleWorlds.Library/Vec3.cs`（全文 749 行 / 20150 字节；文件尾部还嵌套了一个 `public struct StackArray8Vec3`）
 
 ## 概述
 
-`Vec3` 位于 `TaleWorlds.Library`，它通过这组公开成员把对应子系统的状态、行为或流程入口暴露给 mod 开发者。阅读时先看属性代表“它持有什么状态”，再看方法代表“它允许你做什么”。
+`Vec3` 是引擎全部三维运算的载体：`Agent.Position`、`MatrixFrame.origin`、`AgentLookDirection`、`Settlement` 的空间位置、物品 XML 里的位置偏移，都是它。源码 749 行里 public 成员超过 70 个，是本桶里最大的单个类型。
+
+它最反直觉的设计是**第四个分量 `w`**。四个构造函数全部把 `w` 默认成 `-1f`，只有六个地方读它：
+
+```
+this.w = w;                    ← 4 个构造函数
+case 3: return this.w;         ← 索引器
+case 3: this.w = value;        ← 索引器 setter
+... this.w && ...              ← IsValidXYZW
+uint a = (uint)(this.w * 256f) ← ToARGB
+```
+
+**`DotProduct`、`Length`、`Normalize`、`Distance`、`CrossProduct`、`Lerp`、`Equals`、`GetHashCode` 一个都不碰 `w`。** 所以心智模型是：**`Vec3` 是一个三维向量，外加一个跟数学运算无关的第四个槽位，`-1f` 是「这个槽位没值」的哨兵。** 那第六个读取点 `ToARGB` 是唯一把它当数据用的地方（映射成 alpha 通道）。
 
 ## 心智模型
 
-先从命名空间 `TaleWorlds.Library` 判断它属于哪层系统，再看公开方法：如果以 Get/Set 为主，它多半是状态对象；如果以 Create/Apply/Execute 为主，它更像服务或流程入口。
+四组成员，覆盖了「方向 / 距离 / 旋转 / 数据往返」四类需求。
 
-## 主要属性
+**第一组：静态几何运算。** `DotProduct` / `CrossProduct` / `Vec3Max` / `Vec3Min` / `Abs` / `ElementWiseProduct` / `ElementWiseDivision`。名字要注意两个不对称：min/max 的静态方法叫 **`Vec3Max` / `Vec3Min`**（带类型前缀），而 `Vec2` 上叫 `Max` / `Min`；而 `CrossProduct` 存在**三个**入口——静态 `Vec3.CrossProduct(va, vb)`、实例 `vec.CrossProductWithUp()`（固定拿 `Up` 叉乘）、以及 `MBMath` 里的几何函数。`ElementWiseProduct` 是逐分量乘（不是张量积），沙盒里用来算逐轴的伤害或速度缩放。
 
-| Name | Signature |
-|------|-----------|
-| `X` | `public float X { get; }` |
-| `Y` | `public float Y { get; }` |
-| `Z` | `public float Z { get; }` |
-| `this` | `public float this { get; }` |
-| `Length` | `public float Length { get; }` |
-| `LengthSquared` | `public float LengthSquared { get; }` |
-| `IsValid` | `public bool IsValid { get; }` |
-| `IsValidXYZW` | `public bool IsValidXYZW { get; }` |
-| `IsUnit` | `public bool IsUnit { get; }` |
-| `IsNonZero` | `public bool IsNonZero { get; }` |
-| `AsVec2` | `public Vec2 AsVec2 { get; set; }` |
-| `ToARGB` | `public uint ToARGB { get; }` |
-| `RotationZ` | `public float RotationZ { get; }` |
-| `RotationX` | `public float RotationX { get; }` |
-| `this` | `public Vec3 this { get; }` |
+**第二组：实例变换（部分就地、部分返回新值）。** 这一组是最容易写错的地方，因为**命名约定不一致**：
 
-## 主要方法
+- `Normalize()` / `ClampMagnitude(min, max)` / `RotateAboutX(a)` / `RotateAboutY(a)` / `RotateAboutZ(a)` / `NormalizeWithoutChangingZ()` —— **就地修改 `this`，返回 `void` 或原长度**
+- `NormalizedCopy()` / `ClampedCopy(min, max)` / `ClampedCopy(min, max, out bool valueClamped)` / `RotateVectorToXYPlane()` / `Reflect(normal)` / `ProjectOnUnitVector(ov)` / `RotateAboutAnArbitraryVector(vec, a)` —— **返回新向量，`this` 不变**
 
-### Abs
-`public static Vec3 Abs(Vec3 vec)`
+`Normalized()` 在 [Vec2](../Vec2) 上存在，但 `Vec3` 上**没有**，只有 `NormalizedCopy()`。从 `Vec2` 迁过来会编译失败。
 
-**用途 / Purpose:** 调用 Abs 对应的操作。
+**第三组：`ClampMagnitude` 与 `ClampedCopy` 名字像、行为完全不同。** `ClampMagnitude(min, max)` 限制的是**向量长度**：`float value = this.Normalize(); this *= MathF.Clamp(value, min, max);`——先归一化再乘回，所以长度被压进区间、方向保留。`ClampedCopy(min, max)` 限制的是**每个分量**：`vec.x = MathF.Clamp(vec.x, min, max); vec.y = ...; vec.z = ...;`——三个轴各自独立夹取，总长度可能超过 `max`。带 `out bool valueClamped` 的重载会在任何分量被夹过时置 `true`。**这两个函数没有互换关系。**
 
-```csharp
-// 静态调用，不需要实例
-Vec3.Abs(vec);
-```
+**第四组：旋转角与序列化。** `RotationZ` 是 `MathF.Atan2(-this.x, this.y)`——**和 `Vec2.RotationInRadians` 完全一样的约定**（零度 +Y、顺时针为正）。`RotationX` 是 `MathF.Atan2(this.z, MathF.Sqrt(this.x * this.x + this.y * this.y))`。三者转动：`RotateAboutX/Y/Z` 就地，`RotateAboutAnArbitraryVector(vec, a)` 绕任意轴返回新向量（内部是罗德里格斯旋转公式展开成 27 项乘加，不调 `Quaternion`）。`Vec3.Parse(string)` 是 XML 数据读回的唯一入口——先 `input.Replace(" ", "")` 再按 `,` 切分，**段数必须 3 或 4，否则 `throw new ArgumentOutOfRangeException()`**。
 
-### Vector3
-`public static explicit operator Vector3(Vec3 vec3)`
+## 关键成员
 
-**用途 / Purpose:** 调用 Vector3 对应的操作。
+| 成员 | 签名 | 这个成员是做什么用的 |
+| --- | --- | --- |
+| `x` / `y` / `z` / `w` | `public float x;` `public float y;` `public float z;` `public float w;` | **public 字段**。`w` 默认 `-1f`。XML 序列化器与 `Parse` 依赖字段直写 |
+| `X` / `Y` / `Z` / `W` | `public float X { get; set; }` 等四个 | 大写属性别名，与字段同一份存储。两种写法在树里混用 |
+| 构造函数 ×4 | `Vec3(float x = 0f, float y = 0f, float z = 0f, float w = -1f)` / `Vec3(Vec3 c, float w = -1f)` / `Vec3(Vec2 xy, float z = 0f, float w = -1f)` / `Vec3(Vector3 vector3)` | 全部把 `w` 默认成 `-1f`。第三个是 `Vec2` → `Vec3` 的升维路径，第四个从 `UnityEngine.Vector3` 转入 |
+| 索引器 | `public float this[int i]`（可读可写） | `0..3` 映射到 `x/y/z/w`，**其它任何值 `throw new IndexOutOfRangeException("Vec3 out of bounds.")`**。给循环用；`indexer[i]` 传 4 会炸 |
+| `AsVec2` | `public Vec2 AsVec2 { get; set; }` | **property，且有 setter**。getter 返回 `new Vec2(this.x, this.y)`；setter 只写 `x`/`y`，**不动 `z`**。所以 `frame.rotation.f.AsVec2 = Vec2.FromRotation(r)` 合法，但 `z` 保持原值 |
+| `ToString` / `ToString(format)` | `public override string ToString()` / `public string ToString(string format)` | 无参版输出 `(x, y, z)`——**不含 `w`**。带 format 版逐分量 `ToString(format)`，是 `MBMath` 之外的日志格式化入口 |
+| `Parse` | `public static Vec3 Parse(string input)` | 读 XML 属性。去掉所有空格 → 按 `,` 切 → 段数 3 或 4，否则 `ArgumentOutOfRangeException`。4 段时 `array[3]` 才是 `w`，3 段时 `w = -1f` |
+| `Length` / `LengthSquared` | `public float Length { get; }` / `public float LengthSquared { get; }` | 属性。开方 / 不开方 |
+| `IsValid` / `IsValidXYZW` | `public bool IsValid { get; }` / `public bool IsValidXYZW { get; }` | **两个属性**。`IsValid` 查 `x/y/z`，`IsValidXYZW` **多查一个 `w`**。`Vec3.Invalid` 是全 NaN，所以两个都是 `false` |
+| `IsUnit` / `IsNonZero` | `public bool IsUnit { get; }` / `public bool IsNonZero { get; }` | **是属性**（`Vec2` 上同名成员是方法）。`IsUnit` 判 `LengthSquared` 在 `0.98010004f..1.0201f`（等价长度 `0.99..1.01`） |
+| `Normalize` | `public float Normalize()` | 就地归一化，返回**原长度**。长度 ≤ `1E-05f` 时三个分量全置 0（`Vec2` 在同样条件下退化成 `(0, 1)`，两者行为不同） |
+| `NormalizedCopy` | `public Vec3 NormalizedCopy()` | `Vec3 result = this; result.Normalize(); return result;`。**`Vec2` 上叫 `Normalized()`，`Vec3` 上没有 `Normalized()`** |
+| `ClampMagnitude` | `public void ClampMagnitude(float min, float max)` | 夹**长度**（先归一再乘回），就地修改 |
+| `ClampedCopy` ×2 | `public Vec3 ClampedCopy(float min, float max)` / `public Vec3 ClampedCopy(float min, float max, out bool valueClamped)` | 夹**每个分量**，返回新向量。`out` 版告诉你是否真的夹过 |
+| `NormalizeWithoutChangingZ` | `public void NormalizeWithoutChangingZ()` | 只把 `x`/`y` 归一化到 `sqrt(1 - z²)`，用于「方向 + 俯仰」的分解表示。`z` 先被 `ClampFloat(z, -0.99999f, 0.99999f)` |
+| `CrossProduct`（静态） | `public static Vec3 CrossProduct(Vec3 va, Vec3 vb)` | 叉积 |
+| `CrossProductWithUp` | `public Vec3 CrossProductWithUp()` | `new Vec3(this.y, -this.x, 0f, -1f)`——等价于 `CrossProduct(Up, this)`，返回新值 |
+| `Vec3Max` / `Vec3Min` | `public static Vec3 Vec3Max(Vec3 v1, Vec3 v2)` / `Vec3Min` | 逐分量取大/取小。**名字带类型前缀**（`Vec2` 上是 `Max`/`Min`） |
+| `DotProduct` | `public static float DotProduct(Vec3 v1, Vec3 v2)` | 点积，忽略 `w` |
+| `Lerp` / `Slerp` | `public static Vec3 Lerp(Vec3 v1, Vec3 v2, float alpha)` / `Slerp(Vec3 start, Vec3 end, float percent)` | 线性/球面插值。两者都**丢掉 `w`**（结果是 `new Vec3(..., -1f)`） |
+| `Distance` / `DistanceSquared` | `public float Distance(Vec3 v)` / `DistanceSquared(Vec3 v)` | 实例方法。比较远近用平方版 |
+| `AngleBetweenTwoVectors` | `public static float AngleBetweenTwoVectors(Vec3 v1, Vec3 v2)` | `Acos(Clamp(dot / (len1*len2), -1, 1))`。**每次调用开两次方** |
+| `RotateAboutX/Y/Z` | `public void RotateAboutX(float a)` 等三个 | **就地**绕世界轴旋转，内部 `MathF.SinCos` |
+| `RotateAboutAnArbitraryVector` | `public Vec3 RotateAboutAnArbitraryVector(Vec3 vec, float a)` | 绕任意轴 `vec` 旋转 `a` 弧度，返回新向量。**`this` 不变**。轴不做归一化（公式自带轴长平方补偿） |
+| `RotateVectorToXYPlane` | `public Vec3 RotateVectorToXYPlane()` | 保留长度、压平到 XY 平面（`z = 0` 后归一化再乘回原长度） |
+| `Reflect` / `ProjectOnUnitVector` | `public Vec3 Reflect(Vec3 normal)` / `ProjectOnUnitVector(Vec3 ov)` | 镜面反射 / 投影。`Reflect` 是 `this - normal * (2f * DotProduct(this, normal))` |
+| `ToARGB` | `public uint ToARGB { get; }` | **唯一的 `w` 消费点**。映射是 `x→R`、`y→G`、`z→B`、`w→A`，每个分量 `× 256f` 后 `MathF.Min(_, 255U)` 移位拼装 |
+| `RotationZ` / `RotationX` | `public float RotationZ { get; }` / `public float RotationX { get; }` | `RotationZ` 是 `Atan2(-x, y)`，与 `Vec2.RotationInRadians` 同约定；`RotationX` 是 `Atan2(z, sqrt(x²+y²))` |
+| `Abs` / `ElementWiseProduct` / `ElementWiseDivision` | 三个静态方法 | 逐分量运算，不是整体缩放 |
+| `explicit operator Vector3` | `public static explicit operator Vector3(Vec3 vec3)` | 交给 Unity 渲染层，**显式**转换 |
+| 静态常量 ×6 | `Side` `(1,0,0,-1)` / `Forward` `(0,1,0,-1)` / `Up` `(0,0,1,-1)` / `One` / `Zero` / `Invalid` | 全 `static readonly`。**`Forward` 是 `(0,1,0)` 不是 `(1,0,0)`**——Y 轴朝前。`Invalid` 是 `(NaN,NaN,NaN,-1f)` |
+| 运算符 ×10 | `==` `!=` `+` `-`（两个）`*(Vec3,float)` `*(float,Vec3)` `*(Vec3,MatrixFrame)` `/(Vec3,float)` | **没有 `operator /(float, Vec3)`**（`Vec2` 上有）。`*(Vec3, MatrixFrame)` 是矩阵乘法 |
+| `StackArray8Vec3` | `public struct StackArray8Vec3`（**嵌套在 `Vec3` 内**，`Vec3.cs:656`） | 8 个 `Vec3` 的值类型栈数组，索引器 `0..7`，`public const int Length = 8`。**树里只有这一个声明**，`grep -rn "struct StackArray8Vec3" bannerlord-1.3.0/` 命中 1 处，所以完整类型名是 `TaleWorlds.Library.Vec3.StackArray8Vec3` |
 
-```csharp
-// 静态调用，不需要实例
-Vec3.Vector3(vec3);
-```
+## 真实示例
 
-### DotProduct
-`public static float DotProduct(Vec3 v1, Vec3 v2)`
-
-**用途 / Purpose:** 调用 DotProduct 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Vec3.DotProduct(v1, v2);
-```
-
-### Lerp
-`public static Vec3 Lerp(Vec3 v1, Vec3 v2, float alpha)`
-
-**用途 / Purpose:** 调用 Lerp 对应的操作。
+三维向量加权的地图轨迹颜色，逐字照抄自 `TaleWorlds.CampaignSystem/GameComponents/DefaultMapTrackModel.cs:195-231`：
 
 ```csharp
-// 静态调用，不需要实例
-Vec3.Lerp(v1, v2, 0);
+public override uint GetTrackColor(Track track)
+{
+    if (track.IsPointer)
+    {
+        return new Vec3(1f, 1f, 1f, -1f).ToARGB;
+    }
+    Vec3 fresh = new Vec3(0.6f, 0.95f, 0.2f, -1f);
+    Vec3 aging = new Vec3(0.45f, 0.55f, 0.2f, -1f);
+    Vec3 old = new Vec3(0.15f, 0.25f, 0.4f, -1f);
+    Vec3 color = Vec3.Zero;
+    float life = MathF.Min(track.CreationTime.ElapsedHoursUntilNow / Campaign.Current.Models.MapTrackModel.MaxTrackLife, 1f);
+    if (life < 0.35f)
+    {
+        color = (life / 0.35f) * aging + (1f - (life / 0.35f)) * fresh;
+    }
+    else
+    {
+        float t = (life - 0.35f) / 0.65f;
+        color = t * old + (1f - t) * aging;
+    }
+    return color.ToARGB;
+}
 ```
 
-### Slerp
-`public static Vec3 Slerp(Vec3 start, Vec3 end, float percent)`
+这段代码把三件事讲完了：**①** 全程显式传 `w = -1f`——作者清楚 `w` 不参与 `+`/`*`/`ToARGB` 的 RGB 通道，只消费前三个分量。**②** `Vec3` 的线性组合 `t * old + (1f - t) * aging` 就是逐分量的 `Vec3.Lerp`。**③** 全程不碰 `w`，说明 `ToARGB` 的 alpha 字节在这里不是有效值（`w = -1f` 时 `w * 256f` 是负数，`(uint)` 转换负浮点在 C# 规范里是未指定行为）。**想让 alpha 有效就必须显式给 `w` 一个 `[0, 1]` 区间内的值**，例如 `new Vec3(1f, 0.5f, 0f, 0.5f).ToARGB`。
 
-**用途 / Purpose:** 调用 Slerp 对应的操作。
+从 XML 属性读位置偏移（`TaleWorlds.Core/ItemObject.cs:696` 与 `WeaponComponentData.cs:517` 的形状）：
 
 ```csharp
-// 静态调用，不需要实例
-Vec3.Slerp(start, end, 0);
+XmlAttribute centerOfMassNode = node.Attributes["center_of_mass"];
+this.CenterOfMass3D = (centerOfMassNode != null) ? Vec3.Parse(centerOfMassNode.Value) : Vec3.Zero;
+
+XmlAttribute holsterNode = node.Attributes["holster_position_shift"];
+this.HolsterPositionShift = (holsterNode != null) ? Vec3.Parse(holsterNode.Value) : Vec3.Zero;
 ```
 
-### Vec3Max
-`public static Vec3 Vec3Max(Vec3 v1, Vec3 v2)`
+`Vec3.Parse` 的段数要求（3 或 4，否则抛 `ArgumentOutOfRangeException`）是这条路径的真实约束——XML 里写成 `"1,2"` 或 `"1,2,3,4,5"` 会在加载期抛异常。缺省时用 `Vec3.Zero` 兜底，这正是官方一律写三元表达式而不是 `Parse` 直接调的原因。
 
-**用途 / Purpose:** 调用 Vec3Max 对应的操作。
+用 `Vec3.Invalid` 做「还没有值」的哨兵（逐字照抄自 `SandBox/Missions/MissionLogics/MissionAlleyHandler.cs:129` 的判定形状）：
 
 ```csharp
-// 静态调用，不需要实例
-Vec3.Vec3Max(v1, v2);
+private static Vec3 _fightPosition = Vec3.Invalid;
+
+public void OnTick()
+{
+    if (MissionAlleyHandler._fightPosition != Vec3.Invalid && (Agent.Main.Position - MissionAlleyHandler._fightPosition).Length >= 20f)
+    {
+        this.EndFight();
+    }
+}
 ```
 
-### Vec3Min
-`public static Vec3 Vec3Min(Vec3 v1, Vec3 v2)`
+`Vec3.Invalid` 是 `static readonly` 的 NaN 向量。`!=` 走 `operator !=` → `!(a == b)` → `x == x && y == y && z == z`，**NaN != NaN 所以永远返回 `true`**，这正是这个哨兵能工作的原因。但这个判据只在两边都是同一个 `Vec3.Invalid` 时成立——**不要改成 `if (!pos.IsValid)`**，因为 `IsValid` 对 `Vec3.Zero` 也返回 `true`。
 
-**用途 / Purpose:** 调用 Vec3Min 对应的操作。
+单位向量与朝向（`TaleWorlds.MountAndBlade.View` 的相机代码形状）：
 
 ```csharp
-// 静态调用，不需要实例
-Vec3.Vec3Min(v1, v2);
+this.CameraBearing = matrixFrame2.rotation.f.RotationZ;
+Vec3 facing = new Vec3(-MathF.Sin(bearing), MathF.Cos(bearing), 0f);
+Vec3 right = Vec3.CrossProduct(Vec3.Up, facing);
+Vec3 pos = origin + facing * 10f + right * 2f + Vec3.Up * 5f;
 ```
 
-### CrossProduct
-`public static Vec3 CrossProduct(Vec3 va, Vec3 vb)`
-
-**用途 / Purpose:** 调用 CrossProduct 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Vec3.CrossProduct(va, vb);
-```
-
-### ElementWiseProduct
-`public static Vec3 ElementWiseProduct(Vec3 va, Vec3 vb)`
-
-**用途 / Purpose:** 调用 ElementWiseProduct 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Vec3.ElementWiseProduct(va, vb);
-```
-
-### ElementWiseDivision
-`public static Vec3 ElementWiseDivision(Vec3 va, Vec3 vb)`
-
-**用途 / Purpose:** 调用 ElementWiseDivision 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Vec3.ElementWiseDivision(va, vb);
-```
-
-### Equals
-`public override bool Equals(object obj)`
-
-**用途 / Purpose:** 比较当前对象与传入实例是否相等。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.Equals(obj);
-```
-
-### GetHashCode
-`public override int GetHashCode()`
-
-**用途 / Purpose:** 返回当前对象的哈希码，用于字典或哈希集合中的快速查找。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.GetHashCode();
-```
-
-### NormalizedCopy
-`public Vec3 NormalizedCopy()`
-
-**用途 / Purpose:** 将d copy规范化到标准形式或范围内。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.NormalizedCopy();
-```
-
-### Normalize
-`public float Normalize()`
-
-**用途 / Purpose:** 将当前对象规范化为标准形式或范围。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.Normalize();
-```
-
-### ClampMagnitude
-`public void ClampMagnitude(float min, float max)`
-
-**用途 / Purpose:** 调用 ClampMagnitude 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-vec3.ClampMagnitude(0, 0);
-```
-
-### ClampedCopy
-`public Vec3 ClampedCopy(float min, float max)`
-
-**用途 / Purpose:** 调用 ClampedCopy 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.ClampedCopy(0, 0);
-```
-
-### ClampedCopy
-`public Vec3 ClampedCopy(float min, float max, out bool valueClamped)`
-
-**用途 / Purpose:** 调用 ClampedCopy 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.ClampedCopy(0, 0, valueClamped);
-```
-
-### NormalizeWithoutChangingZ
-`public void NormalizeWithoutChangingZ()`
-
-**用途 / Purpose:** 将without changing z规范化到标准形式或范围内。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-vec3.NormalizeWithoutChangingZ();
-```
-
-### CrossProductWithUp
-`public Vec3 CrossProductWithUp()`
-
-**用途 / Purpose:** 调用 CrossProductWithUp 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.CrossProductWithUp();
-```
-
-### NearlyEquals
-`public bool NearlyEquals(in Vec3 v, float epsilon = 1E-05f)`
-
-**用途 / Purpose:** 调用 NearlyEquals 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.NearlyEquals(v, 0);
-```
-
-### RotateAboutX
-`public void RotateAboutX(float a)`
-
-**用途 / Purpose:** 调用 RotateAboutX 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-vec3.RotateAboutX(0);
-```
-
-### RotateAboutY
-`public void RotateAboutY(float a)`
-
-**用途 / Purpose:** 调用 RotateAboutY 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-vec3.RotateAboutY(0);
-```
-
-### RotateAboutZ
-`public void RotateAboutZ(float a)`
-
-**用途 / Purpose:** 调用 RotateAboutZ 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-vec3.RotateAboutZ(0);
-```
-
-### RotateAboutAnArbitraryVector
-`public Vec3 RotateAboutAnArbitraryVector(Vec3 vec, float a)`
-
-**用途 / Purpose:** 调用 RotateAboutAnArbitraryVector 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.RotateAboutAnArbitraryVector(vec, 0);
-```
-
-### Reflect
-`public Vec3 Reflect(Vec3 normal)`
-
-**用途 / Purpose:** 调用 Reflect 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.Reflect(normal);
-```
-
-### ProjectOnUnitVector
-`public Vec3 ProjectOnUnitVector(Vec3 ov)`
-
-**用途 / Purpose:** 调用 ProjectOnUnitVector 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.ProjectOnUnitVector(ov);
-```
-
-### DistanceSquared
-`public float DistanceSquared(Vec3 v)`
-
-**用途 / Purpose:** 调用 DistanceSquared 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.DistanceSquared(v);
-```
-
-### Distance
-`public float Distance(Vec3 v)`
-
-**用途 / Purpose:** 调用 Distance 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.Distance(v);
-```
-
-### RotateVectorToXYPlane
-`public Vec3 RotateVectorToXYPlane()`
-
-**用途 / Purpose:** 调用 RotateVectorToXYPlane 对应的操作。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.RotateVectorToXYPlane();
-```
-
-### AngleBetweenTwoVectors
-`public static float AngleBetweenTwoVectors(Vec3 v1, Vec3 v2)`
-
-**用途 / Purpose:** 调用 AngleBetweenTwoVectors 对应的操作。
-
-```csharp
-// 静态调用，不需要实例
-Vec3.AngleBetweenTwoVectors(v1, v2);
-```
-
-### ToString
-`public override string ToString()`
-
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.ToString();
-```
-
-### ToString
-`public string ToString(string format)`
-
-**用途 / Purpose:** 返回当前对象的人类可读字符串表示。
-
-```csharp
-// 先通过子系统 API 拿到 Vec3 实例
-Vec3 vec3 = ...;
-var result = vec3.ToString("example");
-```
-
-### Parse
-`public static Vec3 Parse(string input)`
-
-**用途 / Purpose:** 将外部输入解析为当前系统可识别的parse。
-
-```csharp
-// 静态调用，不需要实例
-Vec3.Parse("example");
-```
-
-## 使用示例
-
-```csharp
-Vec3.Abs(vec);
-```
-
-## 参见
-
-- [本区域目录](../)
+`Vec3.Up` 是 `(0,0,1)`，`Vec3.Forward` 是 `(0,1,0)`——**Z 轴朝上、Y 轴朝前**，这是引擎的坐标约定。`RotationZ` 与 `Vec2.RotationInRadians` 同一套角度制，所以 `f.RotationZ` 可以直接喂给 `FromRotation` 类的逻辑。
+
+## 风险与边界
+
+- **`w` 被几乎所有数学运算忽略，包括 `Equals` 和 `GetHashCode`。** `Equals` 是 `((Vec3)obj).x == this.x && ((Vec3)obj).y == this.y && ((Vec3)obj).z == this.z`——**没有 `w`**。`GetHashCode` 是 `(int)(1001f * x + 10039f * y + 117f * z)`，也没有。所以 `new Vec3(1f, 2f, 3f, 0f) == new Vec3(1f, 2f, 3f, -1f)` 是 `true`。这在「`w` 只是临时槽位」的语义下是对的，但如果你指望用 `w` 区分两个向量，**用 `==` / `Equals` / `Dictionary` 都区分不出来**。
+- **`GetHashCode` 是极弱的线性哈希。** `1001f * x + 10039f * y + 117f * z` 强转 `int`。系数差异巨大但远小于坐标量级，密集坐标下碰撞极常见。**不要把 `Vec3` 作为 `Dictionary` 的键**——`GameModel` 那些不涉及哈希所以没事，但一旦 `new MBReadOnlyList<T>` 之类的容器换成基于哈希的实现就会出问题。用 `[Vec3i](../Vec3i)` 这种整数向量当键。
+- **`ToARGB` 里 `(uint)(负浮点)` 是未指定行为。** 默认 `w = -1f` 时 `w * 256f = -256f`，C# 规范不定义这个转换的结果。官方 `DefaultMapTrackModel` 全程传 `-1f` 并且只用 RGB，说明渲染端不吃 alpha 字节。**你自己要用 alpha 就显式传 `w`。**
+- **`ClampMagnitude` 和 `ClampedCopy` 不是一回事。** 前者夹长度、就地；后者夹每个分量、返回新值。混用会让「最大半径 10」的约束实际变成「每个轴最大 10」（半径可达 17.3）。
+- **就地 vs 返回新值靠命名分辨，且命名不统一。** `Normalize`/`ClampMagnitude`/`RotateAboutX`/`NormalizeWithoutChangingZ` 就地；`NormalizedCopy`/`ClampedCopy`/`RotateVectorToXYPlane`/`RotateAboutAnArbitraryVector` 返回新值。写 `myVec.RotateAboutZ(a)` 时 `a` 是弧度不是度。
+- **`Vec3` 上没有 `Normalized()`。** `Vec2.Normalized()` 在本类型对应的是 `NormalizedCopy()`。而 `Vec3` 上**有 `Normalize()`**——只差一个 `d`。两个类型各写各的，从 `Vec2` 复制代码过来几乎必然编译错。
+- **`IsUnit` / `IsNonZero` 在 `Vec3` 上是属性，`Vec2` 上是方法。** `Vec3.IsUnit` 判的是 `LengthSquared` 在 `0.98010004f..1.0201f`，`Vec2.IsUnit()` 判的是 `Length` 在 `0.95..1.05`——容差宽了十倍。
+- **`Normalize` 对零向量的退化行为与 `Vec2` 不同。** `Vec3` 在长度 ≤ `1E-05f` 时把 `x/y/z` 全置 0（得到零向量）；`Vec2` 在同样条件下得到 `(0, 1)`。混用两个类型的「归一化零向量」会得到不一致的方向。
+- **索引器越界抛 `IndexOutOfRangeException`，不是返回 0。** `this[3]` 是 `w`，`this[4]` 直接抛。这是唯一能读 `w` 的公开途径。
+- **`AsVec2` 的 setter 不动 `z`。** `frame.rotation.f.AsVec2 = someVec2` 之后 `z` 保留原值。如果那个 `z` 之前是脏的，你会得到一个方向和俯仰不自洽的向量。规范做法是写完整 `Vec3`。
+- **没有 `operator /(float, Vec3)`。** `Vec2` 上两个方向都有（`/(float, Vec2)` 和 `/(Vec2, float)`），`Vec3` 只有 `/(Vec3, float)`。写 `2f / vec3` 编译失败。
+- **`AngleBetweenTwoVectors` 每次调用两次 `MathF.Sqrt` 加一次 `Acos`。** 在每帧的 AI 判定循环里代价明显。能用点积阈值代替就用 `Vec3.DotProduct(a, b) > cos(maxAngle) * a.Length * b.Length`，或者先用 `LengthSquared` 比较排除绝大多数远距离目标。
+- **`StackArray8Vec3` 是嵌套类型，完整名要带外层。** 它只声明在 `Vec3.cs` 内部（`TaleWorlds.Library.Vec3.StackArray8Vec3`），全树唯一一处。写 `using TaleWorlds.Library;` 后直接写 `StackArray8Vec3` **解析不到**——必须写 `Vec3.StackArray8Vec3`，或者在 `using` 里额外引入嵌套命名空间。这是本类型唯一一处「看起来像顶层类型其实不是」的声明。
+- **没有 `IEquatable<Vec3>`。** 对比 [Vec2i](../Vec2i)（实现了 `IEquatable<Vec2i>`）和 [Vec3i](../Vec3i)，整数版本做了接口，整数化更高效。`Vec3` 走 `object.Equals` 会有装箱。
+
+## 跨版本提示
+
+`Vec3.cs` 在 1.3.0 是 20150 字节，1.3.15 起到 1.5.3 都是 **20305 字节**。差的 155 字节是一个**真实的新增成员**：`public Vec3 CrossProductWithUpAsLeftParameter()`，实现是 `return new Vec3(-this.y, this.x, 0f, -1f);`。它是 `CrossProductWithUp()`（返回 `(y, -x, 0)`）的**手性相反版本**——原版是 `Cross(Up, this)`，新版是 `Cross(this, Up)`。1.3.0 里没有这个成员，1.3.15 起才有。
+
+其余成员跨 1.3 → 1.5 逐条等价：`Parse` 的 3/4 段校验、`ToARGB` 的 `× 256f` + `MathF.Min(255U)` 拼装、`IsUnit` 的容差、`Equals`/`GetHashCode` 忽略 `w`、六个静态常量的值、十个运算符，全部没动。`w` 默认 `-1f` 的约定也没变。
+
+所以升级风险点很具体：**如果你在 1.3.0 上写了 `CrossProductWithUp()`，在 1.3.15+ 会有一个同名概念的兄弟成员 `CrossProductWithUpAsLeftParameter()` 可用，但旧的那个不会消失、不会改语义。** 反过来，跨版本移植 1.4+ 的代码到 1.3.0 时，那个方法会找不到——这是本类唯一一处真实的成员增删。
+
+## 依赖关系
+
+- 二维对应：[Vec2](../Vec2) 与本类**无继承关系**，但 `Distance`/`Length`/`Lerp`/`Slerp`/`NearlyEquals` 同名。降维是本类的 `AsVec2` 属性（有 setter），升维是 `Vec2.ToVec3(float z = 0f)`
+- 整数对应：[Vec3i](../Vec3i) 用于网格与索引，实现了 `IEquatable<Vec3i>`
+- 坐标系承载：[MatrixFrame](../MatrixFrame) 的 `origin` / `rotation`（含 `f`/`s`/`u` 三个 `Vec3`）是本类型最主要的容器；`operator *(Vec3, MatrixFrame)` 是唯一的矩阵乘法入口
+- 数学库：[MBMath](../MBMath) 提供带 `minimumDifference` 的 `Lerp` 重载、`HSBtoRGB`/`RGBtoHSB`/`GammaCorrectRGB`、`GetRayPlaneIntersectionPoint`、`IntersectLineSegmentWithTriangle`、`IntersectLineSegmentWithBoundingBox`——这些是本类型在引擎里被真正使用的高阶运算
+- 四元数方向：任意轴旋转也可以走 [Quaternion](../Quaternion)，但本类自带 `RotateAboutAnArbitraryVector` 无需绕路
+- 颜色侧：[Color](../Color) 的 `FromVector3(Vec3)` / `ToVec3()` 与本类型互转，但注意 `Color` 也有自己的 RGBA 四分量语义，两套不要混
+- 数据读回：`CraftingTemplate`、`ItemObject`、`WeaponComponentData`、`ShipPhysicsReference` 的 XML 加载全部走 `Vec3.Parse`
+- 桶首页：[core-extra API 分区](../)

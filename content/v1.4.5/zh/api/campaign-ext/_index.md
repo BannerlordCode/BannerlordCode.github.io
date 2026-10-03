@@ -46,6 +46,19 @@ campaign-ext 是「管道」，上接核心战役类型、下连存档与基础�
 - [API 参考](../)
 - [版本首页](../../)
 
+## 区域索引 / Area Hubs
+
+- [SandBox CampaignBehaviors 家族](./SandBoxCampaignBehaviors/) — 城镇市民/村民/卫兵/招募官的生成与日常管理，后巷、继承人、潜行、巢穴对话等系统行为。
+- [SandBox.Objects 场景对象](./SandBoxObjects/) — SandBox 场景对象家族索引（37 个业务类型）。
+- [教学提示家族 / Tutorial](./Tutorial/) — StoryMode 主线为新玩家提供的情境化教学弹窗集合。
+- [Behaviors 优先类型](./behaviors-priority/) — CampaignBehaviors 中负责生命周期、外交、劫匪、商队与存档边界的优先类型。
+- [Campaign Behavior long-tail](./campaign-behaviors-tail/) — 官方 Campaign Behavior 实现的源码依据、生命周期与长尾索引。
+- [CampaignSystem long tail](./campaign-tail/) — 剩余 CampaignSystem 命名空间的限定类型、源码调用链与生命周期索引。
+- [Character Development 家族](./character-development/) — 技能、Perk、Trait、文化 Feat 与英雄成长的注册与运行边界。
+- [Helpers 家族](./helpers/) — `TaleWorlds.CampaignSystem.Helpers` 的战役计算、导航、界面与内容辅助入口。
+- [Issue long-tail 家族](./issues-tail/) — 官方 Issue 实现的源码依据、战役流程与长尾索引。
+- [SandBox 内容家族](./sandbox-content/) — 用于模块启动与 GameState 加载的 SandBox 真实实现索引。
+
 ## ↓ 子类列表 — 按字母分组
 
 ### #

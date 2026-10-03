@@ -1,0 +1,342 @@
+{
+ "campaign": {
+  "stubPublic": 1317,
+  "list": [
+   {
+    "n": "CampaignGameStarter",
+    "in": 5
+   },
+   {
+    "n": "IDataStore",
+    "in": 5
+   },
+   {
+    "n": "CampaignBehaviorBase",
+    "in": 4
+   },
+   {
+    "n": "CampaignEvents",
+    "in": 4
+   },
+   {
+    "n": "GameModels",
+    "in": 4
+   },
+   {
+    "n": "Hero",
+    "in": 4
+   },
+   {
+    "n": "Campaign",
+    "in": 3
+   },
+   {
+    "n": "Kingdom",
+    "in": 3
+   },
+   {
+    "n": "AcceptCallToWarAgreementDecision",
+    "in": 2
+   },
+   {
+    "n": "AcceptCallToWarAgreementDecisionOutcome",
+    "in": 2
+   },
+   {
+    "n": "AcceptCallToWarOfferMapNotification",
+    "in": 2
+   },
+   {
+    "n": "AccessDetails",
+    "in": 2
+   },
+   {
+    "n": "AccessLevel",
+    "in": 2
+   },
+   {
+    "n": "AccessLimitationReason",
+    "in": 2
+   },
+   {
+    "n": "AccessMethod",
+    "in": 2
+   },
+   {
+    "n": "AccompanyingCharacter",
+    "in": 2
+   },
+   {
+    "n": "ActionNotes",
+    "in": 2
+   },
+   {
+    "n": "AdditionType",
+    "in": 2
+   },
+   {
+    "n": "AgeModel",
+    "in": 2
+   },
+   {
+    "n": "AgingCampaignBehavior",
+    "in": 2
+   }
+  ]
+ },
+ "mission-ext": {
+  "stubPublic": 1099,
+  "list": [
+   {
+    "n": "ActionCodeType",
+    "in": 2
+   },
+   {
+    "n": "ActionOptionData",
+    "in": 2
+   },
+   {
+    "n": "ActionStage",
+    "in": 2
+   },
+   {
+    "n": "AddPlayersResult",
+    "in": 2
+   },
+   {
+    "n": "AdvanceVisualOrder",
+    "in": 2
+   },
+   {
+    "n": "AgentApplyDamageModel",
+    "in": 2
+   },
+   {
+    "n": "AgentBuildData",
+    "in": 2
+   },
+   {
+    "n": "AgentCapsuleData",
+    "in": 2
+   },
+   {
+    "n": "AgentCommonAILogic",
+    "in": 2
+   },
+   {
+    "n": "AgentComponent",
+    "in": 2
+   },
+   {
+    "n": "AgentComponentExtensions",
+    "in": 2
+   },
+   {
+    "n": "AgentController",
+    "in": 2
+   },
+   {
+    "n": "AgentDecideKilledOrUnconsciousModel",
+    "in": 2
+   },
+   {
+    "n": "AgentDrivenProperties",
+    "in": 2
+   },
+   {
+    "n": "AgentHumanAILogic",
+    "in": 2
+   },
+   {
+    "n": "AgentLastHitInfo",
+    "in": 2
+   },
+   {
+    "n": "AgentList",
+    "in": 2
+   },
+   {
+    "n": "AgentMoraleInteractionLogic",
+    "in": 2
+   },
+   {
+    "n": "AgentMovementLockedState",
+    "in": 2
+   },
+   {
+    "n": "AgentPathNavMeshChecker",
+    "in": 2
+   }
+  ]
+ },
+ "viewmodel": {
+  "stubPublic": 427,
+  "list": [
+   {
+    "n": "AcceptCallToWarOfferNotificationItemVM",
+    "in": 2
+   },
+   {
+    "n": "AcceptingCallToWarAgreementDecisionItemVM",
+    "in": 2
+   },
+   {
+    "n": "ActionCampaignOptionData",
+    "in": 2
+   },
+   {
+    "n": "AlleyItemComparerBase",
+    "in": 2
+   },
+   {
+    "n": "AlleyItemIncomeComparer",
+    "in": 2
+   },
+   {
+    "n": "AlleyItemLocationComparer",
+    "in": 2
+   },
+   {
+    "n": "AlleyItemNameComparer",
+    "in": 2
+   },
+   {
+    "n": "AlleyLeaderDiedMapNotificationItemVM",
+    "in": 2
+   },
+   {
+    "n": "AlleyUnderAttackMapNotificationItemVM",
+    "in": 2
+   },
+   {
+    "n": "AllianceOfferNotificationItemVM",
+    "in": 2
+   },
+   {
+    "n": "ArmyCohesionBoostedByPlayerEvent",
+    "in": 2
+   },
+   {
+    "n": "ArmyCreationNotificationItemVM",
+    "in": 2
+   },
+   {
+    "n": "ArmyDispersionItemVM",
+    "in": 2
+   },
+   {
+    "n": "ArmyManagementBoostEventVM",
+    "in": 2
+   },
+   {
+    "n": "ArmyManagementItemVM",
+    "in": 2
+   },
+   {
+    "n": "ArmyManagementSortControllerVM",
+    "in": 2
+   },
+   {
+    "n": "ArmyManagementVM",
+    "in": 2
+   },
+   {
+    "n": "ArmyMenuOverlayVM",
+    "in": 2
+   },
+   {
+    "n": "AttributeBoundSkillItemVM",
+    "in": 2
+   },
+   {
+    "n": "BannerEditorVM",
+    "in": 2
+   }
+  ]
+ },
+ "gui": {
+  "stubPublic": 165,
+  "list": [
+   {
+    "n": "AlignmentAxis",
+    "in": 2
+   },
+   {
+    "n": "AnimatedDropdownWidget",
+    "in": 2
+   },
+   {
+    "n": "AnimatedNumberTextWidget",
+    "in": 2
+   },
+   {
+    "n": "AnimationInterpolation",
+    "in": 2
+   },
+   {
+    "n": "AudioProperty",
+    "in": 2
+   },
+   {
+    "n": "AutoScrollParameters",
+    "in": 2
+   },
+   {
+    "n": "BasicContainer",
+    "in": 2
+   },
+   {
+    "n": "Brush",
+    "in": 2
+   },
+   {
+    "n": "BrushAnimation",
+    "in": 2
+   },
+   {
+    "n": "BrushAnimationKeyFrame",
+    "in": 2
+   },
+   {
+    "n": "BrushAnimationProperty",
+    "in": 2
+   },
+   {
+    "n": "BrushAnimationPropertyType",
+    "in": 2
+   },
+   {
+    "n": "BrushFactory",
+    "in": 2
+   },
+   {
+    "n": "BrushLayer",
+    "in": 2
+   },
+   {
+    "n": "BrushLayerAnimation",
+    "in": 2
+   },
+   {
+    "n": "BrushLayerSizePolicy",
+    "in": 2
+   },
+   {
+    "n": "BrushLayerState",
+    "in": 2
+   },
+   {
+    "n": "BrushListPanel",
+    "in": 2
+   },
+   {
+    "n": "BrushOverlayMethod",
+    "in": 2
+   },
+   {
+    "n": "BrushRenderer",
+    "in": 2
+   }
+  ]
+ }
+}

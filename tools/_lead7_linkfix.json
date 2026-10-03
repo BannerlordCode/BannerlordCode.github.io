@@ -1,0 +1,365 @@
+{
+ "content/v1.4.5/zh/api/campaign/ActionNotes.md": [
+  {
+   "link": "../StringHelpers",
+   "action": "REWRITE",
+   "to": "../../campaign-ext/stringhelpers"
+  },
+  {
+   "link": "../GameTexts",
+   "action": "REWRITE",
+   "to": "../../core-extra/gametexts"
+  }
+ ],
+ "content/v1.4.5/zh/api/campaign/AgingCampaignBehavior.md": [
+  {
+   "link": "../KillCharacterAction",
+   "action": "REWRITE",
+   "to": "../../campaign-ext/killcharacteraction"
+  },
+  {
+   "link": "../Equipment",
+   "action": "REWRITE",
+   "to": "../../core-extra/equipment"
+  }
+ ],
+ "content/v1.4.5/zh/api/campaign/Alley.md": [
+  {
+   "link": "../../save-system/MBSaveLoad",
+   "action": "REWRITE",
+   "to": "../../core-extra/mbsaveload"
+  }
+ ],
+ "content/v1.4.5/zh/api/campaign/AlleyLeaderDiedMapNotification.md": [
+  {
+   "link": "../InformationManager",
+   "action": "REWRITE",
+   "to": "../../core-extra/informationmanager"
+  }
+ ],
+ "content/v1.4.5/zh/api/campaign/AllianceModel.md": [
+  {
+   "link": "../TextObject",
+   "action": "REWRITE",
+   "to": "../../localization/textobject"
+  }
+ ],
+ "content/v1.4.5/zh/api/campaign/AlliedLordTag.md": [
+  {
+   "link": "../DiplomacyHelper",
+   "action": "REWRITE",
+   "to": "../../campaign-ext/diplomacyhelper"
+  },
+  {
+   "link": "../Faction",
+   "action": "DROP",
+   "why": "zh 树无 faction 页"
+  }
+ ],
+ "content/v1.4.5/zh/api/campaign/AntiEmpireConspiracyBeginsSceneNotificationItem.md": [
+  {
+   "link": "../GameTexts",
+   "action": "REWRITE",
+   "to": "../../core-extra/gametexts"
+  }
+ ],
+ "content/v1.4.5/zh/api/campaign/ArmyCreationLogEntry.md": [
+  {
+   "link": "../DiplomacyHelper",
+   "action": "REWRITE",
+   "to": "../../campaign-ext/diplomacyhelper"
+  },
+  {
+   "link": "../StringHelpers",
+   "action": "REWRITE",
+   "to": "../../campaign-ext/stringhelpers"
+  }
+ ],
+ "content/v1.4.5/zh/api/campaign/ArmyDispersionLogEntry.md": [
+  {
+   "link": "../DiplomacyHelper",
+   "action": "REWRITE",
+   "to": "../../campaign-ext/diplomacyhelper"
+  }
+ ],
+ "content/v1.4.5/zh/api/campaign/ArmyDispersionReasonEnumResolver.md": [
+  {
+   "link": "../Debug",
+   "action": "REWRITE",
+   "to": "../../core-extra/debug"
+  }
+ ],
+ "content/v1.4.5/zh/api/campaign/BannerCampaignBehavior.md": [
+  {
+   "link": "../BannerHelper",
+   "action": "REWRITE",
+   "to": "../../campaign-ext/bannerhelper"
+  }
+ ],
+ "content/v1.4.5/zh/api/campaign/BarberState.md": [
+  {
+   "link": "../CharacterHelper",
+   "action": "REWRITE",
+   "to": "../../campaign-ext/characterhelper"
+  }
+ ],
+ "content/v1.4.5/en/api/campaign/ActionNotes.md": [
+  {
+   "link": "../StringHelpers",
+   "action": "REWRITE",
+   "to": "../../system/stringhelpers"
+  },
+  {
+   "link": "../GameTexts",
+   "action": "REWRITE",
+   "to": "../../core-extra/gametexts"
+  }
+ ],
+ "content/v1.4.5/en/api/campaign/AgingCampaignBehavior.md": [
+  {
+   "link": "../KillCharacterAction",
+   "action": "REWRITE",
+   "to": "../../campaign-ext/killcharacteraction"
+  },
+  {
+   "link": "../Equipment",
+   "action": "REWRITE",
+   "to": "../../core-extra/equipment"
+  }
+ ],
+ "content/v1.4.5/en/api/campaign/Alley.md": [
+  {
+   "link": "../../save-system/MBSaveLoad",
+   "action": "REWRITE",
+   "to": "../../core-extra/mbsaveload"
+  }
+ ],
+ "content/v1.4.5/en/api/campaign/AlleyLeaderDiedMapNotification.md": [
+  {
+   "link": "../InformationManager",
+   "action": "REWRITE",
+   "to": "../../core-extra/informationmanager"
+  }
+ ],
+ "content/v1.4.5/en/api/campaign/AllianceModel.md": [
+  {
+   "link": "../TextObject",
+   "action": "REWRITE",
+   "to": "../../localization/textobject"
+  }
+ ],
+ "content/v1.4.5/en/api/campaign/AlliedLordTag.md": [
+  {
+   "link": "../DiplomacyHelper",
+   "action": "REWRITE",
+   "to": "../../system/diplomacyhelper"
+  },
+  {
+   "link": "../Faction",
+   "action": "DROP",
+   "why": "en 树无 faction 页"
+  }
+ ],
+ "content/v1.4.5/en/api/campaign/AntiEmpireConspiracyBeginsSceneNotificationItem.md": [
+  {
+   "link": "../GameTexts",
+   "action": "REWRITE",
+   "to": "../../core-extra/gametexts"
+  }
+ ],
+ "content/v1.4.5/en/api/campaign/ArmyCreationLogEntry.md": [
+  {
+   "link": "../DiplomacyHelper",
+   "action": "REWRITE",
+   "to": "../../system/diplomacyhelper"
+  },
+  {
+   "link": "../StringHelpers",
+   "action": "REWRITE",
+   "to": "../../system/stringhelpers"
+  }
+ ],
+ "content/v1.4.5/en/api/campaign/ArmyDispersionLogEntry.md": [
+  {
+   "link": "../DiplomacyHelper",
+   "action": "REWRITE",
+   "to": "../../system/diplomacyhelper"
+  }
+ ],
+ "content/v1.4.5/en/api/campaign/ArmyDispersionReasonEnumResolver.md": [
+  {
+   "link": "../Debug",
+   "action": "REWRITE",
+   "to": "../../core-extra/debug"
+  }
+ ],
+ "content/v1.4.5/en/api/campaign/BannerCampaignBehavior.md": [
+  {
+   "link": "../BannerHelper",
+   "action": "REWRITE",
+   "to": "../../campaign-ext/bannerhelper"
+  }
+ ],
+ "content/v1.4.5/en/api/campaign/BarberState.md": [
+  {
+   "link": "../CharacterHelper",
+   "action": "REWRITE",
+   "to": "../../system/characterhelper"
+  }
+ ],
+ "content/v1.4.5/zh/api/viewmodel/AcceptingCallToWarAgreementDecisionItemVM.md": [
+  {
+   "link": "../../campaign/KingdomDecisionsVM",
+   "action": "REWRITE",
+   "to": "../../campaign-ext/kingdomdecisionsvm"
+  }
+ ],
+ "content/v1.4.5/en/api/viewmodel/AcceptCallToWarOfferNotificationItemVM.md": [
+  {
+   "link": "../../campaign-ext/AcceptCallToWarOfferMapNotification",
+   "action": "REWRITE",
+   "to": "../../campaign/acceptcalltowaroffermapnotification"
+  },
+  {
+   "link": "../../campaign-ext/AcceptCallToWarAgreementDecision",
+   "action": "REWRITE",
+   "to": "../../campaign/acceptcalltowaragreementdecision"
+  },
+  {
+   "link": "../../campaign-ext/IAllianceCampaignBehavior",
+   "action": "REWRITE",
+   "to": "../../campaign/ialliancecampaignbehavior"
+  }
+ ],
+ "content/v1.4.5/en/api/viewmodel/AcceptingCallToWarAgreementDecisionItemVM.md": [
+  {
+   "link": "../../campaign-ext/AcceptCallToWarAgreementDecision",
+   "action": "REWRITE",
+   "to": "../../campaign/acceptcalltowaragreementdecision"
+  },
+  {
+   "link": "../../campaign-ext/KingdomDecisionsVM",
+   "action": "REWRITE",
+   "to": "../kingdomdecisionsvm"
+  },
+  {
+   "link": "../../campaign/KingdomDecisionsVM",
+   "action": "REWRITE",
+   "to": "../kingdomdecisionsvm"
+  }
+ ],
+ "content/v1.4.5/en/api/viewmodel/ActionCampaignOptionData.md": [
+  {
+   "link": "../../campaign-ext/Party",
+   "action": "DROP",
+   "why": "en 树无 party 页"
+  }
+ ],
+ "content/v1.4.5/en/api/viewmodel/AlleyLeaderDiedMapNotificationItemVM.md": [
+  {
+   "link": "../../campaign-ext/AlleyLeaderDiedMapNotification",
+   "action": "REWRITE",
+   "to": "../../campaign/alleyleaderdiedmapnotification"
+  }
+ ],
+ "content/v1.4.5/en/api/viewmodel/AlleyUnderAttackMapNotificationItemVM.md": [
+  {
+   "link": "../../campaign-ext/AlleyUnderAttackMapNotification",
+   "action": "REWRITE",
+   "to": "../../campaign/alleyunderattackmapnotification"
+  }
+ ],
+ "content/v1.4.5/en/api/viewmodel/AllianceOfferNotificationItemVM.md": [
+  {
+   "link": "../../campaign-ext/AllianceOfferMapNotification",
+   "action": "REWRITE",
+   "to": "../../campaign/allianceoffermapnotification"
+  },
+  {
+   "link": "../../campaign-ext/StartAllianceDecision",
+   "action": "REWRITE",
+   "to": "../../campaign/startalliancedecision"
+  },
+  {
+   "link": "../../campaign-ext/IAllianceCampaignBehavior",
+   "action": "REWRITE",
+   "to": "../../campaign/ialliancecampaignbehavior"
+  }
+ ],
+ "content/v1.4.5/en/api/viewmodel/ArmyCohesionBoostedByPlayerEvent.md": [
+  {
+   "link": "../../campaign-ext/ArmyManagementCalculationModel",
+   "action": "REWRITE",
+   "to": "../../campaign/armymanagementcalculationmodel"
+  }
+ ],
+ "content/v1.4.5/en/api/viewmodel/ArmyCreationNotificationItemVM.md": [
+  {
+   "link": "../../campaign-ext/ArmyCreationMapNotification",
+   "action": "REWRITE",
+   "to": "../../campaign/armycreationmapnotification"
+  }
+ ],
+ "content/v1.4.5/en/api/viewmodel/ArmyDispersionItemVM.md": [
+  {
+   "link": "../../campaign-ext/ArmyDispersionMapNotification",
+   "action": "REWRITE",
+   "to": "../../campaign/armydispersionmapnotification"
+  }
+ ],
+ "content/v1.4.5/en/api/viewmodel/ArmyManagementItemVM.md": [
+  {
+   "link": "../../campaign-ext/ArmyManagementCalculationModel",
+   "action": "REWRITE",
+   "to": "../../campaign/armymanagementcalculationmodel"
+  }
+ ],
+ "content/v1.4.5/en/api/viewmodel/ArmyManagementVM.md": [
+  {
+   "link": "../../campaign-ext/ArmyManagementCalculationModel",
+   "action": "REWRITE",
+   "to": "../../campaign/armymanagementcalculationmodel"
+  },
+  {
+   "link": "../HintViewModel",
+   "action": "REWRITE",
+   "to": "../../core-extra/hintviewmodel"
+  }
+ ],
+ "content/v1.4.5/en/api/viewmodel/ArmyMenuOverlayVM.md": [
+  {
+   "link": "../../campaign-ext/GameMenu",
+   "action": "REWRITE",
+   "to": "../../campaign/gamemenu"
+  },
+  {
+   "link": "../HintViewModel",
+   "action": "REWRITE",
+   "to": "../../core-extra/hintviewmodel"
+  },
+  {
+   "link": "../../campaign-ext/Concept",
+   "action": "REWRITE",
+   "to": "../../campaign/concept"
+  },
+  {
+   "link": "../../campaign-ext/EncyclopediaManager",
+   "action": "REWRITE",
+   "to": "../../campaign/encyclopediamanager"
+  }
+ ],
+ "content/v1.4.5/zh/api/core-extra/AgentAttackType.md": [
+  {
+   "link": "../../mission-ext/Agent",
+   "action": "REWRITE",
+   "to": "../../mission/agent"
+  }
+ ],
+ "content/v1.4.5/en/api/core-extra/ActionSetCode.md": [
+  {
+   "link": "../../campaign-ext/HeroAgentSpawnCampaignBehavior",
+   "action": "REWRITE",
+   "to": "../../campaign/heroagentspawncampaignbehavior"
+  }
+ ]
+}

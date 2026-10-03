@@ -64,5 +64,6 @@ bannerlord-1.4.5/Bannerlord.Source/
 
 - [API Reference](./api/) — Complete API reference catalog for Bannerlord SDK
 - [v1.4.5 Architecture](./architecture/) — Module structure and developer entry points for Bannerlord v1.4.5
+- [XML Reference](./xml-reference/) — XML configuration schemas: module.xml, submodules, game menus, conversations, settlements, items
 
 <!-- END SECTION INDEX -->

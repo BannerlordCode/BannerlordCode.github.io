@@ -1,166 +1,108 @@
 ---
 title: "CampaignAgentComponent"
-description: "Sandbox AgentComponent bridge for campaign ownership, AgentNavigator creation, AI ticking, and battle morale inputs."
+description: "The Sandbox AgentComponent that bridges campaign-map agents to their navigator — it creates the AgentNavigator, forwards removal/stop/tick lifecycle into it, and derives the agent's morale inputs from the current MapEvent."
 ---
+
 # CampaignAgentComponent
 
 **Namespace:** `SandBox`
-<br>**Module:** `SandBox`
-<br>**Type:** `public class CampaignAgentComponent : AgentComponent`
-<br>**Base:** `AgentComponent`
-<br>**File:** `Modules.SandBox/SandBox/Sandbox/CampaignAgentComponent.cs`
+**Module:** `SandBox`
+**Type:** `public class CampaignAgentComponent : AgentComponent`
+**Base:** `TaleWorlds.MountAndBlade.AgentComponent`
+**File:** `Modules.SandBox/SandBox/Sandbox/CampaignAgentComponent.cs`
 
-## One-line responsibility
+## Overview
 
-`CampaignAgentComponent` is the Sandbox component attached to a live campaign [`Agent`](../../mission/Agent): it exposes the owning [`PartyBase`](../../campaign/PartyBase), creates the Agent's [`AgentNavigator`](../../gameplay/AgentNavigator), forwards removal/stop/tick lifecycle, and contributes battle morale values.
+This is the single component that makes a campaign-map agent navigable. It holds the agent's `AgentNavigator` — the object that owns behaviour groups, machine targets, and the special target — creates it on demand, forwards the three lifecycle events that matter (agent removed, stop using game object, tick), and overrides two of the base `AgentComponent` morale hooks so the agent's morale reflects the battle it is standing in rather than nothing at all.
 
-## Mental model
+It is not a Campaign object and never enters a savegame. It is per-mission runtime state attached to one `Agent`, and it disappears with the mission.
 
-This component is an adapter between the engine's `AgentComponent` list and Sandbox campaign behavior. [`CampaignMissionComponent`](../CampaignMissionComponent) adds it in `OnAgentCreated`; it does not create the Agent and it is not a Campaign save object. [`MissionAgentHandler`](../MissionAgentHandler) later calls one of the `CreateAgentNavigator` overloads after the spawned Agent has been configured.
+## Mental Model
 
-There are two layers of state:
+The constructor does nothing except pass the agent to `base`. Everything real happens later, and the ordering is the whole design: **the navigator is created after the agent is spawned and configured, never before.**
 
-- `AgentNavigator` is optional, Mission-local runtime state. It owns navigation targets, behavior groups, temporary prefabs, and special-item state for this one Agent.
-- `OwnerParty` and the two morale methods derive current Campaign/battle context from `Agent.Origin` and its `MapEvent`. They are calculated at runtime and are not copied into the component as save fields.
+`CreateAgentNavigator` comes in two overloads and both assign and return. The parameterless one constructs `new AgentNavigator(Agent)` for agents that need navigation without a `LocationCharacter` visual definition; the `LocationCharacter` overload constructs `new AgentNavigator(Agent, locationCharacter)`, which carries the character definition's spawn context. Both **overwrite** the `AgentNavigator` property, whose setter is `private` — so the only way to change it is to call one of these again, and calling one twice abandons whatever the previous navigator was holding (behaviour groups, machine targets, temporary visuals) with no migration.
 
-The component's `OnTick` is deliberately narrow: it ticks the navigator only when `Agent.Mission.AllowAiTicking` is true and the Agent is AI-controlled. A player-controlled Agent, a paused AI phase, or an Agent without a navigator does not enter the navigation loop through this component.
+`OwnerParty` is the other half of the bridge, and it is a pure computation with no backing field. It reads `Agent.Origin` and returns `origin.BattleCombatant` cast to `PartyBase`. The cast is unchecked: an agent whose combatant is not a party — or an agent with no origin at all — yields `null`, and every caller has to cope. It is a live lookup, so it changes as the battle changes, and it is meaningless outside a `MapEvent`.
 
-## When to use and when not to use
+Both morale methods are `override`s of `AgentComponent` hooks, so they feed the engine's agent morale system. `GetMoraleDecreaseConstant` is a three-step siege-aware multiplier: `1f` if there is no owner party, no map event, or the event is not a siege assault; `0.5f` if the owner party is *not* on the map event's attacker-side party list; `0.33f` if it is. So an attacker in a siege assault bleeds morale roughly twice as fast as a defender. `GetMoraleAddition` starts at `0f` and, when a map event exists, adds `(Morale - 50f) / 2f` for a mobile party plus a relative-strength term `strength / (strength + opposing) * 10f - 5f` from `MapEvent.GetStrengthsRelativeToParty`. Neither method mutates anything — they are pure reads recomputed on every call, so the value can change between two calls in the same frame.
 
-**Use it when:**
+`OnTick` is deliberately narrow: it ticks the navigator only when **both** `Agent.Mission.AllowAiTicking` and `Agent.IsAIControlled` are true. A player-controlled agent, a mission with AI ticking disabled, or an agent with no navigator never enters the navigation loop through this component. `OnStopUsingGameObject` is guarded the same way on `IsAIControlled`.
 
-- A mod already has a live campaign Agent and needs to read its Sandbox navigator or owning party.
-- A custom Sandbox mission creates an Agent that intentionally needs a fresh `AgentNavigator`.
-- You need to observe the exact morale inputs the Sandbox component supplies to the Agent system during a map battle or siege assault.
-- A component/lifecycle callback must forward Agent removal or stop-using-game-object events to the navigator.
+## Key Members
 
-**Do not use it when:**
+| Member | Signature | What it is for |
+| --- | --- | --- |
+| `AgentNavigator` | `public AgentNavigator AgentNavigator { get; private set; }` | The navigable runtime state for this one agent. `null` is a legitimate state for a freshly attached component — reading it is not an error. The setter is `private`, so the only way to change it is one of the two `CreateAgentNavigator` overloads, which overwrite it outright. |
+| `OwnerParty` | `public PartyBase OwnerParty` | The party this agent is fighting for, derived live from `Agent.Origin.BattleCombatant`. Not a stored assignment: it returns `null` when there is no origin, no map event, or the combatant is not a party, and it changes as the battle changes. Always null-check before reading `MapEvent`, `Side`, or `MobileParty` off it. |
+| `CreateAgentNavigator(LocationCharacter)` | `public AgentNavigator CreateAgentNavigator(LocationCharacter locationCharacter)` | Builds the navigator with a character definition's visual and spawn context, assigns it, and returns it. Call it at the same point the Sandbox spawner does — after the agent has a valid mission and visual state. Calling it a second time discards the first navigator's behaviour groups and machine targets with no migration. |
+| `CreateAgentNavigator()` | `public AgentNavigator CreateAgentNavigator()` | The no-context variant, for agents that need navigation but have no `LocationCharacter` definition. Same overwrite semantics. Creating a navigator does **not** register the agent, attach a Campaign behaviour, or make the agent AI-controlled. |
+| `OnTick` | `public override void OnTick(float dt)` | The navigation pump, gated on `Mission.AllowAiTicking && Agent.IsAIControlled`. Do not call it manually to bypass mission pause or teardown — a released navigator will be ticked. A null navigator is skipped by the `?.`. |
+| `OnAgentRemoved` | `public void OnAgentRemoved(Agent agent)` | Forwards a removal notification into `AgentNavigator?.OnAgentRemoved(agent)` so behaviour groups can drop references to an agent that has left. It is a plain public method, not an override — something in the mission has to call it. |
+| `OnStopUsingGameObject` | `public override void OnStopUsingGameObject()` | Clears machine-target state in the navigator, but **only when the agent is AI-controlled**. A player-controlled agent never enters the branch, so its machine state is not cleared by this path. |
+| `GetMoraleDecreaseConstant` | `public override float GetMoraleDecreaseConstant()` | Returns the transient morale-drain multiplier for the current battle: `1f` normally, `0.5f` when the owner party is absent from the attacker side of a siege assault, `0.33f` when it is present. A pure read — it never changes party morale and never persists. |
+| `GetMoraleAddition` | `public override float GetMoraleAddition()` | Returns a transient additive morale input: `(Morale - 50f) / 2f` for a mobile party, plus a `-5f..+5f` relative-strength term from `MapEvent.GetStrengthsRelativeToParty`. Returns `0f` with no map event. Recomputed per call, so two calls in the same frame can differ. |
 
-- You need to create an Agent, party, Hero, or Campaign entity. Use the owning Mission spawn path or Campaign API.
-- You need durable party morale or campaign state. These methods calculate transient Agent inputs; store persistent state in a Campaign behavior and use the relevant model/action contract.
-- You need generic Agent navigation. Only campaign Agents with this component have the Sandbox navigator bridge.
-- You need to replace a navigator during normal play. `CreateAgentNavigator` overwrites the property and abandons the previous navigator's behavior groups and targets.
-- You need to tick AI manually. Let the component's `OnTick` and the Mission lifecycle provide the normal cadence.
+## Real Example
 
-## Dependency graph
-
-**Upstream:**
-
-- [`CampaignMissionComponent`](../CampaignMissionComponent) calls `Agent.AddComponent(new CampaignAgentComponent(agent))` in the campaign mission `OnAgentCreated` path.
-- [`MissionAgentHandler`](../MissionAgentHandler) creates a navigator after spawning/configuring a location-character Agent.
-- [`Agent`](../../mission/Agent) supplies `Mission`, `Origin`, AI-control state, and component ownership.
-- [`LocationCharacter`](../../campaign/LocationCharacter) supplies optional visual and behavior context to the location-character navigator overload.
-
-**Downstream:**
-
-- [`AgentNavigator`](../../gameplay/AgentNavigator) receives the live Agent and Mission and owns navigation/behavior-group runtime state.
-- [`Mission`](../../mission/Mission) gates AI ticking and owns the Agent's scene lifetime.
-- [`PartyBase`](../../campaign/PartyBase) and [`MapEvent`](../../campaign/MapEvent) provide owner, siege, side, and relative-strength inputs for morale calculations.
-- Sandbox behaviors and Mission handlers read `AgentNavigator` through `agent.GetComponent<CampaignAgentComponent>()`.
-
-## Real acquisition path
-
-The component is installed by the game; a mod should read it from the Agent rather than construct a second component:
+Read the component off a live agent rather than constructing a second one — the game installs it for you:
 
 ```csharp
-using SandBox;
-using SandBox.Missions.AgentBehaviors;
-using TaleWorlds.CampaignSystem.Party;
-using TaleWorlds.MountAndBlade;
-
-Agent agent = Agent.Main;
-CampaignAgentComponent component =
-    agent?.GetComponent<CampaignAgentComponent>();
-
-if (component != null)
+CampaignAgentComponent component = Agent.Main.GetComponent<CampaignAgentComponent>();
+if (component != null && component.AgentNavigator != null)
 {
-    AgentNavigator navigator = component.AgentNavigator;
-    PartyBase ownerParty = component.OwnerParty;
-    if (navigator != null)
-    {
-        AgentBehaviorGroup activeGroup =
-            navigator.GetActiveBehaviorGroup();
-    }
+    Debug.Print("active group = " + component.AgentNavigator.GetActiveBehaviorGroup(), 0);
 }
 ```
 
-The component is only guaranteed after the campaign mission component has handled Agent creation. For a custom Agent spawn path that intentionally has no navigator yet, call `component.CreateAgentNavigator()` once after the Agent has a valid Mission and visual state; do not do this from a constructor or before Mission initialization.
+Create the navigator once, after the agent has a valid mission and visual state:
 
-## Public state
+```csharp
+CampaignAgentComponent fresh = new CampaignAgentComponent(Agent.Main);
+Agent.Main.AddComponent(fresh);
+AgentNavigator navigator = fresh.CreateAgentNavigator();
+Debug.Print("navigator created = " + (navigator != null), 0);
+```
 
-### `AgentNavigator`
+Read the owning party defensively — it is `null` outside a map event and the combatant cast is unchecked:
 
-`public AgentNavigator AgentNavigator { get; private set; }` returns the optional navigator created for this component. The setter is private; reading `null` is a valid state for a newly attached or intentionally minimal campaign Agent. The property is replaced by either `CreateAgentNavigator` overload.
+```csharp
+PartyBase owner = component.OwnerParty;
+if (owner != null && owner.MapEvent != null)
+{
+    Debug.Print("side = " + owner.Side + ", mobile = " + owner.IsMobile, 0);
+}
+```
 
-### `OwnerParty`
+Read the morale inputs this component supplies, remembering both are recomputed per call:
 
-`public PartyBase OwnerParty { get; }` reads `Agent.Origin.BattleCombatant` and casts it to `PartyBase`. It can be `null` when the Agent has no origin, has a non-party combatant, or is outside the Campaign party path. Do not treat it as a durable ownership assignment or cache it after Agent removal.
+```csharp
+Debug.Print("drain constant = " + component.GetMoraleDecreaseConstant(), 0);
+Debug.Print("morale addition = " + component.GetMoraleAddition(), 0);
+```
 
-## Navigator creation and lifecycle
+## Risks and Boundaries
 
-### `CreateAgentNavigator(LocationCharacter locationCharacter)`
+- **The navigator is optional and `null` is normal.** Any code reading `AgentNavigator` must null-check; the property returns null for a freshly attached component or one that was never given a navigator.
+- **`CreateAgentNavigator` overwrites without migrating.** Calling it twice abandons the first navigator's behaviour groups, machine targets, and temporary visual state. There is no dispose or handoff.
+- **`OwnerParty` uses an unchecked cast.** A non-party `BattleCombatant`, or a null `Agent.Origin`, yields `null` rather than throwing. Every dereference of `MapEvent`, `Side`, or `MobileParty` off it needs a guard.
+- **`OnTick` is gated twice.** Player-controlled agents and missions with `AllowAiTicking == false` are never ticked. Do not call `OnTick` manually to force navigation during a pause or after mission teardown.
+- **`OnStopUsingGameObject` is gated on `IsAIControlled`.** Machine state for a player-controlled agent is not cleared through this path, which surprises people who expect symmetric teardown.
+- **`OnAgentRemoved` is not an override.** It is a plain public method; nothing in the base class guarantees it gets called, so retained references to the component can outlive the agent.
+- **Both morale methods are recomputed on every call and change mid-battle.** Never cache the result, and never treat them as a persistent morale delta.
+- **`GetMoraleDecreaseConstant` returns three hard-coded constants** (`1f`, `0.5f`, `0.33f`). There is no model indirection, so a mod cannot tune them without replacing the component.
+- **Mission-local, never serialised.** The component and its navigator are rebuilt when the mission is opened. Anything durable belongs in a Campaign behavior.
+- **Do not add a duplicate component.** `Agent.AddComponent` is the only way to install one, and adding a second leaves two navigators competing for the same agent.
 
-Constructs `new AgentNavigator(Agent, locationCharacter)`, assigns it to `AgentNavigator`, and returns it. The location-character overload transfers special target tag, bone prefab map, special item, and alley context before applying the navigator's initial visual/equipment setup.
+## Cross-version note
 
-Use it at the same point as Sandbox's `MissionAgentHandler`, after the Agent's scene visuals and `LocationCharacter` data are ready. Calling it again replaces the old navigator without first migrating behavior groups, machine targets, or temporary visual state.
+The v1.4.5 file is 99 lines. Both `CreateAgentNavigator` overloads, the two morale overrides with their `1f` / `0.5f` / `0.33f` constants, and the `AllowAiTicking && IsAIControlled` tick gate are all present here.
 
-### `CreateAgentNavigator()`
+## Dependencies
 
-Constructs `new AgentNavigator(Agent)`, assigns it to `AgentNavigator`, and returns it with an empty location-character context. Sandbox uses this overload for Agents that need behavior/navigation but do not come from a `LocationCharacter` visual definition.
-
-The returned object is still Mission-local. Creating it does not register a new Agent, attach a Campaign behavior, or make the Agent AI-controlled.
-
-### `OnAgentRemoved(Agent agent)`
-
-Forwards the removed-Agent notification to `AgentNavigator?.OnAgentRemoved(agent)`. It exists so behavior groups can release runtime target references when any relevant Agent leaves the Mission. The component does not save or resurrect removed Agents.
-
-### `OnStopUsingGameObject()`
-
-When the owner is AI-controlled, forwards the stop-using-game-object event to `AgentNavigator?.OnStopUsingGameObject()`. Player-controlled Agents do not enter this forwarding branch. The callback clears machine target state in the navigator; it is not a general reset for every behavior group.
-
-### `OnTick(float dt)`
-
-Overrides `AgentComponent.OnTick`. It calls `AgentNavigator?.Tick(dt)` only when both `Agent.Mission.AllowAiTicking` and `Agent.IsAIControlled` are true. It does not tick a null navigator, and it does not run the navigator for a player-controlled Agent.
-
-Do not call this method manually to bypass Mission pause/end state. If a custom simulation needs a different cadence, own that simulation explicitly and keep it separate from the normal Agent component lifecycle.
-
-## Morale inputs
-
-### `GetMoraleDecreaseConstant()`
-
-Returns the transient Agent morale-decrease multiplier derived from the owner's current `MapEvent`:
-
-- Returns `1f` when there is no owner party, no map event, or the event is not a siege assault.
-- Returns `0.5f` when the owner party is not found on the map event's attacker-side party list.
-- Returns `0.33f` when the owner party is on that attacker-side list.
-
-The method does not change party morale and does not persist the result. It is an input used by the Agent morale system while the current battle context exists.
-
-### `GetMoraleAddition()`
-
-Returns a transient additive value based on the current `MapEvent`:
-
-- Returns `0f` when the owner party has no map event.
-- For an active event, adds `(OwnerParty.MobileParty.Morale - 50f) / 2f` when the party is mobile.
-- Adds `relativeStrength / (relativeStrength + opposingStrength) * 10f - 5f`, using `MapEvent.GetStrengthsRelativeToParty(OwnerParty.Side, ...)`.
-
-It reads current party/event values and has no save or mutation side effect. It can change between calls as the battle and party morale change.
-
-## Risks and crash boundaries
-
-- Constructing `CampaignAgentComponent` directly does not install it into an Agent. Use the host's `Agent.AddComponent` path only when owning a custom Agent-creation flow; do not add duplicate components to an existing Agent.
-- `AgentNavigator` is nullable and is replaced by `CreateAgentNavigator`. Calling the creation method twice can abandon an active machine detachment, behavior-group state, or native visual component references.
-- `OwnerParty` depends on `Agent.Origin` and the current combatant type. Always null-check it before reading `MapEvent`, `Side`, or `MobileParty`.
-- `GetMoraleDecreaseConstant` and `GetMoraleAddition` are runtime reads. Do not invoke them from save code and do not treat their result as a persistent morale change.
-- `OnTick` must remain under the Agent/Mission lifecycle gate. Manual ticking during a paused, ending, or removed Mission can access released AgentNavigator state or duplicate native movement work.
-- `OnAgentRemoved` and `OnStopUsingGameObject` forward into native/runtime state. Delayed callbacks that retain the component after Agent removal must stop using its navigator.
-- The component does not provide a `SyncData` contract. Save Campaign state in a registered Campaign behavior and recreate Mission Agent components/navigators when a new Mission is opened.
-
-## See also and reciprocal navigation
-
-- ↑ Parent: [Campaign extension module index](../)
-- ↔ Navigator: [AgentNavigator](../../gameplay/AgentNavigator) · [CampaignMissionComponent](../CampaignMissionComponent)
-- Agent lifecycle: [Agent](../../mission/Agent) · [Mission](../../mission/Mission) · [MissionAgentHandler](../MissionAgentHandler)
-- Campaign context: [PartyBase](../../campaign/PartyBase) · [MapEvent](../../campaign/MapEvent) · [LocationCharacter](../../campaign/LocationCharacter)
-- Documentation contract: [Doc Contract](../../../architecture/doc-contract)
-- 中文/English: [CampaignAgentComponent](../../../../zh/api/campaign-ext/CampaignAgentComponent)
+- Base contract: [AgentComponent](../mission-ext/AgentComponent) declares the morale and tick hooks this component overrides, and is what `Agent.AddComponent` accepts.
+- Per-frame context: `Agent` supplies `Origin`, `Mission`, and `IsAIControlled`; [Mission](../mission/Mission) supplies `AllowAiTicking`.
+- Navigation state: [AgentNavigator](../gameplay/AgentNavigator) is what this component creates and owns, and where behaviour groups and machine targets live.
+- Presets: [BehaviorSets](BehaviorSets) is what populates that navigator, and every preset reaches it through `GetComponent<CampaignAgentComponent>().AgentNavigator`.
+- Campaign inputs: [MapEvent](../campaign/MapEvent) supplies the siege/attacker-side context both morale methods read; [PartyBase](../campaign/PartyBase) is the cast target of `OwnerParty`.
+- Bucket index: [campaign-ext API section](../)

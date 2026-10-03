@@ -23,6 +23,7 @@ Welcome to the Bannerlord v1.3.15 modding documentation (Chinese).
 - [原生接口 / Native Reference](./native/)
 - [Native 1.3.15 源码参考 / Native 1.3.15 Source Reference](./native-1.3.15-src/)
 - [架构 / Architecture](./architecture/)
+- [里程碑报告 / Milestone Report](./architecture/milestone-report) — 手写文档重建的交付物与验收证据包（M0–M4 / H0–H4）
 
 ## 版本信息 / Version Info
 

@@ -1,6 +1,6 @@
 ---
 title: "AgentDrivenProperties"
-description: "Agent 的 98 项运行时数值表：每个属性都是 float[] 下标的一层转发，由 AgentStatCalculateModel 填、native 按下标读，是战斗手感参数的唯一通道。"
+description: "Agent 的 98 项运行时数值表（v1.4.5）：每个属性都是 float[] 下标的一层转发，由 AgentStatCalculateModel 填、native 按下标读，是战斗手感参数的唯一通道。本页计数只对 v1.4.5 成立；v1.3.0 的对应值是 93。"
 ---
 
 # AgentDrivenProperties
@@ -13,7 +13,7 @@ description: "Agent 的 98 项运行时数值表：每个属性都是 float[] �
 
 ## 概述
 
-`AgentDrivenProperties` 是每个 [Agent](../../mission/Agent/) 随身携带的一张 **98 项的 float 数值表**。1203 行里真正的存储只有一个字段：`private readonly float[] _statValues`，构造器里 `new float[98]`。其余全是薄属性——`SwingSpeedMultiplier` / `ArmorEncumbrance` / `WeaponInaccuracy` / `AIDecideOnAttackChance` / `MountChargeDamage` / `AiSpeciesIndex` 等等，每个 getter 是 `GetStat(DrivenProperty.X)`、每个 setter 是 `SetStat(DrivenProperty.X, value)`。
+`AgentDrivenProperties` 是每个 [Agent](../../mission/Agent/) 随身携带的一张 **98 项的 float 数值表（v1.4.5）**。1203 行里真正的存储只有一个字段：`private readonly float[] _statValues`，构造器里 `new float[98]`。其余全是薄属性——`SwingSpeedMultiplier` / `ArmorEncumbrance` / `WeaponInaccuracy` / `AIDecideOnAttackChance` / `MountChargeDamage` / `AiSpeciesIndex` 等等，每个 getter 是 `GetStat(DrivenProperty.X)`、每个 setter 是 `SetStat(DrivenProperty.X, value)`。
 
 这张表是**引擎与托管代码之间唯一的数值通道**：填表的是 [AgentStatCalculateModel](../AgentStatCalculateModel/)，读表并写进 native 的是 `Agent.UpdateDrivenProperties(float[])` → `MBAPI.IMBAgent.UpdateDrivenProperties(GetPtr(), values)`（`Agent.cs:5341`）。
 
@@ -127,7 +127,7 @@ Debug.Print("realistic blocking (0 for player controlled) = " + props.GetStat(Dr
 
 ## 风险与边界
 
-- **98 项固定长度，下标即契约。** `DrivenProperty` 枚举里 `Count = 98` 与 `new float[98]` 严格对应。往枚举中间插值会让后面全部错位，**症状是数值串位而不是异常**。
+- **98 项固定长度（v1.4.5），下标即契约。** `DrivenProperty` 枚举里 `Count = 98`（v1.4.5）与 `new float[98]` 严格对应。往枚举中间插值会让后面全部错位，**症状是数值串位而不是异常**。
 - **`GetStat` / `SetStat` 没有范围检查。** 传 `>= 98` 的枚举值直接 `IndexOutOfRangeException`。
 - **写属性不等于生效。** 数组改了但 native 没读，必须调 `Agent.UpdateCustomDrivenProperties()`。
 - **两个填充方法是 `internal`。** `InitializeDrivenProperties` / `UpdateDrivenProperties` / `Values` 外部都调不到——**这是刻意的，它挡住了「整表替换」这种危险操作**，代价是批量写只能逐属性赋值。

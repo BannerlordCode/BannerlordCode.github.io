@@ -1,6 +1,6 @@
 ---
 title: "AgentDrivenProperties"
-description: "93 格 float 数组 + 92 个具名属性的一层包装：索引就是 DrivenProperty 的数值，Count=93 恰好越界一格；UseRealisticBlocking 没有具名包装，只能走 GetStat/SetStat。"
+description: "93 格 float 数组（v1.3.0）+ 92 个具名属性的一层包装：索引就是 DrivenProperty 的数值，Count=93（v1.3.0）恰好越界一格；UseRealisticBlocking 没有具名包装，只能走 GetStat/SetStat。本页所有计数均为 v1.3.0；v1.4.5 的对应值是 98，不要混用。"
 ---
 
 # AgentDrivenProperties
@@ -13,7 +13,7 @@ description: "93 格 float 数组 + 92 个具名属性的一层包装：索引�
 
 ## 概述
 
-`AgentDrivenProperties` 是**一个 Agent 的全部「可驱动属性」的容器**——挥砍速度、负重、护甲值、跑动速度、AI 决策倾向，93 个数值都在里面。它是纯数据 + 属性包装层，没有任何行为逻辑。
+`AgentDrivenProperties` 是**一个 Agent 的全部「可驱动属性」的容器**——挥砍速度、负重、护甲值、跑动速度、AI 决策倾向，**93 个数值（v1.3.0）**都在里面。它是纯数据 + 属性包装层，没有任何行为逻辑。
 
 结构极简：
 
@@ -32,9 +32,12 @@ public class AgentDrivenProperties
 }
 ```
 
-**92 个 public 标量属性**（91 个 `float` + 1 个 `int`，那个 `int` 就是 `AiSpeciesIndex`）。注意「92 个具名属性」**已经包含** `AiSpeciesIndex`，不是 92 + 1。它们与 93 个槽位正好差一格——下面解释那一格去哪了。
+**92 个 public 标量属性（v1.3.0）**（91 个 `float` + 1 个 `int`，那个 `int` 就是 `AiSpeciesIndex`）。注意「92 个具名属性」**已经包含** `AiSpeciesIndex`，不是 92 + 1。它们与 **93 个槽位（v1.3.0）**正好差一格——下面解释那一格去哪了。
 
-> **本页所有数字均为实测**，不是估计。来源文件与计数方法见下面「计数怎么来的」小节。
+> ⚠ **本页全部计数只对 v1.3.0 成立。** v1.4.5 的同一类是 **98 项（v1.4.5）**、enum 成员 **101（v1.4.5）**。
+> 两棵树结构相同但数值不同（实测 `new float[93]` vs `new float[98]`），**不要跨版本引用本页的计数**。
+
+> **本页所有数字均为实测**，不是估计，且**均只对 v1.3.0 成立**。来源文件与计数方法见下面「计数怎么来的」小节。
 
 ## 心智模型
 
@@ -43,8 +46,8 @@ public class AgentDrivenProperties
 **索引空间的精确形状。** [DrivenProperty](../../core-extra/DrivenProperty) 在 `TaleWorlds.Core` 里，我逐个成员数过：
 
 - `None = -1`
-- 93 个真实属性，隐式取值 **0..92**，从 `AiRangedHorsebackMissileRange = 0` 到 `OffhandWeaponDefendSpeedMultiplier = 92`
-- `Count = 93`
+- **93 个真实属性（v1.3.0）**，隐式取值 **0..92**，从 `AiRangedHorsebackMissileRange = 0` 到 `OffhandWeaponDefendSpeedMultiplier = 92`
+- `Count = 93`（v1.3.0）
 - `DrivenPropertiesCalculatedAtSpawnEnd = 61` —— **这是 `WeaponsEncumbrance = 61` 的别名**，同一个数值
 
 所以 `AgentDrivenProperties` 的 `new float[93]` 有效下标是 **0..92**，而 `DrivenProperty.Count = 93` **恰好越界一格**。这不是巧合，是设计：`Count` 是哨兵，不是有效槽位。**`GetStat(DrivenProperty.Count)` 会抛 `IndexOutOfRangeException`。**
@@ -55,8 +58,8 @@ public class AgentDrivenProperties
 
 | 数字 | 值 | 来源 | 计数方法 |
 | --- | --- | --- | --- |
-| 枚举成员总数 | 96 | `TaleWorlds.Core/DrivenProperty.cs`（全文 201 行；enum 声明 `:6`，成员区 `:9`-`:199`，闭合括号 `:200`） | 逐行解析 enum 体。**只有两个显式赋值**：`None = -1`（`:9`）与 `DrivenPropertiesCalculatedAtSpawnEnd = 61`（`:199`，末项无逗号）；其余 94 个是 C# 隐式递增，按 `previous + 1` 推值（`Count` 在 `:197`，同样无显式值，靠累加落到 93）。 |
-| 真实槽位数 | **93** | 同上 | 96 减去 `None`、`Count`、`DrivenPropertiesCalculatedAtSpawnEnd` 三个非槽位成员。 |
+| 枚举成员总数 | **96（v1.3.0）** | `TaleWorlds.Core/DrivenProperty.cs`（v1.3.0 树；全文 201 行；enum 声明 `:6`，成员区 `:9`-`:199`，闭合括号 `:200`） | 逐行解析 enum 体。**只有两个显式赋值**：`None = -1`（`:9`）与 `DrivenPropertiesCalculatedAtSpawnEnd = 61`（`:199`，末项无逗号）；其余 94 个是 C# 隐式递增，按 `previous + 1` 推值（`Count` 在 `:197`，同样无显式值，靠累加落到 93）。 |
+| 真实槽位数 | **93（v1.3.0）** | 同上 | 96（v1.3.0）减去 `None`、`Count`、`DrivenPropertiesCalculatedAtSpawnEnd` 三个非槽位成员。 |
 | 槽位区间 | 0..92 | 同上 | 93 个真实成员排序后的最小/最大值。**区间内无空洞**（逐值检查 `0..92` 全部命中）。 |
 | `Count` | 93 | `DrivenProperty.cs:197` | 隐式递增落在这里。 |
 | 别名 | `DrivenPropertiesCalculatedAtSpawnEnd = 61` = `WeaponsEncumbrance = 61` | `DrivenProperty.cs:199` | 把 93 个真实成员按数值分组，只有值 61 这一组有 2 个名字。 |

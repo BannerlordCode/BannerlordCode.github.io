@@ -1,0 +1,23 @@
+ANCHOR_SELF=201  pages=53
+BREADCRUMB_SELF=178  pages=162
+MALICIOUS_SIBLING_SELF=16  pages=14
+OTHER_SELF=3  pages=3
+SELF_LINKS_TOTAL=398  SELF_LINK_PAGES=227
+FENCE_BLOCKS_SKIPPED=165014  LINKS_EXCLUDED_IN_FENCES=25  LINKS_SCANNED=140523
+DENOMINATOR_TOTAL_LINKS_ALL=140523
+  MALICIOUS_SIBLING_SELF v1.3.0/zh/api/campaign/AgingCampaignBehavior.md :: [AgingCampaignBehavior](../AgingCampaignBehavior)
+  MALICIOUS_SIBLING_SELF v1.3.0/zh/api/campaign-ext/AchievementManager.md :: [AchievementManager](../AchievementManager)
+  MALICIOUS_SIBLING_SELF v1.3.0/zh/api/campaign-ext/AchievementManager.md :: [AchievementManager](../AchievementManager)
+  MALICIOUS_SIBLING_SELF v1.3.0/zh/api/core-extra/AreaInformation.md :: [AreaInformation](../AreaInformation)
+  MALICIOUS_SIBLING_SELF v1.3.0/zh/api/core-extra/MBList.md :: [MBList](../MBList)
+  MALICIOUS_SIBLING_SELF v1.3.0/zh/api/gui/BasicContainer.md :: [BasicContainer](../BasicContainer)
+  MALICIOUS_SIBLING_SELF v1.3.0/zh/api/mission-ext/AgentComponent.md :: [AgentComponent](../AgentComponent)
+  MALICIOUS_SIBLING_SELF v1.3.15/en/api/campaign-ext/mapevents/_index.md :: [MapEvents](../mapevents)
+  MALICIOUS_SIBLING_SELF v1.3.15/zh/api/save-system/GenericSaveId.md :: [GenericSaveId](../GenericSaveId)
+  MALICIOUS_SIBLING_SELF v1.3.15/zh/api/save-system/ISavedStruct.md :: [ISavedStruct](../ISavedStruct)
+  MALICIOUS_SIBLING_SELF v1.3.15/zh/api/save-system/MetaDataExtensions.md :: [MetaDataExtensions](../MetaDataExtensions)
+  MALICIOUS_SIBLING_SELF v1.4.5/zh/api/campaign/CraftingCampaignBehavior.md :: [CraftingCampaignBehaviorTypeDefiner（同文件内嵌）](../CraftingCampaignBehavior)
+  MALICIOUS_SIBLING_SELF v1.4.5/zh/api/campaign-ext/MapView/_index.md :: [MapView](../../campaign-ext/MapView)
+  MALICIOUS_SIBLING_SELF v1.4.5/zh/api/campaign-ext/MapView/_index.md :: [MapView](../../campaign-ext/MapView)
+  MALICIOUS_SIBLING_SELF v1.4.6/zh/api/core-extra/ItemModifierGroup.md :: [ItemModifierGroup](../ItemModifierGroup)
+  MALICIOUS_SIBLING_SELF v1.4.7/zh/api/mission/_index.md :: [zh/api/mission/](../../../zh/api/mission/)

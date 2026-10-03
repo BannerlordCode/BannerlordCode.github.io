@@ -68,7 +68,7 @@ created: 2026-10-03
 | `tools/_review_frozen_A.md` · `_review_frozen_B.md` · `_review_frozen_B.jsonl` | pin 在 sha `bb41caf9ee`，已落后 HEAD |
 | `tools/_orphan_resolver_derivation.md` · `_orphan_resolver_probe.mjs` | pin 在 `29a6946d`，已落后 HEAD |
 | `tools/_worker83_linkcheck.mjs` · `_worker86_check.mjs` · `_worker86_links.mjs` | 三个重复的只读断链检查器，彼此**解析规则不一致**，且与 `audit-links.mjs` / `nav-verify.mjs` 重叠 |
-| `content/v1.4.5/zh/api/campaign-ext/MapEventSide.md` | **本批唯一的断链缺陷**（`CampaignSiegeStateHandler` 缺 `../` 前缀）+ 54 个成员中5 个无prose。先修再提交 |
+| `content/v1.4.5/zh/api/campaign-ext/MapEventSide.md` | **断链已由另一条线修好**（见下）；54 个成员中仍有 5 个无 prose（实测命中数均为 0）。**本批未提交它**，由该线自行落地 |
 | `_probe_af.mjs` | 仓库根的一次性探测脚本，无头部无职责 |
 | `_zola_full_build.log` · `_zola_after_commit.log` · `_zola_check_orphan.log` | 构建产物；`.gitignore` 只忽略了 `.zola/`，没忽略这三个。**它们是旧的构建证据，不可当新鲜基线** |
 
@@ -133,7 +133,36 @@ created: 2026-10-03
 | `tools/_check_links_exist.mjs` | 链接存在性检查器 | **这是门禁脚本，不是产物**。若其本身自洽可用，应属 A 区提交；若半成品则不提交。PENDING —— 待 inventory 判定 |
 | 其余 tools/ tracked 改动（约 34 项中的其余部分） | 混合 | PENDING —— 见 B 区 |
 
-## D. 并发新增：其他内容线在我盘点后写入的文件（**一律不进我的任何 commit**）
+## B4. 更正记录：一条**已过期**的陈述（本条一度是假的，现已更正）
+
+**原陈述**（本 checkpoint 写入时）：
+> `MapEventSide.md` 含本批唯一断链缺陷，`CampaignSiegeStateHandler` 缺 `../` 前缀，**先修再提交**。
+
+**该陈述现已过期。** 实测（2026-10-03 20:2x，工作区磁盘状态）：
+
+- `MapEventSide.md:240` 实际写法为
+  `[CampaignSiegeStateHandler](../CampaignSiegeStateHandler)`。
+- **实测为 `../`，不是 `./`** —— 这是我亲眼在磁盘上读到的字节，不是转述。
+- 目标文件 `content/v1.4.5/zh/api/campaign-ext/CampaignSiegeStateHandler.md`
+  存在，11,550 B，mtime 20:27（另一条线写入）。
+
+**该断链已被另一条线修复。原「先修再提交」作废。**
+
+**仍然成立的部分**（2026-10-03 实测，成员名在页内命中数均为 **0**）：
+`WeightedShipCombatFactor` / `OnTroopScoreHit` / `OnShipScoreHit` /
+`SelectRandomSimulationTroop` / `GetRandomSimulationShip` —— 54 个成员中这 5 个仍无逐成员说明。
+
+**教训**：本项目本会话最贵的一次错误，就是交接文档里**一句失真的样本结论被当成阳性对照传播**
+（`AgeModel.MiddleAdultHoodAge` 被推翻，而它是六个样本之一）。
+**在 handoff / 台账里留一句过期陈述，等于给下个会话埋一个假锚点**——
+所以台账中的样本性结论必须可被后续实测推翻，推翻后要**主动回来改写**，而不是留在原地。
+
+## B5. 并发漂移的后续变化（超过我台账的记账范围）
+
+本 checkpoint 提交完成后，其他线继续写入，工作区脏文件由71 变为 **77**。
+其中 `CampaignSiegeStateHandler.md` 等已被其它线改动。
+**B 区与D 区的逐条账目以 20:2x 提交时点为准**；之后的增量归属其它线，
+不应回读为本 checkpoint 的遗留。
 
 本仓库有多条内容线共用同一工作区。以下文件在我的 19:50 快照**之后**出现，
 归属其它线，**不进入本 checkpoint 的任何 commit**：

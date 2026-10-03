@@ -1,0 +1,22 @@
+DELETED_OR_REWRITTEN_LINES=0
+BATCH=3/3  ACCEPTANCE_SCOPE=通路正确 + 断链净增0（不含 orphan 下降；orphan 效应在 batch2/3）
+BUCKET=content/v1.4.5/zh/api/campaign-ext  children=3688  ALREADY_IN_BLOCK=2837  ADD=851  ALSO_LINKED_IN_PROSE=0  MARKER=existing  BEGIN=2 END=1  **DUPLICATE_MARKER**
+   + ./AchievementsCampaignBehavior  |  route=content/v1.4.5/zh/api/campaign-ext/AchievementsCampaignBehavior/  |  SIBLING  |  leaf
+   + ./actions/  |  route=content/v1.4.5/zh/api/campaign-ext/actions/  |  SIBLING  |  subdir
+   + ./Add1000GoldCheat  |  route=content/v1.4.5/zh/api/campaign-ext/Add1000GoldCheat/  |  SIBLING  |  leaf
+   + ./Add100InfluenceCheat  |  route=content/v1.4.5/zh/api/campaign-ext/Add100InfluenceCheat/  |  SIBLING  |  leaf
+   + ./Add100RenownCheat  |  route=content/v1.4.5/zh/api/campaign-ext/Add100RenownCheat/  |  SIBLING  |  leaf
+   + ./AddCraftingMaterialsCheat  |  route=content/v1.4.5/zh/api/campaign-ext/AddCraftingMaterialsCheat/  |  SIBLING  |  leaf
+   + ./AgentAlarmStateEnum  |  route=content/v1.4.5/zh/api/campaign-ext/AgentAlarmStateEnum/  |  SIBLING  |  leaf
+   + ./AgentBehavior  |  route=content/v1.4.5/zh/api/campaign-ext/AgentBehavior/  |  SIBLING  |  leaf
+   + ./AgentBehaviorGroup  |  route=content/v1.4.5/zh/api/campaign-ext/AgentBehaviorGroup/  |  SIBLING  |  leaf
+   + ./AgentBehaviorManager  |  route=content/v1.4.5/zh/api/campaign-ext/AgentBehaviorManager/  |  SIBLING  |  leaf
+   ... 共 851 条
+   PROPOSAL_NOT_DONE_DUPLICATE_MARKER: content/v1.4.5/zh/api/campaign-ext BEGIN=2 END=1。删掉多余 BEGIN 行属于 marker 块之外的改动，落在「禁止改动已有人工内容」与「只写 marker 块内」的缝里，本轮按 boss 裁定【不删】。需要单独授权才能修。
+TOTAL_ADD=851  BUCKETS=1  MODE=apply
+GUARD_STATUS=PRESENT
+R2_OK: 1 个桶全部在本批次清单内，桶数一致。
+APPLIED content/v1.4.5/zh/api/campaign-ext  added=851  lost=0  outsideChanged=false
+=== BUCKET SUMMARY ===
+OK=1  FAILED=0  SKIPPED=0
+  OK      content/v1.4.5/zh/api/campaign-ext	added=851

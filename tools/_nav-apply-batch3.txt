@@ -1,0 +1,51 @@
+DELETED_OR_REWRITTEN_LINES=0
+BATCH=3/3  ACCEPTANCE_SCOPE=通路正确 + 断链净增0（不含 orphan 下降；orphan 效应在 batch2/3）
+BUCKET=content/v1.4.5/zh/api/campaign  children=1361  ALREADY_IN_BLOCK=56  ADD=1305  ALSO_LINKED_IN_PROSE=0  MARKER=existing  BEGIN=1 END=1
+   + ./AcceptCallToWarAgreementDecision  |  route=content/v1.4.5/zh/api/campaign/AcceptCallToWarAgreementDecision/  |  SIBLING  |  leaf
+   + ./AcceptCallToWarAgreementDecisionOutcome  |  route=content/v1.4.5/zh/api/campaign/AcceptCallToWarAgreementDecisionOutcome/  |  SIBLING  |  leaf
+   + ./AcceptCallToWarOfferMapNotification  |  route=content/v1.4.5/zh/api/campaign/AcceptCallToWarOfferMapNotification/  |  SIBLING  |  leaf
+   + ./AccessDetails  |  route=content/v1.4.5/zh/api/campaign/AccessDetails/  |  SIBLING  |  leaf
+   + ./AccessLevel  |  route=content/v1.4.5/zh/api/campaign/AccessLevel/  |  SIBLING  |  leaf
+   + ./AccessLimitationReason  |  route=content/v1.4.5/zh/api/campaign/AccessLimitationReason/  |  SIBLING  |  leaf
+   + ./AccessMethod  |  route=content/v1.4.5/zh/api/campaign/AccessMethod/  |  SIBLING  |  leaf
+   + ./AccompanyingCharacter  |  route=content/v1.4.5/zh/api/campaign/AccompanyingCharacter/  |  SIBLING  |  leaf
+   + ./ActionNotes  |  route=content/v1.4.5/zh/api/campaign/ActionNotes/  |  SIBLING  |  leaf
+   + ./AdditionType  |  route=content/v1.4.5/zh/api/campaign/AdditionType/  |  SIBLING  |  leaf
+   ... 共 1305 条
+BUCKET=content/v1.4.5/zh/api/campaign-ext  children=3688  ALREADY_IN_BLOCK=2837  ADD=851  ALSO_LINKED_IN_PROSE=0  MARKER=existing  BEGIN=2 END=1  **DUPLICATE_MARKER**
+   + ./AchievementsCampaignBehavior  |  route=content/v1.4.5/zh/api/campaign-ext/AchievementsCampaignBehavior/  |  SIBLING  |  leaf
+   + ./actions/  |  route=content/v1.4.5/zh/api/campaign-ext/actions/  |  SIBLING  |  subdir
+   + ./Add1000GoldCheat  |  route=content/v1.4.5/zh/api/campaign-ext/Add1000GoldCheat/  |  SIBLING  |  leaf
+   + ./Add100InfluenceCheat  |  route=content/v1.4.5/zh/api/campaign-ext/Add100InfluenceCheat/  |  SIBLING  |  leaf
+   + ./Add100RenownCheat  |  route=content/v1.4.5/zh/api/campaign-ext/Add100RenownCheat/  |  SIBLING  |  leaf
+   + ./AddCraftingMaterialsCheat  |  route=content/v1.4.5/zh/api/campaign-ext/AddCraftingMaterialsCheat/  |  SIBLING  |  leaf
+   + ./AgentAlarmStateEnum  |  route=content/v1.4.5/zh/api/campaign-ext/AgentAlarmStateEnum/  |  SIBLING  |  leaf
+   + ./AgentBehavior  |  route=content/v1.4.5/zh/api/campaign-ext/AgentBehavior/  |  SIBLING  |  leaf
+   + ./AgentBehaviorGroup  |  route=content/v1.4.5/zh/api/campaign-ext/AgentBehaviorGroup/  |  SIBLING  |  leaf
+   + ./AgentBehaviorManager  |  route=content/v1.4.5/zh/api/campaign-ext/AgentBehaviorManager/  |  SIBLING  |  leaf
+   ... 共 851 条
+   PROPOSAL_NOT_DONE_DUPLICATE_MARKER: content/v1.4.5/zh/api/campaign-ext BEGIN=2 END=1。删掉多余 BEGIN 行属于 marker 块之外的改动，落在「禁止改动已有人工内容」与「只写 marker 块内」的缝里，本轮按 boss 裁定【不删】。需要单独授权才能修。
+BUCKET=content/v1.3.15/zh/api/campaign-ext  children=2853  ALREADY_IN_BLOCK=2827  ADD=26  ALSO_LINKED_IN_PROSE=0  MARKER=existing  BEGIN=2 END=1  **DUPLICATE_MARKER**
+   + ./actions/  |  route=content/v1.3.15/zh/api/campaign-ext/actions/  |  SIBLING  |  subdir
+   + ./behaviors/  |  route=content/v1.3.15/zh/api/campaign-ext/behaviors/  |  SIBLING  |  subdir
+   + ./behaviors-priority/  |  route=content/v1.3.15/zh/api/campaign-ext/behaviors-priority/  |  SIBLING  |  subdir
+   + ./campaign-behaviors-tail/  |  route=content/v1.3.15/zh/api/campaign-ext/campaign-behaviors-tail/  |  SIBLING  |  subdir
+   + ./campaign-tail/  |  route=content/v1.3.15/zh/api/campaign-ext/campaign-tail/  |  SIBLING  |  subdir
+   + ./character-development/  |  route=content/v1.3.15/zh/api/campaign-ext/character-development/  |  SIBLING  |  subdir
+   + ./ClanFinanceModel  |  route=content/v1.3.15/zh/api/campaign-ext/ClanFinanceModel/  |  SIBLING  |  leaf
+   + ./DefaultSettlementEconomyModel  |  route=content/v1.3.15/zh/api/campaign-ext/DefaultSettlementEconomyModel/  |  SIBLING  |  leaf
+   + ./DefaultSettlementMilitiaModel  |  route=content/v1.3.15/zh/api/campaign-ext/DefaultSettlementMilitiaModel/  |  SIBLING  |  leaf
+   + ./dialogs/  |  route=content/v1.3.15/zh/api/campaign-ext/dialogs/  |  SIBLING  |  subdir
+   ... 共 26 条
+   PROPOSAL_NOT_DONE_DUPLICATE_MARKER: content/v1.3.15/zh/api/campaign-ext BEGIN=2 END=1。删掉多余 BEGIN 行属于 marker 块之外的改动，落在「禁止改动已有人工内容」与「只写 marker 块内」的缝里，本轮按 boss 裁定【不删】。需要单独授权才能修。
+TOTAL_ADD=2182  BUCKETS=3  MODE=apply
+GUARD_STATUS=PRESENT
+R2_OK: 3 个桶全部在本批次清单内，桶数一致。
+APPLIED content/v1.4.5/zh/api/campaign  added=1305  lost=0  outsideChanged=false
+APPLIED content/v1.4.5/zh/api/campaign-ext  added=851  lost=0  outsideChanged=false
+APPLIED content/v1.3.15/zh/api/campaign-ext  added=26  lost=0  outsideChanged=false
+=== BUCKET SUMMARY ===
+OK=3  FAILED=0  SKIPPED=0
+  OK      content/v1.4.5/zh/api/campaign	added=1305
+  OK      content/v1.4.5/zh/api/campaign-ext	added=851
+  OK      content/v1.3.15/zh/api/campaign-ext	added=26

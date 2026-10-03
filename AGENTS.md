@@ -2,6 +2,13 @@
 
 **Type:** Zola Documentation Site (Bannerlord modding SDK wiki)
 
+> ## 🔴 新会话必读顺序
+> 1. **`tools/_HANDOFF.md`** ← 交接文档，写明「为什么现在的状态是这样」
+> 2. 本文件 ← 写明「必须怎么做」
+> 3. `tools/_INTEGRATION-GATES.md` ← 52+ 条门禁规范，每条都有事故代价
+>
+> 两者冲突时以本文件为准，但请把冲突当作 bug 上报。
+
 ## OVERVIEW
 Bilingual (中文 / English) documentation site for Mount & Blade II: Bannerlord modding. Built with Zola, deployed via GitHub Actions to GitHub Pages. Covers v1.3.15 (canonical), v1.3.0, and v1.4.5 (source now available).
 

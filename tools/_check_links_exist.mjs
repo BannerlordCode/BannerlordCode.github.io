@@ -239,6 +239,38 @@ function loadBaseline(file) {
 // One page can contain the same href twice -> one raw dead finding, ONE baseline
 // entry.  `dead.length` (raw findings) and the entry count are not the same
 // number, so both are recorded.
+// THE net-new comparison.  One definition, two callers: the plain run at the
+// bottom of this file and the --gate aggregator above it.  It is deliberately
+// item-by-item on (page, href), NEVER a count -- a count can go DOWN while a
+// new dead href appears (measured: 186 raw -> 1 raw, net_new still 1), and a
+// gate that reads the count reports that as clean.
+function netNewVsBaseline(dead, baselineEntries) {
+  const current = new Map(dead.map((d) => [deadKey(d), d]));
+  return {
+    current,
+    netNew: [...current].filter(([k]) => !baselineEntries.has(k)),
+    resolved: [...baselineEntries].filter(([k]) => !current.has(k)),
+  };
+}
+
+// THE axis-1 verdict.  --gate and --selftest both call this; neither re-derives
+// it.  A second copy of "is dead" inside this file is the bug this exists to
+// prevent (the gate used to read dead.length while the plain run read netNew).
+//   readErrors > 0 / unusable baseline -> NO_VERDICT (2), never OK: an axis that
+//   could not see its whole population has no verdict (gate-exit.mjs asserts the
+//   blind/verdict coherence, so blind is a field here, not a note).
+function deadLinksAxis(netNew, { readErrors = 0, baselineOk = true, total = 0, note = '' } = {}) {
+  return {
+    axis: 'dead-links',
+    verdict: (readErrors > 0 || !baselineOk) ? NO_VERDICT : (netNew.length ? FINDINGS : OK),
+    numerator: netNew.length,
+    denominator: total,
+    unit: 'net-new dead hrefs (current set MINUS baseline set, item-by-item on (page, href))',
+    blind: readErrors,
+    note,
+  };
+}
+
 function emitBaseline(file, dead) {
   const unique = new Map(dead.map((d) => [deadKey(d), d]));
   const doc = {
@@ -288,6 +320,27 @@ function selftest() {
     ok ? pass++ : fail++;
     console.log(`  ${ok ? 'ok  ' : 'FAIL'}  ${label.padEnd(30)} ${href.padEnd(36)} -> ${route}  (${alive ? 'alive' : 'dead'}, want ${wantAlive ? 'alive' : 'dead'})`);
   }
+  // ---- axis-1 verdict, BOTH directions, through the SAME function --gate calls.
+  // Testing only the green direction proves nothing: a gate that cannot go red
+  // is a gate with no detection power, which is what the 186-entry baseline was
+  // hiding.  exitCode() is the real aggregation path, so assert on it, not on
+  // the verdict constant alone.
+  let vpass = 0, vfail = 0;
+  const verdictChecks = [
+    ['axis1 verdict: net new = 0 -> OK', deadLinksAxis([], { total: 140323 }).verdict, OK],
+    ['axis1 verdict: net new > 0 -> FINDINGS', deadLinksAxis([{ page: 'p', href: 'h', route: '/h/' }], { total: 140323 }).verdict, FINDINGS],
+    ['axis1 verdict: unreadable baseline -> NO_VERDICT', deadLinksAxis([], { baselineOk: false }).verdict, NO_VERDICT],
+    ['axis1 verdict: read_errors > 0 -> NO_VERDICT', deadLinksAxis([], { readErrors: 3 }).verdict, NO_VERDICT],
+    ['GATE EXIT: net new = 0 -> exit 0', exitCode([deadLinksAxis([], { total: 140323 })]), 0],
+    ['GATE EXIT: net new > 0 -> exit 1', exitCode([deadLinksAxis([{ page: 'p', href: 'h', route: '/h/' }], { total: 140323 })]), 1],
+  ];
+  for (const [label, got, want] of verdictChecks) {
+    const ok = got === want;
+    ok ? vpass++ : vfail++;
+    console.log(`  ${ok ? 'ok  ' : 'FAIL'}  ${label.padEnd(30)} want=${want} got=${got}`);
+  }
+  pass += vpass; fail += vfail;
+
   console.log(`\n  selftest: ${pass} passed, ${fail} failed`);
   if (fail) { console.error('\n  THE GATE HAS NO TEETH (or its basis is wrong). Refusing to issue a verdict.'); process.exit(2); }
   console.log('  teeth confirmed.');
@@ -364,18 +417,43 @@ if (false) /* TEMP-PROOF: worker-11 guard disabled */ {
 // ---------------------------------------------------------------- --gate
 //
 // Three axes, ONE process exit code, decided by tools/lib/gate-exit.mjs
-// (worst wins: 2 > 1 > 0).  Axis 1 is the check above, unmodified -- --gate
-// adds no new link judgement, it only aggregates.
+// (worst wins: 2 > 1 > 0).  Axis 1 is the SAME judgement the plain run makes:
+// net_new = current dead set MINUS the baseline, via netNewVsBaseline() +
+// deadLinksAxis().  --gate does not re-judge dead links on a different basis;
+// it loads the same baseline the plain run loads and aggregates.
 if (flag('--gate')) {
   // Axis 1 carries its OWN blindness, on the same rule as axes 2 and 3: if it
   // could not read part of the universe it has no verdict, and it must say so
   // here rather than rely on the fail-closed guard above being in place. The
   // guard is unchanged and still runs first; this is the redundancy Boss
   // asked for, not a replacement.
-  const axes = [{ axis: 'dead-links', verdict: readErrors > 0 ? NO_VERDICT : (dead.length ? FINDINGS : OK),
-    numerator: readErrors > 0 ? 0 : dead.length, denominator: total, unit: 'hrefs that resolve to no page',
-    blind: readErrors,
-    note: `pages=${files.length}; route-relative basis (unchanged); read_errors=${readErrors}` }];
+  const gateBase = loadBaseline(BASELINE_FILE);
+  const diff = gateBase.ok
+    ? netNewVsBaseline(dead, gateBase.entries)
+    : { current: new Map(), netNew: [], resolved: [] };
+  const baselineWord = gateBase.ok
+    ? `${gateBase.entries.size} known failure(s)`
+    : `${gateBase.code} -- baseline UNUSABLE, so net_new cannot be computed`;
+
+  const axes = [deadLinksAxis(diff.netNew, {
+    readErrors, baselineOk: gateBase.ok, total,
+    note: `net_new=${diff.netNew.length} (axis 1 judges NET NEW, not the absolute dead count); `
+        + `absolute dead=${dead.length} raw / ${diff.current.size} unique (page,href); `
+        + `baseline=${baselineWord}; pages=${files.length}; route-relative basis (unchanged); read_errors=${readErrors}`,
+  })];
+
+  // The absolute numbers stay on screen next to the verdict.  A reachable
+  // predicate is NOT a fixed bug, and the output must keep saying so.
+  console.log('\n  DEAD-LINK COUNTS (axis 1 judges NET NEW, not these numbers):');
+  console.log(`    current dead  : ${dead.length} raw finding(s) / ${diff.current.size} unique (page,href) pair(s) / hrefs=${total}`);
+  console.log(`    net new       : ${diff.netNew.length}   (not in the baseline = regressions)`);
+  console.log(`    baseline      : ${baselineWord}`);
+  console.log(`  The ${dead.length} pre-existing dead href(s) are STILL DEAD. This gate is now reachable,`);
+  console.log('  not fixed. It guards against NEW breakage only. Shrinking the baseline is a human job.');
+  if (diff.netNew.length) {
+    console.log('\n  NET NEW DEAD LINKS (regressions -- these are NOT in the baseline):');
+    for (const [, d] of diff.netNew) console.log(`      ${d.page}  ::  ${d.href}  ->  ${d.route}`);
+  }
 
   console.log('\n=== axis 2: xml id annotation =======================================');
   const limit = Number(opt('--gate-limit', '0')) || 0;
@@ -421,9 +499,7 @@ if (!base.ok) {
   process.exit(2);
 }
 
-const current = new Map(dead.map((d) => [deadKey(d), d]));
-const netNew = [...current].filter(([k]) => !base.entries.has(k));
-const resolved = [...base.entries].filter(([k]) => !current.has(k));
+const { current, netNew, resolved } = netNewVsBaseline(dead, base.entries);
 
 console.log('\n  KNOWN-FAILURES BASELINE (this gate judges NET NEW dead hrefs, not absolute dead)');
 console.log(`    baseline file : ${BASELINE_FILE.replace(REPO + '/', '')}`);

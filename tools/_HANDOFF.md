@@ -239,7 +239,13 @@ worker-55 拆出的两种现象：
 
 worker-88 在 20 页里产出 7 条：
 ```
-GetVirtualStageCount              8 处 override / 0 调用点
+GetVirtualStageCount              7 override + 1 abstract 声明 / 0 调用点
+                                    （本节初稿原文写的是「8 处 override」。第 8 处
+                                    `CharacterCreationStageViewBase.cs:76` 是
+                                    `public abstract`，不是 override。来源：worker-4
+                                    用另一个探针独立复核得到，与本文件下方 3.10
+                                    节的更正一致。保留原写法是为了让下个会话能
+                                    回答「8 是怎么来的」。）
 BoardGameAIBase.AIDecisionDuration=1.5f   声明后零引用（调用点写的是字面量 1.5f）
 CampaignMusicHandler.Min/MaxRestDurationInSeconds  声明后零引用（TickCampaignMusic 写 30f+rand*90f）
 ArmyTypes.NumberOfArmyTypes       全树仅出现一次
@@ -427,6 +433,13 @@ B-6 ⚠️ 反射消费枚举成员，文本探针看不见（比其余五条都
 P0  内容线静止后一次性 renormalize 提交（1,151 个文件），不能分散做
 P0  死成员类别单独立项 —— 已有 101+80+162 页读透了源码，边际成本最低
 P1  链接可解析性并进交付检查，跑全量 39,013 页（AGENTS.md 核心目标是不 404）
+P2  同名跨桶的重复页（**静默指错类型，不进 BROKEN_LINKS**）：同版本+同语言+跨桶同名
+    = 2,314 例（v1.4.5 = 2,243）；dir-map 的 duplicatedTypeNames=2,199 是**遗留证据**
+    不是实测值，两者口径不同不可互替。boss 裁定本轮不做（横跨全部版本树、
+    需逐类型判断哪份权威、容量满）。**不要动那些重复页** —— 删哪份是内容判断。
+    ⛔ 但禁令已生效：同名跨桶时唯一合法动作是查源码类型全名（附 File.cs:行号），
+    按桶名/页面所在桶/同名就近推断桶一律禁止。
+    登记见 tools/_NAV-BASELINE.md §7 与 tools/_DEAD-MEMBER-LIST.md §1.1
 P1  A 桶 1,434 页：先修索引（补 attribute 剥离、拆行访问器、程序集缺席清单、
     按树分层），再拆 (i)/(ii)，最后才谈修改清单
 P1  「源码自带死成员」之外，还有 3 类「会让 mod 静默失效」的内容值得补：

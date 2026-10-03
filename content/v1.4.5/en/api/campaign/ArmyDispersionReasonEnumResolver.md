@@ -112,4 +112,4 @@ Supporting evidence: `SaveableCampaignTypeDefiner.cs:313` is the only place in t
 - Method visibility: `AddEnumDefinition(Type, int, IEnumResolver = null)` is `protected` on `SaveableTypeDefiner` and callable only from `protected override void DefineEnumTypes()` in a subclass.
 - Migrated enum: [Army](../Army)'s nested `Army.ArmyDispersionReason` (16 members in 1.4.5; the legacy name `LowPartySizeRatio` is no longer among them).
 - Consumers: [ArmyDispersionLogEntry](../ArmyDispersionLogEntry) at `SaveableField(30)` and [ArmyDispersionMapNotification](../ArmyDispersionMapNotification) at `SaveableProperty(2)` each store this enum.
-- Diagnostics: [Debug](../Debug).FailedAssert is the only observable signal on the empty-input path, and it is compiled out of release builds.
+- Diagnostics: [Debug](../../core-extra/Debug).FailedAssert is the only observable signal on the empty-input path, and it is compiled out of release builds.

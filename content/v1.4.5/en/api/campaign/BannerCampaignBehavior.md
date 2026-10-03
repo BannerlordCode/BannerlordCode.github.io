@@ -27,7 +27,7 @@ private Dictionary<Hero, CampaignTime> _heroNextBannerLootTime = new Dictionary<
 
 **`_heroNextBannerLootTime` is the only thing that gets saved** — it records how long before a given hero's banner can be looted again. Every other piece of state lives on `hero.BannerItem`, which the hero persists itself.
 
-It relies on [BannerItemModel](../BannerItemModel) to answer "which tier may this hero hold", on [BannerHelper](../BannerHelper) in the `Helpers` namespace to pick a random banner that matches the tier, and on [BattleRewardModel](../BattleRewardModel) to decide whether a battle drops a banner outright.
+It relies on [BannerItemModel](../BannerItemModel) to answer "which tier may this hero hold", on [BannerHelper](../../system/BannerHelper) in the `Helpers` namespace to pick a random banner that matches the tier, and on [BattleRewardModel](../BattleRewardModel) to decide whether a battle drops a banner outright.
 
 ## Mental Model
 

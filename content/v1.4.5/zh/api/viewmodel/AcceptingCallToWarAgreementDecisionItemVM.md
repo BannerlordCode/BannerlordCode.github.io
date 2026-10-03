@@ -139,8 +139,8 @@ public MBBindingList<KingdomDiplomacyFactionItemVM> BuildOtherWars(Kingdom calli
 
 - ↑ 父类：[DecisionItemBaseVM](../DecisionItemBaseVM) —— 提供 `_decision`、`DecisionType`、`InitValues()` 与决议结束回调
 - ↔ 同级：[AcceptCallToWarOfferNotificationItemVM](../AcceptCallToWarOfferNotificationItemVM) —— 同一份要约在地图通知侧的呈现，本类是它在王国内政侧的呈现
-- → 决议类型：`AcceptCallToWarAgreementDecision`（zh: [../../campaign-ext/AcceptCallToWarAgreementDecision](../../campaign-ext/AcceptCallToWarAgreementDecision)，en: [../../campaign/AcceptCallToWarAgreementDecision](../../campaign/AcceptCallToWarAgreementDecision)）
-- → 构造方：`KingdomDecisionsVM`（zh: [../../campaign-ext/KingdomDecisionsVM](../../campaign-ext/KingdomDecisionsVM)，en: [../../campaign/KingdomDecisionsVM](../../campaign/KingdomDecisionsVM)）
+- → 决议类型：[AcceptCallToWarAgreementDecision](../../campaign/AcceptCallToWarAgreementDecision)
+- → 构造方：[KingdomDecisionsVM](../KingdomDecisionsVM)
 - → 阵营关系来源：[FactionHelper](../../system/FactionHelper) —— `GetStances` 提供 `StanceLink` 列表
 - → 领袖视图模型：[HeroVM](../HeroVM)
 - → 旗帜图：[BannerImageIdentifierVM](../../core-extra/BannerImageIdentifierVM)

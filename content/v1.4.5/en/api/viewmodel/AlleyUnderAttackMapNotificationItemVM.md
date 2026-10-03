@@ -161,7 +161,7 @@ public class MyReactiveAlleyNotificationItemVM : AlleyUnderAttackMapNotification
 - ↔ Sibling: [MapNotificationVM](../MapNotificationVM) — owner of the type constructor table and the only construction entry point
 - ↔ Sibling: [AlleyLeaderDiedMapNotificationItemVM](../AlleyLeaderDiedMapNotificationItemVM) — the same alley family, but that one registers **no listeners at all**; read together they show what "registers but never overrides `OnFinalize`" costs
 - ↔ Sibling: [ArmyCreationNotificationItemVM](../ArmyCreationNotificationItemVM) — also subscribes to several `CampaignEvents` but **unbinds correctly inside `OnFinalize`**, and is the reference implementation to copy
-- → Data source: `AlleyUnderAttackMapNotification` (zh: [../../campaign-ext/AlleyUnderAttackMapNotification](../../campaign-ext/AlleyUnderAttackMapNotification), en: [../../campaign/AlleyUnderAttackMapNotification](../../campaign/AlleyUnderAttackMapNotification))
+- → Data source: [AlleyUnderAttackMapNotification](../../campaign/AlleyUnderAttackMapNotification)
 - → Settlement and party: [Settlement](../../campaign/Settlement), [MobileParty](../../campaign/MobileParty), [Hero](../../campaign/Hero)
 - → Event source: [CampaignEvents](../../campaign-ext/CampaignEvents) — origin of `SettlementEntered`
 - → Alley: `TaleWorlds.CampaignSystem.Settlements.Alley`

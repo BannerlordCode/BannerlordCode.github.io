@@ -128,8 +128,8 @@ public void PushCallToWarDecision(Kingdom callingKingdom, Kingdom targetKingdom)
 - ↑ 父类：[MapNotificationItemBaseVM](../MapNotificationItemBaseVM) —— 提供 `_onInspect`、`ExecuteRemove()`、`NavigationHandler`、`NotificationIdentifier`
 - ↔ 同级：[AllianceOfferNotificationItemVM](../AllianceOfferNotificationItemVM) —— 结构几乎逐行同构的同盟邀约通知
 - ↔ 同级：[MapNotificationVM](../MapNotificationVM) —— 那张类型构造器表的拥有者，也是唯一的构造入口
-- → 数据源：`AcceptCallToWarOfferMapNotification`（zh: [../../campaign-ext/AcceptCallToWarOfferMapNotification](../../campaign-ext/AcceptCallToWarOfferMapNotification)，en: [../../campaign/AcceptCallToWarOfferMapNotification](../../campaign/AcceptCallToWarOfferMapNotification)）
-- → 决议类型：`AcceptCallToWarAgreementDecision`（zh: [../../campaign-ext/AcceptCallToWarAgreementDecision](../../campaign-ext/AcceptCallToWarAgreementDecision)，en: [../../campaign/AcceptCallToWarAgreementDecision](../../campaign/AcceptCallToWarAgreementDecision)）
-- → 行为接口：`IAllianceCampaignBehavior`（zh: [../../campaign-ext/IAllianceCampaignBehavior](../../campaign-ext/IAllianceCampaignBehavior)，en: [../../campaign/IAllianceCampaignBehavior](../../campaign/IAllianceCampaignBehavior)）
+- → 数据源：[AcceptCallToWarOfferMapNotification](../../campaign/AcceptCallToWarOfferMapNotification)
+- → 决议类型：[AcceptCallToWarAgreementDecision](../../campaign/AcceptCallToWarAgreementDecision)
+- → 行为接口：[IAllianceCampaignBehavior](../../campaign/IAllianceCampaignBehavior)
 - → 事件源：[CampaignEvents](../../campaign-ext/CampaignEvents) —— 五个非序列化监听的来源
 - ↑ VM 基类：[ViewModel](../../core-extra/ViewModel)

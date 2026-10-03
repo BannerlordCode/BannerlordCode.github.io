@@ -160,7 +160,7 @@ public class MyReactiveAlleyNotificationItemVM : AlleyUnderAttackMapNotification
 - ↔ 同级：[MapNotificationVM](../MapNotificationVM) —— 类型构造器表的拥有者与唯一构造入口
 - ↔ 同级：[AlleyLeaderDiedMapNotificationItemVM](../AlleyLeaderDiedMapNotificationItemVM) —— 同一暗巷体系，但那个版本**一个监听都不注册**，对比可看清"注册了却不覆写 OnFinalize"的后果
 - ↔ 同级：[ArmyCreationNotificationItemVM](../ArmyCreationNotificationItemVM) —— 同样订阅多个 `CampaignEvents`，但**在 `OnFinalize` 里正确解绑**，是本类型的正确写法参照
-- → 数据源：`AlleyUnderAttackMapNotification`（zh: [../../campaign-ext/AlleyUnderAttackMapNotification](../../campaign-ext/AlleyUnderAttackMapNotification)，en: [../../campaign/AlleyUnderAttackMapNotification](../../campaign/AlleyUnderAttackMapNotification)）
+- → 数据源：[AlleyUnderAttackMapNotification](../../campaign/AlleyUnderAttackMapNotification)
 - → 聚落与队伍：[Settlement](../../campaign/Settlement)、[MobileParty](../../campaign/MobileParty)、[Hero](../../campaign/Hero)
 - → 事件源：[CampaignEvents](../../campaign-ext/CampaignEvents) —— `SettlementEntered` 的来源
 - → 暗巷：`TaleWorlds.CampaignSystem.Settlements.Alley`

@@ -139,8 +139,8 @@ public MBBindingList<KingdomDiplomacyFactionItemVM> BuildOtherWars(Kingdom calli
 
 - ↑ Base class: [DecisionItemBaseVM](../DecisionItemBaseVM) — supplies `_decision`, `DecisionType`, `InitValues()`, and the decision-over callback
 - ↔ Sibling: [AcceptCallToWarOfferNotificationItemVM](../AcceptCallToWarOfferNotificationItemVM) — the same offer as seen from the map notification; this class is its domestic-panel counterpart
-- → Decision type: `AcceptCallToWarAgreementDecision` (zh: [../../campaign-ext/AcceptCallToWarAgreementDecision](../../campaign-ext/AcceptCallToWarAgreementDecision), en: [../../campaign/AcceptCallToWarAgreementDecision](../../campaign/AcceptCallToWarAgreementDecision))
-- → Constructor caller: `KingdomDecisionsVM` (zh: [../../campaign-ext/KingdomDecisionsVM](../../campaign-ext/KingdomDecisionsVM), en: [../../campaign/KingdomDecisionsVM](../../campaign/KingdomDecisionsVM))
+- → Decision type: [AcceptCallToWarAgreementDecision](../../campaign/AcceptCallToWarAgreementDecision)
+- → Constructor caller: [KingdomDecisionsVM](../KingdomDecisionsVM)
 - → Stance source: [FactionHelper](../../system/FactionHelper) — `GetStances` produces the `StanceLink` list
 - → Leader view model: [HeroVM](../HeroVM)
 - → Banner image: [BannerImageIdentifierVM](../../core-extra/BannerImageIdentifierVM)

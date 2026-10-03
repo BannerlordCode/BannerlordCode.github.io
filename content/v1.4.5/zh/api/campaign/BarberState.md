@@ -34,7 +34,7 @@ public IFaceGeneratorCustomFilter Filter { get; private set; }
 - **`Character` 是字段，`Filter` 是属性。** 这个不一致是源码原样。`Character` 是 `public` 字段，可以随手改；`Filter` 只有 `private set`，只能在构造时定。**要换编辑对象只能改字段，要换过滤规则必须重建 state。**
 - **两个构造器，其中一个是空的。** `public BarberState()` 什么都不做——于是 `Character` 是 null、`Filter` 是 null。`GameStateManager.CreateState<BarberState>()`（无参重载）走的正是这条路。**用无参版构造出来的 state 必须在推栈前手工赋 `Character`。**
 - **`IsMenuState => true` 意味着它把音乐菜单状态让出来。** 这是 `GameState` 的一个跨层开关：菜单型 state 通常让菜单音乐继续播。改它会直接影响音频。
-- **`Filter` 的来源在 `Helpers`。** [CharacterHelper](../CharacterHelper) 的 `GetFaceGeneratorFilter()`（`CharacterHelper.cs:105-107`）返回 `Campaign.Current.GetCampaignBehavior<IFacegenCampaignBehavior>()?.GetFaceGenFilter()`——**没有注册这个行为时返回 null**。传 null 的 `Filter` 表示「不做任何限制」，而不是崩。
+- **`Filter` 的来源在 `Helpers`。** [CharacterHelper](../../system/CharacterHelper) 的 `GetFaceGeneratorFilter()`（`CharacterHelper.cs:105-107`）返回 `Campaign.Current.GetCampaignBehavior<IFacegenCampaignBehavior>()?.GetFaceGenFilter()`——**没有注册这个行为时返回 null**。传 null 的 `Filter` 表示「不做任何限制」，而不是崩。
 - **不要缓存 `BarberState`。** `GameState.HandleFinalize()`（`TaleWorlds.Core/GameState.cs:89-98`）会把 `_listeners` 置 null、`GameStateManager` 置 null。出栈之后这个对象就是死的。
 
 ### `Filter` 接口的实际职责
@@ -172,6 +172,6 @@ public static string DescribeActiveBarber()
 - 栈管理器：[GameStateManager](../../core-extra/GameStateManager) 的 `CreateState<T>()` / `CreateState<T>(params object[])` / `PushState` / `PopState` / `LastOrDefault<T>`，是本类型唯一的落地路径
 - 载荷类型：[BasicCharacterObject](../../core-extra/BasicCharacterObject)（`TaleWorlds.Core`）是 `Character` 字段的类型
 - 过滤器接口：`IFaceGeneratorCustomFilter`（`TaleWorlds.Core`）的三个成员是 `GetHaircutIndices` / `GetFacialHairIndices` / `GetAvailableStages`
-- 过滤器来源：[CharacterHelper](../CharacterHelper) 的 `GetFaceGeneratorFilter()`（`CharacterHelper.cs:105-107`）→ `IFacegenCampaignBehavior.GetFaceGenFilter()`
+- 过滤器来源：[CharacterHelper](../../system/CharacterHelper) 的 `GetFaceGeneratorFilter()`（`CharacterHelper.cs:105-107`）→ `IFacegenCampaignBehavior.GetFaceGenFilter()`
 - 同族 GameState：[CraftingState](../CraftingState)、[InventoryState](../InventoryState)、[PartyState](../PartyState)、[MapState](../MapState) 是同一模式的其它实例
 - 桶首页：[campaign API 分区](../)

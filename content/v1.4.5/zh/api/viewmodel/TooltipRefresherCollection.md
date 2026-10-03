@@ -12,7 +12,7 @@ description: "一个约 2200 行的静态提示框构建库，每种提示框对
 
 ## 概述
 
-`TooltipRefresherCollection` 是一个以静态类形式存在的命名空间，里面装着战役 UI 的每一个“刷新这个提示框”的例程。约 30 个 public 方法遵循统一形态：调用方持有一个 `PropertyBasedTooltipVM`（widget 侧的可复用提示框对象），把它连同一个 `object[] args`（位置参数）传进去，方法（1）清空并重建提示框，（2）把 `Mode` 设为 widget 会解释的一个整数，（3）返回。这里不保存任何状态；每次调用都是基于当前战役状态的完整重建。方法覆盖 `RefreshHeroTooltip`、`RefreshSettlementTooltip`、`RefreshMobilePartyTooltip`、`RefreshArmyTooltip`、`RefreshClanTooltip`、`RefreshKingdomTooltip`、`RefreshEncounterTooltip`、`RefreshItemTooltip`、`RefreshInventoryTooltip`、`RefreshCraftingPartTooltip`、`RefreshWorkshopTooltip`、`RefreshSiegeEventTooltip`、`RefreshMapEventTooltip`、`RefreshMapMarkerTooltip`、`RefreshTrackTooltip`、`RefreshAnchorTooltip`、`RefreshCharacterTooltip`、`RefreshBuildingTooltip`、`RefreshExplainedNumberTooltip` 等等。
+`TooltipRefresherCollection` 是一个以静态类形式存在的命名空间，里面装着战役 UI 的每一个“刷新这个提示框”的例程。**19 个 public static 方法**（外加 4 个 private 辅助方法）遵循统一形态：调用方持有一个 `PropertyBasedTooltipVM`（widget 侧的可复用提示框对象），把它连同一个 `object[] args`（位置参数）传进去，方法（1）清空并重建提示框，（2）把 `Mode` 设为 widget 会解释的一个整数，（3）返回。这里不保存任何状态；每次调用都是基于当前战役状态的完整重建。19 个方法覆盖 `RefreshExplainedNumberTooltip`、`RefreshTrackTooltip`、`RefreshHeroTooltip`、`RefreshInventoryTooltip`、`RefreshCraftingPartTooltip`、`RefreshCharacterTooltip`、`RefreshItemTooltip`、`RefreshBuildingTooltip`、`RefreshAnchorTooltip`、`RefreshWorkshopTooltip`、`RefreshEncounterTooltip`、`RefreshSiegeEventTooltip`、`RefreshMapEventTooltip`、`RefreshSettlementTooltip`、`RefreshMobilePartyTooltip`、`RefreshArmyTooltip`、`RefreshClanTooltip`、`RefreshKingdomTooltip`、`RefreshMapMarkerTooltip`。**注意：18 个面向 `PropertyBasedTooltipVM`，只有 `RefreshExplainedNumberTooltip` 面向 `RundownTooltipVM`。**
 
 那个 `Mode` 整数是可见性/权限通道，也是最需要理解的部分。`RefreshSettlementTooltip` 把模式展示得很清楚：若该聚落的地图派系与玩家交战则 `Mode = 3`；若它就是玩家自己的派系，或 `DiplomacyHelper.IsSameFactionAndNotEliminated` 判定为同派系，则 `Mode = 2`；否则 `Mode = 1`。Gauntlet prefab 针对不同 mode 绑定不同的可见性，因此选错 mode 会泄露玩家本不该看到的信息。有若干方法还会分支到 `Game.Current.IsDevelopmentMode` 来追加调试 id 与场景名——那是为此专门留的地方，不要自己另搞一套。
 
@@ -183,6 +183,7 @@ public static class MyTooltipRefreshers
 ### 示例 3 —— 用实时取值钩子复用名册渲染
 
 ```csharp
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Roster;
 using TaleWorlds.Core.ViewModelCollection.Information;
 
@@ -190,18 +191,41 @@ public static class MyArmyTooltip
 {
     public static void Refresh(PropertyBasedTooltipVM vm, object[] args)
     {
-        var army = (Army)args[0];
-        TroopRoster roster = TroopRoster.CreateDummyTroopRoster();
-        roster.AddToCounts(army.GetLeaderCharacter(), 1);
+        Army army = args[0] as Army;
+        if (army == null)
+        {
+            return;
+        }
 
         vm.Mode = 1;
         vm.AddProperty("", army.Name.ToString(), 0,
                        TooltipProperty.TooltipPropertyFlags.Title);
 
-        // 名册会在渲染前一刻通过钩子重新读取。
-        PropertyBasedTooltipVM target = vm;
-        Action render = () => TooltipRefresherCollection.RefreshArmyTooltip(target, new object[] { army });
-        render();
+        // 聚合军队成员的真实写法（对照 RefreshArmyTooltip 内的局部函数 GetTempRoster，
+        // TooltipRefresherCollection.cs:1412-1429）：
+        //   军队没有自己的 MemberRoster，要从 army.LeaderParty.MemberRoster 起步，
+        //   再把每个 AttachedParties 的成员也加进来。
+        //   注意 Army 上并没有 GetLeaderCharacter() 这样的方法。
+        TroopRoster roster = TroopRoster.CreateDummyTroopRoster();
+
+        for (int i = 0; i < army.LeaderParty.MemberRoster.Count; i++)
+        {
+            TroopRosterElement element = army.LeaderParty.MemberRoster.GetElementCopyAtIndex(i);
+            roster.AddToCounts(element.Character, element.Number,
+                               insertAtFront: false, element.WoundedNumber);
+        }
+
+        foreach (MobileParty attachedParty in army.LeaderParty.AttachedParties)
+        {
+            for (int j = 0; j < attachedParty.MemberRoster.Count; j++)
+            {
+                TroopRosterElement attached = attachedParty.MemberRoster.GetElementCopyAtIndex(j);
+                roster.AddToCounts(attached.Character, attached.Number,
+                                   insertAtFront: false, attached.WoundedNumber);
+            }
+        }
+
+        TooltipRefresherCollection.RefreshArmyTooltip(vm, new object[] { army });
     }
 }
 ```

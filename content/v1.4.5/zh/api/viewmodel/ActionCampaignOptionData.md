@@ -164,5 +164,5 @@ private static CampaignOptionDisableStatus GetJunkDrawerDisabledReason()
 - ↔ 同级：[CampaignOptionsControllerVM](../CampaignOptionsControllerVM) —— 把汇总后的选项渲染成设置面板行
 - ↔ 同级：[CampaignOptionDataType](../CampaignOptionDataType) —— `Action` 与其它选项形态的枚举
 - ↔ 同级：[CampaignOptionEnableState](../CampaignOptionEnableState) —— `Enabled` / `Disabled` 等启用态
-- → 战役对象引用：[MobileParty](../../campaign/MobileParty)、[Party](../../campaign-ext/Party)
+- → 战役对象引用：[MobileParty](../../campaign/MobileParty)；`Party` 在 v1.4.5 的 zh / en 树里都没有页面，故不链接
 - ↑ 文本查找：[GameTextManager](../../core-extra/GameTextManager)

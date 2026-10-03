@@ -155,7 +155,7 @@ public static bool RegisterGoodsLine(BarterData data, Hero offerer, Hero other)
         return false;
     }
 
-    // A real barterable: ItemBarterable, with the constructor signature from ItemBarterBehavior.cs:104
+    // A real barterable: ItemBarterable, with the constructor signature from ItemBarterBehavior line 104
     ItemRosterElement goods = offerer.PartyBelongedTo.ItemRoster.GetElementCopyAtIndex(0);
     ItemBarterable line = new ItemBarterable(offerer, other, offerer.PartyBelongedTo, other.PartyBelongedTo, goods, goods.EquipmentElement.GetBaseValue());
     data.AddBarterable<ItemBarterGroup>(line);

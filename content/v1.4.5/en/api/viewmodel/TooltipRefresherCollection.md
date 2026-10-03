@@ -12,7 +12,7 @@ description: "A ~2200-line static library of tooltip builders, one public method
 
 ## Overview
 
-`TooltipRefresherCollection` is a static namespace-shaped class holding every "refresh this tooltip" routine in the campaign UI. The pattern is uniform across ~30 public methods: the caller owns a `PropertyBasedTooltipVM` (the reusable widget-side tooltip object), passes it plus an `object[] args` of positionally-typed arguments, and the method (1) clears and repopulates the tooltip, (2) sets `Mode` to an int that the widget interprets, and (3) returns. Nothing is stored; every call is a full rebuild from current campaign state. The methods span `RefreshHeroTooltip`, `RefreshSettlementTooltip`, `RefreshMobilePartyTooltip`, `RefreshArmyTooltip`, `RefreshClanTooltip`, `RefreshKingdomTooltip`, `RefreshEncounterTooltip`, `RefreshItemTooltip`, `RefreshInventoryTooltip`, `RefreshCraftingPartTooltip`, `RefreshWorkshopTooltip`, `RefreshSiegeEventTooltip`, `RefreshMapEventTooltip`, `RefreshMapMarkerTooltip`, `RefreshTrackTooltip`, `RefreshAnchorTooltip`, `RefreshCharacterTooltip`, `RefreshBuildingTooltip`, `RefreshExplainedNumberTooltip`, and more.
+`TooltipRefresherCollection` is a static namespace-shaped class holding every "refresh this tooltip" routine in the campaign UI. The pattern is uniform across its **19 public static methods** (plus 4 private helpers): the caller owns a `PropertyBasedTooltipVM` (the reusable widget-side tooltip object), passes it plus an `object[] args` of positionally-typed arguments, and the method (1) clears and repopulates the tooltip, (2) sets `Mode` to an int that the widget interprets, and (3) returns. Nothing is stored; every call is a full rebuild from current campaign state. The 19 methods are `RefreshExplainedNumberTooltip`, `RefreshTrackTooltip`, `RefreshHeroTooltip`, `RefreshInventoryTooltip`, `RefreshCraftingPartTooltip`, `RefreshCharacterTooltip`, `RefreshItemTooltip`, `RefreshBuildingTooltip`, `RefreshAnchorTooltip`, `RefreshWorkshopTooltip`, `RefreshEncounterTooltip`, `RefreshSiegeEventTooltip`, `RefreshMapEventTooltip`, `RefreshSettlementTooltip`, `RefreshMobilePartyTooltip`, `RefreshArmyTooltip`, `RefreshClanTooltip`, `RefreshKingdomTooltip`, and `RefreshMapMarkerTooltip`. **Note: 18 of them target `PropertyBasedTooltipVM`; only `RefreshExplainedNumberTooltip` targets `RundownTooltipVM`.**
 
 The `Mode` integer is the visibility/permission channel and is the most important thing to understand. `RefreshSettlementTooltip` shows the pattern clearly: if the settlement's map faction is at war with the player's it sets `Mode = 3`; if it is the player's own faction, or `DiplomacyHelper.IsSameFactionAndNotEliminated` says so, it sets `Mode = 2`; otherwise `Mode = 1`. The Gauntlet prefab binds different visibility per mode, so choosing the wrong mode leaks information the player should not have. Several methods also branch on `Game.Current.IsDevelopmentMode` to append debug ids and scene names — that is the sanctioned place for it, not a place to roll your own.
 
@@ -187,26 +187,49 @@ public static class MyTooltipRefreshers
 ### Example 3 — reusing the roster renderer with a live-value hook
 
 ```csharp
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Roster;
 using TaleWorlds.Core.ViewModelCollection.Information;
-using TaleWorlds.Localization;
 
 public static class MyArmyTooltip
 {
     public static void Refresh(PropertyBasedTooltipVM vm, object[] args)
     {
-        var army = (Army)args[0];
-        TroopRoster roster = TroopRoster.CreateDummyTroopRoster();
-        roster.AddToCounts(army.GetLeaderCharacter(), 1);
+        Army army = args[0] as Army;
+        if (army == null)
+        {
+            return;
+        }
 
         vm.Mode = 1;
         vm.AddProperty("", army.Name.ToString(), 0,
                        TooltipProperty.TooltipPropertyFlags.Title);
 
-        // The roster is re-read through the hook right before it is rendered.
-        PropertyBasedTooltipVM target = vm;
-        Action render = () => TooltipRefresherCollection.RefreshArmyTooltip(target, new object[] { army });
-        render();
+        // The real way to aggregate an army's members (compare the local function
+        // GetTempRoster inside RefreshArmyTooltip, TooltipRefresherCollection.cs:1412-1429):
+        // an army has no MemberRoster of its own, so you start from
+        // army.LeaderParty.MemberRoster and fold in every AttachedParties.
+        // Note there is no GetLeaderCharacter() method on Army.
+        TroopRoster roster = TroopRoster.CreateDummyTroopRoster();
+
+        for (int i = 0; i < army.LeaderParty.MemberRoster.Count; i++)
+        {
+            TroopRosterElement element = army.LeaderParty.MemberRoster.GetElementCopyAtIndex(i);
+            roster.AddToCounts(element.Character, element.Number,
+                               insertAtFront: false, element.WoundedNumber);
+        }
+
+        foreach (MobileParty attachedParty in army.LeaderParty.AttachedParties)
+        {
+            for (int j = 0; j < attachedParty.MemberRoster.Count; j++)
+            {
+                TroopRosterElement attached = attachedParty.MemberRoster.GetElementCopyAtIndex(j);
+                roster.AddToCounts(attached.Character, attached.Number,
+                                   insertAtFront: false, attached.WoundedNumber);
+            }
+        }
+
+        TooltipRefresherCollection.RefreshArmyTooltip(vm, new object[] { army });
     }
 }
 ```

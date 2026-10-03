@@ -146,9 +146,9 @@ The thresholds live in [AgeModel](../AgeModel) and its official implementation [
 - Base: [CampaignBehaviorBase](../CampaignBehaviorBase), supplying the `RegisterEvents` / `SyncData` override points; registered at `SandBoxManager.cs:140` via `gameStarter.AddBehavior(new AgingCampaignBehavior())`.
 - Threshold source: [AgeModel](../AgeModel) — `HeroComesOfAge` / `BecomeTeenagerAge` / `BecomeChildAge` / `BecomeOldAge` / `MiddleAdultHoodAge` / `MaxAge`, all read through `Campaign.Current.Models.AgeModel`.
 - Hero side: [Hero](../Hero) with `Age` / `ProbabilityOfDeath` / `IsAlive` / `IsTemplate` / `DeathMark` / `HeroDeveloper`, plus `Hero.MainHero` / `Hero.IsMainHeroIll` / `Hero.AllAliveHeroes` / `Hero.DeadOrDisabledHeroes` / `Hero.FindAll`.
-- Death execution: [KillCharacterAction](../KillCharacterAction).ApplyByOldAge / ApplyByDeathMark and `KillCharacterAction.KillCharacterActionDetail.DiedOfOldAge`.
+- Death execution: [KillCharacterAction](../../campaign-ext/KillCharacterAction).ApplyByOldAge / ApplyByDeathMark and `KillCharacterAction.KillCharacterActionDetail.DiedOfOldAge`.
 - Event plumbing: the nine entry points on [CampaignEvents](../CampaignEvents) and the three `On*` outlets on [CampaignEventDispatcher](../CampaignEventDispatcher) — `OnHeroComesOfAge` / `OnHeroReachesTeenAge` / `OnHeroGrowsOutOfInfancy`.
 - Switches: [CampaignOptions](../CampaignOptions).IsLifeDeathCycleDisabled and `Campaign.Current.MainHeroIllDays`.
-- Equipment: [Equipment](../Equipment), `EquipmentHelper.AssignHeroEquipmentFromEquipment` and `Campaign.Current.Models.EquipmentSelectionModel`.
+- Equipment: [Equipment](../../core-extra/Equipment), `EquipmentHelper.AssignHeroEquipmentFromEquipment` and `Campaign.Current.Models.EquipmentSelectionModel`.
 - Traits: the `DefaultTraits.Personality` family plus `Hero.GetTraitLevel` / `SetTraitLevel` and `CharacterObject.GetTraitLevel`.
 - Serialization: [IDataStore](../IDataStore).SyncData(string, ref); both dictionaries participate.

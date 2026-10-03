@@ -118,4 +118,4 @@ LogEntry.AddLogEntry(new CharacterInsultedLogEntry(insultee, insulter, overWhat,
 - 数值来源：[DefaultTraits](../DefaultTraits)（Valor / Honor / Mercy / Generosity / Calculating）与 [Hero](../Hero).SetTraitLevel / GetTraitLevel
 - 枚举本体：[DefaultTraits](../DefaultTraits) 所在的 `TaleWorlds.CampaignSystem` 根命名空间——本类型没有子命名空间，是 campaign 桶里少见的扁平位置
 - 存档登记：`SaveableCampaignTypeDefiner` 的 `AddEnumDefinition(typeof(ActionNotes), 2030)`（`Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/SaveableCampaignTypeDefiner.cs:316`）
-- 文本：[StringHelpers](../StringHelpers) 与 [GameTexts](../GameTexts) 提供 `str_game_action_note` 之类的翻译查找
+- 文本：[StringHelpers](../../system/StringHelpers) 与 [GameTexts](../../core-extra/GameTexts) 提供 `str_game_action_note` 之类的翻译查找

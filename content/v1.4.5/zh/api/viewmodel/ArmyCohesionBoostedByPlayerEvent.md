@@ -177,5 +177,5 @@ public class MyCohesionBoostCommittedEvent : EventBase
 - ↔ 同级：[ArmyManagementBoostEventVM](../ArmyManagementBoostEventVM) —— 同一界面的另一个扩展点，同样在原版里无人构造
 - ↔ 同级：[ArmyManagementItemVM](../ArmyManagementItemVM) —— 同界面的条目视图模型，可与本页对照"有状态 VM"与"无状态信标"的差别
 - → 事件宿主：[Game](../../core-extra/Game) —— `Game.Current.EventManager`
-- → 军队对象：[Army](../../campaign-ext/Army)（真正的 `BoostCohesionWithInfluence` 在 [ArmyManagementCalculationModel](../../campaign-ext/ArmyManagementCalculationModel) 侧，zh 链接）
+- → 军队对象：[Army](../../campaign-ext/Army)（真正的 `BoostCohesionWithInfluence` 在 [ArmyManagementCalculationModel](../../campaign/ArmyManagementCalculationModel) 侧）
 - → 派生物：[MobileParty](../../campaign/MobileParty)、[Hero](../../campaign/Hero)

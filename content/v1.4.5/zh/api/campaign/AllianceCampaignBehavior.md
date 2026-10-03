@@ -110,8 +110,8 @@ if (partner != null && !behavior.IsAllyWithKingdom(Clan.PlayerClan.Kingdom, part
 - 接口：[IAllianceCampaignBehavior](../IAllianceCampaignBehavior)，经 `Campaign.Current.GetCampaignBehavior<IAllianceCampaignBehavior>()` 获取，[AcceptCallToWarAgreementDecision](../AcceptCallToWarAgreementDecision) 用它调 `StartCallToWarAgreement` / `DenyCallToWarAgreement`
 - 数值来源：[AllianceModel](../AllianceModel) 的 `MaxDurationOfAlliance` / `MaxDurationOfWarParticipation` / `MaxNumberOfAlliances` / `DurationForOffers` / `GetCallToWarCost` / `GetInfluenceCostOf*` / `GetScoreOf*`
 - 外交状态：[Kingdom](../Kingdom) / [Clan](../Clan) / [StanceLink](../StanceLink) / [IFaction](../IFaction)，以及 `Kingdom.CallToWarWallet`、`Kingdom.AlliedKingdoms`、`Kingdom.UnresolvedDecisions`
-- 战争动作：[DeclareWarAction](../DeclareWarAction).ApplyByCallToWarAgreement / [MakePeaceAction](../MakePeaceAction)，以及 `DeclareWarAction.DeclareWarDetail.CausedByPlayerHostility`
+- 战争动作：[DeclareWarAction](../../campaign-ext/DeclareWarAction).ApplyByCallToWarAgreement / [MakePeaceAction](../../campaign-ext/MakePeaceAction)，以及 `DeclareWarAction.DeclareWarDetail.CausedByPlayerHostility`
 - 关系动作：`ChangeRelationAction.ApplyRelationChangeBetweenHeroes`（三个硬编码 const 的落点）
 - 通知侧：[AllianceOfferMapNotification](../AllianceOfferMapNotification)、[AcceptCallToWarOfferMapNotification](../AcceptCallToWarOfferMapNotification)、[AcceptCallToWarAgreementDecision](../AcceptCallToWarAgreementDecision)、`ProposeCallToWarAgreementDecision`
 - 事件：[CampaignEvents](../CampaignEvents) 的 7 个入口与 [CampaignEventDispatcher](../CampaignEventDispatcher) 的 `OnAllianceStarted` / `OnCallToWarAgreementStarted` / `OnCallToWarAgreementEnded`
-- 存档兼容：[MBSaveLoad](../../save-system/MBSaveLoad).IsUpdatingGameVersion / LastLoadedGameVersion 与 `ApplicationVersion.FromString("v1.4.0.110693")`
+- 存档兼容：[MBSaveLoad](../../core-extra/MBSaveLoad).IsUpdatingGameVersion / LastLoadedGameVersion 与 `ApplicationVersion.FromString("v1.4.0.110693")`

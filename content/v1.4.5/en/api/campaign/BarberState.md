@@ -34,7 +34,7 @@ Think of it as **a parameter envelope for one UI session**.
 - **`Character` is a field; `Filter` is a property.** That inconsistency is verbatim from the source. `Character` is a `public` field you can overwrite at will, while `Filter` has a `private set` and can only be fixed at construction. **You can swap the edited character by assignment; you must rebuild the state to swap the filter.**
 - **There are two constructors and one of them is empty.** `public BarberState()` does nothing, leaving `Character` and `Filter` null. `GameStateManager.CreateState<BarberState>()` — the no-argument overload — takes exactly that path. **A state built through the no-argument overload must be assigned a `Character` before you push it.**
 - **`IsMenuState => true` means it hands the music menu state back.** This is a cross-layer switch on `GameState`: menu-type states normally let the menu music keep playing. Changing it directly changes audio behaviour.
-- **Where `Filter` comes from.** `GetFaceGeneratorFilter()` in [CharacterHelper](../CharacterHelper) (`CharacterHelper.cs:105-107`) returns `Campaign.Current.GetCampaignBehavior<IFacegenCampaignBehavior>()?.GetFaceGenFilter()` — so **with that behavior unregistered it returns null**. A null `Filter` means "no restriction", not a crash.
+- **Where `Filter` comes from.** `GetFaceGeneratorFilter()` in [CharacterHelper](../../system/CharacterHelper) (`CharacterHelper.cs:105-107`) returns `Campaign.Current.GetCampaignBehavior<IFacegenCampaignBehavior>()?.GetFaceGenFilter()` — so **with that behavior unregistered it returns null**. A null `Filter` means "no restriction", not a crash.
 - **Never cache a `BarberState`.** `GameState.HandleFinalize()` (`TaleWorlds.Core/GameState.cs:89-98`) nulls `_listeners` and `GameStateManager`. After the pop, the object is dead.
 
 ### What the `Filter` interface actually does
@@ -172,6 +172,6 @@ public static string DescribeActiveBarber()
 - Stack manager: `CreateState<T>()`, `CreateState<T>(params object[])`, `PushState`, `PopState`, and `LastOrDefault<T>` on [GameStateManager](../../core-extra/GameStateManager) are the only landing paths for this type
 - Payload type: [BasicCharacterObject](../../core-extra/BasicCharacterObject) from `TaleWorlds.Core` is the type of the `Character` field
 - Filter interface: `IFaceGeneratorCustomFilter` in `TaleWorlds.Core`, with the three members `GetHaircutIndices`, `GetFacialHairIndices`, and `GetAvailableStages`
-- Filter source: `GetFaceGeneratorFilter()` in [CharacterHelper](../CharacterHelper) at `CharacterHelper.cs:105-107`, delegating to `IFacegenCampaignBehavior.GetFaceGenFilter()`
+- Filter source: `GetFaceGeneratorFilter()` in [CharacterHelper](../../system/CharacterHelper) at `CharacterHelper.cs:105-107`, delegating to `IFacegenCampaignBehavior.GetFaceGenFilter()`
 - Sibling GameStates: [CraftingState](../CraftingState), [InventoryState](../InventoryState), [PartyState](../PartyState), and [MapState](../MapState) are other instances of the same pattern
 - Bucket index: [campaign API section](../)

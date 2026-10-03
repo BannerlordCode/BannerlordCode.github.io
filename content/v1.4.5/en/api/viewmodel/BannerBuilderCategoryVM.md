@@ -52,7 +52,7 @@ There is exactly one construction site: **`BannerBuilderVM`** (`BannerBuilderVM.
 Categories.Add(new BannerBuilderCategoryVM(category, OnItemSelection));
 ```
 
-`Categories` is a `MBBindingList<BannerBuilderCategoryVM>` inside `BannerBuilderVM` (allocated at `:609`, exposed as a `[DataSourceProperty]` at `:128`). The same list is bulk-refreshed with `ApplyActionOnAllItems` at `:690`, and indexed into at `:733` and `:843`.
+`Categories` is a `MBBindingList<BannerBuilderCategoryVM>` inside `BannerBuilderVM` (allocated at `BannerBuilderVM.cs:609`, exposed as a `[DataSourceProperty]` at `BannerBuilderVM.cs:128`). The same list is bulk-refreshed with `ApplyActionOnAllItems` at `BannerBuilderVM.cs:690`, and indexed into at `BannerBuilderVM.cs:733` and `BannerBuilderVM.cs:843`.
 
 Note that `OnItemSelection` is **handed verbatim to every child row** — this class does not handle selection itself, it only forwards.
 

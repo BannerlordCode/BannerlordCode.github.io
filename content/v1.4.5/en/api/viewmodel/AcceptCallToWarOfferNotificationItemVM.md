@@ -128,8 +128,8 @@ public void PushCallToWarDecision(Kingdom callingKingdom, Kingdom targetKingdom)
 - ↑ Base class: [MapNotificationItemBaseVM](../MapNotificationItemBaseVM) — supplies `_onInspect`, `ExecuteRemove()`, `NavigationHandler`, `NotificationIdentifier`
 - ↔ Sibling: [AllianceOfferNotificationItemVM](../AllianceOfferNotificationItemVM) — the alliance-offer notification, structurally near-identical line for line
 - ↔ Sibling: [MapNotificationVM](../MapNotificationVM) — owner of the type constructor table and the only construction entry point
-- → Data source: `AcceptCallToWarOfferMapNotification` (zh: [../../campaign-ext/AcceptCallToWarOfferMapNotification](../../campaign-ext/AcceptCallToWarOfferMapNotification), en: [../../campaign/AcceptCallToWarOfferMapNotification](../../campaign/AcceptCallToWarOfferMapNotification))
-- → Decision type: `AcceptCallToWarAgreementDecision` (zh: [../../campaign-ext/AcceptCallToWarAgreementDecision](../../campaign-ext/AcceptCallToWarAgreementDecision), en: [../../campaign/AcceptCallToWarAgreementDecision](../../campaign/AcceptCallToWarAgreementDecision))
-- → Behavior interface: `IAllianceCampaignBehavior` (zh: [../../campaign-ext/IAllianceCampaignBehavior](../../campaign-ext/IAllianceCampaignBehavior), en: [../../campaign/IAllianceCampaignBehavior](../../campaign/IAllianceCampaignBehavior))
+- → Data source: [AcceptCallToWarOfferMapNotification](../../campaign/AcceptCallToWarOfferMapNotification)
+- → Decision type: [AcceptCallToWarAgreementDecision](../../campaign/AcceptCallToWarAgreementDecision)
+- → Behavior interface: [IAllianceCampaignBehavior](../../campaign/IAllianceCampaignBehavior)
 - → Event source: [CampaignEvents](../../campaign-ext/CampaignEvents) — the five non-serialized listeners
 - ↑ VM base: [ViewModel](../../core-extra/ViewModel)

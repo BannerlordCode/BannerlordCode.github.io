@@ -182,7 +182,7 @@ public void FocusArmyLeaderOrFallBack(Army army)
 - ↔ Sibling: [MapNotificationVM](../MapNotificationVM) — the type constructor table and only construction entry point
 - ↔ Sibling: [ArmyDispersionItemVM](../ArmyDispersionItemVM) — the row shown when an army **disperses**; together with this page it covers both ends of an army's life
 - ↔ Sibling: [AlleyUnderAttackMapNotificationItemVM](../AlleyUnderAttackMapNotificationItemVM) — also subscribes to `CampaignEvents` yet never overrides `OnFinalize`; read it as the counter-example to this class's unbinding
-- → Data source: `ArmyCreationMapNotification` (zh: [../../campaign-ext/ArmyCreationMapNotification](../../campaign-ext/ArmyCreationMapNotification), en: [../../campaign/ArmyCreationMapNotification](../../campaign/ArmyCreationMapNotification))
+- → Data source: [ArmyCreationMapNotification](../../campaign/ArmyCreationMapNotification)
 - → Army and party: [Army](../../campaign-ext/Army), [MobileParty](../../campaign/MobileParty)
 - → Event source: [CampaignEvents](../../campaign-ext/CampaignEvents) — origin of the three listeners
 - ↑ Coordinate type: `Vec2` from `TaleWorlds.Library`, the same assembly as [MBBindingList](../../core-extra/MBBindingList)

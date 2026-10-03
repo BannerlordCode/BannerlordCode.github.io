@@ -155,7 +155,7 @@ public static bool RegisterGoodsLine(BarterData data, Hero offerer, Hero other)
         return false;
     }
 
-    // 真实存在的 barterable：ItemBarterable，构造签名照 ItemBarterBehavior.cs:104
+    // 真实存在的 barterable：ItemBarterable，构造签名照 ItemBarterBehavior 第 104 行
     ItemRosterElement goods = offerer.PartyBelongedTo.ItemRoster.GetElementCopyAtIndex(0);
     ItemBarterable line = new ItemBarterable(offerer, other, offerer.PartyBelongedTo, other.PartyBelongedTo, goods, goods.EquipmentElement.GetBaseValue());
     data.AddBarterable<ItemBarterGroup>(line);

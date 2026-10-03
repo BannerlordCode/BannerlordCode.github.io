@@ -118,4 +118,4 @@ On the save side, 1.4.5 registers `AddEnumDefinition(typeof(ActionNotes), 2030)`
 - Numeric source: [DefaultTraits](../DefaultTraits) (Valor / Honor / Mercy / Generosity / Calculating) and [Hero](../Hero).SetTraitLevel / GetTraitLevel.
 - The enum's own home: the flat `TaleWorlds.CampaignSystem` root namespace — one of the few campaign-bucket types with no sub-namespace.
 - Save registration: `AddEnumDefinition(typeof(ActionNotes), 2030)` in `SaveableCampaignTypeDefiner` at `Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem/SaveableCampaignTypeDefiner.cs:316`.
-- Text: [StringHelpers](../StringHelpers) and [GameTexts](../GameTexts) provide the `str_game_action_note` lookups.
+- Text: [StringHelpers](../../system/StringHelpers) and [GameTexts](../../core-extra/GameTexts) provide the `str_game_action_note` lookups.

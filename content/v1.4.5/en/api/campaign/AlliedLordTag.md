@@ -93,7 +93,7 @@ foreach (Hero lord in Hero.AllAliveHeroes)
 
 - Base: [ConversationTag](../ConversationTag) declares only the two abstract members `StringId` / `IsApplicableTo`, and makes `ToString()` return `StringId`.
 - Registration and query: [ConversationManager](../ConversationManager) — `InitializeTags()` builds instances reflectively, `IsTagApplicable(string, CharacterObject)` forwards, and `FindMatchingScore` in the same file uses the verdict to score dialogue variations.
-- Predicate helper: [DiplomacyHelper](../DiplomacyHelper) — `IsSameFactionAndNotEliminated(IFaction, IFaction)` is the single implementation of "same faction, neither eliminated".
+- Predicate helper: [DiplomacyHelper](../../system/DiplomacyHelper) — `IsSameFactionAndNotEliminated(IFaction, IFaction)` is the single implementation of "same faction, neither eliminated".
 - Queried object: [CharacterObject](../CharacterObject) for `IsHero` / `HeroObject`, and [Hero](../Hero) for `MapFaction`.
-- Faction abstraction: [IFaction](../IFaction) supplies `IsEliminated`; [Faction](../Faction) is its concrete implementation.
+- Faction abstraction: [IFaction](../IFaction) supplies `IsEliminated`; `Faction` is its concrete implementation.
 - Sibling tags: [AmoralTag](../AmoralTag) and [AnyNotableTypeTag](../AnyNotableTypeTag) are the other two structurally identical gates in this namespace.

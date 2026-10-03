@@ -240,9 +240,9 @@ public bool ShouldInsertAtFront(MobileParty party, Army army)
 - ↑ 父类：[GameMenuOverlay](../GameMenuOverlay) —— 提供 `CurrentOverlayType`、`IsInitializationOver`、`_contextMenuItem`、`ContextList`、`OnFrameTick`、`Refresh`
 - ↔ 同级：[ArmyManagementVM](../ArmyManagementVM) —— **通过 `OpenArmyManagement` 委托相连**的编辑面板；两者读同一批战役对象
 - ↔ 同级：[ArmyManagementItemVM](../ArmyManagementItemVM) —— 编辑面板里的部队条目；本类的 `PartyList` 用的是另一套 `GameMenuPartyItemVM`
-- ↔ 同级：[GameMenu](../../campaign-ext/GameMenu) —— 持有覆层集合的父菜单（zh 链接；en: `../../campaign/GameMenu`）
+- ↔ 同级：[GameMenu](../../campaign/GameMenu) —— 持有覆层集合的父菜单
 - ↔ 同级：[GameMenuPartyItemVM](../GameMenuPartyItemVM) —— 列表条目类型，`RefreshQuestStatus` / `RefreshVisual` / `RefreshProperties` 都在它上面
 - → 军队与队伍：[Army](../../campaign-ext/Army)、[MobileParty](../../campaign/MobileParty)、[Hero](../../campaign/Hero)、[Settlement](../../campaign/Settlement)
 - → 提示：[BasicTooltipViewModel](../../core-extra/BasicTooltipViewModel)、[HintViewModel](../HintViewModel)、[ElementNotificationVM](../../core-extra/ElementNotificationVM)
 - → 事件源：[CampaignEvents](../../campaign-ext/CampaignEvents) —— 三个监听的来源
-- → 百科：[Concept](../../campaign-ext/Concept)、[EncyclopediaManager](../../campaign-ext/EncyclopediaManager)（zh 链接；en 侧在 `../../campaign/`）
+- → 百科：[Concept](../../campaign/Concept)、[EncyclopediaManager](../../campaign/EncyclopediaManager)

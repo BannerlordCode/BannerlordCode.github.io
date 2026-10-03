@@ -177,5 +177,5 @@ public class MyCohesionBoostCommittedEvent : EventBase
 - ↔ Sibling: [ArmyManagementBoostEventVM](../ArmyManagementBoostEventVM) — another extension point in the same screen, likewise constructed nowhere in vanilla
 - ↔ Sibling: [ArmyManagementItemVM](../ArmyManagementItemVM) — the same screen's row view model; compare it with this page to see "stateful VM" versus "stateless signal"
 - → Event host: [Game](../../core-extra/Game) — `Game.Current.EventManager`
-- → Army object: [Army](../../campaign-ext/Army); the actual `BoostCohesionWithInfluence` sits on the [ArmyManagementCalculationModel](../../campaign-ext/ArmyManagementCalculationModel) side (zh link)
+- → Army object: [Army](../../campaign-ext/Army); the actual `BoostCohesionWithInfluence` sits on the [ArmyManagementCalculationModel](../../campaign/ArmyManagementCalculationModel) side
 - → Derived objects: [MobileParty](../../campaign/MobileParty), [Hero](../../campaign/Hero)

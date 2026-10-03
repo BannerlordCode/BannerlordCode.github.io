@@ -27,7 +27,7 @@ private Dictionary<Hero, CampaignTime> _heroNextBannerLootTime = new Dictionary<
 
 **唯一需要存档的就是 `_heroNextBannerLootTime`**——它记录「这个英雄的旗被抢走后多久可以再抢」。其余状态全写在 `hero.BannerItem` 上，由英雄自己存档。
 
-它依赖 [BannerItemModel](../BannerItemModel) 回答「谁能拿哪一档」，依赖 `Helpers` 里的 [BannerHelper](../BannerHelper) 随机取一面合乎档位的旗，依赖 [BattleRewardModel](../BattleRewardModel) 决定战后能否直接掉一面旗。
+它依赖 [BannerItemModel](../BannerItemModel) 回答「谁能拿哪一档」，依赖 `Helpers` 里的 [BannerHelper](../../system/BannerHelper) 随机取一面合乎档位的旗，依赖 [BattleRewardModel](../BattleRewardModel) 决定战后能否直接掉一面旗。
 
 ## 心智模型
 

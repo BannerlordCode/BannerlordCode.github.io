@@ -146,9 +146,9 @@ if (!CampaignOptions.IsLifeDeathCycleDisabled && hero.Age >= Campaign.Current.Mo
 - 基类：[CampaignBehaviorBase](../CampaignBehaviorBase)，提供 `RegisterEvents` / `SyncData` 两个 override 点；注册点 `SandBoxManager.cs:140` 的 `gameStarter.AddBehavior(new AgingCampaignBehavior())`
 - 阈值来源：[AgeModel](../AgeModel) 的 `HeroComesOfAge` / `BecomeTeenagerAge` / `BecomeChildAge` / `BecomeOldAge` / `MiddleAdultHoodAge` / `MaxAge`，全部读 `Campaign.Current.Models.AgeModel`
 - 英雄侧：[Hero](../Hero) 的 `Age` / `ProbabilityOfDeath` / `IsAlive` / `IsTemplate` / `DeathMark` / `HeroDeveloper`，以及 `Hero.MainHero` / `Hero.IsMainHeroIll` / `Hero.AllAliveHeroes` / `Hero.DeadOrDisabledHeroes` / `Hero.FindAll`
-- 死亡执行：[KillCharacterAction](../KillCharacterAction).ApplyByOldAge / ApplyByDeathMark / `KillCharacterAction.KillCharacterActionDetail.DiedOfOldAge`
+- 死亡执行：[KillCharacterAction](../../campaign-ext/KillCharacterAction).ApplyByOldAge / ApplyByDeathMark / `KillCharacterAction.KillCharacterActionDetail.DiedOfOldAge`
 - 事件派发与订阅：[CampaignEvents](../CampaignEvents) 的 9 个入口与 [CampaignEventDispatcher](../CampaignEventDispatcher) 的三个 `On*` 出口（`OnHeroComesOfAge` / `OnHeroReachesTeenAge` / `OnHeroGrowsOutOfInfancy`）
 - 开关：[CampaignOptions](../CampaignOptions).IsLifeDeathCycleDisabled 与 `Campaign.Current.MainHeroIllDays`
-- 装备：[Equipment](../Equipment) / `EquipmentHelper.AssignHeroEquipmentFromEquipment` / `Campaign.Current.Models.EquipmentSelectionModel`
+- 装备：[Equipment](../../core-extra/Equipment) / `EquipmentHelper.AssignHeroEquipmentFromEquipment` / `Campaign.Current.Models.EquipmentSelectionModel`
 - 特质：[DefaultTraits](../DefaultTraits).Personality 族与 `Hero.GetTraitLevel` / `SetTraitLevel` / `CharacterObject.GetTraitLevel`
 - 存档：[IDataStore](../IDataStore) 的 `SyncData(string, ref)`，两个字典都参与序列化

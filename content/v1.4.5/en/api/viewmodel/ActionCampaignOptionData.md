@@ -165,5 +165,5 @@ private static CampaignOptionDisableStatus GetJunkDrawerDisabledReason()
 - ↔ Sibling: [CampaignOptionsControllerVM](../CampaignOptionsControllerVM) — renders the aggregated options into settings rows
 - ↔ Sibling: [CampaignOptionDataType](../CampaignOptionDataType) — the enum containing `Action` alongside the other option shapes
 - ↔ Sibling: [CampaignOptionEnableState](../CampaignOptionEnableState) — `Enabled` / `Disabled` and friends
-- → Campaign object references: [MobileParty](../../campaign/MobileParty), [Party](../../campaign-ext/Party)
+- → Campaign object references: [MobileParty](../../campaign/MobileParty); `Party` has no page in the v1.4.5 zh / en trees, so it is not linked
 - ↑ Text lookup: [GameTextManager](../../core-extra/GameTextManager)

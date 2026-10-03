@@ -80,7 +80,7 @@ foreach (LogEntry log in Campaign.Current.LogEntryHistory.GameActionLogs)
 }
 ```
 
-按战争过滤解散记录（`GetLogsForWar` 在 [DiplomacyHelper](../DiplomacyHelper) 上）：
+按战争过滤解散记录（`GetLogsForWar` 在 [DiplomacyHelper](../../system/DiplomacyHelper) 上）：
 
 ```csharp
 foreach ((LogEntry entry, IFaction effector, IFaction effected) in DiplomacyHelper.GetLogsForWar(stance))
@@ -119,4 +119,4 @@ foreach ((LogEntry entry, IFaction effector, IFaction effected) in DiplomacyHelp
 - **原因枚举：[Army](../Army).ArmyDispersionReason（16 个成员）是那 12 分支 `switch` 的判别式**
 - 数据源：[Army](../Army).ArmyOwner / LeaderParty / Parties / EncyclopediaLinkWithName，经 [MobileParty](../MobileParty) 与 [Hero](../Hero) 到 [CharacterObject](../CharacterObject)
 - 存档迁移：[ArmyDispersionReasonEnumResolver](../ArmyDispersionReasonEnumResolver) 在 `SaveableCampaignTypeDefiner.AddEnumDefinition(typeof(Army.ArmyDispersionReason), 2023, new ArmyDispersionReasonEnumResolver())` 处挂载
-- 读路径：[DiplomacyHelper](../DiplomacyHelper).GetLogsForWar（战争日志）与 `Campaign.Current.LogEntryHistory.GameActionLogs`（百科页 / 成就）
+- 读路径：[DiplomacyHelper](../../system/DiplomacyHelper).GetLogsForWar（战争日志）与 `Campaign.Current.LogEntryHistory.GameActionLogs`（百科页 / 成就）

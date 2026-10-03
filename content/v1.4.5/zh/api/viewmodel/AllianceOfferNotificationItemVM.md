@@ -145,8 +145,8 @@ public class MyAllianceOfferWatcher : CampaignBehaviorBase
 - ↑ 父类：[MapNotificationItemBaseVM](../MapNotificationItemBaseVM) —— 提供 `_onInspect`、`ExecuteRemove()`、`NavigationHandler`、`NotificationIdentifier`
 - ↔ 同级：[MapNotificationVM](../MapNotificationVM) —— 类型构造器表与唯一构造入口
 - ↔ 同级：[AcceptCallToWarOfferNotificationItemVM](../AcceptCallToWarOfferNotificationItemVM) —— 逐行同构的参战要约通知，多一个 `MakePeace` 监听与一个目标王国
-- → 数据源：`AllianceOfferMapNotification`（zh: [../../campaign-ext/AllianceOfferMapNotification](../../campaign-ext/AllianceOfferMapNotification)，en: [../../campaign/AllianceOfferMapNotification](../../campaign/AllianceOfferMapNotification)）
-- → 决议类型：`StartAllianceDecision`（zh: [../../campaign-ext/StartAllianceDecision](../../campaign-ext/StartAllianceDecision)，en: [../../campaign/StartAllianceDecision](../../campaign/StartAllianceDecision)）
-- → 行为接口：`IAllianceCampaignBehavior`（zh: [../../campaign-ext/IAllianceCampaignBehavior](../../campaign-ext/IAllianceCampaignBehavior)，en: [../../campaign/IAllianceCampaignBehavior](../../campaign/IAllianceCampaignBehavior)）
+- → 数据源：[AllianceOfferMapNotification](../../campaign/AllianceOfferMapNotification)
+- → 决议类型：[StartAllianceDecision](../../campaign/StartAllianceDecision)
+- → 行为接口：[IAllianceCampaignBehavior](../../campaign/IAllianceCampaignBehavior)
 - → 事件源：[CampaignEvents](../../campaign-ext/CampaignEvents) —— 四个监听的来源
 - → 派生物：[Kingdom](../../campaign/Kingdom)、[Clan](../../campaign/Clan)

@@ -80,7 +80,7 @@ foreach (LogEntry log in Campaign.Current.LogEntryHistory.GameActionLogs)
 }
 ```
 
-Filter dispersion records by war — `GetLogsForWar` lives on [DiplomacyHelper](../DiplomacyHelper):
+Filter dispersion records by war — `GetLogsForWar` lives on [DiplomacyHelper](../../system/DiplomacyHelper):
 
 ```csharp
 foreach ((LogEntry entry, IFaction effector, IFaction effected) in DiplomacyHelper.GetLogsForWar(stance))
@@ -119,4 +119,4 @@ Because renaming or adding an `Army.ArmyDispersionReason` member would silently 
 - Reason enum: [Army](../Army).ArmyDispersionReason (16 members) is the discriminant behind the 12 branches.
 - Data source: [Army](../Army).ArmyOwner / LeaderParty / Parties / EncyclopediaLinkWithName, through [MobileParty](../MobileParty) and [Hero](../Hero) to [CharacterObject](../CharacterObject).
 - Save migration: [ArmyDispersionReasonEnumResolver](../ArmyDispersionReasonEnumResolver), mounted at `SaveableCampaignTypeDefiner.AddEnumDefinition(typeof(Army.ArmyDispersionReason), 2023, new ArmyDispersionReasonEnumResolver())`.
-- Read paths: [DiplomacyHelper](../DiplomacyHelper).GetLogsForWar for the war log, and `Campaign.Current.LogEntryHistory.GameActionLogs` for the encyclopedia and achievements.
+- Read paths: [DiplomacyHelper](../../system/DiplomacyHelper).GetLogsForWar for the war log, and `Campaign.Current.LogEntryHistory.GameActionLogs` for the encyclopedia and achievements.

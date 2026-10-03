@@ -147,7 +147,7 @@ public class MyAlleyLeaderDiedNotificationItemVM : AlleyLeaderDiedMapNotificatio
 - ↑ 父类：[MapNotificationItemBaseVM](../MapNotificationItemBaseVM) —— 提供 `_onInspect`、`ExecuteRemove()`、`NavigationHandler`、`NotificationIdentifier`
 - ↔ 同级：[MapNotificationVM](../MapNotificationVM) —— 类型构造器表的拥有者与唯一构造入口
 - ↔ 同级：[AlleyUnderAttackMapNotificationItemVM](../AlleyUnderAttackMapNotificationItemVM) —— 同一暗巷体系的通知，但那个版本**订阅了** `SettlementEntered`，对比阅读能看清生命周期差异
-- → 数据源：`AlleyLeaderDiedMapNotification`（zh: [../../campaign-ext/AlleyLeaderDiedMapNotification](../../campaign-ext/AlleyLeaderDiedMapNotification)，en: [../../campaign/AlleyLeaderDiedMapNotification](../../campaign/AlleyLeaderDiedMapNotification)）
+- → 数据源：[AlleyLeaderDiedMapNotification](../../campaign/AlleyLeaderDiedMapNotification)
 - → 暗巷与聚落：[Settlement](../../campaign/Settlement)、`TaleWorlds.CampaignSystem.Settlements.Alley`
 - → 弹窗：[InformationManager](../../core-extra/InformationManager)
 - → 文本查找：[GameTextManager](../../core-extra/GameTextManager)

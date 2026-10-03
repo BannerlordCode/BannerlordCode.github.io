@@ -93,7 +93,7 @@ foreach (Hero lord in Hero.AllAliveHeroes)
 
 - 基类：[ConversationTag](../ConversationTag) 只声明 `StringId` / `IsApplicableTo` 两个抽象成员，`ToString()` 返回 `StringId`
 - 注册与查询：[ConversationManager](../ConversationManager) 的 `InitializeTags()` 反射建实例、`IsTagApplicable(string, CharacterObject)` 查表转发，同文件 `FindMatchingScore` 用它给台词变体打分
-- 判据 helper：[DiplomacyHelper](../DiplomacyHelper) 的 `IsSameFactionAndNotEliminated(IFaction, IFaction)` 是「同阵营且都未被消灭」的唯一实现
+- 判据 helper：[DiplomacyHelper](../../system/DiplomacyHelper) 的 `IsSameFactionAndNotEliminated(IFaction, IFaction)` 是「同阵营且都未被消灭」的唯一实现
 - 被查对象：[CharacterObject](../CharacterObject) 的 `IsHero` 与 `HeroObject`，以及 [Hero](../Hero) 的 `MapFaction`
-- 阵营接口：[IFaction](../IFaction) 提供 `IsEliminated`，[Faction](../Faction) 是其具体实现
+- 阵营接口：[IFaction](../IFaction) 提供 `IsEliminated`，`Faction` 是其具体实现
 - 同族标签：[AmoralTag](../AmoralTag)、[AnyNotableTypeTag](../AnyNotableTypeTag) 是同命名空间同构的另外两个标签

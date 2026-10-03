@@ -114,7 +114,7 @@ Debug.Print("score = " + explained.ResultNumber + " explanation = " + explanatio
 
 - 基类：`MBGameModel<AllianceModel>`（`Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBGameModel.cs`），泛型单例注册机制；访问路径 `Campaign.Current.Models.AllianceModel`
 - 官方实现：[DefaultAllianceModel](../DefaultAllianceModel)，`DefaultAllianceModel.cs:111`–`:459` 逐个 override
-- 载荷：`Kingdom` / `Clan` / `IFaction` 三种层级，以及 [ExplainedNumber](../ExplainedNumber) 与 [TextObject](../TextObject) 两个输出类型
+- 载荷：`Kingdom` / `Clan` / `IFaction` 三种层级，以及 [ExplainedNumber](../ExplainedNumber) 与 [TextObject](../../localization/TextObject) 两个输出类型
 - 消费者一：[AcceptCallToWarAgreementDecision](../AcceptCallToWarAgreementDecision) 用 `GetCallToWarCost`（`:124`）、`GetInfluenceCostOfCallingToWar`（`:138`）、`GetScoreOfJoiningWar`（`:278`）
 - 消费者二：[AllianceCampaignBehavior](../AllianceCampaignBehavior) 用 `GetCallToWarCost`（`:199`、`:255`）、`DurationForOffers`（两张通知的 `TriggerTime`）、`MaxDurationOfAlliance`（`AddAlliance` 的 `EndTime`）
 - 消费者三：[LordConversationsCampaignBehavior](../LordConversationsCampaignBehavior) 用 `GetCallToWarCost` 做对话按钮门槛（`:541`/`:549`/`:556`）

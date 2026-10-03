@@ -86,6 +86,13 @@ CampaignEvents → CampaignBehaviorBase (subscribers)
 - Don't mutate Campaign entities during a Mission (crash §3).
 - Subscribe/unsubscribe `CampaignEvents` symmetrically in Behavior lifetime.
 
+## Long-tail pages (inventory, not yet at the handwritten standard)
+
+These pages exist but have not met the handwritten coverage standard — an existing file is not evidence of coverage. They are listed here so they are reachable from this index.
+
+- [ArtisanOverpricedGoodsIssueBehavior](./ArtisanOverpricedGoodsIssueBehavior) — the `OnCheckForIssueEvent` registrar for the merchant price-fixing issue; this one is a full deep page.
+- Inventory stubs: [CampaignOptions](./CampaignOptions) · [CampaignSceneNotificationHelper](./CampaignSceneNotificationHelper) · [DefaultAgeModel](./DefaultAgeModel) · [EmpireConspiracySupportsSceneNotificationItemBase](./EmpireConspiracySupportsSceneNotificationItemBase) · [ProEmpireConspiracyBeginsSceneNotificationItem](./ProEmpireConspiracyBeginsSceneNotificationItem) · [VisualTrackerManager](./VisualTrackerManager)
+
 ## See also
 
 - [Architecture index](../../architecture/)

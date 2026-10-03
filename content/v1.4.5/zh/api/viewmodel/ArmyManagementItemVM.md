@@ -48,8 +48,8 @@ else
 把它读成**「构造期算一次的只读快照 + 一个可反复重算的资格开关」**：
 
 - **谁 new 它**：两处，都在 `ArmyManagementVM` 构造函数里。
-  - `:994` —— 玩家队伍外的候选部队：`new ArmyManagementItemVM(OnAddToCart, OnRemove, OnFocus, item)`，**三个回调都传了**。
-  - `:997` —— 玩家主队自己：`_mainPartyItem = new ArmyManagementItemVM(null, null, null, Hero.MainHero.PartyBelongedTo)`，**三个回调全是 null**。
+  - `ArmyManagementVM.cs:994` —— 玩家队伍外的候选部队：`new ArmyManagementItemVM(OnAddToCart, OnRemove, OnFocus, item)`，**三个回调都传了**。
+  - `ArmyManagementVM.cs:997` —— 玩家主队自己：`_mainPartyItem = new ArmyManagementItemVM(null, null, null, Hero.MainHero.PartyBelongedTo)`，**三个回调全是 null**。
 - **谁持引用**：`ArmyManagementVM` 的两个列表——`PartyList`（全部候选）与 `PartiesInCart`（已勾选）。**同一实例可能同时出现在两个列表里**。
 - **绑定到哪个 View 属性**：十三个。`NameText` / `LeaderNameText` / `InArmyText` / `DistanceText` 是文字，`Strength` / `ShipCount` / `Relation` / `Cost` 是数值，`ClanBanner` / `LordFace` 是图像，`IsEligible` / `IsInCart` / `IsMainHero` / `IsAlreadyWithPlayer` / `IsTransferDisabled` / `IsFocused` / `HasShip` / `IsCostRelevant` 是状态，`RemoveInputKey` 是按键提示。
 - **什么时候 Dispose**：**不需要 Dispose。** 它不覆写 `OnFinalize`，不注册任何事件。持有一个 `MobileParty` 引用与三个回调。**它自身不泄漏**；但注意 `Party` 是 `public readonly` **字段**而非属性，所以外部可以直接拿到原始 `MobileParty` 并长期持有。
@@ -205,7 +205,7 @@ public string ExplainIfBlocked(ArmyManagementItemVM item)
 - ↔ 同级：[ArmyManagementVM](../ArmyManagementVM) —— **唯一的构造方与持有方**，并在 `:1008` 用 `Cost = 0` 标记"已在军中"
 - ↔ 同级：[ArmyManagementSortControllerVM](../ArmyManagementSortControllerVM) —— 排序本类的六个比较器全部读这里列出的属性
 - ↔ 同级：[ArmyMenuOverlayVM](../ArmyMenuOverlayVM) —— 军队覆层的另一处呈现，读同一批战役对象
-- → 计算模型：[ArmyManagementCalculationModel](../../campaign-ext/ArmyManagementCalculationModel)（zh 链接；en: `../../campaign/ArmyManagementCalculationModel`）
+- → 计算模型：[ArmyManagementCalculationModel](../../campaign/ArmyManagementCalculationModel)
 - → 部队：[MobileParty](../../campaign/MobileParty)、[Clan](../../campaign/Clan)、[Army](../../campaign-ext/Army)
 - → 距离计算：[DistanceHelper](../../system/DistanceHelper)
 - → 图像：[BannerImageIdentifierVM](../../core-extra/BannerImageIdentifierVM)、[CharacterImageIdentifierVM](../../core-extra/CharacterImageIdentifierVM)

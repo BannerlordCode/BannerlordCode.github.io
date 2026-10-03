@@ -145,8 +145,8 @@ public class MyAllianceOfferWatcher : CampaignBehaviorBase
 - ↑ Base class: [MapNotificationItemBaseVM](../MapNotificationItemBaseVM) — supplies `_onInspect`, `ExecuteRemove()`, `NavigationHandler`, `NotificationIdentifier`
 - ↔ Sibling: [MapNotificationVM](../MapNotificationVM) — the type constructor table and only construction entry point
 - ↔ Sibling: [AcceptCallToWarOfferNotificationItemVM](../AcceptCallToWarOfferNotificationItemVM) — the line-for-line parallel call-to-war offer, with one extra `MakePeace` listener and one extra target kingdom
-- → Data source: `AllianceOfferMapNotification` (zh: [../../campaign-ext/AllianceOfferMapNotification](../../campaign-ext/AllianceOfferMapNotification), en: [../../campaign/AllianceOfferMapNotification](../../campaign/AllianceOfferMapNotification))
-- → Decision type: `StartAllianceDecision` (zh: [../../campaign-ext/StartAllianceDecision](../../campaign-ext/StartAllianceDecision), en: [../../campaign/StartAllianceDecision](../../campaign/StartAllianceDecision))
-- → Behavior interface: `IAllianceCampaignBehavior` (zh: [../../campaign-ext/IAllianceCampaignBehavior](../../campaign-ext/IAllianceCampaignBehavior), en: [../../campaign/IAllianceCampaignBehavior](../../campaign/IAllianceCampaignBehavior))
+- → Data source: [AllianceOfferMapNotification](../../campaign/AllianceOfferMapNotification)
+- → Decision type: [StartAllianceDecision](../../campaign/StartAllianceDecision)
+- → Behavior interface: [IAllianceCampaignBehavior](../../campaign/IAllianceCampaignBehavior)
 - → Event source: [CampaignEvents](../../campaign-ext/CampaignEvents) — the four listeners
 - → Derived objects: [Kingdom](../../campaign/Kingdom), [Clan](../../campaign/Clan)

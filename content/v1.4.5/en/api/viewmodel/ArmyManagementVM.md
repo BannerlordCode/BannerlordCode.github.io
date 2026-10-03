@@ -239,8 +239,8 @@ public bool ComputeCanConfirm(int totalCost, int cartCount, bool onlyMainHero, b
 - ↔ Sibling: [ArmyMenuOverlayVM](../ArmyMenuOverlayVM) — the read-only overlay that **opens this panel through the `OpenArmyManagement` delegate**
 - ↔ Sibling: [ArmyCohesionBoostedByPlayerEvent](../ArmyCohesionBoostedByPlayerEvent) — the signal event fired by `ExecuteBoostCohesionManual`
 - ↔ Sibling: [ArmyManagementBoostEventVM](../ArmyManagementBoostEventVM) — an extension point in the same screen, unused by vanilla
-- → Calculation model: [ArmyManagementCalculationModel](../../campaign-ext/ArmyManagementCalculationModel) (zh link; en: `../../campaign/ArmyManagementCalculationModel`)
+- → Calculation model: [ArmyManagementCalculationModel](../../campaign/ArmyManagementCalculationModel)
 - → Campaign objects: [Army](../../campaign-ext/Army), [MobileParty](../../campaign/MobileParty), [Clan](../../campaign/Clan), [Kingdom](../../campaign/Kingdom), [Hero](../../campaign/Hero)
 - → Actions and dispatch: [ChangeClanInfluenceAction](../../campaign-ext/ChangeClanInfluenceAction), [CampaignEvents](../../campaign-ext/CampaignEvents)
-- → Hints and tutorial: [HintViewModel](../HintViewModel), [BasicTooltipViewModel](../../core-extra/BasicTooltipViewModel), [ElementNotificationVM](../../core-extra/ElementNotificationVM), [TutorialContexts](../../core-extra/TutorialContexts)
+- → Hints and tutorial: [HintViewModel](../../core-extra/HintViewModel), [BasicTooltipViewModel](../../core-extra/BasicTooltipViewModel), [ElementNotificationVM](../../core-extra/ElementNotificationVM), [TutorialContexts](../../core-extra/TutorialContexts)
 - → Binding: [MBBindingList](../../core-extra/MBBindingList), [GameTextManager](../../core-extra/GameTextManager)

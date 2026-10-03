@@ -149,7 +149,7 @@ public class MyAlleyLeaderDiedNotificationItemVM : AlleyLeaderDiedMapNotificatio
 - ↑ Base class: [MapNotificationItemBaseVM](../MapNotificationItemBaseVM) — supplies `_onInspect`, `ExecuteRemove()`, `NavigationHandler`, `NotificationIdentifier`
 - ↔ Sibling: [MapNotificationVM](../MapNotificationVM) — owner of the type constructor table and the only construction entry point
 - ↔ Sibling: [AlleyUnderAttackMapNotificationItemVM](../AlleyUnderAttackMapNotificationItemVM) — the other alley notification, but that one **does** subscribe to `SettlementEntered`; reading the pair side by side makes the lifecycle difference obvious
-- → Data source: `AlleyLeaderDiedMapNotification` (zh: [../../campaign-ext/AlleyLeaderDiedMapNotification](../../campaign-ext/AlleyLeaderDiedMapNotification), en: [../../campaign/AlleyLeaderDiedMapNotification](../../campaign/AlleyLeaderDiedMapNotification))
+- → Data source: [AlleyLeaderDiedMapNotification](../../campaign/AlleyLeaderDiedMapNotification)
 - → Alley and settlement: [Settlement](../../campaign/Settlement), `TaleWorlds.CampaignSystem.Settlements.Alley`
 - → Dialog: [InformationManager](../../core-extra/InformationManager)
 - → Text lookup: [GameTextManager](../../core-extra/GameTextManager)

@@ -114,7 +114,7 @@ The official implementation [DefaultAllianceModel](../DefaultAllianceModel) supp
 
 - Base: `MBGameModel<AllianceModel>` at `Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/MBGameModel.cs`, the generic singleton registration mechanism; reached as `Campaign.Current.Models.AllianceModel`.
 - Official implementation: [DefaultAllianceModel](../DefaultAllianceModel), overriding all 14 across `DefaultAllianceModel.cs:111`–`:459`.
-- Payload and outputs: `Kingdom` / `Clan` / `IFaction` across three hierarchy levels, plus [ExplainedNumber](../ExplainedNumber) and [TextObject](../TextObject) as return/out types.
+- Payload and outputs: `Kingdom` / `Clan` / `IFaction` across three hierarchy levels, plus [ExplainedNumber](../ExplainedNumber) and [TextObject](../../localization/TextObject) as return/out types.
 - Consumer one: [AcceptCallToWarAgreementDecision](../AcceptCallToWarAgreementDecision) uses `GetCallToWarCost` (`:124`), `GetInfluenceCostOfCallingToWar` (`:138`) and `GetScoreOfJoiningWar` (`:278`).
 - Consumer two: [AllianceCampaignBehavior](../AllianceCampaignBehavior) uses `GetCallToWarCost` (`:199`, `:255`), `DurationForOffers` (both notices' `TriggerTime`) and `MaxDurationOfAlliance` (`AddAlliance`'s `EndTime`).
 - Consumer three: [LordConversationsCampaignBehavior](../LordConversationsCampaignBehavior) gates a dialogue button on `GetCallToWarCost` (`:541`/`:549`/`:556`).

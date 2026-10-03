@@ -112,4 +112,4 @@ Debug.Print("other -> " + resolver.ResolveObject("CohesionDepleted"), 0);
 - 方法可见性：`AddEnumDefinition(Type, int, IEnumResolver = null)` 是 `SaveableTypeDefiner` 的 `protected` 成员，只能在 `SaveableTypeDefiner` 子类的 `protected override void DefineEnumTypes()` 里调用
 - 被迁移的枚举：[Army](../Army) 嵌套的 `Army.ArmyDispersionReason`（1.4.5 共 16 个成员，旧名 `LowPartySizeRatio` 已不在其中）
 - 消费方：[ArmyDispersionLogEntry](../ArmyDispersionLogEntry) 与 [ArmyDispersionMapNotification](../ArmyDispersionMapNotification) 各自 `SaveableField(30)` / `SaveableProperty(2)` 存这个枚举
-- 诊断：[Debug](../Debug).FailedAssert 是空值兜底路径唯一可观测的信号，正式发布版会被吞
+- 诊断：[Debug](../../core-extra/Debug).FailedAssert 是空值兜底路径唯一可观测的信号，正式发布版会被吞

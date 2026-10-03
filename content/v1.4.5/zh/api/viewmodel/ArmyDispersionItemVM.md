@@ -141,6 +141,6 @@ public class MyArmyDispersionNotificationItemVM : ArmyDispersionItemVM
 - ↔ 同级：[MapNotificationVM](../MapNotificationVM) —— 类型构造器表与唯一构造入口
 - ↔ 同级：[ArmyCreationNotificationItemVM](../ArmyCreationNotificationItemVM) —— 军队生命周期的另一端：建立时的那一条，公开 `Army` 属性且有三个监听
 - ↔ 同级：[AlleyLeaderDiedMapNotificationItemVM](../AlleyLeaderDiedMapNotificationItemVM) —— 同样"跳转 + 移除"，但把 `ExecuteRemove()` 关在 null 检查**里面**；与本类的空传播写法对照能看清差别
-- → 数据源：`ArmyDispersionMapNotification`（zh: [../../campaign-ext/ArmyDispersionMapNotification](../../campaign-ext/ArmyDispersionMapNotification)，en: [../../campaign/ArmyDispersionMapNotification](../../campaign/ArmyDispersionMapNotification)）
+- → 数据源：[ArmyDispersionMapNotification](../../campaign/ArmyDispersionMapNotification)
 - → 军队与队伍：[Army](../../campaign-ext/Army)、[MobileParty](../../campaign/MobileParty)
 - ↑ 扩展方法宿主：`INavigationHandler`，`TaleWorlds.CampaignSystem.ViewModelCollection` 提供的 `OpenKingdom` 扩展

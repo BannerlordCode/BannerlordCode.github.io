@@ -239,9 +239,9 @@ public bool ShouldInsertAtFront(MobileParty party, Army army)
 - ↑ Base class: [GameMenuOverlay](../GameMenuOverlay) — supplies `CurrentOverlayType`, `IsInitializationOver`, `_contextMenuItem`, `ContextList`, `OnFrameTick`, `Refresh`
 - ↔ Sibling: [ArmyManagementVM](../ArmyManagementVM) — the **editing panel, connected through the `OpenArmyManagement` delegate**; both read the same campaign objects
 - ↔ Sibling: [ArmyManagementItemVM](../ArmyManagementItemVM) — the editing panel's party rows; this panel's `PartyList` uses a different type, `GameMenuPartyItemVM`
-- ↔ Sibling: [GameMenu](../../campaign-ext/GameMenu) — the parent menu holding the overlay collection (zh link; en: `../../campaign/GameMenu`)
+- ↔ Sibling: [GameMenu](../../campaign/GameMenu) — the parent menu holding the overlay collection
 - ↔ Sibling: [GameMenuPartyItemVM](../GameMenuPartyItemVM) — the list row type; `RefreshQuestStatus` / `RefreshVisual` / `RefreshProperties` all live on it
 - → Army and party: [Army](../../campaign-ext/Army), [MobileParty](../../campaign/MobileParty), [Hero](../../campaign/Hero), [Settlement](../../campaign/Settlement)
-- → Hints: [BasicTooltipViewModel](../../core-extra/BasicTooltipViewModel), [HintViewModel](../HintViewModel), [ElementNotificationVM](../../core-extra/ElementNotificationVM)
+- → Hints: [BasicTooltipViewModel](../../core-extra/BasicTooltipViewModel), [HintViewModel](../../core-extra/HintViewModel), [ElementNotificationVM](../../core-extra/ElementNotificationVM)
 - → Event source: [CampaignEvents](../../campaign-ext/CampaignEvents) — origin of the three listeners
-- → Encyclopedia: [Concept](../../campaign-ext/Concept), [EncyclopediaManager](../../campaign-ext/EncyclopediaManager) (zh links; under `../../campaign/` on the en side)
+- → Encyclopedia: [Concept](../../campaign/Concept), [EncyclopediaManager](../../campaign/EncyclopediaManager)

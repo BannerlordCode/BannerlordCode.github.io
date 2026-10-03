@@ -52,7 +52,7 @@ private void PopulateItems()
 Categories.Add(new BannerBuilderCategoryVM(category, OnItemSelection));
 ```
 
-`Categories` 是 `BannerBuilderVM` 里的 `MBBindingList<BannerBuilderCategoryVM>`（`:609` 分配，`:128` 作为 `[DataSourceProperty]` 暴露）。同一份列表在 `:690` 被 `ApplyActionOnAllItems` 批量刷新，`:733` 与 `:843` 按下标取用。
+`Categories` 是 `BannerBuilderVM` 里的 `MBBindingList<BannerBuilderCategoryVM>`（`BannerBuilderVM.cs:609` 分配，`BannerBuilderVM.cs:128` 作为 `[DataSourceProperty]` 暴露）。同一份列表在 `BannerBuilderVM.cs:690` 被 `ApplyActionOnAllItems` 批量刷新，`BannerBuilderVM.cs:733` 与 `BannerBuilderVM.cs:843` 按下标取用。
 
 注意 `OnItemSelection` 这个回调被**原样传给每一个子条目**——本类自己不处理选择，它只做转发。
 

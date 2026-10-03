@@ -142,6 +142,6 @@ public class MyArmyDispersionNotificationItemVM : ArmyDispersionItemVM
 - ↔ Sibling: [MapNotificationVM](../MapNotificationVM) — the type constructor table and only construction entry point
 - ↔ Sibling: [ArmyCreationNotificationItemVM](../ArmyCreationNotificationItemVM) — the other end of an army's life: the row shown when one is raised, exposing an `Army` property and three listeners
 - ↔ Sibling: [AlleyLeaderDiedMapNotificationItemVM](../AlleyLeaderDiedMapNotificationItemVM) — also "navigate then remove", but traps `ExecuteRemove()` **inside** a null check; side by side with this class the difference is stark
-- → Data source: `ArmyDispersionMapNotification` (zh: [../../campaign-ext/ArmyDispersionMapNotification](../../campaign-ext/ArmyDispersionMapNotification), en: [../../campaign/ArmyDispersionMapNotification](../../campaign/ArmyDispersionMapNotification))
+- → Data source: [ArmyDispersionMapNotification](../../campaign/ArmyDispersionMapNotification)
 - → Army and party: [Army](../../campaign-ext/Army), [MobileParty](../../campaign/MobileParty)
 - ↑ Extension host: `INavigationHandler`, with the `OpenKingdom` extension family from `TaleWorlds.CampaignSystem.ViewModelCollection`

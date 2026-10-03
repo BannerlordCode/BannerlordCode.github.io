@@ -179,7 +179,7 @@ public void FocusArmyLeaderOrFallBack(Army army)
 - ↔ 同级：[MapNotificationVM](../MapNotificationVM) —— 类型构造器表与唯一构造入口
 - ↔ 同级：[ArmyDispersionItemVM](../ArmyDispersionItemVM) —— 军队**解散**时的那一条，与本类构成军队生命周期的两端
 - ↔ 同级：[AlleyUnderAttackMapNotificationItemVM](../AlleyUnderAttackMapNotificationItemVM) —— 同样订阅 `CampaignEvents` 却不覆写 `OnFinalize` 的反例，对照可看清解绑规范
-- → 数据源：`ArmyCreationMapNotification`（zh: [../../campaign-ext/ArmyCreationMapNotification](../../campaign-ext/ArmyCreationMapNotification)，en: [../../campaign/ArmyCreationMapNotification](../../campaign/ArmyCreationMapNotification)）
+- → 数据源：[ArmyCreationMapNotification](../../campaign/ArmyCreationMapNotification)
 - → 军队：[Army](../../campaign-ext/Army)、[MobileParty](../../campaign/MobileParty)
 - → 事件源：[CampaignEvents](../../campaign-ext/CampaignEvents) —— 三个监听的来源
 - ↑ 坐标类型：[MBBindingList 所在程序集](../../core-extra/MBBindingList) 同属 `TaleWorlds.Library` 的 `Vec2`

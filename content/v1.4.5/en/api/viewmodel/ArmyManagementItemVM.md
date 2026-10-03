@@ -48,8 +48,8 @@ This is the single most treacherous inconsistency in the type.
 Read it as **"a read-only snapshot computed once at construction, plus a re-evaluable eligibility switch"**:
 
 - **Who news it up.** Two sites, both in `ArmyManagementVM`'s constructor.
-  - `:994` — candidate parties other than the player's: `new ArmyManagementItemVM(OnAddToCart, OnRemove, OnFocus, item)`, **all three callbacks supplied**.
-  - `:997` — the player's own main party: `_mainPartyItem = new ArmyManagementItemVM(null, null, null, Hero.MainHero.PartyBelongedTo)`, **all three callbacks null**.
+  - `ArmyManagementVM.cs:994` — candidate parties other than the player's: `new ArmyManagementItemVM(OnAddToCart, OnRemove, OnFocus, item)`, **all three callbacks supplied**.
+  - `ArmyManagementVM.cs:997` — the player's own main party: `_mainPartyItem = new ArmyManagementItemVM(null, null, null, Hero.MainHero.PartyBelongedTo)`, **all three callbacks null**.
 - **Who holds the reference.** Two lists on `ArmyManagementVM` — `PartyList` (all candidates) and `PartiesInCart` (selected). **The same instance can appear in both.**
 - **What it binds to.** Thirteen members. `NameText` / `LeaderNameText` / `InArmyText` / `DistanceText` are text; `Strength` / `ShipCount` / `Relation` / `Cost` are numbers; `ClanBanner` / `LordFace` are images; `IsEligible` / `IsInCart` / `IsMainHero` / `IsAlreadyWithPlayer` / `IsTransferDisabled` / `IsFocused` / `HasShip` / `IsCostRelevant` are states; `RemoveInputKey` is the key hint.
 - **When it is disposed.** **There is nothing to dispose.** No `OnFinalize` override, no event registrations. It holds a `MobileParty` reference and three callbacks. **It cannot leak by itself** — but note `Party` is a `public readonly` **field**, not a property, so external code can take the raw `MobileParty` and hold it indefinitely.
@@ -204,7 +204,7 @@ public string ExplainIfBlocked(ArmyManagementItemVM item)
 - ↔ Sibling: [ArmyManagementVM](../ArmyManagementVM) — **the sole constructor and holder**, which also writes `Cost = 0` at `:1008` to mark "already with the player"
 - ↔ Sibling: [ArmyManagementSortControllerVM](../ArmyManagementSortControllerVM) — its six comparators all read the properties listed on this page
 - ↔ Sibling: [ArmyMenuOverlayVM](../ArmyMenuOverlayVM) — the other army-facing surface, reading the same campaign objects
-- → Calculation model: [ArmyManagementCalculationModel](../../campaign-ext/ArmyManagementCalculationModel) (zh link; en: `../../campaign/ArmyManagementCalculationModel`)
+- → Calculation model: [ArmyManagementCalculationModel](../../campaign/ArmyManagementCalculationModel)
 - → Party and faction: [MobileParty](../../campaign/MobileParty), [Clan](../../campaign/Clan), [Army](../../campaign-ext/Army)
 - → Distance: [DistanceHelper](../../system/DistanceHelper)
 - → Images: [BannerImageIdentifierVM](../../core-extra/BannerImageIdentifierVM), [CharacterImageIdentifierVM](../../core-extra/CharacterImageIdentifierVM)

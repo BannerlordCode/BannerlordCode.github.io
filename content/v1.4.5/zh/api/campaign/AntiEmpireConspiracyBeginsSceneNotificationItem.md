@@ -118,7 +118,7 @@ Debug.Print("title=" + item.TitleText, 0);
 - 基类：[EmpireConspiracySupportsSceneNotificationItemBase](../EmpireConspiracySupportsSceneNotificationItemBase)，提供 `King`、硬编码 `SceneID`、重复旗帜、以及 6 人过场阵容
 - 更上层：`TaleWorlds.Core` 的 `SceneNotificationData`（`Bannerlord.Source/bin/TaleWorlds.Core/TaleWorlds.Core/SceneNotificationData.cs`），提供 `SceneNotificationCharacter` / `SceneNotificationShip` 两个嵌套 struct 与全套 `virtual` 默认成员
 - 载荷：`List<Kingdom>` 的 `InformalName`，与 `Hero kingHero`（基类的 `King`）
-- 文案：[GameTexts](../GameTexts).FindText("str_empire_conspiracy_supports_antiempire") 与 `GameTexts.GameTextHelper.MergeTextObjectsWithComma(list, includeAnd: true)`（`PartyBaseHelper.cs:337` 有同形态用法）
+- 文案：[GameTexts](../../core-extra/GameTexts).FindText("str_empire_conspiracy_supports_antiempire") 与 `GameTexts.GameTextHelper.MergeTextObjectsWithComma(list, includeAnd: true)`（`PartyBaseHelper.cs:337` 有同形态用法）
 - 日期：[CampaignSceneNotificationHelper](../CampaignSceneNotificationHelper).GetFormalDayAndSeasonText（`Bannerlord.Source/bin/TaleWorlds.CampaignSystem/TaleWorlds.CampaignSystem.SceneInformationPopupTypes/CampaignSceneNotificationHelper.cs:149`）与 `CampaignTime.Now.GetYear`
 - 角色数据：`MBObjectManager` 里的 `villager_battania` 与 `MBEquipmentRoster` 里的 `conspirator_cutscene_template`
 - 呈现入口：`MBInformationManager.ShowSceneNotification(...)`，同族用法见 `LordConversationsCampaignBehavior.cs:3086`

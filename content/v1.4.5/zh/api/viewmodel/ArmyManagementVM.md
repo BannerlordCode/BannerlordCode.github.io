@@ -239,7 +239,7 @@ public bool ComputeCanConfirm(int totalCost, int cartCount, bool onlyMainHero, b
 - ↔ 同级：[ArmyMenuOverlayVM](../ArmyMenuOverlayVM) —— **通过 `OpenArmyManagement` 委托打开本面板**的只读覆层
 - ↔ 同级：[ArmyCohesionBoostedByPlayerEvent](../ArmyCohesionBoostedByPlayerEvent) —— 由 `ExecuteBoostCohesionManual` 触发的信标事件
 - ↔ 同级：[ArmyManagementBoostEventVM](../ArmyManagementBoostEventVM) —— 同界面的扩展点，原版未使用
-- → 计算模型：[ArmyManagementCalculationModel](../../campaign-ext/ArmyManagementCalculationModel)（zh 链接；en: `../../campaign/ArmyManagementCalculationModel`）
+- → 计算模型：[ArmyManagementCalculationModel](../../campaign/ArmyManagementCalculationModel)
 - → 派生物：[Army](../../campaign-ext/Army)、[MobileParty](../../campaign/MobileParty)、[Clan](../../campaign/Clan)、[Kingdom](../../campaign/Kingdom)、[Hero](../../campaign/Hero)
 - → 动作与派发：[ChangeClanInfluenceAction](../../campaign-ext/ChangeClanInfluenceAction)、[CampaignEvents](../../campaign-ext/CampaignEvents)
 - → 提示与教学：[HintViewModel](../HintViewModel)、[BasicTooltipViewModel](../../core-extra/BasicTooltipViewModel)、[ElementNotificationVM](../../core-extra/ElementNotificationVM)、[TutorialContexts](../../core-extra/TutorialContexts)

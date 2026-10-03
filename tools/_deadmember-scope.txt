@@ -1,0 +1,667 @@
+# ============================================================
+# ############################################################################
+# contract rev 7 · 2026-10-03 · lead-2 ·  【已定稿 · 本版即放行依据】
+# ############################################################################
+# 定稿声明（boss-1 裁定：契约的权威来自 rev 号，不来自它在不在 git 里）：
+#   **rev 7 为定稿。** 从现在起落笔的两个批次，回报里必须写明「我读的是 rev 7」；
+#   读不到 rev 7 就开工的，视为无授权。
+#   rev 7 = rev 6（取消类别豁免的二元规则 + 84% 判据 + 清单不是所有权凭证 + 12 页披露句
+#           + B-7 次数口径与 fixture）+ 本次新增：
+#     · ⛔ 行尾：唯一权威是共享尺 `tools/_line-endings.mjs`，不许各自即兴造探针
+#     · ⛔ N 一律是「出现次数」，报告写「N 次（X 行）」
+#   之后若再改契约，rev 号继续递增，改完必须重新宣布定稿。
+# ############################################################################
+# （rev 5 → rev 6 见下）
+# 落笔批次必须在回报里写明「我读的是 rev <文件头这一行的版本号>」。
+# （writer-17 指出这里曾硬写 rev 2 而文件已是 rev 3 —— 会被下个 writer 抄错，故改成相对表述）
+# rev 1 → rev 2 改了什么：
+#   · AgentDrivenProperties 分母改为**版本化**（裸 97 只对 v1.4.5 成立，会让
+#     v1.3.0 的 writer 写错 6 处）—— writer-4 实测后补入
+#   · 新增「数字冲突先查各自量的是哪个对象」与「任何『在 X 里』动手前先 find」两条
+# ⚠ 读到 rev 1..rev 5 的产出必须复查：契约变了，产出就是按旧规则写的。
+#
+# 【rev 5 → rev 6 的 delta（boss-1 裁定）】
+#   ⑥ 🔴 **第三道过滤本身继承了它要抓的那个缺陷 —— 立刻改。**
+#      worker-4 阳性对照：`rg -w GarrisonParty` = **135 行 / 161 次**。
+#      我先前给两个 writer 的过滤指令是「用 `grep -rnw` / `rg -w` 复核」，
+#      而 **`rg -w` / `grep -rnw` 报的是命中行数，不是命中次数**。
+#      → 过滤链变成：工具把「0 跨文件调用」当「0 引用」← 要抓的病
+#                 过滤用行数代替次数            ← 同一种病
+#      **过滤工具不能继承被过滤对象的计数口径**，否则两边会一起错。
+#      ⛔ 过滤一律数**出现次数**：
+#           grep -row '<name>' <file> | wc -l          (-o 数次数)
+#           rg -w -o --no-filename '<name>' <dir> | wc -l
+#      ✅ fixture（必须有一个「同一行出现两次」的样本，断言它数出 2 而不是 1）：
+#           文件内容: a.BodyCap = x; b.BodyCap = y;
+BodyCap once only
+
+#           grep -c  (行数)     = 2     <- 第一行的 2 次被算成 1 次
+#           grep -o | wc -l(次数) = 3     <- 真值
+#           **没有这条 fixture，「过滤器与 B-7 同源」这件事永远看不见。**
+#      【判读规则】任何「N 处引用」的数必须说明是**次数**还是**行数**；
+#           两者不等时**一律报次数**，并在同一行注明行数供对照。
+#
+# 【rev 4 → rev 5 的 delta（boss-1 裁定）】
+#
+#   ④ 【本会话第一条判据】**「N 条死成员」在过完独立探针过滤前，不是成果，是候选清单的条数。**
+#      实测基数（worker-3 的 40 页）：38 条 A+B 候选 → 过滤后只剩 6 条真 0 使用，
+#      32 条是工具错（field 20 · method 9 · property 2 · enum-member 1）= **候选里 84% 是误报**。
+#      ⛔ **任何「N 条死成员」的数，在过完过滤前：不许当成果、不许进页面、不许进账本。**
+#      引用一个数时必须同时给出三段，**只给一个数的引用一律视为无效**：
+#          候选数 → 过滤后数 → 过滤掉的原因分类
+#      治的病：一个没有分母与过滤记录的数，会在下个会话变成「已验证的发现」。
+#      （本会话已两例：「229 条被 fallback 掩盖」、「96 vs 101」都这样从结论退化成半事实。）
+#
+#   ⑤ ⛔ **「清单是 git 反查出来的，不是所有权凭证」。**
+#      本线自己的 80 页清单就是这么来的 —— 由 git 反查生成，**不能因此认为这些页归本线**。
+#      反例（lead-2 亲犯）：把 `AgentDrivenProperties` 的成员缺口派给了 campaign-ext 的 worker，
+#      而那两页实际由 lead-1 提交、属于另一条线。
+#      → 动手改任何一个不在你被明确指派清单里的文件前，**先确认它的归属**，而不是查清单。
+#
+# 【rev 3 → rev 4 的 delta（boss-1 裁定 · 取消分类豁免）】
+#   本会话三次盲区，每一次都落在**我们刚刚宣布安全的那一类**里：
+#     enum 成员  → 被反射消费，0 引用不可信（B-6）
+#     field/property → 18 处类内活引用，0 引用不可信（writer-17）
+#     method → 委托/方法组引用，0 引用同样不可信（worker-3）
+#   所以**不是再加一条盲区，是取消所有按类别的豁免**。规则改为二元，没有中间态：
+#       一行能进页面  ⟺  它过了第三道过滤（朴素探针独立复核）
+#       没过的        →  一律降级 UNSUPPORTED、列汇报、不写页面
+#       **没有「这一类天生安全」这回事。**
+#   为什么撤豁免而不是补盲区：豁免按「类别」发放，**一次类别判断错误就整批放行**；
+#   而逐行复核的成本只是一次 grep -w。
+#
+# 【通用规约 · 比上面三条规则更值钱】
+#   > **任何「某类输入天生安全」的断言，都要当作待验证的假设，不是结论。**
+#   > 理由：它是从一次观察推广出来的，而推广那一步没有证据。
+#   > 本会话三条都曾看起来像安全判据：「按名字找不到就是死成员」/「private 所以外部用不到」
+#   > /「有方法名就该有调用」—— 三条都被实测推翻。
+#
+# 【rev 2 → rev 3 的 delta（boss-1 两次更正后）】
+#   ① AgentDrivenProperties 的数字**正文里每个都要带版本**，不是「表里有版本」。
+#      格式固定：<数> (<版本>)，例 93 (v1.3.0) · 98 (v1.4.5) · 96 (v1.3.0) · 101 (v1.4.5) · 97 (v1.4.5)
+#      **裸数一律不合格，哪怕它是对的** —— 读者拿到 93 无法判断该比哪棵树，
+#      而一个看起来自洽的错数比一个明显的错数危险得多。
+#   ② ⛔ `AgentDrivenProperties` 的两页**不属于本线，不许碰**：
+#        content/v1.3.0/zh/api/mission-ext/AgentDrivenProperties.md
+#        content/v1.4.5/{zh,en}/api/mission-ext/AgentDrivenProperties.md
+#      它们由 lead-1 在 commit 04ecb4b62f 提交，各自的分母都与自己的版本一致、都正确。
+#      **即便它们出现在本清单里也不许改** —— 清单是 git 反查出来的，不是所有权凭证。
+#      （boss-1 更正：他先前说的「版本错配」指控作废，两页都不需要改。）
+#   ③ field/property 的「调用点=0」一律不许直接进页面（与版本无关，继续有效）。
+# ============================================================
+
+# 死成员线 · 独占页面清单（80 页）
+#
+# 定位方法（不凭记忆）：lead-6 的两个桶 = mission-ext + campaign-ext。
+# 取 29a6946d35（343 手写页 checkpoint）与当前工作区里，v1.4.5 下这两个桶
+# 所有非 _index.md 的实质改动文件，去重后正好 80 个 —— 与 handoff §0
+# 「v1.4.5 手写重写推进中（lead-6 +80）」的分母吻合，且 Boss 给的 6 个
+# 已确认样本（CampaignMusicHandler / ArmyTypes / AgeModel / GetVirtualStageCount
+# / BoardGameAIBase / AgentBuildData 家族）全部落在本清单内。
+#
+# 其余桶（campaign / viewmodel / core-extra）= lead-7 的地盘，本线不得写入。
+# v1.3.0 / v1.3.15 的 101+162 页 = 其他线，本线不得写入。
+# tools/lib/ 与 tools/_INTEGRATION-GATES.md = 禁止写入。
+#
+# 源码树：C:\WorkSpace\Bannerlord\bannerlord-1.4.5\  HEAD ccbc3d40f88905765a1484492d41b7000e7249fa
+# 文档树：C:\WorkSpace\Bannerlord\BannerlordCode.github.io\ HEAD 56e9402294
+#
+# 路径（相对文档仓库根）—— 本列表由 git 反查直接生成，禁止手工誊抄
+content/v1.4.5/en/api/campaign-ext/AIState.md
+content/v1.4.5/en/api/campaign-ext/AgentBehavior.md
+content/v1.4.5/en/api/campaign-ext/AgentBehaviorManager.md
+content/v1.4.5/en/api/campaign-ext/BarberCampaignBehavior.md
+content/v1.4.5/en/api/campaign-ext/BehaviorSets.md
+content/v1.4.5/en/api/campaign-ext/BreakInOutBesiegedSettlementAction.md
+content/v1.4.5/en/api/campaign-ext/BribeGuardsAction.md
+content/v1.4.5/en/api/campaign-ext/CampaignAgentComponent.md
+content/v1.4.5/en/api/campaign-ext/CampaignMusicHandler.md
+content/v1.4.5/en/api/campaign-ext/CampaignSiegeStateHandler.md
+content/v1.4.5/en/api/campaign-ext/CampaignStoryMode.md
+content/v1.4.5/en/api/campaign-ext/CautiousBehavior.md
+content/v1.4.5/en/api/campaign-ext/ChangeClanInfluenceAction.md
+content/v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction.md
+content/v1.4.5/en/api/campaign-ext/ChangeOwnerOfSettlementDetail.md
+content/v1.4.5/en/api/campaign-ext/ChangePlayerCharacterAction.md
+content/v1.4.5/en/api/campaign-ext/ChangeRulingClanAction.md
+content/v1.4.5/en/api/campaign-ext/CharacterCreationScreen.md
+content/v1.4.5/en/api/campaign-ext/CharacterCreationStageViewAttribute.md
+content/v1.4.5/en/api/campaign-ext/CharacterCreationStageViewBase.md
+content/v1.4.5/en/api/mission-ext/AgentApplyDamageModel.md
+content/v1.4.5/en/api/mission-ext/AgentBuildData.md
+content/v1.4.5/en/api/mission-ext/AgentCapsuleData.md
+content/v1.4.5/en/api/mission-ext/AgentCommonAILogic.md
+content/v1.4.5/en/api/mission-ext/AgentComponent.md
+content/v1.4.5/en/api/mission-ext/AgentController.md
+content/v1.4.5/en/api/mission-ext/AgentDrivenProperties.md
+content/v1.4.5/en/api/mission-ext/AgentHumanAILogic.md
+content/v1.4.5/en/api/mission-ext/AgentLastHitInfo.md
+content/v1.4.5/en/api/mission-ext/AgentProximityMap.md
+content/v1.4.5/en/api/mission-ext/AgentSpawnData.md
+content/v1.4.5/en/api/mission-ext/AgentStatCalculateModel.md
+content/v1.4.5/en/api/mission-ext/AgentStatusCondition.md
+content/v1.4.5/en/api/mission-ext/AgentVictoryLogic.md
+content/v1.4.5/en/api/mission-ext/AgentVisuals.md
+content/v1.4.5/en/api/mission-ext/AgentVisualsCreator.md
+content/v1.4.5/en/api/mission-ext/AgentVisualsData.md
+content/v1.4.5/en/api/mission-ext/BattleDeploymentMissionController.md
+content/v1.4.5/en/api/mission-ext/BattleSpawnLogic.md
+content/v1.4.5/en/api/mission-ext/BattleSpawnModel.md
+content/v1.4.5/zh/api/campaign-ext/AIBehaviorData.md
+content/v1.4.5/zh/api/campaign-ext/AIDifficulty.md
+content/v1.4.5/zh/api/campaign-ext/AIState.md
+content/v1.4.5/zh/api/campaign-ext/AchievementManager.md
+content/v1.4.5/zh/api/campaign-ext/AgeModel.md
+content/v1.4.5/zh/api/campaign-ext/AgentBehavior.md
+content/v1.4.5/zh/api/campaign-ext/AgentBehaviorManager.md
+content/v1.4.5/zh/api/campaign-ext/ArmyTypes.md
+content/v1.4.5/zh/api/campaign-ext/BanditDensityModel.md
+content/v1.4.5/zh/api/campaign-ext/BreakInOutBesiegedSettlementAction.md
+content/v1.4.5/zh/api/campaign-ext/CampaignMusicHandler.md
+content/v1.4.5/zh/api/campaign-ext/CampaignSiegeStateHandler.md
+content/v1.4.5/zh/api/campaign-ext/CampaignStoryMode.md
+content/v1.4.5/zh/api/campaign-ext/CautiousBehavior.md
+content/v1.4.5/zh/api/campaign-ext/ChangePlayerCharacterAction.md
+content/v1.4.5/zh/api/campaign-ext/CharacterCreationScreen.md
+content/v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewAttribute.md
+content/v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewBase.md
+content/v1.4.5/zh/api/campaign-ext/MapEventSide.md
+content/v1.4.5/zh/api/campaign-ext/NavigationHelper.md
+content/v1.4.5/zh/api/mission-ext/AgentBuildData.md
+content/v1.4.5/zh/api/mission-ext/AgentCapsuleData.md
+content/v1.4.5/zh/api/mission-ext/AgentCommonAILogic.md
+content/v1.4.5/zh/api/mission-ext/AgentComponent.md
+content/v1.4.5/zh/api/mission-ext/AgentController.md
+content/v1.4.5/zh/api/mission-ext/AgentDrivenProperties.md
+content/v1.4.5/zh/api/mission-ext/AgentHumanAILogic.md
+content/v1.4.5/zh/api/mission-ext/AgentLastHitInfo.md
+content/v1.4.5/zh/api/mission-ext/AgentProximityMap.md
+content/v1.4.5/zh/api/mission-ext/AgentSpawnData.md
+content/v1.4.5/zh/api/mission-ext/AgentStatCalculateModel.md
+content/v1.4.5/zh/api/mission-ext/AgentStatusCondition.md
+content/v1.4.5/zh/api/mission-ext/AgentVictoryLogic.md
+content/v1.4.5/zh/api/mission-ext/AgentVisuals.md
+content/v1.4.5/zh/api/mission-ext/AgentVisualsCreator.md
+content/v1.4.5/zh/api/mission-ext/AgentVisualsData.md
+content/v1.4.5/zh/api/mission-ext/BattleDeploymentMissionController.md
+content/v1.4.5/zh/api/mission-ext/BattleSpawnLogic.md
+content/v1.4.5/zh/api/mission-ext/BattleSpawnModel.md
+content/v1.4.5/zh/api/mission-ext/MissionState.md
+
+# ============================================================================
+# 落笔契约（lead-2 冻结，worker 不得自行改动；实测得出，不是设计想象）
+# ============================================================================
+#
+# 【前言 · 发现矛盾时报，不要将就】（2026-10-03，来自 worker-4 的实例）
+#   当你发现契约 / 规范 / 上游转述与实测矛盾时：**先报冲突，再动手**。
+#   不要为了对上转述而将错就错，也不要为了对上契约而改自己的判断。
+#   优先级：**规范原文 > 工具实测 > 上游转述（含本契约与 lead 的说法）**。
+#   实例A：lead 说同桶兄弟是 `./Foo`，worker-4 实测发现叶子页里必须是 `../Foo`，
+#     它报冲突而不是将就 —— 把错误拦在写入之前，比事后自我更正有价值得多。
+#   实例B（更重）：lead 后来又给了一条「同名取同桶」的**错的**规则；
+#     worker-4 已按它改过一次，被撤回后它把
+#     「按 lead 的错误规则执行、且执行前没有独立用源码验一次」
+#     **记在自己头上**，而不是推回给 lead。
+#     → 这条写进契约：拿到指令不等于该照做。**执行前用独立探针验一次**，
+#       特别是当规则与实测冲突、或规则把「页面位置」当成「类型归属」时。
+#   若冲突最终证明是契约或 lead 错：**照实测走，并把更正写进汇报**，
+#   不要压着不改（契约里的错会被下一个人继承）。
+#   实例D（方向版，boss-1 裁定，本轮最危险的一族）：
+#   **「能跑」与「判据正确」是两件事；输出数量突变本身就是判据出错的信号。**
+#   worker-3 的花括号记账差一（`}` 先判栈再 depth--）把 BoardGameAIBase.cs:181 的
+#   **局部变量** `bool flag = false;` 判成 enum 成员并报成 DEAD；
+#   修后 enum-member **43→23**。方向是「我多吃了」不是「我漏了」。
+#   → **输出减少不等于收敛。** 一个分类器突然少报一半，第一反应要是
+#     「我漏了还是我多吃了」。本例是后者。
+#   → **「把活成员报成死成员」在页面层的后果 = modder 照着一条不存在的陷阱改代码。**
+#
+#   实例G（第三种模式，worker-3 实测，比实例E 更宽 —— 连 method 行也不安全）：
+#   **方法组 / 委托引用既没有点前缀、后面也不跟 `(`**，所以任何「调用形」判据都看不见：
+#     GivePlayerAHaircut          BarberCampaignBehavior.cs:109/:113
+#         new OnConsequenceDelegate(GivePlayerAHaircut)
+#     InDisguiseSpeakingToBarber  BarberCampaignBehavior.cs:107
+#         new OnConditionDelegate(...)
+#   Bannerlord 里 `AddDialogLine / AddPlayerLine(new XDelegate(M))` 是主流通法，
+#   所以这是**系统性漏计**，方向全是「把活成员报成死」。
+#   → ⛔ 因此我先前写的「method 行可写」**作废**：method 行同样必须过第三道过滤，
+#     且过滤时必须额外查 `new *Delegate(Name)` / `new *(Name)` 这类**无点无括号**形态。
+#   → worker-3 的 40 页实测：38 条 A+B 候选里，**只有 6 条**经第三道过滤后确认 0 使用，
+#     **32 条是工具错**（field 20 · method 9 · property 2 · enum-member 1）。
+#     即：**候选清单里 84% 是误报**。任何「N 条死成员」的数在过完过滤前都不许当成果。
+#
+#   实例E（已实测的硬缺陷，writer-17 抓到）：**工具对 field / property 报
+#   「调用点=0」不可信** —— `_cheeringAgents` 工具报 0，实际有 **18 处类内活引用**。
+#   根因：这类行的「0」不是数错，是**提取口径根本没覆盖类内直接读**。
+#   → ⛔ 规则：**field / property 行的「调用点=0」一律不许直接写进页面。**
+#     复核出类内引用 → 该行降级 UNSUPPORTED；复核不出 → 同样降级；都不写页面，列汇报。
+#     方法（method）行可写，但仍必须过第三道过滤（朴素探针独立复核）。
+#
+#   实例F（探针族，本会话已有三个探针栽在行尾上）：
+#     worker-4 ① `rg -c $'$'` 在真·CRLF 上返回 241/241（「每行都 CRLF」——过于整齐本身就是可疑）
+#              ② `od | grep -o ''` 在 BRE 里匹配的是**字母 r**，数的是 r 的个数
+#     worker-3 ③ `grep -c $'$'` **在真·CRLF 文件上也返回 0**
+#   → ⛔ `grep -c $'$'` 与 `od | grep -o ''` 在 git-bash 上**不可用于判断行尾**。
+#     只用逐字节判断（`0x0A` 前是否为 `0x0D`），并用 `git ls-files --eol` 作独立第二来源。
+#
+#   实例C（数字版，boss-1 裁定）：**上游给的数字与「自己数的数字」冲突时，以后者为准，
+#   并保留前者被推翻的记录** —— 不许悄悄换成新数字，否则下个会话会问「旧数是怎么来的」。
+#   实例：上游说 AgentDrivenProperties 有「98 个槽位」；worker-4 自己数出 97 个 public 属性，
+#   查出 98 是枚举 sentinel / 数组长度。**推翻得对，且推翻过程比数字本身值钱。**
+#
+#
+# 【插入位置】紧跟在「关键成员 / Key members」小节之后、「真实示例 / Real example」之前。
+#   理由：死成员本身就是成员，挂在成员小节旁边读者不用跳。
+#   锚点大小写不敏感（仓库里 Key members / Key members / 关键成员 三种写法都存在）。
+#   实测 80 页只有 4 种小节形状，全部可命中同一锚点：
+#     38 页 zh: 概述 > 心智模型 > 关键成员 > 真实示例 > 风险与边界 > 依赖关系
+#      2 页 zh: 同上，多一个「跨版本提示」（在风险与边界与依赖关系之间）
+#     20 页 en: Overview > Mental Model > Key Members > Real Example > Risks and Boundaries > Cross-version note > Dependencies
+#     20 页 en: One-line responsibility > Mental model > Key members > Real example > Risks and boundaries > Dependencies
+#
+# 【小节标题】
+#   zh: ## 死成员与陷阱
+#   en: ## Dead members and traps
+#
+# 【表格列，字段名冻结，与 tools/_DEAD-MEMBER-LIST.md §2 同名】
+#   | 成员 | 声明位置 | override | 调用点 | 判定 | 说明 |
+#   zh 说明列必须回答「声明存在但没人调它意味着什么」，不是复述列名。
+#
+# 【判定列只有两个值，不许发明第三个】
+#   MEASURED    真调用点数，且不落在四类盲区里
+#   UNSUPPORTED 落在泛型方法 / 接口成员 / BCL-Linq / 类型自身 任一盲区
+#   UNSUPPORTED 不许进分子，也不许写成结论句。
+#
+# 【每个数字必须能复现】声明位置与调用点一律写 File.cs:行号。
+#   写不出 file:line 的行不许进这张表。
+#
+# 【两类条目同等重要，都要写】
+#   A 死成员        override>0 且调用点数=0 且 MEASURED
+#   B 看着像但不是  看着像死成员，实际有调用点 —— 已确认正例：
+#                   BanditDensityModel.IsPositionInsideNavalSafeZone
+#                   zh/api/campaign-ext/BanditDensityModel.md:28
+#                   实际被 MobilePartyAi.cs:1327 与 :1364 调用（:1364 在最多 100 次
+#                   的重试循环里）。这类是 modder 最容易误判的地方，价值不低于 A。
+#
+# 【已存在的散落正文：归一化，不要复制第二份】
+#   zh/api/campaign-ext/CharacterCreationStageViewBase.md:26 和 :172 已两处提到
+#   GetVirtualStageCount 是死成员；BanditDensityModel.md:28 提到「它不是死成员」。
+#   写这两个页时把散落说法收敛进新小节并保持 file:line 口径一致，
+#   但不得擅自把 :26 的「7 override + 1 抽象」改成「8 override」——
+#   该口径冲突在 _DEAD-MEMBER-LIST.md §2.3 待裁，裁定前两说都要保留。
+#
+# 【硬禁令】
+#   1. 不许凭「在 1.4.5 树里查不到」断言某 API 不存在或虚构（handoff §3.1）。
+#      「不存在」类断言必须附阳性证据 File.cs:行号。
+#   2. 不许用 (a|b|)* 这类分支含空串的交替组做检索 —— git-bash 上静默返回 0，
+#      而「0 命中」与「类型不存在」完全同形。
+#   3. 不许手写 JS 正则里的 \b（退格符）与 \w（git-bash 括号类里不是单词类）。
+#   4. 不许碰本清单以外的任何 .md；不许碰 _index.md、tools/lib/、_INTEGRATION-GATES.md。
+#   5. 不许提交 git（按路径 add 也不做，本线统一不提交）。
+#
+# 【收尾自检】每页改完必须跑：
+#   node tools/_check_deep.mjs <page>     → 仍须 deep_pass（不许把小节改坏）
+#   node tools/_check_links_exist.mjs    → 新增的 File.cs 文本不是链接，不许写成 [x](y)
+#
+# 【批次切分（两 worker 互不重叠）】
+#   writer-A: mission-ext  40 页（zh 20 + en 20）
+#   writer-B: campaign-ext 40 页（zh 20 + en 20）
+
+# ============================================================================
+# 第三阶段追加必做项（boss-1 于 2026-10-03 转来的另一条线只读盘点结果）
+# ============================================================================
+#
+# 【A-1】新断链 1 条，在本线 territory，必须修（不是「待完善」，是断链）
+#   content/v1.4.5/zh/api/campaign-ext/MapEventSide.md
+#   href 缺 ./ 前缀，目标 CampaignSiegeStateHandler
+#   ⚠ 写之前必须先核实目标页真实路由，**不许套用任何简写**（简写规则不是规则）。
+#       【可推导的根因 · 2026-10-03 实测确认】**页面路由比文件所在目录深一层**
+#       （gates 第 26 条：`X.md` 的路由是 `/…/<bucket>/X/`，带尾斜杠）。
+#       → **按「我写在哪一层」自己推，不要背结论：**
+#           在桶 _index.md 里写（route = `/…/<bucket>/`）   → `./Foo`
+#           在叶子页 X.md 里写（route = `/…/<bucket>/X/`） → `../Foo`
+#       叶子页里写 `./Foo` 会多解析一层（→ `/…/<bucket>/X/Foo`），必错；无前缀 `Foo` 同样错。
+#       ⚠ 禁止把它记成「一律用 `../`」—— 那是把一个不完整的简写换成另一个
+#         不完整的简写，在桶索引里就会反过来错。
+#       handoff §4 那句「同桶兄弟 `./Foo`」是**不带条件的简写**：桶索引里对、叶子页里错。**已作废。**
+#   改完单独跑该页的链接解析验证，不许只看总数（总数会把「修好一处、坏另一处」藏掉）。
+#   归属 writer-B（campaign-ext）。
+#
+# 【A-2】4 页 PARTIAL —— 其中 2 页在本线 80 页范围内，是必做项
+#   AgentVisuals.md（zh+en 各一）
+#     5/43 公开成员无条目：
+#       GetFrame · GetIsFemale · AddPrefabToAgentVisualBoneByRealBoneIndex
+#       StartRhubarbRecord · AddArmorMultiMeshesToAgentEntity
+#   AgentBuildData.md（zh+en 各一）
+#     43/88 无条目，其中约 13 个链式 setter 完全没有行：
+#       NoHorses · NoWeapons · NoArmor · FixedEquipment · CivilianEquipment
+#       EquipmentSeed · SetPrepareImmediately · ClothingColor1/2 · BodyProperties
+#       Age · IsFemale · Race · MountKey · MakeUnitStandOutOfFormationDistance
+#       SpawnsUsingOwnTroopClass
+#   → 这不是「写得不够细」，是**成员根本没进文档**。按落笔契约的逐成员要求补齐。
+#   归属 writer-A（mission-ext）。
+#
+# 【A-3】⛔ 明确不碰的两页（boss-1 已裁定不在本线授权范围，写进去就是越界）
+#   TooltipRefresherCollection.md  → viewmodel 桶 = lead-7 旧地盘
+#     （4 个方法缺逐成员说明：RefreshAnchorTooltip / RefreshBuildingTooltip /
+#       RefreshCharacterTooltip / RefreshWorkshopTooltip）
+#   AgentDrivenProperties.md（98 个 driven-property 槽位只记了约 20 个）
+#     → boss-1 点名的是 v1.3.0 那份，v1.3.0 是本线禁区，一个字都不许碰。
+#     ⚠ 但本线 80 页里**也有** v1.4.5 的 zh/en 两份 AgentDrivenProperties.md。
+#       那两份在 80 页范围内 → 上面的通则自动适用（每个公开成员都要有一行），
+#       **不需要额外规格、不需要额外授权**。
+#       ⚠⚠ 唯一禁令：**不许因为 v1.3.0 那份是 PARTIAL 就推断 v1.4.5 也是，然后按推断落笔。**
+#         测量（worker-3 量成员覆盖率）的唯一作用是**排工作量**，不是决定做不做。
+#         量完直接做，不许拿「等裁定」当拖延理由。
+#
+# 【A-4】⚠ 源文件解析的坑（实测，直接影响工具与落笔取证）
+#   28 个非索引页的 **File:** 用的是 <Module>.<SubNs>/<File>.cs 约定，
+#   真实路径在 bin/<Module>/<Module>.<SubNs>/…。
+#   → 拼绝对路径会解析失败。必须后缀匹配。
+#   → ArmyTypes 那种「同名 .cs 不存在」的回退路径正好复用。
+
+# ============================================================================
+# ⛔ 行尾陷阱（lead-2 实测，handoff §3.3 同族）—— 动手前必读
+# ============================================================================
+# 本 80 页里 **2 页是 CRLF，其余 78 页是纯 LF**（实测，非推断）：
+#   content/v1.4.5/zh/api/campaign-ext/AgentBehaviorManager.md   （191 处 CRLF）
+#   content/v1.4.5/zh/api/campaign-ext/NavigationHelper.md        （206 处 CRLF）
+# BOM 页 = 0。
+#
+# 后果：用 LF 写的工具改这两页 → git diff 会显示「+206 -206」这种整页重写，
+# 而真实内容改动可能只有几行。handoff §3.3 记录过一模一样的坑：
+# 一条 CRLF 曾伪装成整页重写，害得复核方误报「这个 worker 重写了所有标题」，
+# 双方都错了一轮。仓库根 .gitattributes 就是为这件事建的。
+#
+# 规则：
+#   1. writer-B 改这两页时，**必须保持 CRLF**，不要整篇重写这两个文件。
+#   2. 写完先 `git diff --numstat -- <file>` 看行数：若改动行数远超你实际写的内容，
+#      先怀疑行尾，不要怀疑自己。
+#   3. 汇报时给出这两页的 numstat，作为行尾未被污染的证据。
+#   4. ⚠️ **本名单只是线索，不是判据。** 每页动手前自己测一次行尾
+#      （字节级：逐字节判断 0x0A 前是否为 0x0D），别信这份名单。
+#      实测（lead-2，字节级探针）：全 80 页含 CRLF 的 = 2 / 80，mixed = 0。
+
+# ============================================================================
+# 路由 / 桶判定判据（2026-10-03 实测更正，三条都要守）
+# ============================================================================
+#
+# 【判据 1】桶由**源码声明的 namespace** 定，不由「本页所在桶」定
+#   同桶兄弟规则成立，是因为兄弟类型确实同桶。
+#   一旦**同名跨桶**（1.4.5 有 2,199 个名字跨桶重复，如 Army / TroopRoster /
+#   Settlement / TroopSacrificeModel / MapEvent 在 campaign 与 campaign-ext 各一份），
+#   **「本页所在桶」就不再是判据** —— 它只能推出同桶，若推错了就是
+#   「一个不再报错的干净链接指向了错误的类型」，比断链更坏。
+#   · 判定必须附 **File.cs:行号**（哪个文件的哪个声明），没有源码行号的桶判定不接受。
+#   · 不以 lead 的说法为准，**也不以作者原文为准**（作者也会写错）。
+#   · 两者分歧 → 原样报 lead 裁，不要自己挑一个。
+#
+# 【判据 2】namespace 只能定到**桶**，定不到「同名类型里是哪一个」
+#   若源码里 `Army` 在 campaign 与 campaign-ext 各有一个声明，而调用点要靠
+#   `using` 与接收者类型才能区分，**namespace 判据本身就不够**，
+#   必须看调用点的接收者类型。
+#   → 仍不能定 → **报 UNRESOLVED，不要挑一个。**
+#
+# 【判据 3】同页内已存在的正确写法是最佳参照物
+#   优先于任何规则、优先于 lead 的说法。
+#   实例：zh/CampaignSiegeStateHandler.md:130,131,133 本来就正确写着
+#   `../../campaign/Settlement` · `../../mission-ext/MissionLogic` · `../../core-extra/MissionResult`
+#   —— 页内自证比任何上游转述都强。
+#
+# 【层级推导，不是结论】（叶子页 base = /vX/<lang>/api/<bucket>/<Page>/）
+#   ../Foo           → 同桶兄弟
+#   ../../<桶>/Foo   → 跨桶（上一层是 api/）
+#   ⚠ 注意 `../campaign/Foo` 这类「前缀深度与桶同时错」的写法：
+#     `..` 只回到 <bucket>/，回不到 api/，会拼出 <bucket>/campaign/Foo。
+
+# ============================================================================
+# ⛔ 禁令：同名跨桶时怎么定桶（boss-1 于 2026-10-03 裁定，从「个人更正」升为禁令）
+# ============================================================================
+#
+# 起因：dir-map 的 collisionRule 写着「一个类型只写一份文件」，
+#       而 legacyDuplicationEvidence 说有 2,199 个名字在两个桶各有一份。
+#       **规则与存量互相矛盾** ⇒ 「同名取同桶」这条捷径会稳定地指向另一份
+#       同名但不同的类型，**而链接不再报错** —— 静默错误，比断链更坏。
+#
+# 【禁令正文，逐字遵守】
+#   同名跨桶时，**唯一合法动作是查源码里的类型全名**（附 File.cs:行号）。
+#   按桶名推断、按「页面所在桶」推断、按「同名就近」推断 —— **一律禁止**。
+#
+# 【规模（口径必须连着引用，不许只说数字）】
+#   2,199 = dir-map 的 legacyDuplicationEvidence.duplicatedTypeNames
+#          → **遗留证据**，取自 tools/_dir-map-145.json，不是当前实测值
+#   2,314 = lead-2 实测「同版本 + 同语言 + 跨桶同名」全站例数
+#          （v1.4.5 = 2,243；命中我 80 页自身的 = 0）
+#   ⚠ 2,199 与 2,314 **口径不同、不可互相替代**。引用任一个都要带出处与性质。
+#   ⚠ 早先一版 7,165/7,166 的数**是错的**：把跨版本同名（同一类型在 v1.3.0 与
+#     v1.4.5 各一份）也算进去，那是正常且无害的 —— **报数前先分清口径**。
+#   归属：本轮不做（横跨全部版本树，且需逐类型判断哪份权威，非机械替换），
+#        登记在 _NAV-BASELINE.md §7 与 _HANDOFF.md §10，**不要动那些重复页**。
+#
+# 【只修被抓到的那一个 = 治症状（boss-1 确认，写进契约）】
+#   worker-3 的 `/\d\.$/` 把反编译占位名 `val3.SetLeader` / `item2.GarrisonParty`
+#   当数字字面量整条丢弃。凡是**共享同一前提**（本例：「以数字/下划线结尾 = 字面量
+#   而非标识符」）的正则，**其产出的数全部重出**，不只修被抓到的那一个。
+#   受影响范围的判定标准是**前提相同**，不是「我看到的那个」。
+#
+# 【源文件键：zh 与 en 不同键（worker-4 实测，lead-2 普查）】
+#   zh 页用 `**File:**`（60 页）· en 页用 `**Source:**`（20 页）· 两者都无 0 页
+#   → 任何按 `**File:**` 取值的工具都会在 en 页上静默取空。
+#   取不到时的正确行为是**打印说明并走类名回退**，绝不允许静默报 0
+#   （「查不到」≠「不存在」，handoff §3.1）。
+
+# ============================================================================
+# 成员覆盖率口径（lead-2 于 2026-10-03 裁定，writer 必须按此算分母）
+# ============================================================================
+# 测量：worker-4（只读）。阳性对照 rg -w GarrisonParty = 135 行，探针有效。
+#
+# 【分母 = 源码类体内 public + protected 声明（属性/方法/事件/字段/构造器），
+#   逐条按类体花括号深度定位，排除 internal / private 与嵌套类型】
+# 【分子 = 「## 关键成员 / ## Key members」表格第一列的成员名条目数，
+#   `A / B / C` 拆成 3 个；正文提及不算】
+#
+# 【三个分母的争议已裁定】
+#   AgentVisuals          = 50（含 7 个 public const）
+#       裁定：const **计入** —— 它们是 modder 真会读的公开值，且 en 页确有一行覆盖它们。
+#   AgentBuildData        = 89（去重名）· 92（声明数）两个都要写
+#       ⚠ 我早前转述的「88」**从未被任何人测量过** —— 它来自另一条线的盘点，
+#         那份盘点没写口径。**无法与 92/89 对账的数应当丢弃，不是被调和。**
+#       裁定：覆盖率一律按 **89（去重名）** 算，因为分子是按名字计的；
+#       但表里必须同时给出「92 声明 / 89 去重名」两个数（重载 ×2、3 个同名构造器）。
+#   AgentDrivenProperties = **必须带版本后缀**，裸数字比没有分母更危险
+#       worker-4 实测（2026-10-03）：96 vs 101 **不是冲突，是两个版本**。
+#         v1.3.0  = 96 成员 / 93 槽位(0..92 无空洞) / 92 属性(91 float + 1 int) / UseRealisticBlocking=56
+#                   / DrivenProperty.cs 全文 201 行 / new float[93] at AgentDrivenProperties.cs:23
+#         v1.3.15 = 100 成员 / 97 槽位(0..96) / UseRealisticBlocking=59
+#         v1.4.5  = 101 成员 / 98 槽位(0..97) / 97 属性 / UseRealisticBlocking=59
+#                   / DrivenProperty.cs:5..105 全部显式赋值 / new float[98] at :1178
+#         v1.4.6 / v1.5.3 = 101 成员 / 98 槽位（与 1.4.5 同）
+#       恒等式（1.4.5）：101 = 98 槽位 + 1 别名(DrivenPropertiesCalculatedAtSpawnEnd=64) + 2 哨兵(None=-1, Count=98)
+#                        97 属性 = 98 槽位 − 1（唯一无包装槽位 UseRealisticBlocking=59）
+#       ⚠ 本线 80 页全是 **v1.4.5**，所以 97 只对 v1.4.5 成立。
+#         但契约会被 v1.3.0 的 writer 读到 —— **裸 97 会让他们在 v1.3.0 页上写错 6 处**
+#         （槽位数 / 数组长度 / 属性数 / UseRealisticBlocking 值全部不同）。
+#       → 写任何 DrivenProperty 相关数字时，**版本号必须跟着数字一起出现**。
+#       → 恒等式（1.3.0）：96 = 93 + 1 别名 + 2 哨兵；92 属性 = 93 槽位 − 1
+#       → 唯一无包装槽位：1.3.0 = UseRealisticBlocking=56 / 1.4.5 = UseRealisticBlocking=59
+#       ⛔ 「98」已被 worker-4 **推翻**（不是被悄悄换掉）：98 = `DrivenProperty`
+#         枚举的 `Count = 98` 哨兵 / `_statValues = new float[98]` 的数组长度，
+#         **不是属性数**。上游（另一条线盘点 → 我转述）给的 98 保留在此以便追溯 ——
+#         下个会话若问「98 是怎么来的」，这里有答案。
+#         worker-4 的数法：按类体花括号深度逐条定位 public/protected 声明，
+#         排除 internal/private 与嵌套类型；去重名与声明数分别报。
+#       ⚠ 「98 槽位」= `_statValues = new float[98]` 的数组长度 /
+#         `DrivenProperty` 枚举的 `Count = 98` 哨兵，**不是属性数**。
+#         分母不写清是哪一种，writer 会按 98 去写、写出 1 个不存在的属性。
+#         差口：97 属性 + 4 个「只有槽位没有访问器」的枚举成员
+#         （UseRealisticBlocking=59、WeaponWorstMobileAccuracyPenalty=73、
+#           WeaponWorstUnsteadyAccuracyPenalty=74、DrivenPropertiesCalculatedAtSpawnEnd=64）
+#
+# 【⚠ 源码级陷阱：属性名 ≠ DrivenProperty 槽位名，按名字配对会漏 2 个】
+#   AgentDrivenProperties.cs:84 属性 `WeaponMaxMovementAccuracyPenalty`
+#       实际读 `GetStat(DrivenProperty.WeaponWorstMobileAccuracyPenalty)`（:88，枚举值 73）
+#   :96 属性 `WeaponMaxUnsteadyAccuracyPenalty`
+#       实际读枚举 `WeaponWorstUnsteadyAccuracyPenalty`（:74）
+#
+# 【⚠ 同名不同成员，不许合并】
+#   `AgentCharacter`（属性）与 `Character`（流式方法）是两个成员，zh/en 两页都各缺一条。
+#   同族还有 AgentMonster/Monster · AgentController/Controller · AgentTeam/Team ·
+#   AgentIsReinforcement/IsReinforcement · AgentSpawnsUsingOwnTroopClass/SpawnsUsingOwnTroopClass
+#   · MakeUnitStandOutDistance/MakeUnitStandOutOfFormationDistance ·
+#   AgentInitialPosition/InitialPosition · AgentInitialDirection/InitialDirection ·
+#   AgentFormation/Formation · AgentEquipmentSeed/EquipmentSeed · AgentNoHorses/NoHorses ·
+#   AgentNoWeapons/NoWeapons · AgentNoArmor/NoArmor · AgentFixedEquipment/FixedEquipment ·
+#   AgentCivilianEquipment/CivilianEquipment · AgentMountKey/MountKey ·
+#   PrepareImmediately/SetPrepareImmediately · AgentClothingColor1/ClothingColor1 …
+#
+# 【排期结论（worker-4 实测得出，写进本线】en 不是 zh 的翻译】
+#   zh/en 的覆盖率落差很大（AgentVisuals zh 76% vs en 46%），且两边缺的条目几乎不重叠
+#   → **必须各排各的，不许按「补 zh 然后镜像」估工作量**。
+#   重灾区：AgentDrivenProperties（zh 25% / en 31%）、AgentBuildData（zh 26% / en 34%）
+#   → 缺口高度同族，按「族级补写」比逐页补省一半工作量。
+#
+# 【这 6 页零编造（worker-4 实测）】
+#   6 个「文档里有、源码查不到」的名字逐个查完全部不成立：internal 成员 / private 字段 /
+#   别的枚举成员 / 省略号截断排版。**不要把它们当编造，也不要顺手「修」掉。**
+
+# ============================================================================
+# rev 2 新增 · AgentDrivenProperties 的三个数（A / B / C + 差口逐条）
+# ============================================================================
+# 出处：worker-4 实测（2026-10-03），三种独立数法互证 + 逐条成员名与 File.cs:行号。
+# ⚠ 三个数**必须带版本号一起出现**。本线 80 页全是 v1.4.5，但契约会被 v1.3.0 的 writer 读到。
+#
+# 【v1.4.5（本线口径）】
+#   A. public 属性数  = 97    AgentDrivenProperties 类体，按花括号深度逐条定位
+#   B. enum 成员总数  = 101   DrivenProperty.cs:5..105，全部显式赋值，隐式 0，无 #if/注释
+#   C. 可用槽位数     = 98    区间 0..97，逐值检查，零空洞
+#   恒等式：101 = 98 槽位 + 1 别名(DrivenPropertiesCalculatedAtSpawnEnd=64, :105)
+#                     + 2 哨兵(None=-1 :5, Count=98 :104)
+#           97  属性 = 98 槽位 − 1（唯一无包装槽位 UseRealisticBlocking=59, :65）
+#   哨兵：None=-1(:5) · Count=98(:104)   别名：DrivenPropertiesCalculatedAtSpawnEnd=64(:105)
+#        = WeaponsEncumbrance=64(:70)
+#   差口逐条：
+#     · 槽位有、属性无：**仅 1 条** UseRealisticBlocking=59
+#     · 别名占用槽位：WeaponsEncumbrance(64) 与 DrivenPropertiesCalculatedAtSpawnEnd(64) 同值；
+#       属性 :240 读的是前者，后者无任何属性引用
+#     · 属性名 ≠ 槽位名：**2 条**（按名字配对必漏）
+#         AgentDrivenProperties.cs:84 WeaponMaxMovementAccuracyPenalty
+#             → 读 DrivenProperty.WeaponWorstMobileAccuracyPenalty=73 (DrivenProperty.cs:79)
+#         AgentDrivenProperties.cs:96 WeaponMaxUnsteadyAccuracyPenalty
+#             → 读 DrivenProperty.WeaponWorstUnsteadyAccuracyPenalty=74 (:80)
+#   配对方式：**不是按名字**，是逐个属性解析函数体里的 GetStat(DrivenProperty.X)；
+#     97 个属性全部命中且互不重复（body 不含 GetStat 的属性数 = 0）。
+#
+# 【其它版本（写那棵树时用这组，别混用）】
+#   v1.3.0  = 96 成员 / 93 槽位(0..92) / 92 属性(91 float + 1 int) / URB=56
+#             DrivenProperty.cs 全文 201 行；new float[93] at AgentDrivenProperties.cs:23
+#   v1.3.15 = 100 成员 / 97 槽位(0..96) / URB=59
+#   v1.4.6 / v1.5.3 = 101 成员 / 98 槽位(0..97)（与 1.4.5 同）
+#
+# 【rev 2 新增两条规约】
+#   ① 数字冲突时，**先查它们各自量的是哪个对象**，再谈谁错。
+#      本会话三次栽在这族：campaign-ext/mission-ext 放错桶 · 「98」当属性数（实为枚举 sentinel）
+#      · 96 当 1.4.5 的数（实为 1.3.0）。
+#      **两次测量各答了不同的问题，不等于有一个算错了。**
+#   ② 任何「在 X 里」的说法，**动手前自己 find 一次，成本 3 秒**。
+#      实例：worker-3 报「campaign-ext 40 页全是 CRLF」—— 实为**量了桶目录**
+#      （该目录 w/crlf=179），被指派的 40 页里只有 2 页是 CRLF。方法对，对象错。
+
+# ============================================================================
+# rev 4 · 委托 / 方法组引用的最小样本与判层（lead-2 实测，给规范做实例）
+# ============================================================================
+# 样本：成员 GivePlayerAHaircut
+#   声明  BarberCampaignBehavior.cs:175   private void GivePlayerAHaircut()
+#   引用  :109  campaignGameStarter.AddPlayerLine(..., new OnConsequenceDelegate(GivePlayerAHaircut), ...)
+#         :113  同一行形态，再次 new OnConsequenceDelegate(GivePlayerAHaircut)
+#   另一个同型：InDisguiseSpeakingToBarber  声明 :121 / 引用 :107 new OnConditionDelegate(...)
+#
+# 【落在哪一层 —— 与另一种根因不同，别并成一条】
+#   ⛔ 不是「提取器丢了前缀」。这里**根本不存在限定名**：没有 `SomeType.GivePlayerAHaircut`，
+#      名字是以**裸标识符**出现在构造实参里。
+#   ✅ 是「『调用点』这个词本身定义过窄」：它是一个**引用**（把方法变成委托对象），
+#      不是一次调用。名字在文本里存在，只是任何「调用形」判据
+#      （点前缀 `.Name` 或后跟 `(`）都看不见它 —— `Delegate(Name)` 里 Name 后面是 `)`。
+#   → 修法方向也不同：不是补前缀提取，而是**把「引用」纳入计数**。
+#   → Bannerlord 的对话 API（AddDialogLine / AddPlayerLine）是主流通法，这是系统性形态。
+#
+# ⚠ 与 field/property 那次同族但不同层：
+#    field/property 那次是**类内裸读**（`_cheeringAgents[i]`），
+#    这次是**被委托引用**。两者都让「0 调用点」不可信，但修法不同。
+
+# ============================================================================
+# rev 5 · 「整页全是 UNSUPPORTED」时怎么写（worker-17 提出、lead-2 裁定）
+# ============================================================================
+# 情形：某个类型**每一行**都落在 UNSUPPORTED（多声明者歧义 / 反射消费 / 提取口径盲区），
+#       于既没有可写的死成员，也没有可写的反例。writer-17 实测有 6 个类型 × zh/en = 12 页如此。
+# 例：AgentController `Mission` calls=1995 · `OnInitialize` ov=70/calls=92 · `Owner` calls=384
+#     AgentStatusCondition `Check` ov=51/calls=151 · `Deserialize` ov=134/calls=118
+#     AgentVisualsCreator `Create` ov=1/calls=117
+#
+# 【裁定：写，但只能写披露句，不许写结论句】
+#   唯一允许的写法（措辞照抄，不要改写成更强的断言）：
+#     「本页成员全部落在 UNSUPPORTED（多声明者歧义等），调用点数不可当结论；
+#       本次未测出任何可复核的调用点。」
+#   ⛔ 不许写「本页无死成员」/「不存在死成员」/「本页成员均未被调用」
+#      —— 那是**把「没测出来」说成「测出来是」**，方向相反。
+#   ⛔ 不许因为「清单里没有 0 调用点的行」就推断本页干净 —— 那正是 B-6 / B-2 的形态。
+#   ✅ 披露「没测出来」本身对读者有价值：它告诉 modder「这页的死成员状态未知」，
+#      而不是一个看起来干净的 0。
+
+# ============================================================================
+# rev 6 · 两条必须写进页面的判读规则
+# ============================================================================
+# 【规则 1 · 计数口径】数「N 处引用」时：
+#   一律用 `-o` 数**出现次数**，不用命中行数；报告里写「N 次（X 行）」两个数。
+#   树内实测（1.4.5，lead-2 实测）：
+#       GarrisonParty  行数=135  次数=161  差=26   ← B-7 在这个符号上确实发作
+#       BodyCap        行数=3    次数=3    差=0    ← B-7 在这个符号上**不发作**
+#       CrouchedBodyCap 行数=3   次数=3    差=0
+#       SetLeader      行数=11   次数=11   差=0
+#   ⚠ **不要把所有少算都归给 B-7。** BodyCap 被少算是另一个根因：
+#     `MonsterExtensions.cs:129  BodyCap = monsterMissionData.BodyCapsule` 是
+#     **对象初始化器赋值**，不是调用形 —— 与「提取口径没覆盖对象初始化器」有关，
+#     **与行数/次数无关**。两种根因修法不同，不许并成一条。
+#
+# 【规则 2 · 非零数同样不可信（本轮新发现）】
+#   writer-17 实测：清单 `AgentCapsuleData.BodyCap` calls=1，朴素探针实测 **2**
+#   （`Mission.cs:1636` + `MonsterExtensions.cs:129`）。
+#   → **「非零调用点数」不是自证的**，它只说明「有」，不说明「有几个」。
+#     要引用就必须用第三道过滤重数，并注明口径。
+
+# ============================================================================
+# ⛔ 行尾：唯一权威是共享尺，不许各自即兴造探针（boss-1 裁定 · lead-2 落成文件）
+# ============================================================================
+# 工具：node tools/_line-endings.mjs   （自检 8/8，exit 0）
+#
+# 【为什么它是唯一的】本会话同一个 CRLF 争议吵过两轮：第二轮的结论一度与第一轮相反。
+# 原因不是判断分歧，而是**每个 worker 各自即兴造探针**，而本会话已经有**三个探针**
+# 栽在这件事上（见下方黑名单）。结论会随时间失效，工具不会。
+#
+# 【怎么用】
+#   node tools/_line-endings.mjs --selftest
+#   node tools/_line-endings.mjs --scope tools/_deadmember-scope.txt campaign-ext
+#   node tools/_line-endings.mjs <文件...>
+#
+# 【判读规则（写在尺的文件头，不靠记忆）】
+#   CR 数 == 0                        → 纯 LF
+#   CRLF 数 == LF 行数 且 游离CR == 0 → 全 CRLF
+#   CRLF 数 <  LF 行数                → mixed，**必须逐行看是哪几行**，不许笼统说 mixed
+#   游离 CR > 0                       → 存在不跟 LF 相邻的 CR（老 Mac 行尾 / 杂散 CR）
+#   CRLF 数 > LF 行数                 → 尺或数据有问题 → exit 2
+#
+# 【三条规则】
+#   1. 这把尺的输出就是**唯一权威**，逐字引用。
+#   2. 任何人对某页行尾有异议，**必须给出命令与输出**，且那条命令要是**别的口径**
+#      （regex / grep / 换行统计），并解释它与字节级读数为什么不同 ——
+#      **不许只说「我测的是 CRLF」。**
+#   3. ⛔ 黑名单（三个探针在本会话都栽在这里，输出「全命中」或 0 这种过于整齐的错值）：
+#        grep -o ''     BRE 里匹配的是**字母 r**，数的是 r 的个数
+#        rg -c $'$'     把每个 CRLF 行都算命中；部分 CRLF 时输出「全命中」
+#        grep -c $'$'   在真·CRLF 文件上也返回 0
+#      「全命中」和「全不命中」一样需要阳性对照。
+#
+# 【本线 80 页的读数（lead-2 实测，尺为准）】
+#   mission-ext  40 页 = 全 LF 40 · 全 CRLF 0 · mixed 0
+#   campaign-ext 40 页 = 全 LF 38 · 全 CRLF 2 · mixed 0
+#     全 CRLF 两页：content/v1.4.5/zh/api/campaign-ext/AgentBehaviorManager.md  (191/191)
+#                   content/v1.4.5/zh/api/campaign-ext/NavigationHelper.md       (206/206)
+#   ⚠ 但**动手前仍要自己跑一次尺**：名单只是线索，不是判据。

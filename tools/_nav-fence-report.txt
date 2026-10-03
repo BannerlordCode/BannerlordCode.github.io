@@ -1,0 +1,40 @@
+FILES_TOTAL=39025  FILES_WITH_FENCE=38652  FILES_FENCE_REACHES_EOF=1
+LINKS_TOTAL=140523
+LINKS_IN_NO_FENCE_FILES=60241
+LINKS_IN_CLOSED_FENCE=8
+LINKS_IN_FENCE_REACHING_EOF=17
+--- top files whose fence reaches EOF (links inside) ---
+  17	v1.4.6/zh/api/custombattle/_index.md	firstFenceLine=37	totalLines=127
+--- TOP 20 by excluded links: excluded | file | fenceLines | unclosed | samples ---
+  17	v1.4.6/zh/api/custombattle/_index.md	fenceLines=90	unclosed=true	L78: [mission](../mission) ; L78: [mission](../mission)
+  2	v1.4.5/zh/api/campaign/CachedPartyVariables.md	fenceLines=41	unclosed=false	L56: [MapVisibilityModel](../MapVisibilityModel) ; L56: [PartyNavigationModel](../PartyNavigationModel)
+  1	v1.3.0/zh/api/core-extra/MBReadOnlyList.md	fenceLines=29	unclosed=false	L37: [MBList](../MBList)
+  1	v1.3.0/zh/api/gui/BrushLayerAnimation.md	fenceLines=50	unclosed=false	L36: [BrushAnimation](../BrushAnimation)
+  1	v1.3.15/zh/api/campaign-ext/ChangeRomanticStateAction.md	fenceLines=85	unclosed=false	L45: [CommentOnChangeRomanticStateBehavior](../CommentOnChangeRomanticStateBehavior/)
+  1	v1.4.5/en/api/mission/Mission.md	fenceLines=64	unclosed=false	L66: [MissionBehavior](.././MissionBehavior)
+  1	v1.4.5/zh/api/campaign-ext/ChangeRomanticStateAction.md	fenceLines=90	unclosed=false	L45: [CommentOnChangeRomanticStateBehavior](../CommentOnChangeRomanticStateBehavior/)
+  1	v1.4.5/zh/api/mission/Mission.md	fenceLines=64	unclosed=false	L66: [MissionBehavior](.././MissionBehavior)
+TOP2_SHARE=19/25  FILES_WITH_EXCLUSIONS=8
+--- 四分类（同一分母）---
+IN_FENCED_BLOCK=25  IN_INLINE_CODE_SPAN=42  IN_INDENTED_BLOCK=5  NEITHER=140451  DENOM=140523
+--- 前 20 个「两者都不是」样本 ---
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md:281  [Area Index](../)  ||  - [Area Index](../)
+  v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecisionOutcome.md:77  [Area Index](../)  ||  - [Area Index](../)
+  v1.3.0/en/api/campaign/AcceptCallToWarOfferMapNotification.md:54  [Area Index](../)  ||  - [Area Index](../)
+  v1.3.0/en/api/campaign/AccessDetails.md:30  [Area Index](../)  ||  - [Area Index](../)
+  v1.3.0/en/api/campaign/AccessLevel.md:30  [Area Index](../)  ||  - [Area Index](../)
+  v1.3.0/en/api/campaign/AccessLimitationReason.md:30  [Area Index](../)  ||  - [Area Index](../)
+  v1.3.0/en/api/campaign/AccessMethod.md:30  [Area Index](../)  ||  - [Area Index](../)
+  v1.3.0/en/api/campaign/AccompanyingCharacter.md:94  [Area Index](../)  ||  - [Area Index](../)
+  v1.3.0/en/api/campaign/ActionNotes.md:30  [Area Index](../)  ||  - [Area Index](../)
+  v1.3.0/en/api/campaign/AdditionType.md:30  [Area Index](../)  ||  - [Area Index](../)
+  v1.3.0/en/api/campaign/AgeModel.md:55  [Area Index](../)  ||  - [Area Index](../)
+  v1.3.0/en/api/campaign/agentorigins/_index.md:8  [Back to campaign index](../)  ||  - [Back to campaign index](../)
+  v1.3.0/en/api/campaign/agentorigins/_index.md:9  [API Index](../../)  ||  - [API Index](../../)
+  v1.3.0/en/api/campaign/agentorigins/_index.md:10  [Version Home](../../../)  ||  - [Version Home](../../../)
+  v1.3.0/en/api/campaign/agentorigins/_index.md:22  [`PartyAgentOrigin`](../PartyAgentOrigin/)  ||  | [`PartyAgentOrigin`](../PartyAgentOrigin/) | PartyAgentOrigin is a p
+  v1.3.0/en/api/campaign/agentorigins/_index.md:23  [`PartyGroupAgentOrigin`](../PartyGroupAgentOrigin/)  ||  | [`PartyGroupAgentOrigin`](../PartyGroupAgentOrigin/) | PartyGroupAge
+  v1.3.0/en/api/campaign/agentorigins/_index.md:24  [`SimpleAgentOrigin`](../SimpleAgentOrigin/)  ||  | [`SimpleAgentOrigin`](../SimpleAgentOrigin/) | SimpleAgentOrigin is 
+  v1.3.0/en/api/campaign/agentorigins/_index.md:28  [Root](./../root/)  ||  - [Root](./../root/)
+  v1.3.0/en/api/campaign/agentorigins/_index.md:29  [BarterSystem](./../bartersystem/)  ||  - [BarterSystem](./../bartersystem/)
+  v1.3.0/en/api/campaign/agentorigins/_index.md:30  [CampaignBehaviors](./../campaignbehaviors/)  ||  - [CampaignBehaviors](./../campaignbehaviors/)

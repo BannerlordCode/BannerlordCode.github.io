@@ -1,0 +1,43 @@
+BASELINE=tools/_nav-baseline-broken-links.tsv
+BASELINE_ROWS=173  CURRENT_ROWS=173
+NEW_BROKEN=0  RESOLVED=0
+PAGES=39015  FILES=39015
+TOTAL_LINKS_ALL=140155  TOTAL_LINKS_INTERNAL=139745  (audit-links.mjs 的 TOTAL_LINKS = 内部链接口径)
+BROKEN_LINKS=197  FILES_WITH_BROKEN=52
+CASE_AMBIGUOUS_LINKS=5  (仅靠 Windows 大小写不敏感才命中；这批链接在 Linux 部署上会 404)
+LINUX_TRUTH=UNTESTABLE(reason=case_insensitive_fs)  —— 「大小写错配到底算不算断链」在本平台上原理上不可判定；要判定请在 Linux 上跑本脚本
+ORPHANS=4312
+ORPHAN_PARENTS=28
+ORPHANS_BY_TREE={"v1.3.0":2,"v1.3.15":27,"v1.4.5":4269,"v1.4.7":1,"v1.5.3":12,"":1}
+v1.4.6_orphans=0
+--- orphans by parent ---
+1087	v1.4.5/en/api/campaign/
+871	v1.4.5/zh/api/campaign/
+781	v1.4.5/zh/api/campaign-ext/
+671	v1.4.5/zh/api/mission-ext/
+500	v1.4.5/zh/api/viewmodel/
+259	v1.4.5/zh/api/gui/
+68	v1.4.5/en/api/mission/
+19	v1.4.5/zh/api/mission/
+11	v1.5.3/zh/api/storymode/
+9	v1.3.15/en/api/campaign-ext/
+8	v1.3.15/zh/api/campaign-ext/
+8	v1.4.5/zh/api/core-extra/
+2	v1.3.15/en/api/mission-ext/
+2	v1.3.15/zh/api/mission-ext/
+2	v1.4.5/zh/api/localization/
+2	v1.4.5/zh/api/system/
+1	v1.3.0/en/api/mission/
+1	v1.3.0/zh/api/mission/
+1	v1.3.15/en/api/core-extra/
+1	v1.3.15/en/api/system/
+1	v1.3.15/en/native-1.3.15-src/
+1	v1.3.15/zh/api/core-extra/
+1	v1.3.15/zh/api/system/
+1	v1.3.15/zh/native-1.3.15-src/
+1	v1.4.5/zh/api/save-system/
+1	v1.4.7/en/api/engine/
+1	v1.5.3/zh/api/localization/
+1	(root)
+JSON=tools/_nav-report.json
+EXPECT_ORPHANS_OK=4312

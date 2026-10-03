@@ -1,0 +1,289 @@
+FILES=39015
+TOTAL_LINKS=139931
+AUDIT_MODE=url
+BROKEN_LINKS=197
+RESOLVE_OK_URL=139548
+RESOLVE_OK_FILE=104781
+RESOLVE_OK_EITHER=139741
+RESOLVE_OK_BOTH=104588
+RESOLVE_URL_ONLY=34960
+RESOLVE_FILE_ONLY=193
+RESOLVE_NEITHER=4
+FILES_WITH_BROKEN=52
+
+## v1.4.5/en/api/campaign-ext/AIState.md  (4)
+   -> BoardGameAIBase
+   -> ../system/AIDifficulty
+   -> ../campaign-ext/MissionBoardGameLogic
+   -> ../campaign-ext/Move
+
+## v1.4.5/en/api/campaign-ext/AgentBehavior.md  (7)
+   -> CautiousBehavior
+   -> ../campaign-ext/AlarmedBehaviorGroup
+   -> ../campaign-ext/WalkingBehavior
+   -> BehaviorSets
+   -> ../campaign-ext/AgentBehaviorGroup
+   -> ../gameplay/AgentNavigator
+   -> AgentBehaviorManager
+
+## v1.4.5/en/api/campaign-ext/AgentBehaviorManager.md  (3)
+   -> BehaviorSets
+   -> CampaignAgentComponent
+   -> AgentBehavior
+
+## v1.4.5/en/api/campaign-ext/BarberCampaignBehavior.md  (4)
+   -> CampaignBehaviorBase
+   -> ../campaign/BodyPropertiesModel
+   -> ../campaign/AgeModel
+   -> GiveGoldAction
+
+## v1.4.5/en/api/campaign-ext/BehaviorSets.md  (15)
+   -> CampaignAgentComponent
+   -> AgentBehavior
+   -> ../campaign-ext/DailyBehaviorGroup
+   -> ../campaign-ext/AlarmedBehaviorGroup
+   -> ../campaign-ext/InterruptingBehaviorGroup
+   -> AgentBehaviorManager
+   -> CautiousBehavior
+   -> ../campaign-ext/WalkingBehavior
+   -> ../campaign-ext/PatrolAgentBehavior
+   -> ../campaign-ext/PatrollingGuardBehavior
+   -> ../campaign-ext/StandGuardBehavior
+   -> ../campaign-ext/FollowAgentBehavior
+   -> ../campaign-ext/FightBehavior
+   -> ../campaign-ext/FleeBehavior
+   -> ../campaign-ext/ChangeLocationBehavior
+
+## v1.4.5/en/api/campaign-ext/BreakInOutBesiegedSettlementAction.md  (5)
+   -> ../campaign/Settlement
+   -> ../campaign/TroopSacrificeModel
+   -> ../campaign/TroopRoster
+   -> ../campaign/Army
+   -> ChangeRelationAction
+
+## v1.4.5/en/api/campaign-ext/BribeGuardsAction.md  (3)
+   -> ../campaign/Settlement
+   -> GiveGoldAction
+   -> ../campaign/Hero
+
+## v1.4.5/en/api/campaign-ext/CampaignAgentComponent.md  (6)
+   -> ../mission-ext/AgentComponent
+   -> ../mission/Mission
+   -> ../gameplay/AgentNavigator
+   -> BehaviorSets
+   -> ../campaign/MapEvent
+   -> ../campaign/PartyBase
+
+## v1.4.5/en/api/campaign-ext/CampaignMusicHandler.md  (5)
+   -> ../mission-ext/IMusicHandler
+   -> ../mission-ext/MBMusicManager
+   -> ../mission-ext/MusicParameters
+   -> ../campaign/MobileParty
+   -> ../campaign/Settlement
+
+## v1.4.5/en/api/campaign-ext/CampaignSiegeStateHandler.md  (4)
+   -> ../campaign/PlayerEncounter
+   -> ../campaign/MapEvent
+   -> ../campaign/Settlement
+   -> ../mission-ext/MissionLogic
+
+## v1.4.5/en/api/campaign-ext/CampaignStoryMode.md  (5)
+   -> ../campaign/Campaign
+   -> StoryModeManager
+   -> MBObjectManager
+   -> ../core-extra/GameTypeLoadingStates
+   -> ../campaign/Settlement
+
+## v1.4.5/en/api/campaign-ext/CautiousBehavior.md  (5)
+   -> AgentBehavior
+   -> ../campaign-ext/AgentBehaviorGroup
+   -> ../campaign-ext/AlarmedBehaviorGroup
+   -> CampaignAgentComponent
+   -> BehaviorSets
+
+## v1.4.5/en/api/campaign-ext/ChangeClanInfluenceAction.md  (4)
+   -> ../campaign/Clan
+   -> ../campaign/CampaignEventDispatcher
+   -> ../campaign/CampaignEvents
+   -> ChangeClanLeaderAction
+
+## v1.4.5/en/api/campaign-ext/ChangeClanLeaderAction.md  (10)
+   -> ChangeOwnerOfSettlementDetail
+   -> ../campaign/Clan
+   -> ../campaign/Hero
+   -> GiveGoldAction
+   -> ChangeGovernorAction
+   -> DestroyPartyAction
+   -> ../system/MobilePartyHelper
+   -> ../campaign/CharacterRelationManager
+   -> ../campaign/DiplomacyModel
+   -> ../campaign/CampaignEventDispatcher
+
+## v1.4.5/en/api/campaign-ext/ChangeOwnerOfSettlementDetail.md  (2)
+   -> ../campaign/Settlement
+   -> ../campaign/CampaignEventDispatcher
+
+## v1.4.5/en/api/campaign-ext/ChangePlayerCharacterAction.md  (7)
+   -> ../campaign/Hero
+   -> ../campaign/MobileParty
+   -> ../campaign/Campaign
+   -> ChangeShipOwnerAction
+   -> DestroyPartyAction
+   -> ../campaign/PlayerCaptivity
+   -> ../campaign/Ship
+
+## v1.4.5/en/api/campaign-ext/ChangeRulingClanAction.md  (5)
+   -> ChangeClanInfluenceAction
+   -> ../campaign/Kingdom
+   -> ../campaign/CampaignEventDispatcher
+   -> ../campaign/CampaignEvents
+   -> ChangeClanLeaderAction
+
+## v1.4.5/en/api/campaign-ext/CharacterCreationScreen.md  (4)
+   -> ../campaign-ext/ScreenBase
+   -> CharacterCreationStageViewBase
+   -> CharacterCreationStageViewAttribute
+   -> ../campaign/CharacterCreationState
+
+## v1.4.5/en/api/campaign-ext/CharacterCreationStageViewAttribute.md  (3)
+   -> CharacterCreationScreen
+   -> CharacterCreationStageViewBase
+   -> ../campaign/CharacterCreationStageBase
+
+## v1.4.5/en/api/campaign-ext/CharacterCreationStageViewBase.md  (2)
+   -> CharacterCreationScreen
+   -> CharacterCreationStageViewAttribute
+
+## v1.4.5/en/api/mission-ext/AgentApplyDamageModel.md  (1)
+   -> ../../core/IGameStarter
+
+## v1.4.5/en/api/mission-ext/AgentBuildData.md  (2)
+   -> ./AgentBuildData
+   -> ./AgentVisualsData
+
+## v1.4.5/en/api/mission-ext/AgentCapsuleData.md  (3)
+   -> ./AgentSpawnData
+   -> ./MonsterExtensions
+   -> ./MonsterMissionData
+
+## v1.4.5/en/api/mission-ext/AgentCommonAILogic.md  (2)
+   -> ./MissionLogic
+   -> ./AgentHumanAILogic
+
+## v1.4.5/en/api/mission-ext/AgentComponent.md  (3)
+   -> ./AgentHumanAILogic
+   -> ./AgentCommonAILogic
+   -> ./MissionLogic
+
+## v1.4.5/en/api/mission-ext/AgentController.md  (2)
+   -> ./AgentComponent
+   -> ./AgentCommonAILogic
+
+## v1.4.5/en/api/mission-ext/AgentDrivenProperties.md  (1)
+   -> ./AgentBuildData
+
+## v1.4.5/en/api/mission-ext/AgentHumanAILogic.md  (2)
+   -> ./AgentCommonAILogic
+   -> ./MissionLogic
+
+## v1.4.5/en/api/mission-ext/AgentProximityMap.md  (1)
+   -> ./AgentVisualsData
+
+## v1.4.5/en/api/mission-ext/AgentSpawnData.md  (2)
+   -> ../../mission/MonsterExtensions
+   -> ./AgentCapsuleData
+
+## v1.4.5/en/api/mission-ext/AgentStatCalculateModel.md  (2)
+   -> ../../core/IGameStarter
+   -> ./AgentBuildData
+
+## v1.4.5/en/api/mission-ext/AgentVictoryLogic.md  (2)
+   -> ./MissionLogic
+   -> ./BattleSpawnModel
+
+## v1.4.5/en/api/mission-ext/AgentVisuals.md  (3)
+   -> ./AgentVisualsCreator
+   -> ./AgentVisualsData
+   -> ./AgentSpawnData
+
+## v1.4.5/en/api/mission-ext/AgentVisualsCreator.md  (2)
+   -> ./AgentVisuals
+   -> ./AgentVisualsData
+
+## v1.4.5/en/api/mission-ext/AgentVisualsData.md  (3)
+   -> ./AgentBuildData
+   -> ./AgentVisuals
+   -> ./AgentVisualsCreator
+
+## v1.4.5/en/api/mission-ext/BattleDeploymentMissionController.md  (4)
+   -> ./DeploymentMissionController
+   -> ./DefaultBattleMissionAgentSpawnLogic
+   -> ./BattleDeploymentHandler
+   -> ./BattleSpawnLogic
+
+## v1.4.5/en/api/mission-ext/BattleSpawnLogic.md  (2)
+   -> ./MissionLogic
+   -> ./BattleDeploymentMissionController
+
+## v1.4.5/en/api/mission-ext/BattleSpawnModel.md  (4)
+   -> ../../core/IGameStarter
+   -> ./BattleDeploymentMissionController
+   -> ./BattleSpawnLogic
+   -> ./MissionBattleSideSpawnContext
+
+## v1.4.5/zh/api/campaign-ext/AIState.md  (2)
+   -> AIDifficulty
+   -> Move
+
+## v1.4.5/zh/api/campaign-ext/AchievementManager.md  (2)
+   -> IAchievementService
+   -> TestAchievementService
+
+## v1.4.5/zh/api/campaign-ext/AgentBehavior.md  (3)
+   -> AgentBehaviorGroup
+   -> BehaviorSets
+   -> AgentBehaviorManager
+
+## v1.4.5/zh/api/campaign-ext/AgentBehaviorManager.md  (2)
+   -> BehaviorSets
+   -> AgentBehavior
+
+## v1.4.5/zh/api/campaign-ext/BanditDensityModel.md  (1)
+   -> AgeModel
+
+## v1.4.5/zh/api/campaign-ext/BreakInOutBesiegedSettlementAction.md  (2)
+   -> CampaignSiegeStateHandler
+   -> ChangePlayerCharacterAction
+
+## v1.4.5/zh/api/campaign-ext/CampaignSiegeStateHandler.md  (3)
+   -> MapEvent
+   -> MapEventSide
+   -> BreakInOutBesiegedSettlementAction
+
+## v1.4.5/zh/api/campaign-ext/CampaignStoryMode.md  (2)
+   -> IMapScene
+   -> TrainingField
+
+## v1.4.5/zh/api/campaign-ext/CautiousBehavior.md  (4)
+   -> AgentBehavior
+   -> AgentBehaviorGroup
+   -> BehaviorSets
+   -> AgentBehaviorManager
+
+## v1.4.5/zh/api/campaign-ext/ChangePlayerCharacterAction.md  (1)
+   -> BreakInOutBesiegedSettlementAction
+
+## v1.4.5/zh/api/campaign-ext/CharacterCreationScreen.md  (2)
+   -> CharacterCreationStageViewBase
+   -> CharacterCreationStageViewAttribute
+
+## v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewAttribute.md  (2)
+   -> CharacterCreationScreen
+   -> CharacterCreationStageViewBase
+
+## v1.4.5/zh/api/campaign-ext/CharacterCreationStageViewBase.md  (2)
+   -> CharacterCreationScreen
+   -> CharacterCreationStageViewAttribute
+
+## v1.4.5/zh/api/campaign-ext/MapEventSide.md  (1)
+   -> CampaignSiegeStateHandler

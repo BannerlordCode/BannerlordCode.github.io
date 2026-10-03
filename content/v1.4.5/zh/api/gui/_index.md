@@ -50,6 +50,14 @@ description: Gauntlet UI 系统类参考目录
 - [API 参考](../)
 - [版本首页](../../)
 
+## 区域索引 / Area Hubs
+
+- [核心 Gauntlet UI 家族](./gauntlet-ui/) — 整屏（ScreenBase）、全局叠加层（GlobalLayer）与 ViewModel：初始菜单、加载窗口、信息提示、聊天日志、旗帜编辑器等入口。
+- [GauntletUI.Map 地图界面](./gauntlet-ui-map/) — 沙盒地图界面的 25 个业务类型索引，含心智模型、依赖与风险。
+- [GauntletUI.Mission 战斗界面](./gauntlet-ui-missions/) — 战斗内界面的 21 个业务类型索引，含心智模型、依赖与风险。
+- [GauntletUI.TextureProviders 纹理提供者](./texture-providers/) — 纹理提供者的 13 个业务类型索引，含心智模型、依赖与风险。
+- [Nameplates 家族](./Nameplates/) — 战役地图名称牌视图模型：漂浮标签、事件/队伍标记、关系着色与尺寸控制。
+
 ## ↓ 子类列表 — 按字母分组
 
 ### A

@@ -27,8 +27,8 @@ graph TD
 
 - [Campaign 战役](../campaign/Campaign)
 - [CampaignBehaviorBase 行为基类](../campaign-ext/CampaignBehaviorBase)
-- [Quests 主线任务](./Quests/_index)
-- [GameComponents 剧情组件](./GameComponents/_index)
+- [Quests 主线任务](./Quests/)
+- [GameComponents 剧情组件](./GameComponents/)
 
 ## 类型清单
 
@@ -106,6 +106,6 @@ graph TD
 
 - [Campaign 战役](../campaign/Campaign)
 - [CampaignBehaviorBase 行为基类](../campaign-ext/CampaignBehaviorBase)
-- [Quests 主线任务](./Quests/_index)
-- [GameComponents 剧情组件](./GameComponents/_index)
+- [Quests 主线任务](./Quests/)
+- [GameComponents 剧情组件](./GameComponents/)
 - [API 总览](../_index)

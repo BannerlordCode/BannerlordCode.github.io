@@ -66,4 +66,5 @@ graph TD
 
 - 棋局启动：[CampaignBehaviorBase](../campaign-ext/CampaignBehaviorBase)
 - 棋盘界面：[GUI 总索引](../gui/_index)
+- 子区域家族页：[SandBox.BoardGames 桌面游戏](./cluster/)（26 类，含 BoardGameBase 与各棋种实现）
 - 任务行为上层：[mission-ext 总索引](../_index)

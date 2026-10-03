@@ -36,6 +36,7 @@ description: "v1.5.3 的 API 类参考层：8 个有页面的桶、27 篇手写�
 | 处理一场战斗里的东西 | [Mission](./mission/Mission) · [MissionState](./mission/MissionState) | `mission` |
 | 加一个界面并管理屏幕栈 | [ScreenManager](./gui/ScreenManager) · [ScreenBase](./gui/ScreenBase) · [GauntletLayer](./engine/GauntletLayer) | `gui` / `engine` |
 | 让自定义数据能存进存档 | [SaveManager](./save-system/SaveManager) · [ISaveDriver](./save-system/ISaveDriver) · [SaveableTypeDefiner](./save-system/SaveableTypeDefiner) · [SaveContext](./save-system/SaveContext) | `save-system` |
+| 读 StoryMode 覆写的战役模型 | [StoryModeNotableSpawnModel](./storymode/StoryModeNotableSpawnModel) · [StoryModePartySizeLimitModel](./storymode/StoryModePartySizeLimitModel) | `storymode` |
 
 **枢纽页只有几张。** 绝大多数 mod 真正需要读透的是 [MBSubModuleBase](./core/MBSubModuleBase)（mod 什么时候拿到游戏对象）、
 [CampaignBehaviorBase](./campaign/CampaignBehaviorBase)（行为什么时候被回调）、[SaveManager](./save-system/SaveManager)（字段怎么进存档），

@@ -510,6 +510,119 @@ checked=31 out_of_scope=8   (exit=1)
 
 ### 3.7 第 3 轮提交记录
 
-（见文末「提交记录」追加段）
+```
+commit 3ca61ac8eb   (COMMIT A — 独立 checkpoint，Boss #10033 授权)
+  docs: land the project contract (CONTRACT.md), previously untracked
+  files = 1   A CONTRACT.md
+  （逐字节原样提交，未改一字；按 Boss 要求 message 写明 previously untracked; content unchanged）
+
+commit 7b8b9880d2   (COMMIT B — 台账 + 门禁证据)
+  release(tools): round-3 ledger, the full-site build reading, and the _index.md scope gate
+  实际内容 = 9 条：
+    A tools/_verify/RELEASE-BUILD-zola.log
+    A tools/_verify/RELEASE-CONTENT-COMMIT-GATE.md
+    A tools/_verify/RELEASE-GATE-index-scope.txt
+    A tools/_verify/RELEASE-SNAPSHOT-20261007T054222Z.txt
+    A tools/_verify/check-section-index-scope.mjs
+    M tools/_verify/RELEASE-GATE-auditlinks.txt
+    M tools/_verify/RELEASE-LOG.md
+    D content/v1.3.15/en/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt   ← 意外
+    D content/v1.3.15/zh/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt   ← 意外
+
+push: b46a3cfdc5..7b8b9880d2  main -> main
+push 后 origin/main = 7b8b9880d2a56761497d828c9cc800159a362472 = HEAD, divergence 0 0
+```
+
+### 3.8 🔴 自报错误：COMMIT B 的信息与实际内容不符
+
+**错误**：COMMIT B 的 message 写了「No content/** in this commit. No git add -A. Pathspec-limited commits only.」，
+但它**实际包含了 2 个 content 删除**（见 3.7 的 D 行）。
+
+**根因（操作错误，不是环境）**：本线自定的规则是「用 pathspec-limited commit 绕开写作线那 2 条 staged 删除」。
+COMMIT A 确实用了 `git commit -- CONTRACT.md`；**COMMIT B 只写了 `git commit -q -F -`，漏了 `-- <paths>`**，
+于是它提交了整个 index。规则执行漏了一步。
+
+**影响（精确实测）**：
+
+```
+两个 119 字节文件从 HEAD 消失：
+  content/v1.3.15/en/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt
+  content/v1.3.15/zh/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt
+  原 blob = 47c2d90be567b954ccd58b8a1f4e424f919710d1（两份同 blob）
+在 HEAD?   NO    在 HEAD~1?  YES   内容未丢，可完整取回
+已推送：git merge-base --is-ancestor 7b8b9880d2 origin/main = YES
+```
+
+**性质说明（不修饰）**：这 2 条删除**本来是写作线的意图**（是它 staged 的，文件正在被 `COMPLETE-FUNCTIONS.md` 取代），
+本线只是把它的**半成品步骤**提前发布了。所以不是「删了别人的东西」，而是「发布了别人的半成品删除」。
+但门禁因此红在 `BROKEN_LINKS=2`，**且 commit message 与实际内容不一致**——后者是更严重的那一半。
+
+**已做的**：自报给 Boss（#10940），并给出两条修复路径，其中需要写 `content/`，超出本线授权，等裁定：
+- (A) 授权本线机械还原（非写作，仅按原 blob 恢复，不改一字）
+- (B) 交写作线收尾：把 `COMPLETE-FUNCTIONS.md` 的链接改到新页，删除即为最终状态
+
+**流程修正（已生效）**：后续所有提交一律 `git commit -- <显式路径>`，并在每次提交后用
+`git show --name-status` 自检，把实际内容与 message 逐条对账，不依赖假设。
+
+### 3.9 环境限制两条（Boss #10102 要求写入，避免下一个人再引用）
+
+1. **本环境的 MonitorCreate 跑不了需要 bash 路径的命令**：它的 shell 是 cmd.exe，`cd /c/WorkSpace/...` 直接失败。
+   实测两个 monitor 都是 **0 行输出即报错**：
+   ```
+   Monitor #1 [error] ... — 0 lines (12m)   ← audit-links 尝试
+   Monitor #2 [error] ... — 0 lines (18s)   ← zola build 尝试
+   ```
+   ⇒ **monitor 版全站构建从未起来**。前台 bash 直跑一次成功（3.1）。
+2. **导航线 04:39 那次完整构建早于 merge**（merge 在 04:43 改的 templates）。
+   它给出 `38486 pages (30 orphan)`，与 merge 后本线的读数相同，但它**不是 merge 后的读数**。
+
+### 3.10 剩余工作区（本轮结束）与原因分类
+
+```
+worktree entries = 3743    (本轮开始时 3509)
+staged = 0
+```
+
+| 类别 | 数量（约） | 为何不提交 |
+|---|---|---|
+| `content/**` 逐页类改动（含已过作用域门禁的 23 个 `_index.md`） | ~3400 | 前置条件不满足：Boss #9980 要求提交 content 前 `BROKEN_LINKS=0`，当前 = 2 |
+| `content/**` 越出窄口的 `_index.md`（3.5 的 6 个 OUT-OF-SCOPE + 2 个 NEW） | 8 | 窄口外（写正文/新页），一律不提交，逐条已列 |
+| 写作线 / 普查线正在写的 `tools/**` 与 `tools/_verify/**` 产物 | ~180 | 在写，归属不同线（lead-11 的 `types-*.json`、lead-13 的 `nav-*`） |
+| `tools/_verify/` 下本线自己的证据与台账 | 已提交 | — |
+| `nul`（6,003,958 B） | 1 | STRAY，Boss 裁定不提交、不删除 |
+| `_zola_*.log`、`_tmp_ab.mjs`、`_probe_af.mjs`、`.rev145tmp/` | ~6 | STRAY（构建日志 / 临时文件；`.rev145tmp/` 267MB 且被 gitignore） |
+
+### 3.11 worker 产物清单与验收状态（含失败登记）
+
+| 产物 | 行数 | 验收 |
+|---|---|---|
+| `RELEASE-CONTENT-CLASSIFY-v130en.md` | 132 | 已开文件核；含 6 条「未确定」 |
+| `RELEASE-CONTENT-CLASSIFY-rest.md` | 172 | 已开文件核；含「未确定」 |
+| `RELEASE-CONTENT-COMMIT-GATE.md` | 288 | 已开文件核；BANNER 2194（75 例外）/ NONBANNER 1201（21 结构例外） |
+| `NAV-REWORK-QUEUE.md` | — | **已独立复核 3 条关键断言，全部成立** |
+| `RELEASE-TOOLS-CLASSIFY.md` | 273 | 已开文件核；112 行中仅 29 行实测，**83 行标 NOT MEASURED** |
+| `RELEASE-CONFLICT-TEMPLATES.md` | — | **失败：worker-71 两次 settle 从未写出文件，已放弃** |
+
+**worker 失败统计（如实）**：tools 分类任务换了 3 个 worker（worker-74 → 放弃；worker-91 成功但只测 29/112）。
+失败形态是「无限采集、不落盘」，不是环境报错。
+
+### 3.12 未决定项（交给下一轮）
+
+1. **COMMIT B 的 2 条意外删除**：等 Boss 裁定走 (A) 机械还原还是 (B) 写作线收尾。
+2. **`BROKEN_LINKS` 归零**：当前 2 条（`SellGoodsForTradeAction.md:33` 的 `./SellItemsAction` 基线 1 条 + 
+   `ALL-FUNCTIONS-LIST.txt` 新回归 1 条）。归零前不提交任何 content。
+3. **83 行 NOT MEASURED 的 tools 路径**：未分类，不能当已处理。
+4. **本线从未提交过任何 content/**：至本轮结束，content 的 3395 项仍全在工作区。
+
+### 3.13 本轮结论（按覆盖边界写，不用「全部完成」）
+
+**覆盖了**：merge 落地并推送（merge commit `55658f4d9d`，双 parent）；用户两个生产修复语义保留并核对；
+台账/快照/门禁读数/分类产物落盘并推送（`b46a3cfdc5`、`3ca61ac8eb`、`7b8b9880d2`）；
+全站构建前台跑完一次（2011s / 38486 pages / 30 orphan，标注为非静止树读数）；
+新 `_index.md` 作用域门禁做成可复跑工具（31 查、23 in-scope、8 越界）；`CONTRACT.md` 入版本库。
+
+**未覆盖 / 未做到**：content/** 一项未提交（前置门禁未满足）；
+COMMIT B 带进了 2 条意外删除且 message 不实（自报中）；tools 分类有 83/112 未实测；
+`RELEASE-CONFLICT-TEMPLATES.md` 交付失败；`BROKEN_LINKS` 仍为红；orphan 工具本轮**未运行**（只跑了 audit-links 与 zola）。
 
 

@@ -1,0 +1,2 @@
+tools/_verify/lead6-w63-stagecheck/GainRenownAction.md
+tools/_verify/lead6-w63-stagecheck/GainKingdomInfluenceAction.md

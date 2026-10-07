@@ -1,0 +1,147 @@
+# snapshot   : rule2-AFTER
+# taken      : 2026-10-04T18:56:26.875Z
+# tool       : tools/_selfcheck-consistency.mjs
+# tool sha256: 3ecb33f51f9b558a74d55ce3e4115e5a61760c1147106fb77faeb9797a7a3796
+# pages      : 52
+# page sha256: a928a47e65f00038c78bafe32218ca13eec1d7cbbc2efcc0881887f46e2d9496  content/v1.4.5/en/api/campaign/BesiegeSettlementLogEntry.md
+# page sha256: 93b1b9340b3457f08eadda7dbb6f0957af2eb0e2bbd58f732d589994452fd4be  content/v1.4.5/en/api/core-extra/HumanBone.md
+# page sha256: 7c7be90332a5d423537b19f5005260f754bf06aae0eae098e48ace5e544789fc  content/v1.4.5/en/api/mission/IMBActionSet.md
+# page sha256: 27047e4f6fd3d15113b4b11820d693ab8822f65484508d722db988d1596e44af  content/v1.4.5/en/api/mission/IMBAgent.md
+# page sha256: 569a97a516b4abee2859d8bf6b665fb324a2edc72d2db0d71c7a17c139394d1d  content/v1.4.5/en/api/mission/IMBAgentVisuals.md
+# page sha256: accff99fcc2afc4d509baadafccb1923b65624041ac4e2860043746a10bacd78  content/v1.4.5/en/api/mission/IMBAnimation.md
+# page sha256: e5a78e0bc83eb1ffa916c99d25f993e39440143a764d75e55f1080a24c4acc5e  content/v1.4.5/en/api/mission/IMBBannerlordChecker.md
+# page sha256: a6c48844c6c814f311f2ceb5854feedd4eda10b5ec68c16338d15714e627ef5b  content/v1.4.5/en/api/mission/IMBBannerlordConfig.md
+# page sha256: 09a9731b540d0d20064688822d598b60a0ef2e0e87c1c301577bb01e4600779a  content/v1.4.5/en/api/mission/IMBBannerlordTableauManager.md
+# page sha256: 2a0dd156eff50469024d9a2b00293ea42a1f319edefb14b212291495a56e5007  content/v1.4.5/en/api/mission/IMBDebugExtensions.md
+# page sha256: 63e6f95d8e21bc15ec824c088a82098ee8b78a28775069dbff3565d3efeb29ff  content/v1.4.5/en/api/mission/IMBDelegate.md
+# page sha256: bbc9043138d7b6aed88bf46c5f99878edb62b6618bc5fcc2c8e653df479718c1  content/v1.4.5/en/api/mission/IMBEditor.md
+# page sha256: 7a5b80c9d70fb6643b5cbfda93c39de6d324301e4d9252143f10732a59f53fa3  content/v1.4.5/en/api/mission/IMBFaceGen.md
+# page sha256: efe9fcbe3868566307e29313afd9488c1e1416c6597b7afb45fc5226f6374b71  content/v1.4.5/en/api/mission/IMBGame.md
+# page sha256: 68d17a6201e77f578b69cce609baa146d3d49ef1253c32de698dc78ea10b8030  content/v1.4.5/en/api/mission/IMBGameEntityExtensions.md
+# page sha256: 63d8e561cffdb66a6ca8f184369b2c396d7603a8884572e2f5e4f496c975588e  content/v1.4.5/en/api/mission/IMBItem.md
+# page sha256: 1a3fb5907d7a123486ec7eb57a0a67c95ed84ac31aba6c11455fcaf9dd90ee14  content/v1.4.5/en/api/mission/IMBMapScene.md
+# page sha256: b83b84c93f6f5f9f700c8e1ab16a4ad0d160218134aac79fd7018a854308544b  content/v1.4.5/en/api/mission/IMBMission.md
+# page sha256: 904bd259bc7e0a29200173620886e3f521437facf50b7444666daa80825e0355  content/v1.4.5/en/api/mission/IMBMultiplayerData.md
+# page sha256: 9d2255890a6be33ab51d038fa855e97fe4725eda4cf70f4e3541e20567e9732d  content/v1.4.5/en/api/mission/IMBNetwork.md
+# page sha256: 5b55afcacd945499b0382cc407c5e756d4cb8f10e682fd06f401c8a00dce02bc  content/v1.4.5/en/api/mission/IMBPeer.md
+# page sha256: 0186e4c048147ecdb9e3a3736b32602fb965d5c74a64660593488263c9beb1d5  content/v1.4.5/en/api/mission/IMBScreen.md
+# page sha256: f7bb3e2e417894bd97616a4a97279a46018741af3798bdc0304676c113ed6774  content/v1.4.5/en/api/mission/IMBSkeletonExtensions.md
+# page sha256: ba39842e707de8a44c980e5e739066e479b026951a5b1d4df16ea756997f2a5b  content/v1.4.5/en/api/mission/IMBSoundEvent.md
+# page sha256: a6736da3039e8faaec50ff72313b3c6431634a62bba4a9173b2b791add25df14  content/v1.4.5/en/api/mission/IMBTeam.md
+# page sha256: 9f5a7abe9b37126ab242acd38abceaf7cd3b3830fc6900c8c12ad42d168c8920  content/v1.4.5/en/api/mission/IMBTestRun.md
+# page sha256: 56b83048a27416555ead6cff25a5c43bd3f9e26402f533be517f20b1c27438c5  content/v1.4.5/en/api/mission/IMBVoiceManager.md
+# page sha256: dc8a49b143c9c8637eadda87821fb89a32f8ab4631d752a34ffd114762528735  content/v1.4.5/en/api/mission/IMBWindowManager.md
+# page sha256: b3494346f791e42b5b20b17457f9b6491a3e53226a4659f30f992032216bc858  content/v1.4.5/en/api/mission-ext/AutoHideRichTextWidget.md
+# page sha256: 27062f1216ea5c12148480847aefd5168f57226fb13f972011e1860d832a5fea  content/v1.4.5/en/api/mission-ext/AutoHideTextWidget.md
+# page sha256: a9c23cf8442ec44538657cf9c6463a063883376a8a367622eb23e74103086c7a  content/v1.4.5/en/api/mission-ext/AutoHideZeroTextWidget.md
+# page sha256: 2b33eb1d780cbeb4ce359965851482ba904305d8d1efe1d1cfee08f2762d51e1  content/v1.4.5/en/api/mission-ext/BannerBuilderEditableAreaWidget.md
+# page sha256: 07d90be0beead9d2a63ce9556f9f674017ee4f5fe7c624c0492f8621cfbfefd5  content/v1.4.5/en/api/mission-ext/BannerEditorTextureCreationData.md
+# page sha256: 114a194075bbec5c59beba11885cd0a97ec326b5e827c0d0d3d4e179dfaaa3d6  content/v1.4.5/en/api/mission-ext/BannerlordConfig.md
+# page sha256: b3a9f696fb3a6bf8bb4ddb81d054b3ac0046ab39f92a93551351540faef210a0  content/v1.4.5/en/api/mission-ext/BannerThumbnailCreationBaseData.md
+# page sha256: d4ac744d235040d4cdb7f02a945f373237b4ddbc6ed189f9f13b063858d86dbd  content/v1.4.5/en/api/mission-ext/BannerThumbnailCreationData.md
+# page sha256: 4a2775f864b73b1ef32b638637db03d29ec8113c5aa360817f0930653749da78  content/v1.4.5/en/api/mission-ext/BarterItemCountControlButtonWidget.md
+# page sha256: f30dd63b99cbde6b63e35600d19f8412c59c388d664c679498013959b2281a85  content/v1.4.5/en/api/mission-ext/BarterItemCountTextWidget.md
+# page sha256: 0499d9d527982eeb11d412a2f007cfafb85f807c8a417b093cd5085aab352a86  content/v1.4.5/en/api/mission-ext/BarterItemVisualBrushWidget.md
+# page sha256: f549d5c1d63a594ed0685e953cf29c54cb373761cb8293b2766bfca3c554106a  content/v1.4.5/en/api/mission-ext/BarterTupleItemButtonWidget.md
+# page sha256: 612a96c9905b7cb31cd8e6063f7af81cf6d4dc852843f2acb0cb15c9584fb3e2  content/v1.4.5/en/api/mission-ext/BarterView.md
+# page sha256: 3c6a668f7a95bd94dbad04f8b84f8473136ae3a6fa4ea44b3c33226c5bcda25a  content/v1.4.5/en/api/mission-ext/FormationQuerySystem.md
+# page sha256: 9c3fa9e521aa41c128b396a187e835a1b2315fc5fab615d8fd8a18c34f920e54  content/v1.4.5/en/api/mission-ext/GameNetwork.md
+# page sha256: cfa6ad743c2a853bfa3bf9ff2e8b5f33005af4f2117c2e22684ff6e9d6dff20c  content/v1.4.5/en/api/mission-ext/LineFormation.md
+# page sha256: 6110f569342c34349b5ce1dac5df99c307b189dc2e2958b3087ec277ab04ab80  content/v1.4.5/en/api/mission-ext/LobbyClient.md
+# page sha256: a3f95a1b6c5323f3201e05f5217486da02efc03b4756be7d1d955ec1791a6b24  content/v1.4.5/en/api/mission-ext/MissionNetworkComponent.md
+# page sha256: e8d76544cd8cbe0a97a0957bea7b1c1df9ef261ffc74817a5c8c70d2d74ed566  content/v1.4.5/en/api/mission-ext/MissionScreen.md
+# page sha256: b4b81767e5df523d64264bdaa05887a8d99cad7fa51c8dc5ab8cc562f862ab7f  content/v1.4.5/en/api/mission-ext/MPLobbyPlayerBaseVM.md
+# page sha256: 306157bd182290ec66733042f54b0285ca5b91dd368cf616defb31018d749035  content/v1.4.5/en/api/mission-ext/MPLobbyVM.md
+# page sha256: dec9a5695e6950250abf9e4b19672a4cbc0d077e9fe1adbfcc735386bf7bc734  content/v1.4.5/en/api/mission-ext/RangedSiegeWeapon.md
+# page sha256: 3d2afa073245232051b027b7c06a45efb9df6340c118ed98242161f62b25f3be  content/v1.4.5/en/api/mission-ext/ServerInfoMessage.md
+# page sha256: 6ae20cfdf469c0fad2269819cc836cac4c846cbb41663aeced343149df6044c6  content/v1.4.5/en/api/mission-ext/UsableMachine.md
+# exit       : 1
+# ---- tool output below ----
+
+corpus=ok  tree=bannerlord-1.4.5  files=8574  chars=111887202
+content/v1.4.5/en/api/campaign/BesiegeSettlementLogEntry.md  IDENTIFIERS=40 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/core-extra/HumanBone.md  IDENTIFIERS=73 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBActionSet.md  IDENTIFIERS=48 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBAgent.md  IDENTIFIERS=107 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBAgentVisuals.md  IDENTIFIERS=123 SUSPECT=1  VERDICT=review
+    NOTHING — not in tree, but near-variant is: nothing  (block line 10)
+      // (IMBAgentVisuals.cs:60 and :63) but NOTHING in the managed tree calls
+content/v1.4.5/en/api/mission/IMBAnimation.md  IDENTIFIERS=76 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBBannerlordChecker.md  IDENTIFIERS=65 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBBannerlordConfig.md  IDENTIFIERS=55 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBBannerlordTableauManager.md  IDENTIFIERS=91 SUSPECT=1  VERDICT=review
+    MUST — not in tree, but near-variant is: must  (block line 14)
+      // RequestCallback with no null check — so it MUST be assigned first or
+content/v1.4.5/en/api/mission/IMBDebugExtensions.md  IDENTIFIERS=92 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBDelegate.md  IDENTIFIERS=32 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBEditor.md  IDENTIFIERS=100 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBFaceGen.md  IDENTIFIERS=89 SUSPECT=1  VERDICT=review
+    BEFORE — not in tree, but near-variant is: before  (block line 16)
+      // 2) Constrain BEFORE editing, so your edit starts from a legal set.
+content/v1.4.5/en/api/mission/IMBGame.md  IDENTIFIERS=58 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBGameEntityExtensions.md  IDENTIFIERS=67 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBItem.md  IDENTIFIERS=72 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBMapScene.md  IDENTIFIERS=66 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBMission.md  IDENTIFIERS=107 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBMultiplayerData.md  IDENTIFIERS=64 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBNetwork.md  IDENTIFIERS=52 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBPeer.md  IDENTIFIERS=59 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBScreen.md  IDENTIFIERS=30 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBSkeletonExtensions.md  IDENTIFIERS=76 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBSoundEvent.md  IDENTIFIERS=82 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBTeam.md  IDENTIFIERS=73 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBTestRun.md  IDENTIFIERS=37 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBVoiceManager.md  IDENTIFIERS=72 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission/IMBWindowManager.md  IDENTIFIERS=72 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/AutoHideRichTextWidget.md  IDENTIFIERS=77 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/AutoHideTextWidget.md  IDENTIFIERS=86 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/AutoHideZeroTextWidget.md  IDENTIFIERS=79 SUSPECT=1  VERDICT=review
+    ONLY — not in tree, but near-variant is: only  (block line 10)
+      // This is the ONLY input the class reacts to
+content/v1.4.5/en/api/mission-ext/BannerBuilderEditableAreaWidget.md  IDENTIFIERS=137 SUSPECT=2  VERDICT=review
+    IMPORTANT — not in tree, but near-variant is: important  (block line 21)
+      // IMPORTANT: the four setters above call private empty hooks
+    EMPTY — not in tree, but near-variant is: empty  (block line 12)
+      // fire OnPropertyChanged, then call private EMPTY hooks
+content/v1.4.5/en/api/mission-ext/BannerEditorTextureCreationData.md  IDENTIFIERS=111 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/BannerlordConfig.md  IDENTIFIERS=117 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/BannerThumbnailCreationBaseData.md  IDENTIFIERS=107 SUSPECT=1  VERDICT=review
+    FIELDS — not in tree, but near-variant is: fields  (block line 12)
+      // SetAction and CancelAction are public readonly FIELDS on
+content/v1.4.5/en/api/mission-ext/BannerThumbnailCreationData.md  IDENTIFIERS=115 SUSPECT=1  VERDICT=review
+    FIELDS — not in tree, but near-variant is: fields  (block line 12)
+      // readonly FIELDS (ThumbnailCreationData.cs:8, :10), so they can be read
+content/v1.4.5/en/api/mission-ext/BarterItemCountControlButtonWidget.md  IDENTIFIERS=62 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/BarterItemCountTextWidget.md  IDENTIFIERS=86 SUSPECT=2  VERDICT=review
+    AFTER — not in tree, but near-variant is: after  (block line 7)
+      // re-showing a count of 1 means re-showing it AFTER the base assignment.
+    NOTHING — not in tree, but near-variant is: nothing  (block line 11)
+      label.Count = label.Count;   // does NOTHING: `if (_count != value)`
+content/v1.4.5/en/api/mission-ext/BarterItemVisualBrushWidget.md  IDENTIFIERS=120 SUSPECT=1  VERDICT=review
+    BEFORE — not in tree, but near-variant is: before  (block line 21)
+      // Call this BEFORE the widget's first update. UpdateVisual() runs once
+content/v1.4.5/en/api/mission-ext/BarterTupleItemButtonWidget.md  IDENTIFIERS=92 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/BarterView.md  IDENTIFIERS=83 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/FormationQuerySystem.md  IDENTIFIERS=109 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/GameNetwork.md  IDENTIFIERS=84 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/LineFormation.md  IDENTIFIERS=150 SUSPECT=1  VERDICT=review
+    FIRST — not in tree, but near-variant is: first  (block line 15)
+      // UnitPositionAvailabilities' index order. FileCount is the FIRST
+content/v1.4.5/en/api/mission-ext/LobbyClient.md  IDENTIFIERS=141 SUSPECT=2  VERDICT=review
+    PREVIOUS — not in tree, but near-variant is: previous  (block line 29)
+      // Careful: CurrentState's setter passes the PREVIOUS state to the
+    EITHER — not in tree, but near-variant is: either  (block line 11)
+      // (LobbyClient.cs:241) — false means EITHER disabled OR status not yet
+content/v1.4.5/en/api/mission-ext/MissionNetworkComponent.md  IDENTIFIERS=111 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/MissionScreen.md  IDENTIFIERS=179 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/MPLobbyPlayerBaseVM.md  IDENTIFIERS=61 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/MPLobbyVM.md  IDENTIFIERS=72 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/RangedSiegeWeapon.md  IDENTIFIERS=134 SUSPECT=1  VERDICT=review
+    MUST — not in tree, but near-variant is: must  (block line 5)
+      // weapon MUST supply all five abstract members or it does not compile:
+content/v1.4.5/en/api/mission-ext/ServerInfoMessage.md  IDENTIFIERS=137 SUSPECT=0  VERDICT=pass
+content/v1.4.5/en/api/mission-ext/UsableMachine.md  IDENTIFIERS=130 SUSPECT=2  VERDICT=review
+    VIRTUAL — not in tree, but near-variant is: virtual  (block line 19)
+      // CreateAIBehaviorObject is VIRTUAL, not abstract (UsableMachine.cs:222).
+    FIELDS — not in tree, but near-variant is: fields  (block line 6)
+      // WaitStandingPointTag (:21) are public mutable FIELDS, not properties.

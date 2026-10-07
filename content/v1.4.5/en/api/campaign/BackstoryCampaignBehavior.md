@@ -57,6 +57,19 @@ Think of it as **a one-shot initialisation script for world history**.
 | `lord_3_5` | Murderer of `dead_lord_3_1` |
 | `dead_lord_3_1` | The death that triggers the whole-family vengeance feud |
 
+## How to use
+
+**How to obtain it.** **Do not construct it.** It is a `CampaignBehaviorBase` added at campaign start; reach it with `Campaign.Current.GetCampaignBehavior<BackstoryCampaignBehavior>()`.
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+BackstoryCampaignBehavior backstory = Campaign.Current.GetCampaignBehavior<BackstoryCampaignBehavior>();
+Debug.Print("backstory behavior live = " + (backstory != null), 0);
+```
+
+**The most common pitfall.** **It fires only on `OnNewGameCreatedEvent`.** Loading a save never re-runs it, so **do not expect it to repair an already-broken save**.
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

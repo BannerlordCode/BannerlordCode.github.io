@@ -13,7 +13,7 @@ description: "The abstract stage view every character-creation screen inherits f
 
 ## Overview
 
-Every character-creation stage is rendered by a subclass of this, and the subclass is instantiated reflectively by [CharacterCreationScreen](CharacterCreationScreen) with seven delegates the screen builds from the `CharacterCreationManager`. This base class does exactly one thing with them: it stores them in `protected readonly` fields and re-exposes them as ordinary named methods, so a derived view can say `GoToIndex(3)` instead of `_goToIndexAction.Invoke(3)`.
+Every character-creation stage is rendered by a subclass of this, and the subclass is instantiated reflectively by [CharacterCreationScreen](../CharacterCreationScreen) with seven delegates the screen builds from the `CharacterCreationManager`. This base class does exactly one thing with them: it stores them in `protected readonly` fields and re-exposes them as ordinary named methods, so a derived view can say `GoToIndex(3)` instead of `_goToIndexAction.Invoke(3)`.
 
 Around that it adds a shared camera position constant, the escape-menu toggle, and the finalize plumbing. Five members are abstract — `GetLayers`, `NextStage`, `PreviousStage`, `GetVirtualStageCount`, `LoadEscapeMenuMovie`, `ReleaseEscapeMenuMovie` — so a derived view must supply the layer set, the two navigation steps, a stage count, and the two halves of the escape-menu movie lifecycle.
 
@@ -37,7 +37,7 @@ The interface implementation is the usual explicit pattern: `void ICharacterCrea
 
 | Member | Signature | What it is for |
 | --- | --- | --- |
-| `GetLayers` | `public abstract IEnumerable<ScreenLayer> GetLayers()` | **Mandatory.** Returns the screen layers this stage view owns. [CharacterCreationScreen](CharacterCreationScreen) calls it on every refresh and adds each layer to the screen, so returning the wrong set is how a stage ends up invisible or double-added. |
+| `GetLayers` | `public abstract IEnumerable<ScreenLayer> GetLayers()` | **Mandatory.** Returns the screen layers this stage view owns. [CharacterCreationScreen](../CharacterCreationScreen) calls it on every refresh and adds each layer to the screen, so returning the wrong set is how a stage ends up invisible or double-added. |
 | `NextStage` | `public abstract void NextStage()` | **Mandatory.** Advances the flow. Derived views normally delegate to the `_affirmativeAction` control, but the base deliberately does not force that — the escape menu's Exit path, for instance, tears the stage down rather than advancing. |
 | `PreviousStage` | `public abstract void PreviousStage()` | **Mandatory.** Goes back a stage. As with `NextStage`, the base supplies no default and no backing delegate call, so a view that forgets to wire it leaves the Previous button dead. |
 | `GetVirtualStageCount` | `public abstract int GetVirtualStageCount()` | **Mandatory, and has zero call sites in the 1.4.5 tree.** All seven shipped views override it, but nothing in the shipped assemblies invokes it. Implement it to satisfy the contract; do not assume anything reads the value. |
@@ -50,6 +50,18 @@ The interface implementation is the usual explicit pattern: `void ICharacterCrea
 | `Tick` | `public virtual void Tick(float dt)` | Per-frame pump called from the screen's `OnFrameTick`. Defaults to empty; views that animate a body generator override it. |
 | `OnRefresh` | `protected virtual void OnRefresh()` | Wraps `_refreshAction.Invoke()`. `protected` and `virtual` — a derived view may add work around a refresh but must keep the base call or the screen's refresh will not propagate. |
 | `OnFinalize` | `protected virtual void OnFinalize()` | The stage's teardown hook, reached from the interface's `OnStageFinalize()` and, unusually, also called directly on a `view` from `GetEscapeMenuItems`' Exit-to-main-menu path. Defaults to empty. |
+
+## Dead members and traps
+
+| Member | Declared at | override | Call sites | Verdict | What it means |
+|---|---|---|---|---|---|
+| `GetVirtualStageCount` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationStageViewBase.cs:76` | 7 | 0 | MEASURED | The base declares it `public abstract`, seven classes override it, and **not one call site exists in the 8,583-file 1.4.5 tree**. Whatever you return, nothing in the shipped game reads it. |
+| `_cameraPosition` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationStageViewBase.cs:31` | 0 | 3 times (3 lines) | UNSUPPORTED | A static tool reports "0 call sites", but `grep -o -w` finds **3 live references across 3 lines** — class-internal accesses with no dot prefix. Extraction blind spot, not a dead member. |
+| `_refreshAction` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationStageViewBase.cs:21` | 0 | 2 times (2 lines) | UNSUPPORTED | Same shape: the tool says 0, `grep -o -w` finds **2 live references across 2 lines**. Extraction blind spot, not a dead member. |
+
+Verdicts and counts: source tree `bannerlord-1.4.5` HEAD `ccbc3d40f88905765a1484492d41b7000e7249fa`, 8,583 `.cs` files including `bin/`. Call-site counts are **occurrence counts** (`grep -o -w`), not matching-line counts. Only `MEASURED` rows may be read as conclusions.
+
+> Note on the override count: the base declaration at `:76` is `public abstract`, not `public override`. The seven overrides live in `CharacterCreationBannerEditorView.cs`, `CharacterCreationClanNamingStageView.cs`, `CharacterCreationCultureStageView.cs`, `CharacterCreationFaceGeneratorView.cs`, `CharacterCreationNarrativeStageView.cs`, `CharacterCreationOptionsStageView.cs` and `CharacterCreationReviewStageView.cs`. Older notes that say "8 override" are counting the abstract declaration as one — see `tools/_DEAD-MEMBER-LIST.md` §3.
 
 ## Real Example
 
@@ -157,8 +169,8 @@ The v1.4.5 file is 181 lines. The zero-call-site status of `GetVirtualStageCount
 
 ## Dependencies
 
-- Instantiator: [CharacterCreationScreen](CharacterCreationScreen) builds the seven delegates and constructs this type's subclasses reflectively; its `OnStageCreated` is the authority for argument order.
-- Registration key: [CharacterCreationStageViewAttribute](CharacterCreationStageViewAttribute) is what makes a derived view discoverable by that reflection sweep.
+- Instantiator: [CharacterCreationScreen](../CharacterCreationScreen) builds the seven delegates and constructs this type's subclasses reflectively; its `OnStageCreated` is the authority for argument order.
+- Registration key: [CharacterCreationStageViewAttribute](../CharacterCreationStageViewAttribute) is what makes a derived view discoverable by that reflection sweep.
 - Constructor arguments: `ControlCharacterCreationStage`, `ControlCharacterCreationStageReturnInt`, and `ControlCharacterCreationStageWithInt` are plain delegates in `TaleWorlds.Core.ViewModelCollection`; this class exists largely to give them names.
 - Menu model: `EscapeMenuItemVM` builds the pause-menu items, and `GameTexts.FindText` supplies the shared disabled-reason string.
 - Bucket index: [campaign-ext API section](../)

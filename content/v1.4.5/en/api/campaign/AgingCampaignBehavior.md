@@ -49,6 +49,17 @@ Read it as **a state machine invoked once per hero per day, plus two private tab
 
 3. **Player illness and NPC old age are two separate paths.** NPCs go through `IsItTimeOfDeath(hero)`: `Age >= BecomeOldAge && MBRandom.RandomFloat < hero.ProbabilityOfDeath`, and on a hit either spend an extra life, or — for an as-yet-unwell main hero — pop an Inquiry and set `TimeControlMode = Stop`, or call `KillCharacterAction.ApplyByOldAge`. The player instead runs through the `Hero.IsMainHeroIll` branch inside `DailyTickHero`; **the main hero is never executed inside `IsItTimeOfDeath`.**
 
+## How to use
+
+**How to obtain it.** **Do not construct it.** It is a `CampaignBehaviorBase` the engine adds at campaign start. Reach the live instance with `Campaign.Current.GetCampaignBehavior<AgingCampaignBehavior>()`; the same applies to any subclass you register.
+
+```csharp
+AgingCampaignBehavior aging = Campaign.Current.GetCampaignBehavior<AgingCampaignBehavior>();
+Debug.Print("aging behaviour live = " + (aging != null), 0);
+```
+
+**The most common pitfall.** **Stage tests use `==`, not `>=`.** `age == BecomeTeenagerAge` and `age == BecomeChildAge` fire **only on the exact threshold day**, so moving an `AgeModel` threshold lets a hero skip several events entirely.
+
 ## Key members
 
 | Member | Signature | What it is for |

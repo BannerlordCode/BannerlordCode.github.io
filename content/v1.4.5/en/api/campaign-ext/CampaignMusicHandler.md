@@ -48,6 +48,16 @@ The three other selectors are trivial one-liners: `IsPlayerInAnArmy()` is `Mobil
 
 The remaining methods — `CheckMusicMode`, `TickCampaignMusic`, `GetNearbyCulture`, `IsPlayerInAnArmy`, `GetMoodOfMainParty`, `GetIsMainPartyAtSea` — are all `private`. The class is intentionally not an extension point; a mod that wants different music selection should register its own `IMusicHandler` rather than subclass this.
 
+## Dead members and traps
+
+| Member | Declared at | override | Call sites | Verdict | Note |
+|---|---|---|---|---|---|
+| `_restTimer` | `Modules.SandBox/SandBox.View/SandBox.View/CampaignMusicHandler.cs:18` | 0 | 4 times (4 lines) | UNSUPPORTED | A static tool reports "0 call sites", but `grep -o -w` finds **4 live references across 4 lines** (`:56` `if (_restTimer <= 0f)`, `:58` `_restTimer += dt`, `:59` `if (_restTimer > 0f)`, `:68` the assignment that seeds it). Class-internal accesses with no dot prefix. Extraction blind spot, not a dead member. |
+
+Counts: source tree `bannerlord-1.4.5` HEAD `ccbc3d40f88905765a1484492d41b7000e7249fa`, 8,583 `.cs` files including `bin/`. Call-site counts are **occurrence counts** (`grep -o -w`).
+
+> Do not confuse this with the two `private const` values in the same file. `MinRestDurationInSeconds` (`:14`) and `MaxRestDurationInSeconds` (`:16`) really do have zero references, but that is a language-level certainty — no external assembly can reference a `private const` — so it is not a modder trap. The rest timer is written as a literal instead: `:68` computes `0f - (30f + MBRandom.RandomFloat * 90f)`.
+
 ## Real Example
 
 Register the handler once, at module load, exactly as the Sandbox module does:
@@ -118,9 +128,9 @@ The v1.4.5 file is 114 lines. The private-constructor + `Create()` factory patte
 
 ## Dependencies
 
-- Contract: [IMusicHandler](../mission-ext/IMusicHandler) is the interface whose `OnUpdated` and `IsPausable` this class implements explicitly.
-- Audio owner: [MBMusicManager](../mission-ext/MBMusicManager) holds the current mode, performs the fade and the theme start, and drives `OnUpdated` each frame.
-- Tuning input: [MusicParameters](../mission-ext/MusicParameters) supplies `CampaignDarkModeThreshold`, the morale boundary between the normal and dark campaign themes.
-- Campaign context: [MobileParty](../campaign/MobileParty) supplies morale, army membership, sea state, and position; [Settlement](../campaign/Settlement) is scanned for the nearest culture.
+- Contract: [IMusicHandler](../../mission-ext/IMusicHandler) is the interface whose `OnUpdated` and `IsPausable` this class implements explicitly.
+- Audio owner: [MBMusicManager](../../mission-ext/MBMusicManager) holds the current mode, performs the fade and the theme start, and drives `OnUpdated` each frame.
+- Tuning input: [MusicParameters](../../mission-ext/MusicParameters) supplies `CampaignDarkModeThreshold`, the morale boundary between the normal and dark campaign themes.
+- Campaign context: [MobileParty](../../campaign/MobileParty) supplies morale, army membership, sea state, and position; [Settlement](../../campaign/Settlement) is scanned for the nearest culture.
 - External dependency: `PsaiCore.Instance.GetPsaiInfo()` comes from the `psai.net` package and is the authority on whether the current track has actually finished.
 - Bucket index: [campaign-ext API section](../)

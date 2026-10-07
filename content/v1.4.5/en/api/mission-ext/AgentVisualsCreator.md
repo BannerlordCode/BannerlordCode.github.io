@@ -40,6 +40,10 @@ The `Mission.AgentVisualCreator` field it is designed to fill is declared on `Mi
 | `IAgentVisualCreator` (implemented) | `interface IAgentVisualCreator` with the single `Create` method above | The contract, declared in `TaleWorlds.MountAndBlade` rather than the view assembly. Implementing it means taking four arguments instead of five, which is the whole reason this class exists. |
 | `Mission.AgentVisualCreator` (host field) | `public IAgentVisualCreator AgentVisualCreator;` | The slot this type fills, declared at `Mission.cs:1000`. It is a **public field, not a property**, so assignment is the supported replacement route: set it before anything asks the mission to build a visual. |
 
+## Dead members and traps
+
+Dead-member status on this page is unknown: every member here falls under UNSUPPORTED (ambiguous multiple declarers, among other causes), so the call-site count must not be read as a conclusion; no call site could be confirmed by an independent probe this pass.
+
 ## Real example
 
 Installing a replacement creator onto a mission, which is the reason the type exists as a separate class:
@@ -103,7 +107,7 @@ Instantiating the shipped creator is legal — it has an implicit public paramet
 1. **`isRandomProgress` is forced to `false`.** Going through `IAgentVisualCreator` means animations always start at progress zero. If you need a randomised start you must call the static `AgentVisuals.Create` yourself and bypass the interface.
 2. **`Mission.AgentVisualCreator` is a field, not a property.** It is publicly writable with no validation and no event. Replacing it mid-mission changes who builds subsequent visuals with no notification.
 3. **No interface-level validation.** The implementation passes `data` straight through. A null `AgentVisualsData` is not checked here; what happens is `AgentVisuals.Create`'s problem, not this adapter's.
-4. **Crosses the native boundary via its callee.** This class holds no native handle of its own, but everything it returns does. The lifetime rules from [`AgentVisuals`](./AgentVisuals) apply to the object it hands back, not to this adapter.
+4. **Crosses the native boundary via its callee.** This class holds no native handle of its own, but everything it returns does. The lifetime rules from [`AgentVisuals`](../AgentVisuals) apply to the object it hands back, not to this adapter.
 5. **Module boundary.** It lives in `Modules.Native` under `TaleWorlds.MountAndBlade.View`, while the interface it implements lives in `TaleWorlds.MountAndBlade`. That split is why the adapter is necessary — the view assembly cannot be referenced from the core assembly, so the indirection is what lets core code hold a creator without knowing about the view layer.
 6. **The redundant double cast is real.** `(IAgentVisual)(object)` works but a single cast compiles equally well. Do not copy the pattern into your own code; write `return AgentVisuals.Create(...)` and let the implicit conversion happen.
 7. **Nothing here is saved.** A creator is a live collaborator on a mission object and has no persistence.
@@ -111,8 +115,8 @@ Instantiating the shipped creator is legal — it has an implicit public paramet
 ## Dependencies
 
 - **Interface:** [`IAgentVisualCreator`](../IAgentVisualCreator) is declared in `TaleWorlds.MountAndBlade` and defines the single `Create` method this class implements.
-- **Callee:** [`AgentVisuals`](./AgentVisuals) `Create(AgentVisualsData, string, bool, bool, bool)` is the five-argument static factory; this adapter is the four-argument shim over it.
+- **Callee:** [`AgentVisuals`](../AgentVisuals) `Create(AgentVisualsData, string, bool, bool, bool)` is the five-argument static factory; this adapter is the four-argument shim over it.
 - **Return type:** [`IAgentVisual`](../IAgentVisual) is what both the interface and the returned object speak.
-- **Configuration:** [`AgentVisualsData`](./AgentVisualsData) is the first argument, forwarded without inspection.
+- **Configuration:** [`AgentVisualsData`](../AgentVisualsData) is the first argument, forwarded without inspection.
 - **Installation point:** [`Mission`](../../mission/Mission) declares the public `AgentVisualCreator` field this type fills.
 - Bucket home: [mission-ext API section](../)

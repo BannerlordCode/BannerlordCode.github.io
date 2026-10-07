@@ -29,6 +29,19 @@ Read it as **a diplomacy ledger plus an expiry liquidator**. Four rules:
 
 4. **`ApplyBrokenAlliancePenalty` branches on who is at fault.** The hard-coded constant is `BreakingAllianceRelationPenalty = -100`, but the recipient is `detail == DeclareWarAction.DeclareWarDetail.CausedByPlayerHostility ? Hero.MainHero : kingdom.Leader` — **a rupture caused by player hostility costs the player's relation; otherwise it costs the realm leader's.** The same `detail` value therefore changes the victim.
 
+## How to use
+
+**How to obtain it.** **Do not construct it.** It is a `CampaignBehaviorBase : IAllianceCampaignBehavior` added at campaign start; reach the live one with `Campaign.Current.GetCampaignBehavior<AllianceCampaignBehavior>()`.
+
+```csharp
+AllianceCampaignBehavior alliance = Campaign.Current.GetCampaignBehavior<AllianceCampaignBehavior>();
+Kingdom mine  = Clan.PlayerClan.Kingdom;
+Kingdom theirs = Kingdom.All.Find(k => k.StringId == "empire");
+Debug.Print("allied = " + alliance.IsAllyWithKingdom(mine, theirs), 0);
+```
+
+**The most common pitfall.** **A failed precondition in `StartCallToWarAgreement` is silent.** When the alliance/peace check fails it returns without throwing, recording, or logging.
+
 ## Key members
 
 | Member | Signature | What it is for |

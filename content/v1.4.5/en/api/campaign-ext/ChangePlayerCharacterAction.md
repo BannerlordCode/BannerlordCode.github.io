@@ -97,9 +97,9 @@ The v1.4.5 file is 68 lines and exposes exactly one public static method. There 
 
 ## Dependencies
 
-- Player slot: [Hero](../campaign/Hero) supplies `MainHero`, `CharacterObject`, prisoner state, and gold.
-- Party: [MobileParty](../campaign/MobileParty) is the main party, its `Anchor` supplies the position/sea snapshot, and `LordPartyComponent` handles the orphan re-owning.
-- Campaign seam: [Campaign](../campaign/Campaign) provides `OnPlayerCharacterChanged(out bool isMainPartyChanged)` — the only place the party-vs-character decision is made.
-- Collaborating actions: [ChangeShipOwnerAction](ChangeShipOwnerAction) redistributes the fleet; [DestroyPartyAction](DestroyPartyAction) removes an emptied main party.
-- Supporting types: [PlayerCaptivity](../campaign/PlayerCaptivity) re-syncs captivity when the incoming hero is a prisoner; [Ship](../campaign/Ship) receives the per-ship notification.
+- Player slot: [Hero](../../campaign/Hero) supplies `MainHero`, `CharacterObject`, prisoner state, and gold.
+- Party: [MobileParty](../../campaign/MobileParty) is the main party, its `Anchor` supplies the position/sea snapshot, and `LordPartyComponent` handles the orphan re-owning.
+- Campaign seam: [Campaign](../../campaign/Campaign) provides `OnPlayerCharacterChanged(out bool isMainPartyChanged)` — the only place the party-vs-character decision is made.
+- Collaborating actions: [ChangeShipOwnerAction](../ChangeShipOwnerAction) redistributes the fleet; [DestroyPartyAction](../DestroyPartyAction) removes an emptied main party.
+- Supporting types: [PlayerCaptivity](../../campaign/PlayerCaptivity) re-syncs captivity when the incoming hero is a prisoner; [Ship](../../campaign/Ship) receives the per-ship notification.
 - Bucket index: [campaign-ext API section](../)

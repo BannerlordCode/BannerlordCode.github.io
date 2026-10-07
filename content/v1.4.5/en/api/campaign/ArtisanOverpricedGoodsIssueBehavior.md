@@ -50,6 +50,18 @@ Think of it as **a slot in the issue system plus a one-shot snapshot of its para
 | `ArtisanOverpricedGoodsIssueQuest` | [QuestBase](../QuestBase) | The 30-day delivery quest, the confrontation dialogue with the merchant, partial and full delivery | Save type 2 under the same definer |
 | `ArtisanOverpricedGoodsIssueTypeDefiner` | `SaveableTypeDefiner` | Save type id mapping; the constructor hard-codes `base(470000)` | Itself is not saved |
 
+## How to use
+
+**How to obtain it.** **Do not construct it.** `public class ArtisanOverpricedGoodsIssueBehavior : CampaignBehaviorBase` is registered at campaign start; use `Campaign.Current.GetCampaignBehavior<ArtisanOverpricedGoodsIssueBehavior>()`.
+
+```csharp
+ArtisanOverpricedGoodsIssueBehavior behavior =
+    Campaign.Current.GetCampaignBehavior<ArtisanOverpricedGoodsIssueBehavior>();
+KeyValuePair<Hero, ItemObject> pair = new KeyValuePair<Hero, ItemObject>(antagonistMerchant, requestedItem);
+```
+
+**The most common pitfall.** **`SyncData` is empty.** No field you add survives a save/load; the trigger rules live in code, not in data.
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

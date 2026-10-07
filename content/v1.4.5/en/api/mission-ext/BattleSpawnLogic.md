@@ -57,6 +57,18 @@ Because it derives from `MissionLogic`, it participates in mission victory and e
 | `SpawnPointSetCommonTag` | `private const string SpawnPointSetCommonTag = "spawnpoint_set"` | **Private**, and it is the tag the deletion sweep actually uses. This is the reason the algorithm works: it is the parent tag shared by all variants. A mod cannot reference it directly — the string is duplicated as a literal inside `OnPreMissionTick` rather than using the constant. |
 | `_isScenePrepared` | `private bool _isScenePrepared` | The one-shot latch, set at the end of `OnPreMissionTick` whether or not the selected set was found. Private with no accessor, so you cannot query whether the cleanup has run. |
 
+## Dead members and traps
+
+Two private fields here are reported as having 0 call sites but both have live references; the three tag constants have no reproducible reference, and no conclusion is drawn.
+
+| `Member` | Declaration | override | Call sites | Verdict | Notes |
+|---|---|---:|---:|---|---|
+| `_selectedSpawnPointSetTag` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/BattleSpawnLogic.cs:17 | 0 | 2 times (2 lines) | MEASURED | Written by the constructor, then passed to `FindWeakEntityWithTag` at :32 to locate the spawn entity. The inventory 0 is a blind spot, **not** a dead member. |
+| `_isScenePrepared` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/BattleSpawnLogic.cs:19 | 0 | 2 times (2 lines) | MEASURED | Scene-prepared flag: read at :28, set true at :42. The 0 is a blind spot. |
+| `BattleTag` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/BattleSpawnLogic.cs:9 | — | — | UNSUPPORTED | `public const string = "battle_set"`. **No reference could be reproduced; no conclusion is drawn.** |
+| `ReliefForceAttackTag` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/BattleSpawnLogic.cs:13 | — | — | UNSUPPORTED | `public const string = "relief_force_attack_set"`. **No reference could be reproduced; no conclusion is drawn.** |
+| `SpawnPointSetCommonTag` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.Source.Missions/BattleSpawnLogic.cs:15 | — | — | UNSUPPORTED | `private const string = "spawnpoint_set"`. **No reference could be reproduced; no conclusion is drawn.** |
+
 ## Real example
 
 Constructing it directly and attaching it — legal here because the constructor is public and takes only a string:
@@ -131,9 +143,9 @@ public class MyNightAssaultDeployment : MissionLogic
 
 ## Dependencies
 
-- **Base contract:** [`MissionLogic`](./MissionLogic) supplies the `Mission` back-reference; this behavior also enters mission victory polling as a side effect of that base.
+- **Base contract:** [`MissionLogic`](../MissionLogic) supplies the `Mission` back-reference; this behavior also enters mission victory polling as a side effect of that base.
 - **Scene queries:** [`Scene`](../../engine/Scene) `FindWeakEntityWithTag` and `FindWeakEntitiesWithTag` are the two calls the cleanup depends on; both return `WeakGameEntity`.
 - **Result type:** [`WeakGameEntity`](../../engine/WeakGameEntity) carries the `Remove(int removeReason)` call that actually deletes the non-selected sets.
 - **Host:** [`Mission`](../../mission/Mission) `AddMissionBehavior` is the attach path, and the constructor being public makes this one of the few mission logics a mod constructs itself.
-- **Deployment siblings:** [`BattleDeploymentMissionController`](./BattleDeploymentMissionController) drives the deployment that consumes the surviving spawnpoints.
+- **Deployment siblings:** [`BattleDeploymentMissionController`](../BattleDeploymentMissionController) drives the deployment that consumes the surviving spawnpoints.
 - Bucket home: [mission-ext API section](../)

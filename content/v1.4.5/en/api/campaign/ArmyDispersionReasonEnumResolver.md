@@ -40,6 +40,18 @@ The second anchor is *when* the rename happened. `Army.ArmyDispersionReason` has
 
 The third anchor is the failure mode. Empty input goes through `FailedAssert` and yields `Unknown`, which is a safe degradation. But **a misspelled legacy name is not covered** — it is neither empty nor equal to `"LowPartySizeRatio"`, so it is returned verbatim and the save framework then tries to parse a name that does not exist. What happens at that point depends on the framework; `ResolveObject` performs no second validation.
 
+## How to use
+
+**How to obtain it.** **It is instantiated by the save-compatibility machinery, not by you.** `public class ArmyDispersionReasonEnumResolver : IEnumResolver` is picked up during save load, so you only meet it when a legacy save is being migrated.
+
+```csharp
+// it resolves a legacy enum name during load; you do not call it directly
+var resolver = new ArmyDispersionReasonEnumResolver();
+// an unknown legacy name passes through unchanged — see the pitfall below
+```
+
+**The most common pitfall.** **Only one rename rule exists.** The whole file handles the single legacy name `"LowPartySizeRatio"`; any other unknown legacy name passes straight through.
+
 ## Key members
 
 | Member | Signature | What it is for |

@@ -43,6 +43,10 @@ One last structural note: the constructor is `protected`, so the type cannot be 
 | `Deserialize` | `protected override void Deserialize(XmlNode node)` | Reads `node.Attributes["agent_status"]` and parses it case-insensitively into the private `AgentStatus` enum. On failure it logs `provided 'agent_status' is invalid` via `Debug.FailedAssert` and keeps the default `OnFoot`. `protected`, so you cannot drive it directly — the perk loader calls it. |
 | `StringType` | `protected static string StringType = "AgentStatus"` | The discriminator the perk XML loader matches against when deciding which condition class to construct. It is `protected static` — read-only to consumers, writable from a subclass, and shared by every instance of the type. |
 
+## Dead members and traps
+
+Dead-member status on this page is unknown: every member here falls under UNSUPPORTED (ambiguous multiple declarers, among other causes), so the call-site count must not be read as a conclusion; no call site could be confirmed by an independent probe this pass.
+
 ## Real example
 
 The evaluation, from inside the multiplayer perk layer, using the peer overload:

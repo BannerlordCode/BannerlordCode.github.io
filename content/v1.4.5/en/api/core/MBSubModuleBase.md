@@ -158,7 +158,7 @@ namespace MyMod
             if (_daysSinceBonus >= 7)
             {
                 _daysSinceBonus = 0;
-                // Prefer engine Actions over direct field writes to change state;示意 only
+                // Prefer engine Actions over direct field writes to change state; illustrative only
                 GiveGoldToMainHero(1000);
             }
         }

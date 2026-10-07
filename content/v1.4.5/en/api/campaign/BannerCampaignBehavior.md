@@ -71,6 +71,17 @@ return 12;
 | `HeroCreated` | `OnHeroCreated` | Grants one banner when a hero is created |
 | `OnClanCreatedEvent` | `OnClanCreated` | Grants the leader a banner when a companion clan is created |
 
+## How to use
+
+**How to obtain it.** **Do not construct it.** `public class BannerCampaignBehavior : CampaignBehaviorBase` is added at campaign start; reach it with `Campaign.Current.GetCampaignBehavior<BannerCampaignBehavior>()`.
+
+```csharp
+BannerCampaignBehavior banner = Campaign.Current.GetCampaignBehavior<BannerCampaignBehavior>();
+int cooldown = banner.GetCooldownDays(hero);   // see the pitfall before trusting this
+```
+
+**The most common pitfall.** **`GetCooldownDays` has a real bug.** The second branch repeats `bannerLevel == 1`, so `return 8` is unreachable — **tier 1 and tier 2 both cool down in 4 days.**
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

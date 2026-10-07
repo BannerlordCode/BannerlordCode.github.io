@@ -118,9 +118,9 @@ The v1.4.5 file is 109 lines and exposes exactly the two public static entry poi
 
 ## Dependencies
 
-- Trigger context: [Settlement](../campaign/Settlement) supplies `CurrentSettlement` and its `SiegeEvent`, both read without a null guard.
-- Cost policy: [TroopSacrificeModel](../campaign/TroopSacrificeModel) returns the casualty count for each direction and is the only moddable input.
-- Troop bookkeeping: [TroopRoster](../campaign/TroopRoster) is both the input roster and the `out` dummy roster that receives the tally.
-- Army context: [Army](../campaign/Army) supplies `LeaderParty`, `Parties`, and the membership test that selects between the two removal paths.
-- Relation side effect: [ChangeRelationAction](ChangeRelationAction) applies the army-leader and army-member abandonment penalties.
+- Trigger context: [Settlement](../../campaign/Settlement) supplies `CurrentSettlement` and its `SiegeEvent`, both read without a null guard.
+- Cost policy: [TroopSacrificeModel](../../campaign/TroopSacrificeModel) returns the casualty count for each direction and is the only moddable input.
+- Troop bookkeeping: [TroopRoster](../../campaign/TroopRoster) is both the input roster and the `out` dummy roster that receives the tally.
+- Army context: [Army](../../campaign/Army) supplies `LeaderParty`, `Parties`, and the membership test that selects between the two removal paths.
+- Relation side effect: [ChangeRelationAction](../ChangeRelationAction) applies the army-leader and army-member abandonment penalties.
 - Bucket index: [campaign-ext API section](../)

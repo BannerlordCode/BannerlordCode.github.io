@@ -52,6 +52,17 @@ Think of it as **the "who may hold which banner" query panel**.
 | `GetBannerItemLevelForHero(hero)` | `BannerCampaignBehavior.cs:73` | Which tier that hero should be on (1 / 2 / 3) |
 | `CanBannerBeUpdated(item)` | `BannerCampaignBehavior.cs:70` | Whether this banner may be swapped out |
 
+## How to use
+
+**How to obtain it.** **Read the campaign's instance; the type is abstract.** `public abstract class BannerItemModel : MBGameModel<BannerItemModel>` is `Campaign.Current.Models.BannerItemModel`. There is no shipped implementation — a mod supplies one by registering it during `OnGameInitialization`.
+
+```csharp
+BannerItemModel model = Campaign.Current.Models.BannerItemModel;
+foreach (ItemObject item in model.GetPossibleRewardBannerItems(hero)) { /* reward pool */ }
+```
+
+**The most common pitfall.** **`GetPossibleRewardBannerItemsForHero` throws when a candidate has no component.** The default does `(item.ItemComponent as BannerComponent).BannerLevel`, and a failed `as` yields null.
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

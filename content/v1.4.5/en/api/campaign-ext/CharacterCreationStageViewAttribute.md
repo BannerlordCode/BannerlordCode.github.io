@@ -13,7 +13,7 @@ description: "The thirteen-line attribute that makes a stage view discoverable �
 
 ## Overview
 
-This attribute is the entire registration mechanism for character-creation stage views. It carries a single `public readonly Type StageType`, and [CharacterCreationScreen](CharacterCreationScreen) reflects over every loaded assembly looking for types that are both assignable to `CharacterCreationStageViewBase` and decorated with this attribute, then builds a `Dictionary<Type, Type>` from `StageType` to the view type. Nothing else in the game reads it; there is no registry, no registration call, no DI container.
+This attribute is the entire registration mechanism for character-creation stage views. It carries a single `public readonly Type StageType`, and [CharacterCreationScreen](../CharacterCreationScreen) reflects over every loaded assembly looking for types that are both assignable to `CharacterCreationStageViewBase` and decorated with this attribute, then builds a `Dictionary<Type, Type>` from `StageType` to the view type. Nothing else in the game reads it; there is no registry, no registration call, no DI container.
 
 It is `sealed`, has no attributes of its own, and cannot be subclassed. Its whole body is one field and one constructor.
 
@@ -90,7 +90,7 @@ Debug.Print("assignable to base = " + isView, 0);
 - **`StageType` is `readonly`.** It cannot be reassigned after construction, so an attribute cannot be reused across different stage types.
 - **Arguments must be compile-time constants.** Attribute constructor arguments require `typeof(...)`; you cannot compute the type at runtime.
 - **Discovery is scoped to referencing assemblies.** `GetActiveReferencingGameAssembliesSafe` only returns assemblies that actually reference the CharacterCreation assembly, so a mod whose assembly does not reference it is never scanned.
-- **No contract beyond the one field.** The attribute does not validate that the view's constructor signature matches what the screen passes — that mismatch is a separate, equally silent failure documented on [CharacterCreationScreen](CharacterCreationScreen).
+- **No contract beyond the one field.** The attribute does not validate that the view's constructor signature matches what the screen passes — that mismatch is a separate, equally silent failure documented on [CharacterCreationScreen](../CharacterCreationScreen).
 
 ## Cross-version note
 
@@ -98,8 +98,8 @@ The v1.4.5 file is 13 lines: one `sealed` class, one `public readonly Type` fiel
 
 ## Dependencies
 
-- Consumer: [CharacterCreationScreen](CharacterCreationScreen) is the only reader — its `CollectUnorderedStages` / `CollectStagesFromAssembly` pair performs the reflection sweep and builds the stage-to-view dictionary.
-- Constraint the key must satisfy: [CharacterCreationStageViewBase](CharacterCreationStageViewBase) is the type the decorated class must be assignable to; without it the attribute is inert.
-- Stage side: [CharacterCreationStageBase](../campaign/CharacterCreationStageBase) and its subclasses are the `Type` values this attribute names.
+- Consumer: [CharacterCreationScreen](../CharacterCreationScreen) is the only reader — its `CollectUnorderedStages` / `CollectStagesFromAssembly` pair performs the reflection sweep and builds the stage-to-view dictionary.
+- Constraint the key must satisfy: [CharacterCreationStageViewBase](../CharacterCreationStageViewBase) is the type the decorated class must be assignable to; without it the attribute is inert.
+- Stage side: [CharacterCreationStageBase](../../campaign/CharacterCreationStageBase) and its subclasses are the `Type` values this attribute names.
 - Reflection helpers: the screen uses `Extensions.GetTypesSafe` and `Extensions.GetCustomAttributesSafe` with `inherit: true`, so inherited attributes on a base view class are also honoured.
 - Bucket index: [campaign-ext API section](../)

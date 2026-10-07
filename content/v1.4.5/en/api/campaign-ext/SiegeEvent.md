@@ -7,7 +7,7 @@ description: "A full runtime state machine for one siege (attack / defense) on t
 **Namespace:** TaleWorlds.CampaignSystem.Siege
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class SiegeEvent`
-**Base:** 无（不继承任何类，也不是 `MBObjectBase`，因此不能通过 `MBObjectManager` 取得）
+**Base:** none — `public class SiegeEvent` declares no base class and is not an `MBObjectBase`, so it cannot be obtained through `MBObjectManager`
 **File:** `TaleWorlds.CampaignSystem/Siege/SiegeEvent.cs`
 
 ## Overview

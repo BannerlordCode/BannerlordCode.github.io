@@ -76,6 +76,18 @@ start
      └─ bandit_attacker_leave       condition: bandit_attacker_try_leave_condition
 ```
 
+## How to use
+
+**How to obtain it.** **Do not construct it.** `public class BanditInteractionsCampaignBehavior : CampaignBehaviorBase` is registered at campaign start; read the live instance with `Campaign.Current.GetCampaignBehavior<BanditInteractionsCampaignBehavior>()`.
+
+```csharp
+BanditInteractionsCampaignBehavior interactions =
+    Campaign.Current.GetCampaignBehavior<BanditInteractionsCampaignBehavior>();
+Debug.Print("interactions behavior live = " + (interactions != null), 0);
+```
+
+**The most common pitfall.** **A derived class cannot override any dialogue method.** Every `bandit_*_condition` and `*_on_consequence` is `private`; only `AddDialogs` is `protected`.
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

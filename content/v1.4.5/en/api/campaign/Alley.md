@@ -47,6 +47,17 @@ Four consequences follow:
 
 A fifth point worth separating out: **`State` and "is this the player's" are different questions.** `AreaState.OccupiedByPlayer` tests whether the owner reference equals `Hero.MainHero`. An AI-controlled main hero (`_owner == Hero.MainHero` but not human-driven) also yields `OccupiedByPlayer`.
 
+## How to use
+
+**How to obtain it.** **Reach it through its settlement, not by constructing it.** `public class Alley : SettlementArea` instances live in `Settlement.Alleys`. During world generation the settlement adds them; on a save load the same entries are re-bound with `Initialize(...)` — this page's Examples shows both branches.
+
+```csharp
+Alley a = Settlement.Find("Epicrotea").Alleys.First(x => x.State == AreaState.OccupiedByPlayer);
+Debug.Print("alley " + a.Tag + " owner = " + a.Settlement.Name, 0);
+```
+
+**The most common pitfall.** **`Initialize` is public, but only the load path should call it.** Re-initializing an alley that already has an owner replaces its town and name while keeping the owner.
+
 ## Key members
 
 | Member | Signature | What it is for |

@@ -31,6 +31,18 @@ The second anchor is that **`DurationForOffers` is the lifetime of two map notic
 
 The third anchor is that **`GetScoreOfJoiningWar`'s result is negated by its consumer**. In [AcceptCallToWarAgreementDecision](../AcceptCallToWarAgreementDecision).DetermineSupport, the accept option returns `scoreOfJoiningWar` and the refuse option returns `0f - scoreOfJoiningWar`. **The method must therefore return "how good joining is", positive meaning good. A derived implementation returning "how bad it is" flips the entire vote.**
 
+## How to use
+
+**How to obtain it.** **Read it from the campaign; never construct it.** The live instance is `Campaign.Current.Models.AllianceModel`. The type is `public abstract`, so a mod can only *substitute* a model through `OnGameStarted` registration, and then must implement all 14 abstract members.
+
+```csharp
+AllianceModel model = Campaign.Current.Models.AllianceModel;
+Debug.Print("max alliance days = " + model.MaxDurationOfAlliance.ToDays, 0);
+Debug.Print("max allies        = " + model.MaxNumberOfAlliances, 0);
+```
+
+**The most common pitfall.** **Abstract, zero implementations shipped.** All 14 members are `public abstract` with not a single default — a derived class that misses one does not compile.
+
 ## Key members
 
 | Member | Signature | What it is for |

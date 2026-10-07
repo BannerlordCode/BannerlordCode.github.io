@@ -125,9 +125,9 @@ The v1.4.5 file is 162 lines with exactly thirteen public static presets. The pr
 
 ## Dependencies
 
-- Navigator source: [CampaignAgentComponent](CampaignAgentComponent) is the only route to the navigator — `GetComponent<CampaignAgentComponent>().AgentNavigator` — and is what must be constructed before any preset runs.
-- Behaviour contract: [AgentBehavior](AgentBehavior) is the base of every behaviour these presets install.
-- Group owners: [DailyBehaviorGroup](../campaign-ext/DailyBehaviorGroup), [AlarmedBehaviorGroup](../campaign-ext/AlarmedBehaviorGroup), and [InterruptingBehaviorGroup](../campaign-ext/InterruptingBehaviorGroup) are the three groups every preset installs.
-- Public face: [AgentBehaviorManager](AgentBehaviorManager) is what the location-character system calls, and it forwards to these presets.
-- Configured behaviours: [CautiousBehavior](CautiousBehavior), [WalkingBehavior](../campaign-ext/WalkingBehavior), [PatrolAgentBehavior](../campaign-ext/PatrolAgentBehavior), [PatrollingGuardBehavior](../campaign-ext/PatrollingGuardBehavior), [StandGuardBehavior](../campaign-ext/StandGuardBehavior), [FollowAgentBehavior](../campaign-ext/FollowAgentBehavior), [FightBehavior](../campaign-ext/FightBehavior), [FleeBehavior](../campaign-ext/FleeBehavior), [ChangeLocationBehavior](../campaign-ext/ChangeLocationBehavior).
+- Navigator source: [CampaignAgentComponent](../CampaignAgentComponent) is the only route to the navigator — `GetComponent<CampaignAgentComponent>().AgentNavigator` — and is what must be constructed before any preset runs.
+- Behaviour contract: [AgentBehavior](../AgentBehavior) is the base of every behaviour these presets install.
+- Group owners: [DailyBehaviorGroup](../DailyBehaviorGroup), [AlarmedBehaviorGroup](../AlarmedBehaviorGroup), and [InterruptingBehaviorGroup](../InterruptingBehaviorGroup) are the three groups every preset installs.
+- Public face: [AgentBehaviorManager](../AgentBehaviorManager) is what the location-character system calls, and it forwards to these presets.
+- Configured behaviours: [CautiousBehavior](../CautiousBehavior), [WalkingBehavior](../WalkingBehavior), [PatrolAgentBehavior](../PatrolAgentBehavior), [PatrollingGuardBehavior](../PatrollingGuardBehavior), [StandGuardBehavior](../StandGuardBehavior), [FollowAgentBehavior](../FollowAgentBehavior), [FightBehavior](../FightBehavior), [FleeBehavior](../FleeBehavior), [ChangeLocationBehavior](../ChangeLocationBehavior).
 - Bucket index: [campaign-ext API section](../)

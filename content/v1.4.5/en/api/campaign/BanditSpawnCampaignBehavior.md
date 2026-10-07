@@ -52,6 +52,17 @@ Think of it as **the scheduler of the bandit ecosystem**.
 | `AddBanditToHideout(Hideout, PartyTemplateObject, bool)` | **open to any caller** | Any time | The one outward-facing creation method; returns the party or null |
 | `OnSettlementEntered(MobileParty, Settlement, Hero)` | Event | Entering a settlement | Boss check, hideout spotting, and selling surplus food |
 
+## How to use
+
+**How to obtain it.** **Do not construct it.** It is a `CampaignBehaviorBase`; use `Campaign.Current.GetCampaignBehavior<BanditSpawnCampaignBehavior>()`. The hideout tables it caches are internal state, not something you populate.
+
+```csharp
+BanditSpawnCampaignBehavior spawn = Campaign.Current.GetCampaignBehavior<BanditSpawnCampaignBehavior>();
+float min = Campaign.Current.Models.BanditDensityModel.GetNumberOfMinimumBanditPartiesInAHideoutToInfestIt(...);
+```
+
+**The most common pitfall.** **`SyncData` is empty and both dictionaries are caches.** Anything derived from them must accept "rebuilt after load" — `_hideouts` is keyed by `CultureObject` reference.
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

@@ -89,8 +89,8 @@ The v1.4.5 file is 26 lines and its entire behaviour is the one guarded block qu
 
 ## Dependencies
 
-- Host object: [Settlement](../campaign/Settlement) owns the `BribePaid` counter that the gate logic reads.
-- Money movement: [GiveGoldAction](GiveGoldAction) removes the gold from `Hero.MainHero`; passing `null` as the receiver burns it.
+- Host object: [Settlement](../../campaign/Settlement) owns the `BribePaid` counter that the gate logic reads.
+- Money movement: [GiveGoldAction](../GiveGoldAction) removes the gold from `Hero.MainHero`; passing `null` as the receiver burns it.
 - Skill hook: `SkillLevelingManager.OnBribeGiven` is the only progression-side callback, invoked with the paid amount when the roll succeeds.
-- Budget side: [Hero](../campaign/Hero) supplies the purse you must check before calling.
+- Budget side: [Hero](../../campaign/Hero) supplies the purse you must check before calling.
 - Bucket index: [campaign-ext API section](../)

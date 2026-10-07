@@ -37,6 +37,18 @@ Like `ArmyCreationLogEntry` this is an **immutable record that stops changing af
 
 4. **War-log filtering is structurally identical to the creation entry.** `IsRelatedToWar` is character-for-character the same as `ArmyCreationLogEntry`'s: it only asks whether the leader's `MapFaction` equals `stance.Faction1` or `Faction2`, and leaves `effected` null.
 
+## How to use
+
+**How to obtain it.** **You construct it and add it.** Use `new ArmyDispersionLogEntry(...)` followed by `LogEntry.AddLogEntry(...)`; it also satisfies `IChatNotification` and `IEncyclopediaLog`, so the same object feeds the encyclopedia and the chat feed.
+
+```csharp
+ArmyDispersionLogEntry entry = new ArmyDispersionLogEntry(army);
+LogEntry.AddLogEntry(entry);
+Debug.Print("log entry added, encyclopedia = " + entry.GetEncyclopediaText(), 0);
+```
+
+**The most common pitfall.** **`NotificationType` can NRE.** It reads `_armyLeader.HeroObject?.Clan`, so the `?.` protects only what follows `HeroObject` — a **null `_armyLeader` throws immediately**.
+
 ## Key members
 
 | Member | Signature | What it is for |

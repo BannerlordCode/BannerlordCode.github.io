@@ -17,7 +17,7 @@ It is the humanoid half of the AI attachment pair: while the AI drives a humanoi
 
 ## Mental model
 
-Compare this class against [`AgentCommonAILogic`](./AgentCommonAILogic) line by line and the design becomes obvious in three differences.
+Compare this class against [`AgentCommonAILogic`](../AgentCommonAILogic) line by line and the design becomes obvious in three differences.
 
 **Difference one — the gate is `IsHuman`, not `IsAIControlled`.** `OnAgentCreated` attaches when `agent.IsAIControlled && agent.IsHuman`. `IsHuman` reads `(GetAgentFlags() & AgentFlag.IsHumanoid) != 0` on the agent, so it is a property of what the agent *is*, not who is driving it. That is why the transfer callback can safely check only `IsHuman` and still be correct: if the agent is not humanoid, attaching a humanoid behaviour-tree component would be pointless, so the whole method early-outs.
 
@@ -39,6 +39,10 @@ The engine installs this behavior in three places — `BannerlordMissions.cs:138
 | `IsHuman` (used) | `agent.IsHuman => (GetAgentFlags() & AgentFlag.IsHumanoid) != 0` | The structural gate. Not "is a human character" in the campaign sense — it is the humanoid skeleton flag, which horses and other mounts fail and which a humanoid-shaped mount may pass. |
 | `HumanAIComponent` (on `Agent`) | `public HumanAIComponent HumanAIComponent { get; private set; }` | Single-slot back-reference written by `AddComponent`/`RemoveComponent`. Holds the behaviour-tree parameters, the item-pickup state machine, and the formation-movement controller. |
 | `UpdateMountReservationsAfterRiderMounts` (on `Mission`) | `public void UpdateMountReservationsAfterRiderMounts(Agent rider, Agent mount)` | The mission-side operation `OnAgentMount` triggers. Two arguments, both agents, no return value — it mutates mission bookkeeping rather than answering a question. |
+
+## Dead members and traps
+
+Dead-member status on this page is unknown: every member here falls under UNSUPPORTED (ambiguous multiple declarers, among other causes), so the call-site count must not be read as a conclusion; no call site could be confirmed by an independent probe this pass.
 
 ## Real example
 
@@ -112,11 +116,11 @@ public class MyBehaviourTweak : MissionLogic
 
 ## Dependencies
 
-- **Base contract:** [`MissionLogic`](./MissionLogic) supplies the `Mission` back-reference and the rules-participant classification.
+- **Base contract:** [`MissionLogic`](../MissionLogic) supplies the `Mission` back-reference and the rules-participant classification.
 - **Attached component:** [`HumanAIComponent`](../HumanAIComponent) is the humanoid behaviour tree this logic owns; it also declares the nested `AISimpleBehaviorKind` enum used by `SetAIBehaviorParams`.
 - **Agent surface:** [`Agent`](../../mission/Agent) `AddComponent` / `RemoveComponent` / `IsHuman` / `Controller` / `MountAgent` / `SetAIBehaviorParams`.
 - **Mission surface:** [`Mission`](../../mission/Mission) `UpdateMountReservationsAfterRiderMounts` and `Mission.Current`.
 - **Callback declarations:** [`MissionBehavior`](../../mission/MissionBehavior) declares `OnAgentCreated`, `OnAgentMount`, and `OnAgentControllerChanged`.
-- **Sibling logic:** [`AgentCommonAILogic`](./AgentCommonAILogic) covers morale and retreat for every agent, human or not.
+- **Sibling logic:** [`AgentCommonAILogic`](../AgentCommonAILogic) covers morale and retreat for every agent, human or not.
 - **Installation sites:** `BannerlordMissions.cs:138`, `:210`, `:279`.
 - Bucket home: [mission-ext API section](../)

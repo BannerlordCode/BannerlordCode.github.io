@@ -31,6 +31,19 @@ Read it as **a temporary signpost pointing at one town**. Three things to know:
 
 The second anchor is that **`Alley` is a live reference and the VM dereferences two hops**. `AlleyUnderAttackMapNotificationItemVM._onInspect` runs `GoToMapPosition(_alley.Settlement.Position)` — `_alley` then `.Settlement`, with no null check at either hop. A null `Alley` crashes when the player clicks inspect. Because `Alley` itself gets `Settlement` re-bound on load (see [Alley](../Alley)), both hops are safe in a normal save.
 
+## How to use
+
+**How to obtain it.** **Nothing in 1.4.5 constructs it for you** — see this page's Risks for the `new AlleyUnderAttackMapNotification(` probe and its positive control. Build the notice yourself and hand it to `Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(...)`.
+
+```csharp
+Alley target = Settlement.Find("Epicrotea").Alleys.First(x => x.State == AreaState.OccupiedByPlayer);
+TextObject note = new TextObject("{=mykey5}Attackers have hit your alley in {TOWN}.");
+note.SetTextVariable("TOWN", target.Settlement.Name);
+Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(new AlleyUnderAttackMapNotification(target, note));
+```
+
+**The most common pitfall.** **No official construction site exists in 1.4.5.** The type is referenced only by the save registration and the UI mapping, so the shipped campaign never raises it.
+
 ## Key members
 
 | Member | Signature | What it is for |

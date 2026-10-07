@@ -47,6 +47,18 @@ Think of it as **one slot on the trade table**.
 
 Optional overrides: `MaxAmount`, `CheckBarterLink`, `IsCompatible`, `GetEncyclopediaLink`.
 
+## How to use
+
+**How to obtain it.** **It is abstract and inert on construction.** `public abstract class Barterable` writes no world state; a barterable only takes effect once it is registered into a `BarterData` group. Derive from it and register, or read the registered ones.
+
+```csharp
+// construct nothing on its own: register into a BarterData group instead
+data.AddBarterable<MyModBarterable>();
+// and read the effective set through the diplomacy model
+```
+
+**The most common pitfall.** **The constructor writes no world state.** `new`-ing a barterable does nothing except fill a few fields, so "construct it and it takes effect" is wrong.
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

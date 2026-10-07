@@ -142,9 +142,9 @@ CultureObject culture = Clan.PlayerClan.Culture;
 if (culture.Traits != null && culture.Traits.Length > 0)
 {
     CultureTrait first = culture.Traits[0];
-    if (culture.HasTrait(first)) // 判断该文化是否具备某个 CultureTrait
+    if (culture.HasTrait(first)) // check whether this culture has a given CultureTrait
     {
-        // 针对该特性做阵营加成或事件分支
+        // branch on that trait for a faction bonus or an event
     }
 }
 ```
@@ -158,7 +158,7 @@ foreach (FeatObject feat in culture.CultureFeats)
 {
     if (culture.HasFeat(feat) && feat.IsPositive)
     {
-        // 读取 feat 的战斗/地图修正（EffectBonus / IncrementType）
+        // read the feat's battle/map modifiers (EffectBonus / IncrementType)
     }
 }
 ```
@@ -186,54 +186,56 @@ Internal method: deserializes all fields and child collections from an `SPCultur
 ### Example 1: Get the player clan's culture and read its troops and colors
 
 ```csharp
-// 真实获取路径：Clan.Culture（可写属性）
+// Real acquisition path: Clan.Culture (writable property)
 CultureObject playerCulture = Clan.PlayerClan.Culture;
 if (playerCulture != null)
 {
-    CharacterObject recruit = playerCulture.BasicTroop;          // 一级新兵模板
-    uint primaryColor = playerCulture.Color;                     // 阵营主色（ARGB）
-    bool isBandit = playerCulture.IsBandit;                      // 是否强盗文化
+    CharacterObject recruit = playerCulture.BasicTroop;          // tier-1 recruit template
+    uint primaryColor = playerCulture.Color;                     // faction primary colour (ARGB)
+    bool isBandit = playerCulture.IsBandit;                      // whether this is a bandit culture
     InformationManager.DisplayMessage(new InformationMessage(
-        $"{playerCulture.Name}：基础兵种 {recruit.Name}，主色 #{primaryColor:X8}"));
+        $"{playerCulture.Name}: base troop {recruit.Name}, primary colour #{primaryColor:X8}"));
 }
 ```
 
 ### Example 2: Iterate all cultures, pick the main cultures, and generate clan names from their name tables
 
 ```csharp
-// 真实获取路径：MBObjectManager.Instance.GetObjectTypeList<CultureObject>()
+// Real acquisition path: MBObjectManager.Instance.GetObjectTypeList<CultureObject>()
 foreach (CultureObject culture in MBObjectManager.Instance.GetObjectTypeList<CultureObject>())
 {
     if (!culture.IsMainCulture)
     {
-        continue; // 只处理可游玩的主文化
+        continue; // only handle playable main cultures
     }
 
-    // NameGenerator 读取该文化的 ClanNameList / MaleNameList / FemaleNameList
+    // NameGenerator reads this culture's ClanNameList / MaleNameList / FemaleNameList
     TextObject clanName = NameGenerator.Current.GenerateClanName(culture, null);
     CharacterObject elite = culture.EliteBasicTroop;
 
-    // 例如：为自定义招募逻辑收集每个文化的精英兵种
+    // For example: collect each culture's elite troop for custom recruitment logic
     if (elite != null)
     {
-        // 加入你的招募池 ...
+        // add it to your recruitment pool ...
     }
 }
 ```
 
 ### Example 3: Get a culture by id / from other objects (summary of common acquisition paths)
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ Unverifiable: every string id on this page (in the code examples below) cannot be checked against the v1.4.5 source tree, because that version ships no XML corpus.
 ```csharp
-// 1) 按字符串 id 直接取（原版文化 id 如 "empire"、"aserai"、"vlandia"、"sturgia"、"khuzait"、"battania"、"nord"、"neutral_culture"）
+// 1) Look it up directly by string id (vanilla culture ids such as "empire"、"aserai"、"vlandia"、"sturgia"、"khuzait"、"battania"、"nord"、"neutral_culture"）
 CultureObject empire = MBObjectManager.Instance.GetObject<CultureObject>("empire");
 
-// 2) 从据点取
+// 2) From a settlement
 CultureObject settlementCulture = Settlement.CurrentSettlement.Culture;
 
-// 3) 从王国取（Kingdom.Culture 只读）
+// 3) From a kingdom (Kingdom.Culture is read-only)
 CultureObject kingdomCulture = Clan.PlayerClan.Kingdom?.Culture;
 
-// 4) 从英雄/人物取（CharacterObject.Culture 是 public new CultureObject Culture）
+// 4) From a hero / character object (CharacterObject.Culture is public new CultureObject Culture)
 CultureObject heroCulture = Hero.MainHero.CharacterObject.Culture;
 ```
 

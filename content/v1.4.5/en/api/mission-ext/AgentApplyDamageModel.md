@@ -54,6 +54,15 @@ The third is that most of the 33 abstract members are not about damage at all �
 | `GetDamageMultiplierForBodyPart` | `public abstract float GetDamageMultiplierForBodyPart(BoneBodyPartType, DamageTypes, bool, bool)` | Per-limb scaling. Note the `isHuman` and `isMissile` flags: the same call path serves human limbs and horse/flight collision bodies, so a rule written only for humanoids silently zeroes out mount hits. |
 | `BaseModel` (inherited) | `protected AgentApplyDamageModel BaseModel { get; private set; }` | The model that was registered before yours. **This — not `base.` — is how you compose with vanilla.** All 33 pipeline/decision members are `abstract`, so `base.X(...)` is a compile error on every one of them; `BaseModel.X(...)` is the only legal delegation. |
 
+## Dead members and traps
+
+Almost every abstract member of this model is wired into the damage pipeline; exactly two are not. Overriding them changes nothing.
+
+| `Member` | Declaration | override | Call sites | Verdict | Notes |
+|---|---|---:|---:|---|---|
+| `CalculateSailFireDamage` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/AgentApplyDamageModel.cs:48 | 3 | 0 times (0 lines, re-verified) | MEASURED | Declaration and its overrides exist, but nothing in the tree calls it — overriding it cannot change behaviour because no game code reaches it. Same-family control: the other 30 abstract members each show 4 non-declaration occurrences (3 overrides + 1 call site); this one and CalculateHullFireDamage show 3 — the missing occurrence is the call site. |
+| `CalculateHullFireDamage` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade.ComponentInterfaces/AgentApplyDamageModel.cs:50 | 3 | 0 times (0 lines, re-verified) | MEASURED | Declaration and its overrides exist, but nothing in the tree calls it — overriding it cannot change behaviour because no game code reaches it. Same-family control as above: 3 overrides, 0 call sites, against 30 siblings that all have exactly one call site. |
+
 ## Real example
 
 The registration path that actually exists in 1.4.5. `IGameStarter.AddModel<T>` (`TaleWorlds.Core/IGameStarter.cs:9`) is the only model-injection surface, `CampaignGameStarter` implements it, and `GameEventReceiver.OnSessionStart` is the hook that receives the starter:
@@ -165,7 +174,7 @@ public class MyDamageProbeBehavior : MissionLogic
 ## Dependencies
 
 - **Host:** [`MissionGameModels`](../MissionGameModels) resolves the live instance through `GetGameModel<T>()`; every call site in the engine reads `MissionGameModels.Current.AgentApplyDamageModel` rather than caching it.
-- **Injection:** [`IGameStarter`](../../core/IGameStarter) `AddModel<T>` / `AddModel(GameModel)` is the only registration surface; `MBGameModel<T>.Initialize(T)` is what fills `BaseModel`.
+- **Injection:** [`IGameStarter`](../../core-extra/IGameStarter) `AddModel<T>` / `AddModel(GameModel)` is the only registration surface; `MBGameModel<T>.Initialize(T)` is what fills `BaseModel`.
 - **Damage inputs:** [`AttackCollisionData`](../AttackCollisionData) and [`Blow`](../Blow) are the two `in` structs every damage hook receives; [`MissionWeapon`](../MissionWeapon) carries the wielded item.
 - **Outcomes:** [`Agent`](../../mission/Agent) state (`Health`, `HasMount`), [`WeaponComponentData`](../../core-extra/WeaponComponentData), and `MeleeCollisionReaction` are what the hooks read and write.
 - **Sibling model:** [`AgentStatCalculateModel`](../AgentStatCalculateModel) runs first — it produces the agent's stats that this model then scales damage by.

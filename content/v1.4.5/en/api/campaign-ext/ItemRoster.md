@@ -7,7 +7,7 @@ description: "The 'item collection' held by a party or settlement: a flat list o
 **Namespace:** TaleWorlds.CampaignSystem.Roster
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public class ItemRoster : IReadOnlyList<ItemRosterElement>, IEnumerable<ItemRosterElement>, IReadOnlyCollection<ItemRosterElement>, ISerializableObject`
-**Base:** （无基类；直接继承 `object`，实现 `IReadOnlyList<ItemRosterElement>` / `IEnumerable<ItemRosterElement>` / `ISerializableObject`）
+**Base:** none — `public class ItemRoster : IReadOnlyList<ItemRosterElement>, IEnumerable<ItemRosterElement>, IEnumerable, IReadOnlyCollection<ItemRosterElement>, ISerializableObject`
 **File:** `TaleWorlds.CampaignSystem/Roster/ItemRoster.cs`
 
 ## Overview

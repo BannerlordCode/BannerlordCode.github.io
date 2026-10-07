@@ -57,6 +57,19 @@ Think of it as **one page of a deal draft**.
 | Line roster | `GetBarterables` / `GetOfferedBarterables` | Which rows exist, and which are actually on the table |
 | Session parameters | `ContextInitializer` / `PersuasionCostReduction` / `IsAiBarter` | Whether behaviors get a context callback, how much persuasion is discounted, and whether the AI is driving |
 
+## How to use
+
+**How to obtain it.** **Read it off the settlement / diplomacy model.** `public class BarterData` is held by the diplomacy model per settlement; you enumerate `_barterGroups` and ask `DiplomacyModel.GetBarterGroups(...)` rather than building one, and add to it only with `AddBarterable<T>()`.
+
+```csharp
+foreach (BarterGroup group in _barterGroups)
+{
+    foreach (Barterable b in group.Barterables) { /* inspect */ }
+}
+```
+
+**The most common pitfall.** **`AddBarterable<T>` silently discards a non-match.** There is no `else`, no log and no exception, so a group that never reaches `DiplomacyModel.GetBarterGroups(...)` just vanishes.
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

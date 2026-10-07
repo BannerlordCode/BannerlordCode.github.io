@@ -49,6 +49,19 @@ Think of it as **a parameter envelope for one UI session**.
 
 Returning `null` conventionally means "unrestricted"; the precise contract is agreed between the implementation and the view model.
 
+## How to use
+
+**How to obtain it.** **It is a `GameState` you construct and push.** `public class BarberState : TaleWorlds.Core.GameState` is created with the character and filter, then handed to `GameStateManager.CreateState<BarberState>()`.
+
+```csharp
+var barber = new BarberState();
+barber.Character = hero.CharacterObject;
+barber.Filter = filter;
+// GameStateManager.CreateState<BarberState>() pushes it
+```
+
+**The most common pitfall.** **Both members can be null.** After the no-argument constructor `Character` and `Filter` are both null, and `Character` is a public field you can null at any moment.
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

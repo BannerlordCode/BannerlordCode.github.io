@@ -44,6 +44,19 @@ The second anchor is that **`AllianceCampaignBehavior` is lazily resolved**. The
 
 The third anchor is that **`GetQueriedDecisionOutcome` only ever returns the accept option** — `possibleOutcomes.FirstOrDefault(t => ((...Outcome)t).ShouldAcceptCallToWar)` — **because the UI's question is implicitly always "do you accept?"**. There is no built-in path for asking about a refusal.
 
+## How to use
+
+**How to obtain it.** **You do not construct it — you answer it.** It is a `public class AcceptCallToWarAgreementDecision : KingdomDecision`, created by the kingdom-decision flow once a clan leader is presented with a call to war. Reach the live one through the decision's own accessors and `KingdomDecision.PerformDecision()`; a fresh `new` is only meaningful to a mod that is injecting its own decision.
+
+```csharp
+// answer the pending decision the way the UI does
+bool accept = decision.ShouldAcceptCallToWar;
+decision.PerformDecision();          // commits either accept or refuse
+Debug.Print("accepted = " + accept, 0);
+```
+
+**The most common pitfall.** **`CallToWarCost` never changes.** It is fixed at construction and shared by all four UI texts, and there is **no setter** — changing the price means removing the old decision object and constructing a new one.
+
 ## Key members
 
 | Member | Signature | What it is for |

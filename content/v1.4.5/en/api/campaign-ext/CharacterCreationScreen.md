@@ -45,6 +45,21 @@ The `IGameStateListener` implementations are all trivial forwards to the base cl
 | `IGameStateListener.OnFinalize` | `void IGameStateListener.OnFinalize()` | The only non-trivial game-state callback: base finalize, then `StopSound()`, then `DestructAgentRendererSceneController`, then `_genericScene.ClearAll()`, then `ManualInvalidate()` and null. The ordering is load-bearing — controller before scene. |
 | `StopSound` | `private void StopSound()` | Resets the `MissionCulture` global sound parameter to `0f`, stops the `_cultureAmbientSoundEvent` if it exists, and nulls the field so a double-stop cannot re-stop a disposed event. |
 
+## Dead members and traps
+
+Every row here is the same shape: the tool reports **0 call sites**, `grep -o -w` finds live references. None is a dead member; all are class-internal accesses the tool cannot see.
+
+| Member | Declared at | override | Call sites | Verdict | Note |
+|---|---|---|---|---|---|
+| `_characterCreationStateState` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs:24` | 0 | 9 times (2 lines) | UNSUPPORTED | **9 occurrences on just 2 lines** — `:40` assigns it, and `:124` mentions it 8 times in one `Activator.CreateInstance` call. This is the case where a line count would have read "2": the occurrence count is the one that matters. |
+| `_genericScene` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs:34` | 0 | 8 times (8 lines) | UNSUPPORTED | Class-internal access, no dot prefix. |
+| `_currentStageView` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs:28` | 0 | 7 times (7 lines) | UNSUPPORTED | Class-internal access, no dot prefix. |
+| `_shownLayers` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs:26` | 0 | 5 times (5 lines) | UNSUPPORTED | Class-internal access, no dot prefix. |
+| `_cultureAmbientSoundEvent` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs:32` | 0 | 4 times (4 lines) | UNSUPPORTED | Class-internal access, no dot prefix. |
+| `_stageViews` | `Modules.SandBox/SandBox.View/SandBox.View.CharacterCreation/CharacterCreationScreen.cs:30` | 0 | 4 times (4 lines) | UNSUPPORTED | Class-internal access, no dot prefix. |
+
+Counts: source tree `bannerlord-1.4.5` HEAD `ccbc3d40f88905765a1484492d41b7000e7249fa`, 8,583 `.cs` files including `bin/`. Call-site counts are **occurrence counts** (`grep -o -w`), not matching-line counts.
+
 ## Real Example
 
 Ship a custom view for a built-in stage by declaring the attribute — the screen's reflection sweep will prefer your assembly over the game's:
@@ -132,9 +147,9 @@ The v1.4.5 file is 199 lines. The stage→view dictionary, the nine-argument `Ac
 
 ## Dependencies
 
-- Base class: [ScreenBase](../campaign-ext/ScreenBase) supplies the layer stack (`AddLayer` / `RemoveLayer`) and the `OnFrameTick` / `OnActivate` / `OnFinalize` lifecycle this screen forwards to.
-- Stage contract: [CharacterCreationStageViewBase](CharacterCreationStageViewBase) is the abstract view every mapped class derives from and supplies the nine-argument constructor it must match.
-- Registration key: [CharacterCreationStageViewAttribute](CharacterCreationStageViewAttribute) carries the `StageType` that the reflection sweep keys the dictionary on.
-- Callback side: [CharacterCreationState](../campaign/CharacterCreationState) owns the `Handler` this screen installs itself as and drives the stage lifecycle.
+- Base class: [ScreenBase](../ScreenBase) supplies the layer stack (`AddLayer` / `RemoveLayer`) and the `OnFrameTick` / `OnActivate` / `OnFinalize` lifecycle this screen forwards to.
+- Stage contract: [CharacterCreationStageViewBase](../CharacterCreationStageViewBase) is the abstract view every mapped class derives from and supplies the nine-argument constructor it must match.
+- Registration key: [CharacterCreationStageViewAttribute](../CharacterCreationStageViewAttribute) carries the `StageType` that the reflection sweep keys the dictionary on.
+- Callback side: [CharacterCreationState](../../campaign/CharacterCreationState) owns the `Handler` this screen installs itself as and drives the stage lifecycle.
 - Native resources: `Scene` and `MBAgentRendererSceneController` own the shared agent-preview scene; `SoundEvent` owns the culture ambience.
 - Bucket index: [campaign-ext API section](../)

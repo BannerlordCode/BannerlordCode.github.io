@@ -15,7 +15,7 @@ description: "Swaps a Kingdom's ruling clan in one assignment and announces it; 
 
 A kingdom's ruling clan is the single most load-bearing political pointer in the campaign layer: it decides which clan owns the kingdom's fiefs, which lord is treated as the sovereign for relation purposes, and which clan's vote weight matters when the kingdom makes a decision. This action is the game's write path for that pointer. It is declared as a non-static class but exposes one `public static void Apply` that forwards to a private `ApplyInternal`, and `ApplyInternal` does two steps in order: capture the current `kingdom.RulingClan` into a local, assign the new one, then raise `CampaignEventDispatcher.Instance.OnRulingClanChanged(kingdom, oldRuler)`.
 
-Note that the event carries the **previous** ruling clan, not the new one. A listener therefore has to read `kingdom.RulingClan` itself to learn who won. That is the opposite convention from [ChangeClanInfluenceAction](ChangeClanInfluenceAction), which hands the listener the delta, and it is worth internalizing before you write a listener.
+Note that the event carries the **previous** ruling clan, not the new one. A listener therefore has to read `kingdom.RulingClan` itself to learn who won. That is the opposite convention from [ChangeClanInfluenceAction](../ChangeClanInfluenceAction), which hands the listener the delta, and it is worth internalizing before you write a listener.
 
 ## Mental Model
 
@@ -96,8 +96,8 @@ The v1.4.5 file is 16 lines: one private `ApplyInternal`, one public `Apply`. Th
 
 ## Dependencies
 
-- Host object: [Kingdom](../campaign/Kingdom) owns `RulingClan`; everything about fief votes and kingdom decisions reads it.
-- Notification path: [CampaignEventDispatcher](../campaign/CampaignEventDispatcher) raises `OnRulingClanChanged` synchronously after the assignment.
-- Event surface: [CampaignEvents](../campaign/CampaignEvents) exposes `RulingClanChanged` as `IMbEvent<Kingdom, Clan>` for non-serialized listeners.
-- Related political pointer: [ChangeClanLeaderAction](ChangeClanLeaderAction) moves the leader *inside* a clan — the two write paths are adjacent but independent.
+- Host object: [Kingdom](../../campaign/Kingdom) owns `RulingClan`; everything about fief votes and kingdom decisions reads it.
+- Notification path: [CampaignEventDispatcher](../../campaign/CampaignEventDispatcher) raises `OnRulingClanChanged` synchronously after the assignment.
+- Event surface: [CampaignEvents](../../campaign/CampaignEvents) exposes `RulingClanChanged` as `IMbEvent<Kingdom, Clan>` for non-serialized listeners.
+- Related political pointer: [ChangeClanLeaderAction](../ChangeClanLeaderAction) moves the leader *inside* a clan — the two write paths are adjacent but independent.
 - Bucket index: [campaign-ext API section](../)

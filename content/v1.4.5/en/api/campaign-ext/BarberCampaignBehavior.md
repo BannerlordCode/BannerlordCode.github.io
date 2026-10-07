@@ -41,6 +41,25 @@ Read the flow as four hooks and one public service.
 | `GivePlayerAHaircut` | `private void GivePlayerAHaircut()` | Pushes the barber game state. Sets `_isOpenedFromBarberDialogue = true`, constructs a `BarberState` from `Hero.MainHero.CharacterObject` and `GetFaceGenFilter()` via `Game.Current.GameStateManager.CreateState`, resets the flag, then `GameStateManager.Current.PushState`. The flag is only true for the duration of the construction, which is what makes the constructed filter use the full seven-stage face generator. |
 | `DidPlayerHaveAHaircut` | `private bool DidPlayerHaveAHaircut()` | Compares `Hero.MainHero.BodyProperties.StaticProperties` against the `_previousBodyProperties` snapshot taken in `InitializeBarberConversation`. This is the whole basis for charging: the player is only billed if the face actually changed. |
 
+## Dead members and traps
+
+All ten rows below are the same shape: a static tool reports **0 call sites**, but `grep -o -w` finds live references. They are **not dead members** — they are members the tool cannot see. None of them is an override.
+
+| Member | Declared at | override | Call sites | Verdict | Note |
+|---|---|---|---|---|---|
+| `GivePlayerAHaircut` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:175` | 0 | 2 times (2 lines) | UNSUPPORTED | Passed as `new OnConsequenceDelegate(GivePlayerAHaircut)` at `:109` and `:113`. A **method-group reference**: no dot prefix and no following `(`, so both the dot-access rule and the bare-call rule miss it. |
+| `GivePlayerAHaircutCondition` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:169` | 0 | 2 times (2 lines) | UNSUPPORTED | Same form: `new OnConditionDelegate(...)` at `:109` / `:113`. |
+| `DoesPlayerHaveEnoughGold` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:130` | 0 | 2 times (2 lines) | UNSUPPORTED | `new OnClickableConditionDelegate(...)` at `:109` / `:113`. |
+| `InitializeBarberConversation` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:187` | 0 | 2 times (2 lines) | UNSUPPORTED | `new OnConsequenceDelegate(...)` at `:107`. |
+| `InDisguiseSpeakingToBarber` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:121` | 0 | 1 time (1 line) | UNSUPPORTED | `new OnConditionDelegate(...)` at `:107`. |
+| `ChargeThePlayer` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:143` | 0 | 1 time (1 line) | UNSUPPORTED | Method-group reference. |
+| `CreateBarber` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:197` | 0 | 1 time (1 line) | UNSUPPORTED | Method-group reference. |
+| `DidPlayerNotHaveAHaircut` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:148` | 0 | 1 time (1 line) | UNSUPPORTED | Method-group reference. |
+| `_isOpenedFromBarberDialogue` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:60` | 0 | 3 times (3 lines) | UNSUPPORTED | Class-internal access with no dot prefix. |
+| `_previousBodyProperties` | `Modules.SandBox/SandBox/SandBox.CampaignBehaviors/BarberCampaignBehavior.cs:62` | 0 | 2 times (2 lines) | UNSUPPORTED | Class-internal access with no dot prefix. |
+
+Counts: source tree `bannerlord-1.4.5` HEAD `ccbc3d40f88905765a1484492d41b7000e7249fa`, 8,583 `.cs` files including `bin/`. Call-site counts are **occurrence counts** (`grep -o -w`), not matching-line counts. `UNSUPPORTED` rows are recorded because the tool's own number cannot be trusted — they are not conclusions, and they are not modder traps.
+
 ## Real Example
 
 Read the filter the behaviour hands to the face generator, which is the part other systems consume:
@@ -102,9 +121,9 @@ The v1.4.5 file is 248 lines. The four-condition spawn gate, the two-branch `Get
 ## Dependencies
 
 - Contract: `IFaceGeneratorCustomFilter` is what `GetFaceGenFilter` returns and what the game's face generator consumes; `IFacegenCampaignBehavior` is how the behavior is discovered.
-- Base class: [CampaignBehaviorBase](CampaignBehaviorBase) supplies `RegisterEvents` / `SyncData` and the behavior registration pipeline.
+- Base class: [CampaignBehaviorBase](../CampaignBehaviorBase) supplies `RegisterEvents` / `SyncData` and the behavior registration pipeline.
 - Injection point: `Location`, `LocationCharacter`, and `CampaignEvents.LocationCharactersAreReadyToSpawnEvent` are what actually put the barber on the map.
-- Data models: [BodyPropertiesModel](../campaign/BodyPropertiesModel) supplies the culture-scoped hair and beard index lists; [AgeModel](../campaign/AgeModel) supplies the age band for the spawned NPC.
+- Data models: [BodyPropertiesModel](../../campaign/BodyPropertiesModel) supplies the culture-scoped hair and beard index lists; [AgeModel](../../campaign/AgeModel) supplies the age band for the spawned NPC.
 - Game state: `BarberState` is pushed via `GameStateManager`, and `Game.Current.GameStateManager.CreateState` constructs it from the hero's `CharacterObject` plus the filter.
-- Money: [GiveGoldAction](GiveGoldAction) is what `ChargeThePlayer` uses to take the flat 100.
+- Money: [GiveGoldAction](../GiveGoldAction) is what `ChargeThePlayer` uses to take the flat 100.
 - Bucket index: [campaign-ext API section](../)

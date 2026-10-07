@@ -54,6 +54,18 @@ Think of it as **a slot in the issue system plus a four-value one-shot sampler**
 | `ArtisanCantSellProductsAtAFairPriceIssueQuest` | [QuestBase](../QuestBase) | The delivery conversation and the run to the target settlement | Save type 2 under the same definer |
 | `ArtisanCantSellProductsAtAFairPriceIssueTypeDefiner` | `SaveableTypeDefiner` | Save type id mapping; the constructor hard-codes `base(480000)` | Itself is not saved |
 
+## How to use
+
+**How to obtain it.** **Do not construct it.** It is a `CampaignBehaviorBase`; reach the live instance through `Campaign.Current.GetCampaignBehavior<ArtisanCantSellProductsAtAFairPriceIssueBehavior>()`. The per-issue entry point the page documents takes a `Hero`.
+
+```csharp
+ArtisanCantSellProductsAtAFairPriceIssueBehavior behavior =
+    Campaign.Current.GetCampaignBehavior<ArtisanCantSellProductsAtAFairPriceIssueBehavior>();
+if (behavior != null) { /* behavior is live and subscribed */ }
+```
+
+**The most common pitfall.** **`SyncData` is empty.** You cannot hang persistent fields on the behavior, so changing the trigger means replacing the whole behavior.
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

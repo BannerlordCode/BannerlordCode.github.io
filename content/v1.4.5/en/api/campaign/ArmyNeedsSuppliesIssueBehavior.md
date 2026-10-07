@@ -45,6 +45,18 @@ Think of it as **a slot in the issue system**.
 | `ArmyNeedsSuppliesIssueQuest` | [QuestBase](../QuestBase) | The conversation and delivery flow for grain, livestock, and wine | Save type 2 under the same definer |
 | `ArmyNeedsSuppliesIssueTypeDefiner` | `SaveableTypeDefiner` | Maps save type ids; the constructor hard-codes `base(585800)` | Itself is not saved |
 
+## How to use
+
+**How to obtain it.** **Do not construct it.** It is a `CampaignBehaviorBase` registered at campaign start; read the live one with `Campaign.Current.GetCampaignBehavior<ArmyNeedsSuppliesIssueBehavior>()`.
+
+```csharp
+ArmyNeedsSuppliesIssueBehavior behavior =
+    Campaign.Current.GetCampaignBehavior<ArmyNeedsSuppliesIssueBehavior>();
+Debug.Print("behavior live = " + (behavior != null), 0);
+```
+
+**The most common pitfall.** **The behavior itself has zero save fields.** `SyncData` is empty, so **you cannot hang persistent state on the behavior** — cross-save state must live on an Issue or another serialized object.
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

@@ -47,6 +47,15 @@ The construction constraint is the sharpest edge. The parameterless constructor 
 | `OnSurrenderMission` | `public override void OnSurrenderMission()` | Sets `PlayerEncounter.PlayerSurrender = true` on the encounter rather than a local flag, because the surrender itself is meaningful to the whole encounter, not just to this mission. No return value, no event. |
 | `OnEndMission` | `protected override void OnEndMission()` | The one place the accumulated flags are spent: when the player attacked, did not retreat, and did not win, it advances the siege by calling `Settlement.SetNextSiegeState()`. Being `protected` and `override`, it is not callable from outside the mission. |
 
+## Dead members and traps
+
+| Member | Declared at | override | Call sites | Verdict | Note |
+|---|---|---|---|---|---|
+| `_isRetreat` | `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/CampaignSiegeStateHandler.cs:13` | 0 | 2 times (2 lines) | UNSUPPORTED | A static tool reports "0 call sites", but `grep -o -w` finds **2 live references across 2 lines** (`:30` assigns it, `:49` reads `!_isRetreat`). Class-internal accesses with no dot prefix. Extraction blind spot, not a dead member. |
+| `_defenderVictory` | `Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/CampaignSiegeStateHandler.cs:15` | 0 | 2 times (2 lines) | UNSUPPORTED | Same shape: **2 live references across 2 lines**. Extraction blind spot, not a dead member. |
+
+Counts: source tree `bannerlord-1.4.5` HEAD `ccbc3d40f88905765a1484492d41b7000e7249fa`, 8,583 `.cs` files including `bin/`. Call-site counts are **occurrence counts** (`grep -o -w`), not matching-line counts.
+
 ## Real Example
 
 Add the handler to a siege mission and read its context from other mission logic:
@@ -106,8 +115,8 @@ The v1.4.5 file is 54 lines. The three recording callbacks and the single `OnEnd
 
 ## Dependencies
 
-- Captured state: [PlayerEncounter](../campaign/PlayerEncounter) supplies `Battle` at construction time and receives the `PlayerSurrender` flag from `OnSurrenderMission`.
-- Mission data: [MapEvent](../campaign/MapEvent) is the stored object; `IsSiegeAssault`, `IsSallyOut`, `PlayerSide`, and `MapEventSettlement` are all read directly off it.
-- Phase advance: [Settlement](../campaign/Settlement) is what `SetNextSiegeState` moves forward.
-- Base class: [MissionLogic](../mission-ext/MissionLogic) supplies the `MissionStart` / `OnEndMission` / `OnMissionResultReady` lifecycle hooks this class overrides.
+- Captured state: [PlayerEncounter](../../campaign/PlayerEncounter) supplies `Battle` at construction time and receives the `PlayerSurrender` flag from `OnSurrenderMission`.
+- Mission data: [MapEvent](../../campaign/MapEvent) is the stored object; `IsSiegeAssault`, `IsSallyOut`, `PlayerSide`, and `MapEventSettlement` are all read directly off it.
+- Phase advance: [Settlement](../../campaign/Settlement) is what `SetNextSiegeState` moves forward.
+- Base class: [MissionLogic](../../mission-ext/MissionLogic) supplies the `MissionStart` / `OnEndMission` / `OnMissionResultReady` lifecycle hooks this class overrides.
 - Bucket index: [campaign-ext API section](../)

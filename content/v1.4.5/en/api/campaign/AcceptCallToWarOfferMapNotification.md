@@ -44,6 +44,19 @@ The second anchor is the **`TriggerTime` dependency**. Line 56 of the three-argu
 
 The third anchor is that **the VM has a "build the decision while you are at it" side effect**. `AcceptCallToWarOfferNotificationItemVM.OnFinalize()` first calls `CampaignEventDispatcher.Instance.RemoveListeners(this)`, then — only when all four of `_shouldDecisionBeCreatedOnClosed`, `Clan.PlayerClan.Kingdom != null`, `Clan.PlayerClan.Kingdom.Clans.Count > 1`, and "`UnresolvedDecisions` has no entry whose `CallingKingdom == _offeringKingdom`" hold — constructs an `AcceptCallToWarAgreementDecision(Clan.PlayerClan, _offeringKingdom, _kingdomToCallToWarAgainst)`, **calls `CanMakeDecision(out var _)` on it, and only then `AddDecision(..., ignoreInfluenceCost: true)`**. Mind the de-duplication query: it compares **`CallingKingdom` only, never `KingdomToCallToWarAgainst`** — a second proposal from the same caller against a different target is blocked by the first one's existence.
 
+## How to use
+
+**How to obtain it.** **Nothing in 1.4.5 constructs it for you** — see this page's Risks for the tree-wide probe and its positive control. A mod raises it by calling `new AcceptCallToWarOfferMapNotification(...)` with the full argument list and posting the result through `Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(...)`.
+
+```csharp
+TextObject text = new TextObject("{=PneX4Ayw}A courier bearing a call to war offer has arrived.");
+text.SetTextVariable("KINGDOM_NAME", proposerKingdom.Name);
+Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(
+    new AcceptCallToWarOfferMapNotification(proposerKingdom, kingdomToCallToWarAgainst, text));
+```
+
+**The most common pitfall.** **The single-argument overload is a trap.** It leaves the three payload fields unassigned, `TriggerTime` at `CampaignTime.Zero`, and `IsValid()` permanently false — so the notice is posted and never shown.
+
 ## Key members
 
 | Member | Signature | What it is for |

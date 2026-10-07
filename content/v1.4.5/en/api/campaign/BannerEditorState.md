@@ -47,6 +47,18 @@ Think of it as **the envelope for a one-shot round-trip screen**.
 | `GetClan()` | `Clan.PlayerClan` | **The player must have a clan.** While in mercenary service or without a clan the returned object means something different; do not assume it is "the kingdom the player rules". |
 | `GetCharacter()` | `CharacterObject.PlayerCharacter` | Always the current player character. Takes no argument. |
 
+## How to use
+
+**How to obtain it.** **It is a `GameState`, so you push it, not call it.** Create it with the hero/banner data and hand it to `GameStateManager.CreateState<BannerEditorState>()`; the manager owns its `OnFinalize` lifetime.
+
+```csharp
+var state = new BannerEditorState(hero, equipment);
+// hand it to the state manager; it drives OnTick / OnFinalize
+GameStateManager.Current.CreateState<BannerEditorState>();
+```
+
+**The most common pitfall.** **`_onEndAction` fires while the state is already half-dead.** `GameState.HandleFinalize()` nulls `_listeners`, and `GameStateManager` does so **before** calling it.
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

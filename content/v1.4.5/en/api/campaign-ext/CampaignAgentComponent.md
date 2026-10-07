@@ -100,9 +100,9 @@ The v1.4.5 file is 99 lines. Both `CreateAgentNavigator` overloads, the two mora
 
 ## Dependencies
 
-- Base contract: [AgentComponent](../mission-ext/AgentComponent) declares the morale and tick hooks this component overrides, and is what `Agent.AddComponent` accepts.
-- Per-frame context: `Agent` supplies `Origin`, `Mission`, and `IsAIControlled`; [Mission](../mission/Mission) supplies `AllowAiTicking`.
-- Navigation state: [AgentNavigator](../gameplay/AgentNavigator) is what this component creates and owns, and where behaviour groups and machine targets live.
-- Presets: [BehaviorSets](BehaviorSets) is what populates that navigator, and every preset reaches it through `GetComponent<CampaignAgentComponent>().AgentNavigator`.
-- Campaign inputs: [MapEvent](../campaign/MapEvent) supplies the siege/attacker-side context both morale methods read; [PartyBase](../campaign/PartyBase) is the cast target of `OwnerParty`.
+- Base contract: [AgentComponent](../../mission-ext/AgentComponent) declares the morale and tick hooks this component overrides, and is what `Agent.AddComponent` accepts.
+- Per-frame context: `Agent` supplies `Origin`, `Mission`, and `IsAIControlled`; [Mission](../../mission/Mission) supplies `AllowAiTicking`.
+- Navigation state: [AgentNavigator](../../gameplay/AgentNavigator) is what this component creates and owns, and where behaviour groups and machine targets live.
+- Presets: [BehaviorSets](../BehaviorSets) is what populates that navigator, and every preset reaches it through `GetComponent<CampaignAgentComponent>().AgentNavigator`.
+- Campaign inputs: [MapEvent](../../campaign/MapEvent) supplies the siege/attacker-side context both morale methods read; [PartyBase](../../campaign/PartyBase) is the cast target of `OwnerParty`.
 - Bucket index: [campaign-ext API section](../)

@@ -40,6 +40,22 @@ Treat it as **a finished, immutable record**: the constructor explodes the `Army
 
 Expiry comes from `KeepInHistoryTime => CampaignTime.Days(7f)`, which is identical to the `LogEntry` base default, so this override is an explicit restatement rather than special configuration.
 
+## How to use
+
+**How to obtain it.** **You construct it, then hand it to the log system.** `public class ArmyCreationLogEntry : LogEntry, IEncyclopediaLog, IWarLog` is added with `LogEntry.AddLogEntry(...)`; the encyclopedia/map-notice forms below are this page's own verified example.
+
+```csharp
+ArmyCreationLogEntry entry = new ArmyCreationLogEntry(army);
+LogEntry.AddLogEntry(entry);
+if (army.LeaderParty.MapFaction == MobileParty.MainParty.MapFaction)
+{
+    Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(
+        new ArmyCreationMapNotification(army, entry.GetEncyclopediaText()));
+}
+```
+
+**The most common pitfall.** **The constructor dereferences three levels.** `army.LeaderParty` -> `.LeaderHero` -> `.CharacterObject`; an army with a null leader party (or a null hero object) throws from the constructor.
+
 ## Key members
 
 | Member | Signature | What it is for |

@@ -117,9 +117,9 @@ The v1.4.5 file is 85 lines with exactly four overrides and one property. The `(
 
 ## Dependencies
 
-- Base: [Campaign](../campaign/Campaign) supplies the whole campaign layer and is the type this class replaces under Story Mode; it also owns `MapSceneWrapper` and the `IsLoading` flag.
-- Owning state: [StoryModeManager](StoryModeManager) holds the story objects, `MainStoryLine`, and the initialisation this class drives.
-- Registration: [MBObjectManager](MBObjectManager) is the `objectManager` that `RegisterType<TrainingField>` writes into.
-- Loading pipeline: [GameTypeLoadingStates](../core-extra/GameTypeLoadingStates) is the enum being branched on, compared positionally.
-- Map scene: [Settlement](../campaign/Settlement) is what `Settlement.Find("tutorial_training_field")` locates and whose `Position` / `StringId` feed `AddNewEntityToMapScene`.
+- Base: [Campaign](../../campaign/Campaign) supplies the whole campaign layer and is the type this class replaces under Story Mode; it also owns `MapSceneWrapper` and the `IsLoading` flag.
+- Owning state: [StoryModeManager](../StoryModeManager) holds the story objects, `MainStoryLine`, and the initialisation this class drives.
+- Registration: [MBObjectManager](../MBObjectManager) is the `objectManager` that `RegisterType<TrainingField>` writes into.
+- Loading pipeline: [GameTypeLoadingStates](../../core-extra/GameTypeLoadingStates) is the enum being branched on, compared positionally.
+- Map scene: [Settlement](../../campaign/Settlement) is what `Settlement.Find("tutorial_training_field")` locates and whose `Position` / `StringId` feed `AddNewEntityToMapScene`.
 - Bucket index: [campaign-ext API section](../)

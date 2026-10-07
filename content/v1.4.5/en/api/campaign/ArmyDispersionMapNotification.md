@@ -31,6 +31,18 @@ The second anchor is that **`DispersedArmy` is a live reference and the inspect 
 
 The third anchor: **`DispersionReason` is stored but the VM never reads it**. `ArmyDispersionItemVM`'s constructor only touches `data.DispersedArmy`. The field exists for the save graph and for **mods and log tooling** — it is the only data source when you need to answer "why did the player not get a dispersion notice" versus "why did the chat bar stay quiet".
 
+## How to use
+
+**How to obtain it.** **Nothing in 1.4.5 constructs it for you** — see the Risks section for the tree-wide probe and its positive control. Raise it yourself with `Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(...)`.
+
+```csharp
+ArmyDispersionMapNotification notice =
+    new ArmyDispersionMapNotification(army, descriptionTextObject);
+Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(notice);
+```
+
+**The most common pitfall.** **The notice never expires on its own.** `IsValid()` is not overridden, so the base returns true and cleanup happens only when the player clicks inspect.
+
 ## Key members
 
 | Member | Signature | What it is for |

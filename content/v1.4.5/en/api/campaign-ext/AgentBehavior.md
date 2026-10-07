@@ -42,7 +42,7 @@ Because the constructor takes `AgentBehaviorGroup` and dereferences it immediate
 
 | Member | Signature | What it is for |
 | --- | --- | --- |
-| `GetDebugInfo` | `public abstract string GetDebugInfo()` | The **only** mandatory member. The group calls it to describe the behaviour for the AI debug overlay, and a derived class that omits it will not compile. [CautiousBehavior](CautiousBehavior) satisfies it by returning `string.Empty`, which is itself worth noting — the debug overlay is not universally populated. |
+| `GetDebugInfo` | `public abstract string GetDebugInfo()` | The **only** mandatory member. The group calls it to describe the behaviour for the AI debug overlay, and a derived class that omits it will not compile. [CautiousBehavior](../CautiousBehavior) satisfies it by returning `string.Empty`, which is itself worth noting — the debug overlay is not universally populated. |
 | `IsActive` | `public bool IsActive { get; set; }` | The activation switch, and the reason `OnActivate` / `OnDeactivate` exist. The setter compares before writing, so **a redundant set does not re-fire the hook**. That guard is what makes it safe to call `IsActive = true` repeatedly from group logic, but it also means a hook that must re-run on every set will not. |
 | `Navigator` | `public AgentNavigator Navigator => BehaviorGroup.Navigator` | Live two-hop forwarder to the owning agent's navigator — the object that owns behaviour groups, machine targets, and the special target. Not stored, so it is always current; but it throws if the behaviour was constructed with a null group. |
 | `OwnerAgent` | `public Agent OwnerAgent => Navigator.OwnerAgent` | Shorthand for the agent this behaviour drives. Both this and `Navigator` are expression-bodied forwards, so they cost a property hop each and never cache. |
@@ -51,11 +51,20 @@ Because the constructor takes `AgentBehaviorGroup` and dereferences it immediate
 | `GetAvailability` | `public virtual float GetAvailability(bool isSimulation)` | Scores how badly this behaviour wants to run; the group picks the highest. Defaults to `0f`, so a behaviour that does not override it is effectively never selected. The `isSimulation` flag lets a behaviour deprioritise itself during the mission's simulation phase. |
 | `Tick` | `public virtual void Tick(float dt, bool isSimulation)` | The per-frame work hook. Defaults to empty. A derived behaviour that moves or animates the agent belongs here, and must respect `isSimulation` if doing so would desync real-time and simulation play. |
 | `OnActivate` / `OnDeactivate` | `protected virtual void OnActivate()` / `protected virtual void OnDeactivate()` | Paired lifecycle hooks fired by the `IsActive` setter, and **only** on a genuine change of value. They are `protected`, so they are the derived class's own hook and cannot be invoked from outside. |
-| `ConversationTick` | `public virtual void ConversationTick()` | A second per-tick hook driven by the conversation context rather than general mission time. Defaults to empty; [AlarmedBehaviorGroup](../campaign-ext/AlarmedBehaviorGroup) overrides the group-level version of the same name. |
+| `ConversationTick` | `public virtual void ConversationTick()` | A second per-tick hook driven by the conversation context rather than general mission time. Defaults to empty; [AlarmedBehaviorGroup](../AlarmedBehaviorGroup) overrides the group-level version of the same name. |
 | `CheckStartWithBehavior` | `public virtual bool CheckStartWithBehavior()` | Lets a behaviour insist on being the one that starts, bypassing the availability scoring. Defaults to `false`. |
-| `OnSpecialTargetChanged` | `public virtual void OnSpecialTargetChanged()` | Notifies the behaviour that the navigator's designated special target moved. Defaults to empty; [WalkingBehavior](../campaign-ext/WalkingBehavior) overrides it. |
+| `OnSpecialTargetChanged` | `public virtual void OnSpecialTargetChanged()` | Notifies the behaviour that the navigator's designated special target moved. Defaults to empty; [WalkingBehavior](../WalkingBehavior) overrides it. |
 | `SetCustomWanderTarget` | `public virtual void SetCustomWanderTarget(UsableMachine customUsableMachine)` | Hands the behaviour a specific machine to occupy, overriding ordinary wander selection. Defaults to empty. |
 | `OnAgentRemoved` | `public virtual void OnAgentRemoved(Agent agent)` | Teardown notification so the behaviour can drop runtime references to an agent that has left the mission. Defaults to empty; keeping it is what stops a behaviour holding a dead `Agent` across the mission's lifetime. |
+
+## Dead members and traps
+
+| Member | Declared at | override | Call sites | Verdict | What it means |
+|---|---|---|---|---|---|
+| `GetDebugInfo` | `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/AgentBehavior.cs:89` | 14 | 0 | MEASURED | Declared `public virtual`, overridden in 14 other files, and **not one call site anywhere in the 8,583-file 1.4.5 tree**. A mod that overrides it changes nothing, because no shipped code ever reads it. |
+| `BehaviorGroup` | `Modules.SandBox/SandBox/SandBox.Missions.AgentBehaviors/AgentBehavior.cs:10` | 0 | 3 times (3 lines) | UNSUPPORTED | A static tool reports "0 call sites", but `grep -o -w` finds **3 live references across 3 lines** — class-internal accesses with no dot prefix. This is an extraction blind spot, not a dead member. |
+
+Verdicts and counts: source tree `bannerlord-1.4.5` HEAD `ccbc3d40f88905765a1484492d41b7000e7249fa`, 8,583 `.cs` files including `bin/`. Call-site counts are **occurrence counts** (`grep -o -w`), not matching-line counts — a line that mentions a member twice counts twice. Only `MEASURED` rows may be read as conclusions; `UNSUPPORTED` rows are recorded because the tool's own number cannot be trusted, not because the member is dead.
 
 ## Real Example
 
@@ -134,7 +143,7 @@ walking.IsActive = false;  // OnDeactivate fires here
 - **`GetAvailability` defaults to `0f`, not a positive score.** Forgetting the override makes a behaviour unselectable rather than broken-looking.
 - **`BehaviorGroup` is a protected field, not a property.** Derived classes can hold the reference, which makes leaks easier if the behaviour outlives the group.
 - **`CheckTime` is a public mutable field.** Raising it makes the group re-evaluate the behaviour less often; it is not a validated range.
-- **No save contract.** Every field here is mission-local runtime state; none of it is serialised, and reopening a mission rebuilds all behaviours from [BehaviorSets](BehaviorSets).
+- **No save contract.** Every field here is mission-local runtime state; none of it is serialised, and reopening a mission rebuilds all behaviours from [BehaviorSets](../BehaviorSets).
 
 ## Cross-version note
 
@@ -142,9 +151,9 @@ The v1.4.5 file is 90 lines. `GetDebugInfo` being the sole abstract member, the 
 
 ## Dependencies
 
-- Concrete examples: [CautiousBehavior](CautiousBehavior) is the simplest full implementation in the shipped set, and [BehaviorSets](BehaviorSets) is what actually constructs these objects in a live campaign.
-- Owner: [AgentBehaviorGroup](../campaign-ext/AgentBehaviorGroup) holds the behaviours, supplies the `Mission` at construction, and drives every hook on this class.
-- Navigation: [AgentNavigator](../gameplay/AgentNavigator) is what `Navigator` forwards to and what owns the special target and machine state.
+- Concrete examples: [CautiousBehavior](../CautiousBehavior) is the simplest full implementation in the shipped set, and [BehaviorSets](../BehaviorSets) is what actually constructs these objects in a live campaign.
+- Owner: [AgentBehaviorGroup](../AgentBehaviorGroup) holds the behaviours, supplies the `Mission` at construction, and drives every hook on this class.
+- Navigation: [AgentNavigator](../../gameplay/AgentNavigator) is what `Navigator` forwards to and what owns the special target and machine state.
 - Per-frame context: `Agent` supplies `IsAIControlled` and the movement methods behaviours drive; `Mission` supplies the time base.
-- Registry entry point: [AgentBehaviorManager](AgentBehaviorManager) is the public face the location-character system uses to install behaviour sets.
+- Registry entry point: [AgentBehaviorManager](../AgentBehaviorManager) is the public face the location-character system uses to install behaviour sets.
 - Bucket index: [campaign-ext API section](../)

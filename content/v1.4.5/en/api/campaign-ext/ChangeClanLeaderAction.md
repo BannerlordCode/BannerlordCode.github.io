@@ -93,7 +93,7 @@ CampaignEvents.OnClanLeaderChangedEvent.AddNonSerializedListener(
 - **The relation rebasing is not symmetric and is not undoable.** It adds the diplomacy model's death-of-leader delta to every other living hero's relation with the new leader, then commits. There is no inverse operation.
 - **Governorship is silently removed from the new leader.** If your script assumed the hero keeps a governorship across a clan leadership transfer, it will not.
 - **Party repair is skipped for prisoners, fugitives, released heroes, and travelling heroes.** Those heroes keep their existing party/leader arrangement, which may or may not be what you want.
-- **Settlement ownership is untouched.** This action moves the *clan leader*, not the clan's towns. Use [ChangeOwnerOfSettlementAction](ChangeOwnerOfSettlementDetail) for that.
+- **Settlement ownership is untouched.** This action moves the *clan leader*, not the clan's towns. Use [ChangeOwnerOfSettlementAction](../ChangeOwnerOfSettlementDetail) for that.
 - **No `IDataStore` participation.** Leadership and gold are saved by `Clan`/`Hero`; the action itself is not serializable and is never replayed from a save.
 
 ## Cross-version note
@@ -102,9 +102,9 @@ The v1.4.5 file is 63 lines with exactly two public methods. There is no overloa
 
 ## Dependencies
 
-- Host objects: [Clan](../campaign/Clan) owns the leader pointer and heir list; [Hero](../campaign/Hero) supplies the leader, the governorship, the party, and the relations being rebased.
-- Collaborating actions: [GiveGoldAction](GiveGoldAction) moves the treasury; [ChangeGovernorAction](ChangeGovernorAction) strips the governorship; [DestroyPartyAction](DestroyPartyAction) is the counter-example of what this action deliberately does not do.
-- Supporting types: [MobilePartyHelper](../system/MobilePartyHelper) creates the replacement clan party; [CharacterRelationManager](../campaign/CharacterRelationManager) reads the old relation value.
-- Policy hook: [DiplomacyModel](../campaign/DiplomacyModel) supplies `GetRelationChangeAfterClanLeaderIsDead`, which is the only moddable part of the relation rebasing.
-- Notification path: [CampaignEventDispatcher](../campaign/CampaignEventDispatcher) raises `OnClanLeaderChanged` last.
+- Host objects: [Clan](../../campaign/Clan) owns the leader pointer and heir list; [Hero](../../campaign/Hero) supplies the leader, the governorship, the party, and the relations being rebased.
+- Collaborating actions: [GiveGoldAction](../GiveGoldAction) moves the treasury; [ChangeGovernorAction](../ChangeGovernorAction) strips the governorship; [DestroyPartyAction](../DestroyPartyAction) is the counter-example of what this action deliberately does not do.
+- Supporting types: [MobilePartyHelper](../../system/MobilePartyHelper) creates the replacement clan party; [CharacterRelationManager](../../campaign/CharacterRelationManager) reads the old relation value.
+- Policy hook: [DiplomacyModel](../../campaign/DiplomacyModel) supplies `GetRelationChangeAfterClanLeaderIsDead`, which is the only moddable part of the relation rebasing.
+- Notification path: [CampaignEventDispatcher](../../campaign/CampaignEventDispatcher) raises `OnClanLeaderChanged` last.
 - Bucket index: [campaign-ext API section](../)

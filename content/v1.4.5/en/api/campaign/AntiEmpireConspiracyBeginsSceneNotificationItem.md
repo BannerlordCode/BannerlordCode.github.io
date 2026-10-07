@@ -42,6 +42,19 @@ Read it as **a title generator bolted onto a ready-made cutscene template**. Thr
 
 3. **The only difference from the ProEmpire version is the title.** `ProEmpireConspiracyBeginsSceneNotificationItem` takes **only `kingHero`**, has no faction list, and uses `str_empire_conspiracy_supports_proempire`. This type takes `(Hero kingHero, List<Kingdom> antiEmpireFactions)`, uses `str_empire_conspiracy_supports_antiempire`, and fills `FACTION_NAMES`. **Everything else is 100% inherited.** The two are interchangeable in exactly one place.
 
+## How to use
+
+**How to obtain it.** **Nothing in 1.4.5 constructs it for you** — see the Risks section for the `new AntiEmpireConspiracyBeginsSceneNotificationItem(` probe and its positive control. Build the text variables yourself and raise it through the scene-notification path.
+
+```csharp
+List<TextObject> names = new List<TextObject>();
+foreach (Kingdom k in _antiEmpireFactions) { names.Add(k.InformalName); }
+TextObject text = GameTexts.FindText("str_empire_conspiracy_supports_antiempire");
+text.SetTextVariable("FACTION_NAMES", GameTexts.GameTextHelper.MergeTextObjectsWithComma(names, includeAnd: true));
+```
+
+**The most common pitfall.** **No official construction site exists in 1.4.5.** The item is a display payload; the shipped conspiracy code never instantiates this concrete subclass.
+
 ## Key members
 
 | Member | Signature | What it is for |

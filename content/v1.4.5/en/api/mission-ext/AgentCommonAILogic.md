@@ -46,6 +46,10 @@ The engine installs this behavior for you. `MissionState.cs:329` does `list.Add(
 | `CommonAIComponent` (on `Agent`) | `public CommonAIComponent CommonAIComponent { get; private set; }` | The single-slot back-reference this behavior writes through `AddComponent`/`RemoveComponent`. Read it to get the morale, panic, and reservation state; never assign it. |
 | `RemoveComponent` return value | `public bool RemoveComponent(AgentComponent agentComponent)` | Returns `bool`. This logic ignores the return, so a failed removal is silent — if `CommonAIComponent` was never attached, the detach branch simply does nothing and the agent walks away with stale state rather than erroring. |
 
+## Dead members and traps
+
+Dead-member status on this page is unknown: every member here falls under UNSUPPORTED (ambiguous multiple declarers, among other causes), so the call-site count must not be read as a conclusion; no call site could be confirmed by an independent probe this pass.
+
 ## Real example
 
 Reading the morale this logic maintains, from any other mission behavior:
@@ -122,10 +126,10 @@ The `oldController != AgentControllerType.AI` guard in the middle is the one the
 
 ## Dependencies
 
-- **Base contract:** [`MissionLogic`](./MissionLogic) supplies the `Mission` back-reference and classifies this behavior as a rules participant.
+- **Base contract:** [`MissionLogic`](../MissionLogic) supplies the `Mission` back-reference and classifies this behavior as a rules participant.
 - **Attached component:** [`CommonAIComponent`](../CommonAIComponent) is the `AgentComponent` this logic owns the lifetime of — morale, panic, retreat, rider reservation.
 - **Agent surface:** [`Agent`](../../mission/Agent) `AddComponent` / `RemoveComponent` / `GetComponent<T>` / `IsAIControlled` / `IsActive` / `Controller`.
 - **Callback declarations:** [`MissionBehavior`](../../mission/MissionBehavior) declares `OnAgentCreated` and the `protected internal virtual OnAgentControllerChanged`.
-- **Sibling logic:** [`AgentHumanAILogic`](./AgentHumanAILogic) does the same job for the humanoid behaviour tree, with a different guard set.
+- **Sibling logic:** [`AgentHumanAILogic`](../AgentHumanAILogic) does the same job for the humanoid behaviour tree, with a different guard set.
 - **Installation site:** `MissionState.cs:329` adds this behavior to the standard list.
 - Bucket home: [mission-ext API section](../)

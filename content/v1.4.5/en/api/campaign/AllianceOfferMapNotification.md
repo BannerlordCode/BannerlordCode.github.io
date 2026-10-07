@@ -48,6 +48,19 @@ The mental anchor that matters most is **why the second constructor overload exi
 
 The second anchor is that **`TriggerTime` depends on `Campaign.Current.Models.AllianceModel`**. Line 46 of the constructor dereferences it unconditionally, so constructing before a `Campaign` exists NREs. The single-argument overload does not read it, so the two paths differ in dependency strength.
 
+## How to use
+
+**How to obtain it.** **Nothing in 1.4.5 constructs it for you** — the Risks section on this page carries the tree-wide probe and positive control. Construct it and post it with `Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(...)`.
+
+```csharp
+TextObject text = new TextObject("{=1V8f9vRM}A courier bearing an alliance offer from the {PROPOSER_KINGDOM}.");
+text.SetTextVariable("PROPOSER_KINGDOM", offeringKingdom.InformalName);
+Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(
+    new AllianceOfferMapNotification(offeringKingdom, text));
+```
+
+**The most common pitfall.** **The single-argument overload is a trap.** `new AllianceOfferMapNotification(TextObject)` leaves `TriggerTime` at `CampaignTime.Zero`, so `IsValid()` is permanently false.
+
 ## Key members
 
 | Member | Signature | What it is for |

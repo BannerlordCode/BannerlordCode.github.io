@@ -45,6 +45,18 @@ Treat it as **a reason-code table**: writing a log forces you to pick an `Action
 
 A third trap deserves its own line: **there is no `Invalid` / `Unknown` sentinel**. `DefaultNote` (value 0) is a real "generic event" semantic, not "unset". So a `[SaveableField(412)] private readonly ActionNotes _note` read as 0 from an old save cannot be distinguished from "this field was never written".
 
+## How to use
+
+**How to obtain it.** **There is nothing to obtain — it is an enum.** `public enum ActionNotes` has no instance; it is referenced by name from log entries and other code, and its member names become part of the displayed text.
+
+```csharp
+// use it the way the log entries do: name -> text variable
+TextObject note = GameTexts.FindText("str_game_action_notes");
+note.SetTextVariable("GAME_ACTION_NOTES", GameTexts.FindText(actionNotes.ToString()).ToString());
+```
+
+**The most common pitfall.** **The enum name is part of the displayed text.** The fallback path in `CharacterInsultedLogEntry.GetEncyclopediaText()` substitutes `GameTexts.FindText(actionNotes.ToString())` — so renaming a member changes what the player reads, not just the code.
+
 ## Key members
 
 | Member | Signature | What it is for |

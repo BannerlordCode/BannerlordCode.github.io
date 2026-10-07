@@ -127,7 +127,7 @@ Do not extend that block to the AI weights. `AiShootFreq`, `AIDecideOnAttackChan
 - **Producer:** [`AgentStatCalculateModel`](../AgentStatCalculateModel) fills every slot through `InitializeAgentStats` and `UpdateAgentStats`; it is the only writer in the tree.
 - **Host:** [`Agent`](../../mission/Agent) owns the instance (`Agent.AgentDrivenProperties`), allocates it during creation, and reads it for total encumbrance and stat queries.
 - **Index enum:** [`DrivenProperty`](../../core-extra/DrivenProperty) supplies the ordinal used by `GetStat`/`SetStat`; its usable range is `0`–`97`, matching the array, with `None = -1` and the aliasing `DrivenPropertiesCalculatedAtSpawnEnd = 64` as the two members outside that contract.
-- **Spawn inputs:** [`AgentBuildData`](./AgentBuildData) and [`Equipment`](../../core-extra/Equipment) are the arguments threaded into `InitializeDrivenProperties`.
+- **Spawn inputs:** [`AgentBuildData`](../AgentBuildData) and [`Equipment`](../../core-extra/Equipment) are the arguments threaded into `InitializeDrivenProperties`.
 - **Consumer:** [`AgentApplyDamageModel`](../AgentApplyDamageModel) reads the armour and charge stats when resolving per-body-part damage and knockback.
 - **Resolution:** [`MissionGameModels`](../MissionGameModels) is how the engine reaches the stat model that writes here.
 - Bucket home: [mission-ext API section](../)

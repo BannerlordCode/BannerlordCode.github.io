@@ -113,8 +113,8 @@ In v1.4.5 the enum has exactly six values declared at `BoardGameAIBase.cs:13-18`
 
 ## Dependencies
 
-- Owner: [BoardGameAIBase](BoardGameAIBase) is the only writer — it holds `private volatile AIState _state`, guards it with `_stateLock`, and exposes it read-only as `State`.
+- Owner: [BoardGameAIBase](../BoardGameAIBase) is the only writer — it holds `private volatile AIState _state`, guards it with `_stateLock`, and exposes it read-only as `State`.
 - Threading: `ITask` and `AsyncTask.CreateWithDelegate` are what run the search off the main thread; `ManagedDelegate` binds the worker entry point.
-- Difficulty and board: [AIDifficulty](../system/AIDifficulty) selects the search parameters via `InitializeDifficulty`, and [MissionBoardGameLogic](../campaign-ext/MissionBoardGameLogic) supplies the board whose `InPreMovementStage` selects which calculation runs.
-- Result type: [Move](../campaign-ext/Move) is what a successful calculation produces, and `Move.Invalid` is the "nothing" sentinel used on abort and reset.
+- Difficulty and board: [AIDifficulty](../../system/AIDifficulty) selects the search parameters via `InitializeDifficulty`, and [MissionBoardGameLogic](../MissionBoardGameLogic) supplies the board whose `InPreMovementStage` selects which calculation runs.
+- Result type: [Move](../Move) is what a successful calculation produces, and `Move.Invalid` is the "nothing" sentinel used on abort and reset.
 - Bucket index: [campaign-ext API section](../)

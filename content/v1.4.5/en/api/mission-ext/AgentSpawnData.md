@@ -47,6 +47,14 @@ Finally, the struct semantics. This is a `struct` passed by `ref` into a native 
 | `MonsterUsageIndex` | `public int` | Produced by `Agent.GetMonsterUsageIndex(monster.MonsterUsage)` — a static call, not a raw array subscript. It identifies the creature's usage entry. Do not persist it: indexes shift when character-tree data is rebuilt. |
 | `Weight` | `public float` | Body weight, and the **only** field where `FillSpawnData` does not read the monster directly: it prefers `(int)mountItem.Weight` when a `mountItem` is passed, and falls back to `monster.Weight`. Passing `null` — as `Mission.CreateAgent` does — always yields the monster's own weight. |
 
+## Dead members and traps
+
+The inventory reports `MonsterUsageIndex` with 0 call sites; it is written once by an object initializer — not a dead member.
+
+| `Member` | Declaration | override | Call sites | Verdict | Notes |
+|---|---|---:|---:|---|---|
+| `MonsterUsageIndex` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentSpawnData.cs:11 | 0 | 1 time (1 line) | MEASURED | Assigned by an object initializer at MonsterExtensions.cs:139 (`MonsterUsageIndex = Agent.GetMonsterUsageIndex(monster.MonsterUsage)`). An initializer assignment is not call-shaped, so the tool scores it 0. Note it is written but never read. |
+
 ## Real example
 
 Producing the record the way the engine does, and reading the eye-height block out of it:
@@ -119,10 +127,10 @@ public static void MyBrokenWriter(Agent agent)
 
 ## Dependencies
 
-- **Producer:** [`MonsterExtensions`](../../mission/MonsterExtensions) `FillSpawnData(this Monster, ItemObject)` is the sole public factory, and it populates all 19 fields.
+- **Producer:** [`MonsterExtensions`](../MonsterExtensions) `FillSpawnData(this Monster, ItemObject)` is the sole public factory, and it populates all 19 fields.
 - **Source data:** [`Monster`](../../core-extra/Monster) supplies every anthropometric value, plus `HitPoints` and `Weight`.
 - **Consumer:** [`Mission`](../../mission/Mission) `CreateAgent` calls the factory and passes the struct by `ref` into `CreateAgentInternal`; both that method and the native `IMBMission.CreateAgent` are outside a mod's reach.
-- **Paired record:** [`AgentCapsuleData`](./AgentCapsuleData) is filled by the sibling `MonsterExtensions.FillCapsuleData` and travels through the same native call.
+- **Paired record:** [`AgentCapsuleData`](../AgentCapsuleData) is filled by the sibling `MonsterExtensions.FillCapsuleData` and travels through the same native call.
 - **Produced agent:** [`Agent`](../../mission/Agent) exposes `Monster` and converts these numbers into `Health` (a `float`) and the live collision capsule.
 - **Authored input:** [`BodyProperties`](../../core-extra/BodyProperties) is the authored shape data that ultimately drives the skeleton these heights describe.
 - Bucket home: [mission-ext API section](../)

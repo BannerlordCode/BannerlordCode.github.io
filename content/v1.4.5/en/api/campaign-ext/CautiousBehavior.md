@@ -27,7 +27,7 @@ That is the whole trick: the patrolling branch clears `flag` only when the agent
 
 `OnActivate` resets the timer to `Mission.CurrentTime`. `OnDeactivate` does the teardown, and note the guard: it only runs when `!OwnerAgent.IsAlarmed()`. An alarmed agent keeps its action channel and weapon state, because the alarmed behaviour group is taking over and must not have the pose ripped out from under it. Otherwise it restores `act_none` and cancels the tick actions with the multi-threaded variants, `AddTickActionMT(..., 0)` rather than the plain `AddTickAction(..., 1)`.
 
-`GetDebugInfo()` returns `string.Empty`. This is the mandatory abstract member from [AgentBehavior](AgentBehavior), satisfied by producing nothing — worth knowing when you are debugging why the AI overlay shows nothing for cautious villagers.
+`GetDebugInfo()` returns `string.Empty`. This is the mandatory abstract member from [AgentBehavior](../AgentBehavior), satisfied by producing nothing — worth knowing when you are debugging why the AI overlay shows nothing for cautious villagers.
 
 The action-channel calls all use a long fixed argument list with explicit `AnimFlags` values — `0` for the looping look-around animations and `2` for the neutral pose. Those two casts are the difference between a looping guard animation and an instant pose, and getting them backwards is why a custom cautious animation often appears frozen.
 
@@ -99,9 +99,9 @@ The v1.4.5 file is 167 lines. The two-branch `Tick` structure, the `flag`-driven
 
 ## Dependencies
 
-- Base contract: [AgentBehavior](AgentBehavior) supplies `OwnerAgent`, `Mission`, the guarded `IsActive` switch, and the abstract `GetDebugInfo` this class satisfies with an empty string.
-- Owner: [AgentBehaviorGroup](../campaign-ext/AgentBehaviorGroup) constructs it via `AddBehavior<CautiousBehavior>()`; [AlarmedBehaviorGroup](../campaign-ext/AlarmedBehaviorGroup) is the group the shipped presets put it in and supplies `SetCanMoveWhenCautious`.
-- Navigation host: [CampaignAgentComponent](CampaignAgentComponent) is what `BehaviorSets` reaches through to find the navigator, and is the only way a mod reads an agent's behaviour set.
-- Selection: [BehaviorSets](BehaviorSets) is where `CautiousBehavior` is installed for stealth agents, including the `disguise_officer_character` special case.
+- Base contract: [AgentBehavior](../AgentBehavior) supplies `OwnerAgent`, `Mission`, the guarded `IsActive` switch, and the abstract `GetDebugInfo` this class satisfies with an empty string.
+- Owner: [AgentBehaviorGroup](../AgentBehaviorGroup) constructs it via `AddBehavior<CautiousBehavior>()`; [AlarmedBehaviorGroup](../AlarmedBehaviorGroup) is the group the shipped presets put it in and supplies `SetCanMoveWhenCautious`.
+- Navigation host: [CampaignAgentComponent](../CampaignAgentComponent) is what `BehaviorSets` reaches through to find the navigator, and is the only way a mod reads an agent's behaviour set.
+- Selection: [BehaviorSets](../BehaviorSets) is where `CautiousBehavior` is installed for stealth agents, including the `disguise_officer_character` special case.
 - Per-frame context: `Agent` supplies `IsCautious`, `IsPatrollingCautious`, `IsAlarmed`, the AI destination and suspicious-position accessors, and the action-channel API this class drives.
 - Bucket index: [campaign-ext API section](../)

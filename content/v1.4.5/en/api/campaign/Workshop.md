@@ -59,30 +59,30 @@ Think of `Workshop` as **"the business license plus ledger of one shopfront in a
 ## How to Obtain
 
 ```csharp
-// 路径 1：从当前所在城镇拿到全部工坊（每个元素是 Workshop）
+// Path 1: every workshop in the current town (each element is a Workshop)
 Town town = Settlement.CurrentSettlement.Town;
 Workshop[] workshops = town.Workshops;
 foreach (Workshop w in workshops)
 {
-    // w 是一间具体工坊
+    // w is one concrete workshop
 }
 
-// 路径 2：从某个英雄拿到其拥有的全部工坊
+// Path 2: every workshop owned by a given hero
 MBReadOnlyList<Workshop> owned = Hero.MainHero.OwnedWorkshops;
 foreach (Workshop w in owned)
 {
-    // 玩家开的铺子
+    // a shop the player owns
 }
 
-// 路径 3：从 WorkshopType 的定义反查“所有此类工坊”并没有直接索引，
-// 通常遍历 Town.Workshops 按 w.WorkshopType 过滤：
+// Path 3: there is no direct index to look up "all workshops of this type" from a
+// WorkshopType definition, so you normally iterate Town.Workshops and filter on w.WorkshopType:
 foreach (Town t in Town.AllTowns)
 {
     foreach (Workshop w in t.Workshops)
     {
         if (w.WorkshopType == WorkshopType.Find("brewery"))
         {
-            // 找到所有酿酒坊
+            // found all breweries
         }
     }
 }
@@ -186,7 +186,7 @@ foreach (Workshop workshop in town.Workshops)
     int profit = workshop.ProfitMade;
     int capital = workshop.Capital;
     InformationManager.DisplayMessage(
-        new InformationMessage($"{name} [{type}] 利润 {profit}, 资本 {capital}"));
+        new InformationMessage($"{name} [{type}] profit {profit}, capital {capital}"));
 }
 ```
 
@@ -196,12 +196,12 @@ foreach (Workshop workshop in town.Workshops)
 using TaleWorlds.CampaignSystem.Settlements.Workshops;
 using TaleWorlds.CampaignSystem.Actions;
 
-// 获取目标工坊：玩家拥有的第一间，或任意 town.Workshops 元素
+// Get the target workshop: the player's first one, or any element of town.Workshops
 Workshop playerShop = Hero.MainHero.OwnedWorkshops.FirstOrDefault();
 if (playerShop != null)
 {
-    // 正确的转产入口：会扣转产费、同步 WorkshopsCampaignBehavior 的 _workshopData，
-    // 并广播 WorkshopTypeChangedEvent
+    // The correct production-switch entry point: it charges the switch fee and syncs
+    // WorkshopsCampaignBehavior's _workshopData, and broadcasts WorkshopTypeChangedEvent
     WorkshopType brewery = WorkshopType.Find("brewery");
     if (brewery != null && playerShop.WorkshopType != brewery)
     {
@@ -223,7 +223,7 @@ if (w != null)
     if (nearBankruptcy)
     {
         InformationManager.DisplayMessage(
-            new InformationMessage($"{w.Name} 即将破产（资本 {w.Capital} / 下限 {lowLimit}）"));
+            new InformationMessage($"{w.Name} is near bankruptcy (capital {w.Capital} / limit {lowLimit})"));
     }
 }
 ```

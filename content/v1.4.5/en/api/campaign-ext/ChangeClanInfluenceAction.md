@@ -92,8 +92,8 @@ The v1.4.5 file is 15 lines and its entire public surface is the single `Apply` 
 
 ## Dependencies
 
-- Host value: [Clan](../campaign/Clan) holds `Influence` and the tier derived from it; this action is the only sanctioned writer.
-- Notification path: [CampaignEventDispatcher](../campaign/CampaignEventDispatcher) raises `OnClanInfluenceChanged`, which is what models and UI actually listen to.
-- Event surface: [CampaignEvents](../campaign/CampaignEvents) exposes `OnClanInfluenceChangedEvent` for `AddNonSerializedListener` registrations.
-- Common callers: [ChangeClanLeaderAction](ChangeClanLeaderAction) lives in the same Actions folder and shows the same write-then-notify discipline.
-- 桶首页：[campaign-ext API 分区](../)
+- Host value: [Clan](../../campaign/Clan) holds `Influence` and the tier derived from it; this action is the only sanctioned writer.
+- Notification path: [CampaignEventDispatcher](../../campaign/CampaignEventDispatcher) raises `OnClanInfluenceChanged`, which is what models and UI actually listen to.
+- Event surface: [CampaignEvents](../../campaign/CampaignEvents) exposes `OnClanInfluenceChangedEvent` for `AddNonSerializedListener` registrations.
+- Common callers: [ChangeClanLeaderAction](../ChangeClanLeaderAction) lives in the same Actions folder and shows the same write-then-notify discipline.
+- Bucket index: [campaign-ext API section](../)

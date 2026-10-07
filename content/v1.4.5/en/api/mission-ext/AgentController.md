@@ -13,7 +13,7 @@ description: "A per-agent out-of-band driver: an attachable object that owns the
 
 ## One-line responsibility
 
-It is the sibling of [`AgentComponent`](./AgentComponent) for behaviour that needs to be *pulled* rather than *pushed*: the agent never calls it, so the controller drives itself each frame and reaches back through `Owner` whenever it wants.
+It is the sibling of [`AgentComponent`](../AgentComponent) for behaviour that needs to be *pulled* rather than *pushed*: the agent never calls it, so the controller drives itself each frame and reaches back through `Owner` whenever it wants.
 
 ## Mental model
 
@@ -46,6 +46,10 @@ One naming caution that will bite you: `Agent.Controller` is an `AgentController
 | `Owner` | `public Agent Owner { get; set; }` | Back-reference to the agent this controller drives, assigned by `Agent.AddController` immediately before `OnInitialize`. **The setter is public with no validation** — repointing it at a different agent silently redirects every subsequent operation, with no assertion and no event. Treat it as read-only in your own code. |
 | `Mission` | `public Mission Mission { get; set; }` | The mission the controller belongs to, also assigned by `AddController` before `OnInitialize`. Note that the real tournament controllers still reach for the static `Mission.Current` rather than this property, so both routes work and only one is safe when more than one mission exists. |
 | `OnInitialize` | `public virtual void OnInitialize()` | The one hook the base class provides, and it is called exactly once by `AddController`. This is the correct place to resolve mission behaviors, cache references, and register state — by the time it runs, `Owner` and `Mission` are populated but nothing else is guaranteed. The default body is empty, so overriding it is entirely optional. |
+
+## Dead members and traps
+
+Dead-member status on this page is unknown: every member here falls under UNSUPPORTED (ambiguous multiple declarers, among other causes), so the call-site count must not be read as a conclusion; no call site could be confirmed by an independent probe this pass.
 
 ## Real example
 
@@ -130,7 +134,7 @@ public class MyControllerInstaller : MissionLogic
 }
 ```
 
-The `OnMissionTick` half is the point of this pattern: because the base class has no `OnTick`, someone has to drive the controller. That someone is a mission behavior, which means the controller's per-frame cost is opt-in rather than automatic — the opposite of [`AgentComponent`](./AgentComponent), where attaching is enough.
+The `OnMissionTick` half is the point of this pattern: because the base class has no `OnTick`, someone has to drive the controller. That someone is a mission behavior, which means the controller's per-frame cost is opt-in rather than automatic — the opposite of [`AgentComponent`](../AgentComponent), where attaching is enough.
 
 ## Risks and boundaries
 
@@ -148,7 +152,7 @@ The `OnMissionTick` half is the point of this pattern: because the base class ha
 
 - **Host:** [`Agent`](../../mission/Agent) owns the controller list; `AddController(Type)`, `RemoveController(Type)`, and `GetController<T>()` are the three operations that matter.
 - **Reflection constraint:** the activator requirement comes from `Agent.AddController`, not from this file — read both together.
-- **Sibling pattern:** [`AgentComponent`](./AgentComponent) is the push-based counterpart; same attachment lifetime, opposite call direction.
+- **Sibling pattern:** [`AgentComponent`](../AgentComponent) is the push-based counterpart; same attachment lifetime, opposite call direction.
 - **Reference implementations:** `ArcheryTournamentAgentController`, `JoustingAgentController`, and `TownHorseRaceAgentController` in the SandBox tournaments module are the only in-tree subclasses and all follow the public-parameterless-constructor shape.
-- **Mission data:** [`Mission`](../../mission/Mission) is assigned by the attach path, which is why [`AgentCommonAILogic`](./AgentCommonAILogic) can resolve mission behaviors the same way.
+- **Mission data:** [`Mission`](../../mission/Mission) is assigned by the attach path, which is why [`AgentCommonAILogic`](../AgentCommonAILogic) can resolve mission behaviors the same way.
 - Bucket home: [mission-ext API section](../)

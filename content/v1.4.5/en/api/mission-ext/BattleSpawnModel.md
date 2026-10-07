@@ -42,6 +42,10 @@ Finally: the resolution path. `MissionGameModels.BattleSpawnModel` is resolved t
 | `BaseModel` (inherited) | `protected BattleSpawnModel BaseModel { get; private set; }` | The model registered before this one, injected by `MBGameModel<T>.Initialize`. **Not** `base.` — both abstract methods forbid that. Delegating through `BaseModel.GetInitialSpawnAssignments(...)` and then adjusting the result is the only composition route. |
 | Return shape | `List<(IAgentOriginBase origin, int formationIndex)>` | A list of pairs, so an origin can appear once while a formation index appears many times, and ordering is meaningful to the caller. **No uniqueness or completeness guarantee**: an empty list, a partial list, and a duplicated index are all representable and none is rejected here. |
 
+## Dead members and traps
+
+Dead-member status on this page is unknown: every member here falls under UNSUPPORTED (ambiguous multiple declarers, among other causes), so the call-site count must not be read as a conclusion; no call site could be confirmed by an independent probe this pass.
+
 ## Real example
 
 Registering a replacement — the only public entry point is `IGameStarter.AddModel<T>`:
@@ -129,10 +133,10 @@ That last block is illustrative only. `Mission` exposes no `GetTroopOrigins` acc
 ## Dependencies
 
 - **Resolution:** [`MissionGameModels`](../MissionGameModels) exposes `BattleSpawnModel`; `GameModelsManager.GetGameModel<T>` picks the last-registered instance.
-- **Injection:** [`IGameStarter`](../../core/IGameStarter) `AddModel<T>` is the only registration surface and what populates `BaseModel`.
+- **Injection:** [`IGameStarter`](../../core-extra/IGameStarter) `AddModel<T>` is the only registration surface and what populates `BaseModel`.
 - **Input type:** [`IAgentOriginBase`](../../core-extra/IAgentOriginBase) identifies the troop origin being placed; [`BattleSideEnum`](../../core-extra/BattleSideEnum) says which side is being assigned.
-- **Spawn consumer:** [`BattleDeploymentMissionController`](./BattleDeploymentMissionController) performs the deployment, while [`BattleSpawnLogic`](./BattleSpawnLogic) prunes the scene's spawnpoint sets before it.
-- **Callers:** [`MissionBattleSideSpawnContext`](./MissionBattleSideSpawnContext) is the only in-tree caller of both methods, and it supplies the troop lists.
+- **Spawn consumer:** [`BattleDeploymentMissionController`](../BattleDeploymentMissionController) performs the deployment, while [`BattleSpawnLogic`](../BattleSpawnLogic) prunes the scene's spawnpoint sets before it.
+- **Callers:** [`MissionBattleSideSpawnContext`](../MissionBattleSideSpawnContext) is the only in-tree caller of both methods, and it supplies the troop lists.
 - **Formation layer:** [`Formation`](../../mission/Formation) is what the returned `formationIndex` addresses.
 - **Sibling model:** [`AgentStatCalculateModel`](../AgentStatCalculateModel) is the other dense `MBGameModel<T>` in this namespace and follows the same registration pattern.
 - Bucket home: [mission-ext API section](../)

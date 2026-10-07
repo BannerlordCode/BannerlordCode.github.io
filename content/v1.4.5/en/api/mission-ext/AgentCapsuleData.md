@@ -19,7 +19,7 @@ It carries the two collision capsules — one for a standing body, one for a cro
 
 The whole type is ten lines and two fields. Read it as **a pair of collision volumes, not a data model**. `BodyCap` is the capsule used when the agent is standing; `CrouchedBodyCap` is the one used when it crouches. Both are of type `TaleWorlds.Engine.CapsuleData`, which is the engine's own capsule record, not a managed type declared in this assembly.
 
-Where the values come from is the useful part. `MonsterExtensions.FillCapsuleData(this Monster monster)` at `MonsterExtensions.cs:124` is the only producer. It does **not** read the capsule numbers off `Monster` directly — it casts `monster.MonsterMissionData` to `MonsterMissionData` and copies `BodyCapsule` and `CrouchedBodyCapsule` off that. The `MonsterMissionData` class (at `MonsterMissionData.cs:6`) is where the authored points and radius are finally assembled into a `CapsuleData`, and `Monster.MonsterMissionData` is itself lazy: it calls `Game.Current.MonsterMissionDataCreator.CreateMonsterMissionData(this)` on first access and caches the result. So the chain is `Monster` → `MonsterMissionData` → `CapsuleData` → `AgentCapsuleData`, with a creator hook in the middle. Contrast this with [`AgentSpawnData`](./AgentSpawnData), whose factory takes a `mountItem` and can therefore vary one field: this one takes nothing and varies nothing. Every capsule in the game is authored on the `Monster`.
+Where the values come from is the useful part. `MonsterExtensions.FillCapsuleData(this Monster monster)` at `MonsterExtensions.cs:124` is the only producer. It does **not** read the capsule numbers off `Monster` directly — it casts `monster.MonsterMissionData` to `MonsterMissionData` and copies `BodyCapsule` and `CrouchedBodyCapsule` off that. The `MonsterMissionData` class (at `MonsterMissionData.cs:6`) is where the authored points and radius are finally assembled into a `CapsuleData`, and `Monster.MonsterMissionData` is itself lazy: it calls `Game.Current.MonsterMissionDataCreator.CreateMonsterMissionData(this)` on first access and caches the result. So the chain is `Monster` → `MonsterMissionData` → `CapsuleData` → `AgentCapsuleData`, with a creator hook in the middle. Contrast this with [`AgentSpawnData`](../AgentSpawnData), whose factory takes a `mountItem` and can therefore vary one field: this one takes nothing and varies nothing. Every capsule in the game is authored on the `Monster`.
 
 One shape fact that changes how you read the fields: **`CapsuleData` has no height and no position.** Its own members are `P1` (`Vec3`), `P2` (`Vec3`), and `Radius` (`float`). A capsule is a line segment from `P1` to `P2` inflated by `Radius`. Standing versus crouched therefore differs in where the two endpoints sit and how fat the tube is, not in a single `Height` scalar. `MonsterMissionData` builds `BodyCapsule` from `Monster.BodyCapsuleRadius`, `BodyCapsulePoint1`, `BodyCapsulePoint2` and `CrouchedBodyCapsule` from the three matching `Crouched…` values — six authored numbers per monster, not two.
 
@@ -35,6 +35,15 @@ There is also no concept of "current" capsule on the struct. Which capsule appli
 | --- | --- | --- |
 | `BodyCap` | `public CapsuleData BodyCap` | The standing collision volume: a segment from `P1` to `P2` inflated by `Radius`. Because the endpoints are absolute points rather than a height plus an offset, moving `P1`/`P2` slides and tilts the whole volume — that is how a capsule stays aligned with a leaning or non-humanoid mesh instead of staying axis-aligned. `FillCapsuleData` reads it from `MonsterMissionData.BodyCapsule`. |
 | `CrouchedBodyCap` | `public CapsuleData CrouchedBodyCap` | The crouched volume, copied from `MonsterMissionData.CrouchedBodyCapsule`, which in turn is built from the monster's own `CrouchedBodyCapsuleRadius`, `CrouchedBodyCapsulePoint1`, and `CrouchedBodyCapsulePoint2`. It is authored independently: shortening `BodyCap` does not shorten `CrouchedBodyCap`, and the two can disagree in the source data. That divergence is invisible until an agent crouches and clips. |
+
+## Dead members and traps
+
+Both fields here look like unwired placeholders but both are referenced — and the inventory's call-site count is itself wrong.
+
+| `Member` | Declaration | override | Call sites | Verdict | Notes |
+|---|---|---:|---:|---|---|
+| `BodyCap` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentCapsuleData.cs:7 | 0 | 2 times (2 lines) | MEASURED | The entity collider. Inventory says 1; measured 2: passed as a `ref` argument to `CreateAgent` at Mission.cs:1636, and assigned by an object initializer at MonsterExtensions.cs:129. The undercount comes from initializer assignment not being call-shaped, not from lines-vs-occurrences. |
+| `CrouchedBodyCap` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentCapsuleData.cs:9 | 0 | 2 times (2 lines) | MEASURED | Crouched collider. Inventory says 1; measured 2: Mission.cs:1636 (same line as BodyCap) and MonsterExtensions.cs:130. Here the lines/occurrences delta is 0 — 3 and 3. |
 
 ## Real example
 
@@ -89,10 +98,10 @@ The class declaration line is also wrong C# — `MyBadCapsuleSwap(Agent agent)` 
 
 ## Dependencies
 
-- **Producer:** [`MonsterExtensions`](./MonsterExtensions) `FillCapsuleData(this Monster)` is the sole factory. It takes no arguments — every value comes off the monster's mission data.
-- **Assembly point:** [`MonsterMissionData`](./MonsterMissionData) casts to `MonsterMissionData` and builds each `CapsuleData` from three authored values on [`Monster`](../../core-extra/Monster); `Monster.MonsterMissionData` is created lazily through `Game.Current.MonsterMissionDataCreator`.
+- **Producer:** [`MonsterExtensions`](../MonsterExtensions) `FillCapsuleData(this Monster)` is the sole factory. It takes no arguments — every value comes off the monster's mission data.
+- **Assembly point:** [`MonsterMissionData`](../MonsterMissionData) casts to `MonsterMissionData` and builds each `CapsuleData` from three authored values on [`Monster`](../../core-extra/Monster); `Monster.MonsterMissionData` is created lazily through `Game.Current.MonsterMissionDataCreator`.
 - **Field type:** [`CapsuleData`](../../engine/CapsuleData) is declared in `TaleWorlds.Engine` and holds `P1`, `P2`, and `Radius`.
 - **Consumer:** [`Mission`](../../mission/Mission) `CreateAgent` (private) fills it and passes it by `ref` into the native `IMBMission.CreateAgent`.
-- **Sibling record:** [`AgentSpawnData`](./AgentSpawnData) travels through the identical native call, produced by the neighbouring `FillSpawnData` method.
+- **Sibling record:** [`AgentSpawnData`](../AgentSpawnData) travels through the identical native call, produced by the neighbouring `FillSpawnData` method.
 - **Resulting agent:** [`Agent`](../../mission/Agent) owns the live collision volume that these two capsules initialise.
 - Bucket home: [mission-ext API section](../)

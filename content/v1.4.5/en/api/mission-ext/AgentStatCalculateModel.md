@@ -50,6 +50,16 @@ As with [`AgentApplyDamageModel`](../AgentApplyDamageModel), all eleven abstract
 | `GetMissionDebugInfoForAgent` | `public virtual string GetMissionDebugInfoForAgent(Agent agent)` | Debug string hook, defaulting to `"Debug info not supported in this model"`. Override it and the mission debug overlay gains per-agent stat text; leave it and the overlay shows the placeholder. |
 | `GetMeleeSkill` | `protected int GetMeleeSkill(Agent agent, WeaponComponentData equippedItem, WeaponComponentData secondaryItem)` | The weapon-to-skill mapping, and the subtlest method here. One-handed and polearm use their own skill; two-handed uses `TwoHanded` only when there is no secondary item and falls back to `OneHanded` when there is; anything else is treated as `OneHanded`; and an agent with no weapon at all uses `Athletics`. |
 
+## Dead members and traps
+
+Two abstract stat hooks have no call sites; one private field is a false positive.
+
+| `Member` | Declaration | override | Call sites | Verdict | Notes |
+|---|---|---:|---:|---|---|
+| `GetBreatheHoldMaxDuration` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentStatCalculateModel.cs:131 | 3 | 0 times (0 lines, re-verified) | MEASURED | Declaration plus 3 overrides exist, with 0 call sites. Same-family control: GetDismountResistance (:129), GetKnockBackResistance (:125) and GetSneakAttackMultiplier (:123) each show 4 occurrences = 3 overrides + 1 call site. This one shows 3 — the difference is precisely the missing call site. |
+| `GetMissionDebugInfoForAgent` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentStatCalculateModel.cs:133 | 1 | 0 times (0 lines, re-verified) | MEASURED | The inventory marks this UNSUPPORTED (B-2_AMBIGUOUS_DECLARERS). This re-check finds B-2 vacuous here — both occurrences in the tree are declarations themselves (this `virtual` plus the override at SandboxAgentStatCalculateModel.cs:596), so there is no call site to attribute and the blind spot has nothing to act on. The verdict therefore differs from the inventory, and is disclosed as such. |
+| `_AILevelMultiplier` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentStatCalculateModel.cs:12 | 0 | 4 times (4 lines) | MEASURED | The inventory reports "0 call sites" — a tool blind spot, **not** a dead member. Written by `SetAILevelMultiplier` (:143) and read twice inside `CalculateAILevel`. A bare field read is not call-shaped, so the tool scores it 0. |
+
 ## Real example
 
 Registering a replacement — `IGameStarter.AddModel<T>` is the only injection surface, and `GetGameModel<T>` scans backwards so the last registration wins:
@@ -139,7 +149,7 @@ Passing `null` for the weapon is legal — `GetWeaponInaccuracy` checks `weapon.
 - **Output:** [`AgentDrivenProperties`](../AgentDrivenProperties) is the 98-slot block this model fills; `InitializeDrivenProperties` and `UpdateDrivenProperties` are the two `internal` callers that invoke it.
 - **Host:** [`Agent`](../../mission/Agent) allocates the stat block during creation and drives the periodic refresh.
 - **Resolution:** [`MissionGameModels`](../MissionGameModels) exposes the live instance; `GameModelsManager.GetGameModel<T>` picks the last-registered one.
-- **Injection:** [`IGameStarter`](../../core/IGameStarter) `AddModel<T>` is the only registration surface and what populates `BaseModel`.
-- **Inputs:** [`AgentBuildData`](./AgentBuildData), [`Equipment`](../../core-extra/Equipment), [`SkillObject`](../../core-extra/SkillObject), [`WeaponComponentData`](../../core-extra/WeaponComponentData), and `DefaultSkills` supply the raw material.
+- **Injection:** [`IGameStarter`](../../core-extra/IGameStarter) `AddModel<T>` is the only registration surface and what populates `BaseModel`.
+- **Inputs:** [`AgentBuildData`](../AgentBuildData), [`Equipment`](../../core-extra/Equipment), [`SkillObject`](../../core-extra/SkillObject), [`WeaponComponentData`](../../core-extra/WeaponComponentData), and `DefaultSkills` supply the raw material.
 - **Consumer:** [`AgentApplyDamageModel`](../AgentApplyDamageModel) reads the weapon damage, stealth, and resistance results this model produces.
 - Bucket home: [mission-ext API section](../)

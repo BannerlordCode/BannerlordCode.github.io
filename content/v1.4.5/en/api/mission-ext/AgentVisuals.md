@@ -52,6 +52,20 @@ The rest splits cleanly: **frame and body** (`GetFrame`, `GetBodyProperties`, `S
 | `Random*Range` constants | `public const float RandomGlossinessRange = 0.05f`, `RandomClothingColor1HueRange = 4f`, and five siblings | The bounds used when randomising a visual's appearance. They are `public const`, so a mod can read the actual ranges instead of guessing, and `GetRandomClothingColors(seed, color1, color2, out color1, out color2)` is the deterministic, seed-driven version — the same seed gives the same colours, which matters for network consistency. |
 | `SetClothWindToWeaponAtIndex` | `public void SetClothWindToWeaponAtIndex(Vec3 localWindVector, bool isLocal, EquipmentIndex weaponIndex)` | Pushes wind into the cloth simulation for one weapon slot. Per-slot, `isLocal` aware, and a good example of a member that only makes sense with the native simulation running. |
 
+## Dead members and traps
+
+These 7 `public const` values are reported as having 0 call sites, and no reference could be reproduced. No conclusion is drawn — that is not the same as "confirmed unused".
+
+| `Member` | Declaration | override | Call sites | Verdict | Notes |
+|---|---|---:|---:|---|---|
+| `RandomGlossinessRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:13 | — | — | UNSUPPORTED | `public const float` bounding the randomness of the look. **No reference could be reproduced; no conclusion is drawn.** |
+| `RandomClothingColor1HueRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:15 | — | — | UNSUPPORTED | `public const float` bounding the randomness of the look. **No reference could be reproduced; no conclusion is drawn.** |
+| `RandomClothingColor1SaturationRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:17 | — | — | UNSUPPORTED | `public const float` bounding the randomness of the look. **No reference could be reproduced; no conclusion is drawn.** |
+| `RandomClothingColor1BrightnessRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:19 | — | — | UNSUPPORTED | `public const float` bounding the randomness of the look. **No reference could be reproduced; no conclusion is drawn.** |
+| `RandomClothingColor2HueRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:21 | — | — | UNSUPPORTED | `public const float` bounding the randomness of the look. **No reference could be reproduced; no conclusion is drawn.** |
+| `RandomClothingColor2SaturationRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:23 | — | — | UNSUPPORTED | `public const float` bounding the randomness of the look. **No reference could be reproduced; no conclusion is drawn.** |
+| `RandomClothingColor2BrightnessRange` | Modules.Native/TaleWorlds.MountAndBlade.View/TaleWorlds.MountAndBlade.View/AgentVisuals.cs:25 | — | — | UNSUPPORTED | `public const float` bounding the randomness of the look. **No reference could be reproduced; no conclusion is drawn.** |
+
 ## Real example
 
 Creating a visual from data, which is the entry point a mod can actually reach. Note the skeleton is a real `SkeletonType` member:
@@ -165,10 +179,10 @@ Copy-constructing from the snapshot and then changing two values is the pattern 
 ## Dependencies
 
 - **Interface:** [`IAgentVisual`](../IAgentVisual) is the contract this class implements; use the interface in your own code rather than the concrete type.
-- **Factory:** [`AgentVisualsCreator`](./AgentVisualsCreator) is the `IAgentVisualCreator` implementation whose only job is to call `AgentVisuals.Create`.
-- **Configuration record:** [`AgentVisualsData`](./AgentVisualsData) is the mutable builder that describes everything `Create` and `Refresh` consume.
+- **Factory:** [`AgentVisualsCreator`](../AgentVisualsCreator) is the `IAgentVisualCreator` implementation whose only job is to call `AgentVisuals.Create`.
+- **Configuration record:** [`AgentVisualsData`](../AgentVisualsData) is the mutable builder that describes everything `Create` and `Refresh` consume.
 - **Native handle:** [`MBAgentVisuals`](../MBAgentVisuals) is the engine object this class wraps.
 - **Scene binding:** [`GameEntity`](../../engine/GameEntity), [`WeakGameEntity`](../../engine/WeakGameEntity), and [`Scene`](../../engine/Scene) supply the attachment point and the frame space.
-- **Anthropometrics:** [`AgentSpawnData`](./AgentSpawnData) and [`BodyProperties`](../../core-extra/BodyProperties) describe the body this visual renders.
+- **Anthropometrics:** [`AgentSpawnData`](../AgentSpawnData) and [`BodyProperties`](../../core-extra/BodyProperties) describe the body this visual renders.
 - **Attachment helper:** [`HumanBone`](../../core-extra/HumanBone) names the bone sockets the prefam-add members target; [`CompositeComponent`](../../engine/CompositeComponent) is what they return.
 - Bucket home: [mission-ext API section](../)

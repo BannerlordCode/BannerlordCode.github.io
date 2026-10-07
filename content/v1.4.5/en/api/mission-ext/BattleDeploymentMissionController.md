@@ -55,6 +55,14 @@ The `in` parameters are a genuine constraint to be aware of: `TrySetFormationFra
 | `BeforeDeploymentFinished` | `protected override void BeforeDeploymentFinished()` | Only one statement: `base.Mission.IsTeleportingAgents = false`. The lower half of the teleport bracket, and the reason the flag is a bracket rather than a one-way switch. |
 | `AfterDeploymentFinished` | `protected override void AfterDeploymentFinished()` | Re-enables reinforcements and removes the deployment handler from the mission. Removing it here is why the handler must be resolved eagerly in `OnBehaviorInitialize` — after this point there is no way back to it. |
 
+## Dead members and traps
+
+The inventory reports `_battleDeploymentHandler` with 0 call sites; it is both written and read. Not a dead member.
+
+| `Member` | Declaration | override | Call sites | Verdict | Notes |
+|---|---|---:|---:|---|---|
+| `_battleDeploymentHandler` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/BattleDeploymentMissionController.cs:11 | 0 | 2 times (2 lines) | MEASURED | Assigned at :21 via `GetMissionBehavior<BattleDeploymentHandler>()`, then passed to `RemoveMissionBehavior` at :70 to deregister. A bare field read is not call-shaped, so the tool scores it 0. |
+
 ## Real example
 
 Driving the deployment from a subclass, which is what the `protected` field access is for:
@@ -115,10 +123,10 @@ That guard is not optional. A second controller will fight the first over `SetSp
 
 ## Dependencies
 
-- **Base contract:** [`DeploymentMissionController`](./DeploymentMissionController) defines the phase and the hook names (`OnAfterStart`, `OnSetupTeamsOfSide`, `OnSetupTeamsFinished`, `BeforeDeploymentFinished`, `AfterDeploymentFinished`) plus the `isPlayerAttacker` flag.
-- **Spawn collaborator:** [`DefaultBattleMissionAgentSpawnLogic`](./DefaultBattleMissionAgentSpawnLogic) supplies `SetSpawnTroops`, `SetReinforcementsSpawnEnabled`, and `OnSideDeploymentOver`; it is stored in a `protected` field.
-- **UI handler:** [`BattleDeploymentHandler`](./BattleDeploymentHandler) is resolved privately and removed when the phase ends.
+- **Base contract:** [`DeploymentMissionController`](../DeploymentMissionController) defines the phase and the hook names (`OnAfterStart`, `OnSetupTeamsOfSide`, `OnSetupTeamsFinished`, `BeforeDeploymentFinished`, `AfterDeploymentFinished`) plus the `isPlayerAttacker` flag.
+- **Spawn collaborator:** [`DefaultBattleMissionAgentSpawnLogic`](../DefaultBattleMissionAgentSpawnLogic) supplies `SetSpawnTroops`, `SetReinforcementsSpawnEnabled`, and `OnSideDeploymentOver`; it is stored in a `protected` field.
+- **UI handler:** [`BattleDeploymentHandler`](../BattleDeploymentHandler) is resolved privately and removed when the phase ends.
 - **Mission state:** [`Mission`](../../mission/Mission) `IsTeleportingAgents`, `GetMissionBehavior<T>()`, `AddMissionBehavior`, `RemoveMissionBehavior`, `GetFormationSpawnFrame`, and `Teams` are the mission surfaces used here.
 - **Scene data:** [`Agent`](../../mission/Agent) `TrySetFormationFrame`, [`Team`](../Team) `GeneralAgent`, and [`Formation`](../../mission/Formation) frame placement.
-- **Scene-level spawn sets:** [`BattleSpawnLogic`](./BattleSpawnLogic) prunes the scene's spawnpoint sets in the same pre-mission window this controller runs in.
+- **Scene-level spawn sets:** [`BattleSpawnLogic`](../BattleSpawnLogic) prunes the scene's spawnpoint sets in the same pre-mission window this controller runs in.
 - Bucket home: [mission-ext API section](../)

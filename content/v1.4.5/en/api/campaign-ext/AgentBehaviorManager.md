@@ -13,7 +13,7 @@ description: "The Sandbox implementation of IAgentBehaviorManager — thirteen f
 
 ## Overview
 
-This class exists to satisfy one interface. Every method forwards to a matching static preset on [BehaviorSets](BehaviorSets) and does nothing else — there is no state, no branching, no error handling. Its value is that it gives the location-character creation code a single seam: `SandBoxManager.Instance.AgentBehaviorManager` returns one of these, and the engine hands it an `IAgent`, and the right preset gets installed.
+This class exists to satisfy one interface. Every method forwards to a matching static preset on [BehaviorSets](../BehaviorSets) and does nothing else — there is no state, no branching, no error handling. Its value is that it gives the location-character creation code a single seam: `SandBoxManager.Instance.AgentBehaviorManager` returns one of these, and the engine hands it an `IAgent`, and the right preset gets installed.
 
 The important detail, and the one most likely to waste an afternoon, is that **eleven of the thirteen methods are explicit interface implementations**. They are written `void IAgentBehaviorManager.AddWandererBehaviors(IAgent agent)` rather than `public void AddWandererBehaviors(...)`. In C# that means they are invisible on the concrete class — you cannot write `manager.AddWandererBehaviors(agent)` against a variable typed `AgentBehaviorManager`. Only two methods are genuinely public: `AddQuestCharacterBehaviors` and `AddFirstCompanionBehavior`.
 
@@ -108,8 +108,8 @@ The v1.4.5 file is 73 lines with thirteen methods and no fields. The public/expl
 ## Dependencies
 
 - Interface: `TaleWorlds.CampaignSystem.IAgentBehaviorManager` is the contract this class implements, and declaring your variable as it is what unlocks the eleven explicit methods.
-- Presets: [BehaviorSets](BehaviorSets) is where every one of the thirteen forwards lands, and that page documents what each preset actually installs.
-- Navigator: [CampaignAgentComponent](CampaignAgentComponent) supplies the navigator every preset requires, and must be constructed before any of these calls.
-- Behaviour contract: [AgentBehavior](AgentBehavior) is the base type of everything the presets install.
+- Presets: [BehaviorSets](../BehaviorSets) is where every one of the thirteen forwards lands, and that page documents what each preset actually installs.
+- Navigator: [CampaignAgentComponent](../CampaignAgentComponent) supplies the navigator every preset requires, and must be constructed before any of these calls.
+- Behaviour contract: [AgentBehavior](../AgentBehavior) is the base type of everything the presets install.
 - Entry point: `SandBoxManager.Instance.AgentBehaviorManager` is how the Sandbox module obtains this instance.
 - Bucket index: [campaign-ext API section](../)

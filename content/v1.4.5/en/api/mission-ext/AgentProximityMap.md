@@ -36,6 +36,16 @@ Two more mechanical details. `extendRangeByBiggestAgentCollisionPadding: true` a
 | `RefreshLastFoundAgent` | `internal void RefreshLastFoundAgent(Mission mission)` | Internal glue that re-resolves `LastFoundAgent` from `CurrentElementIndex` through `mission.FindAgentWithIndex`. Not callable from a mod. It exists because the engine struct stores an *index*, and indexes shift when agents are removed. |
 | `LoopAllAgents` / `LastAgentLoopIndex` / `SearchStructInternal` | `internal bool` / `internal int` / `internal struct` | All `internal`. `LoopAllAgents` is the branch flag; `LastAgentLoopIndex` is the cursor for the fallback path; `SearchStructInternal` is the engine's own search state. You can see them in a debugger, you cannot read them from another assembly. |
 
+## Dead members and traps
+
+These three look like internal plumbing but are heavily called — the classic "looks dead, is not" case.
+
+| `Member` | Declaration | override | Call sites | Verdict | Notes |
+|---|---|---:|---:|---|---|
+| `BeginSearch` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentProximityMap.cs:54 | 0 | 17 times (17 lines) | MEASURED | Entry point of proximity search, called from 17 sites (Mission.cs :4816/:5628/:6120, siege ladders, flag domination, StonePile, VolumeBox, …), each returning a `ProximityMapSearchStruct` for `FindNext` to iterate. |
+| `FindNext` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentProximityMap.cs:89 | 0 | 17 times (17 lines) | MEASURED | The iteration step paired with `BeginSearch`, with the same 17 call sites; the two always appear together. |
+| `CanSearchRadius` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentProximityMap.cs:48 | 0 | 1 time (1 line) | MEASURED | Its only call site is StonePile.cs:713, deciding whether an interaction radius is worth a proximity pass. Few call sites is not the same as dead. |
+
 ## Real example
 
 The correct shape: ask first, then loop until null.
@@ -163,5 +173,5 @@ public class MySafeSensor : MissionLogic
 - **Engine backing:** the engine-side grid state lives in `ProximityMapSearchStructInternal`, marked `[EngineStruct("Managed_proximity_map_search_struct", false, null)]`.
 - **Results:** [`Agent`](../../mission/Agent) objects come back through `AgentReadOnlyList`, and `IsActive()` is the filter you should apply.
 - **Callers:** [`Formation`](../../mission/Formation) and the agent AI components use this same cursor; it is shared infrastructure, not a per-mission private index.
-- **Sibling helper:** [`AgentVisualsData`](./AgentVisualsData) has nothing to do with this type despite the similar name — that one is about rendering, not proximity.
+- **Sibling helper:** [`AgentVisualsData`](../AgentVisualsData) has nothing to do with this type despite the similar name — that one is about rendering, not proximity.
 - Bucket home: [mission-ext API section](../)

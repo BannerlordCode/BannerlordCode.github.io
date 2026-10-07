@@ -49,6 +49,17 @@ Think of it as **the density knob panel of the bandit world**.
 | `GetMaximumTroopCountForHideoutMission` | Hideout mission assembly | Maximum garrison, branched on party and `isAssault` |
 | `IsPositionInsideNavalSafeZone` | `MobilePartyAi.cs:1327/1364` | Whether an AI waypoint sits in a naval safe zone |
 
+## How to use
+
+**How to obtain it.** **Read the active model — you cannot instantiate it.** `public abstract class BanditDensityModel : MBGameModel<BanditDensityModel>` is reached as `Campaign.Current.Models.BanditDensityModel`. To replace it you register your own `MBGameModel<BanditDensityModel>` during `OnGameInitialization` and implement every abstract member.
+
+```csharp
+BanditDensityModel density = Campaign.Current.Models.BanditDensityModel;
+// a custom model must be registered during OnGameInitialization — see the pitfall
+```
+
+**The most common pitfall.** **Returning null means a tree-wide NRE.** None of the thirty call sites null-checks `Campaign.Current.Models.BanditDensityModel`, so a bad registration crashes somewhere unrelated.
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

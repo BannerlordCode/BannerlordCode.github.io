@@ -30,9 +30,9 @@ First distinguish the two ends of the relation and the reason: use `ApplyPlayerR
 graph TD
     HERO[Hero] --> ACTION[ChangeRelationAction]
     ACTION --> REL[CharacterRelationManager]
-    ACTION --> FAMILY[亲属关系 / Clan]
-    ACTION --> EVENTS[CampaignEvents / 日志]
-    ACTION -. 不负责 .-> WAR[DeclareWarAction]
+    ACTION --> FAMILY[kinship / Clan]
+    ACTION --> EVENTS[CampaignEvents / log]
+    ACTION -. not responsible for .-> WAR[DeclareWarAction]
 ```
 
 - Upstream: [Hero](../../campaign/Hero) and quests / dialogue provide the two ends of the relation; [Campaign](../../campaign/Campaign) holds the relation manager.

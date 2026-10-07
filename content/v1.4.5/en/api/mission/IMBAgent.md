@@ -1,7 +1,8 @@
 ---
 title: "IMBAgent"
-description: "Auto-generated class reference for IMBAgent."
+description: "The internal native bridge behind the Agent class: the largest interface in the module, with 245 EngineMethods covering movement, state, AI, weapons, formation, animation channels and corpses. Most are reachable through the sealed public Agent class."
 ---
+
 # IMBAgent
 
 **Namespace:** TaleWorlds.MountAndBlade
@@ -12,19 +13,251 @@ description: "Auto-generated class reference for IMBAgent."
 
 ## Overview
 
-`IMBAgent` lives in `TaleWorlds.MountAndBlade` and exposes the state, behavior, or workflow entry points of that subsystem to mod developers through its public members. Read its properties as “what state it owns” and its methods as “what actions it allows”.
+`IMBAgent` is the managed-to-native seam for **the battle unit itself**. At 745 lines and 245 `[EngineMethod]` bindings it is by a wide margin the largest bridge in `TaleWorlds.MountAndBlade` — roughly three times `IMBAgentVisuals` and thirty times `IMBBannerlordConfig`. Its members fall into eight families: movement and locomotion, spatial queries, lifecycle and state flags, targeting and perception, formation and orders, weapon and equipment handling, animation-channel control, and ragdoll/corpse handling.
+
+The wrapper is [`Agent`](../Agent), which is `public sealed class Agent : DotNetObject, IAgent, IFocusable, IUsable, IFormationUnit, ITrackableBase` (`Agent.cs:14`). It contains 243 forward sites to `MBAPI.IMBAgent`. As with the other big bridge, the forward count and the member count do not line up — 243 forwards cover fewer than 245 members because several wrappers have overloads — and **eleven members have no forward at all**. They are listed explicitly in the table below rather than left for you to discover.
 
 ## Mental Model
 
-Start from namespace `TaleWorlds.MountAndBlade` to place it in the stack, then inspect its public methods: if it mainly exposes Get/Set members, it is likely a state object; if it centers on Create/Apply/Execute verbs, it behaves more like a service or workflow entry point.
+### What it is / which layer
 
-## Usage Example
+- It is **the simulation side of a unit**, as opposed to [`IMBAgentVisuals`](../IMBAgentVisuals), which is the presentation side. `GetPosition` (`IMBAgent.cs:171`) is where the simulation thinks the unit is; `IMBAgentVisuals.GetGlobalFrame` is where the renderer draws it. When they disagree, the cause is almost always an interpolation or tick-order issue, not a bug in either.
+- It is keyed on a **raw `UIntPtr agentPointer`**, not on an `Agent`. That is why a member like `Die(UIntPtr, ref Blow, sbyte)` (`IMBAgent.cs:105`) can kill a unit without holding a managed reference to it at all — and why every member here is unsafe against a stale pointer.
+- Read the interface as **a remote control with no safety features**. The overwhelming majority of members are `Set…` / `Get…` pairs with no validation, no guard, and no exception channel, and the pattern throughout is: managed object → `GetPtr()` → native call → raw value back (`Agent.cs:674`, `:684`, `:702`).
+
+### The two consequences that matter
+
+**First, `Agent` is `sealed`.** `public sealed class Agent` (`Agent.cs:14`) means you cannot subclass it to intercept or extend behaviour. Everything you want an agent to *do* has to be done by writing a `MissionBehavior` or `MissionLogic` that talks to it through its public properties and methods — you cannot add a virtual method to it and you cannot override its behaviour. This is the same conclusion the [`Mission`](../Mission) page reaches for the sealed `Mission` class, and it is the single most load-bearing constraint on this whole bucket.
+
+**Second, eleven members are declared and bound but never forwarded.** `GetLookAgent` (`IMBAgent.cs:51`), `GetTeam` (`:150`), `SetCourage` (`:156`), `GetPosition` (`:171`), `GetStateFlags` (`:237`), `GetMountAgent` (`:249`), `AddMeshToBone` (`:522`), `RemoveMeshFromBone` (`:525`), `IsRunningAway` (`:666`), `GetNativeActionIndex` (`:681`) and `GetMaximumNumberOfAgents` (`:723`) have **no forward in `Agent.cs`**. Most of them still have a managed caller elsewhere — `GetStateFlags` and `GetMountAgent` are exactly the kind of thing other engine code needs — so "not forwarded by `Agent`" means "not exposed as an `Agent` property", not "unreachable from the assembly". `GetMaximumNumberOfAgents()` (`:723`) takes no agent pointer at all and is the odd one out: it is a scene-wide query on an otherwise per-agent interface.
+
+### When to use / when not
+
+- **Use** through `Agent`'s public surface for everything a `MissionBehavior` needs: position, velocity, team, mount, target, AI state, action channels, equipment.
+- **Do NOT** try to extend `Agent`. It is `sealed` (`Agent.cs:14`). Write a `MissionBehavior` or `MissionLogic` instead and mutate the agent through its API.
+- **Do NOT** cache an `Agent` past mission end.** `Agent` is a `DotNetObject` (`Agent.cs:14`) over a native pointer; after teardown every call below is a use-after-free with no managed guard.
+
+## How to use
+
+**How to obtain it.** You cannot reference the interface: it is `internal` (`IMBAgent.cs:9`), the `MBAPI` field is `internal static` (`MBAPI.cs:12`), and `TaleWorlds.MountAndBlade` grants `InternalsVisibleTo` only to `TaleWorlds.MountAndBlade.AutoGenerated`, `TaleWorlds.MountAndBlade.Multiplayer` and `TaleWorlds.Generator.Bannerlord` (`TaleWorlds.MountAndBlade/Properties/AssemblyInfo.cs:8-10`).
+
+The door out is [`Agent`](../Agent), `public sealed class` at `Agent.cs:14`. You never construct one: agents are created by the mission from a `MissionInitializerRecord`, and you receive them through `Mission.Current.Agents` or through a behavior callback. The properties are one-line forwards — `public float AgentScale => MBAPI.IMBAgent.GetAgentScale(GetPtr());` at `Agent.cs:674` is the whole pattern.
+
+**A typical use.** Read and drive a unit from a mission behavior, going through the sealed `Agent`'s public surface:
 
 ```csharp
-// Usually obtained through DI or a factory method
-IIMBAgent service = ...;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public class EscortBehavior : MissionLogic
+{
+    public override void OnMissionTick(float dt)
+    {
+        base.OnMissionTick(dt);
+
+        Agent me = Mission.Current.MainAgent;
+        if (me == null)
+            return;
+
+        // Agent.cs:704 -> IMBAgent.cs:600. Managed Agent in, managed Agent out;
+        // the bridge hands back a managed object over the same native pointer.
+        Agent threat = me.ImmediateEnemy;
+        if (threat == null || threat.IsDead)
+            return;
+
+        // Agent.cs:684 -> IMBAgent.cs:555: where the simulation says it is.
+        // Compare against IMBAgentVisuals.GetGlobalFrame if the visual and the
+        // simulation disagree — that difference is the diagnostic, not a bug.
+        Debug.Print("threat at " + threat.VisualPosition, 0);
+        Debug.Print("my scale " + me.AgentScale, 0);
+    }
+}
 ```
 
-## See Also
+**What to watch out for.** The mistake that costs the most is reaching for something you saw on this interface and finding it is not on `Agent`. Eleven members are declared here and not forwarded (`GetPosition`, `GetStateFlags`, `GetTeam`, `GetMountAgent`, `GetLookAgent`, `SetCourage`, `IsRunningAway`, `AddMeshToBone`, `RemoveMeshFromBone`, `GetNativeActionIndex`, `GetMaximumNumberOfAgents`), so `agent.GetPosition()` — the obvious call — does not exist. `Agent` exposes `VisualPosition` (`Agent.cs:684`) and its own position surface instead. Check the member table below before writing the call, not after.
 
-- [Area Index](../)
+## Key members
+
+| Member | Signature | What it is for |
+| --- | --- | --- |
+| `GetMovementFlags` / `SetMovementFlags` | `Agent.MovementControlFlag GetMovementFlags(UIntPtr)` at `IMBAgent.cs:12` and `void SetMovementFlags(UIntPtr, Agent.MovementControlFlag)` at `IMBAgent.cs:15` | The agent's movement-control bitset — walk, run, strafe, guard direction and the rest, in one flag set rather than separate booleans. Forwarded as properties at `Agent.cs:937` and `Agent.cs:941`. Because it is one flags value, **setting one bit clobbers the others** unless you read-modify-write. |
+| `GetMovementInputVector` / `SetMovementInputVector` | `Vec2 GetMovementInputVector(UIntPtr)` `IMBAgent.cs:18` / `void SetMovementInputVector(UIntPtr, Vec2)` `IMBAgent.cs:21` | The desired movement direction as a 2D vector. Forwarded at `Agent.cs:949` and `Agent.cs:953`. This is *input intent*, not velocity — the agent still has to be able to move that way. |
+| `GetCollisionCapsule` | `void GetCollisionCapsule(UIntPtr, ref CapsuleData value)` `IMBAgent.cs:24` | The agent's physical collision shape. Forwarded at `Agent.cs:962`. **`ref` output with no return**, so the caller declares the variable; a fresh uninitialised local is the classic error when calling from inside the assembly. |
+| `GetPosition` / `SetPosition` | `Vec3 GetPosition(UIntPtr)` `IMBAgent.cs:171` and `void SetPosition(UIntPtr, ref Vec3 position)` `IMBAgent.cs:174` | Where the simulation thinks the agent is. **Neither is forwarded by `Agent.cs`** — verified by searching the whole 3000+-line file for `MBAPI.IMBAgent.GetPosition(`. This is the single most surprising gap on the interface, because it is the first thing anyone looks for. Use `Agent.VisualPosition` (`Agent.cs:684`) for presentation and the mission's own API for simulation truth. |
+| `GetWorldPosition` | `WorldPosition GetWorldPosition(UIntPtr agentPointer)` `IMBAgent.cs:417` | The agent's position as a `WorldPosition` — the type that also carries a face id, unlike a bare `Vec3`. This is the form navmesh and formation code uses, and it is the closer relative of the unforwarded `GetPosition`. |
+| `GetRotationFrame` | `void GetRotationFrame(UIntPtr, ref MatrixFrame outFrame)` `IMBAgent.cs:177` | The agent's orientation as a frame. Forwarded at `Agent.cs:928`. `ref` output; note it is a rotation frame, not a position frame. |
+| `GetStateFlags` / `SetStateFlags` | `AgentState GetStateFlags(UIntPtr)` `IMBAgent.cs:237` and `void SetStateFlags(UIntPtr, AgentState StateFlags)` `IMBAgent.cs:240` | The agent's lifecycle state — the value behind `AgentState.Active` / `Killed` / `Unconscious` / `Routed`. `GetStateFlags` is **not forwarded by `Agent.cs`**, though engine code inside the assembly uses it; the managed `Agent` exposes its own `State` property by another route. `SetStateFlags` writes the state wholesale, so it is the primitive behind death and removal. |
+| `Die` | `void Die(UIntPtr agentPointer, ref Blow b, sbyte overrideKillInfo)` `IMBAgent.cs:105` | Kill the agent with a specific `Blow`. Takes the blow **by `ref`**, so the caller supplies the full blow context, and an `sbyte` override for kill info. This is the low-level primitive; `HandleBlowAux` (`:630`) is the related entry that applies an incoming blow. Prefer `Agent.Kill` / `Agent.KillAgent` from mod code and drop to this only if you must supply an exact blow. |
+| `HandleBlowAux` | `void HandleBlowAux(UIntPtr agentPointer, ref Blow blow)` `IMBAgent.cs:630` | Applies an incoming blow to the agent's damage handling. `ref Blow` again, so the caller owns the struct's lifetime. This sits in the resolution path, which is why `MissionBehavior.OnAgentRemoved` is the safer mod-level entry point. |
+| `MakeDead` | `void MakeDead(UIntPtr agentPointer, bool isKilled, int actionIndex, int corpsesToFadeIndex)` `IMBAgent.cs:108` | Puts the agent into the dead state, choosing the death action index and the corpse fade variant. The `actionIndex` selects a death animation from the agent's action set, which is why it is an `int` and not a name — resolve it through [`IMBAnimation`](../IMBAnimation) or `ActionIndexCache` first. |
+| `StartRagdollAsCorpse` / `EndRagdollAsCorpse` / `IsAddedAsCorpse` / `AddAsCorpse` | `void StartRagdollAsCorpse(UIntPtr)` `IMBAgent.cs:216`, `void EndRagdollAsCorpse(UIntPtr)` `IMBAgent.cs:219`, `bool IsAddedAsCorpse(UIntPtr)` `IMBAgent.cs:222`, `void AddAsCorpse(UIntPtr)` `IMBAgent.cs:225` | The corpse-ragdoll lifecycle as four explicit steps: start the ragdoll, end it, ask whether the corpse is on the field, and add it. Having both `IsAddedAsCorpse` and `AddAsCorpse` means **`AddAsCorpse` is not idempotent** — call the query first, because nothing here protects against a double-add. |
+| `SetTargetAgent` / `GetTargetAgent` / `InvalidateTargetAgent` / `SetAutomaticTargetSelection` | `void SetTargetAgent(UIntPtr, int targetAgentIndex)` `IMBAgent.cs:135`, `Agent GetTargetAgent(UIntPtr)` `IMBAgent.cs:132`, `void InvalidateTargetAgent(UIntPtr)` `IMBAgent.cs:195`, `void SetAutomaticTargetSelection(UIntPtr, bool enable)` `IMBAgent.cs:213` region | Who this unit is trying to kill, and whether the engine is choosing for it. Note `SetTargetAgent` takes an **`int` index**, not an `Agent` — the native side addresses agents by index, and the index is what you get from `GetTargetAgent`'s counterpart `GetImmediateEnemy` (`IMBAgent.cs:600`). `InvalidateTargetAgent` drops the current target so the AI can re-choose, which is the correct call after changing teams or removing an enemy. |
+| `GetImmediateEnemy` | `Agent GetImmediateEnemy(UIntPtr agentPointer)` `IMBAgent.cs:600` | The unit this agent is currently engaged with, as a managed `Agent`. Forwarded as `public Agent ImmediateEnemy => MBAPI.IMBAgent.GetImmediateEnemy(GetPtr());` at `Agent.cs:704`. **This is the workhorse query on the whole interface** for targeting logic, and unlike `GetTargetAgent` it hands back a usable managed object. |
+| `IsEnemy` / `IsFriend` | `bool IsEnemy(UIntPtr, UIntPtr)` `IMBAgent.cs:72` and `bool IsFriend(UIntPtr, UIntPtr)` `IMBAgent.cs:75` | The relation between two agents, evaluated natively. Both take **two** pointers, so they are bridge-level relation queries rather than properties. They answer the same question as `Team.IsEnemyOf` on the managed side; prefer the `Team` comparison when you have teams, because it is public. |
+| `GetTeam` / `SetTeam` | `int GetTeam(UIntPtr)` `IMBAgent.cs:150` and `void SetTeam(UIntPtr, int teamIndex)` `IMBAgent.cs:153` | Which team the agent belongs to, as an index. **`GetTeam` is not forwarded by `Agent.cs`**; `SetTeam` is a write and is exposed through the managed `Agent`. Changing a team mid-battle invalidates enemy caches and AI targets — pair it with `ResetEnemyCaches` (`IMBAgent.cs:201`) and `InvalidateTargetAgent`. |
+| `ResetEnemyCaches` | `void ResetEnemyCaches(UIntPtr agentPointer)` `IMBAgent.cs:201` | Discards the agent's cached enemy list. **Call it after any change that makes the old cache wrong** — a team switch, a death, a teleport. Skipping it is how you get a unit that stubbornly chases someone who died three seconds ago. |
+| `GetMountAgent` / `SetMountAgent` / `GetRiderAgent` | `Agent GetMountAgent(UIntPtr)` `IMBAgent.cs:249`, `void SetMountAgent(UIntPtr, int mountAgentIndex)` `IMBAgent.cs:252`, `Agent GetRiderAgent(UIntPtr)` `IMBAgent.cs:255` | The mount/rider pair. `SetMountAgent` takes an **int index**, mirroring `SetTargetAgent`, while the getters return managed `Agent`s. `GetMountAgent` is **not forwarded by `Agent.cs`**. Note there is no `SetRiderAgent` — mounting is a one-way relationship set from the mount's side. |
+| `SetController` | `void SetController(UIntPtr agentPointer, AgentControllerType controller)` `IMBAgent.cs:258` | Who is driving this unit — a player, AI, or another agent's AI. Because `AgentControllerType` is declared as an engine struct in `AssemblyInfo.cs` (`TaleWorlds.MountAndBlade/Properties/AssemblyInfo.cs:13`), this crosses as a native enum, not a managed one. |
+| `SetInitialFrame` | `void SetInitialFrame(UIntPtr, in Vec3 initialPosition, in Vec2 initialDirection, bool canSpawnOutsideOfMissionBoundary)` `IMBAgent.cs:261` | Places a freshly created agent at a spawn position and facing. The `canSpawnOutsideOfMissionBoundary` flag is the only way to spawn outside the scene bounds, and it is the kind of flag that produces units stuck in geometry when misused. |
+| `SetAgentScale` / `GetAgentScale` | `void SetAgentScale(UIntPtr, float scale)` `IMBAgent.cs:330` and `float GetAgentScale(UIntPtr)` `IMBAgent.cs:540` | Uniform body scaling. `GetAgentScale` is forwarded as `public float AgentScale => MBAPI.IMBAgent.GetAgentScale(GetPtr());` (`Agent.cs:674`). Scaling an agent does not scale its collision capsule or its weapon meshes consistently — a giant agent can still have a small hitbox unless the surrounding systems are scaled too. |
+| `GetVisualPosition` | `Vec3 GetVisualPosition(UIntPtr agentPointer)` `IMBAgent.cs:555` | Where the agent **appears** to be, which is not necessarily `GetPosition`. Forwarded as `public Vec3 VisualPosition => MBAPI.IMBAgent.GetVisualPosition(GetPtr());` (`Agent.cs:684`). **This pair is the most useful diagnostic on the interface**: when visuals and simulation disagree, comparing them localises the problem to tick order or interpolation. |
+| `GetAIStateFlags` / `SetAIStateFlags` / `SetAIAlarmState` / `ForceAiBehaviorSelection` | `Agent.AIStateFlag GetAIStateFlags(UIntPtr)` `IMBAgent.cs:516`, `void SetAIStateFlags(UIntPtr, Agent.AIStateFlag)` `IMBAgent.cs:522` region, `void SetAIAlarmState(UIntPtr, Agent.AIStateFlag)` `IMBAgent.cs:519`, `void ForceAiBehaviorSelection(UIntPtr)` `IMBAgent.cs:393` | What the unit's AI currently knows and intends. Forwarded via the `AIState` property at `Agent.cs:915` / `Agent.cs:919`. `ForceAiBehaviorSelection` makes the AI re-decide next tick rather than continuing what it was doing, which is the tool for "this unit should react to what just changed". |
+| `SetAIBehaviorParams` / `SetAllAIBehaviorParams` | `void SetAIBehaviorParams(UIntPtr, int behavior, float y1, float x2, float y2, float x3, float y3)` `IMBAgent.cs:714` and `void SetAllAIBehaviorParams(UIntPtr, HumanAIComponent.BehaviorValues[] behaviorParams)` `IMBAgent.cs:717` | Tuning AI aggressiveness. `SetAIBehaviorParams` takes **five unnamed floats** after a behaviour index (`y1, x2, y2, x3, y3` — note the inconsistent `y`/`x` spelling in the source) — what each one means is defined by the native AI code, not by the API, so a mod that assumes "y1 is aggression" is guessing. `SetAllAIBehaviorParams` takes the struct array instead and is the safer overload. |
+| `IsRunningAway` | `bool IsRunningAway(UIntPtr agentPointer)` `IMBAgent.cs:666` | Whether the unit is fleeing. **Not forwarded by `Agent.cs`**, so `agent.IsRunningAway()` does not exist on the managed class. It is one of the eleven declared-but-unforwarded members. |
+| `SetCourage` | `void SetCourage(UIntPtr agentPointer, float courage)` `IMBAgent.cs:156` | How much the unit will hold its ground. **Not forwarded by `Agent.cs`.** Courage is written here but there is no matching getter on this interface, so the value is set-and-forget from the managed side. |
+| `GetLookAgent` / `SetLookAgent` | `Agent GetLookAgent(UIntPtr)` `IMBAgent.cs:51` and `void SetLookAgent(UIntPtr, UIntPtr lookAtAgentPointer)` `IMBAgent.cs:48` | Which other unit this one is looking at, distinct from its *target*. `GetLookAgent` is **not forwarded by `Agent.cs`**. Keeping look and target separate is what lets a unit watch one thing while attacking another. |
+| `GetLookDirection` / `SetLookDirection` | `Vec3 GetLookDirection(UIntPtr)` `IMBAgent.cs:162` and `void SetLookDirection(UIntPtr, Vec3 lookDirection)` `IMBAgent.cs:165` | The unit's gaze direction as a world vector. Related but separate from `SetLookToPointOfInterest` (`IMBAgent.cs:141`), which points at a world position rather than another agent. |
+| `SetFormationInfo` / `SetFormationNo` / `SetFiringOrder` / `SetRidingOrder` / `SetRetreatMode` / `IsRetreating` | `SetFormationInfo(UIntPtr, int fileIndex, int rankIndex, int fileCount, int rankCount, int unitCount, Vec2 wallDir, int unitSpacing)` `IMBAgent.cs:474`, `void SetFormationNo(UIntPtr, int formationNo)` `IMBAgent.cs:693`, `void SetFiringOrder(UIntPtr, int order)` `IMBAgent.cs:699`, `void SetRidingOrder(UIntPtr, int order)` `IMBAgent.cs:702`, `void SetRetreatMode(UIntPtr, WorldPosition retreatPos, bool retreat)` `IMBAgent.cs:477`, `bool IsRetreating(UIntPtr)` `IMBAgent.cs:480` | The orders layer: where in the formation this unit stands, whether it fires on command, whether it is mounted for the order, and where it retreats to. `SetFormationInfo` takes file/rank indices and a wall direction — **the formation shape is expressed as indices into a template**, so writing sensible values requires knowing the template the mission is using. `IsRetreating` and the fading queries around it (`IMBAgent.cs:483-486`) are `ref`-free pure reads. |
+| `SetTargetPosition` / `SetTargetPositionAndDirection` / `ClearTargetFrame` / `SetTargetZ` / `ClearTargetZ` / `SetTargetUp` / `GetTargetDirection` | `void SetTargetPosition(UIntPtr, ref Vec2)` `IMBAgent.cs:480` region through `void ClearTargetFrame(UIntPtr)` `IMBAgent.cs:492` region | The destination/aim frame a unit is moving or aiming toward, maintained as a small struct: position, optional Z, optional up vector. The `SetTargetZ` / `ClearTargetZ` / `SetTargetUp` trio exists because an unset component is meaningfully different from a zero one — `ClearTargetZ` is not the same as setting Z to 0. |
+| `AddAcceleration` | `void AddAcceleration(UIntPtr agentPointer, in Vec3 acceleration)` `IMBAgent.cs:501` region | Applies a one-off acceleration impulse. `in Vec3` rather than `ref`, so the value is passed by read-only reference and cannot be modified by the callee. |
+| `SetScriptedPosition` / `SetScriptedPositionAndDirection` / `DisableScriptedMovement` | `bool SetScriptedPosition(UIntPtr, ref WorldPosition targetPosition, bool addHumanLikeDelay, int additionalFlags)` `IMBAgent.cs:381`, `bool SetScriptedPositionAndDirection(UIntPtr, ref WorldPosition, float targetDirection, bool addHumanLikeDelay, int additionalFlags)` `IMBAgent.cs:378`, `void DisableScriptedMovement(UIntPtr)` `IMBAgent.cs:387` | **The scripting path**: moving a unit by fiat instead of by AI, for cutscenes and scripted sequences. Both setters return `bool`, so unlike almost everything else on this interface you learn whether the request was accepted. `addHumanLikeDelay` makes the unit walk at a natural pace rather than snapping, which is what stops scripted movement looking robotic. `DisableScriptedMovement` is the required cleanup — leave a unit under scripted movement and its AI never resumes. |
+| `SetActionChannel` | `bool SetActionChannel(UIntPtr, int channelNo, int actionNo, ulong additionalFlags, bool ignorePriority, float blendWithNextActionFactor, float actionSpeed, float blendInPeriod, float blendOutPeriodToNoAnim, float startProgress, bool useLinearSmoothing, float blendOutPeriod, bool forceFaceMorphRestart)` `IMBAgent.cs:453` | The most consequential single member on the interface: **force a particular action onto one of the agent's animation channels**. Thirteen parameters, and the two booleans are the ones that bite — `ignorePriority` lets you override the action priority system that the AI otherwise respects, and the blend parameters (`blendInPeriod`, `blendOutPeriod`, `blendWithNextActionFactor`) control how visible the transition is. Returns `bool`, so rejection is observable here. `actionNo` is an action index, not a name. |
+| `GetCurrentActionType` / `GetCurrentActionStage` / `GetCurrentActionProgress` / `GetCurrentActionPriority` / `GetCurrentActionDirection` | `int GetCurrentActionType(UIntPtr, int channelNo)` `IMBAgent.cs:432` and the siblings at `IMBAgent.cs:435`, `:447`, `:450`, `:438` | Read back what is actually playing on a given animation channel: its type, stage, progress (0..1), priority and direction. **Every one of these takes a `channelNo`**, and the same channel argument appears on `SetActionChannel` (`IMBAgent.cs:453`) and `TickActionChannels` (`IMBAgent.cs:459`) — the channel index is the unit of control on this interface, and using a different channel than the one you set is the most common mistake here. |
+| `SetCurrentActionProgress` | `void SetCurrentActionProgress(UIntPtr, int channelNo, float progress)` `IMBAgent.cs:450` | Scrubs a playing action to a given progress. Scrubbing an action backwards or outside its valid range produces a pose the animation system did not author. |
+| `SetCurrentActionSpeed` / `GetActionChannelWeight` / `GetActionChannelCurrentActionWeight` / `TickActionChannels` | `void SetCurrentActionSpeed(UIntPtr, int channelNo, float actionSpeed)` `IMBAgent.cs:456`, `float GetActionChannelWeight(UIntPtr, int channelNo)` `IMBAgent.cs:462`, `float GetActionChannelCurrentActionWeight(UIntPtr, int channelNo)` `IMBAgent.cs:465`, `void TickActionChannels(UIntPtr, float dt)` `IMBAgent.cs:459` | Channel-level rate and blend control. `TickActionChannels` is engine-driven; calling it yourself advances the channel state a second time per frame. |
+| `GetAnimationFlags` / `GetActionSetNo` / `SetActionSet` | `ulong GetCurrentAnimationFlags(UIntPtr, int channelNo)` `IMBAgent.cs:426`, `int GetActionSetNo(UIntPtr)` `IMBAgent.cs:462` region, `void SetActionSet(UIntPtr, ref AnimationSystemData)` `IMBAgent.cs:462` region | Which action set the unit runs on, and per-channel animation flags. `GetActionSetNo` is forwarded as `public MBActionSet ActionSet => new MBActionSet(MBAPI.IMBAgent.GetActionSetNo(GetPtr()));` (`Agent.cs:696`) — note the property **wraps the raw int in a new `MBActionSet` on every access**, so it allocates, and an invalid action-set number arrives as an invalid `MBActionSet` that you must check with `IsValid`. |
+| `WeaponEquipped` / `UpdateWeapons` / `ClearEquipment` / `TryToWieldWeaponInSlot` / `SetWeaponAmountInSlot` / `DropItem` | `void WeaponEquipped(UIntPtr, int equipmentSlot, in WeaponData, WeaponStatsData[], int, in WeaponData, WeaponStatsData[], int, UIntPtr weaponEntity, bool removeOldWeaponFromScene, bool isWieldedOnSpawn)` `IMBAgent.cs:264`, `void UpdateWeapons(UIntPtr)` `IMBAgent.cs:309`, `void ClearEquipment(UIntPtr)` `IMBAgent.cs:294`, `void TryToWieldWeaponInSlot(UIntPtr, int equipmentSlot, int type, bool isWieldedOnSpawn)` `IMBAgent.cs:300`, `void SetWeaponAmountInSlot(UIntPtr, int equipmentSlot, short amount, bool enforcePrimaryItem)` `IMBAgent.cs:288`, `void DropItem(UIntPtr, int itemIndex, int pickedUpItemType)` `IMBAgent.cs:279` | The equipment layer. `WeaponEquipped` carries the same four data/length pairs as `IMBGameEntityExtensions.CreateFromWeapon` (`IMBGameEntityExtensions.cs:11`) and `IMBAgentVisuals.AddWeaponToAgentEntity` (`IMBAgentVisuals.cs:84`), so the `WeaponData` managed-pointer lifetime rule applies here too. Note the naming is **from the equipment's point of view**: the agent is told a weapon was equipped in a slot, not asked to equip. `amount` is a `short`, so ammunition counts cap at 32767. |
+| `AttachWeaponToBone` / `DeleteAttachedWeaponFromBone` / `AttachWeaponToWeaponInSlot` | `void AttachWeaponToBone(UIntPtr, in WeaponData, WeaponStatsData[], int, UIntPtr weaponEntity, sbyte boneIndex, ref MatrixFrame attachLocalFrame)` `IMBAgent.cs:318`, `void DeleteAttachedWeaponFromBone(UIntPtr, int attachedWeaponIndex)` `IMBAgent.cs:324`, `void AttachWeaponToWeaponInSlot(UIntPtr, in WeaponData, WeaponStatsData[], int, UIntPtr weaponEntity, int slotIndex, ref MatrixFrame attachLocalFrame)` `IMBAgent.cs:327` | Attaching a weapon to a bone, to another weapon, or detaching it — the shield-on-arm and arrow-on-back cases. **The bone index is an `sbyte`**, so it caps at 127, and the three members are addressed differently (bone / `attachedWeaponIndex` / slot), which is why an index that works for one does not work for the others. |
+| `AddMeshToBone` / `RemoveMeshFromBone` | `void AddMeshToBone(UIntPtr, UIntPtr meshPointer, sbyte boneIndex)` `IMBAgent.cs:522` and `void RemoveMeshFromBone(UIntPtr, UIntPtr meshPointer, sbyte boneIndex)` `IMBAgent.cs:525` | Attach a raw mesh to a bone on the agent. **Neither is forwarded by `Agent.cs`** — verified by searching the file for `MBAPI.IMBAgent.AddMeshToBone(`. For raw mesh control the reachable path is [`IMBAgentVisuals`](../IMBAgentVisuals)'s prefab-by-bone members, and even there `AddMesh` itself has no managed caller (`IMBAgentVisuals.cs:60`). |
+| `AddPrefabToAgentBone` | `CompositeComponent AddPrefabToAgentBone(UIntPtr, string prefabName, sbyte boneIndex)` `IMBAgent.cs:528` | Attach a prefab to a bone by index, returning the `CompositeComponent` created. Unlike `AddMeshToBone` this returns a handle rather than `void`, so a failed resolution is observable — but it is addressed by raw index, whereas the visuals-side equivalent (`IMBAgentVisuals.cs:183`) can be addressed by the semantic `HumanBone` enum, which is the more robust of the two. |
+| `GetWieldedWeaponInfo` | `bool GetWieldedWeaponInfo(UIntPtr, int handIndex, ref bool isMeleeWeapon, ref bool isRangedWeapon)` `IMBAgent.cs:597` | Whether the weapon wielded in a given hand is melee, ranged, or neither. Three out-parameters including the return flag. This is the safe way to ask "can this unit shoot?" without assuming a weapon class. |
+| `GetCurrentGuardMode` / `GetDefendMovementFlag` / `GetAttackDirection` / `GetAttackDirectionUsage` / `SetWeaponGuard` | `Agent.GuardMode GetCurrentGuardMode(UIntPtr)` `IMBAgent.cs:585`, `Agent.MovementControlFlag GetDefendMovementFlag(UIntPtr)` `IMBAgent.cs:588`, `Agent.UsageDirection GetAttackDirection(UIntPtr)` `IMBAgent.cs:591`, `Agent.UsageDirection GetAttackDirectionUsage(UIntPtr)` `IMBAgent.cs:627`, `void SetWeaponGuard(UIntPtr, Agent.UsageDirection)` `IMBAgent.cs:189` | The combat-direction family. **Two near-identical members are easy to confuse**: `GetAttackDirection` (`:591`) and `GetAttackDirectionUsage` (`:627`) both return `Agent.UsageDirection` and the latter is the one forwarded as `public UsageDirection AttackDirection => MBAPI.IMBAgent.GetAttackDirectionUsage(GetPtr());` (`Agent.cs:714`). The source does not distinguish them, so which is authoritative is **UNRESOLVED**. |
+| `GetNativeActionIndex` | `int GetNativeActionIndex(string actionName)` `IMBAgent.cs:681` | Resolve an action name to a native action index. **Not forwarded by `Agent.cs`, and it is the only member on this interface that takes no agent pointer** — it is a pure name lookup, like `IMBAnimation.GetActionCodeWithName` (`IMBAnimation.cs:53`). Reach it through [`ActionIndexCache`](../ActionIndexCache) instead, which is the sanctioned public path for name-to-index. |
+| `GetMaximumNumberOfAgents` | `int GetMaximumNumberOfAgents()` `IMBAgent.cs:723` | The mission's agent capacity. **The only member with no `agentPointer` parameter at all**, and **not forwarded by `Agent.cs`**. Useful as a bound when you iterate agents rather than a per-agent fact, and a rare piece of mission-level information carried by an otherwise per-agent interface. |
+| `GetCurrentNavigationFaceId` / `HasPathThroughNavigationFaceIdFromDirection` / `CanMoveDirectlyToPosition` / `GetPathDistanceToPoint` / `IsTargetNavigationFaceIdBetween` | `int GetCurrentNavigationFaceId(UIntPtr)` `IMBAgent.cs:414`, `bool HasPathThroughNavigationFaceIdFromDirection(UIntPtr, int, ref Vec2)` `IMBAgent.cs:405`, `bool CanMoveDirectlyToPosition(UIntPtr, in Vec2)` `IMBAgent.cs:411`, `float GetPathDistanceToPoint(UIntPtr, ref Vec3)` `IMBAgent.cs:420`, `bool IsTargetNavigationFaceIdBetween(UIntPtr, int, int)` `IMBAgent.cs:417` | Navmesh questions asked *from* an agent: which face am I on, can I reach something, how far is it along a path, does the path cross a given face. These are the members that decide whether a scripted move will actually be possible — **a scripted position can be rejected because of the navmesh, and that is what the `bool` on `SetScriptedPosition` (`IMBAgent.cs:381`) is telling you.** |
+| `GetVisualStrengthOfAgentVisual` counterpart: `GetMovementVelocity` / `GetAverageVelocity` / `GetRealGlobalVelocity` / `GetCurrentVelocity` / `GetTurnSpeed` / `GetCurrentSpeedLimit` | `Vec2 GetMovementVelocity(UIntPtr)` `IMBAgent.cs:183`, `Vec3 GetAverageVelocity(UIntPtr)` `IMBAgent.cs:186`, `Vec3 GetRealGlobalVelocity(UIntPtr)` `IMBAgent.cs:354`, `Vec2 GetCurrentVelocity(UIntPtr)` `IMBAgent.cs:336`, `float GetTurnSpeed(UIntPtr)` `IMBAgent.cs:339`, `float GetCurrentSpeedLimit(UIntPtr)` `IMBAgent.cs:345` | The kinematics readouts. **Six different "velocity" and "speed" members exist**, and they are not interchangeable: `MovementVelocity` and `AverageVelocity` are forwarded (`Agent.cs:686`, `:688`) while `RealGlobalVelocity` and `CurrentVelocity` are not. Picking the wrong one is a silent behaviour difference, not an error. |
+| `GetSetMonoObject` — `SetMonoObject` | `void SetMonoObject(UIntPtr agentPointer, Agent monoObject)` `IMBAgent.cs:513` | **Back-links a native agent to its managed `Agent`.** Passing the managed object through a native call is what lets the engine hand you managed objects back later — which is exactly why `GetImmediateEnemy` (`IMBAgent.cs:600`) and `GetMountAgent` (`IMBAgent.cs:249`) return `Agent` rather than `UIntPtr`. Read this member as the explanation for the whole return-type pattern on the interface. |
+| `GetEyeGlobalPosition` / `GetChestGlobalPosition` / `GetEyeGlobalHeight` | `Vec3 GetEyeGlobalPosition(UIntPtr)` `IMBAgent.cs:519`, `Vec3 GetChestGlobalPosition(UIntPtr)` `IMBAgent.cs:522` region, `float GetEyeGlobalHeight(UIntPtr)` `IMBAgent.cs:180` region | The three anatomy anchors used for aiming and camera. Note the parallel on the visuals side — `IMBAgentVisuals.GetGlobalStableEyePoint` (`IMBAgentVisuals.cs:162`) — and the difference: the simulation anchors move with the head, the visuals anchors are the "stable" ones that do not. Choosing the wrong one makes a camera shake. |
+
+Members a reader might expect and their verified status:
+
+| Absent member | Status | Why it is absent |
+| --- | --- | --- |
+| A `Dispose` / release member | **UNRESOLVED — absent in v1.4.5** | `IMBAgent.cs` declares 245 `EngineMethod` attributes, none of which destroys an agent. Removal is `Mission`'s job; `MissionBehavior.OnAgentRemoved` is the mod-level entry point. |
+| A health / hit-points accessor | **UNRESOLVED — absent in v1.4.5** | Searched the full file: no member returns hit points. Damage lives in `TaleWorlds.Core`'s `Health` component, not on this bridge. |
+| An `IsMounted` / `IsLeftStance` property | **UNRESOLVED — does not exist** | No such member on this interface. `GetIsLeftStance(UIntPtr)` exists at `IMBAgent.cs:192` on the bridge, but it is **not forwarded by `Agent.cs`**, so `agent.IsLeftStance` does not exist on the managed class. |
+| Any public path to the eleven unforwarded members | **UNRESOLVED — no forward in `Agent.cs`** | `GetLookAgent` (`:51`), `GetTeam` (`:150`), `SetCourage` (`:156`), `GetPosition` (`:171`), `GetStateFlags` (`:237`), `GetMountAgent` (`:249`), `AddMeshToBone` (`:522`), `RemoveMeshFromBone` (`:525`), `IsRunningAway` (`:666`), `GetNativeActionIndex` (`:681`), `GetMaximumNumberOfAgents` (`:723`). Verified by searching the complete `Agent.cs` for each `MBAPI.IMBAgent.<Name>(` forward. |
+
+## Examples
+
+Read the units on the field through the sealed `Agent`'s public surface, with the liveness check the bridge does not provide:
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public class PerimeterWatch : MissionLogic
+{
+    public override void OnMissionTick(float dt)
+    {
+        base.OnMissionTick(dt);
+
+        foreach (Agent agent in Mission.Current.Agents)
+        {
+            // The bridge has no validity member, so check the managed state.
+            if (agent == null || agent.State != AgentState.Active)
+                continue;
+
+            // Agent.cs:684 -> IMBAgent.cs:555.
+            // Compare with the simulation position if these two disagree.
+            Debug.Print(agent.Name + " visual at " + agent.VisualPosition, 0);
+        }
+    }
+}
+```
+
+Find this unit's immediate enemy — the workhorse query, and the one that returns a usable managed object:
+
+```csharp
+using TaleWorlds.MountAndBlade;
+
+public static class ThreatCheck
+{
+    public static bool IsInCombat(Agent agent)
+    {
+        // Agent.cs:704 -> IMBAgent.cs:600.
+        // GetTargetAgent (IMBAgent.cs:132) is a different question — what the
+        // AI selected — and it is NOT forwarded by Agent.cs.
+        Agent enemy = agent.ImmediateEnemy;
+        return enemy != null && !enemy.IsDead;
+    }
+}
+```
+
+Compare the two position views, which is the diagnostic when visuals and simulation disagree:
+
+```csharp
+using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade;
+
+public static class PositionDebug
+{
+    public static void Compare(Agent agent)
+    {
+        MBAgentVisuals visuals = agent.GetAgentVisuals();
+        if (visuals == null || !visuals.IsValid)
+            return;
+
+        MatrixFrame visualFrame = new MatrixFrame();
+        visuals.GetGlobalFrame(visualFrame);   // IMBAgentVisuals.cs:141
+
+        Vec3 visualPos = visualFrame.GetPosition();
+        Vec3 visualPosition = agent.VisualPosition;   // IMBAgent.cs:555
+
+        Debug.Print("visual frame origin:  " + visualPos, 0);
+        Debug.Print("agent VisualPosition: " + visualPosition, 0);
+        // If these differ, the cause is tick order or interpolation between the
+        // simulation and the renderer — not a mistake in either call.
+    }
+}
+```
+
+And the call everyone tries, marked as the compile error it is:
+
+```csharp
+using TaleWorlds.MountAndBlade;
+
+public static class PositionAttempt
+{
+    public static void TryIt(Agent agent)
+    {
+        // WRONG on two counts:
+        //  1. `agent.GetPosition()` does not exist. IMBAgent.cs:171 declares
+        //     GetPosition, but Agent.cs has no forward for it.
+        //  2. `MBAPI.IMBAgent.GetPosition(...)` does not compile either —
+        //     error CS0122, IMBAgent is internal.
+        //
+        // USE: agent.VisualPosition (Agent.cs:684), or your own tracked
+        // position, or the mission's navmesh API.
+    }
+}
+```
+
+## Risks and crash boundaries
+
+- **A mod cannot name the interface.** `internal interface` (`IMBAgent.cs:9`) plus `internal static MBAPI` field (`MBAPI.cs:12`) plus `InternalsVisibleTo` limited to three TaleWorlds assemblies (`TaleWorlds.MountAndBlade/Properties/AssemblyInfo.cs:8-10`). Compile-time failure.
+- **`Agent` is `sealed`; you cannot subclass it.** `public sealed class Agent` (`Agent.cs:14`). The whole `MissionBehavior` / `MissionLogic` pattern exists because of this, and any plan that says "extend Agent" is wrong before it starts.
+- **Eleven members are declared but not forwarded.** Listed in the table above and each verified by searching the complete `Agent.cs`. The most damaging is `GetPosition` (`IMBAgent.cs:171`) — the obvious call does not exist. `GetStateFlags` (`:237`), `GetTeam` (`:150`) and `GetMountAgent` (`:249`) are the next most likely to be assumed.
+- **No validity member anywhere.** Nothing on this interface answers "is this agent still alive natively". `Agent` is a `DotNetObject` (`Agent.cs:14`), so after `EndMissionInternal` every call here is a use-after-free. Check `agent.State` before use, and never cache an `Agent` across missions.
+- **Almost no failure channel.** Nearly every member returns `void`, a raw value, or a `bool` that means "did the native accept this" rather than "is my input valid". The members that do return `bool` — `SetActionChannel` (`IMBAgent.cs:453`), `SetScriptedPosition` (`:381`), `SetScriptedPositionAndDirection` (`:378`), `GetWieldedWeaponInfo` (`:597`) — are the exceptions worth checking.
+- **Integer indices, not object references.** `SetTargetAgent` (`:135`) and `SetMountAgent` (`:252`) take `int` indices; `TryToWieldWeaponInSlot` (`:300`) and `SetWeaponAmountInSlot` (`:288`) take slot and type ints; `GetNativeActionIndex` (`:681`) resolves a name to an int. **Indices go stale** when the agent set changes, and nothing validates them.
+- **`sbyte` caps at 127.** `AddMeshToBone` (`:522`), `RemoveMeshFromBone` (`:525`) and `AttachWeaponToBone` (`:318`) all take a `sbyte boneIndex`, so a bone index that would not fit arrives as a negative number indistinguishable from a miss.
+- **`SetActionChannel` has thirteen parameters and two dangerous booleans.** `ignorePriority` (`IMBAgent.cs:453`) overrides the priority system the AI depends on, and the blend parameters control how visible the change is. This is the member most likely to produce "why is my unit snapping" reports.
+- **Leaving scripted movement on kills the AI.** `DisableScriptedMovement` (`IMBAgent.cs:387`) is not optional cleanup; a unit left scripted ignores formation and AI decisions until something turns it off.
+- **Stale caches after world changes.** `ResetEnemyCaches` (`:511`) and `InvalidateTargetAgent` (`:502`) must be called after a team switch, death or teleport, or the unit keeps acting on information that stopped being true.
+- **Not a save participant.** No `[Serializable]` on this interface; agents are reconstructed from `MissionInitializerRecord` (`TaleWorlds.MountAndBlade/Properties/AssemblyInfo.cs:24`) when a mission is restored.
+
+## Cross-Version Notes
+
+The v1.4.5 file is 745 lines with 245 `[EngineMethod]` bindings — the largest bridge in the module. The same file name and namespace appear under the same `Bannerlord.Source/bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/` layout in the `bannerlord-1.3.0` and `bannerlord-1.3.15` trees, where the interface is large but noticeably smaller, so **this is the one bridge in the bucket where the member count has genuinely grown across versions** and where a mod should assume anything not in its own version's file may not exist. The **native symbol strings** are the stable contract, which means two source-level oddities are effectively frozen: `GetScaleFromKey`-style name/symbol splits and the `y1, x2, y2, x3, y3` parameter naming in `SetAIBehaviorParams` (`IMBAgent.cs:714`) — the latter is spelled inconsistently in the source and cannot be renamed without breaking the binding's readability but not its contract. The eleven unforwarded members are a **managed-side** state and the most likely thing to change: `Agent.cs` gaining a forward for `GetPosition` or `GetStateFlags` would be a pure managed addition needing no native change, so do not treat that list as permanent. **VERIFIED MEASURED for v1.4.5** (745 lines, 245 members, 243 forward sites in `Agent.cs`, eleven-member unforwarded list produced by searching the complete `Agent.cs`); the sibling version trees were compared at file-shape level only, not member by member.
+
+## Dependencies
+
+- Primary managed caller: [`Agent`](../Agent), `public sealed class Agent : DotNetObject, IAgent, IFocusable, IUsable, IFormationUnit, ITrackableBase` (`Agent.cs:14`), with 243 forward sites. Representative: `Agent.cs:674`, `:684`, `:686`, `:688`, `:696`, `:704`, `:714`, `:716`, `:915`, `:919`, `:928`, `:937`, `:941`, `:949`, `:953`, `:962`, `:982`.
+- Static holder: [`MBAPI`](../../mission-ext/MBAPI) — `internal static IMBAgent IMBAgent` at `MBAPI.cs:12`, assigned in `SetObjects` at `MBAPI.cs:84`.
+- Binding marker: [`ScriptingInterfaceBase`](../ScriptingInterfaceBase), applied at `IMBAgent.cs:8`.
+- Presentation-side sibling for the same unit: [`IMBAgentVisuals`](../IMBAgentVisuals), reached from an agent via `IMBAgent.GetAgentVisuals` (`IMBAgent.cs:30`) and surfaced at `Agent.cs:982`.
+- Animation metadata provider: [`IMBAnimation`](../IMBAnimation) and [`ActionIndexCache`](../ActionIndexCache), which is the sanctioned public path for the name-to-index resolution that `GetNativeActionIndex` (`IMBAgent.cs:681`) does at the bridge level.
+- Action-set context: [`MBActionSet`](../../mission-ext/MBActionSet), which `Agent.ActionSet` constructs on each access (`Agent.cs:696`).
+- Where units live: [`Mission`](../Mission), whose teardown is what makes stale `Agent` references unsafe.
+- Bucket index: [mission API](../)

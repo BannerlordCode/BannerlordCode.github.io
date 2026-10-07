@@ -58,6 +58,19 @@ IMapScene.GetAtmosphereStates()
   -> DefaultMapWeatherModel derives temperature, humidity, and ambient light from it
 ```
 
+## How to use
+
+**How to obtain it.** **Construct it yourself, then initialize it.** `public class AtmosphereGrid` is a plain data grid: you create it, call `Initialize()` to populate `states`, and only then query it. It is not a campaign model and nothing in the engine holds one for you.
+
+```csharp
+AtmosphereGrid grid = new AtmosphereGrid();
+grid.Initialize();                       // without this, states stays empty
+Vec3 pos = grid.states[0].Position;     // the page's own z-scaling example
+pos.z *= 0.3f;
+```
+
+**The most common pitfall.** **Forgetting `Initialize()` fails silently, not loudly.** `states` stays an empty list and queries return an object with `TemperatureAverage` and `HumidityAverage` at 0.
+
 ## Key members
 
 | Member | Signature | What this member is actually for |

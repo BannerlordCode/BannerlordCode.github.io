@@ -103,7 +103,7 @@ In v1.4.5 the enum has exactly these eight values in this order, declared at `Ch
 ## Dependencies
 
 - Container: the enum is declared inside the static action class `ChangeOwnerOfSettlementAction` — its eight `ApplyByXxx` methods are the only way to produce a value, and that page documents the full ownership cascade.
-- Host object: [Settlement](../campaign/Settlement) holds the ownership pointer whose change this tag annotates, and exposes `AddGarrisonParty` for the replacement garrison.
+- Host object: [Settlement](../../campaign/Settlement) holds the ownership pointer whose change this tag annotates, and exposes `AddGarrisonParty` for the replacement garrison.
 - Sub-object: `Town` is the only settlement with a garrison and an `IsOwnerUnassigned` flag; `GarrisonParty` is declared on the `Fief` base, not on `Town`.
-- Event consumer: [CampaignEventDispatcher](../campaign/CampaignEventDispatcher) passes the value into `OnSettlementOwnerChanged`, where quest and journal logic branches on it.
+- Event consumer: [CampaignEventDispatcher](../../campaign/CampaignEventDispatcher) passes the value into `OnSettlementOwnerChanged`, where quest and journal logic branches on it.
 - Bucket index: [campaign-ext API section](../)

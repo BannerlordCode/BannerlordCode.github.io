@@ -7,7 +7,7 @@ description: "The unified handle for a 'party' in the campaign world: it wraps b
 **Namespace:** TaleWorlds.CampaignSystem.Party
 **Module:** TaleWorlds.CampaignSystem
 **Type:** `public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint`
-**Base:** 无（直接继承 `System.Object`）；实现 `IBattleCombatant`、`IRandomOwner`、`IInteractablePoint`
+**Base:** none — `public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint` (no base class; it declares `sealed`)
 **File:** `TaleWorlds.CampaignSystem/Party/PartyBase.cs`
 
 ## Overview

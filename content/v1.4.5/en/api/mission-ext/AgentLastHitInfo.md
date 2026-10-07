@@ -52,6 +52,14 @@ The timer field is `private BasicMissionTimer _lastBlowTimer` — a **class**, n
 | `RegisterLastBlow` | `public void RegisterLastBlow(int ownerId, AgentAttackType attackType)` | Records a hit: resets the timer, sets the owner index, sets the attack type. **Resetting the timer is what opens the five-second override window** — so registering a second blow *shortens* the remaining time for the first, it does not stack. |
 | `_lastBlowTimer` | `private BasicMissionTimer _lastBlowTimer` | The clock behind `CanOverrideBlow`, and the reason this struct's copy semantics are unusual: `BasicMissionTimer` is a **class**, so every copy of an `AgentLastHitInfo` shares one timer. |
 
+## Dead members and traps
+
+The inventory reports `_lastBlowTimer` with 0 call sites; it actually has 3 live references. A tool blind spot, not a dead member.
+
+| `Member` | Declaration | override | Call sites | Verdict | Notes |
+|---|---|---:|---:|---|---|
+| `_lastBlowTimer` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/Agent.cs:41 | 0 | 3 times (3 lines) | MEASURED | Hit timer: recreated at :63, `Reset()` at :68, and tested via `ElapsedTime <= 5f` at :53 for post-hit protection. A bare field read is not call-shaped, so the tool scores it 0. |
+
 ## Real example
 
 The pattern this struct implements, rebuilt on public API — because the struct itself is unreachable:

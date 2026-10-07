@@ -31,6 +31,19 @@ The second anchor is that **`{DAYS}` is a constant, not a promise**. The number 
 
 The third anchor is that **`NavigationHandler.OpenClan(_alley)` is double-guarded here and nowhere else**. `OpenClanScreenAfterAlleyLeaderDeath` tests `if (base.NavigationHandler != null && _alley != null)`, whereas `_onInspect` is assigned the method group directly. `CreateAlleyLeaderDiedPopUp` itself never touches `_alley`. So a null `Alley` still pops the inquiry, and clicking "learn more" then **silently does nothing** — no crash, but the button appears dead.
 
+## How to use
+
+**How to obtain it.** **Nothing in 1.4.5 constructs it for you** — this page's Risks carries the tree-wide `new AlleyLeaderDiedMapNotification(` probe and its positive control. Construct it yourself and post it through `Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(...)`.
+
+```csharp
+Alley orphan = Settlement.Find("Epicrotea").Alleys.First(x => x.State == AreaState.OccupiedByPlayer);
+TextObject note = new TextObject("{=mykey6}Your alley in {TOWN} has lost its leader.");
+note.SetTextVariable("TOWN", orphan.Settlement.Name);
+Campaign.Current.CampaignInformationManager.NewMapNoticeAdded(new AlleyLeaderDiedMapNotification(orphan, note));
+```
+
+**The most common pitfall.** **No official construction site exists in 1.4.5.** Do not assume the game posts this under some condition; only a mod can raise it.
+
 ## Key members
 
 | Member | Signature | What it is for |

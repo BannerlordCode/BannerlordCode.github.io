@@ -48,6 +48,14 @@ The `RandomizeColors` property is the one computed member and it encodes a desig
 | `Monster` / `NoHorses` / `MountKey` | `public AgentBuildData Monster(Monster)` / `NoHorses(bool)` / `MountKey(string)` | Mount selection, three ways: force a `Monster`, forbid a mount outright, or pick by string key resolved against the character tree. `NoHorses(true)` beats `Monster(...)` — it short-circuits before the monster is ever looked at. |
 | `Team`, `Formation`, `AgentTeam` (property) | `public Team AgentTeam { get; private set; }` | Note the naming split: the *property* is `AgentTeam`, the *builder method* is `Team(Team)`. Same for `AgentFormation` / `Formation(...)`, `AgentCharacter` / `Character(...)`. Reading uses the `Agent*` name; writing uses the short fluent name. |
 
+## Dead members and traps
+
+One fluent setter in the builder is never called. Its siblings are.
+
+| `Member` | Declaration | override | Call sites | Verdict | Notes |
+|---|---|---:|---:|---|---|
+| `SpawnsIntoOwnFormation` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentBuildData.cs:168 | 0 | 0 times (0 lines, re-verified) | MEASURED | Fluent setter returning `this` for chaining. Declared but never called anywhere in the tree, so putting it in a chain has no effect. Same-family control: `IsReinforcement` (:162) is called at Mission.cs:4436 and `InitialPosition` shows 48 occurrences — this builder chain is live, this one link is not. |
+
 ## Real example
 
 Placing a specific hero at a specific point, then reading the ticket back before spawning:
@@ -132,5 +140,5 @@ Debug.Print("randomize colours = " + peerAgent.RandomizeColors, 0);
 - **Placement:** [`Formation`](../../mission/Formation), [`Team`](../Team), and the `WeakGameEntity` spawn points that [`Scene`](../../engine/Scene) `FindWeakEntityWithTag` hands back decide where the agent lands.
 - **Identity:** [`MissionPeer`](../MissionPeer) and [`MissionControllerType`](../../core-extra/AgentControllerType) drive the network-side writes.
 - **Gear:** [`Equipment`](../../core-extra/Equipment) and [`MissionEquipment`](../MissionEquipment) are the two gear channels this ticket writes.
-- **Visuals input:** [`AgentBuildData`](./AgentBuildData) feeds straight into [`AgentVisualsData`](./AgentVisualsData) when the agent's mesh is built.
+- **Visuals input:** `AgentBuildData` (this type) feeds straight into [`AgentVisualsData`](../AgentVisualsData) when the agent's mesh is built.
 - Bucket home: [mission-ext API section](../)

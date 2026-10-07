@@ -68,6 +68,27 @@ The order-suppression rule is the last piece: `MasterOrderControllerOnOrderIssue
 | `SetTimersOfVictoryReactionsOnTournamentVictoryForAgent` | `public void SetTimersOfVictoryReactionsOnTournamentVictoryForAgent(Agent agent, float minStartTime, float maxStartTime)` | Single-agent tournament variant with an explicit time window, rather than a per-side schedule derived from the shared settings. |
 | `CheeringAgent` | `private class CheeringAgent` | The per-agent bookkeeping record, and the most instructive member despite being private. `readonly Agent Agent`, `readonly bool IsCheeringOnRetreat`, plus `GotOrderRecently` and `IsCheeringPaused` state. `OrderReceived()` and `UpdatePauseState(bool)` are its only mutators. |
 
+## Dead members and traps
+
+Of the 14 fields and properties on this page, 9 were reported by the inventory as having 0 call sites — all 9 have live references. That is a tool blind spot, not dead code. For the remaining 5 no reference could be reproduced, and no conclusion is drawn.
+
+| `Member` | Declaration | override | Call sites | Verdict | Notes |
+|---|---|---:|---:|---|---|
+| `MasterOrderControllerOnOrderIssued` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:119 | 0 | 1 time (1 line) | MEASURED | Inventory says 0 call sites. Measured: it is **wired up** as an event handler at AgentVictoryLogic.cs:114 (`OnOrderIssued += MasterOrderControllerOnOrderIssued`). An implicit event dispatch is not call-shaped, so the tool scores it 0. |
+| `_cheeringAgents` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:99 | 0 | 18 times (18 lines) | MEASURED | The cheering roster — the busiest field on the class. Created at :110, appended at :301, walked backwards at :122-127, updated every tick at :194-223, cleared at :159. The 0 is a blind spot. |
+| `_cheerReactionTimerData` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:61 | 0 | 6 times (4 lines) | MEASURED | **The only name out of 43 where occurrences differ from lines**: :293 and :358 each carry it twice (`…TimerData.MinDuration, …TimerData.MaxDuration`), hence 6 occurrences across 4 lines. The inventory 0 is a blind spot. |
+| `_selectedCheerActions` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:97 | 0 | 6 times (6 lines) | MEASURED | Currently selected cheer action array, assigned from `_low/mid/highCheerActions` and read at :414. The 0 is a blind spot. |
+| `_cheerActionGroup` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:59 | 0 | 4 times (4 lines) | MEASURED | Storage for the cheer action group enum; written by `SetCheerActionGroup` (:132), read in the switch at :135 and the test at :244. The 0 is a blind spot. |
+| `_isInRetreat` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:101 | 0 | 3 times (3 lines) | MEASURED | Retreat flag: set true at :306, false at :273, read and returned by `CheckIfIsInRetreat` at :427. The 0 is a blind spot. |
+| `_midCheerActions` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:77 | 0 | 3 times (3 lines) | MEASURED | Mid-intensity cheer table; assigned to the current selection at :141 and :364, read at :417. The 0 is a blind spot. |
+| `_lowCheerActions` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:63 | 0 | 1 time (1 line) | MEASURED | Low-intensity cheer table; assigned to `_selectedCheerActions` at :138. The 0 is a blind spot. |
+| `_highCheerActions` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:85 | 0 | 1 time (1 line) | MEASURED | High-intensity cheer table; assigned to `_selectedCheerActions` at :144. The 0 is a blind spot. |
+| `CheerActionGroup` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:103 | — | — | UNSUPPORTED | Public read-only property (exposing `_cheerActionGroup`). **No reference could be reproduced; no conclusion is drawn** — this is not a confirmation that it is unreferenced. |
+| `CheerReactionTimerData` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:105 | — | — | UNSUPPORTED | Public read-only property (exposing `_cheerReactionTimerData`). **No reference could be reproduced; no conclusion is drawn.** |
+| `HighCheerThreshold` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:53 | — | — | UNSUPPORTED | `private const float = 0.25f`. **No reference could be reproduced; no conclusion is drawn.** |
+| `MidCheerThreshold` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:55 | — | — | UNSUPPORTED | `private const float = 0.75f`. **No reference could be reproduced; no conclusion is drawn.** |
+| `YellIfOrderedInRetreatProbability` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentVictoryLogic.cs:57 | — | — | UNSUPPORTED | `private const float = 0.25f`. **No reference could be reproduced; no conclusion is drawn.** |
+
 ## Real example
 
 Forcing a cheer mood for a scripted moment and scheduling it — the whole public surface in two calls:
@@ -146,10 +167,10 @@ public class MyCheerPurger : MissionLogic
 
 ## Dependencies
 
-- **Base contract:** [`MissionLogic`](./MissionLogic) supplies the `Mission` back-reference; this behavior inherits the victory and end-mission protocol from it.
+- **Base contract:** [`MissionLogic`](../MissionLogic) supplies the `Mission` back-reference; this behavior inherits the victory and end-mission protocol from it.
 - **Host:** [`Mission`](../../mission/Mission) `MissionCloseTimeAfterFinish` is what buys the cheer sequence its 60 seconds; `GetMissionBehavior<T>()` is how a mod retrieves an existing instance.
 - **Order input:** [`Team`](../Team) `PlayerOrderController` and its `OnOrderIssued` event are the only source of `GotOrderRecently`.
 - **Retreat input:** `Mission.IsBattleInRetreatEvent` (`Func<bool>`) is subscribed in `AfterStart` and unsubscribed in `OnEndMission`.
 - **Per-agent work:** [`Agent`](../../mission/Agent) and its [`VictoryComponent`](../VictoryComponent) are what `OnAgentRemoved` cleans up.
-- **Spawning counterpart:** [`BattleSpawnModel`](./BattleSpawnModel) decides who is on the field for the side whose victory this logic celebrates.
+- **Spawning counterpart:** [`BattleSpawnModel`](../BattleSpawnModel) decides who is on the field for the side whose victory this logic celebrates.
 - Bucket home: [mission-ext API section](../)

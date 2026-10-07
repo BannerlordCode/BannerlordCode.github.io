@@ -23,7 +23,7 @@ The constructor is `protected AgentComponent(Agent agent)` and it stores into `p
 
 Every override is optional because every one has an empty body. That default-empty convention is what makes this type usable: a component that only cares about morale overrides two methods and inherits nineteen no-ops. The cost is that a misspelled override name fails silently — the class still compiles, still gets attached, still ticks, and simply never hears about anything. There is no `abstract` member forcing you to name the thing.
 
-The lifecycle is agent-driven and you should know its order: `Initialize()` once after attach, then `OnTick` / `OnTickParallel` per frame, then assorted event hooks, then `OnComponentRemoved()` when the agent detaches or dies. `OnComponentRemoved()` is the one people forget, and it is the correct place to unsubscribe from static events — [`AgentHumanAILogic`](./AgentHumanAILogic) shows the mirror-image mistake, where a mission behavior subscribes and never unsubscribes.
+The lifecycle is agent-driven and you should know its order: `Initialize()` once after attach, then `OnTick` / `OnTickParallel` per frame, then assorted event hooks, then `OnComponentRemoved()` when the agent detaches or dies. `OnComponentRemoved()` is the one people forget, and it is the correct place to unsubscribe from static events — [`AgentHumanAILogic`](../AgentHumanAILogic) shows the mirror-image mistake, where a mission behavior subscribes and never unsubscribes.
 
 Two members deserve special attention because their defaults are load-bearing rather than obviously zero. `GetMoraleDecreaseConstant()` returns `1f`, not `0f`. The meaning is a multiplier on morale loss, so `1f` means "normal decay"; if a component overrides it and returns `0f` thinking "no decrease", morale stops dropping entirely. Similarly `GetMoraleAddition()` returns `0f`, meaning "contribute nothing" — which is the intuitive reading and the correct one.
 
@@ -39,7 +39,7 @@ Two members deserve special attention because their defaults are load-bearing ra
 | `GetMoraleDecreaseConstant` | `public virtual float GetMoraleDecreaseConstant()` | Scales morale loss, and the default is `1f`, **not** `0f`. `1f` means normal decay. Returning `0f` freezes morale decay entirely — a real and easily-mistaken foot-gun, because zero looks like "no contribution" here when it actually means "no decay at all". |
 | `OnAIInputSet` | `public virtual void OnAIInputSet(ref Agent.EventControlFlag eventFlag, ref Agent.MovementControlFlag movementFlag, ref Vec2 inputVector)` | The AI steering hook, and the one place the three `ref` parameters are load-bearing. All three are `ref` because a component is expected to *modify* them: contribute to the event flag, add to the movement flag, or nudge the input vector. This is how steering pressure is layered onto an AI agent without replacing its behaviour tree. |
 | `OnHit` | `public virtual void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon, in Blow b, in AttackCollisionData collisionData)` | Fires on the **victim** when it takes a hit. Note the argument shape differs from `MissionBehavior.OnAgentHit`, which takes the victim as its first parameter — here the receiver *is* the victim, so the first argument is the attacker. Confusing the two shapes is the most common bug when porting behavior. |
-| `OnMount` / `OnDismount` | `public virtual void OnMount(Agent mount)` / `OnDismount(Agent mount)` | Mount-state transitions, with the mount passed in. These pair with [`AgentHumanAILogic`](./AgentHumanAILogic)'s `OnAgentMount`, which performs the mission-side reservation update — the component sees the transition, the behavior reconciles the mission. |
+| `OnMount` / `OnDismount` | `public virtual void OnMount(Agent mount)` / `OnDismount(Agent mount)` | Mount-state transitions, with the mount passed in. These pair with [`AgentHumanAILogic`](../AgentHumanAILogic)'s `OnAgentMount`, which performs the mission-side reservation update — the component sees the transition, the behavior reconciles the mission. |
 | `OnWeaponDrop` | `public virtual void OnWeaponDrop(MissionWeapon droppedWeapon)` | Fires on the agent that lost the weapon. Relevant to AI that must re-plan after losing its primary, and to anything tracking ammo. |
 | `OnItemPickup` | `public virtual void OnItemPickup(SpawnedItemEntity item)` | Fires when the agent picks something up, carrying the spawned entity rather than a plain item reference. Note this is separate from `OnWeaponDrop`: the pickup path and the drop path are independent notifications, not one paired event. |
 | `OnWeaponHPChanged` | `public virtual void OnWeaponHPChanged(ItemObject item, int hitPoints)` | Weapon durability reached zero. The event carries the item and its remaining hit points but no "before" value, so a component that needs the delta must cache the previous value itself. |
@@ -50,6 +50,14 @@ Two members deserve special attention because their defaults are load-bearing ra
 | `OnStopUsingGameObject` | `public virtual void OnStopUsingGameObject()` | The agent released a world entity it was operating — a lever, a chest, a siege engine. Pair it with your own "started using" hook if you track interactions. |
 | `OnAgentRemoved` | `public virtual void OnAgentRemoved()` | The agent is being destroyed. Fires on the component while the agent is still reachable, which makes it the last safe point to read agent state. |
 | `OnComponentRemoved` | `public virtual void OnComponentRemoved()` | **This** component specifically was detached, as opposed to the whole agent going away. Unsubscribe from static events here. It is easy to confuse with `OnAgentRemoved` and the consequence of getting it backwards is a leak that only shows up on mission teardown. |
+
+## Dead members and traps
+
+Sibling virtuals on the same class are dispatched by Agent; this one is dispatched nowhere.
+
+| `Member` | Declaration | override | Call sites | Verdict | Notes |
+|---|---|---:|---:|---|---|
+| `OnDisciplineChanged` | bin/TaleWorlds.MountAndBlade/TaleWorlds.MountAndBlade/AgentComponent.cs:69 | 0 | 0 times (0 lines, re-verified) | MEASURED | `public virtual void`, yet the name occurs exactly once in the tree — its own declaration. Positive control: sibling `OnAgentRemoved` (:73) is dispatched at Agent.cs:5156, so this class's virtuals do get called; this particular callback is simply not wired. |
 
 ## Real example
 
@@ -167,7 +175,7 @@ public class MyComponentInstaller : MissionLogic
 
 - **Host:** [`Agent`](../../mission/Agent) constructs the component, calls its hooks, and owns its lifetime through `AddComponent` / `RemoveComponent` / `GetComponent<T>`.
 - **Peer components:** [`CommonAIComponent`](../CommonAIComponent) and [`HumanAIComponent`](../HumanAIComponent) are both `AgentComponent` subclasses and are the reference implementations of this pattern.
-- **Attach logic:** [`AgentCommonAILogic`](./AgentCommonAILogic) and [`AgentHumanAILogic`](./AgentHumanAILogic) decide when a component exists; they are [`MissionLogic`](./MissionLogic) subclasses.
+- **Attach logic:** [`AgentCommonAILogic`](../AgentCommonAILogic) and [`AgentHumanAILogic`](../AgentHumanAILogic) decide when a component exists; they are [`MissionLogic`](../MissionLogic) subclasses.
 - **Hook payload types:** [`SpawnedItemEntity`](../SpawnedItemEntity), [`MissionWeapon`](../MissionWeapon), [`Blow`](../Blow), [`AttackCollisionData`](../AttackCollisionData), and [`ItemObject`](../../core-extra/ItemObject) appear in the signatures.
 - **Callback declarations:** [`MissionBehavior`](../../mission/MissionBehavior) declares the mission-level equivalents of several of these hooks, with different argument shapes.
 - Bucket home: [mission-ext API section](../)

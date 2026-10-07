@@ -1285,3 +1285,82 @@ content/v1.3.0/zh/api/campaign/DefaultTournamentModel.md
 **不成立的**：引用对方自报的 sha / 页数 / 判定。
 **⇒ 操作化判据**：**复核一个断言时，必须至少引用一个【不是该断言来源方产出】的证据。**
 **⇒ 配套**：*列出未核实项是底线；其中可核的要核掉 —— 否则边界永远不收缩。*
+
+---
+
+## 42. ★★ 编造 API 测量线：**最终结论**（worker-213 已释放；本线自行登记）
+
+### 裁定（Boss #16470）：Layer 3 = UNMEASURED，能力边界写进文档
+```
+门禁文档须显式写明：
+「『行号在界内但指向别处』这一类【目前无法机械判定】——
+  两种候选判据各自产生一类结构性假阳性：
+    · 距声明行距离        ⇒ 对『使用点/成员体内行』引用误报（实测 13,202）
+    · 该行是否含被点名标识符 ⇒ 对『成员体内行』引用误报（实测 4,708）
+  ⇒ Layer 3 = UNMEASURED。已覆盖的只有 J13 的窄形态（被引行是空行/纯注释/纯标点）。」
+```
+
+### ① 两次迭代的量化轨迹（过程数据，保留）
+```
+phaseG → phaseH:  flags 13,202 → 4,708 (−64%)   ·  uncheckable 12,650 → 158 (−99%)
+配对方式改为使用引用自身的 base/resolved（不再靠「邻近标识符」）
+⇒ 真改善，但结论仍是 UNMEASURED（见 ②）
+```
+
+### ② 两类判据各自的结构性假阳性机制（各配一个已验证样本）
+```
+机制甲（距声明行距离）：
+  样本 content/v1.3.0/en/api/campaign/AcceptCallToWarAgreementDecision.md
+    页第 25 行：`IsAllowed` (line 74) … and the caller is (`AcceptCallToWarAgreementDecision.cs:76`)
+    源码：:74 = public override bool IsAllowed()      ← 页面「line 74」✅
+          :76 = return this.CallingKingdom.IsAllyWith(base.Kingdom) …   ← 页面「the caller is」✅
+    ⇒ 页面正确；检测器因 :76 ≠ 74 而报 ⇒ 对每条「使用点/体内行」引用必然误报
+机制乙（含名判据）：
+  同上样本，改用「该行是否含被点名标识符」后仍然误报 —— 因为 :76 是成员【函数体内的表达式】，不含成员名
+⇒ 两类机制互斥且都必然产生假阳性 ⇒ 该缺陷类【无法用这两个候选判据机械判定】
+```
+
+### ③ 能力边界声明
+```
+Layer 0（语言级一致性）  = 未实现                      ⇒ UNMEASURED
+Layer 1（存在性）        = 2,746 处 / 1,314 distinct   ⇒ ★ UNMEASURED（见 ④：证据文件无效）
+Layer 2（归属）          = 2,447 处 / 1,369 distinct   ⇒ UNCHECKABLE — 无已知正控制实例（已确认实例 = 0）
+Layer 3（OFFSET）        = phaseG 13,202 / phaseH 4,708 ⇒ UNMEASURED（两类判据均产生结构性假阳性）
+UNCHECKABLE 页           = 29（versions/* 与根 _index.md，无版本树）⇒ 已正确标注，未静默回退
+⇒ 【本线不为这条线补做测量】：Layer 1 的假阳性率需人工判读 ≥50 条，属新的执行工作，应由 Boss 决定
+```
+
+### ④ ★ 证据文件无效 —— 且本线先前误判了它
+```
+tools/_verify/lead-20/wf-sample-evidence.json   60 条 · 字段齐全（ident/page/pageSha/pageStat/grepOutput/…）
+★ 但【每一条 grepOutput 都是 "(NO HIT ON PAGE)"】，treeHitCount 全为 null，
+  且 treeSample 写着 "(tree grep error: Command failed: grep -rPw …)"
+
+本线逐条核（独立证据源 = 直接 grep 页文件）：
+  GetClosestAgent  → content/v1.4.5/zh/api/mission-ext/AgentController.md   grep -c = 1  （第 147 行确有）
+  CampaignBehavior → content/v1.4.5/zh/api/campaign/CampaignBehaviorBase.md grep -c = 23
+⇒ 【页里明明有，证据文件却说没有】⇒ 该文件【零条有效测量数据】。
+根因：worker 用了 `grep -rPw`，而 `-P` 在本环境 locale 下失败（它自己也说了，但没重跑完）。
+```
+**★ 本线自己的错**：本线早先向 Boss 报「它的证据结构合规 / 字段齐全」——
+**那是只看【字段名】、没看【字段值】。** 这与本会话全部误判同族：**验了形状，没验内容。**
+**⇒ 判据（本线加）**：**验收一份证据文件时，必须抽查【至少一条的值】是否与独立证据源一致，
+不得只看字段名齐全。** 字段名齐全会让空文件看起来像好文件。
+
+---
+
+## 43. 本线读数格式要求（累计，即刻生效）
+
+```
+① 四样文件状态：stat -c '%s %y' · sha256sum · git log --oneline -1 -- · git diff --stat --
+② 读数自带【产生它的工具/尺的 sha】（自带 sha 管归属；外部冻结 sha 管复现；缺一不可）
+③ 控制样本必须来自【被测语料】，不得来自派单文档
+   ⇒ 依据：SettlementAccessModel.cs:52/54/56 在 content/ 全树零命中 ⇒ 它验证不了「检测器在页语料上是否正确」
+   ⇒ 判据：一个控制样本若在被测语料里不存在，它就不是控制，只是例子
+④ 提出修正时，必须说明它可能引入哪一类新假阳性，并放进同一套抽样里测
+   ⇒ 依据：本会话两次「修正自带新缺陷」（Layer 3 配对修正 ⇒ 含名判据新假阳性；SaveManager.cs:69 反向控制本身即缺陷）
+⑤ 验收证据文件时，必须抽查【至少一条的值】与独立证据源一致，不得只看字段名齐全
+⑥ 复核断言时，至少引用一个【不是该断言来源方产出】的证据
+⑦ 构建/性能读数必须同时报 rc 与页数；清理临时站前先落证据（rc/页数/耗时/被测对象 sha）
+⑧ 源码侧读数必须声明【哪棵树】
+```

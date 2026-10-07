@@ -1295,6 +1295,22 @@ checked=10 out_of_scope=8
 - **无数据丢失**：151 个文件已随 `daeea0de1b` 进入历史，`git log -- <path>` 可查
 - 本会话共 **3 次**：批 2 的 content、lead-22 的 `action-family`、本次批 B 的 151 个 tools 文件；其中 **2 次的根因是别的线跑了不带 pathspec 的 `git commit`**
 
+**技术澄清（worker-210 最终回报，2026-10-07）**：`git commit -- <pathspec>` 是**部分提交**
+（partial commit）——它只提交**相对 HEAD 有差异**的文件。批 B 的 153 个文件里，
+152 个已被 `daeea0de1b`（lead-20）以**与 worktree 完全一致的内容**提交 ⇒ 相对 HEAD 无差异
+⇒ **不进提交**；唯一有差异的是 `tools/_verify/lead-22-PROGRESS.md`（worktree 里有别人
+09:33Z 未提交的 63 行台账 section）⇒ 以 `M` 进入 worker-210 的提交 `39023a04c7`。
+**⇒ 因此「批 B 的 commit 只含 1 个文件」不是工具失效，是碰撞 + 部分提交语义的预期结果。**
+净结果：批 B 的 153 个文件**全部已入库**（152 由 `daeea0de1b`，1 由 `39023a04c7`），
+worker-210 无需再提交。
+
+**① 类最终账**：261 个 = 257 已入库（worker-210 提交 105 + lead-20 抢提交 152）+ 4 个按裁决跳过
+（`lead6-w63-outofscope/` 的 2 个 `.patch` + 2 个 `.staged`，整目录命中排除规则）。
+
+**非 ASCII 路径的安全传递**：全部 5 个提交的 add 与 commit 都用
+`--pathspec-from-file=<NUL 分隔清单> --pathspec-file-nul`（git 2.52.0 支持），
+不用 `-A`/`.`，也规避了「git 对中文路径加引号 ⇒ while read 假阳性」的根因。
+
 **⑤ 新增固定检查（Boss #15367）**
 
 - `git add` 之前对每个待提交路径跑 `git log --oneline -3 -- <path>` 与 `git status --porcelain -- <path>`；若已被提交 ⇒ 从本批剔除并标「已由 `<SHA>` 提交」

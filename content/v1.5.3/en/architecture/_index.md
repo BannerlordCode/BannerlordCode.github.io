@@ -19,6 +19,7 @@ that do exist live in Chinese under `zh/api/`, listed with their source paths on
 > what is not, see the coverage table on the [version home](../).
 
 <!-- BEGIN SECTION INDEX -->
+> 共 3 个子页
 
 ## ↑ Up
 

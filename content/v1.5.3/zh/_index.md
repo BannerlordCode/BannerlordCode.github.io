@@ -188,6 +188,7 @@ public class MySubModule : MBSubModuleBase
 - [跨版本类对比](../../versions/) — 逐类 API 差异
 
 <!-- BEGIN SECTION INDEX -->
+> 共 2 个子页
 
 ## ↑ 上级导航
 
@@ -199,5 +200,9 @@ public class MySubModule : MBSubModuleBase
 - [SDK 分层概览](./architecture/sdk-overview) — 五层依赖心智模型与阅读顺序
 - [模块地图](./architecture/module-map) — 68 个 `TaleWorlds.*` 程序集的归属与文档位置
 - [从 1.4.5 迁移](./architecture/migration-from-1.4.5) — 删了什么 / 签名变了什么 / 新增了什么
+
+### A
+
+- [api](./api/)
 
 <!-- END SECTION INDEX -->

@@ -126,6 +126,7 @@ node BannerlordCode.github.io/tools/gen-version-pages.mjs             # 重新�
 - ↔ [六个版本怎么选](../) · [按「我要做的事」进入](#按我要做的事进入)
 
 <!-- BEGIN SECTION INDEX -->
+> 共 27 个子页
 
 ## 类对比页面索引 / Class Comparison Index — Alphabetical
 
@@ -184,4 +185,13 @@ node BannerlordCode.github.io/tools/gen-version-pages.mjs             # 重新�
 - [Village 跨版本对比 / Cross-Version Comparison](./Village)
 
 
+- [task-ai](./task-ai)
+- [task-campaign-action](./task-campaign-action)
+- [task-campaign-behavior](./task-campaign-behavior)
+- [task-gamemodel](./task-gamemodel)
+- [task-mission-action](./task-mission-action)
+- [task-mod-bootstrap](./task-mod-bootstrap)
+- [task-network](./task-network)
+- [task-save](./task-save)
+- [task-ui-screen](./task-ui-screen)
 <!-- END SECTION INDEX -->

@@ -11,11 +11,13 @@ description: "mission-ext 收纳按命名空间前缀路由到 TaleWorlds.MountA
 
 **与 [mission](../mission/) 桶的分工（有意为之的布局，不是重复路由）。** 权威映射的 `entryPointDirs` 用**类型名覆写**把 `Mission`、`MissionBehavior`、`Agent`、`Formation`、`MissionState` 这 5 个名字单独摘到 `mission/`，其余 `TaleWorlds.MountAndBlade` 类型仍按前缀留在本桶。所以：**`mission/` 是入口，`mission-ext/` 是全集**，两边互链——在 `mission/` 页顶部的「本桶是入口，不是全集」那段话指向本页，这里再指回去。
 
-## 已手写的类页（3 张）
+## 已手写的类页（5 张）
 
 - [Team](./Team) — 战斗里的一方（或一方之下的盟友）：十个 `Formation` 槽位、成员 Agent 列表（`TeamAgents` 全量 / `ActiveAgents` 在场）、两个 `OrderController` 组成的命令通道，以及 `TeamAI` / `QuerySystem` / `DetachmentManager` 这一整套队伍 AI；实现 `IMissionTeam`，但源码里没有任何可覆盖成员，mod 实际派生不出来。
 - [MBGameManager](./MBGameManager) — 「Mount & Blade 游戏」这一层的生命周期总控，继承 `GameManagerBase`：自身只有 `IsEnding` / `IsLoaded` 两个布尔，做的事是把基类十来个抽象生命周期方法扇出成对 `Module.CurrentModule.CollectSubModules()` 收集到的全部子模块的调用。`public abstract`，但 mod 侧通常只需读 `MBGameManager.Current`。
 - [ItemType](./ItemType) — ⚠️ **`internal enum ItemType`（`TaleWorlds.MountAndBlade.Diamond`，26 个成员，0..25），mod 代码引用不了它**。Diamond 大厅/库存数据协议里的物品大类标记，由 `ItemList` 按 `typeId` 反查得出。对物品分类请用 `TaleWorlds.Core` 里公开的嵌套枚举 `ItemObject.ItemTypeEnum`（`TaleWorlds.Core/ItemObject.cs` 第 1301 行）。这一页保留在文档里的理由是读懂引擎内部那条转换链，并避开一个高频名字混淆：现有文档里出现的 `ItemType` 十几次**全部**是 `item.ItemType`（即 `ItemTypeEnum` 的成员用法），跟这个类型无关。
+- [MissionLogic](./MissionLogic) — 任务内逻辑的挂载基类（`public abstract class MissionLogic : MissionBehavior`）。它不是一个空壳：`BehaviorType` 覆写把自身标记为 `MissionBehaviorType.Logic`，另声明 7 个战斗结束钩子（`OnEndMissionRequest` / `MissionEnded` / `OnBattleEnded` / `ShowBattleResults` / `OnRetreatMission` / `OnSurrenderMission` / `OnMissionResultReady`）。想写「战斗结束后做点什么」的 mod，覆写入口在这里，而逐帧逻辑挂在 `MissionBehavior` 上。
+- [MissionObject](./MissionObject) — 挂在场景 `GameEntity` 上的**战场物件**基类（`public abstract class MissionObject : ScriptComponentBehavior`）。`Id` 是它在任务内的身份（`MissionObjectId`），`IsDisabled` 与 `SetEnabled` / `SetDisabled` 系列控制可用性；生命周期走 `OnPreInit` / `OnInit` / `OnRemoved` 一整套 `ScriptComponentBehavior` 钩子。派生族是攻城器械与可交互物；纯逻辑不要派生它，派生 `MissionBehavior`。
 
 ## 按命名空间分组的检索入口
 

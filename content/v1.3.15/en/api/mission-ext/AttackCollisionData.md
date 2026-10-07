@@ -12,11 +12,92 @@ description: "Auto-generated class reference for AttackCollisionData."
 
 ## Overview
 
-`AttackCollisionData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+`AttackCollisionData` is the record the native collision layer hands back when a blow lands. It is a
+`struct` decorated `[EngineStruct("Attack_collision_data", false, null)]`
+(`AttackCollisionData.cs:9`) whose private `bool` fields are individually `[MarshalAs(UnmanagedType.U1)]`
+(`AttackCollisionData.cs:363`) — i.e. the layout exists to match the C++ side, not for managed ergonomics.
+
+Almost all of its forty-plus members are get-only projections of what the engine detected:
+`AttackBlockedWithShield`, `CorrectSideShieldBlock`, `IsAlternativeAttack`, `IsMissile`,
+`CollisionResult`, `VictimHitBodyPart`, `CollisionGlobalPosition`, `MissileVelocity` and so on. It is
+consumed, never constructed, by the damage pipeline: `AgentComponent.OnHit` takes it as `in`
+(`AgentComponent.cs:79`), `AgentApplyDamageModel.CalculateDamage` does the same, and `CommonAIComponent`
+reads it on every hit.
+
+But it is not read-only. Alongside the get-only properties the struct carries seven **public mutable
+fields** — `BaseMagnitude`, `MovementSpeedDamageModifier`, `AbsorbedByArmor`, `InflictedDamage`,
+`SelfInflictedDamage`, `IsShieldBroken`, `IsSneakAttack` (`AttackCollisionData.cs:422`) — which the managed
+damage pipeline writes into, and two mutators, `SetCollisionBoneIndexForAreaDamage`
+(`AttackCollisionData.cs:291`) and `UpdateCollisionPositionAndBoneForReflect`
+(`AttackCollisionData.cs:297`).
 
 ## Mental Model
 
-Treat `AttackCollisionData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Read it as "engine verdict plus managed scratch space", not as an immutable event. The boundaries:
+
+- **Two different mutability regimes in one type.** The `bool`/`Vec3`/enum-shaped properties are
+  effectively frozen at construction, because the private constructor is the only writer. The seven public
+  fields and the two mutator methods are the managed side's channel, and the constructor deliberately
+  zeroes and defaults all of them (`AttackCollisionData.cs:347`). Anything you read there is a *result* of
+  the damage pipeline, not an input.
+- **It is a `struct` passed by `in` everywhere.** Mutating a parameter you received as `in
+  AttackCollisionData` changes your local copy only. `UpdateCollisionPositionAndBoneForReflect` is
+  meaningful when called on a value you own (or on a `ref` copy you then return), not on the `in`
+  parameter of `OnHit`.
+- **Two members are typed more loosely than their meaning.** `StrikeType` and `DamageType` are plain
+  `int` (`AttackCollisionData.cs:178`, `AttackCollisionData.cs:182`), so casting to `StrikeType` /
+  `DamageTypes` is on you. And `CollisionResult` is stored as an `int` backing field and cast back on
+  read (`AttackCollisionData.cs:164`).
+- **The debug factory cannot build every state.** `GetAttackCollisionDataForDebugPurpose`
+  (`AttackCollisionData.cs:357`) hard-codes `collidedWithLastBoneSegment: false` and passes `Vec3.Zero`
+  for both `LastBoneSegmentRotUp` and `LastBoneSegmentSwingDir` (`AttackCollisionData.cs:359`). Anything you
+  test through that helper sees `CollidedWithLastBoneSegment` permanently `false` and zero last-bone-segment
+  vectors.
+- Flag combinations are meaningful rather than independent: `CorrectSideShieldBlock` and
+  `CollidedWithShieldOnBack` only mean anything when `AttackBlockedWithShield` is also set, and the
+  `IsMissile` family (`MissileBlockedWithWeapon`, `MissileHasPhysics`, `MissileGoneUnderWater`,
+  `MissileGoneOutOfBorder`) is meaningless on a melee blow.
+
+## How to use
+
+**Getting one.** Never construct one in gameplay code — the private constructor (`AttackCollisionData.cs:305`)
+is not callable outside the type. Receive it where the engine hands it out, by overriding an `AgentComponent`
+hook, and use `GetAttackCollisionDataForDebugPurpose` only when building a test fixture.
+
+**Typical use** — a component that records clean shield blocks:
+
+```csharp
+public class ShieldBlockRecorder : AgentComponent
+{
+    public ShieldBlockRecorder(Agent agent) : base(agent) { }   // AgentComponent.cs:11
+
+    public int CleanBlocks { get; private set; }
+
+    public override void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon,
+        in Blow blow, in AttackCollisionData collisionData)       // AgentComponent.cs:79
+    {
+        if (collisionData.CollisionResult == CombatCollisionResult.Blocked
+            && collisionData.AttackBlockedWithShield              // AttackCollisionData.cs:14
+            && collisionData.CorrectSideShieldBlock)              // AttackCollisionData.cs:24
+        {
+            CleanBlocks++;
+            Debug.Print("clean block at " + collisionData.CollisionGlobalPosition);
+        }
+    }
+}
+
+// attach it once, from a MissionLogic:
+agent.AddComponent(new ShieldBlockRecorder(agent));              // Agent.cs:4650
+```
+
+**The mistake that bites.** Treating it as an immutable snapshot and calling
+`SetCollisionBoneIndexForAreaDamage` or `UpdateCollisionPositionAndBoneForReflect` on the `in` parameter
+inside `OnHit`. Because the parameter is a readonly reference to the caller's copy, the retargeted bone and
+position are written into your stack frame and discarded when the method returns — area damage keeps using
+the original bone and reflected blows keep the original contact point, with no error to indicate the write
+was lost.
+
+
 
 ## Key Properties
 
@@ -109,3 +190,7 @@ AttackCollisionData entry = ...;
 ## See Also
 
 - [Area Index](../)
+- [AgentApplyDamageModel](../AgentApplyDamageModel)
+- [AgentComponent](../AgentComponent)
+- [Blow](../Blow)
+- [中文页面](../../../../zh/api/mission-ext/AttackCollisionData)

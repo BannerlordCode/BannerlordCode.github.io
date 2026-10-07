@@ -20,7 +20,7 @@ Every static action class that mutates campaign game state (61 total). Each clas
 
 ## War & Diplomacy (14)
 
-| 类 Class | 用途 Purpose |
+| Class | Purpose |
 |------|------|
 | [`BeHostileAction`](../BeHostileAction/) | Be Hostile |
 | [`BreakInOutBesiegedSettlementAction`](../BreakInOutBesiegedSettlementAction/) | Break In Out Besieged Settlement |
@@ -39,7 +39,7 @@ Every static action class that mutates campaign game state (61 total). Each clas
 
 ## Character & Relations (20)
 
-| 类 Class | 用途 Purpose |
+| Class | Purpose |
 |------|------|
 | [`AddCompanionAction`](../AddCompanionAction/) | Add Companion |
 | [`AddHeroToPartyAction`](../AddHeroToPartyAction/) | Add Hero To Party |
@@ -64,7 +64,7 @@ Every static action class that mutates campaign game state (61 total). Each clas
 
 ## Economy & Renown (16)
 
-| 类 Class | 用途 Purpose |
+| Class | Purpose |
 |------|------|
 | [`BribeGuardsAction`](../BribeGuardsAction/) | Bribe Guards |
 | [`ChangeClanInfluenceAction`](../ChangeClanInfluenceAction/) | Change Clan Influence |
@@ -85,7 +85,7 @@ Every static action class that mutates campaign game state (61 total). Each clas
 
 ## Settlements (7)
 
-| 类 Class | 用途 Purpose |
+| Class | Purpose |
 |------|------|
 | [`ChangeGovernorAction`](../ChangeGovernorAction/) | Change Governor |
 | [`ChangeOwnerOfSettlementAction`](../ChangeOwnerOfSettlementAction/) | Change Owner Of Settlement |
@@ -97,7 +97,7 @@ Every static action class that mutates campaign game state (61 total). Each clas
 
 ## Factions & Parties (4)
 
-| 类 Class | 用途 Purpose |
+| Class | Purpose |
 |------|------|
 | [`DestroyClanAction`](../DestroyClanAction/) | Destroy Clan |
 | [`DestroyPartyAction`](../DestroyPartyAction/) | Destroy Party |
@@ -106,7 +106,7 @@ Every static action class that mutates campaign game state (61 total). Each clas
 
 ## Usage Example
 
-// （占位示例已移除，见正文说明）
+// (placeholder example removed — see the explanation in the body text)
 
 ## See Also
 

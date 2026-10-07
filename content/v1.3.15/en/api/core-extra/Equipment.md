@@ -15,7 +15,7 @@ description: "The full set of items a character wears at a moment — 12 fixed w
 
 `Equipment` represents **everything a single character is wearing at one moment**: main hand, off hand, spare weapons, helmet, body armor, leg armor, gloves, cape, mount, and mount harness — a fixed 12 slots (`EquipmentSlotLength = 12`). Each slot holds one `EquipmentElement` (an item plus an optional `ItemModifier`, cosmetic item, and quest flag). The instance also records whether it is the Battle, Civilian, or Stealth outfit, and derives from that the summed armor, total weight, hair/beard coverage, and body-mesh type.
 
-`Equipment` is a mutable reference type that is serialized directly by the save system: a `Hero` in the campaign holds three `Equipment` instances (`BattleEquipment`, `CivilianEquipment`, `StealthEquipment`), and any mutation you make to them is persisted into the save game. It appears in both the campaign layer (the `CharacterObject` equipment template, the `MBEquipmentRoster` roster) and the mission layer (the穿戴 snapshot taken before an `Agent` is spawned).
+`Equipment` is a mutable reference type that is serialized directly by the save system: a `Hero` in the campaign holds three `Equipment` instances (`BattleEquipment`, `CivilianEquipment`, `StealthEquipment`), and any mutation you make to them is persisted into the save game. It appears in both the campaign layer (the `CharacterObject` equipment template, the `MBEquipmentRoster` roster) and the mission layer (the equipped snapshot taken before an `Agent` is spawned).
 
 ## Mental Model
 
@@ -131,7 +131,7 @@ Deep-copies an existing instance (per-slot `new EquipmentElement`). Copies only 
 
 #### `public Equipment Clone(bool cloneWithoutWeapons = false)`
 Returns a new `Equipment`. With `cloneWithoutWeapons: true`, the first 5 weapon slots are set to `EquipmentElement.Invalid` and only armor/mount remain — useful as a base before "strip for battle" re-equipping.
-**When to call:** when you need a temporary edit that must not pollute the original equipment/save (e.g. a穿戴 snapshot before agent spawn, or a stealth preview).
+**When to call:** when you need a temporary edit that must not pollute the original equipment/save (e.g. an equipped snapshot before agent spawn, or a stealth preview).
 
 ```csharp
 Equipment baseCivilian = Hero.MainHero.CivilianEquipment.Clone(cloneWithoutWeapons: true);
@@ -211,6 +211,8 @@ Randomly assembles one outfit from `character`'s equipment set of the matching c
 
 Writing `Hero.BattleEquipment` directly writes into the save game, so here we use `Clone()` for the demo; for a real persistent swap use `EquipmentHelper.AssignHeroEquipmentFromEquipment`.
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.3.15 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 // The player hero's battle equipment (real acquisition path: Hero.MainHero)
 Equipment battleEq = Hero.MainHero.BattleEquipment;

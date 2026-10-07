@@ -15,7 +15,7 @@ This page indexes the 11,095 decompiled functions currently listed from `TaleWor
 | Indexed functions | 11,095 |
 | First function | `FUN_180001000` |
 | Last function | `FUN_180a21db0` |
-| Full list | [COMPLETE-FUNCTIONS.md](./) |
+| Full list | [ALL-FUNCTIONS-LIST.txt](../ALL-FUNCTIONS-LIST.txt) |
 | Source file | `TaleWorlds.Native.dll.c` |
 | Header declarations | `TaleWorlds.Native.dll.h` |
 

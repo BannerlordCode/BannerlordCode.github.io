@@ -1167,4 +1167,39 @@ $ git cat-file -e HEAD:content/v1.4.7/en/api/engine/_index.md && echo IN HEAD: Y
 `audit-links` 的 `RESOLVE_NEITHER=2` 仍未归因（它是 content-only 口径，需另一把尺确认是否为覆盖缺口）；
 本线未做全站 `zola build`（按 §3.2 的口径，构建不是门禁，放到最后长超时跑）。
 
+### 4.9 追加批次（Boss #13927 优先入库请求）+ 两处数字更正
+
+**追加 2 批，均已 push**：
+
+| 批 | 主题 | 文件 | SHA |
+|---|---|---|---|
+| 10 | `content/v1.3.15/{en,zh}/architecture/action-family.md`（2 个 untracked 新架构页） | 2 | `083ed46ac9` |
+| 11 | `content/v1.4.5/zh/api/campaign-ext/{AcceptCallToWarOfferMapNotification,AccessMethod}.md` | 2 | `a04704c66e` |
+
+两批均：`staged 数 == 期望数`、`git show --name-status` 对账、非 content 泄漏 = 0。
+批 10 的两页已用 `git ls-files --error-unmatch` 验证从 `??` 变为 **TRACKED**。
+
+**更正 1（Boss #13927 的「6 页合成一批」）**：那 6 页里 **4 页已在 batch 1（`885275125f`）提交**，
+实测 `git ls-files` 均为 TRACKED；本次只需补 2 页 `action-family.md`。
+⇒ **本会话新写的 6 个架构页现在全部已跟踪。**
+
+**更正 2（lead-20 上报的「330 modified / 253 untracked」）**：本线全量实测：
+```
+$ git status --porcelain | grep -c '^??'                       -> 258
+$ git status --porcelain | grep '^??' | grep -c '^content/'     -> 2
+$ git status --porcelain -- content/ | wc -l                    -> 9  (7 M + 2 ??)
+```
+⇒ 258 个 untracked 里 **256 个在 `tools/**`**（别的线的证据/脚本/scratch），**只有 2 个在 `content/**`**
+（那 2 个 NEW `_index.md`）。
+**对「内容不可回放」这个担忧，只有 `content/` 下的 `??` 才相关** —— 把 `tools/` 的 scratch 算进 253
+会把风险规模报大约两个数量级。
+
+**门禁（追加批后）**：
+```
+$ node tools/audit-links.mjs
+FILES=39039  TOTAL_LINKS=149587  BROKEN_LINKS=0  FILES_WITH_BROKEN=0  RESOLVE_STATIC=2   exit=0
+```
+
+**push**：`origin/main = a04704c66e301501050645cee2e86e0d8b786f92 = HEAD`，divergence `0 0`，fast-forward。
+
 

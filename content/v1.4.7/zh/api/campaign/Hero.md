@@ -67,6 +67,7 @@ if (hero != null && hero.IsAlive && !hero.IsWounded)
 ## 参见
 - [CharacterObject](../CharacterObject)
 - [Clan](../Clan)
+- [Kingdom](../Kingdom)
 - [MobileParty](../MobileParty)
 - [Campaign](../Campaign)
 - [MBObjectBase](../../campaign-ext/MBObjectBase)

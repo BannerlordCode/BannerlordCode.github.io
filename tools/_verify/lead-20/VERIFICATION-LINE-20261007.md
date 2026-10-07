@@ -747,3 +747,58 @@ content/v1.3.15/en/architecture/save-object-graph.md
 ② 本线的 3 个正控制改用【独立于那页】的源码事实（词边界全树计数）—— 不依赖任何页
 ③ Layer 0 的样本必须取自【磁盘上真实存在的页】，并报出取样 md5/时刻
 ```
+
+---
+
+## 26. 编造 API 测量线：**结案登记**（worker-202 已释放，本线自行发布读数）
+
+`worker-202`（W-E）在 17:41 之后再无任何输出（23 分钟「running」而零产物），**本线已 release 它**。
+**⇒ 该测量的结论不依赖它是否交付报告** —— 全部中间产物在盘上，本线已逐项读取并判定可用性。
+**⇒ 以下为【本线发布的最终读数】，每条都标「可用 / 不可用」及原因。**
+
+### 引用的产物身份（三样同时取）
+```
+tools/_verify/lead-20/phaseC-summary.json   1,199 B      mtime 16:56:14  sha256_16=136a77441f422f0c
+tools/_verify/lead-20/phaseF-verify.json    4,779 B      mtime 17:01:50  sha256_16=ca9cf931aeaa66e9
+tools/_verify/lead-20/phaseG-layer3.json    4,593,110 B  mtime 17:24:21  sha256_16=b92ef58f47bac20e
+tools/_verify/lead-20/phaseH-layer3.json    1,874,546 B  mtime 17:41:47  sha256_16=512c4bfd99e21881
+```
+
+### 读数与可用性
+```
+Layer 0（语言级一致性）  = 未实现                      ⇒ UNMEASURED
+Layer 1（存在性）        = 2,746 处 / 1,314 distinct   ⇒ 【不可用】假阳性率从未测出
+Layer 2（归属）          = 2,447 处 / 1,369 distinct   ⇒ 【不可用】+ 已确认实例 = 0
+                                                          ⇒ 标 UNCHECKABLE — 无已知正控制
+Layer 3（OFFSET）phaseG  = 13,202 / uncheckable 12,650 ⇒ 【已废弃】本线抽 2 条即 2 条假阳性
+Layer 3（OFFSET）phaseH  =  4,708 / uncheckable    158 ⇒ 【不可用】本线抽第 1 条即假阳性
+UNCHECKABLE 页           = 29（versions/* 与根 _index.md，无版本树）⇒ 已正确标注，未静默回退
+覆盖                     = 39,039 页 · 268,430 个标识符被抽取
+```
+
+### 为什么 Layer 1 标「不可用」—— 定性证据（非比率）
+`phaseF-verify.json` 的 `sample_genuine` 里大量条目**不是编造**：
+```
+InvalidCastException · StackOverflowException      ← .NET BCL 类型（本就不在游戏源码里）
+OnShipXxx · AddXxx · XxxModel · OnXxx · TOther      ← 占位/模式记号
+MyDefectionModel · SettlementXxxModel               ← 占位符，意为「你自己的模型」
+Extensions__TaleWorlds_Core · DependantModules      ← 配置键 / 模块字段
+```
+**⇒ 定性成立、定量未测**：**假阳性率必须实测（抽 ≥50 人工判读），而它从未完成。** 本线不代它编造一个比率。
+
+### 已由本线独立确立的事实（不依赖任何页，可复现）
+```
+Layer 1 正控制（六棵树全 0，词边界）：ISaveable · DefineTypes · SetViewModel
+Layer 2 已确认实例：0（唯一候选 SaveGame 由全仓仅 2 页提及，且两页都正确归属到 MBSaveLoad）
+Layer 3 phaseH 反向控制：ActionCampaignOptionData 的 6 条正确引用 → 被标记数 = 0  ✅
+Layer 3 phaseH 正控制：无法在页语料里复现（无页面引用 SettlementAccessModel.cs:52/54/56）
+```
+
+### 结论（供 Boss 裁定 ③ 是否升格）
+```
+【③ 标识符存在性】目前【不具备升格条件】：唯一实现出来的层（Layer 1）没有假阳性率，
+⇒ 按 Boss #15826 的条件（「W-E 给出假阳性率后，若可接受则升格」）—— 条件未满足。
+⇒ 本线建议：③ 维持【不升格】，并按 Boss 裁定把 ⑤（语义正确性）显式标为【机械不可覆盖】。
+★ 本线不为这条线补做测量：Layer 1 的假阳性率需要人工判读 ≥50 条，
+  而那是【新的执行工作】，应由 Boss 决定是否再开一个 worker。
+```

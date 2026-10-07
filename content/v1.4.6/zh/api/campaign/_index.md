@@ -50,7 +50,7 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 
 **同批待办**：其它桶的 `_index.md` 很可能有同一处遗漏。本次只普查了 campaign 桶，**其它桶未核对**，别拿本页的结论去推断它们。
 
-## 已撰写的类页（19 张）
+## 已撰写的类页（30 张）
 
 桶索引的 route 就是桶目录本身。映射表里那条「桶索引到叶子页」的规则要求写成 `./<Name>`，也就是桶索引到同级叶子页写 `./Campaign` 这种形式。
 
@@ -63,6 +63,10 @@ description: "campaign 桶的完整现状清单：桶内 554 个 public 顶层�
 - [Settlement](./Settlement) — 定居点实体。城镇 / 城堡 / 村庄 / 据点的统一容器，承载驻军、围城侧、街区、库存与估值；聚落上的行为靠 `SettlementComponent` 扩展。
 - [Clan](./Clan) — 家族实体，同时扮演两个角色：既是家族容器（`Heroes`、`Companions`、`Fiefs`、`Villages`、`WarPartyComponents`），又是势力（实现 `IFaction`）。判断一个家族现在算哪一方势力读 `MapFaction`，不要读 `Clan` 本身。
 - [CharacterObject](./CharacterObject) — 战役与战斗两层共用的**人物模板**。派生自 `BasicCharacterObject`（那一层放体型、种族、名字、默认技能），战役这一层补上 XML 里的职业与特质、模板化的升级链、战役侧派生数据，以及一个可选的 `HeroObject` 指针。
+- [MobileParty](./MobileParty) — 地图上会**移动的队伍实体**（`public sealed class MobileParty : CampaignObjectBase, ILocatable<MobileParty>, IMapPoint, ITrackableCampaignObject, ITrackableBase, IRandomOwner`，源码 5,450 行）。mod 读战役地图状态的主力入口：静态入口 `MainParty` / `All` / `AllCaravanParties`，移动指令 `SetMoveGoToSettlement` / `SetMoveGoToPoint` / `SetMoveModeHold` 一整套，AI 走 `Ai`，名册与成员在 `PartyBase` 上。它同时是 `IMapPoint` 与 `ITrackableCampaignObject`，所以地图定位与追踪系统直接吃它的坐标。✅ `TaleWorlds.CampaignSystem/Party/MobileParty.cs`
+- [PartyBase](./PartyBase) — 队伍的**战斗与交互侧表示**（`public sealed class PartyBase : IBattleCombatant, IRandomOwner, IInteractablePoint`，1,637 行）。`MobileParty.Party` 与聚落驻军共用同一个 `PartyBase` 类型，所以「谁在打这一仗」与「谁的名册被读」都落在它身上：`MemberRoster` / `PrisonRoster` / `ItemRoster` 三本名册、`AddMember` / `AddPrisoner` 一类的增减入口，以及 `CalculateCurrentStrength` 这类战力口径。要算战斗力或读名册，入口在这里而不在 `MobileParty`。✅ `TaleWorlds.CampaignSystem/Party/PartyBase.cs`
+- [TroopRoster](./TroopRoster) — **兵种名册**（`public class TroopRoster : ISerializableObject`，925 行）：同一份名册里可以同时装活兵、伤兵与战死兵，所以「有 100 人」与「有 100 个能打的人」是两个不同的读法。查改入口是 `FindIndexOfTroop` / `AddToCounts` / `AddToCountsAtIndex` / `RemoveTroop` / `WoundTroop` / `GetTroopCount`，元素级读写走 `GetElementCopyAtIndex` / `SetElementNumber` / `SetElementWoundedNumber`。它与 `ItemRoster`（物品）、`FlattenedTroopRoster`（摊平后的单层序列）三者分工不同：要按兵种聚合读改就用本类，要逐兵遍历就用摊平那一个。✅ `TaleWorlds.CampaignSystem/Roster/TroopRoster.cs`
+- [Kingdom](./Kingdom) — **势力实体**（`public sealed class Kingdom : MBObjectBase, IFaction`，1,389 行）。它同时扮演两个角色：既是容器（`Clans` / `Armies` / `Fiefs` / `Settlements` / `Heroes`），又是势力本身（实现 `IFaction`）。mod 最容易踩的两个坑：一是 **`Clan` 也实现 `IFaction`**，所以 `Clan.MapFaction` 可能指回家族自身（独立家族）而不一定是 `Kingdom`；二是**外交状态不要自己缓存**——战争/同盟/态度存在 `StanceLink` 里，读 `FactionsAtWarWith` / `AlliedKingdoms`，判定走 `IsAtWarWith` / `IsAllyWith` / `GetStanceWith`。政策是改 `ActivePolicies` 这个 list 配 `AddPolicy` / `RemovePolicy` / `HasPolicy`；待决事项在 `UnresolvedDecisions`。静态全集入口是 `Kingdom.All`。✅ `TaleWorlds.CampaignSystem/Kingdom.cs`
 - [`ApplyHeirSelectionAction`](./ApplyHeirSelectionAction) — 领主选定继承人之后统一改写家族继承链的入口 ✅ `TaleWorlds.CampaignSystem/Actions/ApplyHeirSelectionAction.cs`
 - [`BreakInOutBesiegedSettlementAction`](./BreakInOutBesiegedSettlementAction) — 强攻被围聚落（突入 / 突围）的入口 ✅ `TaleWorlds.CampaignSystem/Actions/BreakInOutBesiegedSettlementAction.cs`
 - [`BribeGuardsAction`](./BribeGuardsAction) — 行贿守卫以放行或换取入城 ✅ `TaleWorlds.CampaignSystem/Actions/BribeGuardsAction.cs`

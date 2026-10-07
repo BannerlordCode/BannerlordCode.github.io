@@ -11,7 +11,12 @@
 //
 // 判据（每条独立输出 PASS/FAIL，缺一即该页判未通过）:
 //   J1 U+FFFD == 0
-//   J2 七节齐全: 概述 / 心智模型 / 怎么用 / 关键成员 / 真实示例 / 参见 / 导航（H2 精确匹配）
+//   J2 七节齐全: 概述 / 心智模型 / 怎么用 / 关键成员 / 真实示例 / 【参见族】 / 导航（H2）
+//       ★ 参见族 = `参见` | `依赖关系` | `依赖图` | `依赖`（boss-3 #12561 裁定）
+//         出处：tools/_verify/DISPATCH-TEMPLATE.md §0.0 的共现证据（非空壳 2750 页里 342 页同页共现 ≥2 个）
+//         ⚠ 归并方向是【把缺判成有】，是本仓最危险的一类合并 ⇒ 故本判分器
+//          **额外打印实际命中的是哪个别名**，让「参见已齐」可审计而不是隐形。
+//         若打印出 `via=依赖关系` 而页里没有 `参见`，读的人应当知道那是别名命中。
 //   J3 引用边界: 页内每条 `X.cs:N` 的 N <= (wc -l X.cs)，且文件存在（源码根 ../bannerlord-1.4.5）
 //   J4 裸行号: 未落文件名的 `:N` 引用数（WARN）
 //   J5 链接形态: 正文不得出现 `](./`；不得直接链 `_index.md`；`_index.md` 自身豁免
@@ -22,7 +27,21 @@
 //   J9 真实示例: ```csharp 代码块总有效行 >= 3
 //
 // ---------------------------------------------------------------------------
-// ★ 政策模式 `--links off`（boss-3 #12289 裁定，2026-10-07）
+// ★★ 两条【决定「工作算不算数」的机械要求】（boss-3 #12561 要求写进本说明）
+//
+// 机制① 档位标记扫描【整个文件，含 frontmatter】。
+//   tools/_verify/classify-tiers.mjs 的 tier1 判据是 text.includes('的自动生成类参考') 等精确串。
+//   ⇒ 把壳页改写成深页时，**必须同时改写 `description`**，
+//     否则正文写满 6261B 深页小节，仍会被 census 记成 generated。
+//   实例：content/v1.4.5/zh/api/campaign-ext/SellGoodsForTradeAction.md 就是这样被记成 generated 的。
+//   本判分器的 J7 就是这条的机械形式。
+//
+// 机制② classifyPage 的 deep_pass 要求【参见/依赖 小节里 >=2 条 markdown 链接】。
+//   ⇒ 写了「依赖」小节但一条链接都没有 = 判不过（理由串 `dependency-section-no-links`）。
+//   实例：MakePregnantAction / SellItemsAction / SellGoodsForTradeAction 三页的失败原因。
+//   本判分器的 J6 就是这条的机械形式；
+//   而 `--links off`（政策 #12289：不写跨页链接）下，J6 只允许「链接族」理由。
+// ---------------------------------------------------------------------------
 //   本轮写作不写跨页 markdown 链接，一律反引号代码片段。
 //   但 tools/lib/handwritten-policy.mjs 的 deep_pass **硬要求 参见/依赖 小节 >=2 条链接**
 //   ⇒ 政策与 deep_pass 互斥。故本判分器在此模式下：
@@ -58,7 +77,9 @@ const CONTENT_ROOT = process.env.LEAD145ZH_CONTENT_ROOT
 //   ⇒ 夹具自带一棵 content 形状的树，用这个钩子指过去。**绝不要在验收 content/ 时设置它。**
 const STATIC_ROOT = join(REPO, 'static');
 
-const SECTIONS = ['概述', '心智模型', '怎么用', '关键成员', '真实示例', '参见', '导航'];
+const SECTIONS = ['概述', '心智模型', '怎么用', '关键成员', '真实示例', '导航'];
+// 参见族：boss-3 #12561 裁定，出处 DISPATCH-TEMPLATE.md §0.0 的共现证据
+const SEE_FAMILY = ['参见', '依赖关系', '依赖图', '依赖'];
 const GEN_MARKERS = [
   '的自动生成类参考',
   '的自动生成战役动作参考',
@@ -203,11 +224,14 @@ function judge(pageRel, mode) {
   out.checks.J1_fffd = fffd;
   if (fffd !== 0) out.fail.push(`J1 fffd=${fffd}`);
 
-  // J2
+  // J2（七节；参见族见 SEE_FAMILY）
   const h2 = (body.match(/^##\s+(.+?)\s*$/gm) || []).map((l) => l.replace(/^##\s+/, '').trim());
   const missing = SECTIONS.filter((s) => !h2.includes(s));
+  const seeMatched = SEE_FAMILY.filter((s) => h2.includes(s));
+  if (!seeMatched.length) missing.push('参见族(参见|依赖关系|依赖图|依赖)');
   out.checks.J2_h2 = h2;
   out.checks.J2_missing = missing;
+  out.checks.J2_see_via = seeMatched;
   if (missing.length) out.fail.push(`J2 missing=${missing.join(',')}`);
 
   // J3
@@ -346,6 +370,20 @@ if (!pages.length) {
   process.exit(2);
 }
 
+// ★ 安全联锁：测试钩子泄露到 content/ 验收时会产出一个【看似合理】的全 FAIL。
+//   实例（2026-10-07）：`export LEAD145ZH_CONTENT_ROOT=…fixture/content` 与 b01 的验收同跑，
+//   J5R 在夹具根下解析不了 b01 的链接 ⇒ `pass=0 fail=5`，而 deep_pass 仍为 4/5。
+//   那个读数看起来完全正常，没有一行在报警。所以这里直接拒跑。
+if (process.env.LEAD145ZH_CONTENT_ROOT) {
+  const realContent = pages.filter((p) => /^content\//.test(toPosix(p)));
+  if (realContent.length) {
+    console.error('REFUSING: LEAD145ZH_CONTENT_ROOT is set (fixture-only hook) but these are real content/ pages:');
+    for (const p of realContent) console.error('  ' + p);
+    console.error('Unset the hook to judge content/ — a leaked hook yields a plausible all-FAIL reading.');
+    process.exit(2);
+  }
+}
+
 console.log(`# mode=--links ${mode}${doCross ? ' +cross-check' : ''}`);
 const results = pages.map((p) => judge(p, mode));
 for (const r of results) {
@@ -354,6 +392,7 @@ for (const r of results) {
   console.log(`      J5 dotSlash=${r.checks.J5_dot_slash ?? 'n/a'} indexLinks=${r.checks.J5_index_links ?? 'n/a'} · J5R unresolved=${(r.checks.J5R_unresolved || []).length} · J8 ${r.checks.J8_bodyBytes}B/${r.checks.J8_h2h3} · J9 csharp=${r.checks.J9_csharp_lines}`);
   console.log(`      J6=${r.checks.J6_classifyPage?.status} · deepPass=${r.checks.deepPass} · tier=${r.checks.tier} · J7 markers=${(r.checks.J7_gen_markers || []).length}`);
   if (r.checks.J2_h2?.length) console.log(`      H2: ${r.checks.J2_h2.join(' | ')}`);
+  if (r.checks.J2_see_via?.length) console.log(`      J2 参见族 via=[${r.checks.J2_see_via.join(',')}]${r.checks.J2_see_via.includes('参见') ? '' : '  ← 别名命中（页里没有 `参见` 标题）'}`);
   for (const f of r.fail) console.log(`      ✗ ${f}`);
   for (const w of r.warn) console.log(`      ! ${w}`);
 }

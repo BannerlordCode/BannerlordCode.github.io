@@ -7,9 +7,27 @@
 
 ## 0. 解禁前置（三条全满足才可开工）
 1. 全站 `node tools/audit-links.mjs` = `BROKEN_LINKS=0 / FILES_WITH_BROKEN=0`
-   （2026-10-07T06:58Z 实测：`39 / 2`，**两个文件全在 `content/v1.3.0/zh/api/campaign/`，不在本线**）
-2. boss-3 对「政策 #12289 vs `deep_pass`」作出 **(a) 窄豁免** 或 **(b) 接受不可达** 的裁定
+   —— **2026-10-07T07:0xZ 实测已达：`0 / 0`** ✅
+2. boss-3 对「政策 #12289 vs `deep_pass`」作出裁定
+   —— **#12561 已到**：七节契约是前向的；参见族放宽为 `参见|依赖关系|依赖图|依赖`；
+   且 #12561 ⑤ 重申「同类事故已 4 轮、全部由新页新增链接造成」⇒ **政策 #12289 继续生效**
+   （等价于裁定 (b)）⇒ 本批走 `--links off`，**永远分开报 `deepPass` 与 `tier` 两个口径** ✅
 3. 批报告必须含 `audit-links` 批前 / 批后两套数（缺则不算完成）
+
+## 0.5 ★★ 两条决定「工作算不算数」的机械要求（先读，比风格重要）
+
+> 完整版：`tools/_verify/ACTIVATION-MECHANICS.md`（已抄给另两条写作线）
+
+**机制① 档位标记扫描【整个文件，含 frontmatter】。**
+`classify-tiers.mjs` 的 tier1 判据是 `text.includes('的自动生成类参考')`。
+⇒ 改写壳页时**必须同时改写 `description`**，否则正文写满 6KB 深页小节，census 仍记 `generated`。
+（实例：`SellGoodsForTradeAction.md` 就是这样被记成 generated 的。判据 J7 就是它的机械形式。）
+
+**机制② `classifyPage` 的 `deep_pass` 要求【参见/依赖 小节里 ≥2 条 markdown 链接】。**
+⇒ 写了「依赖」小节但一条链接都没有 = 判不过（理由串 `dependency-section-no-links`）。
+（实例：MakePregnantAction / SellItemsAction / SellGoodsForTradeAction 三页的失败原因。判据 J6 就是它的机械形式。）
+
+**⇒ 本批政策下（#12289 不写跨页链接），J6 只允许「链接族」理由；`deepPass` 可能为 0/5 而 `tier` 为 5/5 —— 两个数都要报。**
 
 ## 1. ★ 写作政策（boss-3 #12289，立即生效）
 **本轮写作【不写跨页 markdown 链接】。** 所有对其它类型 / 页面的引用一律用 `反引号代码片段`。
@@ -24,7 +42,9 @@
 
 ## 2. 每页验收判据（缺一即该页判未通过）
 1. **七节 H2 精确齐全，顺序不许动**：
-   `## 概述` → `## 心智模型` → `## 怎么用` → `## 关键成员` → `## 真实示例` → `## 参见` → `## 导航`
+   `## 概述` → `## 心智模型` → `## 怎么用` → `## 关键成员` → `## 真实示例` → **`## 参见`** → `## 导航`
+   - 参见槽的**别名族**（boss-3 #12561 裁定）为 `参见|依赖关系|依赖图|依赖`；
+     **本批统一写 `## 参见`**（不要用别名，免得报数时“参见已齐”靠别名命中而不自知）。
    - `## 怎么用` 下必须有 `### 怎么拿到`（**源树路径 + `文件:行号` + 入口**）、`### 典型用法`、`### 坑`
    - `## 关键成员`：**每个成员一行说明它做什么用**，不是只抄签名
    - `## 真实示例`：≥3 行真实 csharp，**逐条核源**
@@ -87,7 +107,9 @@ JUDGE total=5 pass=0 fail=5
 ```
 node tools/_verify/lead-145zh-judge.mjs content/v1.4.5/zh/api/campaign-ext/<页>.md
 ```
-**必须看到 `PASS` 才允许开始下一页。** 批收齐后跑批后门禁两套数：
+**必须看到 `PASS` 才允许开始下一页。** 尺会在每页打印 `J2 参见族 via=[…]`，
+**看到 `via` 里没有 `参见` 就说明用了别名，报数时要说清楚**。
+批收齐后跑批后门禁两套数（boss-3 #12561 ⑤ 明确要求）：
 ```
 node tools/audit-links.mjs 2>&1 | grep -E "BROKEN_LINKS|FILES_WITH_BROKEN"
 node tools/nav-orphans.mjs --by-parent 2>&1 | grep -E "total_pages|orphans="

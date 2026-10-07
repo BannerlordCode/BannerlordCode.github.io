@@ -12,21 +12,20 @@ description: "Auto-generated class reference for SandboxAgentApplyDamageModel."
 
 ## Overview
 
-`SandboxAgentApplyDamageModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`SandboxAgentApplyDamageModel` is the melee damage rulebook. Every number the engine turns a blow into — how much damage, whether the blow is shrugged off, whether the victim is knocked down, dismounted or crushed through — is asked of this one object, and the stock answers are mostly hard numbers a mod will want to argue with: `GetHorseChargePenetration` returns a flat `0.4f` (`SandBox/GameComponents/SandboxAgentApplyDamageModel.cs:715`), `DecideCrushedThrough` puts the energy threshold at `58f` and raises it to `69.6f` when the defender is holding a shield (`:546`), and `CalculateAlternativeAttackDamage` maps weapon classes to `2f`/`1f` and returns `2f` for a null weapon (`:781`). The stock method is not symmetric: it also grants armour-scaled body-part multipliers, raises sally-out damage ×4.5 against siege weapons (`:367`), and rolls the Pavise perk to decide a crossbow bolt that struck a shield on the victim's back does no damage at all (`:16`).
 
 ## Mental Model
 
-Treat `SandboxAgentApplyDamageModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Read it as the melee arbiter rather than a passive table: `Mission` calls into it mid-collision, not at load time — `Mission.cs:5173` asks `DecideWeaponCollisionReaction`, and `Mission.cs:5449` asks `DecideAgentShrugOffBlow` before damage is applied. A mod swaps it out wholesale at `AddModel` time because the alternatives are all live-calculation hooks with no cache and no setter. The practical consequence of the swap is total: the model returns multipliers and booleans, so returning `1f` from an amplification hook means "leave this damage untouched" and returning `false` from `DecideCrushedThrough` silently removes shield-crushing from the game. Because it is an `MBGameModel<AgentApplyDamageModel>`, subclassing means overriding the sandbox class and calling `base` for the ~20 overrides you have no opinion about, rather than reimplementing `AgentApplyDamageModel`.
 
 ## Key Methods
 
 ### IsDamageIgnored
 `public override bool IsDamageIgnored(in AttackInformation attackInformation, in AttackCollisionData collisionData)`
 
-**Purpose:** Determines whether the this instance is in the damage ignored state or condition.
+**Purpose:** Determines whether this instance is in the damage ignored state or condition.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.IsDamageIgnored(attackInformation, collisionData);
 ```
@@ -34,10 +33,9 @@ var result = sandboxAgentApplyDamageModel.IsDamageIgnored(attackInformation, col
 ### ApplyDamageAmplifications
 `public override float ApplyDamageAmplifications(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
 
-**Purpose:** Applies the effect of damage amplifications to the this instance.
+**Purpose:** Applies the effect of damage amplifications to this instance.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.ApplyDamageAmplifications(attackInformation, collisionData, 0);
 ```
@@ -45,10 +43,9 @@ var result = sandboxAgentApplyDamageModel.ApplyDamageAmplifications(attackInform
 ### ApplyDamageScaling
 `public override float ApplyDamageScaling(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
 
-**Purpose:** Applies the effect of damage scaling to the this instance.
+**Purpose:** Applies the effect of damage scaling to this instance.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.ApplyDamageScaling(attackInformation, collisionData, 0);
 ```
@@ -56,10 +53,9 @@ var result = sandboxAgentApplyDamageModel.ApplyDamageScaling(attackInformation, 
 ### ApplyDamageReductions
 `public override float ApplyDamageReductions(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
 
-**Purpose:** Applies the effect of damage reductions to the this instance.
+**Purpose:** Applies the effect of damage reductions to this instance.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.ApplyDamageReductions(attackInformation, collisionData, 0);
 ```
@@ -67,10 +63,9 @@ var result = sandboxAgentApplyDamageModel.ApplyDamageReductions(attackInformatio
 ### ApplyGeneralDamageModifiers
 `public override float ApplyGeneralDamageModifiers(in AttackInformation attackInformation, in AttackCollisionData collisionData, float baseDamage)`
 
-**Purpose:** Applies the effect of general damage modifiers to the this instance.
+**Purpose:** Applies the effect of general damage modifiers to this instance.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.ApplyGeneralDamageModifiers(attackInformation, collisionData, 0);
 ```
@@ -81,7 +76,6 @@ var result = sandboxAgentApplyDamageModel.ApplyGeneralDamageModifiers(attackInfo
 **Purpose:** Executes the DecideCrushedThrough logic.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.DecideCrushedThrough(attackerAgent, defenderAgent, 0, attackDirection, strikeType, defendItem, false);
 ```
@@ -92,7 +86,6 @@ var result = sandboxAgentApplyDamageModel.DecideCrushedThrough(attackerAgent, de
 **Purpose:** Executes the DecideMissileWeaponFlags logic.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 sandboxAgentApplyDamageModel.DecideMissileWeaponFlags(attackerAgent, missileWeapon, missileWeaponFlags);
 ```
@@ -100,10 +93,9 @@ sandboxAgentApplyDamageModel.DecideMissileWeaponFlags(attackerAgent, missileWeap
 ### CanWeaponIgnoreFriendlyFireChecks
 `public override bool CanWeaponIgnoreFriendlyFireChecks(WeaponComponentData weapon)`
 
-**Purpose:** Checks whether the this instance meets the preconditions for weapon ignore friendly fire checks.
+**Purpose:** Checks whether this instance meets the preconditions for weapon ignore friendly fire checks.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.CanWeaponIgnoreFriendlyFireChecks(weapon);
 ```
@@ -111,10 +103,9 @@ var result = sandboxAgentApplyDamageModel.CanWeaponIgnoreFriendlyFireChecks(weap
 ### CanWeaponDealSneakAttack
 `public override bool CanWeaponDealSneakAttack(in AttackInformation attackInformation, WeaponComponentData weapon)`
 
-**Purpose:** Checks whether the this instance meets the preconditions for weapon deal sneak attack.
+**Purpose:** Checks whether this instance meets the preconditions for weapon deal sneak attack.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.CanWeaponDealSneakAttack(attackInformation, weapon);
 ```
@@ -122,10 +113,9 @@ var result = sandboxAgentApplyDamageModel.CanWeaponDealSneakAttack(attackInforma
 ### CanWeaponDismount
 `public override bool CanWeaponDismount(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**Purpose:** Checks whether the this instance meets the preconditions for weapon dismount.
+**Purpose:** Checks whether this instance meets the preconditions for weapon dismount.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.CanWeaponDismount(attackerAgent, attackerWeapon, blow, collisionData);
 ```
@@ -136,7 +126,6 @@ var result = sandboxAgentApplyDamageModel.CanWeaponDismount(attackerAgent, attac
 **Purpose:** Calculates the current value or result of defended blow stun multipliers.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 sandboxAgentApplyDamageModel.CalculateDefendedBlowStunMultipliers(attackerAgent, defenderAgent, collisionResult, attackerWeapon, defenderWeapon, attackerStunPeriod, defenderStunPeriod);
 ```
@@ -144,10 +133,9 @@ sandboxAgentApplyDamageModel.CalculateDefendedBlowStunMultipliers(attackerAgent,
 ### CanWeaponKnockback
 `public override bool CanWeaponKnockback(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**Purpose:** Checks whether the this instance meets the preconditions for weapon knockback.
+**Purpose:** Checks whether this instance meets the preconditions for weapon knockback.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.CanWeaponKnockback(attackerAgent, attackerWeapon, blow, collisionData);
 ```
@@ -155,10 +143,9 @@ var result = sandboxAgentApplyDamageModel.CanWeaponKnockback(attackerAgent, atta
 ### CanWeaponKnockDown
 `public override bool CanWeaponKnockDown(Agent attackerAgent, Agent victimAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**Purpose:** Checks whether the this instance meets the preconditions for weapon knock down.
+**Purpose:** Checks whether this instance meets the preconditions for weapon knock down.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.CanWeaponKnockDown(attackerAgent, victimAgent, attackerWeapon, blow, collisionData);
 ```
@@ -166,10 +153,9 @@ var result = sandboxAgentApplyDamageModel.CanWeaponKnockDown(attackerAgent, vict
 ### GetDismountPenetration
 `public override float GetDismountPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**Purpose:** Reads and returns the dismount penetration value held by the this instance.
+**Purpose:** Reads and returns the dismount penetration value held by this instance.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.GetDismountPenetration(attackerAgent, attackerWeapon, blow, collisionData);
 ```
@@ -177,10 +163,9 @@ var result = sandboxAgentApplyDamageModel.GetDismountPenetration(attackerAgent, 
 ### GetKnockBackPenetration
 `public override float GetKnockBackPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**Purpose:** Reads and returns the knock back penetration value held by the this instance.
+**Purpose:** Reads and returns the knock back penetration value held by this instance.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.GetKnockBackPenetration(attackerAgent, attackerWeapon, blow, collisionData);
 ```
@@ -188,10 +173,9 @@ var result = sandboxAgentApplyDamageModel.GetKnockBackPenetration(attackerAgent,
 ### GetKnockDownPenetration
 `public override float GetKnockDownPenetration(Agent attackerAgent, WeaponComponentData attackerWeapon, in Blow blow, in AttackCollisionData collisionData)`
 
-**Purpose:** Reads and returns the knock down penetration value held by the this instance.
+**Purpose:** Reads and returns the knock down penetration value held by this instance.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.GetKnockDownPenetration(attackerAgent, attackerWeapon, blow, collisionData);
 ```
@@ -199,10 +183,9 @@ var result = sandboxAgentApplyDamageModel.GetKnockDownPenetration(attackerAgent,
 ### GetHorseChargePenetration
 `public override float GetHorseChargePenetration()`
 
-**Purpose:** Reads and returns the horse charge penetration value held by the this instance.
+**Purpose:** Reads and returns the horse charge penetration value held by this instance.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.GetHorseChargePenetration();
 ```
@@ -213,7 +196,6 @@ var result = sandboxAgentApplyDamageModel.GetHorseChargePenetration();
 **Purpose:** Calculates the current value or result of stagger threshold damage.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.CalculateStaggerThresholdDamage(defenderAgent, blow);
 ```
@@ -224,7 +206,6 @@ var result = sandboxAgentApplyDamageModel.CalculateStaggerThresholdDamage(defend
 **Purpose:** Calculates the current value or result of alternative attack damage.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.CalculateAlternativeAttackDamage(attackInformation, collisionData, weapon);
 ```
@@ -235,7 +216,6 @@ var result = sandboxAgentApplyDamageModel.CalculateAlternativeAttackDamage(attac
 **Purpose:** Calculates the current value or result of passive attack damage.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.CalculatePassiveAttackDamage(attackerCharacter, collisionData, 0);
 ```
@@ -246,7 +226,6 @@ var result = sandboxAgentApplyDamageModel.CalculatePassiveAttackDamage(attackerC
 **Purpose:** Executes the DecidePassiveAttackCollisionReaction logic.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.DecidePassiveAttackCollisionReaction(attacker, defender, false);
 ```
@@ -257,7 +236,6 @@ var result = sandboxAgentApplyDamageModel.DecidePassiveAttackCollisionReaction(a
 **Purpose:** Calculates the current value or result of shield damage.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.CalculateShieldDamage(attackInformation, 0);
 ```
@@ -268,7 +246,6 @@ var result = sandboxAgentApplyDamageModel.CalculateShieldDamage(attackInformatio
 **Purpose:** Calculates the current value or result of sail fire damage.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.CalculateSailFireDamage(attackerAgent, 0, false);
 ```
@@ -276,10 +253,9 @@ var result = sandboxAgentApplyDamageModel.CalculateSailFireDamage(attackerAgent,
 ### GetDamageMultiplierForBodyPart
 `public override float GetDamageMultiplierForBodyPart(BoneBodyPartType bodyPart, DamageTypes type, bool isHuman, bool isMissile)`
 
-**Purpose:** Reads and returns the damage multiplier for body part value held by the this instance.
+**Purpose:** Reads and returns the damage multiplier for body part value held by this instance.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.GetDamageMultiplierForBodyPart(bodyPart, type, false, false);
 ```
@@ -290,7 +266,6 @@ var result = sandboxAgentApplyDamageModel.GetDamageMultiplierForBodyPart(bodyPar
 **Purpose:** Executes the DecideAgentShrugOffBlow logic.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.DecideAgentShrugOffBlow(victimAgent, collisionData, blow);
 ```
@@ -301,7 +276,6 @@ var result = sandboxAgentApplyDamageModel.DecideAgentShrugOffBlow(victimAgent, c
 **Purpose:** Executes the DecideAgentDismountedByBlow logic.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.DecideAgentDismountedByBlow(attackerAgent, victimAgent, collisionData, attackerWeapon, blow);
 ```
@@ -312,7 +286,6 @@ var result = sandboxAgentApplyDamageModel.DecideAgentDismountedByBlow(attackerAg
 **Purpose:** Executes the DecideAgentKnockedBackByBlow logic.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.DecideAgentKnockedBackByBlow(attackerAgent, victimAgent, collisionData, attackerWeapon, blow);
 ```
@@ -323,7 +296,6 @@ var result = sandboxAgentApplyDamageModel.DecideAgentKnockedBackByBlow(attackerA
 **Purpose:** Executes the DecideAgentKnockedDownByBlow logic.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.DecideAgentKnockedDownByBlow(attackerAgent, victimAgent, collisionData, attackerWeapon, blow);
 ```
@@ -334,7 +306,6 @@ var result = sandboxAgentApplyDamageModel.DecideAgentKnockedDownByBlow(attackerA
 **Purpose:** Executes the DecideMountRearedByBlow logic.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.DecideMountRearedByBlow(attackerAgent, victimAgent, collisionData, attackerWeapon, blow);
 ```
@@ -345,7 +316,6 @@ var result = sandboxAgentApplyDamageModel.DecideMountRearedByBlow(attackerAgent,
 **Purpose:** Executes the DecideWeaponCollisionReaction logic.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 sandboxAgentApplyDamageModel.DecideWeaponCollisionReaction(registeredBlow, collisionData, attacker, defender, attackerWeapon, false, false, 0, colReaction);
 ```
@@ -356,7 +326,6 @@ sandboxAgentApplyDamageModel.DecideWeaponCollisionReaction(registeredBlow, colli
 **Purpose:** Executes the ShouldMissilePassThroughAfterShieldBreak logic.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.ShouldMissilePassThroughAfterShieldBreak(attackerAgent, attackerWeapon);
 ```
@@ -367,7 +336,6 @@ var result = sandboxAgentApplyDamageModel.ShouldMissilePassThroughAfterShieldBre
 **Purpose:** Calculates the current value or result of remaining momentum.
 
 ```csharp
-// Obtain an instance of SandboxAgentApplyDamageModel from the subsystem API first
 SandboxAgentApplyDamageModel sandboxAgentApplyDamageModel = ...;
 var result = sandboxAgentApplyDamageModel.CalculateRemainingMomentum(0, b, collisionData, attacker, victim, attackerWeapon, false);
 ```
@@ -375,8 +343,13 @@ var result = sandboxAgentApplyDamageModel.CalculateRemainingMomentum(0, b, colli
 ## Usage Example
 
 ```csharp
-Game.Current.ReplaceModel<SandboxAgentApplyDamageModel>(new MySandboxAgentApplyDamageModel());
+protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+{
+    gameStarterObject.AddModel<AgentApplyDamageModel>(new SandboxAgentApplyDamageModel());
+}
 ```
+
+`AgentApplyDamageModel` is declared as `MBGameModel<AgentApplyDamageModel>` (`AgentApplyDamageModel.cs:8`), so the generic `AddModel<T>` overload (`IGameStarter.cs:13`) accepts this instance. The stock game installs this same model through the same overload at `SandBoxSubModule.cs:34`.
 
 ## See Also
 

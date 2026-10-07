@@ -18,6 +18,48 @@ description: "Auto-generated class reference for DefaultDiplomacyModel."
 
 Treat `DefaultDiplomacyModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
+## How to use
+
+`DefaultDiplomacyModel` is the shipped answer, not the extension point. The abstract `DiplomacyModel` is what the engine resolves and what you subclass.
+
+**Getting one.** You do not reach for it directly. `DiplomacyModel` is declared `MBGameModel<DiplomacyModel>` at `TaleWorlds.CampaignSystem/ComponentInterfaces/DiplomacyModel.cs:14`, so the generic starter overload takes the abstract type as its type argument and the concrete implementation as its value: `gameStarter.AddModel<DiplomacyModel>(new DefaultDiplomacyModel())`. That is verbatim what the stock campaign does from `SandBoxManager.Initialize` (`TaleWorlds.CampaignSystem/SandBoxManager.cs:255`). A module issues the same call from `InitializeGameStarter`, the hook the sandbox itself overrides (`SandBox/SandBoxSubModule.cs:28`). Ordering is what makes this work: `Campaign.cs:1897` runs `SandBoxManager.Initialize` first and `Campaign.cs:1898` fans out to every submodule afterwards (`MBGameManager.cs:118`), and `GetModel<T>` scans the list backwards (`CampaignGameStarter.cs:77`), so the last registration is the one the engine keeps.
+
+**Typical use:**
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public class MyDiplomacyModel : DiplomacyModel
+{
+    // DiplomacyModel is the widest surface in this namespace: 53 abstract members
+    // (DiplomacyModel.cs:14 onward). Holding the shipped implementation and delegating
+    // is what makes a one-member override viable at all.
+    private readonly DefaultDiplomacyModel _stock = new DefaultDiplomacyModel();
+
+    public override float GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(Kingdom kingdomToJoin)
+    {
+        return _stock.GetStrengthThresholdForNonMutualWarsToBeIgnoredToJoinKingdom(kingdomToJoin);
+    }
+}
+
+public class MyModule : MBSubModuleBase
+{
+    protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+    {
+        if (game.GameType is Campaign)
+        {
+            gameStarterObject.AddModel<DiplomacyModel>(new MyDiplomacyModel());
+        }
+    }
+}
+```
+
+**Most common mistake:** putting the concrete class in the type argument — `gameStarterObject.AddModel<DefaultDiplomacyModel>(new DefaultDiplomacyModel())`. It does not compile: the overload is `AddModel<T>(MBGameModel<T>)` (`TaleWorlds.CampaignSystem/CampaignGameStarter.cs:95`) and `DefaultDiplomacyModel` is an `MBGameModel<DiplomacyModel>`, not an `MBGameModel<DefaultDiplomacyModel>`. The type argument is not free-form in the other direction either — the engine reads the model back by the abstract type (`TaleWorlds.CampaignSystem/GameModels.cs:657`, `GetGameModel<DiplomacyModel>()`), so nothing would ever look up a type you invented.
+
 ## Key Properties
 
 | Name | Signature |
@@ -619,8 +661,17 @@ var result = defaultDiplomacyModel.IsAtConstantWar(faction1, faction2);
 
 ## Usage Example
 
+A module replaces this component by handing its own implementation to `CampaignGameStarter.AddModel<T>` (`CampaignGameStarter.cs:95`) from the `InitializeGameStarter` hook (`MBSubModuleBase.cs:61`); the engine registers its own `DefaultDiplomacyModel` for it at `SandBoxManager.cs:255`.
+
 ```csharp
-Game.Current.ReplaceModel<DefaultDiplomacyModel>(new MyDefaultDiplomacyModel());
+protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+{
+    if (gameStarterObject is CampaignGameStarter gameStarter)
+    {
+        // MyDiplomacyModel : DiplomacyModel, so it is already an MBGameModel<DiplomacyModel>
+        gameStarter.AddModel<DiplomacyModel>(new MyDiplomacyModel());
+    }
+}
 ```
 
 ## See Also

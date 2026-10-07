@@ -12,11 +12,49 @@ description: "Auto-generated class reference for AgentApplyDamageModel."
 
 ## Overview
 
-`AgentApplyDamageModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+The rule book for how much damage a blow does, and an `MBGameModel<AgentApplyDamageModel>` (`AgentApplyDamageModel.cs:8`) with around thirty abstract hooks that each answer one narrow question — should this hit be ignored, what is the staggering threshold, can this weapon dismount, what penetration does it have. The engine routes every one of those questions here, and the only concrete logic in the file is the pipeline that chains them together.
 
 ## Mental Model
 
-Treat `AgentApplyDamageModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+This is the rule book for "how much damage does this blow do", and almost all of it is abstract hooks you must fill in. The two concrete members are the interesting part. `CalculateDamage` (`AgentApplyDamageModel.cs:11`) is a fixed six-step pipeline — ignore-check, amplify, scale, reduce, general modifiers, then a `MathF.Max(0f, ...)` clamp (`AgentApplyDamageModel.cs:14`-`AgentApplyDamageModel.cs:22`) — and every step is a separate virtual hook, so a mod changes one rule without touching the rest. Note that it does *not* run on `this`: line 13 re-reads `MissionGameModels.Current.AgentApplyDamageModel`, so the pipeline always executes against whichever model is globally installed. The other concrete member, `CalculateDefaultRemainingMomentum` (`AgentApplyDamageModel.cs:92`), is the vanilla knock-back carry-over: `0.3x` the original momentum on a crush-through (`AgentApplyDamageModel.cs:97`), `0.5x` for a passive attack by an un-mounted attacker (`AgentApplyDamageModel.cs:115`), and for a multi-target non-thrust hit `originalMomentum * (1 - AbsorbedByArmor / InflictedDamage)` halved and then snapped to zero below `0.25` (`AgentApplyDamageModel.cs:128`-`AgentApplyDamageModel.cs:132`). Everything else returns a boolean or a float that a mission collision asks for.
+
+## How to use
+
+**Getting one.** You never construct it. `MissionGameModels` fills its slot from `base.GetGameModel<AgentApplyDamageModel>()` (`MissionGameModels.cs:102`) and publishes itself as `MissionGameModels.Current` from its own constructor (`MissionGameModels.cs:125`). Read it from anywhere with `MissionGameModels.Current.AgentApplyDamageModel`; the engine's own consumer is the blow-registration path in `Mission.cs:6464`. To install your own you subclass and register the subclass as a `GameModel` — the whole point of the type is that `base.GetGameModel<T>()` scans the registered list **backwards** (`GameModelsManager.cs:19`), so the last-registered model of a given type wins.
+
+**Typical use.** The class declares roughly thirty abstract hooks, so a real subclass forwards the ones it does not care about to `BaseModel` — the chaining seam `MBGameModel<T>.Initialize(T baseModel)` populates at `MBGameModel.cs:15` and exposes as a `private protected` property (`MBGameModel.cs:10`), so only your subclass can touch it.
+
+```csharp
+public sealed class MyModDamageModel : AgentApplyDamageModel
+{
+    // Chain to vanilla rather than guessing the scaling curve.
+    public override float ApplyDamageScaling(in AttackInformation attackInformation,
+                                              in AttackCollisionData collisionData,
+                                              float baseDamage)
+    {
+        float scaled = this.BaseModel.ApplyDamageScaling(attackInformation, collisionData, baseDamage);
+        return scaled * 1.2f;
+    }
+
+    // CalculateDefaultRemainingMomentum (AgentApplyDamageModel.cs:92) is the vanilla fallback.
+    public override float CalculateRemainingMomentum(float originalMomentum, in Blow b,
+                                                      in AttackCollisionData collisionData,
+                                                      Agent attacker, Agent victim,
+                                                      in MissionWeapon attackerWeapon,
+                                                      bool isCrushThrough)
+    {
+        float vanilla = this.CalculateDefaultRemainingMomentum(originalMomentum, b, collisionData,
+                                                                attacker, victim, attackerWeapon, isCrushThrough);
+        return vanilla * 0.5f;
+    }
+}
+
+// Read back from mission code - this is the call the engine itself makes (Mission.cs:6464).
+float dealt = MissionGameModels.Current.AgentApplyDamageModel
+    .CalculateDamage(attackInformation, attackCollisionData, 100f);
+```
+
+**Watch out.** Because the lookup walks the model list backwards and returns the *last* match (`GameModelsManager.cs:19`), registering two `AgentApplyDamageModel` subclasses does not compose them — the second silently replaces the first and everything the first overrides stops having any effect, with no error anywhere. Separately, `CalculateDamage` dereferences the static `MissionGameModels.Current` (`AgentApplyDamageModel.cs:13`) rather than `this`, and `MissionGameModels.Clear()` sets that static to `null` (`MissionGameModels.cs:133`) at teardown: calling `CalculateDamage` on a perfectly valid instance during mission cleanup throws `NullReferenceException` on the static, not on your object.
 
 ## Key Methods
 
@@ -393,3 +431,5 @@ AgentApplyDamageModel instance = ...;
 ## See Also
 
 - [Area Index](../)
+- [AttackCollisionData](../AttackCollisionData)
+- [Agent](../../mission/Agent)

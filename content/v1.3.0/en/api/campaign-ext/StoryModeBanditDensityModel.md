@@ -12,11 +12,11 @@ description: "Auto-generated class reference for StoryModeBanditDensityModel."
 
 ## Overview
 
-`StoryModeBanditDensityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`StoryModeBanditDensityModel` is almost entirely a pass-through, and the four exceptions are all the same rule: while the storyline restricts player interaction, bandit spawning is switched off by returning zero. The four properties that gate it are the hideout counts — parties around a hideout, parties inside a hideout, hideouts per bandit faction, initial hideouts per faction (`StoryMode/GameComponents/StoryModeBanditDensityModel.cs:17`, `:31`, `:45`, `:59`) — plus `GetMaxSupportedNumberOfLootersForClan`, which returns `0` rather than a faction looter cap (`:132`). Every other member, from `NumberOfMinimumBanditTroopsInHideoutMission` to `IsPositionInsideNavalSafeZone`, forwards verbatim to `base.BaseModel` with no story condition at all.
 
 ## Mental Model
 
-Treat `StoryModeBanditDensityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Model this as a zeroing decorator over the sandbox bandit rules rather than as a density calculator — the shape to expect is "check the story flag, otherwise delegate". The values being zeroed are read all over the campaign AI, not just where bandits spawn: `AiLandBanditPatrollingBehavior.cs:38` compares the number of parties in a settlement against `NumberOfMinimumBanditPartiesInAHideoutToInfestIt`, and `SandBoxMissions.cs:689` asks `GetMaximumTroopCountForHideoutMission` for the player roster. During a restricted segment those reads see the unzeroed passthrough values, so a behaviour that depends on a minimum can still fire while the properties that would create the bandits return nothing — the game empties existing parties without removing the logic that patrols them. A mod that wants bandits during a restricted phase must override the specific property and return the sandbox value rather than a constant, because the sandbox constants are not exposed as public fields on this class.
 
 ## Key Properties
 
@@ -37,10 +37,9 @@ Treat `StoryModeBanditDensityModel` as a Model-style extension point: first iden
 ### GetMaximumTroopCountForHideoutMission
 `public override int GetMaximumTroopCountForHideoutMission(MobileParty party)`
 
-**Purpose:** Reads and returns the maximum troop count for hideout mission value held by the this instance.
+**Purpose:** Reads and returns the maximum troop count for hideout mission value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModeBanditDensityModel from the subsystem API first
 StoryModeBanditDensityModel storyModeBanditDensityModel = ...;
 var result = storyModeBanditDensityModel.GetMaximumTroopCountForHideoutMission(party);
 ```
@@ -48,10 +47,9 @@ var result = storyModeBanditDensityModel.GetMaximumTroopCountForHideoutMission(p
 ### IsPositionInsideNavalSafeZone
 `public override bool IsPositionInsideNavalSafeZone(CampaignVec2 position)`
 
-**Purpose:** Determines whether the this instance is in the position inside naval safe zone state or condition.
+**Purpose:** Determines whether this instance is in the position inside naval safe zone state or condition.
 
 ```csharp
-// Obtain an instance of StoryModeBanditDensityModel from the subsystem API first
 StoryModeBanditDensityModel storyModeBanditDensityModel = ...;
 var result = storyModeBanditDensityModel.IsPositionInsideNavalSafeZone(position);
 ```
@@ -59,10 +57,9 @@ var result = storyModeBanditDensityModel.IsPositionInsideNavalSafeZone(position)
 ### GetMaxSupportedNumberOfLootersForClan
 `public override int GetMaxSupportedNumberOfLootersForClan(Clan clan)`
 
-**Purpose:** Reads and returns the max supported number of looters for clan value held by the this instance.
+**Purpose:** Reads and returns the max supported number of looters for clan value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModeBanditDensityModel from the subsystem API first
 StoryModeBanditDensityModel storyModeBanditDensityModel = ...;
 var result = storyModeBanditDensityModel.GetMaxSupportedNumberOfLootersForClan(clan);
 ```
@@ -70,10 +67,9 @@ var result = storyModeBanditDensityModel.GetMaxSupportedNumberOfLootersForClan(c
 ### GetMinimumTroopCountForHideoutMission
 `public override int GetMinimumTroopCountForHideoutMission(MobileParty party)`
 
-**Purpose:** Reads and returns the minimum troop count for hideout mission value held by the this instance.
+**Purpose:** Reads and returns the minimum troop count for hideout mission value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModeBanditDensityModel from the subsystem API first
 StoryModeBanditDensityModel storyModeBanditDensityModel = ...;
 var result = storyModeBanditDensityModel.GetMinimumTroopCountForHideoutMission(party);
 ```
@@ -81,8 +77,13 @@ var result = storyModeBanditDensityModel.GetMinimumTroopCountForHideoutMission(p
 ## Usage Example
 
 ```csharp
-Game.Current.ReplaceModel<StoryModeBanditDensityModel>(new MyStoryModeBanditDensityModel());
+protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+{
+    gameStarterObject.AddModel<BanditDensityModel>(new StoryModeBanditDensityModel());
+}
 ```
+
+`BanditDensityModel` is declared as `MBGameModel<BanditDensityModel>` (`BanditDensityModel.cs:8`), so the generic `AddModel<T>` overload (`IGameStarter.cs:13`) accepts this instance. The stock game installs this same model through the same overload at `StoryModeSubModule.cs:90`.
 
 ## See Also
 

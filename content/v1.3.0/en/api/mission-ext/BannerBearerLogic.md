@@ -12,11 +12,67 @@ description: "Auto-generated class reference for BannerBearerLogic."
 
 ## Overview
 
-`BannerBearerLogic` sits closer to the behavior layer: it reacts to events, drives flows, and updates subsystem state every tick or at key transitions.
+`BannerBearerLogic` is the mission behaviour that owns all runtime banner state in a battle: which formation has which banner, which agent is carrying it, who is walking over to pick it up, and where the bearers stand in the formation's arrangement. It is a `MissionLogic` with one instance per mission (`BannerBearerLogic.cs:13`).
+
+All the interesting state lives in a private nested `FormationBannerController`, one per formation, held in `_formationBannerData`. That controller subscribes to four formation events in its constructor — `OnUnitAdded`, `OnUnitRemoved`, `OnBeforeMovementOrderApplied` and `OnAfterArrangementOrderApplied` — and maintains its own `_bannerInstances` dictionary keyed by **native entity pointer** (`UIntPtr`). A second map, `_bannerToFormationMap`, inverts that: pointer to controller. Every banner question the class answers is a lookup in one of those two maps.
+
+The logic binds itself into the game model at `OnBehaviorInitialize` with `MissionGameModels.Current.BattleBannerBearersModel.InitializeModel(this)` (`BannerBearerLogic.cs:162`) and unbinds in `OnEndMission` with `FinalizeModel()` (`BannerBearerLogic.cs:173`), also clearing `AgentSpawnLogic` and setting `_isMissionEnded` (`BannerBearerLogic.cs:177`). It subscribes to `Mission.OnItemPickUp` and `Mission.OnItemDrop` in the same pair, so banner pickups that happen outside the banner AI still update state.
+
+Banner identity is an `ItemObject`, and `IsBannerItem` is the gate: the item must be non-null, have `IsBannerItem` true, and have a non-null `BannerComponent` (`BannerBearerLogic.cs:304`).
 
 ## Mental Model
 
-Treat `BannerBearerLogic` as a Logic-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Four behaviours here are worth internalising before you subclass anything, because each of them fails quietly.
+
+**The deployment threshold is an exact equality, not a comparison.** `OnAgentAdded` queues the controller for a bearer update only when `formation.CountOfUnits == GetMinimumFormationTroopCountToBearBanners()`, and `OnAgentRemoved` only when the count is exactly one below that (`BannerBearerLogic.cs:892`, `BannerBearerLogic.cs:913`). With the shipped minimum of 2, a formation that goes from 0 to 5 units in one spawn never equals 2 at the moment the event fires, so it is never queued and never gets bearers. Banners appear only when the count *lands on* the threshold. Outside the deployment branch both handlers instead call `UpdateBannerSearchers()` synchronously on every unit add and removal.
+
+**The bearer-selection filter is a tautology.** `FindBannerBearableAgents` requires `agent2.Banner == null || agent2.Banner != this.BannerItem` (`BannerBearerLogic.cs:818`). That is true whenever `Banner` is null, and also true whenever `Banner` is non-null *and different* — so it excludes nothing. The condition you would expect is `Banner == null || Banner == this.BannerItem`. As written, an agent already carrying a *different* formation's banner is eligible. What actually keeps that in check is the sort immediately after: the list is ordered by `GetAgentBannerBearingPriority` descending (`BannerBearerLogic.cs:825`), and the shipped model returns `int.MaxValue` for any agent that already has a banner — so banner-carriers sort to the top and are chosen first, and the redundant condition never gets the chance to hurt. Swap or replace that model override and the tautology becomes live.
+
+**The `IsBannerItem` calls in the setters are discarded.** `SetFormationBanner` calls `BannerBearerLogic.IsBannerItem(newBanner)` and throws the result away (`BannerBearerLogic.cs:140`); `SetBannerItem` does the same (`BannerBearerLogic.cs:499`). Nothing validates. You can assign a non-banner `ItemObject` as a formation's banner and no error is raised here — the failure appears much later, when the item fails to produce a banner entity.
+
+**Two constants are dead code.** `DefaultBannerBearerAgentDefensiveness = 1f` (`BannerBearerLogic.cs:377`) and `BannerSearcherUpdatePeriod = 3f` (`BannerBearerLogic.cs:380`) are declared and never referenced anywhere in the file. The live values are the inline literals `1f` at `BannerBearerLogic.cs:751` and `3f` at `BannerBearerLogic.cs:190`.
+
+Also note the properties are computed, not stored. `BannerBearers`, `BannersOnGround`, `NumberOfBannerBearers` and `NumberOfBanners` each run LINQ over `_bannerInstances.Values` on every access, so `GetFormationBannerBearers` allocates a fresh `List<Agent>` per call (`BannerBearerLogic.cs:70`). That is fine for UI and expensive inside a per-frame loop.
+
+Finally, `OnAgentRemoved` removes a fallen agent's banner **only** for `AgentState.Routed` (`BannerBearerLogic.cs:242`), while `OnAgentPanicked` schedules a drop of equipment slot 4 — the `ExtraWeaponSlot` where the banner lives (`BannerBearerLogic.cs:253`). Killing or incapacitating a bearer does not take its banner; routing and panicking do.
+
+## How to use
+
+**Getting it.** It is a mission behaviour, so reach it through the mission:
+
+```csharp
+BannerBearerLogic banners = Mission.Current.GetMissionBehavior<BannerBearerLogic>();
+```
+
+Subclass it and register your subclass in the behaviour array if you need to change selection; most of the decision logic is in `BattleBannerBearersModel`, not here.
+
+**Typical use** — asking formation-level questions the safe way (the model forwards null-guard for you, this class does not):
+
+```csharp
+BannerBearerLogic banners = Mission.Current.GetMissionBehavior<BannerBearerLogic>();
+if (banners != null)
+{
+    Formation f = agent.Formation;
+    ItemObject bannerItem = banners.GetFormationBanner(f);           // null if none
+    List<Agent> bearers = banners.GetFormationBannerBearers(f);     // fresh list, may be empty
+    int missing = banners.GetMissingBannerCount(f);                 // desired - present, floored at 0
+
+    // GetActiveBanner is stricter than GetFormationBanner: it needs a *carrying* bearer.
+    BannerComponent active = banners.GetActiveBanner(f);
+}
+```
+
+**Typical use** — assigning a banner to a formation, then forcing bearer selection:
+
+```csharp
+BannerBearerLogic banners = Mission.Current.GetMissionBehavior<BannerBearerLogic>();
+banners.SetFormationBanner(formation, clan.Banner);   // no validation of banner-ness
+
+foreach (Formation f in Mission.Current.Teams[0].Formations)
+    banners.SetFormationBanner(f, clan.Banner);
+```
+
+**Most common mistake, and what it costs.** Calling `UpdateAgent(agent, true)` for an agent whose formation has no `FormationBannerController` — for example after `RemoveBannerOfAgent`, or for a formation you never passed to `SetFormationBanner`. The very first thing `UpdateAgent` does is fetch the controller from `agent.Formation` and dereference `.BannerItem` on the result with no null check (`BannerBearerLogic.cs:258`, `BannerBearerLogic.cs:264`), so you get a `NullReferenceException` rather than a skipped update. The fix is not defensive code in your own method: call `SetFormationBanner(formation, banner)` first so the controller exists, and query `HasBannerOnGround`/`GetFormationBanner` before assuming a formation is banner-managed. Remember too that becoming a bearer *replaces* the agent's equipment — the replacement weapon goes into the first weapon slot, equipment slots 1 through 3 are cleared, and the banner goes into the extra weapon slot (`BannerBearerLogic.cs:355`, `BannerBearerLogic.cs:356`, `BannerBearerLogic.cs:360`) — so a bearer silently loses three extra weapon slots, which is usually invisible until they fight.
 
 ## Key Properties
 
@@ -418,3 +474,9 @@ var behavior = Mission.Current.GetMissionBehavior<BannerBearerLogic>();
 ## See Also
 
 - [Area Index](../)
+- [MissionLogic](../MissionLogic)
+- [BattleBannerBearersModel](../BattleBannerBearersModel)
+- [CustomBattleBannerBearersModel](../CustomBattleBannerBearersModel)
+- [MissionAgentSpawnLogic](../MissionAgentSpawnLogic)
+- [FormationArrangementModel](../FormationArrangementModel)
+- [BannerBearerLogic (中文页面)](../../../../zh/api/mission-ext/BannerBearerLogic)

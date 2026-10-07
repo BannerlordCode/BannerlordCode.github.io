@@ -12,11 +12,11 @@ description: "Auto-generated class reference for StoryModePrisonerRecruitmentCal
 
 ## Overview
 
-`StoryModePrisonerRecruitmentCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`StoryModePrisonerRecruitmentCalculationModel` governs how prisoners join the player's party, and its single edit stops conformity from rising during the tutorial. `GetConformityChangePerHour` (StoryMode/GameComponents/StoryModePrisonerRecruitmentCalculationModel.cs:18) returns a zero-valued `ExplainedNumber` when the party is the main party and the tutorial phase is unfinished (`:20`, `:22`); otherwise it returns the sandbox hourly rate (`:24`). The five other members — recruitable count, conformity needed, morale effect, the recruitable check and the party-level recruitment gate — are unmodified passthroughs (`:14`, `:30`, `:36`, `:42`, `:48`).
 
 ## Mental Model
 
-Treat `StoryModePrisonerRecruitmentCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+The zero is on the *rate*, not the threshold, which is the distinction that matters: prisoners still accumulate conformity by other routes during the tutorial, they simply do not gain any per hour from being in the party. The consumers are the prisoner-recruitment behaviour, which reads the recruitable count at `RecruitPrisonersCampaignBehavior.cs:38` for the main party and at `:68` for any other mobile party, and the conformity rate itself feeds the hourly tick that same behaviour applies. Because the condition tests `party == PartyBase.MainParty` by reference (`:20`), a mod that hands the tutorial a different party reference will see conformity tick normally there while the real main party stays frozen; and because the class exposes no way to configure the sandbox rate, restoring normal ticking means returning the base value rather than a tuned constant.
 
 ## Key Methods
 
@@ -26,7 +26,6 @@ Treat `StoryModePrisonerRecruitmentCalculationModel` as a Model-style extension 
 **Purpose:** Calculates the current value or result of recruitable number.
 
 ```csharp
-// Obtain an instance of StoryModePrisonerRecruitmentCalculationModel from the subsystem API first
 StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
 var result = storyModePrisonerRecruitmentCalculationModel.CalculateRecruitableNumber(party, character);
 ```
@@ -34,10 +33,9 @@ var result = storyModePrisonerRecruitmentCalculationModel.CalculateRecruitableNu
 ### GetConformityChangePerHour
 `public override ExplainedNumber GetConformityChangePerHour(PartyBase party, CharacterObject character)`
 
-**Purpose:** Reads and returns the conformity change per hour value held by the this instance.
+**Purpose:** Reads and returns the conformity change per hour value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModePrisonerRecruitmentCalculationModel from the subsystem API first
 StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
 var result = storyModePrisonerRecruitmentCalculationModel.GetConformityChangePerHour(party, character);
 ```
@@ -45,10 +43,9 @@ var result = storyModePrisonerRecruitmentCalculationModel.GetConformityChangePer
 ### GetConformityNeededToRecruitPrisoner
 `public override int GetConformityNeededToRecruitPrisoner(CharacterObject character)`
 
-**Purpose:** Reads and returns the conformity needed to recruit prisoner value held by the this instance.
+**Purpose:** Reads and returns the conformity needed to recruit prisoner value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModePrisonerRecruitmentCalculationModel from the subsystem API first
 StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
 var result = storyModePrisonerRecruitmentCalculationModel.GetConformityNeededToRecruitPrisoner(character);
 ```
@@ -56,10 +53,9 @@ var result = storyModePrisonerRecruitmentCalculationModel.GetConformityNeededToR
 ### GetPrisonerRecruitmentMoraleEffect
 `public override int GetPrisonerRecruitmentMoraleEffect(PartyBase party, CharacterObject character, int num)`
 
-**Purpose:** Reads and returns the prisoner recruitment morale effect value held by the this instance.
+**Purpose:** Reads and returns the prisoner recruitment morale effect value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModePrisonerRecruitmentCalculationModel from the subsystem API first
 StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
 var result = storyModePrisonerRecruitmentCalculationModel.GetPrisonerRecruitmentMoraleEffect(party, character, 0);
 ```
@@ -67,10 +63,9 @@ var result = storyModePrisonerRecruitmentCalculationModel.GetPrisonerRecruitment
 ### IsPrisonerRecruitable
 `public override bool IsPrisonerRecruitable(PartyBase party, CharacterObject character, out int conformityNeeded)`
 
-**Purpose:** Determines whether the this instance is in the prisoner recruitable state or condition.
+**Purpose:** Determines whether this instance is in the prisoner recruitable state or condition.
 
 ```csharp
-// Obtain an instance of StoryModePrisonerRecruitmentCalculationModel from the subsystem API first
 StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
 var result = storyModePrisonerRecruitmentCalculationModel.IsPrisonerRecruitable(party, character, conformityNeeded);
 ```
@@ -81,7 +76,6 @@ var result = storyModePrisonerRecruitmentCalculationModel.IsPrisonerRecruitable(
 **Purpose:** Executes the ShouldPartyRecruitPrisoners logic.
 
 ```csharp
-// Obtain an instance of StoryModePrisonerRecruitmentCalculationModel from the subsystem API first
 StoryModePrisonerRecruitmentCalculationModel storyModePrisonerRecruitmentCalculationModel = ...;
 var result = storyModePrisonerRecruitmentCalculationModel.ShouldPartyRecruitPrisoners(party);
 ```
@@ -89,8 +83,13 @@ var result = storyModePrisonerRecruitmentCalculationModel.ShouldPartyRecruitPris
 ## Usage Example
 
 ```csharp
-Game.Current.ReplaceModel<StoryModePrisonerRecruitmentCalculationModel>(new MyStoryModePrisonerRecruitmentCalculationModel());
+protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+{
+    gameStarterObject.AddModel<PrisonerRecruitmentCalculationModel>(new StoryModePrisonerRecruitmentCalculationModel());
+}
 ```
+
+`PrisonerRecruitmentCalculationModel` is declared as `MBGameModel<PrisonerRecruitmentCalculationModel>` (`PrisonerRecruitmentCalculationModel.cs:8`), so the generic `AddModel<T>` overload (`IGameStarter.cs:13`) accepts this instance. The stock game installs this same model through the same overload at `StoryModeSubModule.cs:103`.
 
 ## See Also
 

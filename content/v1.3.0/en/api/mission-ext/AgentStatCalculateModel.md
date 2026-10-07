@@ -12,11 +12,34 @@ description: "Auto-generated class reference for AgentStatCalculateModel."
 
 ## Overview
 
-`AgentStatCalculateModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+The rule book for an agent's numbers: how its stats are seeded, how they change, how encumbered and armoured it is, and how hard the AI is allowed to push it. It is an `MBGameModel<AgentStatCalculateModel>` (`AgentStatCalculateModel.cs:9`) with eleven abstract members (`AgentStatCalculateModel.cs:12`-`AgentStatCalculateModel.cs:150`) and about a dozen `virtual` members that ship with working default bodies — so a subclass can override one rule and inherit the rest, rather than reimplementing the model.
 
 ## Mental Model
 
-Treat `AgentStatCalculateModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Split it in two. The abstract half is the per-agent lifecycle: `InitializeAgentStats` seeds an agent from its spawn equipment (`AgentStatCalculateModel.cs:12`), `UpdateAgentStats` re-applies it (`AgentStatCalculateModel.cs:20`), and the resistances (`AgentStatCalculateModel.cs:141`, `AgentStatCalculateModel.cs:144`, `AgentStatCalculateModel.cs:147`) and multipliers (`AgentStatCalculateModel.cs:132`, `AgentStatCalculateModel.cs:135`, `AgentStatCalculateModel.cs:138`) are pure queries. The virtual half is where the vanilla numbers actually live, and they are worth reading because they are not neutral: `HasHeavyArmor` is a single-body-part threshold — `GetBaseArmorEffectivenessForBodyPart(BoneBodyPartType.Chest) >= 24f` (`AgentStatCalculateModel.cs:31`) — and `GetEnvironmentSpeedFactor` applies rain and a night penalty multiplicatively (`AgentStatCalculateModel.cs:53`-`AgentStatCalculateModel.cs:60`). `SetAILevelMultiplier` (`AgentStatCalculateModel.cs:165`) and its reset (`AgentStatCalculateModel.cs:159`) write a single field that defaults to `1f` (`AgentStatCalculateModel.cs:277`).
+
+## How to use
+
+**Getting one.** Subclass it and register the subclass as a `GameModel`; read it through `MissionGameModels.Current.AgentStatCalculateModel` (`MissionGameModels.cs:19`). Most of the surface is useful *without* subclassing, because the `virtual` members carry real bodies.
+
+**Typical use.**
+
+```csharp
+AgentStatCalculateModel model = MissionGameModels.Current.AgentStatCalculateModel;  // MissionGameModels.cs:19
+
+// Defaults you can rely on without overriding anything.
+bool heavy = model.HasHeavyArmor(agent);                                     // AgentStatCalculateModel.cs:29
+float encumbrance = model.GetEffectiveArmorEncumbrance(agent, agent.Equipment);  // :35
+float maxHealth = model.GetEffectiveMaxHealth(agent);                         // :41
+float speedFactor = model.GetEnvironmentSpeedFactor(agent);                    // :47
+
+// Difficulty tuning (AgentStatCalculateModel.cs:165).
+model.SetAILevelMultiplier(1.2f);
+float aiThreshold = model.CalculateAIAttackOnDecideMaxValue();                 // :66
+model.ResetAILevelMultiplier();                                                // :159
+```
+
+**Watch out.** `CalculateAIAttackOnDecideMaxValue()` (`AgentStatCalculateModel.cs:66`) is **not virtual** and returns a step function of difficulty: `0.16f` below a difficulty modifier of `0.5f` and `0.48f` at or above it (`AgentStatCalculateModel.cs:68`-`AgentStatCalculateModel.cs:72`) — a threefold jump across the boundary, not a curve. So a mod that nudges `GetDifficultyModifier` from `0.49` to `0.51` to make the AI slightly smarter silently triples its attack-decision threshold, and because the method cannot be overridden there is no way to soften it except by changing `GetDifficultyModifier` itself. The related trap is `HasHeavyArmor`: it inspects the **chest only** (`AgentStatCalculateModel.cs:31`), so an agent in a heavy helmet, greaves and gauntlets with a light cuirass reports `false`, and any behaviour gated on it treats full plate as unarmoured.
 
 ## Key Methods
 
@@ -316,3 +339,5 @@ AgentStatCalculateModel instance = ...;
 ## See Also
 
 - [Area Index](../)
+- [AgentDrivenProperties](../AgentDrivenProperties)
+- [Agent](../../mission/Agent)

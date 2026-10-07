@@ -12,11 +12,32 @@ description: "Auto-generated class reference for AgentBuildData."
 
 ## Overview
 
-`AgentBuildData` behaves like a data carrier: it packages fields so systems can exchange state in a structured form.
+A fluent builder that describes one agent to be spawned into a mission: who it is, what it carries, and where and on which side it appears. It splits its state in two. Placement and identity — team, formation, banner, indices, initial frame — are fields on the builder itself (`AgentBuildData.cs:224`-`AgentBuildData.cs:329`), while appearance and vitals are forwarded straight through to a nested `AgentData` object (`AgentBuildData.cs:14`) by roughly half the setters (`AgentBuildData.cs:372`, `AgentBuildData.cs:474`, `AgentBuildData.cs:565`, `AgentBuildData.cs:579`). It is consumed in exactly one place: `Mission.SpawnAgent(AgentBuildData, bool)` (`Mission.cs:3706`).
 
 ## Mental Model
 
-Treat `AgentBuildData` as a Data-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Every public setter returns `this`, so a build is a single chained expression ending in the spawn call. There is a private parameterless constructor (`AgentBuildData.cs:342`) that supplies the defaults every build starts from — controller `AI` (`AgentBuildData.cs:344`), team `Team.Invalid` (`AgentBuildData.cs:345`), no formation, no mission peer, and spawn index `-1` (`AgentBuildData.cs:348`) — and the three public constructors all chain to it with `: this()` before choosing how the nested `AgentData` gets created: wrapping one you already have (`AgentBuildData.cs:352`), deriving one from an `IAgentOriginBase` (`AgentBuildData.cs:358`), or deriving one from a `BasicCharacterObject` (`AgentBuildData.cs:364`). The engine writes them exactly that way, for example `EquipmentTestMissionController.cs:15`. One property is derived rather than stored: `RandomizeColors` (`AgentBuildData.cs:333`) reports true only when the character is a non-hero with no mission peer (`AgentBuildData.cs:337`), which is how the engine keeps heroes in their authored colours while randomising everyone else's gear.
+
+## How to use
+
+**Getting one.** Construct it from a character, an origin, or an `AgentData`, chain the setters, and pass the result to `Mission.SpawnAgent` (`Mission.cs:3706`). Nobody caches or pools it — it is short-lived, built on the stack of whatever is spawning a reinforcement.
+
+**Typical use.**
+
+```csharp
+// Same shape as the vanilla call at EquipmentTestMissionController.cs:15.
+Agent spawned = mission.SpawnAgent(
+    new AgentBuildData(Game.Current.PlayerTroop)   // ctor at AgentBuildData.cs:358
+        .Team(mission.AttackerTeam)                 // AgentBuildData.cs:384
+        .Formation(formation)                       // AgentBuildData.cs:451
+        .Index(myIndex)                             // AgentBuildData.cs:598
+        .NoHorses(true)                             // AgentBuildData.cs:493
+        .CivilianEquipment(true)                    // AgentBuildData.cs:521
+        .Controller(AgentControllerType.AI),        // AgentBuildData.cs:377
+    false);                                         // spawnFromAgentVisuals
+```
+
+**Watch out.** `Equipment(Equipment)` (`AgentBuildData.cs:472`) writes into the nested `AgentData` (`AgentBuildData.cs:474`), and the constructor at `AgentBuildData.cs:352` stores the `AgentData` reference you hand it without copying it. Build two agents from the same `AgentData` instance, call `Equipment(...)` on the second, and the first agent spawns wearing the second's gear — the write went to the shared object, not to a per-builder copy. `Age`, `Race`, `IsFemale`, `MountKey`, `NoWeapons`, `NoArmor`, `BodyProperties` and `TroopOrigin` share the hazard. Separately, `Index(int)` (`AgentBuildData.cs:598`) also sets `AgentIndexOverriden` to true (`AgentBuildData.cs:601`), and `MountIndex(int)` does the same (`AgentBuildData.cs:611`) — once you call either, the engine stops auto-allocating that index and two builds given the same number collide.
 
 ## Key Properties
 
@@ -520,3 +541,5 @@ AgentBuildData entry = ...;
 ## See Also
 
 - [Area Index](../)
+- [AgentData](../../core-extra/AgentData)
+- [MissionPeer](../MissionPeer)

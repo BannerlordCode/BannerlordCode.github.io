@@ -12,11 +12,11 @@ description: "Auto-generated class reference for StoryModeCombatXpModel."
 
 ## Overview
 
-`StoryModeCombatXpModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`StoryModeCombatXpModel` exists for exactly one reason: hits in the training field must award nothing. Its single substantive override, `GetXpFromHit` (`StoryMode/GameComponents/StoryModeCombatXpModel.cs:31`), checks `Settlement.CurrentSettlement.IsTrainingField()` and returns a zero-valued `ExplainedNumber` instead of the normal calculation (`:35`). `CaptainRadius`, `GetSkillForWeapon` and `GetXpMultiplierFromShotDifficulty` are pure passthroughs to the sandbox model (`:20`, `:27`, `:43`).
 
 ## Mental Model
 
-Treat `StoryModeCombatXpModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+The condition is scoped to the settlement the player is currently in, not to the mission, which is what makes this override both small and easy to break. `Settlement.CurrentSettlement` is null during a field mission, so the check falls through and ordinary fights award XP normally; a mod that runs a training-ground-style encounter away from a settlement will find the XP flowing unless it adds its own condition. The consumers read the campaign model even from inside mission logic: `SimpleAgentOrigin.cs:213` calls `GetXpFromHit` when accumulating a troop's combat XP, and `BattleAgentLogic.cs:235` reads `CaptainRadius` from the same model to decide which captain's skill applies. Note the early return builds a fresh `ExplainedNumber` rather than returning zero as a float, so an override must preserve the return type's construction or the XP breakdown shown in the results screen loses its explain data.
 
 ## Key Properties
 
@@ -29,10 +29,9 @@ Treat `StoryModeCombatXpModel` as a Model-style extension point: first identify 
 ### GetSkillForWeapon
 `public override SkillObject GetSkillForWeapon(WeaponComponentData weapon, bool isSiegeEngineHit)`
 
-**Purpose:** Reads and returns the skill for weapon value held by the this instance.
+**Purpose:** Reads and returns the skill for weapon value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModeCombatXpModel from the subsystem API first
 StoryModeCombatXpModel storyModeCombatXpModel = ...;
 var result = storyModeCombatXpModel.GetSkillForWeapon(weapon, false);
 ```
@@ -40,10 +39,9 @@ var result = storyModeCombatXpModel.GetSkillForWeapon(weapon, false);
 ### GetXpFromHit
 `public override ExplainedNumber GetXpFromHit(CharacterObject attackerTroop, CharacterObject captain, CharacterObject attackedTroop, PartyBase party, int damage, bool isFatal, CombatXpModel.MissionTypeEnum missionType)`
 
-**Purpose:** Reads and returns the xp from hit value held by the this instance.
+**Purpose:** Reads and returns the xp from hit value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModeCombatXpModel from the subsystem API first
 StoryModeCombatXpModel storyModeCombatXpModel = ...;
 var result = storyModeCombatXpModel.GetXpFromHit(attackerTroop, captain, attackedTroop, party, 0, false, missionType);
 ```
@@ -51,10 +49,9 @@ var result = storyModeCombatXpModel.GetXpFromHit(attackerTroop, captain, attacke
 ### GetXpMultiplierFromShotDifficulty
 `public override float GetXpMultiplierFromShotDifficulty(float shotDifficulty)`
 
-**Purpose:** Reads and returns the xp multiplier from shot difficulty value held by the this instance.
+**Purpose:** Reads and returns the xp multiplier from shot difficulty value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModeCombatXpModel from the subsystem API first
 StoryModeCombatXpModel storyModeCombatXpModel = ...;
 var result = storyModeCombatXpModel.GetXpMultiplierFromShotDifficulty(0);
 ```
@@ -62,8 +59,13 @@ var result = storyModeCombatXpModel.GetXpMultiplierFromShotDifficulty(0);
 ## Usage Example
 
 ```csharp
-Game.Current.ReplaceModel<StoryModeCombatXpModel>(new MyStoryModeCombatXpModel());
+protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+{
+    gameStarterObject.AddModel<CombatXpModel>(new StoryModeCombatXpModel());
+}
 ```
+
+`CombatXpModel` is declared as `MBGameModel<CombatXpModel>` (`CombatXpModel.cs:8`), so the generic `AddModel<T>` overload (`IGameStarter.cs:13`) accepts this instance. The stock game installs this same model through the same overload at `StoryModeSubModule.cs:96`.
 
 ## See Also
 

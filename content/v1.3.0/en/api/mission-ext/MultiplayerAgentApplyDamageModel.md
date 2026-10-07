@@ -12,11 +12,73 @@ description: "Auto-generated class reference for MultiplayerAgentApplyDamageMode
 
 ## Overview
 
-`MultiplayerAgentApplyDamageModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`MultiplayerAgentApplyDamageModel` is a concrete `AgentApplyDamageModel` — the multiplayer combat ruleset: which blows count as blocked, what scales damage, what can dismount or knock down. It has no fields and no state, only `override`s (`MultiplayerAgentApplyDamageModel.cs:9`).
+
+In 1.3.0 it has **no instance anywhere**. A tree-wide search for the type name returns exactly one hit — its own declaration. The only two `AddModel<AgentApplyDamageModel>` registrations are `CustomAgentApplyDamageModel` in the editor build (`EditorGame.cs:49`) and `SandboxAgentApplyDamageModel` in the campaign module (`SandBoxSubModule.cs:34`), so `MissionGameModels.Current.AgentApplyDamageModel` never resolves to this type in a shipped game. It is a complete but unused ruleset: everything a server would need for MP damage, present and never switched on.
 
 ## Mental Model
 
-Treat `MultiplayerAgentApplyDamageModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Most of the class is **pass-through**, and that is the important thing to notice before you subclass it. `IsDamageIgnored` returns `false` (`MultiplayerAgentApplyDamageModel.cs:14`), `ApplyDamageAmplifications`, `ApplyDamageScaling` and `ApplyDamageReductions` each return `baseDamage` unchanged (`MultiplayerAgentApplyDamageModel.cs:20`, `MultiplayerAgentApplyDamageModel.cs:26`, `MultiplayerAgentApplyDamageModel.cs:32`), `GetDismountPenetration` and `GetKnockBackPenetration` return `0f` (`MultiplayerAgentApplyDamageModel.cs:172`, `MultiplayerAgentApplyDamageModel.cs:178`), `CanWeaponDealSneakAttack` returns `false` (`MultiplayerAgentApplyDamageModel.cs:131`), `DecideMissileWeaponFlags` is empty (`MultiplayerAgentApplyDamageModel.cs:103`) and `CalculateDefendedBlowStunMultipliers` is empty (`MultiplayerAgentApplyDamageModel.cs:141`). There is **no armour, no damage-type modifier and no sneak-attack rule in this class at all** — it inherits whatever its base class does for those, because it deliberately opts out.
+
+Four members carry real rules.
+
+`ApplyGeneralDamageModifiers` is the only place damage is actually changed. It resolves a combat perk handler through `MPPerkObject.GetCombatPerkHandler(attackerAgent, victimAgent)` (`MultiplayerAgentApplyDamageModel.cs:41`) and skips that whole block when none exists (`MultiplayerAgentApplyDamageModel.cs:42`), returns the input early when the hit was shield-blocked (`MultiplayerAgentApplyDamageModel.cs:45`), applies an alternative-attack branch that excludes fall damage (`MultiplayerAgentApplyDamageModel.cs:62`, `MultiplayerAgentApplyDamageModel.cs:65`), and adds a head-shot bonus for consumables and ranged weapons (`MultiplayerAgentApplyDamageModel.cs:93`). Note the bonus condition is *either* consumable **or** ranged, not both — a thrown consumable still gets it through the first half.
+
+`CanWeaponDismount` opens with `MBMath.IsBetween((int)blow.VictimBodyPart, 0, 6)` (`MultiplayerAgentApplyDamageModel.cs:137`), and `IsBetween` is **half-open**: the `int` overload is `value >= minValue && value < maxValue` (`MBMath.cs:303`). So indices 0 through 5 qualify and index 6 does not. `CanWeaponKnockback` uses the identical `0, 6` test (`MultiplayerAgentApplyDamageModel.cs:149`) and the helper for an inclusive range is a different name, `IsBetweenInclusive` (`MBMath.cs:307`). If you widen either body-part window, remember you are editing a half-open range.
+
+`CanWeaponKnockDown` hard-codes `WeaponClass.Boulder` as an unconditional knock-down (`MultiplayerAgentApplyDamageModel.cs:155`, `MultiplayerAgentApplyDamageModel.cs:157`), then handles legs on an unmounted victim (`MultiplayerAgentApplyDamageModel.cs:162`) and finishes with a flag-and-strike-type test that calls into `MissionCombatMechanicsHelper.DecideSweetSpotCollision` (`MultiplayerAgentApplyDamageModel.cs:166`). So this class depends on the combat-mechanics helper rather than duplicating its collision maths.
+
+`GetHorseChargePenetration` is the only constant that is not a pass-through: a fixed `0.4f` (`MultiplayerAgentApplyDamageModel.cs:211`), with no argument at all.
+
+The three `Get*Penetration` methods are mutually exclusive by design. Dismount and knock-back return `0f` — meaning "never penetrate" — while `GetKnockDownPenetration` does real work, branching on boulder, then melee legs, then a head case (`MultiplayerAgentApplyDamageModel.cs:185`, `MultiplayerAgentApplyDamageModel.cs:189`, `MultiplayerAgentApplyDamageModel.cs:192`, `MultiplayerAgentApplyDamageModel.cs:199`). Reading "0f means infinite resistance" rather than "no resistance" is the trap; returning `0f` from a penetration method is how a weapon fails to push anyone.
+
+## How to use
+
+**Getting it.** Nothing in 1.3.0 constructs it. To use it, register it yourself against the **abstract** base type — registering `MultiplayerAgentApplyDamageModel` as the concrete key would satisfy the compiler and change nothing, because the registry resolves `AgentApplyDamageModel`.
+
+```csharp
+public class MySubModule : MBSubModuleBase
+{
+    protected override void OnGameStart(Game game, IModDependencyResolver resolver)
+    {
+        base.OnGameStart(game, resolver);
+        // Register the ABSTRACT type (BasicGameStarter.AddModel<T>, :47).
+        gameStarter.AddModel<AgentApplyDamageModel>(new MultiplayerAgentApplyDamageModel());
+    }
+}
+```
+
+Read the live instance from a mission — never `Game.Current.GetModel<T>()`, which does not exist in this tree:
+
+```csharp
+AgentApplyDamageModel model = MissionGameModels.Current.AgentApplyDamageModel;
+if (model != null)
+{
+    float scaled = model.ApplyGeneralDamageModifiers(attackInformation, collisionData, baseDamage);
+    bool canDismount = model.CanWeaponDismount(attacker, attackerWeapon, blow, collisionData);
+    Debug.Print("scaled=" + scaled + " dismount=" + canDismount, false);
+}
+```
+
+To change one rule and keep the rest of the MP behaviour, subclass it and override only that member — every un-overridden member still returns the pass-through value:
+
+```csharp
+public class MyMpDamage : MultiplayerAgentApplyDamageModel
+{
+    // The base returns baseDamage unchanged (MultiplayerAgentApplyDamageModel.cs:32).
+    public override float ApplyDamageReductions(in AttackInformation info,
+                                                in AttackCollisionData data, float baseDamage)
+    {
+        return info.DefenderAgent.IsMount ? baseDamage * 0.5f : baseDamage;
+    }
+
+    // Return a NON-zero penetration; 0f means the blow never penetrates.
+    public override float GetKnockBackPenetration(Agent attackerAgent, WeaponComponentData w,
+                                                  in Blow blow, in AttackCollisionData c) => 0.2f;
+}
+```
+
+**The mistake that makes every hit a push.** Returning `0f` from a `Get*Penetration` method thinking it means "no extra force". `0f` is the pass-through value here because the MP model opts out of those rules entirely (`MultiplayerAgentApplyDamageModel.cs:178`); the engine reads it as *zero penetration* rather than *unlimited*, so your weapon shoves nothing at all and never causes a stagger or knockdown. Override the method with a positive value instead.
 
 ## Key Methods
 
@@ -375,9 +437,16 @@ var result = multiplayerAgentApplyDamageModel.CalculateRemainingMomentum(0, b, c
 ## Usage Example
 
 ```csharp
-Game.Current.ReplaceModel<MultiplayerAgentApplyDamageModel>(new MyMultiplayerAgentApplyDamageModel());
+The `Game.Current.ReplaceModel<MultiplayerAgentApplyDamageModel>(...)` line previously on this page used a 1.4+ API that does not exist in `bannerlord-1.3.0` — `ReplaceModel` appears nowhere in this tree. The 1.3.0 registration API is `BasicGameStarter.AddModel<AgentApplyDamageModel>`:
+
+```csharp
+gameStarter.AddModel<AgentApplyDamageModel>(new MultiplayerAgentApplyDamageModel());
+```
 ```
 
 ## See Also
 
+- [MissionCombatMechanicsHelper — the collision maths this model calls into](../MissionCombatMechanicsHelper)
+- [MissionDifficultyModel — the other single-purpose combat model in this area](../MissionDifficultyModel)
+- [MPPerkHandler — owns MPCombatPerkHandler, which ApplyGeneralDamageModifiers resolves](../MPPerkHandler)
 - [Area Index](../)

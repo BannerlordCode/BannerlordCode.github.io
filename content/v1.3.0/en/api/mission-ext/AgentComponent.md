@@ -12,11 +12,48 @@ description: "Auto-generated class reference for AgentComponent."
 
 ## Overview
 
-`AgentComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+The base class for every piece of behaviour you can bolt onto a live `Agent`. It is abstract but has no abstract members — all twenty-one of its hooks are `virtual` with empty bodies, so you override only what you need and inherit no-ops for the rest. It holds exactly one field, `protected readonly Agent Agent` (`AgentComponent.cs:114`), assigned by the protected constructor (`AgentComponent.cs:11`-`AgentComponent.cs:13`). The lifecycle is: `Initialize` once, then `OnTick`/`OnTickParallel` every frame, then agent events, then `OnComponentRemoved` when the agent drops it.
 
 ## Mental Model
 
-Treat `AgentComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Think of it as a subscription with a guaranteed `Agent` handle. The class exists so the engine can iterate a heterogeneous list without knowing any concrete type — `Agent.Components` (`Agent.cs:264`) is a flat read-only list that the mission ticks and queries. Two hooks are not really events but queries: `GetMoraleAddition` (`AgentComponent.cs:32`) and `GetMoraleDecreaseConstant` (`AgentComponent.cs:38`), both of which return a neutral default (`0f` and `1f`) rather than zero, so a component that overrides neither contributes nothing rather than breaking morale. `OnAIInputSet` (`AgentComponent.cs:99`) is the other unusual one — it takes three `ref` parameters (`Agent.EventControlFlag`, `Agent.MovementControlFlag`, `Vec2`) that it is expected to write, making it a vote on what the agent does next rather than a notification.
+
+## How to use
+
+**Getting one.** Construct it with the agent you are attaching it to and hand it to `Agent.AddComponent` (`Agent.cs:4600`). Read it back with `Agent.GetComponent<T>()` (`Agent.cs:3107`) or iterate `Agent.Components` (`Agent.cs:264`).
+
+**Typical use.**
+
+```csharp
+public sealed class MyModRetaliationComponent : AgentComponent
+{
+    private float _accumulatedDamage;
+
+    public MyModRetaliationComponent(Agent agent) : base(agent) { }  // ctor at AgentComponent.cs:11
+
+    public override void OnHit(Agent affectorAgent, int damage, in MissionWeapon affectorWeapon)
+    {
+        _accumulatedDamage += damage;                                 // AgentComponent.cs:79
+    }
+
+    // InitializeMorale sums this across EVERY component (CommonAIComponent.cs:82), once.
+    public override float GetMoraleAddition()
+    {
+        return _accumulatedDamage > 50f ? 10f : 0f;                   // AgentComponent.cs:32
+    }
+
+    // The only cleanup hook - RemoveComponent calls it (Agent.cs:4622).
+    public override void OnComponentRemoved()
+    {
+        _accumulatedDamage = 0f;                                      // AgentComponent.cs:104
+    }
+}
+
+agent.AddComponent(new MyModRetaliationComponent(agent));            // Agent.cs:4600
+MyModRetaliationComponent mine = agent.GetComponent<MyModRetaliationComponent>();  // Agent.cs:3107
+```
+
+**Watch out.** `GetMoraleAddition` is not read continuously — `CommonAIComponent.InitializeMorale` sums it over `Agent.Components` exactly once when morale is first set up (`CommonAIComponent.cs:82`) and then clamps the total into 15-100 (`CommonAIComponent.cs:85`). A component that accumulates damage and raises its return value later has no effect at all, because the sum was already taken; and a large return value from one component is silently clipped by the clamp instead of being reported. Separately, the default `OnComponentRemoved` body is empty (`AgentComponent.cs:104`) — it is the only teardown hook and `RemoveComponent` calls it for you (`Agent.cs:4622`), so if you cache an agent, a subsystem or a mission reference in `Initialize` (`AgentComponent.cs:17`), that reference outlives your own component unless you clear it here.
 
 ## Key Methods
 
@@ -239,3 +276,5 @@ AgentComponent instance = ...;
 ## See Also
 
 - [Area Index](../)
+- [Agent](../../mission/Agent)
+- [CommonAIComponent](../CommonAIComponent)

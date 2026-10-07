@@ -12,11 +12,11 @@ description: "Auto-generated class reference for DefaultBanditDensityModel."
 
 ## Overview
 
-`DefaultBanditDensityModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`DefaultBanditDensityModel` supplies every number the bandit system uses to size the world, and half of them scale with the player's campaign progress so the map gets harder as the campaign runs. The fixed population constants are: 2 bandit parties to infest a hideout, at most 4 parties inside one and 4 around it, 8 hideouts per bandit faction and 6 at the start (`TaleWorlds.CampaignSystem/GameComponents/DefaultBanditDensityModel.cs:18`, `:28`, `:38`, `:48`, `:58`). The two fight sizes are the ones that move: a hideout's first fight is `floor(6 × (2 + PlayerProgress))` troops and its boss fight is `floor(1 + 5 × (1 + PlayerProgress))` (`:78`, `:88`), so at progress 0 a first fight is 12 troops and a boss fight 6. Looter support is capped at 300 per clan, except the deserter clan at 50 and the looters faction at 300 minus however many war parties the deserters already have (`:126`, `:131`). The player's own hideout budget is a flat 25 minimum and a 40 maximum that rises by the SmallUnitTactics perk bonus (`:119`, `:139`).
 
 ## Mental Model
 
-Treat `DefaultBanditDensityModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+The properties are read as plain values from campaign behaviours and mission setup with no caching, which makes an override cheap but means the numbers are consulted in unrelated places. `AiLandBanditPatrollingBehavior.cs:38` and `:75` compare the number of parties in a settlement against `NumberOfMinimumBanditPartiesInAHideoutToInfestIt`, while `SandBoxMissions.cs:689` and `:731` ask `GetMaximumTroopCountForHideoutMission` when building the player's priority roster — the same model feeding both AI decisions and the player's own mission setup. Two consequences follow. The progress-scaled properties read `Campaign.Current.PlayerProgress` at call time, so a value captured at campaign start is stale and a mod that caches them must refresh on day tick. And `IsPositionInsideNavalSafeZone` returns `false` unconditionally (`:150`), which means no position is inside a safe zone — that is a world-wide statement, not a placeholder, and any mod introducing one must override the method rather than expecting the stock model to detect a new region.
 
 ## Key Properties
 
@@ -37,10 +37,9 @@ Treat `DefaultBanditDensityModel` as a Model-style extension point: first identi
 ### GetMinimumTroopCountForHideoutMission
 `public override int GetMinimumTroopCountForHideoutMission(MobileParty party)`
 
-**Purpose:** Reads and returns the minimum troop count for hideout mission value held by the this instance.
+**Purpose:** Reads and returns the minimum troop count for hideout mission value held by this instance.
 
 ```csharp
-// Obtain an instance of DefaultBanditDensityModel from the subsystem API first
 DefaultBanditDensityModel defaultBanditDensityModel = ...;
 var result = defaultBanditDensityModel.GetMinimumTroopCountForHideoutMission(party);
 ```
@@ -48,10 +47,9 @@ var result = defaultBanditDensityModel.GetMinimumTroopCountForHideoutMission(par
 ### GetMaxSupportedNumberOfLootersForClan
 `public override int GetMaxSupportedNumberOfLootersForClan(Clan clan)`
 
-**Purpose:** Reads and returns the max supported number of looters for clan value held by the this instance.
+**Purpose:** Reads and returns the max supported number of looters for clan value held by this instance.
 
 ```csharp
-// Obtain an instance of DefaultBanditDensityModel from the subsystem API first
 DefaultBanditDensityModel defaultBanditDensityModel = ...;
 var result = defaultBanditDensityModel.GetMaxSupportedNumberOfLootersForClan(clan);
 ```
@@ -59,10 +57,9 @@ var result = defaultBanditDensityModel.GetMaxSupportedNumberOfLootersForClan(cla
 ### GetMaximumTroopCountForHideoutMission
 `public override int GetMaximumTroopCountForHideoutMission(MobileParty party)`
 
-**Purpose:** Reads and returns the maximum troop count for hideout mission value held by the this instance.
+**Purpose:** Reads and returns the maximum troop count for hideout mission value held by this instance.
 
 ```csharp
-// Obtain an instance of DefaultBanditDensityModel from the subsystem API first
 DefaultBanditDensityModel defaultBanditDensityModel = ...;
 var result = defaultBanditDensityModel.GetMaximumTroopCountForHideoutMission(party);
 ```
@@ -70,10 +67,9 @@ var result = defaultBanditDensityModel.GetMaximumTroopCountForHideoutMission(par
 ### IsPositionInsideNavalSafeZone
 `public override bool IsPositionInsideNavalSafeZone(CampaignVec2 position)`
 
-**Purpose:** Determines whether the this instance is in the position inside naval safe zone state or condition.
+**Purpose:** Determines whether this instance is in the position inside naval safe zone state or condition.
 
 ```csharp
-// Obtain an instance of DefaultBanditDensityModel from the subsystem API first
 DefaultBanditDensityModel defaultBanditDensityModel = ...;
 var result = defaultBanditDensityModel.IsPositionInsideNavalSafeZone(position);
 ```
@@ -81,8 +77,13 @@ var result = defaultBanditDensityModel.IsPositionInsideNavalSafeZone(position);
 ## Usage Example
 
 ```csharp
-Game.Current.ReplaceModel<DefaultBanditDensityModel>(new MyDefaultBanditDensityModel());
+protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+{
+    gameStarterObject.AddModel<BanditDensityModel>(new DefaultBanditDensityModel());
+}
 ```
+
+`BanditDensityModel` is declared as `MBGameModel<BanditDensityModel>` (`BanditDensityModel.cs:8`), so the generic `AddModel<T>` overload (`IGameStarter.cs:13`) accepts this instance. The stock game installs this same model through the same overload at `SandBoxManager.cs:262`.
 
 ## See Also
 

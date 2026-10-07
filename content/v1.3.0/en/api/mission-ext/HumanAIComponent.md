@@ -12,11 +12,61 @@ description: "Auto-generated class reference for HumanAIComponent."
 
 ## Overview
 
-`HumanAIComponent` is a component-style object, typically attached to an Agent, entity, or subsystem to hold localized state and behavior.
+`HumanAIComponent` is the `AgentComponent` that makes a human agent think: it drives the behaviour-parameter vector the agent's action space is tuned from, decides whether the agent walks to a usable object or defends it, and owns the ground item-pickup behaviour. It derives from `AgentComponent` (`HumanAIComponent.cs:11`) — so `agent.GetComponent<HumanAIComponent>()` is a real call here, unlike most of the types in this bucket.
+
+It is attached by `AgentHumanAILogic.OnAgentCreated` for **AI-controlled humans only** (`AgentHumanAILogic.cs:13`, `AgentHumanAILogic.cs:15`), and re-attached when a human's controller flips to AI (`AgentHumanAILogic.cs:25`, `AgentHumanAILogic.cs:27`) while being removed when it flips away (`AgentHumanAILogic.cs:30` through `AgentHumanAILogic.cs:32`). `FightBehavior` adds a second one when an agent enters a fight (`FightBehavior.cs:16`). `Agent.AddComponent` recognises the type specifically and assigns it to the dedicated `Agent.HumanAIComponent` slot as well as the generic component list (`Agent.cs:4600`, `Agent.cs:4610`, `Agent.cs:4612`).
+
+The constructor is where the behaviour contract is established. It allocates a fixed seven-slot `BehaviorValues` array (`HumanAIComponent.cs:50`), seeds the last-set marker to `Overriden` (`HumanAIComponent.cs:51`), applies the `Default` value set (`HumanAIComponent.cs:52`) and pushes the array into the agent with `SetAllBehaviorParams` (`HumanAIComponent.cs:53`). It then **replaces two agent delegates** — `OnAgentWieldedItemChange` and `OnAgentMountedStateChanged` — both bound to `DisablePickUpForAgentIfNeeded` (`HumanAIComponent.cs:56`, `HumanAIComponent.cs:58`) — and creates two timers with randomised durations: the item-pickup timer at `2.5f + random` and the mount-search timer at `2f + random` (`HumanAIComponent.cs:59`, `HumanAIComponent.cs:60`). The randomisation exists so a crowd of agents does not all re-evaluate on the same frame.
 
 ## Mental Model
 
-Treat `HumanAIComponent` as a Component-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+`IsInImportantCombatAction` is a **hard-coded list of six action codes**, and it reads the action channel `1` specifically (`HumanAIComponent.cs:343`): `ReadyMelee`, `ReadyRanged`, `ReleaseMelee`, `ReleaseRanged`, `ReleaseThrowing` and `DefendShield` (`HumanAIComponent.cs:344`). Note that `Block` and `ReadyBlock` are **not** in it, so a shield-blocker counts as *not* in an important combat action — and this predicate is one conjunct of the item-pickup gate, so a blocking agent is still eligible to walk off and grab loot. There is no virtual and no model indirection: the set is written out inline.
+
+The item-pickup gate is a **seven-term conjunction** and every term is load-bearing: `!_disablePickUpForAgent`, `ItemPickupModel.IsAgentEquipmentSuitableForPickUpAvailability`, `CanBeAssignedForScriptedMovement`, `IsAlarmed`, the `AgentFlag.CanAttack` flag, `!IsInImportantCombatAction()` and `!IsInWater()` (`HumanAIComponent.cs:159`). Two of the escape hatches are private fields with public setters — `ForceDisablePickUpForAgent` (`HumanAIComponent.cs:854`) and the `_forceDisableItemPickup` backing it (`HumanAIComponent.cs:914`) — plus the private `_disablePickUpForAgent` flag driven by the two agent delegates (`HumanAIComponent.cs:890`). The candidate selection is then gated a second time, on target distance and consumable state (`HumanAIComponent.cs:162`), and finally scored by `ItemPickupModel.GetItemScoreForAgent` with the running best initialised to `0f` and replaced only on a strict `>` (`HumanAIComponent.cs:367`, `HumanAIComponent.cs:400`).
+
+The distance constants are **squared and pre-computed**, and the two must stay in step: `AvoidPickUpIfLookAgentIsCloseDistance = 20f` and its square `AvoidPickUpIfLookAgentIsCloseDistanceSquared = 400f` (`HumanAIComponent.cs:860`, `HumanAIComponent.cs:863`), and `ClosestMountSearchRangeSq = 6400f` (i.e. 80 units, `HumanAIComponent.cs:866`). Editing the distance and forgetting the square gives you a pickup radius off by a factor of the distance.
+
+`ShouldCatchUpWithFormation` is a property with a **side effect in its setter** — it forwards to `Agent.SetShouldCatchUpWithFormation` only when the value actually changes (`HumanAIComponent.cs:29` through `HumanAIComponent.cs:32`). That makes assignment idempotent from the agent's point of view but not free: writing the same value still evaluates the comparison. `FollowedAgent` (`HumanAIComponent.cs:16`) and `IsDefending` (`HumanAIComponent.cs:39`, comparing against `UsableObjectInterestKind.Defending`) are the two other readable states.
+
+The behaviour-vector side has a deliberate two-level model. `SetBehaviorValueSet` (`HumanAIComponent.cs:760`) swaps whole presets, `RefreshBehaviorValues` (`HumanAIComponent.cs:828`) recomputes them from the agent's current movement and arrangement orders, `SyncBehaviorParamsIfNecessary` (`HumanAIComponent.cs:93`) pushes them only if `_hasNewBehaviorValues` is set, and `OverrideBehaviorParams` (`HumanAIComponent.cs:70`) writes individual values directly. The `_lastBehaviorValueSet` / `_hasNewBehaviorValues` pair is what lets a preset change be deferred to the next sync instead of forcing a re-push every frame.
+
+## How to use
+
+**Getting it.** Read it off a human AI agent. This is one of the few types in the bucket where the component lookup is the correct call, because the type really is an `AgentComponent`:
+
+```csharp
+HumanAIComponent brain = someHumanAgent.GetComponent<HumanAIComponent>();
+if (brain != null)
+{
+    Debug.Print("catching up=" + brain.ShouldCatchUpWithFormation
+                + " defending=" + brain.IsDefending, false);
+}
+```
+
+Suppress loot-grubbing for a unit, the way the agent's own delegates do:
+
+```csharp
+brain.ForceDisablePickUpForAgent();   // sets the flag the pickup gate tests first
+```
+
+Push a behaviour preset, and override one value on top:
+
+```csharp
+brain.SetBehaviorValueSet(HumanAIComponent.BehaviorValueSet.Aggressive);
+brain.OverrideBehaviorParams(HumanAIComponent.AISimpleBehaviorKind.Move, 1f, 1f, 1f, 1f, 1f);
+brain.SyncBehaviorParamsIfNecessary();   // only pushes if something actually changed
+```
+
+Attach your own to an agent that does not have one — the game attaches to AI-controlled humans only:
+
+```csharp
+if (agent.IsAIControlled && agent.IsHuman && agent.GetComponent<HumanAIComponent>() == null)
+{
+    agent.AddComponent(new HumanAIComponent(agent));
+}
+```
+
+**The mistake that stops an agent ever using a shield again.** Adding `ReadyBlock` to your own `IsInImportantCombatAction` check. The stock predicate reads action channel `1` and enumerates exactly six codes, shield-block excluded (`HumanAIComponent.cs:344`). Blocked-from-looting agents stop walking to usable objects, which in a siege means they stop claiming ram towers — and because the flag is one conjunct of a seven-term gate (`HumanAIComponent.cs:159`), the failure is that the agent simply never *looks* for anything, with no error and no log line.
 
 ## Key Properties
 
@@ -338,10 +388,16 @@ var result = humanAIComponent.GetValueAt(0);
 
 ## Usage Example
 
+The `agent.GetComponent<HumanAIComponent>()` line previously on this page is, unusually, **correct** — `HumanAIComponent` really does derive from `AgentComponent` (`HumanAIComponent.cs:11`) and `Agent.GetComponent<T>()` is constrained to exactly that (`Agent.cs:3107`). The one thing the line omits is that the component only exists on AI-controlled humans, so the result is null on the player's agent:
+
 ```csharp
-var component = agent.GetComponent<HumanAIComponent>();
+var brain = someHumanAgent.GetComponent<HumanAIComponent>();   // null on the player
 ```
 
 ## See Also
 
+- [ItemPickupModel — the model this component's pickup gate consults three times](../ItemPickupModel)
+- [CustomBattleBannerBearersModel — the model `CanAgentPickUpAnyBanner` uses when picking a bearer item](../CustomBattleBannerBearersModel)
+- [MissionGamepadEffectsView — another per-agent consumer of AgentState and collision results](../MissionGamepadEffectsView)
+- [Agent — the type that owns and hosts this component](../../mission/Agent)
 - [Area Index](../)

@@ -12,11 +12,11 @@ description: "Auto-generated class reference for SandboxBattleMoraleModel."
 
 ## Overview
 
-`SandboxBattleMoraleModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`SandboxBattleMoraleModel` owns the moment morale is created and the moment it is spent. New morale is seeded from the agent's base value through `GetEffectiveInitialMorale` (`SandBox/GameComponents/SandboxBattleMoraleModel.cs:239`), and every shock that follows — a comrade dying, a comrade routing — is expressed as a maximum that is then divided by the victim's morale resistance before it lands (`CalculateMoraleChangeToCharacter` divides by `GetMoraleResistance`, `:235`). The magnitude is scaled by `CalculateCasualtiesFactor`, which returns `1f` plus twice the fraction of the side already removed (`:388`), so a losing side's losses compound rather than repeat at a fixed rate. Two outcomes are explicitly removed from the game: morale never changes when a ship sinks (`CalculateMoraleChangeOnShipSunk` returns `0f`, `:424`), and a high-tier hero with the LoyaltyAndHonor perk is flagged as unable to panic at all (`:373`).
 
 ## Mental Model
 
-Treat `SandboxBattleMoraleModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Treat it as a probability-and-threshold layer sitting on top of a number the AI owns, not as the morale system. `CommonAIComponent.cs:84` asks for `GetEffectiveInitialMorale` once while building the AI, `CommonAIComponent.cs:194` asks `CanPanicDueToMorale` before letting the AI break, and `AgentMoraleInteractionLogic.cs:25` asks for the maximum change whenever an agent is incapacitated. The order matters when you override: the casualty factor multiplies the maximum, and only then does `GetMoraleResistance` divide it, so an override that applies resistance inside `CalculateCasualtiesFactor` will divide twice and produce morale that barely moves. The `float.MaxValue` fallbacks are absent here but the empty-formation case is real — `GetAverageMorale` returns `0f` for a formation with no human AI units (`:418`), which is a very different meaning from "everyone is at zero morale", and downstream code reading the average must not confuse the two.
 
 ## Key Methods
 
@@ -26,7 +26,6 @@ Treat `SandboxBattleMoraleModel` as a Model-style extension point: first identif
 **Purpose:** Calculates the current value or result of max morale change due to agent incapacitated.
 
 ```csharp
-// Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
 SandboxBattleMoraleModel sandboxBattleMoraleModel = ...;
 var result = sandboxBattleMoraleModel.CalculateMaxMoraleChangeDueToAgentIncapacitated(affectedAgent, affectedAgentState, affectorAgent, killingBlow);
 ```
@@ -37,7 +36,6 @@ var result = sandboxBattleMoraleModel.CalculateMaxMoraleChangeDueToAgentIncapaci
 **Purpose:** Calculates the current value or result of max morale change due to agent panicked.
 
 ```csharp
-// Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
 SandboxBattleMoraleModel sandboxBattleMoraleModel = ...;
 var result = sandboxBattleMoraleModel.CalculateMaxMoraleChangeDueToAgentPanicked(agent);
 ```
@@ -48,7 +46,6 @@ var result = sandboxBattleMoraleModel.CalculateMaxMoraleChangeDueToAgentPanicked
 **Purpose:** Calculates the current value or result of morale change to character.
 
 ```csharp
-// Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
 SandboxBattleMoraleModel sandboxBattleMoraleModel = ...;
 var result = sandboxBattleMoraleModel.CalculateMoraleChangeToCharacter(agent, 0);
 ```
@@ -56,10 +53,9 @@ var result = sandboxBattleMoraleModel.CalculateMoraleChangeToCharacter(agent, 0)
 ### GetEffectiveInitialMorale
 `public override float GetEffectiveInitialMorale(Agent agent, float baseMorale)`
 
-**Purpose:** Reads and returns the effective initial morale value held by the this instance.
+**Purpose:** Reads and returns the effective initial morale value held by this instance.
 
 ```csharp
-// Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
 SandboxBattleMoraleModel sandboxBattleMoraleModel = ...;
 var result = sandboxBattleMoraleModel.GetEffectiveInitialMorale(agent, 0);
 ```
@@ -67,10 +63,9 @@ var result = sandboxBattleMoraleModel.GetEffectiveInitialMorale(agent, 0);
 ### CanPanicDueToMorale
 `public override bool CanPanicDueToMorale(Agent agent)`
 
-**Purpose:** Checks whether the this instance meets the preconditions for panic due to morale.
+**Purpose:** Checks whether this instance meets the preconditions for panic due to morale.
 
 ```csharp
-// Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
 SandboxBattleMoraleModel sandboxBattleMoraleModel = ...;
 var result = sandboxBattleMoraleModel.CanPanicDueToMorale(agent);
 ```
@@ -81,7 +76,6 @@ var result = sandboxBattleMoraleModel.CanPanicDueToMorale(agent);
 **Purpose:** Calculates the current value or result of casualties factor.
 
 ```csharp
-// Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
 SandboxBattleMoraleModel sandboxBattleMoraleModel = ...;
 var result = sandboxBattleMoraleModel.CalculateCasualtiesFactor(battleSide);
 ```
@@ -89,10 +83,9 @@ var result = sandboxBattleMoraleModel.CalculateCasualtiesFactor(battleSide);
 ### GetAverageMorale
 `public override float GetAverageMorale(Formation formation)`
 
-**Purpose:** Reads and returns the average morale value held by the this instance.
+**Purpose:** Reads and returns the average morale value held by this instance.
 
 ```csharp
-// Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
 SandboxBattleMoraleModel sandboxBattleMoraleModel = ...;
 var result = sandboxBattleMoraleModel.GetAverageMorale(formation);
 ```
@@ -103,7 +96,6 @@ var result = sandboxBattleMoraleModel.GetAverageMorale(formation);
 **Purpose:** Calculates the current value or result of morale change on ship sunk.
 
 ```csharp
-// Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
 SandboxBattleMoraleModel sandboxBattleMoraleModel = ...;
 var result = sandboxBattleMoraleModel.CalculateMoraleChangeOnShipSunk(shipOrigin);
 ```
@@ -114,7 +106,6 @@ var result = sandboxBattleMoraleModel.CalculateMoraleChangeOnShipSunk(shipOrigin
 **Purpose:** Calculates the current value or result of morale on ramming.
 
 ```csharp
-// Obtain an instance of SandboxBattleMoraleModel from the subsystem API first
 SandboxBattleMoraleModel sandboxBattleMoraleModel = ...;
 var result = sandboxBattleMoraleModel.CalculateMoraleOnRamming(agent);
 ```
@@ -122,8 +113,13 @@ var result = sandboxBattleMoraleModel.CalculateMoraleOnRamming(agent);
 ## Usage Example
 
 ```csharp
-Game.Current.ReplaceModel<SandboxBattleMoraleModel>(new MySandboxBattleMoraleModel());
+protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+{
+    gameStarterObject.AddModel<BattleMoraleModel>(new SandboxBattleMoraleModel());
+}
 ```
+
+`BattleMoraleModel` is declared as `MBGameModel<BattleMoraleModel>` (`BattleMoraleModel.cs:8`), so the generic `AddModel<T>` overload (`IGameStarter.cs:13`) accepts this instance. The stock game installs this same model through the same overload at `SandBoxSubModule.cs:41`.
 
 ## See Also
 

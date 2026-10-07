@@ -12,11 +12,11 @@ description: "Auto-generated class reference for DefaultArmyManagementCalculatio
 
 ## Overview
 
-`DefaultArmyManagementCalculationModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`DefaultArmyManagementCalculationModel` is the army system's whole rulebook: who may join an army, what joining costs, and how the army's cohesion moves. The thresholds are explicit — an AI party must be at 60% of the army's size to be called, the player at 40% (`TaleWorlds.CampaignSystem/GameComponents/DefaultArmyManagementCalculationModel.cs:29`, `:39`), 15 days of food is required (`:49`), cohesion at or below 10 triggers dispersion (`:87`), and a member waits at most 3 hours before being processed (`:99`). The one threshold that is not a constant is `MaximumDistanceToCallToArmy`, which is computed as eight times the campaign's own average distance between the closest two towns (`:59`), so a larger map means a longer call range automatically. Cohesion bleeds at `-2` per day by default (`:324`), is clamped to 0–100 after any recalculation (`:388`, `:396`), and recomputes as a weighted average that always pulls one step toward 100 or 0 when a party joins or leaves (`:387`).
 
 ## Mental Model
 
-Treat `DefaultArmyManagementCalculationModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Read the cohesion members as a feedback loop rather than independent getters, because they call each other and the campaign state. `Army.cs:97` reads `CalculateDailyCohesionChange` and `Army.cs:107` reads the same method with descriptions enabled, so the number is recomputed on every read rather than cached. `CalculateNewCohesion` deliberately biases the new value toward 100 when joining and toward 0 when leaving (`:386`, `:387`), which is why an army that repeatedly recruits and dismisses parties still drifts upward rather than averaging out. Influence pricing runs the other way and rewards scale: `CalculatePartyInfluenceCost` charges nothing at all when the two leaders share a clan (`:119`), and its size ratio term reads `PlayerMobilePartySizeRatioToCallToArmy` or `AIMobilePartySizeRatioToCallToArmy` depending on whether the leader is the main party (`:124`), so the model re-enters itself. Finally `CalculateTotalInfluenceCost` cuts every non-player army to a quarter of the computed cost (`:288`), which is a deliberate asymmetry a mod will otherwise read as a bug — and two members are player-facing gates that return a `TextObject` explaining the refusal: `CanPlayerCreateArmy` (`:420`) and `CheckPartyEligibility` (`:498`).
 
 ## Key Properties
 
@@ -39,7 +39,6 @@ Treat `DefaultArmyManagementCalculationModel` as a Model-style extension point: 
 **Purpose:** Executes the DailyBeingAtArmyInfluenceAward logic.
 
 ```csharp
-// Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
 DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
 var result = defaultArmyManagementCalculationModel.DailyBeingAtArmyInfluenceAward(armyMemberParty);
 ```
@@ -50,7 +49,6 @@ var result = defaultArmyManagementCalculationModel.DailyBeingAtArmyInfluenceAwar
 **Purpose:** Calculates the current value or result of party influence cost.
 
 ```csharp
-// Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
 DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
 var result = defaultArmyManagementCalculationModel.CalculatePartyInfluenceCost(armyLeaderParty, party);
 ```
@@ -58,10 +56,9 @@ var result = defaultArmyManagementCalculationModel.CalculatePartyInfluenceCost(a
 ### GetMobilePartiesToCallToArmy
 `public override List<MobileParty> GetMobilePartiesToCallToArmy(MobileParty leaderParty)`
 
-**Purpose:** Reads and returns the mobile parties to call to army value held by the this instance.
+**Purpose:** Reads and returns the mobile parties to call to army value held by this instance.
 
 ```csharp
-// Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
 DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
 var result = defaultArmyManagementCalculationModel.GetMobilePartiesToCallToArmy(leaderParty);
 ```
@@ -72,7 +69,6 @@ var result = defaultArmyManagementCalculationModel.GetMobilePartiesToCallToArmy(
 **Purpose:** Calculates the current value or result of total influence cost.
 
 ```csharp
-// Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
 DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
 var result = defaultArmyManagementCalculationModel.CalculateTotalInfluenceCost(army, 0);
 ```
@@ -80,10 +76,9 @@ var result = defaultArmyManagementCalculationModel.CalculateTotalInfluenceCost(a
 ### GetPartySizeScore
 `public override float GetPartySizeScore(MobileParty party)`
 
-**Purpose:** Reads and returns the party size score value held by the this instance.
+**Purpose:** Reads and returns the party size score value held by this instance.
 
 ```csharp
-// Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
 DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
 var result = defaultArmyManagementCalculationModel.GetPartySizeScore(party);
 ```
@@ -94,7 +89,6 @@ var result = defaultArmyManagementCalculationModel.GetPartySizeScore(party);
 **Purpose:** Calculates the current value or result of daily cohesion change.
 
 ```csharp
-// Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
 DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
 var result = defaultArmyManagementCalculationModel.CalculateDailyCohesionChange(army, false);
 ```
@@ -105,7 +99,6 @@ var result = defaultArmyManagementCalculationModel.CalculateDailyCohesionChange(
 **Purpose:** Calculates the current value or result of new cohesion.
 
 ```csharp
-// Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
 DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
 var result = defaultArmyManagementCalculationModel.CalculateNewCohesion(army, newParty, 0, 0);
 ```
@@ -113,10 +106,9 @@ var result = defaultArmyManagementCalculationModel.CalculateNewCohesion(army, ne
 ### GetCohesionBoostInfluenceCost
 `public override int GetCohesionBoostInfluenceCost(Army army, int percentageToBoost = 100)`
 
-**Purpose:** Reads and returns the cohesion boost influence cost value held by the this instance.
+**Purpose:** Reads and returns the cohesion boost influence cost value held by this instance.
 
 ```csharp
-// Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
 DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
 var result = defaultArmyManagementCalculationModel.GetCohesionBoostInfluenceCost(army, 0);
 ```
@@ -124,10 +116,9 @@ var result = defaultArmyManagementCalculationModel.GetCohesionBoostInfluenceCost
 ### GetPartyRelation
 `public override int GetPartyRelation(Hero hero)`
 
-**Purpose:** Reads and returns the party relation value held by the this instance.
+**Purpose:** Reads and returns the party relation value held by this instance.
 
 ```csharp
-// Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
 DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
 var result = defaultArmyManagementCalculationModel.GetPartyRelation(hero);
 ```
@@ -135,10 +126,9 @@ var result = defaultArmyManagementCalculationModel.GetPartyRelation(hero);
 ### CanPlayerCreateArmy
 `public override bool CanPlayerCreateArmy(out TextObject disabledReason)`
 
-**Purpose:** Checks whether the this instance meets the preconditions for player create army.
+**Purpose:** Checks whether this instance meets the preconditions for player create army.
 
 ```csharp
-// Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
 DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
 var result = defaultArmyManagementCalculationModel.CanPlayerCreateArmy(disabledReason);
 ```
@@ -146,10 +136,9 @@ var result = defaultArmyManagementCalculationModel.CanPlayerCreateArmy(disabledR
 ### CheckPartyEligibility
 `public override bool CheckPartyEligibility(MobileParty party, out TextObject explanation)`
 
-**Purpose:** Verifies whether party eligibility holds true for the this instance.
+**Purpose:** Verifies whether party eligibility holds true for this instance.
 
 ```csharp
-// Obtain an instance of DefaultArmyManagementCalculationModel from the subsystem API first
 DefaultArmyManagementCalculationModel defaultArmyManagementCalculationModel = ...;
 var result = defaultArmyManagementCalculationModel.CheckPartyEligibility(party, explanation);
 ```
@@ -157,8 +146,13 @@ var result = defaultArmyManagementCalculationModel.CheckPartyEligibility(party, 
 ## Usage Example
 
 ```csharp
-Game.Current.ReplaceModel<DefaultArmyManagementCalculationModel>(new MyDefaultArmyManagementCalculationModel());
+protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+{
+    gameStarterObject.AddModel<ArmyManagementCalculationModel>(new DefaultArmyManagementCalculationModel());
+}
 ```
+
+`ArmyManagementCalculationModel` is declared as `MBGameModel<ArmyManagementCalculationModel>` (`ArmyManagementCalculationModel.cs:10`), so the generic `AddModel<T>` overload (`IGameStarter.cs:13`) accepts this instance. The stock game installs this same model through the same overload at `SandBoxManager.cs:261`.
 
 ## See Also
 

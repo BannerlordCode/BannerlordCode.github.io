@@ -12,11 +12,11 @@ description: "Auto-generated class reference for StoryModePartyWageModel."
 
 ## Overview
 
-`StoryModePartyWageModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`StoryModePartyWageModel` computes wages and recruitment costs, and its one substantive edit fixes the price of a single tutorial-only troop. `GetTroopRecruitmentCost` (StoryMode/GameComponents/StoryModePartyWageModel.cs:35) normally delegates to the sandbox model, but when the tutorial is still running and the troop's string id is `tutorial_placeholder_volunteer`, it returns a fixed `50f` instead (`:41`, `:45`). The wage side is untouched: `MaxWagePaymentLimit` and `GetCharacterWage` are pure passthroughs (`:18`, `:25`), as is `GetTotalWage` (`:31`).
 
 ## Mental Model
 
-Treat `StoryModePartyWageModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+This is a price override rather than a discount system, and the effect is that the tutorial volunteer has a fixed cost instead of one derived from the troop's tier. The consumer inside the tutorial reads the rounded result directly — `TutorialHelper.cs:458` calls `GetTroopRecruitmentCost` and uses `RoundedResult` — so the `50f` is chosen to survive rounding into a round number of denars in the tutorial's own UI. Outside the tutorial the string-id check is never reached, because the completed-tutorial branch returns first (`:38`); a mod that renames the placeholder troop therefore changes what the tutorial charges without touching this model. Note the two delegation paths are written separately rather than as one guarded return (`:39` and `:43`), so an override that replaces the whole method has to reproduce both, or it will change the normal recruitment cost for troops the stock model handles identically. `MaxWagePaymentLimit` is read from a completely different context — `DefeatTheConspiracyQuestBehavior.cs:322` pushes it onto a lord party as its wage payment limit.
 
 ## Key Properties
 
@@ -29,10 +29,9 @@ Treat `StoryModePartyWageModel` as a Model-style extension point: first identify
 ### GetCharacterWage
 `public override int GetCharacterWage(CharacterObject character)`
 
-**Purpose:** Reads and returns the character wage value held by the this instance.
+**Purpose:** Reads and returns the character wage value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModePartyWageModel from the subsystem API first
 StoryModePartyWageModel storyModePartyWageModel = ...;
 var result = storyModePartyWageModel.GetCharacterWage(character);
 ```
@@ -40,10 +39,9 @@ var result = storyModePartyWageModel.GetCharacterWage(character);
 ### GetTotalWage
 `public override ExplainedNumber GetTotalWage(MobileParty mobileParty, TroopRoster troopRoster, bool includeDescriptions = false)`
 
-**Purpose:** Reads and returns the total wage value held by the this instance.
+**Purpose:** Reads and returns the total wage value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModePartyWageModel from the subsystem API first
 StoryModePartyWageModel storyModePartyWageModel = ...;
 var result = storyModePartyWageModel.GetTotalWage(mobileParty, troopRoster, false);
 ```
@@ -51,10 +49,9 @@ var result = storyModePartyWageModel.GetTotalWage(mobileParty, troopRoster, fals
 ### GetTroopRecruitmentCost
 `public override ExplainedNumber GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost = false)`
 
-**Purpose:** Reads and returns the troop recruitment cost value held by the this instance.
+**Purpose:** Reads and returns the troop recruitment cost value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModePartyWageModel from the subsystem API first
 StoryModePartyWageModel storyModePartyWageModel = ...;
 var result = storyModePartyWageModel.GetTroopRecruitmentCost(troop, buyerHero, false);
 ```
@@ -62,8 +59,13 @@ var result = storyModePartyWageModel.GetTroopRecruitmentCost(troop, buyerHero, f
 ## Usage Example
 
 ```csharp
-Game.Current.ReplaceModel<StoryModePartyWageModel>(new MyStoryModePartyWageModel());
+protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+{
+    gameStarterObject.AddModel<PartyWageModel>(new StoryModePartyWageModel());
+}
 ```
+
+`PartyWageModel` is declared as `MBGameModel<PartyWageModel>` (`PartyWageModel.cs:9`), so the generic `AddModel<T>` overload (`IGameStarter.cs:13`) accepts this instance. The stock game installs this same model through the same overload at `StoryModeSubModule.cs:94`.
 
 ## See Also
 

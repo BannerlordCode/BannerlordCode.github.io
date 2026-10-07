@@ -12,11 +12,11 @@ description: "Auto-generated class reference for StoryModeTargetScoreCalculating
 
 ## Overview
 
-`StoryModeTargetScoreCalculatingModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`StoryModeTargetScoreCalculatingModel` supplies the AI's target value for a settlement, and the story uses it to make one tutorial village invisible to the army AI. `GetTargetScoreForFaction` (StoryMode/GameComponents/StoryModeTargetScoreCalculatingModel.cs:82) returns `0f` when the mission type is an attack on the settlement whose id is `village_ES3_2` and the tutorial is still running (`:84`, `:86`); every other combination returns the sandbox score (`:88`). The five activity factors — travelling, besieging, assaulting, raiding, defending — and the patrolling score are pure delegations (`:19`, `:29`, `:39`, `:49`, `:59`, `:72`).
 
 ## Mental Model
 
-Treat `StoryModeTargetScoreCalculatingModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+The score is a preference value the AI compares against alternatives, so returning `0f` does not forbid an attack — it makes the settlement the least attractive target available, which is a softer and more fragile suppression than a veto. The consumer is `AiMilitaryBehavior.cs:379`, which takes the score for a candidate settlement and the party's strength; `Army.cs:363` separately reads `CurrentObjectiveValue` for the army's current leader party, and that member is not suppressed at all (`:78`). Two details decide whether the suppression actually holds. The mission type is compared against the literal `1`, which is the attack value in `Army.ArmyTypes`, so an army AI path that classifies the objective differently bypasses the check entirely. And `TutorialPhase.Instance` is null-guarded here (`:84`) unlike the sibling story models, so this override is safe to install before the tutorial phase object exists — a guard the other StoryMode models omit.
 
 ## Key Properties
 
@@ -33,10 +33,9 @@ Treat `StoryModeTargetScoreCalculatingModel` as a Model-style extension point: f
 ### GetPatrollingFactor
 `public override float GetPatrollingFactor(bool isNavalPatrolling)`
 
-**Purpose:** Reads and returns the patrolling factor value held by the this instance.
+**Purpose:** Reads and returns the patrolling factor value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first
 StoryModeTargetScoreCalculatingModel storyModeTargetScoreCalculatingModel = ...;
 var result = storyModeTargetScoreCalculatingModel.GetPatrollingFactor(false);
 ```
@@ -47,7 +46,6 @@ var result = storyModeTargetScoreCalculatingModel.GetPatrollingFactor(false);
 **Purpose:** Calculates the current value or result of patrolling score for settlement.
 
 ```csharp
-// Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first
 StoryModeTargetScoreCalculatingModel storyModeTargetScoreCalculatingModel = ...;
 var result = storyModeTargetScoreCalculatingModel.CalculatePatrollingScoreForSettlement(settlement, false, mobileParty);
 ```
@@ -58,7 +56,6 @@ var result = storyModeTargetScoreCalculatingModel.CalculatePatrollingScoreForSet
 **Purpose:** Executes the CurrentObjectiveValue logic.
 
 ```csharp
-// Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first
 StoryModeTargetScoreCalculatingModel storyModeTargetScoreCalculatingModel = ...;
 var result = storyModeTargetScoreCalculatingModel.CurrentObjectiveValue(mobileParty);
 ```
@@ -66,10 +63,9 @@ var result = storyModeTargetScoreCalculatingModel.CurrentObjectiveValue(mobilePa
 ### GetTargetScoreForFaction
 `public override float GetTargetScoreForFaction(Settlement targetSettlement, Army.ArmyTypes missionType, MobileParty mobileParty, float ourStrength)`
 
-**Purpose:** Reads and returns the target score for faction value held by the this instance.
+**Purpose:** Reads and returns the target score for faction value held by this instance.
 
 ```csharp
-// Obtain an instance of StoryModeTargetScoreCalculatingModel from the subsystem API first
 StoryModeTargetScoreCalculatingModel storyModeTargetScoreCalculatingModel = ...;
 var result = storyModeTargetScoreCalculatingModel.GetTargetScoreForFaction(targetSettlement, missionType, mobileParty, 0);
 ```
@@ -77,8 +73,13 @@ var result = storyModeTargetScoreCalculatingModel.GetTargetScoreForFaction(targe
 ## Usage Example
 
 ```csharp
-Game.Current.ReplaceModel<StoryModeTargetScoreCalculatingModel>(new MyStoryModeTargetScoreCalculatingModel());
+protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+{
+    gameStarterObject.AddModel<TargetScoreCalculatingModel>(new StoryModeTargetScoreCalculatingModel());
+}
 ```
+
+`TargetScoreCalculatingModel` is declared as `MBGameModel<TargetScoreCalculatingModel>` (`TargetScoreCalculatingModel.cs:9`), so the generic `AddModel<T>` overload (`IGameStarter.cs:13`) accepts this instance. The stock game installs this same model through the same overload at `StoryModeSubModule.cs:93`.
 
 ## See Also
 

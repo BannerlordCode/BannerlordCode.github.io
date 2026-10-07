@@ -12,11 +12,11 @@ description: "Auto-generated class reference for SandboxBattleSpawnModel."
 
 ## Overview
 
-`SandboxBattleSpawnModel` is a rule model that usually defines how a subsystem should compute things. Modders most often customize behavior by replacing or subclassing it.
+`SandboxBattleSpawnModel` is the deployment half of mission start-up: it decides which formation each troop origin joins, and it holds the reinforcement queue. `GetInitialSpawnAssignments` (`SandBox/GameComponents/SandboxBattleSpawnModel.cs:33`) builds the configuration table for the side and then pairs every `IAgentOriginBase` with the best matching `FormationClass`, resolving close matches through a secondary class so a mixed roster still fills every row (`:45`, `:48`). Reinforcements are not decided here at all — `GetReinforcementAssignments` forwards the question to `MissionReinforcementsHelper` (`:80`), and `OnMissionStart`/`OnMissionEnd` forward the lifecycle events to the same helper (`:18`, `:24`), which means this class is deliberately a thin routing layer with only the order-of-battle assignment written inline.
 
 ## Mental Model
 
-Treat `SandboxBattleSpawnModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
+Understand the ordering constraint before touching it: the model is entered at three separate points in the spawn logic's lifetime, and not in sequence. `MissionAgentSpawnLogic.cs:225` calls `OnMissionStart`, `MissionAgentSpawnLogic.cs:344` calls `OnMissionEnd`, and `MissionAgentSpawnLogic.cs:1463` calls `GetInitialSpawnAssignments` for the side being spawned. Because `OnMissionStart` only delegates, an override that forgets to call the base implementation silently stops the whole reinforcement system for the mission — no exception, just troops that never arrive. The returned list is a list of `(origin, FormationClass)` pairs built fresh each call, so mutating it after the fact has no effect on the already-spawned agents; a mod that wants a different formation layout must return different pairs, not adjust the existing ones.
 
 ## Key Methods
 
@@ -26,7 +26,6 @@ Treat `SandboxBattleSpawnModel` as a Model-style extension point: first identify
 **Purpose:** Invoked when the mission start event is raised.
 
 ```csharp
-// Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
 SandboxBattleSpawnModel sandboxBattleSpawnModel = ...;
 sandboxBattleSpawnModel.OnMissionStart();
 ```
@@ -37,7 +36,6 @@ sandboxBattleSpawnModel.OnMissionStart();
 **Purpose:** Invoked when the mission end event is raised.
 
 ```csharp
-// Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
 SandboxBattleSpawnModel sandboxBattleSpawnModel = ...;
 sandboxBattleSpawnModel.OnMissionEnd();
 ```
@@ -45,10 +43,9 @@ sandboxBattleSpawnModel.OnMissionEnd();
 ### GetInitialSpawnAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetInitialSpawnAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** Reads and returns the initial spawn assignments value held by the this instance.
+**Purpose:** Reads and returns the initial spawn assignments value held by this instance.
 
 ```csharp
-// Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
 SandboxBattleSpawnModel sandboxBattleSpawnModel = ...;
 var result = sandboxBattleSpawnModel.GetInitialSpawnAssignments(battleSide, troopOrigins);
 ```
@@ -56,10 +53,9 @@ var result = sandboxBattleSpawnModel.GetInitialSpawnAssignments(battleSide, troo
 ### GetReinforcementAssignments
 `public override List<ValueTuple<IAgentOriginBase, int>> GetReinforcementAssignments(BattleSideEnum battleSide, List<IAgentOriginBase> troopOrigins)`
 
-**Purpose:** Reads and returns the reinforcement assignments value held by the this instance.
+**Purpose:** Reads and returns the reinforcement assignments value held by this instance.
 
 ```csharp
-// Obtain an instance of SandboxBattleSpawnModel from the subsystem API first
 SandboxBattleSpawnModel sandboxBattleSpawnModel = ...;
 var result = sandboxBattleSpawnModel.GetReinforcementAssignments(battleSide, troopOrigins);
 ```
@@ -67,8 +63,13 @@ var result = sandboxBattleSpawnModel.GetReinforcementAssignments(battleSide, tro
 ## Usage Example
 
 ```csharp
-Game.Current.ReplaceModel<SandboxBattleSpawnModel>(new MySandboxBattleSpawnModel());
+protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+{
+    gameStarterObject.AddModel<BattleSpawnModel>(new SandboxBattleSpawnModel());
+}
 ```
+
+`BattleSpawnModel` is declared as `MBGameModel<BattleSpawnModel>` (`BattleSpawnModel.cs:9`), so the generic `AddModel<T>` overload (`IGameStarter.cs:13`) accepts this instance. The stock game installs this same model through the same overload at `SandBoxSubModule.cs:43`.
 
 ## See Also
 

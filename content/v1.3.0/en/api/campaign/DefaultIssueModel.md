@@ -18,6 +18,46 @@ description: "Auto-generated class reference for DefaultIssueModel."
 
 Treat `DefaultIssueModel` as a Model-style extension point: first identify who creates it, who owns it, and who calls it, then decide whether you should subclass it, compose it, or only read from it.
 
+## How to use
+
+`DefaultIssueModel` is the shipped answer, not the extension point. The abstract `IssueModel` is what the engine resolves and what you subclass.
+
+**Getting one.** You do not reach for it directly. `IssueModel` is declared `MBGameModel<IssueModel>` at `TaleWorlds.CampaignSystem/ComponentInterfaces/IssueModel.cs:9`, so the generic starter overload takes the abstract type as its type argument and the concrete implementation as its value: `gameStarter.AddModel<IssueModel>(new DefaultIssueModel())`. That is verbatim what the stock campaign does from `SandBoxManager.Initialize` (`TaleWorlds.CampaignSystem/SandBoxManager.cs:326`). A module issues the same call from `InitializeGameStarter`, the hook the sandbox itself overrides (`SandBox/SandBoxSubModule.cs:28`). Ordering is what makes this work: `Campaign.cs:1897` runs `SandBoxManager.Initialize` first and `Campaign.cs:1898` fans out to every submodule afterwards (`MBGameManager.cs:118`), and `GetModel<T>` scans the list backwards (`CampaignGameStarter.cs:77`), so the last registration is the one the engine keeps.
+
+**Typical use:**
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.ComponentInterfaces;
+using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public class MyIssueModel : IssueModel
+{
+    // Ten of the eleven members on the base are abstract, so delegating is the whole job.
+    private readonly DefaultIssueModel _stock = new DefaultIssueModel();
+
+    public override float GetIssueDifficultyMultiplier()
+    {
+        return _stock.GetIssueDifficultyMultiplier();
+    }
+}
+
+public class MyModule : MBSubModuleBase
+{
+    protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+    {
+        if (game.GameType is Campaign)
+        {
+            gameStarterObject.AddModel<IssueModel>(new MyIssueModel());
+        }
+    }
+}
+```
+
+**Most common mistake:** putting the concrete class in the type argument — `gameStarterObject.AddModel<DefaultIssueModel>(new DefaultIssueModel())`. It does not compile: the overload is `AddModel<T>(MBGameModel<T>)` (`TaleWorlds.CampaignSystem/CampaignGameStarter.cs:95`) and `DefaultIssueModel` is an `MBGameModel<IssueModel>`, not an `MBGameModel<DefaultIssueModel>`. The type argument is not free-form in the other direction either — the engine reads the model back by the abstract type (`TaleWorlds.CampaignSystem/GameModels.cs:722`, `GetGameModel<IssueModel>()`), so nothing would ever look up a type you invented.
+
 ## Key Properties
 
 | Name | Signature |
@@ -138,8 +178,17 @@ var result = defaultIssueModel.CanTroopsReturnFromAlternativeSolution();
 
 ## Usage Example
 
+A module replaces this component by handing its own implementation to `CampaignGameStarter.AddModel<T>` (`CampaignGameStarter.cs:95`) from the `InitializeGameStarter` hook (`MBSubModuleBase.cs:61`); the engine registers its own `DefaultIssueModel` for it at `SandBoxManager.cs:326`.
+
 ```csharp
-Game.Current.ReplaceModel<DefaultIssueModel>(new MyDefaultIssueModel());
+protected override void InitializeGameStarter(Game game, IGameStarter gameStarterObject)
+{
+    if (gameStarterObject is CampaignGameStarter gameStarter)
+    {
+        // MyIssueModel : IssueModel, so it is already an MBGameModel<IssueModel>
+        gameStarter.AddModel<IssueModel>(new MyIssueModel());
+    }
+}
 ```
 
 ## See Also

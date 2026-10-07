@@ -142,7 +142,7 @@ v1.4.5/zh/api 的 862 张 deep 页里，单节占比：
 
 | 批次 | 清单 | 行数 | 冻结时刻 | 完成页数 | 七节齐全数 | 引用数 | BROKEN_LINKS 批前→批后 | orphans 批前→批后 | 未完成项 |
 | --- | --- | ---: | --- | ---: | ---: | ---: | --- | --- | --- |
-| b01 | `tools/_verify/lead-145zh-b01.pages.txt` | 5 | 2026-10-07T06:32:54Z | **4** | 4（七节齐全） | 86（20+29+31+6） | 0 → 39（**b01 贡献 0**，见 §5） | 0 → 0 | `InitializeWorkshopAction.md` 未开始（停机令） |
+| b01 | `tools/_verify/lead-145zh-b01.pages.txt` | 5 | 2026-10-07T06:32:54Z | **5** | 5（七节齐全） | **127**（20+29+31+6+41） | 0 → 39 峰值（**b01 贡献 0**，见 §5）→ 当前 0 | 0 → 0 | **已完成**（见 §13） |
 | b02 | `tools/_verify/lead-145zh-b02.pages.txt` | 5 | 2026-10-07T06:52:00Z | 派单中（07:16Z） | — | — | 0 → 待测 | 0 → 待测 | — |
 
 ### b01 干预记录 ①（2026-10-07T06:42Z）— ★ 一次【归因错】，已自我更正
@@ -488,4 +488,46 @@ worker-168 在「理解任务全貌 / 查 `.pi/tasks` / 看 wiki」上花了几�
 ⇒ **任务越机械，越不该在 brief 里留「先摸清全貌」的空间**。已发硬指令：
 **「只做这 8 处替换，下一个工具调用必须是 `edit`，不要探索」**。
 这与「派单方内联已核实事实」同源：**减少 worker 需要【判断】的地方，就减少跑偏。**
+
+---
+
+## 13. ★ b01 完成（2026-10-07T07:35Z）—— 三个口径全部 5/5
+
+```
+$ node tools/_verify/lead-145zh-judge.mjs --manifest tools/_verify/lead-145zh-b01.pages.txt --json tools/_verify/lead-145zh-b01.judge.json
+b01 FINAL: total=5 pass=5 deepPass=5 tierDeep=5
+```
+
+| # | 页 | 正文 | cites | J5R | J10 | deepPass | tier |
+| --- | --- | ---: | ---: | ---: | ---: | --- | --- |
+| 1 | DestroyShipAction | 5,567B | 20 | 0 | 0 | true | handwritten_deep |
+| 2 | DisableHeroAction | 6,652B | 29 | 0 | 0 | true | handwritten_deep |
+| 3 | EndMercenaryServiceAction | 6,635B | 31 | 0 | 0 | true | handwritten_deep |
+| 4 | IncreaseSettlementHealthAction | 7,014B | 6 | 0 | 0 | true | handwritten_deep |
+| 5 | InitializeWorkshopAction | 9,203B | 41 | 0 | 0 | true | handwritten_deep |
+| | **合计** | | **127** | | | **5/5** | **5/5** |
+
+**引用边界：127 条 `X.cs:N` 全部在界内**（`J3 bad=0`）；每页 `U+FFFD=0`；每页 `参见族 via=[参见]`。
+
+**批前门禁**（06:33Z）：`BROKEN_LINKS=0 · FILES_WITH_BROKEN=0 · orphans=0`
+**批后门禁**（07:35Z）：`BROKEN_LINKS=0 · FILES_WITH_BROKEN=0 · orphans=0 · total_pages=39037`
+（峰值曾达 `39 / 2`，**全部在 `v1.3.0/zh/api/campaign/`，b01 贡献 0**；那批已被 lead-16 修完。）
+
+### 13.1 b01 为什么需要三轮才到 5/5（可复用的形态结论）
+
+| 轮 | 读数 | 差在哪 | 修法 |
+| --- | --- | --- | --- |
+| 1 | pass=4 · deep_pass=4 | `InitializeWorkshopAction` 未写（停机令） | 转给 b02 的 W-C |
+| 2 | pass=5 · deep_pass=4 | 该页 `参见` 无链接（旧政策）⇒ `dependency-section-no-links` | 裁定 (a)：补 2 条已核链接 |
+| 3 | pass=2 · deep_pass=5 | 另 3 页正文有旧链接 ⇒ `J10` | worker-168 机械去壳（8 处） |
+| **终** | **pass=5 · deep_pass=5 · tier=5** | — | — |
+
+**⇒ 三个阶段各自挡住不同的东西，且它们【不可合并】：**
+- 阶段 1 是**产能**（页面根本不存在）
+- 阶段 2 是**机械判据**（有页、有节，但参见槽不达 `deep_pass` 阈值）
+- 阶段 3 是**政策**（内容合格，但链接位置违反规则③）
+
+**若只看单一口径就会误判**：阶段 2 的 `pass=5` 看起来是「全好」，而 `deep_pass=4/5` 才是真读数；
+阶段 3 的 `deep_pass=5/5` 看起来是「全好」，而 `pass=2/5` 才是真读数。
+**⇒ 这就是「两个口径必须分开报且永不合并」的实证依据，不是教条。**
 

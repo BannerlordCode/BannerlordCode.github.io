@@ -1,11 +1,11 @@
 {
-  "judgedAt": "2026-10-07T06:49:08.136Z",
-  "mode": "off",
+  "judgedAt": "2026-10-07T07:33:50.604Z",
+  "mode": "require",
   "total": 5,
-  "pass": 4,
-  "deepPass": 4,
-  "tierDeep": 4,
-  "crossCheckAgree": true,
+  "pass": 5,
+  "deepPass": 5,
+  "tierDeep": 5,
+  "crossCheckAgree": null,
   "results": [
     {
       "page": "content/v1.4.5/zh/api/campaign-ext/DestroyShipAction.md",
@@ -21,12 +21,16 @@
           "导航"
         ],
         "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
         "J3_citations": 20,
         "J3_bad": [],
         "J4_bare_line_refs": 0,
         "J5_dot_slash": 0,
         "J5_index_links": 0,
         "J5R_unresolved": [],
+        "J10_stray_links": [],
         "J6_classifyPage": {
           "status": "deep_pass",
           "reasons": [
@@ -46,7 +50,7 @@
         "deepPass": true,
         "tier": "handwritten_deep",
         "J7_gen_markers": [],
-        "J8_bodyBytes": 5682,
+        "J8_bodyBytes": 5567,
         "J8_h2h3": 8,
         "J9_csharp_lines": 16
       },
@@ -68,12 +72,16 @@
           "导航"
         ],
         "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
         "J3_citations": 29,
         "J3_bad": [],
         "J4_bare_line_refs": 0,
         "J5_dot_slash": 0,
         "J5_index_links": 0,
         "J5R_unresolved": [],
+        "J10_stray_links": [],
         "J6_classifyPage": {
           "status": "deep_pass",
           "reasons": [
@@ -93,7 +101,7 @@
         "deepPass": true,
         "tier": "handwritten_deep",
         "J7_gen_markers": [],
-        "J8_bodyBytes": 6700,
+        "J8_bodyBytes": 6652,
         "J8_h2h3": 10,
         "J9_csharp_lines": 22
       },
@@ -115,12 +123,16 @@
           "导航"
         ],
         "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
         "J3_citations": 31,
         "J3_bad": [],
         "J4_bare_line_refs": 0,
         "J5_dot_slash": 0,
         "J5_index_links": 0,
         "J5R_unresolved": [],
+        "J10_stray_links": [],
         "J6_classifyPage": {
           "status": "deep_pass",
           "reasons": [
@@ -140,7 +152,7 @@
         "deepPass": true,
         "tier": "handwritten_deep",
         "J7_gen_markers": [],
-        "J8_bodyBytes": 6683,
+        "J8_bodyBytes": 6635,
         "J8_h2h3": 10,
         "J9_csharp_lines": 22
       },
@@ -162,12 +174,16 @@
           "导航"
         ],
         "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
         "J3_citations": 6,
         "J3_bad": [],
         "J4_bare_line_refs": 0,
         "J5_dot_slash": 0,
         "J5_index_links": 0,
         "J5R_unresolved": [],
+        "J10_stray_links": [],
         "J6_classifyPage": {
           "status": "deep_pass",
           "reasons": [
@@ -200,56 +216,51 @@
       "checks": {
         "J1_fffd": 0,
         "J2_h2": [
-          "方法",
-          "使用示例",
-          "参见"
-        ],
-        "J2_missing": [
           "概述",
           "心智模型",
           "怎么用",
           "关键成员",
           "真实示例",
+          "参见",
           "导航"
         ],
-        "J3_citations": 0,
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_citations": 41,
         "J3_bad": [],
         "J4_bare_line_refs": 0,
         "J5_dot_slash": 0,
         "J5_index_links": 0,
         "J5R_unresolved": [],
+        "J10_stray_links": [],
         "J6_classifyPage": {
-          "status": "stub",
+          "status": "deep_pass",
           "reasons": [
-            "missing-mental-model-section",
-            "no-real-example",
-            "weak-mental"
+            "mental>80",
+            "dep-or-see-links=7",
+            "real-csharp-example",
+            "overview-ok"
           ]
         },
         "J6_nonLinkReasons": [
-          "missing-mental-model-section",
-          "no-real-example",
-          "weak-mental"
+          "mental>80",
+          "dep-or-see-links=7",
+          "real-csharp-example",
+          "overview-ok"
         ],
         "J6_linkOnlyStub": false,
-        "deepPass": false,
-        "tier": "generated",
-        "J7_gen_markers": [
-          "的自动生成战役动作参考"
-        ],
-        "J8_bodyBytes": 850,
-        "J8_h2h3": 4,
-        "J9_csharp_lines": 2
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 9203,
+        "J8_h2h3": 10,
+        "J9_csharp_lines": 10
       },
-      "fail": [
-        "J2 missing=概述,心智模型,怎么用,关键成员,真实示例,导航",
-        "J6 classifyPage=stub 非链接族理由=[missing-mental-model-section, no-real-example, weak-mental]",
-        "J7 gen-marker=的自动生成战役动作参考",
-        "J8 body=850B h2h3=4",
-        "J9 csharp-lines=2"
-      ],
+      "fail": [],
       "warn": [],
-      "pass": false
+      "pass": true
     }
   ]
 }

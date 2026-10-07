@@ -1327,3 +1327,49 @@ worker-210 无需再提交。
 - 门禁：`audit-links` BROKEN_LINKS=0 exit=0 · `nav-orphans` orphans=0 · `audit-changed-links` exit=0
 
 
+
+### 4.13 判据更正：核对才是门槛，生成方式不是
+
+**背景**：Boss 先裁 (b)「不提交那 29 个 schema 声明页」，理由是从【形状】(+2/−0) 推断
+「脚本生成 ⇒ 没经过核对」。随后**撤回 (b)**，改为 (a)+(c)「核验一致后即可提交」。
+
+**★ 撤回的理由比裁定本身重要（Boss 原话要点）**：
+· **形状不告诉你有没有发生过核对。**
+· 「脚本写 content/」的危险不在于【谁写的】，而在于【有没有独立核对】：
+  - 生成档 stub（`description: "…的自动生成类参考。"` + 模板套话 + 错误示例）⇒ 危险是因为
+    **内容没有与任何事实核对**（示例与源码不符）
+  - 本批 schema 声明 ⇒ 由该页自身标题导出，**且程序化核验过与实际 H2 集合对应**
+    ⇒ **值被独立核对了** ⇒ 不是「脚本写的内容」，是「被核对过的派生声明」
+· **判据最终形态**：**「这一处内容是否经过了一次独立于其生成过程的核对？」**
+  - 核对过 ⇒ 可提交（无论谁写的）
+  - 没核对过 ⇒ 不可提交（无论谁写的）
+· 硬前提 #1「禁止脚本写 content/**」是**手段层面的表述**，它漏掉了这个判据 ——
+  所以它会把「被核对过的派生声明」也一起禁掉，那是**过度禁止**。
+
+**⇒ 替代关系**：本条**替代** Boss #17612 的裁定 (b)。
+
+**仍保留的改进项（非阻断）**：把「节列表」移到模板层（Zola `page.toc` 可为全站渲染节列表，
+零脚本写 content/、一次覆盖含未来新页、天然不与正文脱节）—— 与 breadcrumb 同源
+（「能在布局层无条件做到的，不要在每页正文里写」）。**这是改进项，不是本批的阻断项。**
+
+**★ 声明的形态实测（lead-21，2026-10-07）**：v1.3.15 架构桶 36 页共 **8 种**声明形态：
+```
+15  > Section schema: this page uses N sections (in document order): …      ← 阿拉伯数字
+14  > 节 schema：本页采用 N 节（按出现顺序）：…                              ← 阿拉伯数字
+ 3  > 节 schema：本页采用规范七节（…                                        ← 中文数字「七」
+ 1  > Section schema: this page uses the canonical seven sections (…)      ← 英文单词 seven
+ 1  > Section schema: this page mirrors the zh twin's canonical seven …    ← 英文单词 seven
+ 1  > Section schema: this page follows the canonical seven sections (…)   ← 英文单词 seven
+ 1  ## 节 schema 声明                                                       ← H2 标题，非引用块
+ 1  ## Section schema declaration                                          ← H2 标题
+```
+⇒ 本线先前的核验正则只命中前两种（15+14=29）⇒ 报出的「28/29」是**尺比语料窄**的产物。
+⇒ **额外后果**：那 2 个 H2 形态的页（`mission-lifecycle.md` en/zh，h2=7）**把声明自身算进 H2 数**，
+   而其声明自称「规范六节映射」⇒ **声明与实际 H2 数天然差 1**。
+⇒ **通用判据**：**判据必须比它要判的语料【宽】；否则它报的是自己的窄，不是语料的错。**
+   ⇒ 若把「声明节数 == `grep -c '^## '`」固化成批尾门禁，必须先接受 8 种形态 + 数字可为中文/英文单词，
+     且 H2 形态的声明要从 H2 计数里排除；解析不出时报「不可判定」而非 FAIL。
+
+**既有缺陷的处置**：`content/v1.3.15/en/architecture/save-object-graph.md` 的声明写
+`Real Example`（单数）而实际 H2 是 `Real Examples`（复数）⇒ 已另开一批修（`7c72fe5575`），
+并明确标注它是**既有缺陷、非本批引入**。

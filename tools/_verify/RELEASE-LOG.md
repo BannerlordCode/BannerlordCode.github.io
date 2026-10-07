@@ -337,7 +337,179 @@ worker-85 给出的建议顺序是：先 #14+#15，再在存在非二次实现�
    ```
    ⇒ 它是 `tools/_src-manifest.mjs` 的输出被写进了字面文件 `nul`，不是设备文件。**不提交**。
 
-### 2.7 本轮提交
+### 2.7 第 2 轮提交记录
 
-见下方「提交记录」。
+```
+commit b46a3cfdc53926189f7294ed03f0371ccda53aff
+  release(tools): land the release ledger, gate measurement, snapshots and the nav-rework queue
+  文件数 = 9
+  A tools/_verify/NAV-REWORK-QUEUE.md
+  A tools/_verify/RELEASE-CONTENT-CLASSIFY-rest.md
+  A tools/_verify/RELEASE-CONTENT-CLASSIFY-v130en.md
+  A tools/_verify/RELEASE-CONTENT-NUMSTAT-20261007T045759Z.txt
+  A tools/_verify/RELEASE-GATE-auditlinks.txt
+  A tools/_verify/RELEASE-LOG.md
+  A tools/_verify/RELEASE-SNAPSHOT-20261007T043351Z.txt
+  A tools/_verify/RELEASE-SNAPSHOT-20261007T045759Z.txt
+  A tools/_verify/RELEASE-SNAPSHOT-20261007T050210Z.txt
+push: 55658f4d9d..b46a3cfdc5  main -> main
+push 后 origin/main = b46a3cfdc53926189f7294ed03f0371ccda53aff = HEAD, divergence 0 0
+```
+
+### 2.8 归属更正（Boss #10054）
+
+本节 2.3 曾把 `tools/_verify/types-{1.4.5,1.4.6,1.5.3}.json`（各 ~2.9MB，05:01Z）
+归给 lead-13 的导航线。**归属错了**：那是 **lead-11（覆盖普查线）** 的 `coverage-census.mjs` 产物
+（`types-<ver>.json` + `tiers-<ver>-<lang>.json`，worker-75/76~79/96）。
+导航线的产物形态是 `nav-*.{md,tsv,json}` / `_navC-*` / `_navX-*`，且 lead-13 在 #9754 广播的写入前缀是 `content/**/_index.md`。
+**对结论的影响**：无。本轮只提交显式列名路径、从不用 `git add -A`，所以归属误判没有改变任何提交决定；
+但「谁在写 tools/」这个事实必须按真实归属记，否则下一轮会对错误路径设限。
+
+---
+
+## 第 3 轮 · 2026-10-07（全站构建 + 新门禁）
+
+### 3.1 🔴 全站构建：**实测跑完了**（与 Boss 收到的「被杀」口径相反，附原始输出）
+
+背景：05:02 Boss 授权拿构建槽，05:03 又以「>15 分钟被杀」为由解除冻结。**那个「被杀」的观测不是本线的构建。**
+本线的构建是**直接在前台 bash 里跑完的**：
+
+```
+$ rm -rf public
+$ S=$(date +%s); zola build > tools/_verify/RELEASE-BUILD-zola.log 2>&1; E=$?; N=$(date +%s)
+ZOLA_EXIT=0
+ELAPSED_SEC=2011
+--- full zola output ---
+Building site...
+-> Creating 38486 pages (30 orphan) and 538 sections
+Done in 2009.4s.
+--- end ---
+测量时点：2026-10-07T05:05:09Z 开始，2026-10-07T05:39:07Z 结束
+HEAD（前后一致）= b46a3cfdc53926189f7294ed03f0371ccda53aff
+```
+
+原始日志：`tools/_verify/RELEASE-BUILD-zola.log`（70 字节，逐字如上）。
+**`zola build` 在本环境 exit 0 跑完，耗时 2011 秒（约 33.5 分钟）。**
+
+**为什么先前会看到「>15 分钟被杀」**：本线的后台 monitor（MonitorCreate）在这个环境里**跑不了**——
+它的 shell 是 cmd 而不是 bash，`cd /c/WorkSpace/...` 直接失败。实测：
+
+```
+Monitor #1 [error] ... — 0 lines (12m)      ← 第一次 audit-links 尝试
+Monitor #2 [error] ... — 0 lines (18s)      ← 第一次 zola build 尝试
+```
+
+两个 monitor 都是 **0 行输出即报错**，构建根本没起来。改成前台 bash 直跑后一次成功。
+⇒ 以后本环境不要用 MonitorCreate 跑需要 bash 路径的命令；这是环境限制，不是构建问题。
+
+### 3.2 Boss 口径（#10069）——已按此执行
+
+```
+构建跑不完 ⇒ 它不是门禁，也不能当让写作线停手的理由。
+门禁用 node tools/audit-links.mjs（要求 BROKEN_LINKS=0）+ 两个 orphan 工具，秒级可测。
+完整构建放到最后、所有写作线确认停手之后、长超时后台跑一次，由 Boss 下达暂停令，不要自行推断冻结。
+nav 恢复的前后耗时证据改用有界读数：zola build 的 `-> Creating N pages (M orphan)` 那一行，
+pre/post 各一次，标注「page-creation 阶段读数，非完整构建」。
+```
+
+**执行**：不再为构建冻结任何写作线；本轮把构建读数当**有界证据**用，不当门禁。
+可引用的有界读数（pre-nav 基线）：`-> Creating 38486 pages (30 orphan) and 538 sections`。
+（对照：导航线 04:39 在**merge 之前**的树上也得到同一行 `38486 pages (30 orphan)`。）
+
+**给下一轮的警告**：因为写作线在本轮构建期间**恢复写入**（见 3.3），38486 这个页面数是
+一个**移动靶上的读数**，不是「静止树的确定性事实」。引用时必须带这个限定。
+
+### 3.3 构建窗口内发生的写入（含一个真实回归）
+
+构建从 05:05:09Z 跑到 05:39:07Z。窗口内工作区从 3510 条涨到 3745 条。
+新增的 content 条目（`git status` 实测）：
+
+```
+ M content/v1.3.0/en/api/mission/_index.md
+ M content/v1.3.0/zh/api/mission/_index.md
+ M content/v1.3.15/en/architecture/_index.md
+ M content/v1.3.15/en/native-1.3.15-src/COMPLETE-FUNCTIONS.md
+ M content/v1.3.15/zh/architecture/_index.md
+ M content/v1.3.15/zh/native-1.3.15-src/COMPLETE-FUNCTIONS.md
+ M content/v1.4.5/zh/api/save-system/_index.md
+ M content/v1.4.5/zh/api/system/_index.md
+ M content/v1.4.5/zh/architecture/_index.md
+ M content/v1.4.7/en/api/engine/_index.md
+?? content/v1.3.15/en/architecture/gamemodel-decorator.md
+?? content/v1.3.15/zh/architecture/gamemodel-decorator.md
+D  content/v1.3.15/en/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt     ← 注意第一列是 D = 已 staged
+D  content/v1.3.15/zh/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt     ← 同上
+```
+
+⚠️ **两条必须记下的事实**：
+
+1. **工作区里有 2 条被「staged」的删除**（`D ` 第一列），是某条写作线跑了 `git add`/`git rm` 的结果，
+   不是本线做的（本线在 05:03 检查时 staged count 还是 0）。
+   **本线因此改用 `git commit -- <显式路径>` 形式**，避免把这两条删除卷进任何提交。
+2. **这两条删除把门禁推红了**：`COMPLETE-FUNCTIONS.md` 仍指向 `./ALL-FUNCTIONS-LIST.txt`，
+   于是门禁从 `BROKEN_LINKS=1` 变成 `BROKEN_LINKS=2`（见 3.4）。这是**窗口内新引入的回归**，
+   不是基线缺陷，也不是本线造成的。
+
+### 3.4 门禁读数（构建后，同一 HEAD）
+
+```
+$ node tools/audit-links.mjs
+exit=1
+FILES=39027
+TOTAL_LINKS=149005
+AUDIT_MODE=url
+BROKEN_LINKS=2
+RESOLVE_OK_URL=148819
+RESOLVE_OK_FILE=110101
+RESOLVE_OK_EITHER=148819
+RESOLVE_OK_BOTH=110101
+RESOLVE_URL_ONLY=38718
+RESOLVE_FILE_ONLY=0
+RESOLVE_NEITHER=2
+FILES_WITH_BROKEN=2
+
+## v1.3.15/en/native-1.3.15-src/COMPLETE-FUNCTIONS.md  (1)
+   -> ./ALL-FUNCTIONS-LIST.txt
+## v1.3.15/zh/native-1.3.15-src/COMPLETE-FUNCTIONS.md  (1)
+   -> ./ALL-FUNCTIONS-LIST.txt
+```
+
+**门禁状态：红，`BROKEN_LINKS=2`（比 merge 后的 1 条多了 1 条新回归）。**
+按 Boss #9980 的前置条件「提交 content 之前必须先确认 `BROKEN_LINKS=0`」——
+**该前置条件当前不满足，因此本线不提交任何 `content/**` 改动**（包括已通过作用域门禁的 `_index.md` 批）。
+
+### 3.5 新增门禁：`_index.md` 作用域检查（Boss #10033 要求，可复跑）
+
+工具：`tools/_verify/check-section-index-scope.mjs`（exit 0/1/2，fail-closed）。
+判定方法（不是采样，是逐文件全量）：取 HEAD 版与工作区版，**两边都删掉
+`<!-- BEGIN SECTION INDEX -->`…`<!-- END SECTION INDEX -->` 块，再逐字节比较**。
+余量相同 ⇒ 所有差异都在块内 ⇒ IN-SCOPE；否则 OUT-OF-SCOPE。
+
+```
+$ node tools/_verify/check-section-index-scope.mjs
+checked=31 out_of_scope=8   (exit=1)
+```
+
+| 判定 | 数量 | 文件 |
+|---|---|---|
+| IN-SCOPE | 23 | 见 `tools/_verify/RELEASE-GATE-index-scope.txt` 全文 |
+| OUT-OF-SCOPE | 6 | `v1.4.5/en/api/campaign/_index.md`（第 1 行）· `v1.4.5/en/api/final/_index.md`（第 10 行）· `v1.4.5/en/api/mission/_index.md`（第 58 行）· `v1.4.5/zh/_index.md`（第 2 行）· `v1.4.6/en/architecture/_index.md`（第 2 行）· `v1.4.7/en/api/engine/_index.md`（第 3 行） |
+| NEW | 2 | `v1.5.3/zh/api/localization/_index.md` · `v1.5.3/zh/api/storymode/_index.md`（不在 HEAD 里 = 新页 = 写正文，窄口外） |
+
+**结论**：31 个里有 **8 个越出窄口**。按 Boss 裁定，这 8 个**一律不提交**，逐条列在本表；
+只有 23 个 IN-SCOPE 的可以提交，且 commit message 必须写
+「section index only, authorized narrow exception」+ 授权出处。
+**但因为 3.4 的 `BROKEN_LINKS=2`，本线本轮连这 23 个也一并暂缓**，等门禁回绿。
+
+### 3.6 Boss 对两条独立发现的裁定（#10033）
+
+| 发现 | 裁定 | 本线动作 |
+|---|---|---|
+| `CONTRACT.md`（121,373 B，主契约）未跟踪、从未进版本库 | **授权作为独立 checkpoint 提交**，message 写明「project contract, previously untracked; content unchanged」，**不得改正文** | 见 3.7 提交记录 |
+| `nul`（6,003,958 B JSON 重定向事故产物） | 确认为 STRAY：**不提交、不删除**，在台账登记一行 | 已登记于 2.6；未提交、未删除 |
+
+### 3.7 第 3 轮提交记录
+
+（见文末「提交记录」追加段）
+
 

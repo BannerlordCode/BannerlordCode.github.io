@@ -1,0 +1,73 @@
+# _index.md SECTION INDEX scope gate
+# command: node tools/_verify/check-section-index-scope.mjs
+# run_at_utc: 2026-10-07T05:42:02Z
+# HEAD: b46a3cfdc53926189f7294ed03f0371ccda53aff
+
+fatal: path 'content/v1.5.3/zh/api/localization/_index.md' exists on disk, but not in 'HEAD'
+fatal: path 'content/v1.5.3/zh/api/storymode/_index.md' exists on disk, but not in 'HEAD'
+IN-SCOPE      content/v1.3.0/en/api/mission/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.0/zh/api/mission/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/campaign-ext/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/core-extra/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/mission-ext/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/api/system/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/en/architecture/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/campaign-ext/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/core-extra/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/mission-ext/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/api/system/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.3.15/zh/architecture/_index.md
+              -> all differences are inside the marker block
+OUT-OF-SCOPE  content/v1.4.5/en/api/campaign/_index.md
+              -> first difference outside the block at line 1
+OUT-OF-SCOPE  content/v1.4.5/en/api/final/_index.md
+              -> first difference outside the block at line 10
+OUT-OF-SCOPE  content/v1.4.5/en/api/mission/_index.md
+              -> first difference outside the block at line 58
+OUT-OF-SCOPE  content/v1.4.5/zh/_index.md
+              -> first difference outside the block at line 2
+IN-SCOPE      content/v1.4.5/zh/api/campaign-ext/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/campaign/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/core-extra/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/gui/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/localization/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/mission-ext/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/mission/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/save-system/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/system/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/api/viewmodel/_index.md
+              -> all differences are inside the marker block
+IN-SCOPE      content/v1.4.5/zh/architecture/_index.md
+              -> all differences are inside the marker block
+OUT-OF-SCOPE  content/v1.4.6/en/architecture/_index.md
+              -> first difference outside the block at line 2
+OUT-OF-SCOPE  content/v1.4.7/en/api/engine/_index.md
+              -> first difference outside the block at line 3
+NEW           content/v1.5.3/zh/api/localization/_index.md
+              -> not in HEAD (new page = writes prose, outside the exception)
+NEW           content/v1.5.3/zh/api/storymode/_index.md
+              -> not in HEAD (new page = writes prose, outside the exception)
+
+checked=31 out_of_scope=8
+
+# exit: 1 (8 of 31 out of scope)

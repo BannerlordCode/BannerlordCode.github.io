@@ -54,13 +54,13 @@ description: "城镇建造系统的静态工具箱：推进工程完工、切换
 
 ## 关键成员
 
-- `CheckIfBuildingIsComplete(Building building)` —— 每日结算的推进入口：进度达到造价就升一级，已满 3 级则把进度顶到造价，随后把这个工程从建造队列队首摘掉。
-- `ChangeDefaultBuilding(Building newDefault, Town town)` —— 重设城镇的默认工程标记：先清空该镇所有建筑的 `IsCurrentlyDefault`，再把与 `newDefault` 相同的那一个点亮。
-- `ChangeCurrentBuildingQueue(List<Building> buildings, Town town)` —— 用一份新列表整体覆盖建造队列，先 `Clear()` 再按传入顺序逐个入队，日常工程会被断言并跳过。
-- `GetProgressOfBuilding(Building building, Town town)` —— 算出 0~1 的完工比例，只有在该建筑确实属于这个城镇时才返回真实值。
-- `GetDaysToComplete(Building building, Town town)` —— 结合当前战役的 `BuildingConstructionModel` 与城镇建造力估算剩余天数，考虑 `BoostBuildingProcess` 是否够触发加速；该镇没有建造力时返回 -1。
-- `GetTierOfBuilding(BuildingType buildingType, Town town)` —— 按建筑类型在该镇建筑列表里找第一个匹配项，返回它当前的等级。
-- `BoostBuildingProcessWithGold(int gold, Town town)` —— 把城镇的加速投入设为指定金币数，差额通过 `GiveGoldAction.ApplyBetweenCharacters` 在玩家金库上补收或退还，相等时不动钱。
+- `CheckIfBuildingIsComplete(Building building)` —— 每日结算的推进入口：进度达到造价就升一级，已满 3 级则把进度顶到造价，随后把这个工程从建造队列队首摘掉。`BuildingHelper.cs:16`
+- `ChangeDefaultBuilding(Building newDefault, Town town)` —— 重设城镇的默认工程标记：先清空该镇所有建筑的 `IsCurrentlyDefault`，再把与 `newDefault` 相同的那一个点亮。`BuildingHelper.cs:33`
+- `ChangeCurrentBuildingQueue(List<Building> buildings, Town town)` —— 用一份新列表整体覆盖建造队列，先 `Clear()` 再按传入顺序逐个入队，日常工程会被断言并跳过。`BuildingHelper.cs:49`
+- `GetProgressOfBuilding(Building building, Town town)` —— 算出 0~1 的完工比例，只有在该建筑确实属于这个城镇时才返回真实值。`BuildingHelper.cs:66`
+- `GetDaysToComplete(Building building, Town town)` —— 结合当前战役的 `BuildingConstructionModel` 与城镇建造力估算剩余天数，考虑 `BoostBuildingProcess` 是否够触发加速；该镇没有建造力时返回 -1。`BuildingHelper.cs:83`
+- `GetTierOfBuilding(BuildingType buildingType, Town town)` —— 按建筑类型在该镇建筑列表里找第一个匹配项，返回它当前的等级。`BuildingHelper.cs:119`
+- `BoostBuildingProcessWithGold(int gold, Town town)` —— 把城镇的加速投入设为指定金币数，差额通过 `GiveGoldAction.ApplyBetweenCharacters` 在玩家金库上补收或退还，相等时不动钱。`BuildingHelper.cs:133`
 
 ## 真实示例
 

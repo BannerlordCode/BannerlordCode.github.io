@@ -51,8 +51,8 @@ description: "按文化与陆路/海路需求，在商队队伍模板池里随�
 
 ## 关键成员
 
-- `GetRandomCaravanTemplate(CultureObject culture, bool isElite, bool isLand)` —— 唯一的对外入口：按 `isElite` 选定普通或精英模板池，再用陆/海要求过滤并随机取一个；候选全部不合格时返回 `null`，调用方必须自己判空。
-- `IsPartyTemplateSuitable(PartyTemplateObject template, bool isLand)` —— **私有，不对外**；判定单个模板是否符合行进方式要求，规则是「海路要有船体、陆路不能有船体」，全部依据 `template.ShipHulls.Count`。
+- `GetRandomCaravanTemplate(CultureObject culture, bool isElite, bool isLand)` —— 唯一的对外入口：按 `isElite` 选定普通或精英模板池，再用陆/海要求过滤并随机取一个；候选全部不合格时返回 `null`，调用方必须自己判空。`CaravanHelper.cs:12`
+- `IsPartyTemplateSuitable(PartyTemplateObject template, bool isLand)` —— **私有，不对外**；判定单个模板是否符合行进方式要求，规则是「海路要有船体、陆路不能有船体」，全部依据 `template.ShipHulls.Count`。`CaravanHelper.cs:27`
 
 ## 真实示例
 

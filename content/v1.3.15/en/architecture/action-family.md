@@ -8,7 +8,8 @@ description: "The single entry point for every campaign-layer state change: how 
 **Namespace:** `TaleWorlds.CampaignSystem.Actions`  
 **Module:** `TaleWorlds.CampaignSystem`  
 **Type:** Architecture topic page — covers the 62 `*Action` entry classes under `TaleWorlds.CampaignSystem.Actions`  
-**Source files:** `TaleWorlds.CampaignSystem/Actions/`
+**Source files:** `TaleWorlds.CampaignSystem/Actions/`  
+**Line-number basis:** every `X.cs:N` on this page refers to the **v1.3.15** source tree (`bannerlord-1.3.15/`).
 
 > Section schema: this page mirrors the zh twin's canonical seven sections (概述 / 心智模型 / 怎么用 / 关键成员 / 真实示例 / 参见 / 导航).
 
@@ -27,7 +28,7 @@ Family size (recomputable with these commands):
 
 **① The family's unified shape.** Of the 62 files, 58 are `public static class`: no instance state, no constructor, not inheritable. The public surface is a set of static `ApplyXxx` methods (172 across the family); the real work happens in a private `ApplyInternal` (54 across the family). The 4 exceptions: `ChangePlayerCharacterAction` / `ChangeRulingClanAction` / `RaftStateChangeAction` are plain classes, and `EndCaptivityDetail` is an enum/helper type, not an Action entry point. When you see `ApplyInternal`, know that the public overloads are just "argument-picking" shells — the semantics all live in that one place.
 
-**② Why you must not mutate fields directly.** `Hero.cs:1597` — `Gold` has a public setter whose body is only `this._gold = MathF.Max(0, value)`; `Hero.cs:2067` — `SetPersonalRelation` is the same shape. A direct assignment compiles and really does change the number, but it **only clamps and fires no event** ⇒ the economy event chain breaks and UI / quests / models never get notified. That is exactly why `GiveGoldAction.cs:12` exists: inside those lines it binds "write the balance" together with `CampaignEventDispatcher.Instance.OnHeroOrPartyTradedGold` (`GiveGoldAction.cs:42`).
+**② Why you must not mutate fields directly.** `Hero.cs:1597` — `Gold` has a public setter whose body is only `this._gold = MathF.Max(0, value)`; `SetPersonalRelation` in the same file is the same shape. A direct assignment compiles and really does change the number, but it **only clamps and fires no event** ⇒ the economy event chain breaks and UI / quests / models never get notified. That is exactly why `GiveGoldAction.cs:12` exists: inside those lines it binds "write the balance" together with `CampaignEventDispatcher.Instance.OnHeroOrPartyTradedGold` (`GiveGoldAction.cs:42`).
 
 **③ The Action → event chain.** The chain is Action → `CampaignEventDispatcher.Instance.OnXxx` → `CampaignEvents.XxxEvent` → Behavior subscriber. Three file:line anchors: `CampaignEventDispatcher.cs:299` (`OnHeroOrPartyTradedGold`), `CampaignEvents.cs:501` (`HeroRelationChanged`), `CampaignEvents.cs:1285` (`HeroKilledEvent`). `CampaignEvents.cs:1294` — `OnHeroKilled` is the subscriber-side forwarding implementation, and `CharacterRelationCampaignBehavior.cs:31` is a real subscription sample.
 
@@ -66,9 +67,9 @@ Family size: **62 files / 58 static classes / 172 `ApplyXxx` / 54 `ApplyInternal
 | `KillCharacterAction.ApplyByMurder` | `KillCharacterAction.cs:198` | Murder: killer may be null |
 | `KillCharacterAction.ApplyByExecution` | `KillCharacterAction.cs:210` | Execution: `isForced` can bypass the `CanDie` gate |
 | `KillCharacterAction.ApplyByRemove` | `KillCharacterAction.cs:222` | Silent removal: defaults to `showNotification=false`, `isForced=true` |
-| `KillCharacterAction.KillCharacterActionDetail` | `KillCharacterAction.cs:18` | The cause-of-death enum: the only difference between the 11 `ApplyByXxx` overloads is which value they pass — one action, different causes |
+| `KillCharacterAction.KillCharacterActionDetail` | `KillCharacterAction.cs:22` | The cause-of-death enum: the only difference between the 11 `ApplyByXxx` overloads is which value they pass — one action, different causes |
 | `Hero.Gold` | `Hero.cs:1597` | Has a public setter, but the body only does `MathF.Max(0, value)` and fires no event — do not assign directly |
-| `Hero.SetPersonalRelation` | `Hero.cs:2067` | Same shape: assigning the relation value fires no event; relation changes must go through `ChangeRelationAction` |
+| `Hero.SetPersonalRelation` | see above (`Hero.cs`) | Same shape: assigning the relation value fires no event; relation changes must go through `ChangeRelationAction` |
 | `CampaignEventDispatcher.OnHeroOrPartyTradedGold` | `CampaignEventDispatcher.cs:299` | Gold event dispatch point, called inside `GiveGoldAction` |
 | `CampaignEventDispatcher.OnHeroKilled` | `CampaignEventDispatcher.cs:689` | Death event dispatch point |
 | `CampaignEventDispatcher.OnBeforeHeroKilled` | `CampaignEventDispatcher.cs:699` | Pre-death dispatch point, for Behaviors that prevent/rewrite the death |

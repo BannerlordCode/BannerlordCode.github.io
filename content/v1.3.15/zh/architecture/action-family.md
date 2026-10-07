@@ -8,7 +8,8 @@ description: "战役层所有状态改变的统一入口：62 个 *Action 静态
 **Namespace:** `TaleWorlds.CampaignSystem.Actions`  
 **Module:** `TaleWorlds.CampaignSystem`  
 **Type:** 架构主题页 — 覆盖 `TaleWorlds.CampaignSystem.Actions` 下 62 个 `*Action` 入口类  
-**源文件：** `TaleWorlds.CampaignSystem/Actions/`
+**源文件：** `TaleWorlds.CampaignSystem/Actions/`  
+**行号口径：** 本页所有 `X.cs:N` 均指 **v1.3.15** 源码树（`bannerlord-1.3.15/`）。
 
 > 节 schema：本页采用规范七节（概述 / 心智模型 / 怎么用 / 关键成员 / 真实示例 / 参见 / 导航）。
 
@@ -27,7 +28,7 @@ description: "战役层所有状态改变的统一入口：62 个 *Action 静态
 
 **① 家族统一形态。** 62 个文件里 58 个是 `public static class`：无实例状态、无构造函数、不可继承，公开面是一组静态 `ApplyXxx`（全家族共 172 个），真正干活的是私有 `ApplyInternal`（全家族共 54 个）。4 个例外：`ChangePlayerCharacterAction` / `ChangeRulingClanAction` / `RaftStateChangeAction` 是普通 class，`EndCaptivityDetail` 是 enum/辅助类型，不是 Action 入口。看到 `ApplyInternal` 就知道：公开重载只是「选参数」的壳，语义全在内部那一处。
 
-**② 为什么不能直接改字段。** `Hero.cs:1597` 的 `Gold` 有 public setter，行体只有 `this._gold = MathF.Max(0, value)`；`Hero.cs:2067` 的 `SetPersonalRelation` 同型。直接改编译得过、也真的改了数，但它**只做 clamp，不发任何事件** ⇒ 经济事件链断掉，UI/任务/模型都收不到通知。`GiveGoldAction.cs:12` 之所以存在，正是因为它在那 30 行里把「写余额」和 `CampaignEventDispatcher.Instance.OnHeroOrPartyTradedGold`（`GiveGoldAction.cs:42`）绑在一起。
+**② 为什么不能直接改字段。** `Hero.cs:1597` 的 `Gold` 有 public setter，行体只有 `this._gold = MathF.Max(0, value)`；同文件里的 `SetPersonalRelation` 是同一形态。直接改编译得过、也真的改了数，但它**只做 clamp，不发任何事件** ⇒ 经济事件链断掉，UI/任务/模型都收不到通知。`GiveGoldAction.cs:12` 之所以存在，正是因为它在那 30 行里把「写余额」和 `CampaignEventDispatcher.Instance.OnHeroOrPartyTradedGold`（`GiveGoldAction.cs:42`）绑在一起。
 
 **③ Action 与事件的级联关系。** 链路是 Action → `CampaignEventDispatcher.Instance.OnXxx` → `CampaignEvents.XxxEvent` → Behavior 订阅者。三处 file:行号：`CampaignEventDispatcher.cs:299`（`OnHeroOrPartyTradedGold`）、`CampaignEvents.cs:501`（`HeroRelationChanged`）、`CampaignEvents.cs:1285`（`HeroKilledEvent`）。`CampaignEvents.cs:1294` 的 `OnHeroKilled` 是订阅端转发实现，`CharacterRelationCampaignBehavior.cs:31` 是真实订阅样例。
 
@@ -66,9 +67,9 @@ description: "战役层所有状态改变的统一入口：62 个 *Action 静态
 | `KillCharacterAction.ApplyByMurder` | `KillCharacterAction.cs:198` | 谋杀：killer 可空 |
 | `KillCharacterAction.ApplyByExecution` | `KillCharacterAction.cs:210` | 处刑：`isForced` 可绕过 `CanDie` 守门 |
 | `KillCharacterAction.ApplyByRemove` | `KillCharacterAction.cs:222` | 静默移除：默认 `showNotification=false`、`isForced=true` |
-| `KillCharacterAction.KillCharacterActionDetail` | `KillCharacterAction.cs:18` | 死亡原因枚举：11 个 `ApplyByXxx` 的唯一差别就是传哪个值——同一动作、不同原因 |
+| `KillCharacterAction.KillCharacterActionDetail` | `KillCharacterAction.cs:22` | 死亡原因枚举：11 个 `ApplyByXxx` 的唯一差别就是传哪个值——同一动作、不同原因 |
 | `Hero.Gold` | `Hero.cs:1597` | 有 public setter，但行体只做 `MathF.Max(0, value)`，不发事件——不能直接改 |
-| `Hero.SetPersonalRelation` | `Hero.cs:2067` | 同型：直接改关系值不发事件，关系变化必须走 `ChangeRelationAction` |
+| `Hero.SetPersonalRelation` | 见上（`Hero.cs`） | 同型：直接改关系值不发事件，关系变化必须走 `ChangeRelationAction` |
 | `CampaignEventDispatcher.OnHeroOrPartyTradedGold` | `CampaignEventDispatcher.cs:299` | 金币事件派发点，`GiveGoldAction` 内部调它 |
 | `CampaignEventDispatcher.OnHeroKilled` | `CampaignEventDispatcher.cs:689` | 死亡事件派发点 |
 | `CampaignEventDispatcher.OnBeforeHeroKilled` | `CampaignEventDispatcher.cs:699` | 死亡前派发点，给「阻止/改写死亡」的 Behavior 用 |

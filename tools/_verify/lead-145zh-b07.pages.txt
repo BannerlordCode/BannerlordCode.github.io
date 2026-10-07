@@ -1,0 +1,25 @@
+# N=5 sampled=2026-10-07T10:41:00Z frozen=lead-145zh-b07 v1.4.5/zh campaign-ext (alphabetical continuation)
+# 来源：b06 之后的同字母序续页。
+# 选取规则（四条过滤，全部用项目自己的规则）：
+#   ① 列 content/v1.4.5/zh/api/campaign-ext/*.md（排除 _index.md），按文件名排序
+#   ② 跳过 census tier = handwritten_deep
+#   ③ 跳过 tools/lib/handwritten-policy.mjs classifyPage() = noise
+#   ④ 跳过 isR1TargetType() = false（boss-3 #13810 裁定 (i)：全写作线强制执行）
+#
+# 尺：sha256 b6fbcd86461d4dd856c44c5a10a0c0487b730145efad5b0b3c5afac0ef993f42
+#   （含：J3 归属修正 · J4 撤回为覆盖率读数 · schema 声明式判定 · J12 归一化目标+写法 ·
+#     J13 可疑引用行 · 全路径消歧 · wc -l 对齐 · 工作区自检 · J10/J2 不硬编码节名）
+#
+# ★ 本批结构特点（派单已内联）：5 页里【2 页是嵌套类型，没有独立源文件】
+#   AgentStealthOffenseType = enum，嵌套在 MissionDisguiseMarkerItemVM.cs:21
+#     （Modules.SandBox/SandBox.ViewModelCollection/SandBox.ViewModelCollection.Missions.MainAgentDetection/）
+#   AgentTrackTypes         = enum，嵌套在 VisualTrackerMissionBehavior.cs:15
+#     （Modules.SandBox/SandBox/SandBox.Missions.MissionLogics/）
+#   另 3 页是独立文件：AgingCampaignBehavior.cs(349) · AiArmyMemberBehavior.cs(97) · AiBehavior.cs(24)
+#
+# 每行必须可解析为仓库相对路径；本清单只被 lead-145zh 消费，worker 不得改写。
+content/v1.4.5/zh/api/campaign-ext/AgentStealthOffenseType.md
+content/v1.4.5/zh/api/campaign-ext/AgentTrackTypes.md
+content/v1.4.5/zh/api/campaign-ext/AgingCampaignBehavior.md
+content/v1.4.5/zh/api/campaign-ext/AiArmyMemberBehavior.md
+content/v1.4.5/zh/api/campaign-ext/AiBehavior.md

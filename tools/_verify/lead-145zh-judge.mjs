@@ -97,6 +97,13 @@
 //   ④ 本尺还会自报【工作区状态】：DIRTY 时读数不得作为对外判决（见下方 selfDirty 检查）。
 //   ⑤ 回放一个冻结版本时，副本必须放在 `tools/_verify/` 下运行 ——
 //      它对 `../lib/handwritten-policy.mjs` 是相对导入，且从 import.meta.url 推 REPO。
+//   ⑥ ★★ 【存在性分类是版本树依赖的】（boss-3 #16601）：
+//      任何「标识符是否存在 / 是否存在某类缺陷 / 有多大」的结论，都必须带【版本树】。
+//      本会话第 5 个版本树根因：同一标识符在 1.3.15 里是 0、在 1.4.5 里是 2；
+//      同一文件被量出 356 与 408 行（两个都对）。
+//      ⇒ 本尺的每条 J3 / J13 发现都带 `[bannerlord-X.Y.Z]` 标签（见 treeTag）。
+//      ⇒ 通则：缺版本树的结论，会让两个人都说真话而互相矛盾 ——
+//        而「两个都对」是本会话最难识别的一类分歧。
 // ============================================================================
 import { readFileSync, existsSync, writeFileSync, readdirSync, statSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -498,6 +505,14 @@ function judge(pageRel, mode) {
   const srcIndex = buildSrcIndex(src.root);
   out.checks.J3_src_tree = src.root ? src.root.replace(toPosix(REPO) + '/../', '') : null;
   out.checks.J3_src_unavailable = src.reason;
+  // ★★ 每条发现都必须带【版本树标签】（boss-3 #16601）：
+  //   理由：存在性/行数/越界都是【版本树依赖】的。实例：同一标识符在 1.3.15 与 1.4.5 里
+  //   「存在/不存在」相反；同一文件被量出 356 与 408 行，两个都对。
+  //   ⇒ 缺树名的发现，在跨树复核时会被误判。
+  const treeTag = src.root
+    ? (toPosix(src.root).match(/(bannerlord-[\d.]+)/) || [, 'unknown-tree'])[1]
+    : 'no-tree';
+  out.checks.J3_tree_tag = treeTag;
   const bad = [];
   let uncheckable = 0;
   let ambiguous = 0;
@@ -519,10 +534,10 @@ function judge(pageRel, mode) {
   const check = (c, kind) => {
     if (!src.root) { uncheckable++; return; }   // ★ 绝不静默回退到别的树
     const r = resolveSource(c);
-    if (r.kind === 'not-found') { bad.push(`${c.file}:${c.line} (${kind}: source-not-found)`); return; }
+    if (r.kind === 'not-found') { bad.push(`[${treeTag}] ${c.file}:${c.line} (${kind}: source-not-found)`); return; }
     if (r.kind === 'ambiguous') { ambiguous++; return; }   // ★ 重名不猜
     if (c.line > lineCount(r.abs)) {
-      bad.push(`${c.file}:${c.line} (${kind}: out-of-range, max=${lineCount(r.abs)})`);
+      bad.push(`[${treeTag}] ${c.file}:${c.line} (${kind}: out-of-range, max=${lineCount(r.abs)})`);
     }
   };
   for (const c of fullRefs) check(c, 'full');
@@ -541,7 +556,7 @@ function judge(pageRel, mode) {
       const t = line.trim();
       if (t === '' || /^\/\//.test(t) || /^[{}()\[\];,]+$/.test(t)) {
         const why = t === '' ? 'blank' : (/^\/\//.test(t) ? 'a comment' : 'punctuation only');
-        suspicious.push(`${c.file}:${c.line} (line is ${why})`);
+        suspicious.push(`[${treeTag}] ${c.file}:${c.line} (line is ${why})`);
       }
     };
     for (const c of fullRefs) scanJ13(c);

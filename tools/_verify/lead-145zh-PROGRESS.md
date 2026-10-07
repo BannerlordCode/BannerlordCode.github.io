@@ -1907,6 +1907,61 @@ b05 五页在三个【已提交】尺版本下全部 pass=5/5：
 
 ---
 
+## 50. ★ 机械动作：提交 29 个已核实的内容页（boss-3 #17069）
+
+### 50.1 执行结果（boss 要的六个数）
+
+```
+SHA                : 95eb411f9434b96e9d1b2851420de0e43ceb8c23
+暂存数             : 29        （== 期望 29）
+name-status        : 29 个全部 M
+非 content 泄漏数   : 0
+push 后 divergence : 0  0      （origin/main == main == b59cf6545c）
+content/ 剩余未提交 : 0
+
+① node tools/audit-changed-links.mjs → CHANGED_FILES=29 CHANGED_LINKS=821 BROKEN_LINKS=0 ; EXIT=0（未接管道）
+② git add -- content/v1.3.15/{zh,en}/architecture/
+③ git diff --cached --name-only | wc -l → 29
+④ git commit -m "…" -- content/v1.3.15/{zh,en}/architecture/    ← 【选项在 `--` 之前】
+⑤ git show --name-only HEAD | grep -vc '^content/' → 0
+⑥ git push origin main → 95eb411f94..b59cf6545c
+⑦ git rev-list --left-right --count origin/main...main → 0  0
+```
+**⇒ `b59cf6545c` 是 lead-20 的提交**，落在我那个之上；我的 push 把它一并带上。
+**⇒ 这正是「两线并发」场景，而它干净地过去了 —— 因为我的提交是 pathspec-scoped（只含我那 29 个文件）。**
+
+### 50.2 提交前抽验（boss 要求 2–3 页，我扩成全量）
+
+```
+campaign-event-system.md  numstat 2 0  → +> Section schema: … uses 11 sections …  H2=11 ✅
+campaign-events.md        numstat 2 0  → +> Section schema: … uses 11 sections …  H2=11 ✅
+crash-boundaries.md       numstat 2 0  → +> Section schema: … uses 13 sections …  H2=13 ✅
+⇒ 每页【+2/-0】：一行声明 + 一个空行，【零正文改动】
+⇒ 全量 29 页：【声明节数 == 实际 H2 数】29/29，0 个不一致
+```
+
+### 50.3 ★★ 一个我自己的坑：我的检查器太窄（同族陷阱第 N 次）
+
+**第一次全量检查报「15 页 NO-DECL」—— 那是【我的正则太窄】，不是页面缺声明。**
+```
+实际存在【三种声明形态】：
+  zh：> 节 schema：本页采用 6 节（按出现顺序）：…      ← 我的正则找 `N 个节`（实际是 `N 节`）❌
+  en：> Section schema: this page uses 11 sections …    ← 抓到了
+  en：> Section schema: this page uses the canonical 【seven】 sections …  ← 数量是英文单词 ❌
+⇒ 修正正则（三形态全盖）后：29/29 ✅
+```
+**⇒ 本会话那个陷阱的第 N 次现身：「判据假设了一个固定形态，而语料有多种」。**
+同类：`## 导航` 只认中文 ⇒ en 页全 FAIL · 参见族只认中文 · 主语文件正则的 `$` 锚定 ⇒ 33 条误报 ·
+`../../` 的深度假设 ⇒ 三个执行体各错一次。
+**⇒ 处置符合纪律：先报 15、然后去核语料、发现是尺窄 —— 而不是拿着 15 去要求别人改页。**
+
+### 50.4 ★ 这批页正好为 schema 声明式判定提供了真实语料
+
+这 29 页加的正是 `## 节 schema 声明` / `> Section schema:` —— 也就是 `J2`/`J10` 的 schema-aware 改造所依赖的**声明来源**。
+**⇒ 此前实测「声明路径几乎是空的」（只有 1–5 页）；这批 29 页把它变成真实可用的样本 ⇒ 可接进对照套件做「声明模式」的正控制。**
+
+---
+
 ## 37. ★★ `J13`：行号在界内但指错行 —— 在我自己的已冻结批次里抓到 12 条
 
 ### 37.1 来源

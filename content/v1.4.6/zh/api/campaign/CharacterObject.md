@@ -140,6 +140,50 @@ description: "sealed 的人物/兵种模板：把不可变的体型、职业、�
 | `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)` | 从 XML 装载。同时把 `IsMariner` 从特质推出、把 `_originCharacter` 清成 null |
 | `AfterRegister` | `public override void AfterRegister()` | 注册完成后打开装备的 `SyncEquipments` 开关 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`CharacterObject` 是 `public sealed class CharacterObject : BasicCharacterObject, ICharacterData`（`TaleWorlds.CampaignSystem/CharacterObject.cs:17`），**sealed，不能继承**。它继承 [BasicCharacterObject](../../core-extra/BasicCharacterObject)（那个才是兵种模板），只在上面叠加「这是一个具体的人」这层状态。实例来源：
+
+- **XML**：`Deserialize(MBObjectManager objectManager, XmlNode node)`（`:665`）覆写，战役里的 NPC 都从 `characters.xml` / `hero_characters` 这类表来。
+- **`public static CharacterObject CreateFrom(CharacterObject character, StaticBodyProperties? staticBodyProperties = null)`**（`:368`）——这是 mod 最常用的入口。它内部 `MBObjectManager.Instance.CreateObject<CharacterObject>()`（无参重载会生成 `CharacterObject_1` 这样的 stringId），再逐个拷贝 `_occupation`、`_persona`、`_characterTraits`（`PropertyOwner<TraitObject>` 整体复制）、`_isMariner`、民用/战斗装备模板、`HiddenInEncyclopedia`，最后 `FillFrom(character)`。如果源角色是英雄，还会分支处理 `HeroObject.StaticBodyProperties`（`:373-380`）。
+- **静态出口**：`public static CharacterObject PlayerCharacter`（`:396`）内部是 `Game.Current.PlayerTroop as CharacterObject`（`:400`），所以它是**转型得到的**，不成立就返回 null。
+
+### 典型用法
+
+给一个 NPC 造一份独立的、可以自由改外观的副本（改副本不影响原模板）：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+// character 是从 XML 来的模板；CreateFrom 会注册成一个新的 MBObjectBase
+CharacterObject clone = CharacterObject.CreateFrom(character);
+clone.Occupation = Occupation.Mercenary;
+clone.Level = 12;
+
+MBReadOnlyList<Equipment> battleKits = clone.BattleEquipments;   // CharacterObject.cs:173
+Equipment first = clone.FirstBattleEquipment;                   // :219
+
+// 算战力与护甲分项
+float power  = clone.GetBattlePower();                          // :737
+float helmet = clone.GetHeadArmorSum(Equipment.EquipmentType.Battle);  // :843
+float total  = clone.GetTotalArmorSum();                        // :873
+
+// 玩家自己的角色
+CharacterObject pc = CharacterObject.PlayerCharacter;           // :396
+if (pc != null)
+{
+    pc.UpdatePlayerCharacterBodyProperties(bodyProperties, race, isFemale: false);   // :502
+}
+```
+
+### 最容易踩的坑
+
+**改 `CreateFrom` 出来的副本时以为改到了原模板，或者反过来——共享的引用会被连带改掉。** `CreateFrom` 只对 `_characterTraits` 做了显式深拷贝（`new PropertyOwner<TraitObject>(character._characterTraits)`，`:390`），而 `_civilianEquipmentTemplate` / `_battleEquipmentTemplate` 是**按引用赋值的**（`:391-392`）。后果：给 `clone.Equipment` 换装备、或往 clone 的装备模板上加自定义 `EquipmentElement`，会同时改到原始 XML 角色以及所有从同一模板 `CreateFrom` 出来的其它实例；表现是同一个兵种在不同队伍里装备各不相同，而且改回去发现原模板也被污染了。要真正隔离，拿到副本后必须自己 `Equipment.Clone(true)` 一份再赋值。
+
+第二个坑在静态属性上：`PlayerCharacter` 的 getter 是 `Game.Current.PlayerTroop as CharacterObject`（`:396-401`），`Game.Current` 为 null 或 `PlayerTroop` 不是 `CharacterObject` 时它返回 null 而不抛异常；在战役尚未建立的阶段（例如编辑器、主菜单）去读它就是空引用。同理 `clone.Level`、`clone.MaxHitPoints` 这类会走 `GameStateManager` 或 `Campaign` 的计算属性，在没有战役上下文时同样不可用。
+
 ## 真实示例
 
 扫一遍战役里所有「远程但不下马」的模板，把 id、tier 与血量上限打出来。模板扫描走 `All`，不要用 `Find`，因为要遍历全部：

@@ -70,6 +70,48 @@ description: "internal 的物品大类枚举：Diamond 大厅/库存子系统在
 | `ItemData.GetInventoryItemTypeOfItem` | `private static int GetInventoryItemTypeOfItem(ItemType)` | 上面那张 switch 表，把本枚举折成 `InventoryItemType` 的底层数值 |
 | `ItemData.CanItemToEquipmentDragPossible` | `public bool CanItemToEquipmentDragPossible(int equipmentIndex)` 与 `public static bool CanItemToEquipmentDragPossible(string itemTypeId, int equipmentIndex)` | **同工程里唯一两个 public 的入口**。内部把物品折成 `InventoryItemType` 后按槽位编号比较。第二个参数是裸 `int`，槽位 4 没有任何分支，落 false |
 
+## 怎么用
+
+### 怎么拿到它
+
+**这一页的前提是先接受一个事实：`ItemType` 模组引用不了。**
+
+它的声明就是 `internal enum ItemType`（`TaleWorlds.MountAndBlade.Diamond/ItemType.cs:6`）——**没有 `public` 修饰符**。而 `TaleWorlds.MountAndBlade.Diamond` 工程里没有任何 `InternalsVisibleTo`，所以从模组程序集看，这个类型根本不存在。
+
+它的 62 行里**只有枚举值、零个 public/protected 成员**（实测 `0 public/protected lines`）。取值从 `Invalid`（`:9`）开始：`Horse`（`:11`）、`OneHandedWeapon`（`:13`）、`TwoHandedWeapon`（`:15`）、`Polearm`（`:17`）、`Arrows`（`:19`）、`Bolts`（`:21`）、`Shield`（`:23`）、`Bow`（`:25`）、`Crossbow`（`:27`）、`Thrown`（`:29`）、`Goods`（`:31`）、`HeadArmor`（`:33`）、`BodyArmor`（`:35`）、`LegArmor`（`:37`）、`HandArmor`（`:39`）。
+
+**那么模组应该用什么？** `TaleWorlds.Core` 里 `ItemObject` 的嵌套枚举 `ItemObject.ItemTypeEnum`——那个是 public 的，并且 `ItemObject.ItemTypeEnum Type;` 是 `TaleWorlds.Core/ItemObject.cs:1283` 的公开字段。两个枚举**语义重叠但不是同一个类型**，不能互换。
+
+### 典型用法
+
+`ItemType` 本身的形状（仅供理解引擎内部，模组不可编译）：
+
+```csharp
+// internal —— 模组程序集无法编译这段代码
+ItemType t = ItemType.OneHandedWeapon;   // ItemType.cs:13
+bool ok = (t == ItemType.Horse);          // :11
+```
+
+模组实际该写的：
+
+```csharp
+using TaleWorlds.Core;
+
+ItemObject item = MBObjectManager.Instance.GetObject<ItemObject>("sword_1");   // MBObjectManager.cs:288
+
+// 用 public 的那个枚举
+ItemObject.ItemTypeEnum kind = item.Type;         // ItemObject.cs:1283，公开字段
+if (kind == ItemObject.ItemTypeEnum.OneHandedWeapon) { /* ... */ }
+```
+
+### 最容易踩的坑
+
+**看到模组文档或旧教程里写 `ItemType.OneHandedWeapon`，就以为有一个 public 的 `ItemType` 可用，然后在编译时才发现类型找不到。** 这是最常见的遭遇：类型名完全对得上、枚举值也对得上，但**声明是 `internal`（`ItemType.cs:6`），而 `TaleWorlds.MountAndBlade.Diamond` 没有 `InternalsVisibleTo`**。后果是编译期 CS0122「类型或命名空间名称不存在」——**错误信息不会告诉你「它存在但不可见」**，很容易被误判成引用了错误的命名空间，转而去加一堆没用的 `using`。
+
+第二个坑更隐蔽：**用反射去拿它**。技术上可以，`Assembly.GetType("TaleWorlds.MountAndBlade.Diamond.ItemType")` 能拿到对象，但枚举到语义的有效映射仍然是编译期常量，反射只能拿到名字字符串——**你一旦开始按名字分支，就等于放弃了编译期检查，还会在引擎改名的版本上静默失效**。
+
+第三，两个枚举的**成员不完全对应**。`ItemType` 有 `Bolts`（`:21`）、`Thrown`（`:29`）、`HandArmor`（`:39`）这类细分项，`ItemObject.ItemTypeEnum` 是另一套命名。**不要写 `(ItemType)(int)item.Type` 这种强转**——两个枚举的数值域不保证一致，转出来的值可能指向完全无关的成员，而且不会有任何检查。
+
 ## 真实示例
 
 mod 侧不要碰这个枚举。统计物品大类分布，用公开的 `ItemObject.ItemTypeEnum`：
@@ -162,6 +204,6 @@ if (bow != null)
 
 - mod 侧对应物：[ItemObject](../../core-extra/ItemObject) 的 `ItemType` 与 `ItemTypeEnum` —— 这才是公开、可引用、有完整语义的那个枚举。
 - 装备判定：[Equipment](../../core-extra/Equipment) 的 `IsItemFitsToSlot` 与 [EquipmentIndex](../../core-extra/EquipmentIndex) 的槽位编号 —— 上面那条 `internal` 转换链的公开替代品。
-- 同桶宿主：`ItemData`、`ItemList`、`InventoryItemType` 三个类型都在 `TaleWorlds.MountAndBlade.Diamond` 命名空间，页���尚未撰写，现为纯文本。其中 `ItemData` 是唯一带 public 成员的入口。
+- 同桶宿主：`ItemData`、`ItemList`、`InventoryItemType` 三个类型都在 `TaleWorlds.MountAndBlade.Diamond` 命名空间，页面尚未撰写，现为纯文本。其中 `ItemData` 是唯一带 public 成员的入口。
 - 物品读取：[MBObjectManager](../../campaign-ext/MBObjectManager) 的 `GetObjectTypeList` —— 示例里枚举全部物品的来源。
 - 桶导览：[mission-ext 桶导览](../) · 架构：[模块地图](../../../architecture/module-map)

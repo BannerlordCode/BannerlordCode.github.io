@@ -34,6 +34,70 @@ description: "战役 Behavior 的抽象基类：RegisterEvents 挂事件、SyncD
 | `SyncData` | `public abstract void SyncData(IDataStore dataStore)` | 存/读档双向回调。`dataStore.IsSaving` 为 true 时把字段写出去，false 时按 key 读回来；返回值 void，成功与否由实现负责 |
 | `GetCampaignBehavior<T>` | `public static T GetCampaignBehavior<T>()` | 转发到 `Campaign.Current.GetCampaignBehavior<T>()`。返回第一个匹配类型的已注册实例，找不到时返回 `default(T)` 而不是抛异常 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`CampaignBehaviorBase` 是 `abstract class`（`TaleWorlds.CampaignSystem/CampaignBehaviorBase.cs:6`），有两个构造器：`CampaignBehaviorBase(string stringId)`（`:9`）显式指定存档键，和 `CampaignBehaviorBase()`（`:15`）把 `StringId` 设为 `GetType().Name`。`StringId` 是 `public readonly string` 字段（`:33`），它同时是存档键和日志标识。
+
+注册路径只有一条：`CampaignGameStarter.AddBehavior(CampaignBehaviorBase)`（`CampaignGameStarter.cs:48`），而 `CampaignGameStarter` 实例由 `Campaign.OnInitialize()` 构造后交给 `GameManager.InitializeGameStarter`（`Campaign.cs:1905-1907`）。所以实际入口是 `MBGameManager.OnGameInitializationFinished(Game game, IGameStarter gameStarter)` 里把第二个参数 cast 成 `CampaignGameStarter` 再 `AddBehavior`。
+
+两个 `abstract` 成员都是引擎主动回调的，不要自己调：`RegisterEvents()`（`CampaignBehaviorBase.cs:21`）在 `CampaignBehaviorManager.RegisterEvents()` 里被调，新局路径在 `Campaign.cs:2161`，读档路径在 `Campaign.cs:1952`；`SyncData(IDataStore dataStore)`（`:30`）由内部的 `CampaignBehaviorDataStore.BehaviorSaveData`（`CampaignBehaviorDataStore.cs`）驱动，`IsSaving` 为真就写、为假就读。
+
+反向取回用静态 `public static T GetCampaignBehavior<T>()`（`CampaignBehaviorBase.cs:24`），它内部就是 `Campaign.Current.GetCampaignBehavior<T>()`。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public class TavernDebt : CampaignBehaviorBase
+{
+    private int _debt;
+
+    // 存档键来自基类 CampaignBehaviorBase()，值为类型名 TavernDebt
+    public TavernDebt()
+    {
+    }
+
+    public override void RegisterEvents()
+    {
+        // 不要在这里直接 new 事件；引擎已把 CampaignEvents 接进 CampaignEventDispatcher
+        CampaignEvents.OnSettlementEnteredEvent.AddNonSerializedListener(this, OnEntered);
+    }
+
+    private void OnEntered(Settlement settlement)
+    {
+        if (settlement.IsFortification)
+        {
+            _debt += 10;
+        }
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        // key 是存档里的字段名；返回值决定是否命中
+        dataStore.SyncData("tavern_debt", ref _debt);
+    }
+}
+
+// MBGameManager 里注册
+public override void OnGameInitializationFinished(Game game, object starterObject)
+{
+    var starter = (CampaignGameStarter)starterObject;
+    starter.AddBehavior(new TavernDebt());
+}
+
+// 任意地方取回；找不到返回 null
+TavernDebt debt = CampaignBehaviorBase.GetCampaignBehavior<TavernDebt>();
+```
+
+### 最容易踩的坑
+
+**在 `IGameStarter` 阶段之后才 `AddBehavior`，行为会被静默丢弃。** `Campaign.cs:1945` 只在新局分支执行一次 `this.AddCampaignBehaviorManager(new CampaignBehaviorManager(campaignGameStarter.CampaignBehaviors));`，读档分支则是 `InitializeCampaignBehaviors` → `LoadBehaviorData()` → `RegisterEvents()`（`:1949-1952`）——两者都在 `OnGameInitializationFinished` 返回之后。此时再 `AddBehavior`，实例进了 `CampaignGameStarter.CampaignBehaviors` 集合，但**没有任何东西再去遍历它**，`CampaignBehaviorManager` 从没拿到过这个实例。后果是 `RegisterEvents()` 和 `SyncData()` 一次都不会被调：你的事件监听从未挂上（现象是功能看起来「完全没生效」而不是报错），并且因为 `SyncData` 没跑过，存档里永远没有这个行为的字段——只有退出战役才会在控制台看到一条保存期的断言。
+
+配套的坑在存档键：`CampaignBehaviorDataStore.SaveBehaviorData` 用 `campaignBehavior.StringId` 作字典键，重复时 `Debug.FailedAssert("trying to save multiple behaviors with the same stringid: ...")`（`CampaignBehaviorDataStore.cs:26`）但**仍然覆盖写入**，两个同名行为互相踩数据；读档时还有一层 `keyPair.Key.Contains(name)` 的类型名模糊匹配（`:52-58`），所以改类名会让旧存档里的数据静默丢失。显式传 `new CampaignBehaviorBase("我的稳定键")` 比依赖默认类型名稳。
+
 ## 真实示例
 
 ```csharp

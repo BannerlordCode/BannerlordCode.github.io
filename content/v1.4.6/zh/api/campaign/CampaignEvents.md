@@ -437,6 +437,67 @@ tick 家族按粒度分层：`TickEvent(float dt)` 与 `MissionTickEvent(float d
 | --- | --- | --- |
 | `OnNewGameCreatedPartialFollowUpEventMaxIndex` | `public const int OnNewGameCreatedPartialFollowUpEventMaxIndex = 100` | 分段跟进事件的索引上限。用它做循环时不要写死 100 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`CampaignEvents`（`TaleWorlds.CampaignSystem/CampaignEvents.cs:32`）声明为 `public class CampaignEvents : CampaignEventReceiver`，实例由 `Campaign.OnInitialize()` 的第一句 `this.CampaignEvents = new CampaignEvents();` 建立（`Campaign.cs:1891`），紧接着被包进 `new CampaignEventDispatcher(new CampaignEventReceiver[] { this.CampaignEvents, this.IssueManager, this.QuestManager })`（`Campaign.cs:1892`）。
+
+但 **mod 拿到的从来不是这个实例**。类里 5596 行全是 `public static IMbEvent<...>` 字段，例如 `public static IMbEvent<Hero, Hero, int, bool, ChangeRelationAction.ChangeRelationDetail, Hero, Hero> HeroRelationChanged`（`CampaignEvents.cs:519`）、`public static IMbEvent<Hero, bool> HeroLevelledUp`（`:359`）、`public static IMbEvent<BarterData> BarterablesRequested`（`:343`）。每个字段旁边都有一个 `public override void OnXxx(...)` 虚方法，基类 `CampaignEventReceiver`（`CampaignEventReceiver.cs:32`）把上千个回调都声明成空实现，子类覆写后由 dispatcher 广播。
+
+订阅靠 `IMbEvent` 接口的两个方法：`void AddNonSerializedListener(object owner, Action action)`（`IMbEvent.cs:11`）、泛型版 `void AddNonSerializedListener<out T>(object owner, Action<T> action)`（`IMbEvent.2.cs:10`），退订靠 `void ClearListeners(object o)`（`IMbEvent.cs:14`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public class TavernDebt : CampaignBehaviorBase
+{
+    private int _debt;
+
+    public override void RegisterEvents()
+    {
+        // owner 传 this：退订时按这个引用清掉全部注册
+        CampaignEvents.HeroLevelledUp.AddNonSerializedListener(this, OnHeroLevelledUp);   // CampaignEvents.cs:359
+        CampaignEvents.HeroRelationChanged.AddNonSerializedListener(this, OnRelationChanged);
+    }
+
+    private void OnHeroLevelledUp(Hero hero, bool shouldNotify)                            // 签名对应 CampaignEvents.cs:368
+    {
+        _debt += hero.Level;
+    }
+
+    private void OnRelationChanged(Hero effectiveHero, Hero other, int relationChange,
+                                   bool showNotification,
+                                   ChangeRelationAction.ChangeRelationDetail detail,
+                                   Hero a, Hero b)                                          // CampaignEvents.cs:528 的七个参数
+    {
+        if (relationChange < 0)
+        {
+            _debt += 5;
+        }
+    }
+
+    public override void SyncData(IDataStore dataStore)
+    {
+        dataStore.SyncData("tavern_debt", ref _debt);
+    }
+
+    // 退订：CampaignEventReceiver.RemoveListeners 就是这么用的
+    public override void RemoveListeners(object obj)
+    {
+        CampaignEvents.HeroLevelledUp.ClearListeners(this);                                  // IMbEvent.cs:14
+    }
+}
+```
+
+### 最容易踩的坑
+
+**忘了退订，于是同一个监听器在同一个对象上叠加多次，并且跨战役不消失。** `HeroLevelledUp` 这类字段是 `public static`（`CampaignEvents.cs:359`），生命周期跟进程走而不是跟战役走；`IMbEvent.AddNonSerializedListener` 只是往静态集合里追加，没有去重。后果有两个：同一个 `CampaignBehaviorBase` 实例如果 `RegisterEvents()` 被跑了两遍，回调就触发两次（表现为数值翻倍、日志刷屏）；更隐蔽的是 `Campaign` 拆局时这些静态事件**不会被清空**——`CampaignEventReceiver.RemoveListeners(object o)`（`CampaignEventReceiver.cs:35`，`CampaignEvents.cs:45` 覆写）必须由监听者自己调。重进战役后如果新行为的 owner 不是旧行为（`GetCampaignBehavior<T>()` 每次返回不同实例），旧实例的监听仍在静态集合里，会操作已经不属于当前战役的数据，表现为**跨局串数据**。
+
+第二个坑在参数个数：`IMbEvent<...>` 的泛型实参个数必须和 handler 的 Action 签名**逐个对上**。比如 `HeroRelationChanged` 是七个泛型参数（`CampaignEvents.cs:519`），少写一个就直接编译不过；而 `OnHeroGainedSkill` 那类回调的 `int change = 1, bool shouldNotify = true`（`CampaignEvents.cs:400`）默认参数只存在于 `CampaignEventReceiver` 的虚方法上，`AddNonSerializedListener` 传的 `Action<...>` 不享受默认值。
+
 ## 真实示例
 
 ```csharp

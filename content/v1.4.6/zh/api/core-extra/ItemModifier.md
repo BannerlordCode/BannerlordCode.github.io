@@ -80,10 +80,57 @@ description: "物品词缀：XML 里的 ItemModifier 条目，通过 ItemModifie
 | `GetHashCode` | `public override int GetHashCode()` | `base.StringId.GetDeterministicHashCode()`。与 `Equals` 配套，但 `Equals` 是具体类型重载，两者不是同一个相等契约。 |
 | `.ctor` | `public ItemModifier()` | 只把 `Name` 置为空 `TextObject`。**正式实例由 XML 加载产出**，`sealed` 且不可继承。 |
 
-## 真实示例
+## 怎么用
+
+### 怎么拿到它
+
+`ItemModifier` 是 `public sealed class ItemModifier : MBObjectBase`（`TaleWorlds.Core/ItemModifier.cs:11`），314 行。**sealed**。XML 对象，由 `Game.LoadBasicFiles()` 的 `this.ObjectManager.LoadXML("ItemModifiers", false);`（`Game.cs:599`）加载。
+
+实例的三种拿法：
+
+- 按 id：`MBObjectManager.Instance.GetObject<ItemModifier>("词缀 id")`
+- 按组枚举：`ItemModifierGroup.ItemModifiers`（`ItemModifierGroup.cs:37`）
+- **按品质筛选**：`public List<ItemModifier> GetModifiersBasedOnQuality(ItemQuality quality)`（`ItemModifierGroup.cs:91`），实现是 `ItemModifiers.Where(m => m.ItemQuality == quality).ToList()`（`:93`）——返回新 `List`，不是只读视图。
+
+构造器 `public ItemModifier()`（`:102`），填充靠 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`（`:108`）。成员全是 `{ get; private set; }`：`Name`（`:29`）、`Damage`（`:34`）、`Speed`（`:39`）、`MissileSpeed`（`:44`）、`Armor`（`:49`）、`HitPoints`（`:54`，**short**）、`StackCount`（`:59`，**short**）、`MountSpeed`（`:64`）、`Maneuver`（`:69`）、`ChargeDamage`（`:74`）、`MountHitPoints`（`:79`）、`LootDropScore`（`:84`）、`ProductionDropScore`（`:89`）、`PriceMultiplier`（`:94`）、`ItemQuality`（`:99`）。
+
+一个有用的判定：`public bool IsBeneficial()`（`:135`），实现是 `this.Damage > 0 || this.Speed > 0 || this.MissileSpeed > 0 || this.Armor > 0 || this.HitPoints > 0 || this.StackCount > 0;`（`:136`）——**只查这六个字段**。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+ItemModifier affix = MBObjectManager.Instance.GetObject<ItemModifier>("modifier_sharp");   // MBObjectManager.cs:288
+int dmg = affix.Damage;                        // ItemModifier.cs:34
+short hp = affix.HitPoints;                    // :54，是 short 不是 int
+ItemQuality q = affix.ItemQuality;             // :99
+
+// 只有正向词缀才算「有益」——负向词缀返回 false
+if (affix.IsBeneficial())                      // :135，只看 Damage/Speed/MissileSpeed/Armor/HitPoints/StackCount
+{
+    Debug.Print("name = " + affix.Name + ", price x" + affix.PriceMultiplier, 0);   // :29 / :94
+}
+
+// 按品质列出某个词缀组里的全部词缀
+ItemModifierGroup group = MBObjectManager.Instance.GetObject<ItemModifierGroup>("group_blade");
+List<ItemModifier> legends = group.GetModifiersBasedOnQuality(ItemQuality.Legendary);  // ItemModifierGroup.cs:91
+```
+
+### 最容易踩的坑
+
+**用 `IsBeneficial()`（`:135`）来判断一个词缀该显示成绿色还是灰色，结果负向词缀被算成「有益」。** 它的实现只做了六项 `> 0` 的或运算（`:136`）——**`MountSpeed`（`:64`）、`Maneuver`（`:69`）、`ChargeDamage`（`:74`）、`MountHitPoints`（`:79`）、`LootDropScore`（`:84`）、`PriceMultiplier`（`:94`）一个都没查**。所以一个「骑乘速度 -20%」的词缀 `Damage/Speed/...` 全是 0，`IsBeneficial()` 返回 false；而一个 `Maneuver` 正向、其它全负的词缀也会返回 false。要做 UI 着色必须自己遍历全部字段判符号。
+
+第二个坑是 `HitPoints`（`:54`）和 `StackCount`（`:59`）的类型是 **`short`**，不是 `int`。`short` 上限 32767，给武器加血时写一个 50000 的词缀会在反编译/读取时溢出成负数——表现是「加了血反而扣血」，而且不会抛异常。要更大范围就改用 `Damage`（`:34`）或分多条词缀。
+
+第三，`GetModifiersBasedOnQuality`（`ItemModifierGroup.cs:91`）返回的是 `List<ItemModifier>` 新实例（`:93` 里的 `.ToList()`），改它**不会**影响词缀组本体——想改本体只能用 [ItemModifierGroup](../ItemModifierGroup) 的 `AddItemModifier`。
 
 按组取词缀并把修正叠到物品原始数值上（注意下限语义）：
 
+## 真实示例
+
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 ItemModifierGroup group = MBObjectManager.Instance.GetObject<ItemModifierGroup>("weapon_modifier_group");
 ItemObject sword = MBObjectManager.Instance.GetObject<ItemObject>("heavy_bearded_axe");

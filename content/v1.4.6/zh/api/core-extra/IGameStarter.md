@@ -38,6 +38,55 @@ description: "模块启动契约：SubModule 在 InitializeGameStarter / OnGameS
 | `AddModel<T>` | `void AddModel<T>(MBGameModel<T> gameModel) where T : GameModel` | 装饰式注册。先 `GetModel<T>()` 取当前 T 作为 `baseModel` 传给 `gameModel.Initialize(...)`，再追加。**链式装饰靠它**；`T` 是自引用类型（`ItemValueModel : MBGameModel<ItemValueModel>`）时 `baseModel` 就是官方默认实现。 |
 | `Models` | `IEnumerable<GameModel> Models { get; }` | 返回内部列表本体（不是副本），供 `GameModelsManager` 构造时 `ToMBList<GameModel>()` 一次性物化。**`BasicGameStarter` 是显式实现**——只有持有 `IGameStarter` 类型的引用才能读这个属性，编译成 `BasicGameStarter` 变量时访问不到。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`IGameStarter` 是 `TaleWorlds.Core/IGameStarter.cs:7` 的接口，**全文 20 行、三个成员**：
+
+```
+void AddModel(GameModel gameModel);                          // IGameStarter.cs:12
+void AddModel<T>(MBGameModel<T> gameModel) where T : GameModel;   // :14
+IEnumerable<GameModel> Models { get; }                        // :18
+```
+
+**你不会自己实现它，也不会自己 new 它。** 它是 `MBGameManager` 那几个回调的参数类型，由引擎创建后传进来。唯一的生产者是 [CampaignGameStarter](../../campaign/CampaignGameStarter)（`public class CampaignGameStarter : IGameStarter`，`CampaignGameStarter.cs:11`），它在 `Campaign.OnInitialize()` 里被 new 出来（`Campaign.cs:1905`），然后交给三个回调：
+
+- `GameManager.InitializeGameStarter(base.CurrentGame, campaignGameStarter)`（`Campaign.cs:1907`）→ 你的 `OnGameInitializationFinished(Game game, IGameStarter gameStarter)`
+- `GameManager.OnGameStart(...)`（`:1914`）→ `OnGameStart(Game game, IGameStarter gameStarter)`
+- `GameManager.OnNewCampaignStart(...)`（`:1934`，读档时是 `OnGameLoaded` `:1948`）——这两个签名把参数声明成 `object`，**要自己 cast**
+
+消费端：`Game.SetBasicModels(campaignGameStarter.Models)`（`:1915`）和 `AddGameModelsManager<GameModels>(campaignGameStarter.Models)`（`:1916`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+// 回调里的第二个参数就是 IGameStarter
+public override void OnGameInitializationFinished(Game game, IGameStarter gameStarter)
+{
+    gameStarter.AddModel(new MyCampaignTimeModel());          // IGameStarter.cs:12
+}
+
+// 泛型重载要求 T 自身是 MBGameModel<T>，不是裸 GameModel（:14）
+public override void OnGameInitializationFinished(Game game, IGameStarter gameStarter)
+{
+    gameStarter.AddModel<MyCampaignTimeModel>(new MyCampaignTimeModel());   // :14
+}
+
+// Models 是只读枚举（:18）；注意它是在 OnGameInitializationFinished 返回之后才被消费的
+foreach (GameModel m in gameStarter.Models) { /* ... */ }
+```
+
+### 最容易踩的坑
+
+**把参数声明成 `object` 的那两个回调（`OnNewCampaignStart(Game, object)`、`OnGameLoaded(Game, object)`）当成有 `IGameStarter`，不 cast 就调 `AddModel`。** 引擎确实传的是同一个 `CampaignGameStarter` 实例（`Campaign.cs:1934`），但**接口上没有任何静态保证**——编译期你只有一个 `object`，必须 `(IGameStarter)starterObject` 或 `(CampaignGameStarter)starterObject`。更实际的风险是时机：`Models`（`:18`）要到 `Campaign.cs:1915` 的 `SetBasicModels` 和 `:1916` 的 `AddGameModelsManager<GameModels>` 才会被消费，所以**在 `OnNewCampaignStart` 里加的模型能不能生效，取决于它相对于 `CampaignBehaviorManager.RegisterEvents()`（`Campaign.cs:2161`）的顺序**。
+
+第二个坑是两个 `AddModel` 重载的约束不对称：非泛型版（`:11`）接受任何 `GameModel`，泛型版（`:14`）的约束是 `where T : GameModel`——**但真正被调用的是 `AddModel<T>(MBGameModel<T>)`，要求实参静态类型是 `MBGameModel<T>`**。你写一个直接继承 `GameModel` 的类（非 `MBGameModel<T>`）时，泛型重载编译不过，必须用非泛型那个（`:11`）。
+
+第三，`GameModel` 本身（`GameModel.cs:6`）是**空抽象类，全文 10 行只有一个声明**——它没有任何基类设施、没有生命周期钩子。模型之间要通信只能靠注入其它 `GameModel`，而注入点在你自己的构造器里，不在这里。
+
 ## 真实示例
 
 最常见的一类：替换一个官方模型的实现（在 `InitializeGameStarter` 里注册，覆盖越晚越优先）：

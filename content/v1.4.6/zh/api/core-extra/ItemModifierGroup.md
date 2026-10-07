@@ -52,10 +52,57 @@ description: "品质词缀组：一个可按掉落权重随机产出 ItemModifie
 | `_lootDropItemModifierScores` | `private readonly MBList<ValueTuple<ItemModifier, float>> _lootDropItemModifierScores` | 战利品权重表，`float` 权重。`MBRandom.ChooseWeighted` 的输入。 |
 | `_productionDropItemModifierScores` | `private readonly MBList<ValueTuple<ItemModifier, float>> _productionDropItemModifierScores` | 生产权重表。结构同上。 |
 
-## 真实示例
+## 怎么用
+
+### 怎么拿到它
+
+`ItemModifierGroup` 是 `public class ItemModifierGroup : MBObjectBase`（`TaleWorlds.Core/ItemModifierGroup.cs:11`），118 行——**不 sealed**。
+
+两个构造器值得注意：`public ItemModifierGroup() : base("")`（`:46-49`）——无参构造器**把 `StringId` 置成空字符串**，不是 null；`public ItemModifierGroup(string id) : base(id)`（`:52-55`）。
+
+XML 对象，由 `Game.LoadBasicFiles()` 的 `this.ObjectManager.LoadXML("ItemModifierGroups", false);`（`Game.cs:600`）加载。`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`（`:58`）读 `no_modifier_loot_score` / `no_modifier_production_score` 然后调 `InitializeDropScoreLists()`（`:60-63`）。
+
+成员：`NoModifierLootScore`（`:28`）、`NoModifierProductionScore`（`:33`）、`public MBReadOnlyList<ItemModifier> ItemModifiers`（`:37`）。
+
+四个功能方法：`AddItemModifier(ItemModifier)`（`:67`，`this._itemModifiers.Add(itemModifier);`）、`GetRandomItemModifierLootScoreBased()`（`:73`）、`GetRandomItemModifierProductionScoreBased()`（`:79`）、`GetModifiersBasedOnQuality(ItemQuality)`（`:91`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+using System.Collections.Generic;
+
+// 取一个词缀组
+ItemModifierGroup group = MBObjectManager.Instance.GetObject<ItemModifierGroup>("group_hands");   // MBObjectManager.cs:288
+
+// 看组里有什么（只读视图）
+MBReadOnlyList<ItemModifier> all = group.ItemModifiers;      // ItemModifierGroup.cs:37
+
+// 按品质取：返回的是新 List，改它不影响组
+List<ItemModifier> legends = group.GetModifiersBasedOnQuality(ItemQuality.Legendary);   // :91
+
+// 无词缀时的掉落分基准
+int baseLoot = group.NoModifierLootScore;        // :28
+int baseProd = group.NoModifierProductionScore;   // :33
+
+// 运行期往组里加一条（Deserialize 只在加载期跑一次）
+group.AddItemModifier(myModifier);               // :67，内部 _itemModifiers.Add(...)
+```
+
+### 最容易踩的坑
+
+**往组里加词缀后指望掉落逻辑立刻用上它，结果随机结果不变。** `Deserialize`（`:58`）在读完全部内容后调用 `InitializeDropScoreLists()`（`:63`），**掉落分数索引是在那一刻根据当时的组内容建立并缓存的**。而 `AddItemModifier`（`:67-70`）的完整实现只有一行 `this._itemModifiers.Add(itemModifier);`——**它不重建任何缓存**。所以运行期插入的词缀会出现在 `ItemModifiers`（`:37`）里、能被 `GetModifiersBasedOnQuality`（`:91`）查到，但 `GetRandomItemModifierLootScoreBased()`（`:73`）和 `GetRandomItemModifierProductionScoreBased()`（`:79`）用的仍是旧的分数表。表现是「物品能刷出来但概率完全没变」，没有任何异常。
+
+第二个坑是 `NoModifierLootScore`（`:28`）和 `NoModifierProductionScore`（`:33`）的名字。它们是**「这一组不套任何词缀时的基准分」**，不是「不套词缀的概率」或「词缀的数量」。读成后者会让你把一个分数当成权重去算概率，结果全错。
+
+第三，`GetModifiersBasedOnQuality`（`:91`）的返回值是 `.ToList()` 出来的**新列表**（`:93`）——想改组本身必须调 `AddItemModifier`（`:67`）。
 
 按 XML id 取组并抽一个战利品词缀（**必须处理 null**）：
 
+## 真实示例
+
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 ItemModifierGroup group = MBObjectManager.Instance.GetObject<ItemModifierGroup>("legendary_modifier_group");
 if (group == null)

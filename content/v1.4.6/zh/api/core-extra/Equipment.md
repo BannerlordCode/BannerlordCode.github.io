@@ -84,6 +84,52 @@ description: "装备槽容器：固定 12 个 EquipmentElement 槽位（0-4 武�
 | `UnderwearTypes` | `public enum UnderwearTypes { NoUnderwear, FullUnderwear, OnlyTop }` | 内衣可见性分类。 |
 | `InitialWeaponEquipPreference` | `public enum InitialWeaponEquipPreference { Any, MeleeForMainHand, RangedForMainHand }` | 初始选主手武器的偏好。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`Equipment` 是 `public class Equipment`（`TaleWorlds.Core/Equipment.cs`）——**普通类，不继承 `MBObjectBase`**，是挂在角色 / 物品 / 存档上的一个值对象。四个构造器：`Equipment()`（`:80`）、`Equipment(Equipment.EquipmentType equipmentType)`（`:87`）、`Equipment(Equipment equipment)`（`:95`）。
+
+两种索引器：`this[int index]`（`:106`）按裸下标，和 `this[EquipmentIndex index]`（`:120`）按枚举。**两者指的是同一批槽位**，枚举只是给裸下标起了名字。
+
+模组里最常用的出口：
+
+- `public EquipmentElement GetEquipmentFromSlot(EquipmentIndex equipmentIndex)`（`:635`）与它的写侧 `public void AddEquipmentToSlotWithoutAgent(EquipmentIndex equipmentIndex, EquipmentElement itemRosterElement)`（`:629`，内部就是 `this[equipmentIndex] = itemRosterElement;`）。**`SetItem` 是 private（`:143`），模组只能用 `AddEquipmentToSlotWithoutAgent`。**
+- `public static Equipment GetRandomEquipmentElements(BasicCharacterObject character, bool randomEquipmentModifier, Equipment.EquipmentType equipmentType, int seed = -1)`（`:751`）
+- `public static Equipment CreateFromEquipmentCode(string equipmentCode)`（`:571`）——存档 / 模组之间传整套装备用这条
+- `public static EquipmentIndex GetEquipmentIndexFromOldEquipmentIndexName(string oldEquipmentIndexName)`（`:205`）——兼容旧存档的下标名
+
+### 典型用法
+
+给角色配一套装备，并安全地复制一份：
+
+```csharp
+using TaleWorlds.Core;
+
+Equipment eq = Equipment.GetRandomEquipmentElements(hero.CharacterObject, randomEquipmentModifier: true, Equipment.EquipmentType.Battle);   // Equipment.cs:751
+// 写侧只有 AddEquipmentToSlotWithoutAgent（:629），SetItem 是 private（:143）
+eq.AddEquipmentToSlotWithoutAgent(EquipmentIndex.Head, new EquipmentElement(helmetItemObject));    // Head = 5
+eq.AddEquipmentToSlotWithoutAgent(EquipmentIndex.Weapon0, new EquipmentElement(swordItemObject));  // Weapon0 = 0
+
+// 两种索引器等价，混用不会错位
+EquipmentElement a = eq[EquipmentIndex.Body];      // :120
+EquipmentElement b = eq[(int)EquipmentIndex.Body]; // :106，同一个槽位
+
+// 拷贝：Clone(false) 连武器一起克隆，Clone(true) 把 0..4 号武器槽清成 Invalid
+Equipment backup = eq.Clone();                      // :149，循环固定 i < 12
+Equipment bare    = eq.Clone(cloneWithoutWeapons: true);   // :149-150，flag 在 0<=i<5 时替换成 EquipmentElement.Invalid
+
+// 整套序列化 / 反序列化
+string code = ...;                                   // 见 CreateFromEquipmentCode（:571）
+Equipment restored = Equipment.CreateFromEquipmentCode(code);
+```
+
+### 最容易踩的坑
+
+**以为 `Equipment` 是引用共享的，改一个单位的装备会改到另一个。** 它是纯值对象：`Clone(bool cloneWithoutWeapons = false)`（`:149-158`）的循环写死了 **12 个槽位**（`for (int i = 0; i < 12; i++)`），并且在 `cloneWithoutWeapons == true` 时把 `0 <= i < 5` 的槽替换成 `EquipmentElement.Invalid`——也就是会清掉 `Weapon0..Weapon3` 与 `ExtraWeaponSlot` 这五个武器位。后果有两层：一是把 `CharacterObject.Equipment`（[BasicCharacterObject](../BasicCharacterObject) 的 `:150`，默认返回 `GetRandomEquipment()`）直接赋给两个单位时，两边共用一份装备，改一个另一个跟着变；二是想「只要护甲不要武器」却调用了 `Clone()` 默认参数，得到的是全套装备复制，武器槽里还留着原物品。**正确的拷贝姿势是显式写 `Clone(true)`，并且不要把 `Equipment` 实例赋给多个宿主。**
+
+第二个坑是槽位下标容易混。`EquipmentIndex` 里 `Head = 5`、`Body = 6`、`Horse = 10`（`EquipmentIndex.cs:32`、`:34`、`:41`），武器位却是 `Weapon0 = 0` 到 `ExtraWeaponSlot = 4`——**武器槽在护甲槽前面**。用 `(int)EquipmentIndex.Head` 当循环下标去遍历会误落到武器区，写出「把头盔穿到手上」这类错位。遍历请用 `ArmorItemBeginSlot(5)` 到 `ArmorItemEndSlot`（`:32`、`:36`）这一段。
+
 ## 真实示例
 
 装配前先校验（因为索引器 setter 不拦）：

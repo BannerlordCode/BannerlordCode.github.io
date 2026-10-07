@@ -49,6 +49,47 @@ description: "战役启动期的装配总线：mod 在 OnGameStart 里向它注�
 | `AddDialogLine` | `ConversationSentence AddDialogLine(string id, string inputToken, string outputToken, string text, OnConditionDelegate conditionDelegate, OnConsequenceDelegate consequenceDelegate, int priority = 100, OnClickableConditionDelegate clickableConditionDelegate = null)` | 登记一条普通 NPC 台词。这是 `AddPlayerLine` 的无说服选项版本 |
 | `AddDialogLineMultiAgent` | `ConversationSentence AddDialogLineMultiAgent(string id, string inputToken, string outputToken, TextObject text, OnConditionDelegate conditionDelegate, OnConsequenceDelegate consequenceDelegate, int agentIndex, int nextAgentIndex, int priority = 100, OnClickableConditionDelegate clickableConditionDelegate = null)` | 登记一条指定「谁说、下一句谁说」的台词，`agentIndex` / `nextAgentIndex` 是说话人在对话中的序号 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`CampaignGameStarter`（`TaleWorlds.CampaignSystem/CampaignGameStarter.cs:11`）实现 `IGameStarter`，只有**一个公开构造器** `public CampaignGameStarter(GameMenuManager gameMenuManager, ConversationManager conversationManager)`（`:34`），两个参数都由 `Campaign.OnInitialize()` 传入：`new CampaignGameStarter(this.GameMenuManager, this.ConversationManager)`（`Campaign.cs:1905`）。
+
+mod 拿到的它是**参数形式**：`Campaign.OnInitialize()` 把同一个引用连续交给三个回调——`GameManager.InitializeGameStarter(base.CurrentGame, campaignGameStarter)`（`Campaign.cs:1907`）、`GameManager.OnGameStart(...)`（`:1914`）、`GameManager.OnNewCampaignStart(...)`（`:1934`，读档时是 `OnGameLoaded` `:1948`）。这三个在 `MBGameManager` 上的签名分别是 `OnGameInitializationFinished(Game game, IGameStarter gameStarter)`、`OnGameStart(Game game, IGameStarter gameStarter)`、`OnNewCampaignStart(Game game, object starterObject)`——最后一个声明成 `object`，必须自己 cast。
+
+两个集合是 `ICollection<CampaignBehaviorBase> CampaignBehaviors`（`:15`）和 `IEnumerable<GameModel> Models`（`:25`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+// 行为：最常挂在 OnGameInitializationFinished
+public override void OnGameInitializationFinished(Game game, IGameStarter gameStarter)
+{
+    var starter = (CampaignGameStarter)gameStarter;              // CampaignGameStarter.cs:11
+    starter.AddBehavior(new TavernDebt());                       // :48
+}
+
+// 模型：AddModel<T> 要求 T 是 MBGameModel<T>，不是裸 GameModel（:95）
+public override void OnGameInitializationFinished(Game game, IGameStarter gameStarter)
+{
+    var starter = (CampaignGameStarter)gameStarter;
+    starter.AddModel(new MyCampaignGameModel());                 // :89
+}
+
+// 游戏菜单：先在 OnGameInitializationFinished 挂菜单
+starter.AddGameMenu("my_menu", "我的菜单", OnInit, GameMenu.MenuOverlayType.None, GameMenu.MenuFlags.None);   // :103
+starter.AddGameMenuOption("my_menu", "my_option", "做点什么", OnCondition, OnConsequence, true);              // :115
+
+// 对话
+starter.AddDialogLine("my_conv", "ask_topic", "answer_topic", new TextObject("你最近怎么样？"), null, null);     // :166
+```
+
+### 常见错误
+
+`OnNewCampaignStart(Game game, object starterObject)` 的第二个参数类型是 `object`（对应 `Campaign.cs:1934` 传的实例），直接当 `IGameStarter` 用要先 cast；`AddModel<T>(MBGameModel<T>)`（`:95`）和 `AddModel(GameModel)`（`:89`）是两个重载，`T : GameModel` 的那个要求 `T` 自身是 `MBGameModel<T>`。
+
 ## 真实示例
 
 ```csharp

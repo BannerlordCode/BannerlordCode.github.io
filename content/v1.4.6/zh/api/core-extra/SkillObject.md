@@ -45,6 +45,55 @@ description: "技能定义对象：继承 PropertyObject 拿到 Name/Description
 
 继承自 [PropertyObject](../PropertyObject)（未在本类重复列出）：`public TextObject Name`、`public TextObject Description`、`public override TextObject GetName()`、`public void Initialize(TextObject name, TextObject description)`。
 
+## 怎么用
+
+### 怎么拿到它
+
+`SkillObject` 是 `public sealed class SkillObject : PropertyObject`（`TaleWorlds.Core/SkillObject.cs:8`），**sealed**。全文只有 64 行。
+
+构造器 `public SkillObject(string stringId)`（`:28`）。19 个内置技能不要自己建——用 `DefaultSkills.OneHanded`（`DefaultSkills.cs:21`）到 `DefaultSkills.Engineering`（`:191`）这些静态属性，它们背后是 `Game.Current.DefaultSkills`（`DefaultSkills.cs:11-16`）。
+
+初始化靠 `public SkillObject Initialize(TextObject name, TextObject description, CharacterAttribute[] attributes)`（`:41`），填的是父类 [PropertyObject](../PropertyObject) 的 `Name` / `Description`（`PropertyObject.cs:25`/`:41`）以及自己的 `Attributes`（`SkillObject.cs:25`）。
+
+读取端在别处：`DefaultSkills.Create(string stringId)` 的实现是 `Game.Current.ObjectManager.RegisterPresumedObject<SkillObject>(new SkillObject(stringId))`（`DefaultSkills.cs:200-203`）——**内置技能是用「先 new 再按 presumed 注册」造出来的**，没有单独的 XML 表。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.CampaignSystem;
+
+// 拿内置技能（现取，不要缓存到静态字段）
+SkillObject tactics = DefaultSkills.Tactics;              // DefaultSkills.cs:111
+SkillObject smithing = DefaultSkills.Engineering;          // :191
+SkillObject skill = tactics;
+
+// 属性与说明
+CharacterAttribute[] attrs = tactics.Attributes;           // SkillObject.cs:25
+TextObject howTo = tactics.HowToLearnSkillText;            // :51
+Debug.Print(tactics.GetName().ToString(), 0);              // PropertyObject.cs:34
+
+// 读玩家的技能等级：走 Hero，不走 SkillObject。1.4.6 没有公开的 Hero.Skills 属性
+Hero hero = Hero.MainHero;
+int level = hero.GetSkillValue(skill);                             // Hero.cs:1791，内部 _heroSkills.GetPropertyValue(skill)
+int xpProgress = hero.HeroDeveloper.GetSkillXpProgress(skill);      // HeroDeveloper.cs:108
+
+// 自定义技能：必须自己 new + 注册，然后自己 Initialize
+var alchemy = new SkillObject("my_mod_alchemy");           // :28
+MBObjectManager.Instance.RegisterObject<SkillObject>(alchemy);      // MBObjectManager.cs:147
+alchemy.Initialize(new TextObject("{=myalchemy}炼金"),
+                   new TextObject("{=myalchemydesc}调制药剂"),
+                   new[] { DefaultCharacterAttributes.Intelligence });   // :41
+```
+
+### 最容易踩的坑
+
+**用 `Initialize` 去「调整」一个内置技能，结果全局改了。** `Initialize`（`:41`）只是给三个字段赋值，没有「只在未初始化时才写」的保护。而 `DefaultSkills.Tactics`（`DefaultSkills.cs:111`）返回的是**全进程共享的那一个实例**——你在自己的 `RegisterSubModuleObjects` 里对它调一次 `Initialize`，所有用这个技能的领主、技能树 UI、`HowToLearnSkillText`（`SkillObject.cs:51`）文案全都变了，而且这个改动**会进存档**（`PropertyObject` 继承 `MBObjectBase`）。要改文案请自己 new 一个 `SkillObject` 并注册，不要碰内置对象。
+
+第二个坑是「以为内置技能是 XML 加载的」。`DefaultSkills.Create`（`:200-203`）走的是 `RegisterPresumedObject<SkillObject>`——**presumed 注册**。回到 `MBObjectManager` 的实现，presumed 意味着重复 `StringId` 时直接返回已存在的那一个而不改名也不报错。所以你如果用相同的 stringId `new SkillObject("Tactics")` 再注册一次，拿回来的是**引擎原来那个**，你的 `Initialize` 白做了。想自定义就必须用一个全局唯一的 stringId。
+
+第三，`SkillObject` 是 `sealed`（`:8`），想「继承技能再改」在编译期就不行。
+
 ## 真实示例
 
 启动期构造一个技能（官方 `DefaultSkills` 的形状）：

@@ -76,6 +76,59 @@ description: "模块宿主单例：反射装载所有子模块，维护全局状
 | `XmlInformationType` | `public enum XmlInformationType` | XML 信息分类枚举，编辑器用。 |
 | `DotNetObject` | 基类 | 继承自 `TaleWorlds.DotNet.DotNetObject`，这是 native 侧能持有的托管对象基类。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`Module` 是 `TaleWorlds.MountAndBlade/Module.cs:31` 的 `public sealed class Module : DotNetObject, IGameStateManagerOwner`——**sealed**，且它自己就是 `IGameStateManagerOwner`（那个全局栈的 owner 正是它）。它**有自己构造器**，但你不会写它——实例是引擎从启动参数建的。
+
+**它自己就是 `IGameStateManagerOwner`**（`:31`）——`new GameStateManager(this, GameStateManagerType.Global)`（`:90`）传进去的 owner 就是 Module 本身，所以全局栈的 `OnStateChanged` 回调最终落到 `Module` 上。
+
+三个最有用的出口：
+
+- `public static Module CurrentModule { get; private set; }`（`:36`）——全局单例。
+- `public GameStateManager GlobalGameStateManager { get; private set; }`（`:41`）——**全局 UI 状态栈**。它在 Module 的构造器里就被建出来：`this.GlobalGameStateManager = new GameStateManager(this, GameStateManager.GameStateManagerType.Global);` 紧接 `GameStateManager.Current = this.GlobalGameStateManager;`（`:90-91`）。这和 `Game.GameStateManager`（局内私有那一档）是**两个不同的栈**——菜单/加载/编辑器界面走这个，战役内界面走那个。
+- `public MBReadOnlyList<MBSubModuleBase> CollectSubModules()`（`:97`）——遍历 `moduleInfo.SubModules` 收集所有已加载子模块（`:104`）。
+
+构造器（`:85-94`）里还建了 `StartupInfo`、`TestContext`、`_subModuleBases` 字典、`GlobalTextManager`、`JobManager`。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+// 全局单例
+Module mod = Module.CurrentModule;                             // Module.cs:36
+
+// 全局状态栈：做跨局 UI（模组自己的启动画面等）
+GameStateManager global = mod.GlobalGameStateManager;         // :41，构造器里建好（:90）
+global.PushState(mySplashState);                              // GameStateManager.cs:235
+
+// 遍历所有子模块（反射回调的真相在这里）
+foreach (MBSubModuleBase sub in mod.CollectSubModules())      // :97
+{
+    Debug.Print(sub.GetType().Name, 0);
+}
+```
+
+### 最容易踩的坑
+
+**把 `GlobalGameStateManager`（`:41`）当成局内状态栈来用，然后在战役里压状态——界面永远不出现。** 它和 `Game.GameStateManager` 是两个独立对象，各有自己的 `ActiveState`。`:521-534` 那段 tick 逻辑写得很清楚：`if (GameStateManager.Current == this.GlobalGameStateManager)` 才 tick 全局栈，否则直接跳过。所以你在战役进行中往全局栈压状态，`GameStateManager.Current`（`GameStateManager.cs:14`）指的是局内那个——你的状态进了栈但**从来不被 tick、不被渲染**。反过来的坑同样成立：在主菜单里用 `Game.Current.GameStateManager`，那里根本没有局内 Game。
+
+第二个坑是 `GameStateManager.Current` 的**自动回退**。`:517-520` 那一段：
+
+```
+if (GameStateManager.Current == null)
+{
+    GameStateManager.Current = this.GlobalGameStateManager;
+}
+```
+
+也就是说它会在为空时被悄悄改成全局栈。这意味着你缓存下来的 `GameStateManager.Current` 在某些时机**会被换掉**，所以永远现取、永远别缓存。
+
+第三，`CollectSubModules()`（`:97`）每次调用都重新遍历 `moduleInfo.SubModules`（`:104`）并**返回新的只读列表**。不要假设它返回的是稳定引用，也不要为了「省一次遍历」而缓存——模块可能在运行期被动态加载。
+
 ## 真实示例
 
 拿到子模块实例并调用它的钩子（典型：mod 之间互相通知）：

@@ -73,6 +73,53 @@ description: "角色体型的不可变特征位包：8 个 ulong 组成的 128 �
 | `WeightKeyNo` | `public const int WeightKeyNo = 59` | 「体重」在 128 位里的**位偏移**。这是本类唯一暴露的语义线索。 |
 | `BuildKeyNo` | `public const int BuildKeyNo = 60` | 「体型」在 128 位里的位偏移。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`StaticBodyProperties` 是 `public struct StaticBodyProperties : ISerializableObject`（`TaleWorlds.Core/StaticBodyProperties.cs:12`）——它实现 `ISerializableObject`，所以能进存档。
+
+公开面：
+
+- 唯一构造器 `public StaticBodyProperties(ulong keyPart1, ... , ulong keyPart8)`（`:122`）——**八个 `ulong` 参数**，对应脸型的 8 段 key。
+- 八个 `{ get; private set; }` 属性 `KeyPart1`（`:77`）到 `KeyPart8`（`:119`），**没有公开 setter**。
+- `public static bool FromXmlNode(XmlNode node, out StaticBodyProperties staticBodyProperties)`（`:135`）
+- `public static StaticBodyProperties GetRandomStaticBodyProperties()`（`:237`）
+- 两个下标常量 `WeightKeyNo = 59`（`:269`）、`BuildKeyNo = 60`（`:272`）——**它们是 key 数组里的下标，不是字段**。
+
+拿实例的正常路径是 `BodyProperties.FromXmlNode`（`BodyProperties.cs:152`）内部调用 `StaticBodyProperties.FromXmlNode`，或 `BodyProperties.FromString`（`BodyProperties.cs:181`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+// 从 XML 读脸型；失败时 out 是 default，KeyPart1..8 全 0
+StaticBodyProperties sbp;
+if (StaticBodyProperties.FromXmlNode(node, out sbp))         // StaticBodyProperties.cs:135
+{
+    // 没有公开 setter，要改只能整份重建
+    var tweaked = new StaticBodyProperties(sbp.KeyPart1, sbp.KeyPart2, sbp.KeyPart3, sbp.KeyPart4,
+                                           sbp.KeyPart5, sbp.KeyPart6, sbp.KeyPart7, sbp.KeyPart8);  // :122
+}
+
+// 随机脸
+StaticBodyProperties rnd = StaticBodyProperties.GetRandomStaticBodyProperties();   // :237
+
+// WeightKeyNo / BuildKeyNo 是 key 下标，不是字段名
+ulong weightKey = tweaked.KeyPart1;   // 按下标取哪一段由 XML 决定，不是 WeightKeyNo 直接对应 KeyPart1
+Debug.Print(StaticBodyProperties.WeightKeyNo + "/" + StaticBodyProperties.BuildKeyNo, 0);   // 59 / 60
+
+// 塞进 BodyProperties
+BodyProperties bp = new BodyProperties(dynamicProps, tweaked);   // BodyProperties.cs:145
+```
+
+### 最容易踩的坑
+
+**试图修改某个 `KeyPart` 而以为可以写属性——八个 key 全是 `{ get; private set; }`**（`:77`-`:119`），公开面**没有任何写入路径**。所以「把角色的脸型调一下」在 mod 里做不到原地改，必须用构造器（`:122`）整份重建八个 `ulong` 再赋回去，而 `KeyPart1..KeyPart8` 的**顺序必须和构造器参数顺序完全一致**，传错一段不会报错，只会得到一个「拼错的」脸。
+
+第二个坑更隐蔽：`WeightKeyNo = 59` 和 `BuildKeyNo = 60`（`:269`、`:272`）看起来像「重量对应第 59 个 key」，但它们是**扁平的 60+ 元素 key 数组里的下标**，而不是 `KeyPart1..KeyPart8` 这八个属性的下标。把 `WeightKeyNo` 拿去索引 `KeyPartN` 会直接越界（八个属性只有 1..8）。读代码时看到 `:59` / `:60` 这种数字，要先确认它落在哪一层 key 空间里。
+
 ## 真实示例
 
 从 XML 节点读回（先看返回 bool）：

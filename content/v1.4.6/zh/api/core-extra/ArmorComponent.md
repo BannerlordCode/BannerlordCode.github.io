@@ -62,7 +62,7 @@ description: "护甲组件：装在 ItemObject 单槽上的护甲值、身体遮
 | `MaterialType` | `public ArmorComponent.ArmorMaterialTypes MaterialType { get; private set; }` | 材质类别（布/皮/锁子甲/板甲）。对应 `material_type`，底层是 **`: sbyte`** 的枚举。影响负重与穿脱耗时。 |
 | `BodyMeshType` | `public ArmorComponent.BodyMeshTypes BodyMeshType { get; private set; }` | 身体网格类型。对应 `body_mesh_type`，**不走 `Enum.Parse` 而是手写字符串比较**：只认 `"upperbody"` 与 `"shoulders"`，其它值静默回落 `Normal`。 |
 | `BodyDeformType` | `public ArmorComponent.BodyDeformTypes BodyDeformType { get; private set; }` | 体型变形档位。对应 `body_deform_type`，同样是手写比较：只认 `"large"` 与 `"skinny"`，默认 `Medium`。 |
-| `MultiMeshHasGenderVariations` | `public bool MultiMeshHasGenderVariations { get; private set; }` | 是否区分性别网格。对应 `has_gender_variations`，**缺省值是 `true`**（源���里先无条件赋 true 再看属性是否存在），与大多数属性的「缺失即 0/false」相反。 |
+| `MultiMeshHasGenderVariations` | `public bool MultiMeshHasGenderVariations { get; private set; }` | 是否区分性别网格。对应 `has_gender_variations`，**缺省值是 `true`**（源文件里先无条件赋 true 再看属性是否存在），与大多数属性的「缺失即 0/false」相反。 |
 | `IsNoSlim` | `public bool IsNoSlim { get; private set; }` | 禁止瘦身网格。对应 `no_slim`，**1.4.6 新增**。**注意 `GetCopy()` 没有复制它。** |
 | `ReinsMesh` | `public string ReinsMesh { get; private set; }` | 缰绳 mesh 名。对应 `reins_mesh`，**缺失时是空字符串 `""` 而非 null**，所以可以安全拼后缀。 |
 | `ReinsRopeMesh` | `public string ReinsRopeMesh { get; }` | 只读派生值，`return this.ReinsMesh + "_rope"`。缰绳的绳索变体。**`ReinsMesh` 为空时会得到字符串 `"_rope"`，不是 null。** |
@@ -86,6 +86,43 @@ description: "护甲组件：装在 ItemObject 单槽上的护甲值、身体遮
 | `HorseTailCoverTypes` | `public enum HorseTailCoverTypes` | 只有 `None` 与 `All`。 |
 | `BodyMeshTypes` | `public enum BodyMeshTypes` | `Normal` / `Upperbody` / `Shoulders` / `BodyMeshTypesNum`。哨兵叫 `BodyMeshTypesNum`。 |
 | `BodyDeformTypes` | `public enum BodyDeformTypes` | `Medium` / `Large` / `Skinny` / `BodyMeshTypesNum`。**哨兵名与上一个枚举撞了——`BodyDeformTypes.BodyMeshTypesNum` 是真实成员，别当笔误改掉。** |
+
+## 怎么用
+
+### 怎么拿到它
+
+`ArmorComponent` 是 `public class ArmorComponent : ItemComponent`（`TaleWorlds.Core/ArmorComponent.cs:10`），而 `ItemComponent` 本身继承 `MBObjectBase`（`ItemComponent.cs:9`）。它**不是一个你能自己 new 出来挂上去的东西**——`ItemObject` 只持有一个 `ItemComponent` 字段，装什么完全由物品 XML 决定。
+
+拿到的唯一入口是 `ItemObject` 上的便利属性：`public ArmorComponent ArmorComponent { get; }`（`TaleWorlds.Core/ItemObject.cs:359`），getter 就是 `this.ItemComponent as ArmorComponent`（`:363`）；配对还有 `public bool HasArmorComponent`（`:369`，判 `!= null`）。引擎自己在反序列化时按物品类型 new：`itemComponent = new ArmorComponent(this)`（`ItemObject.cs:809`）。
+
+构造器 `public ArmorComponent(ItemObject item)`（`ArmorComponent.cs:123`）只做 `base.Item = item`，全部数值属性都是 `{ get; private set; }`，由 `Deserialize`（`:156`）从 XML 读、或由 `GetCopy()`（`:129`）逐字段复制。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+// 物品从 GameState / MBBasicInventoryItem 拿；ArmorComponent 是 as 转型，可能为 null
+ItemObject helmet = ...;
+if (helmet.HasArmorComponent)                                  // ItemObject.cs:369
+{
+    ArmorComponent armor = helmet.ArmorComponent;              // :359
+    int head = armor.HeadArmor;                                // ArmorComponent.cs:15
+    int body = armor.BodyArmor;                                // :20
+    int stealth = armor.StealthFactor;                         // :100
+    ArmorComponent.ArmorMaterialTypes mat = armor.MaterialType; // :60，嵌套枚举 sbyte
+    ArmorComponent.BodyMeshTypes mesh = armor.BodyMeshType;    // :70
+}
+
+// 复制一份用来做「附魔后的假想装备」；GetCopy 会把每个数值都搬过去
+ArmorComponent preview = helmet.ArmorComponent.GetCopy();      // :129
+```
+
+### 最容易踩的坑
+
+**直接对 `helmet.ArmorComponent` 取值而不判空。** `ItemObject.ArmorComponent` 是 `this.ItemComponent as ArmorComponent`（`ItemObject.cs:363`），`as` 在类型不匹配时**返回 null 而不是抛 InvalidCastException**。而 `ItemObject` 的 `ItemComponent` 字段是单槽的：披风装的是 `WeaponComponent`、马匹装的是 `HorseComponent`、旗帜装的是 [BannerComponent](../BannerComponent)——所以对**任何非护甲物品**读 `ArmorComponent` 都是 null，紧接着 `armor.HeadArmor` 空引用，而报错行离真正的原因（物品类型不对）很远。用 `HasArmorComponent`（`:369`）或者直接判 `helmet.ArmorComponent != null`。
+
+第二个坑在 XML 读取顺序：`MultiMeshHasGenderVariations` 的缺省值是 `true`（`ArmorComponent.cs:55`）——源码里是**先无条件赋 `true` 再看属性存不存在**，而不是「缺失即 false」。所以一个没写 `has_gender_variations` 的自定义护甲会默认带性别分版网格；如果你的 mesh 只有一个版本，运行时要么多出一个看不见的 mesh（占内存），要么在某些体型下直接不显示。其余 `HeadArmor` 这类 int 属性则相反，缺失就是 0。
 
 ## 真实示例
 

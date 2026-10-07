@@ -415,6 +415,111 @@ description: "sealed 的任务运行时根对象：Current 单例持有场景、
 | `Mission.NetworkHelper`（`MissionNetworkHelper`） | `public static class`，成员 `GetAgentFromIndex(int, bool canBeNull = false)` / `GetMBTeamFromTeamIndex(int)` / `GetTeamFromTeamIndex(int)` / `GetMissionObjectFromMissionObjectId(MissionObjectId)` / `GetCombatLogDataForCombatLogNetworkMessage(CombatLogNetworkMessage)` | 网络索引与运行时对象的映射。多人相关逻辑走它 |
 | `Mission.BattleSizeQualifier` | `Small` / `Medium` | 战斗规模档位 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`Mission` 是 `public sealed class Mission : DotNetObject, IMission`（`TaleWorlds.MountAndBlade/Mission.cs:26`），继承 `DotNetObject`——构造器第一句就是 `this.Pointer = MBAPI.IMBMission.CreateMission(this);`（`Mission.cs:2348`），也就是说**构造即创建 native 任务对象**，托管层只是它的包装。构造签名是 `public Mission(MissionInitializerRecord rec, MissionState missionState, bool needsMemoryCleanup)`（`Mission.cs:2346`），三个参数都由引擎侧的 `MissionState` 实现提供，正常 mod 不自己 new。
+
+**mod 实际拿到 `Mission` 的唯一入口是静态 `Mission.Current`**（`Mission.cs:46`）。它的 setter 是 **private**，全文件只有两处赋值：`Initialize()` 里的 `Mission.Current = this;`（`Mission.cs:608`），以及收尾路径里的 `Mission.Current = null;`（`Mission.cs:1142`）。所以 `Current` 的有效期严格等于「`Initialize()` 执行完之后、任务被销毁之前」这一段。
+
+引擎侧的时序是固定的：`Initialize()`（`Mission.cs:606`）→ `InitializeStartingBehaviors(MissionLogic[], MissionBehavior[], MissionNetwork[])`（`Mission.cs:4935`，对每个元素调一次 `AddMissionBehavior`）→ `AfterStart()`（`Mission.cs:3530`，先给每个 Behavior 调 `OnBehaviorInitialize`，再给每个子模块调 `OnMissionBehaviorInitialize(this)`，最后把 `CurrentState` 置为 `Continuing`，见 `Mission.cs:3566`）→ 每帧 `OnTick(float dt, float realDt, bool updateCamera, bool doAsyncAITick)`（`Mission.cs:3360`）。
+
+于是 mod 挂代码有两个合法时机：
+
+- **子模块钩子**——覆写 `MBSubModuleBase.OnMissionBehaviorInitialize(Mission mission)`（`MBSubModuleBase.cs:127`）。引擎在 `AfterStart()` 里对每个子模块转发一次（`Mission.cs:3545`），此时 `Current` 已非 null、`CurrentState` 已是 `Continuing`。
+- **战斗内 Behavior**——`Mission.AddMissionBehavior(MissionBehavior)`（`Mission.cs:4454`）。它的内部顺序不能打乱：先 `this.MissionBehaviors.Add(missionBehavior)`（`:4456`），再 `missionBehavior.Mission = this;`（`:4457`），按 `BehaviorType` 分流（`Other` 进 `_otherMissionBehaviors`，`Logic` 进 `MissionLogics`，`:4459-4468`），最后 `missionBehavior.OnCreated();`（`:4470`）。
+
+### 典型用法
+
+在子模块钩子里挂一个战斗期 Behavior，按队伍阵型订阅与退订：
+
+```csharp
+using TaleWorlds.MountAndBlade;
+
+public class LedgerHook : MBSubModuleBase
+{
+    protected override void OnMissionBehaviorInitialize(Mission mission)
+    {
+        base.OnMissionBehaviorInitialize(mission);
+
+        // mission 与 Mission.Current 是同一个对象：Initialize() 在 Mission.cs:608 赋过
+        if (mission.CurrentState != Mission.State.Continuing)
+        {
+            return;
+        }
+
+        if (!mission.HasMissionBehavior<Ledger>())      // Mission.cs:2487
+        {
+            mission.AddMissionBehavior(new Ledger());   // Mission.cs:4454
+        }
+    }
+}
+
+public class Ledger : MissionBehavior
+{
+    public override MissionBehaviorType BehaviorType => MissionBehaviorType.Other;
+
+    // Formation.OnUnitAdded 是 Action<Formation, Agent>（Formation.cs:21）
+    private void OnUnitAddedHandler(Formation formation, Agent agent)
+    {
+        Debug.Print("[Ledger] " + formation.FormationClass + " +1", 0);
+    }
+
+    public override void OnBehaviorInitialize()
+    {
+        // AddMissionBehavior 在 OnCreated 之前已注入 Mission（Mission.cs:4457），这里取队伍是安全的
+        MBList<Formation> formations = Mission.Current.PlayerTeam.FormationsIncludingEmpty;
+        for (int i = 0; i < formations.Count; i++)
+        {
+            formations[i].OnUnitAdded += OnUnitAddedHandler;
+        }
+    }
+
+    public override void OnRemoveBehavior()
+    {
+        // 退订必须传同一个委托实例；Mission 结束时 RemoveMissionBehavior 会先调这里（Mission.cs:4490）
+        MBList<Formation> formations = Mission.Current.PlayerTeam.FormationsIncludingEmpty;
+        for (int i = 0; i < formations.Count; i++)
+        {
+            formations[i].OnUnitAdded -= OnUnitAddedHandler;
+        }
+    }
+}
+```
+
+事后按类型取回，以及在任务已初始化后按需生成单位：
+
+```csharp
+Mission mission = Mission.Current;
+Ledger ledger = mission.GetMissionBehavior<Ledger>();   // Mission.cs:4474，找不到返回 default(T)，即 null
+if (ledger != null)
+{
+    Debug.Print("ledger active", 0);
+}
+
+// AgentBuildData(BasicCharacterObject) 是唯一单参构造器（AgentBuildData.cs:388）；
+// 后续都是链式赋值：Team 在 AgentBuildData.cs:409，InitialPosition 在 :444，InitialDirection 在 :451
+BasicCharacterObject recruit = MBObjectManager.Instance.GetObject<BasicCharacterObject>("villager_male_1");
+if (recruit != null && !recruit.IsHero)
+{
+    AgentBuildData buildData = new AgentBuildData(recruit)
+        .Character(recruit)
+        .Team(mission.PlayerEnemyTeam)
+        .InitialPosition(new Vec3(120f, 0f, 150f))
+        .InitialDirection(new Vec2(0f, -1f));
+    Agent spawned = mission.SpawnAgent(buildData);      // Mission.cs:3835
+}
+```
+
+### 最容易踩的坑
+
+**把 `Mission.Current` 当成一个到处可读的单例，在战役侧或任务外直接解引用。** setter 是 `private`（`Mission.cs:46`），赋值只发生在 `Initialize()` 里的 `Mission.Current = this;`（`Mission.cs:608`），而销毁路径会把它置回 null（`Mission.cs:1142`）。所以从 `OnSubModuleLoad`、主菜单项回调、`CampaignBehaviorBase.RegisterEvents` 这些战役侧时机读 `Mission.Current.Teams` / `.Scene`，拿到的就是 null，**整个访问链上的下一句就是 `NullReferenceException`**，而且这个空引用往往在玩家点开某个界面时才爆出来，离真正的出错原因隔了很远。
+
+正确做法是把任务期逻辑全部关进 `MissionBehavior`，让引擎在任务内替你拿到 `Mission`：`AddMissionBehavior` 在调 `OnCreated()` 之前就已经执行了 `missionBehavior.Mission = this;`（`Mission.cs:4457`），所以 `OnBehaviorInitialize` / `EarlyStart` / `AfterStart` 里 `this.Mission` 一定可用；而你的构造函数跑在 `new` 的那一刻、早于 `AddMissionBehavior`，**在那里读 `Mission` 必定是 null**。
+
+第二个同源陷阱：`GetMissionBehavior<T>()`（`Mission.cs:4474`）是顺序扫 `MissionBehaviors` 列表、**命中即返回、扫不到返回 `default(T)`**，不抛异常也不记日志。参考类型拿到的就是 null，所以重复挂载判断要用 `HasMissionBehavior<T>()`（`:2487`，它内部就是 `GetMissionBehavior<T>() != null`），而取出来之后仍然要判空——任务可能在你的行为被挂上之后先结束。
+
 ## 真实示例
 
 ```csharp

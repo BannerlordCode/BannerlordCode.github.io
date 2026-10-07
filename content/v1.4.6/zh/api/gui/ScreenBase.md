@@ -88,6 +88,66 @@ description: "所有界面的抽象基类：持有一组 ScreenLayer 与 ScreenC
 | `OnLayerAddedEvent` | `public delegate void OnLayerAddedEvent(ScreenLayer addedLayer)` | `OnAddLayer` 事件的委托签名 |
 | `OnLayerRemovedEvent` | `public delegate void OnLayerRemovedEvent(ScreenLayer removedLayer)` | `OnRemoveLayer` 事件的委托签名 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`ScreenBase` 是 `TaleWorlds.ScreenSystem/ScreenBase.cs:9` 的 `public abstract class ScreenBase`，541 行、39 个公开成员——**模组做界面的主基类**。
+
+它**不继承 `ScreenComponent`**（那一页已经说过，那是个空标记类）。它的实例由 [ScreenManager](../ScreenManager) 压栈持有：`public static ScreenBase TopScreen { get; private set; }`（`ScreenManager.cs:124`）。`ScreenManager` 自己也发两个事件告诉你栈变了：`OnPushScreen`（`ScreenManager.cs:68`）、`OnPopScreen`（`:73`）。
+
+公开状态是四个 `{ get; private set; }`：`IsActive`（`:44`）、`IsPaused`（`:49`）、`IsInitialized`（`:54`）、`IsFinalized`（`:59`）——**setter 全部 private，只能由内部的 `Handle*` 方法改**。两个公开的层操作方法 `ActivateAllLayers()`（`:208`）与 `DeactivateAllLayers()`（`:220`），以及 `Activate()`（`:242`）/`Deactivate()`（`:232`）。
+
+层集合是 `public MBReadOnlyList<ScreenLayer> Layers`（`:33`）——**只读**，要往里加层得走 `OnAddLayer`（`:14`）这条路径，见下方。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.ScreenSystem;
+using System.Collections.Generic;
+
+public class MyScreen : ScreenBase                      // ScreenBase.cs:9
+{
+    private readonly List<ScreenLayer> _new = new List<ScreenLayer>();
+
+    protected override void OnInitialize()              // :270
+    {
+        base.OnInitialize();
+        // Layers 是 MBReadOnlyList（:33），只能通过 OnAddLayer 事件挂
+        OnAddLayer += (layer) => Debug.Print("added " + layer.Name, 0);   // :14
+        _new.Add(new MyHudLayer("hud", localOrder: 0));
+    }
+
+    protected override void OnFinalize()                // :275
+    {
+        OnAddLayer -= ...;                              // 退订同一个委托实例
+        base.OnFinalize();
+    }
+
+    protected override void OnFrameTick(float dt)       // :300
+    {
+        base.OnFrameTick(dt);
+    }
+
+    public override void UpdateLayout()                 // :252，基类会遍历未 finalized 的层调它们的 UpdateLayout
+    {
+        base.UpdateLayout();
+    }
+}
+
+// 压栈
+ScreenManager.PushScreen(myScreen);                                   // ScreenManager.cs:606
+ScreenManager.CleanAndPushScreen(myScreen);                           // :541，清栈后压
+```
+
+### 最容易踩的坑
+
+**直接 `Layers.Add(...)`，然后发现新层既没初始化也没布局。** `Layers`（`:33`）的 getter 返回 `MBReadOnlyList<ScreenLayer>`——**编译期就不允许 Add**，这挡住了这个错法。但它引出了真正的陷阱：挂层必须走 `OnAddLayer` 事件（`:14`），而 `ScreenManager` 是在 `TopScreen` 变化时订阅/退订这两个事件的（见 `ScreenManager.cs:1087`、`:1093`、`:1101` 那一串 `ScreenManager.TopScreen.OnAddLayer -= ...` / `+= ...`）。**如果你在自己的 `OnInitialize` 里 `OnAddLayer += handler`，那这个订阅只对你这一个 screen 有效**；等到 `TopScreen` 被另一个 screen 顶替，事件就断了。正确做法是在 `OnInitialize` 里把层放进自己的待挂列表，并在基类已建立的流程里挂上去。
+
+第二个坑是覆写钩子时不调 `base`。`UpdateLayout()`（`:252`）的基类实现会 `for (int i = 0; i < this._layers.Count; i++) if (!this._layers[i].IsFinalized) this._layers[i].UpdateLayout();`（`:254-259`）——你覆盖它却不调 base，**所有子层的布局计算就一次都不会跑**，表现是控件全部叠在 (0,0) 或尺寸为零。（`UpdateLayout` 本身定义在 `ScreenLayer.cs:306`，`public virtual void UpdateLayout()`。）`OnInitialize`（`:270`）、`OnFinalize`（`:275`）、`OnFrameTick`（`:300`）同理。
+
+第三，`Activate()`（`:242-249`）和 `Deactivate()`（`:232-240`）都是**幂等**的：`if (!this.IsActive) { this.HandleActivate(); this.IsActive = true; }`——已经在 active 状态时直接什么都不做。所以「手动调 Activate 强制刷新界面」是无效的，得先 `Deactivate()` 再 `Activate()`。
+
 ## 真实示例
 
 ```csharp

@@ -31,7 +31,7 @@ description: "非 sealed 但实际无法被 mod 派生的战斗队伍：一侧�
 
 **`FactionsAtWarWith` 那种缓存问题在 `Team` 上不存在，但有另外两处缓存要留意。** 一是 `CachedEnemyDataForFleeing`：它由 `UpdateCachedEnemyDataForFleeing()` 填充，方法开头用 `IsEmpty<ValueTuple<float, WorldPosition, int, Vec2, Vec2, bool>>()` 判断「已经填过了就什么都不做」，而 `Tick(float dt)` 的第一件事就是这个缓存非空则 `Clear()`——**每 tick 清空，靠调用方重新填**，谁不调它谁就读到空列表。二是 `OrderController` 的数量：`Initialize()` 只建两个（`MasterOrderController` 与 `PlayerOrderController`），`GetOrderControllerOf(Agent)` 会在缺的时候现场再建一个并挂上事件，而 `Reset()` 会把索引 2 及以后的全部摘掉。
 
-**回放模式下大半成员是 null。** `Initialize()`、��`Reset()`、`Clear()` 里都有 `if (!GameNetwork.IsReplay)` 的整段跳过。所以在 `GameNetwork.IsReplay` 为真时构造出来的队伍，`QuerySystem`、`DetachmentManager`、两个 OrderController 都不存在。
+**回放模式下大半成员是 null。** `Initialize()`、以及`Reset()`、`Clear()` 里都有 `if (!GameNetwork.IsReplay)` 的整段跳过。所以在 `GameNetwork.IsReplay` 为真时构造出来的队伍，`QuerySystem`、`DetachmentManager`、两个 OrderController 都不存在。
 
 **位置查询有三种，返回值语义各不相同。** `GetAveragePosition()` 与 `GetAveragePositionOfEnemies()` 在集合为空时返回 `Vec2.Invalid`；`GetMedianPosition(Vec2 averagePosition)` 找不到最近的人时返回 `WorldPosition.Invalid`；`GetWeightedAverageOfEnemies(Vec2 basePoint)` 按距离平方倒数加权，没有敌人时返回 `Vec2.Invalid`。四个都要判哨兵值。
 
@@ -151,6 +151,55 @@ description: "非 sealed 但实际无法被 mod 派生的战斗队伍：一侧�
 | `Clear` | `public void Clear()` | 先退订各阵型 AI 的行为变化事件，再调 `Reset()` |
 | `OnMissionEnded` | `public void OnMissionEnded()` | 转发给 `TeamAI`（有守卫） |
 | `ToString` | `public override string ToString()` | 直接转发 `MBTeam.ToString()` |
+
+## 怎么用
+
+### 怎么拿到它
+
+`Team` 是 `TaleWorlds.MountAndBlade/Team.cs:14` 的 `public class Team : IMissionTeam`，1121 行、79 个公开成员——**但它实际上派生不出来**：文件里 `virtual`、`abstract`、`protected` 的出现次数是 **0**，没有任何可覆盖的成员。
+
+它的实例**不是你自己 new 的**。唯一的公开构造器被 [Mission](../../mission/Mission) 调用（`Mission` 持有每个参战方的 `Team`），以及 `public static Team Invalid`（`:818`）这个哨兵。
+
+**`Invalid` 值得单独说**：它的 getter（`:819-829`）懒构造 `new Team(MBTeam.InvalidTeam, BattleSideEnum.None, null, uint.MaxValue, uint.MaxValue, null)` 并缓存到 `_invalid`，**而构造器因为 `this != Team._invalid` 的判断跳过了 `Initialize()`**。所以这个哨兵实例**大部分成员是 null**——`FormationsIncludingEmpty`（`:47`）、`FormationsIncludingSpecialAndEmpty`（`:52`）、`TeamAI`（`:57`）都没建。
+
+判别方法只有 `public bool IsValid`（`:837`），getter 是 `return this.MBTeam.IsValid;`（`:839`）。
+
+读取入口：`Side`（`:38`，只有 getter）、`Mission`（`:42`）、`IsPlayerTeam`（`:61`）、`IsPlayerAlly`（`:71`）。
+
+四个事件：`OnFormationsChanged`（`:19`）、`OnOrderIssued`（`:24`）、`OnFormationAIActiveBehaviorChanged`（`:29`）、`OnFormationsChangedInDeployment`（`:34`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.MountAndBlade;
+
+// 拿当前队伍：先判 IsValid，因为 Invalid 哨兵的成员大多是 null（Team.cs:837）
+Team.TeamCollection teams = Mission.Current.Teams;       // Mission.cs:1615，{ get; private set; }
+Team t = teams[BattleSideEnum.Attacker];
+if (t == null || !t.IsValid) { return; }
+
+BattleSideEnum side = t.Side;                         // :38
+Mission mission = t.Mission;                          // :42
+bool isPlayer = t.IsPlayerTeam;                       // :61
+
+// 十个阵型槽位；FormationsIncludingSpecialAndEmpty 是完整的十个
+MBList<Formation> all = t.FormationsIncludingSpecialAndEmpty;   // :52
+MBList<Formation> real = t.FormationsIncludingEmpty;            // :47，只有前八个（去掉 General 与 Bodyguard）
+Formation infantry = t.GetFormation(FormationClass.Infantry);   // :696，按阵型类取
+
+// 监听阵型变化（Action<Team, Formation>，注意退订要传同一个委托实例）
+System.Action<Team, Formation> handler = OnFormationsChanged;
+t.OnFormationsChanged += handler;                      // :19，声明是 Action<Team, Formation>
+t.OnFormationsChanged -= handler;                      // :19，同一实例才能退订
+```
+
+### 最容易踩的坑
+
+**不判 `IsValid` 就读 `FormationsIncludingSpecialAndEmpty`。** 因为 `Team.Invalid`（`:818`）跳过了 `private void Initialize()`（`:293`），而 `Initialize()` 正是建 `FormationsIncludingSpecialAndEmpty = new MBList<Formation>(10)`（`:300`）和其余子系统的地方。**十个 `Formation` 槽位建在 `Initialize()` 里，不在构造器里**——所以哨兵队伍上这些属性全是 null，第一句 `all.Count` 就是空引用，而报错完全看不出「你拿到的是哨兵」。
+
+第二个坑是**回放模式下同样的问题发生在正常队伍上**。`Initialize()`（`:293`）、`Reset()`（`:328`）、`Clear()`（`:352`）里都有 `if (!GameNetwork.IsReplay)` 的整段跳过（`:298`、`:330`、`:354`）。所以 `GameNetwork.IsReplay` 为真时构造出来的队伍，`QuerySystem`、`DetachmentManager`、两个 `OrderController` 都不存在——**`IsValid` 返回 true 但成员仍然是 null**。排查回放崩溃时不能只看 `IsValid`。
+
+第三，`Team` 的 `virtual` / `abstract` / `protected` 出现次数是 **0**。**不要试图派生它来做行为定制**——编译期能过（因为成员不是 sealed 的），但你覆写不了任何东西；想在战斗里改变队伍行为，正确位置是 [MissionBehavior](../../mission/MissionBehavior) 或 `Formation`。
 
 ## 真实示例
 

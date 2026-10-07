@@ -68,10 +68,49 @@ description: "锻造刀身数据：CraftingPiece 的 BladeData 子节点，描�
 | `.ctor` | `public BladeData(CraftingPiece.PieceTypes pieceType, float bladeLength)` | 定 `PieceType` 与 `BladeLength`，并把两个伤害类型预置成 `DamageTypes.Invalid`。**其余数值全部留默认零值。** |
 | `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode childNode)` | 开头调 `Initialize()`，随后读七个标量属性，再遍历子节点处理 `Thrust` / `Swing`。**它读的属性名与属性名不同的一处只有 holster 三个。** |
 
+## 怎么用
+
+### 怎么拿到它
+
+`BladeData` 是 `public sealed class BladeData : MBObjectBase`（`TaleWorlds.Core/BladeData.cs:8`），构造器只有 `public BladeData(CraftingPiece.PieceTypes pieceType, float bladeLength)`（`:71`）——它必须带一个**部件类型**和一个刀身长度。`PieceType` 是 `public readonly CraftingPiece.PieceTypes PieceType` 字段（`:124`），不是属性。`PieceTypes` 只有五个值：`Invalid = -1`、`Blade`、`Guard`、`Handle`、`Pommel`、`NumberOfPieceTypes`（`CraftingPiece.cs:449-462`）——**「单手/双手」不是部件类型**，那是武器的使用方式，不是刀身部位。
+
+构造器除赋这两个参数外，还把 `ThrustDamageType` / `SwingDamageType` 设成 `DamageTypes.Invalid`（`:74-75`），其余数值全部留在默认值上。
+
+它是锻造链的一环：XML 对象通过 `public override void Deserialize(MBObjectManager objectManager, XmlNode childNode)`（`:80`）反序列化，然后 [Crafting](../Crafting) 用它算双手武器的攻击距离、握持位（`HolsterMeshName` / `HolsterBodyName` / `HolsterMeshLength`，`:58`-`:68`）和伤害（`ThrustDamageFactor` / `SwingDamageFactor`，`:18`/`:28`）。
+
+mod 拿实例的方式是 `MBObjectManager.Instance.GetObject<BladeData>("blade_xxx")`，或从一把武器的 `ItemObject` 反查它的 crafting 数据。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+BladeData blade = MBObjectManager.Instance.GetObject<BladeData>("blade_greatsword");   // MBObjectManager.cs:288
+
+CraftingPiece.PieceTypes type = blade.PieceType;      // BladeData.cs:124，readonly 字段
+float reach   = blade.BladeLength;                   // :33
+float width   = blade.BladeWidth;                    // :38
+float thrust  = blade.ThrustDamageFactor;            // :18
+float swing   = blade.SwingDamageFactor;             // :28
+DamageTypes td = blade.ThrustDamageType;             // :13
+short  stack  = blade.StackAmount;                   // :43，short，不是 int
+
+// 想改数值：只能 new 一份，不能就地改（属性全是 private set）
+var tweaked = new BladeData(CraftingPiece.PieceTypes.Blade, reach * 1.1f);            // :71
+```
+
+### 最容易踩的坑
+
+**以为能 `new BladeData(PieceTypes.Blade, 0f)` 造一个「空刀」，结果造出了一个长度为 0、伤害类型为 `Invalid` 的合法对象。** 构造器（`:71-76`）只是赋 `PieceType`、`BladeLength`，并把两个伤害类型置 `DamageTypes.Invalid`，**没有任何校验、没有兜底值**。而下游的锻造与攻击逻辑会拿 `BladeLength` 去算攻击距离、拿 `DistanceToNextPiece` / `DistanceToPreviousPiece` 排布网格，一个 0 长度的刀会让整条武器的部件坐标塌到同一点——表现是武器在战斗里「看不见」或攻击距离为 0，而不是抛异常。
+
+更贴近实际的一个坑：**`PieceType` 是 readonly 字段（`:124`）而不是 `{ get; private set; }` 属性**，所以它**不能被 `Deserialize` 赋值**（readonly 字段只能由构造器或初始化器写）。也就是说 `BladeData` 的 XML 里即使写了部件类型，运行时读的仍然是构造器传进来的那个。如果你为了省事写 `new BladeData(PieceTypes.OneHanded, len)` 然后指望 XML 把它改成双手刀，做不到——`PieceType` 会一直是 `OneHanded`，而 XML 里其余的伤害/网格属性却都生效了，形成一个自相矛盾的对象。
+
 ## 真实示例
 
 从锻造配方里取刀身，判断这一片到底配没配伤害（`Invalid` 守卫是必须的）：
 
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 CraftingPiece blade = MBObjectManager.Instance.GetObject<CraftingPiece>("sword_blade_1");
 

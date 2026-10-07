@@ -72,6 +72,60 @@ description: "带参数的本地化字符串容器：Value 是 {=key}key} 原文
 | `operator ==` | `public static bool operator ==(TextObject lhs, TextObject rhs)` | `lhs == rhs`（引用相等）或两者非 null 且 `Equals`。**两个都为 null 时返回 true**。 |
 | `operator !=` | `public static bool operator !=(TextObject lhs, TextObject rhs)` | `!(lhs == rhs)`。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`TextObject` 是 `TaleWorlds.Localization/TextObject.cs:12` 的 `public class TextObject`——**引用类型，不继承 `MBObjectBase`，也不进 `MBObjectManager`**。它是一个「带变量标记的字符串」：内部存 `Value`（原始文本）、`Attributes`（变量字典）、`_internalId`（自增 id）。
+
+三个构造器：`public TextObject(string value, Dictionary<string, object> attributes = null)`（`:78`）、`int` 重载（`:86`）、`float` 重载（`:92`），后两个都转成字符串再调第一个（`:87`、`:93` 的 `: this(value.ToString(), attributes)`）。**每个实例都做 `this._internalId = TextObject._internalIdCounter++;`（`:81`）——构造即分配 id，没有池化。**
+
+空文本**必须走工厂**：`public static TextObject GetEmpty()`（`:187`）与判空三件套 `IsEmpty()`（`:193`）、`IsNullOrEmpty(TextObject obj)`（`:199`）。不要写 `new TextObject(null)`。
+
+变量替换是**链式**的，三个重载都返回 `TextObject`：`SetTextVariable(string tag, TextObject variable)`（`:315`）、`(string, string)`（`:321`）、`(string, float, int decimalDigits = 2)`（`:328`）、`(string, int)`（`:335`）。
+
+比较用 `operator ==` / `!=`（`:281`、`:287`）或 `Equals(TextObject other)`（`:269`），另有 `HasSameValue(TextObject to)`（`:275`）和 `Contains`（`:244`、`:250`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Localization;
+
+// 基本构造
+var greeting = new TextObject("你好，{NAME}！");                    // TextObject.cs:78
+var withVar = greeting.SetTextVariable("NAME", "雷德");             // :321，返回新对象（链式）
+Debug.Print(withVar.ToString(), 0);
+
+var counted = new TextObject("你有 {N} 枚金币")
+                    .SetTextVariable("N", 42);                       // :335
+var priced = new TextObject("价格 {P}")
+                    .SetTextVariable("P", 12.5f, decimalDigits: 2);  // :328
+
+// 判空：三个都要用上
+if (TextObject.IsNullOrEmpty(name)) { }            // :199，同时处理 null 与空
+if (greeting.IsEmpty()) { }                        // :193
+TextObject none = TextObject.GetEmpty();           // :187
+
+// 比较
+if (a == b) { }          // :281
+bool sameText = a.HasSameValue(b);   // :275
+
+// 列表
+List<string> strings = TextObject.ConvertToStringList(textObjects);   // :293
+```
+
+### 最容易踩的坑
+
+**把 `SetTextVariable` 当成「就地修改」，然后发现原对象没变。** 三个重载（`:315`、`:321`、`:328`、`:335`）都**返回 `TextObject`**，签名就是为此设计的。忽略返回值的后果是：原 `greeting` 仍然没有变量，界面渲染出来是 `你好，{NAME}！` 原样显示——**不报错，只是变量没被替换**。而且每次 `SetTextVariable` 都会 `new` 一个新实例并分配新的 `_internalId`（`:81`），所以在每帧里链式调用会持续产生垃圾对象。
+
+第二个坑是 `==` 的语义。`operator ==`（`:281`）与 `Equals(TextObject other)`（`:269`）是两条独立实现，和 `HasSameValue`（`:275`）也不是同一件事——**判断「两段文本是否等价」要用 `HasSameValue` 或 `Contains`，而 `==` 适合判断「是不是同一个（变量后仍然相等的）对象」**。混用会导致按 `==` 分组时把带变量的文本错分。
+
+第三，`Attributes`（`:42`）的 setter 是 private，`Dictionary<string, object> attributes = null` 默认就是 null。而 `GetDepth(int maxDepth)`（`:98`）→ `GetDepthInternal`（`:104`）第一步就是 `if (t.Attributes == null || !t.Attributes.Any<...>()) return depth;`——**它对 null 做了防护，但 `CacheTokens()`（`:147`）这类更深的方法未必**。自己用 `new TextObject("x", null)` 造的无变量文本在部分路径上和 `GetEmpty()` 不等价。
+
+最后，`ToStringWithoutClear()`（`:221`）与 `ToString()` 不是一回事：前者调 `MBTextManager.ProcessTextToString(this, false)`（第二个参数 `false` 表示不清缓存），后者走的是 `true` 的路径。当你在每帧或高频路径上打日志时，用错版本会显著影响性能。值得留意的是它有 `try/catch`（`:224`、`:231`）：异常时返回的是 `"Error at id: " + this.GetID() + ". Lang: " + MBTextManager.ActiveTextLanguage`（`:232`）而不是抛出——**所以一个变量名拼错的 `TextObject` 不会崩，只会在界面上显示成这行诊断字符串**。看到这行文本就说明你的 `{VARNAME}` 在语言文件里不存在。
+
+还有一个用起来很像 `SetTextVariable` 但更危险的：`public string Format(float p1)`（`:237`）——它先 `MBTextManager.SetTextVariable("A0", p1.ToString("F1"), false);`（`:239`）再 `return new TextObject(this.Value, null).ToString();`（`:240`）。**它用的是固定的 tag 名 `"A0"`，写的是一个全局变量槽，返回的也是字符串而不是 `TextObject`**。多个地方同时 `Format` 会互相覆盖 `A0`；而且它每次都 new 一个不带 attributes 的 `TextObject`（传 `null`，`:240`），所以文本里原有的 `{OTHER}` 变量在这个副本里没有对应字典项。
+
 ## 真实示例
 
 定义一条带变量的本地化文案，并在使用处安全地填充：

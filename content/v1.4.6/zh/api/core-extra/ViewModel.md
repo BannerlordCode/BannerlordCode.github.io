@@ -71,6 +71,75 @@ description: "UI 视图模型基类：按名称暴露属性、公开一组带值
 | `IViewModelGetterInterface` | `public interface IViewModelGetterInterface` | 只读侧契约：`IsValueSynced(string name)`、`GetPropertyType(string name)`、`GetPropertyValue(string name)`、`OnFinalize()`。 |
 | `IViewModelSetterInterface` | `public interface IViewModelSetterInterface` | 只写侧契约：`SetPropertyValue(string name, object value)`、`OnFinalize()`。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`ViewModel` 是 `TaleWorlds.Library/ViewModel.cs:10` 的 `public abstract class ViewModel : IViewModel, INotifyPropertyChanged`——**725 行、37 个公开成员**，模组 UI 的基类。构造器是 `protected ViewModel()`（`:211`），外部不能 new 抽象类。
+
+**它的核心机制是两个东西**：
+
+1. **十个类型化的事件**，从通用的 `PropertyChangedEventHandler PropertyChanged`（`:15`）一直到按值类型分的 `PropertyChangedWithBoolValueEventHandler`（`:59`）、`...WithIntValue...`（`:81`）、`...WithColorValue...`（`:125`）、`...WithVec2Value...`（`:191`）。每个都有一个配套的 `public void OnPropertyChangedWithValue(...)` 重载（`:263` class、`:277` bool、`:291` int、`:305` float、`:319` uint、`:333` Color、`:347` double、`:361` Vec2），参数末尾带 `[CallerMemberName]`。
+2. **`protected bool SetField<T>(ref T field, T value, string propertyName)`**（`:237`）——MVVM 的标准写法，帮你把「赋值 + 通知」合成一步。
+
+反射入口用于绑定：`public object GetViewModelAtPath(BindingPath path)`（`:381`）、`public object GetPropertyValue(string name)`（`:439`），两者都靠 `GetProperty(...)` 拿 `PropertyInfo` 再 `GetGetMethod().InvokeWithLog(this, null)`（`:387`、`:441`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Library;
+
+public class TavernVm : ViewModel                          // ViewModel.cs:10
+{
+    private int _gold;
+
+    public int Gold
+    {
+        get { return _gold; }
+        set
+        {
+            // SetField：值没变就返回 false，不发通知（:237-248）
+            if (SetField(ref _gold, value, nameof(Gold)))
+            {
+                OnPropertyChangedWithValue(value, nameof(GoldCanAfford));   // :291，int 重载
+            }
+        }
+    }
+
+    public bool GoldCanAfford => _gold >= 100;
+
+    // 供 XML 绑定反射用的路径读取（:381 / :439）
+    public override void ExecuteCommand(string commandName, object[] parameters)   // IViewModel.cs:25
+    {
+        if (commandName == "BuyDrink")
+        {
+            Gold -= 10;
+        }
+    }
+
+    public override void SetPropertyValue(string name, object value)              // IViewModel.cs:22
+    {
+        if (name == nameof(Gold))
+        {
+            Gold = System.Convert.ToInt32(value);
+        }
+    }
+}
+
+// 框架侧按路径取值
+var v = new TavernVm();
+object got = v.GetPropertyValue("Gold");                            // :439
+object nested = v.GetViewModelAtPath(new BindingPath("Child.Name"));  // :381
+```
+
+### 最容易踩的坑
+
+**直接给字段赋值，或者手动 `PropertyChanged?.Invoke(...)`，绕开 `SetField`。** `SetField`（`:237-248`）先 `if (EqualityComparer<T>.Default.Equals(field, value)) return false;` 再赋值、再 `OnPropertyChanged(propertyName)`（`:249`）。自己 `public int Gold { get; set; }` 的话，UI 绑定在值变化时**收不到通知**，控件就不会刷新——而这在初次加载时看不出来，只有运行期改数值才暴露，表现为「面板上的数字不动」。另外注意 `SetField` 需要**显式传 `propertyName`**，不像 `OnPropertyChanged` 那样靠 `[CallerMemberName]`（`:249`），忘了传就把 `null` 当属性名发出去了。
+
+第二个坑是退订。`PropertyChanged`（`:15`）是**事件**，而且 `OnPropertyChanged`（`:249`）遍历的是 `_eventHandlers` 这个内部列表（`:251-257`）——**每次调用都会把同一组处理器再广播一遍**。如果你的 ScreenComponent 在 `OnScreenOpened` 里 `+=` 订阅了 VM 的事件、却在 `OnScreenFinalize` 里没 `-=`，那么再次打开界面会叠加多层订阅，界面刷新次数成倍增长，并且**旧的 ViewModel 实例仍然被引用**（内存泄漏）。退订必须传出**与订阅时同一个委托实例**——写成 lambda 就退不掉。
+
+第三，`GetViewModelAtPath`（`:381`）的递归依赖 `path.SubPath`（`:384`），当属性不是 `ViewModel` 也不是 `IMBBindingList` 时返回 `null`（`:396`）。所以路径里少写或多写一段，得到的都是 null 而不报错。
+
 ## 真实示例
 
 标准写法：自动属性 + `SetField`，UI 绑定到 `GoldText`。

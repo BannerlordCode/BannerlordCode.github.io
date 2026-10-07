@@ -67,6 +67,60 @@ description: "一件合成武器的最终设计快照：构造时一次性算出
 | `operator ==` / `operator !=` | `public static bool operator ==(WeaponDesign x, WeaponDesign y)` / `operator !=` | `==` 走 `x.Equals(y)`（两边都 null 才算相等）；`!=` 是 `!(x == y)`。与 `Equals` 语义一致，无第三条路径。 |
 | `SetWeaponName` | `public void SetWeaponName(TextObject name)` | 唯一运行期可写的状态。只改显示名，**不动几何**。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`WeaponDesign` 是 `TaleWorlds.Core/WeaponDesign.cs:11` 的 `public class WeaponDesign`，359 行——**锻造过程的结果对象**，不是 XML 类型。
+
+唯一构造器 `public WeaponDesign(CraftingTemplate template, TextObject weaponName, WeaponDesignElement[] usedPieces, string customId = null)`（`:159`）。**它不是轻量构造**——`:161-176` 一次做了六件事：存 `Template`；`this._usedPieces = usedPieces.ToArray<WeaponDesignElement>();`（`:161`，**拷贝**）；建 `_piecePivotDistances` 并 `CalculatePivotDistances()`；`CalculateWeaponLength()`；`CalculateHolsterShiftAmount()`；按 `weaponDesignElement.CraftingPiece.AdditionalWeaponFlags` 逐条 `|=` 累加 `WeaponFlags`（`:169-172`）；最后在 `customId` 非空时赋 `HashedCode`（`:174-177`）。
+
+所以**它必须真的构造出来才能读到尺寸**——`CraftedWeaponLength`（`:337`）、`HolsterShiftAmount`（`:353`）、`PiecePivotDistances`（`:108`）都是构造时算完存下的。
+
+持有它的两个地方：[Crafting](../Crafting) 的 `CurrentWeaponDesign`（`Crafting.cs:32`，private set），以及 [Crafting](../Crafting) 的撤销/重做历史 `_history`。
+
+注意 `CalculatePivotDistances`（`:181`）在某个槽位无效时写的是 `float.NaN`：
+
+```
+WeaponDesignElement weaponDesignElement = this.UsedPieces[(int)pieceData.PieceType];
+if (weaponDesignElement == null || !weaponDesignElement.IsValid)
+{
+    this._piecePivotDistances[(int)pieceData.PieceType] = float.NaN;
+```
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+// 读现有设计
+var crafting = new Crafting(template, culture, name);   // Crafting.cs:14
+crafting.Init();                                          // :55
+
+WeaponDesign design = crafting.CurrentWeaponDesign;       // Crafting.cs:32
+float len = design.CraftedWeaponLength;                   // WeaponDesign.cs:337，构造时算好的
+Vec3 shift = design.HolsterShiftAmount;                   // :353
+WeaponFlags flags = design.WeaponFlags;                   // :321
+TextObject wname = design.WeaponName;                     // :94
+string code = design.HashedCode;                          // :135
+design.SetWeaponName(new TextObject("{=x}新名"));          // :251
+
+WeaponDesignElement[] pieces = design.UsedPieces;         // :98
+// 每个槽位可能是 null 或 IsValid=false（:183-186），必须逐个判
+foreach (WeaponDesignElement p in pieces)
+{
+    if (p != null && p.IsValid) { /* WeaponDesignElement.cs:76 */ }
+}
+```
+
+### 最容易踩的坑
+
+**用 `PiecePivotDistances` 算武器外形，然后得到 `NaN` 而没察觉。** `CalculatePivotDistances`（`:181` 起）在遇到 `weaponDesignElement == null || !weaponDesignElement.IsValid` 的槽位时，把 `_piecePivotDistances[(int)pieceData.PieceType]` 写成 **`float.NaN`**（`:183-186`），而不是 0 或抛异常。NaN 一旦参与加法就污染整个结果：总长变成 NaN、握持位偏移变成 NaN，最终渲染时整把武器的部件坐标全部消失，表现为「锻造界面里剑只剩一个点」。**用之前先 `float.IsNaN(...)` 或先确认每个槽位 `IsValid`。**
+
+第二个坑是它重载了 `==` / `!=`（`:257`、`:265`）并覆写了 `Equals`（`:234`）与 `GetHashCode`（`:245`）。而 `Crafting` 的撤销/重做历史 `_history` 是 `List<WeaponDesign>`——**这些比较是按 `HashedCode` / 内容语义做的，不是引用比较**。所以「两个看起来一样的设计被判成同一个」是有意为之，但也意味着你在外面把 `UsedPieces`（`:98`，getter 返回内部数组）改了之后，对象可能与历史里的条目判为相等，撤销就撤销不回去。
+
+第三，`customId` 只在 `!string.IsNullOrEmpty(customId)` 时才赋 `HashedCode`（`:174-177`）。不传它，构造不会报错，但 `HashedCode` 保持 null——而它通常被用作存档里的武器标识符，于是读档时找不到对应条目。
+
 ## 真实示例
 
 最小可用：摆 4 个槽（无效槽用 `GetInvalidPieceForType` 补）再构造设计：

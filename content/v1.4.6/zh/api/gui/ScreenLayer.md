@@ -99,6 +99,69 @@ description: "可视层的抽象基类：承载一个有序绘制位置、一份
 | `OnOnScreenKeyboardCanceled` | `public virtual void OnOnScreenKeyboardCanceled()` | 屏幕键盘被取消后的回调 |
 | `CompareTo` | `public int CompareTo(object obj)` | 实现非泛型 `IComparable`。先比 `InputRestrictions.Order`，相等再比 `InputRestrictions.Id`。参数不是 `ScreenLayer` 时返回 **1**（不是抛异常），调用方排序时会拿到无意义结果 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`ScreenLayer` 是 `TaleWorlds.ScreenSystem/ScreenLayer.cs:10` 的 `public abstract class ScreenLayer : IComparable`——**实现 `IComparable` 是因为层叠顺序靠排序决定**。
+
+构造器是 `protected ScreenLayer(string name, int localOrder)`（`:93`），**外部不能 new 抽象类**。它一次性建好了三样东西：`this.InputRestrictions = new InputRestrictions(localOrder);`、`this.Input = new InputContext();`、`this.Name = name;`，并把所有状态位初始化为安全的默认值（`IsFinalized = false`、`IsActive = false`、`IsFocusLayer = false`、`_usedInputs = InputType.None`、`ActiveCursor = CursorType.Default`，`:94-102`）。
+
+层实例的归属是 **Screen**：`ScreenBase.Layers`。取当前栈顶用 `ScreenManager.TopScreen`（`ScreenManager.cs:124`），排序结果在 `ScreenManager.SortedLayers`（`ScreenManager.cs:82`）。全局层是另一条路：`ScreenManager.AddGlobalLayer(GlobalLayer layer, bool isFocusable)`（`ScreenManager.cs:208`）与 `RemoveGlobalLayer`（`:199`）。
+
+你要覆写的钩子分两类：`protected internal virtual` 的 `Tick(float dt)`（`:107`）、`LateUpdate(float dt)`（`:112`）、`RenderTick(float dt)`（`:117`）、`Update(IReadOnlyList<int> lastKeysPressed)`（`:122`）、`OnGainFocus()`（`:169`）、`OnLoseFocus()`（`:173`）；以及 `protected virtual` 的 `OnActivate()`（`:153`）、`OnDeactivate()`（`:159`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.ScreenSystem;
+
+// 派生一个 HUD 层
+public class MyHudLayer : ScreenLayer              // ScreenLayer.cs:10
+{
+    public MyHudLayer(string name, int localOrder) : base(name, localOrder) { }
+
+    protected internal override void Tick(float dt)      // :107
+    {
+        // 每帧输入；Input 是构造器建好的（:95），类型是 TaleWorlds.InputSystem.InputContext
+        if (Input.IsKeyDown(InputKey.T)) { /* ... */ }                // InputSystem/InputContext.cs:504
+        bool tapped = Input.IsKeyPressed(InputKey.Enter);              // :521
+    }
+
+    protected internal override void Update(IReadOnlyList<int> lastKeysPressed)   // :122
+    {
+        base.Update(lastKeysPressed);
+    }
+
+    protected override void OnActivate()                  // :153，注意基类会重置 IsFinalized=false
+    {
+        base.OnActivate();                               // :154-155
+    }
+
+    protected override void OnDeactivate() { }           // :159
+}
+
+// 挂到当前 Screen 的 Layers；层序由 ctor 的 localOrder 决定
+ScreenBase top = ScreenManager.TopScreen;                // ScreenManager.cs:124
+var layer = new MyHudLayer("my_hud", localOrder: 0);
+top.Layers.Add(layer);
+
+// 全局层（跨 Screen）
+ScreenManager.AddGlobalLayer(globalLayer, isFocusable: false);   // ScreenManager.cs:208
+
+// 读全局状态
+ScreenLayer focused = ScreenManager.FocusedLayer;        // ScreenManager.cs:129
+bool hit = layer.IsHitThisFrame;                         // ScreenLayer.cs:70，setter 是 internal
+```
+
+### 最容易踩的坑
+
+**覆写 `OnActivate()` / `OnDeactivate()` 时不调 `base`。** `OnActivate()`（`:153-156`）的基类实现不是空的——它做 `this.IsFinalized = false;`。你的子类里如果直接写 `protected override void OnActivate() { /* 自己的逻辑 */ }`，那 `IsFinalized` 就永远停在 `HandleFinalize()`（`:165`）设的 true 上。后果是这个层的所有输入被当作「已关闭」处理，`Input`/`InputRestrictions` 完全不响应——现象是「这个 HUD 层显示了但点不动」。
+
+第二个坑是那几个 tick 钩子的可见性是 **`protected internal`**，不是纯 `protected` 也不是 `public`。你的子类能覆写，但**外部代码无法从你这里直接调用它们**（`Tick` 由 `ScreenManager.Tick(float dt)`（`ScreenManager.cs:312`）驱动、`LateTick` 由 `ScreenManager.LateTick`（`:369`）驱动）。不要在别处写 `myLayer.Tick(dt)`，编译不过是对的。
+
+第三，`IsHitThisFrame`（`:70`）的 setter 是 **internal**——每帧的命中状态由输入系统写入，你只能读。而 `IsActive`（`:65`）、`IsFinalized`（`:60`）的 setter 是 private，只有 `HandleActivate` / `HandleDeactivate` / `HandleFinalize` 这几个 internal 方法会改。**不要用这些布尔量推断「我的层现在可见」**——层是否真的在渲染栈里，看 `ScreenManager.SortedLayers`（`ScreenManager.cs:82`）。
+
 ## 真实示例
 
 最小可视层——它只负责顺序、命中与一个演示用的命中区域：

@@ -40,6 +40,51 @@ description: "非可视界面组件的标记基类：本身零成员，靠 AddCo
 | `AddComponent` | `public void AddComponent(ScreenComponent component)` | 把组件登记进本界面的组件表。**不做 null 检查、不去重**，传 null 也不会立刻报错 |
 | `FindComponent<T>` | `public T FindComponent<T>() where T : ScreenComponent` | 按类型取第一个匹配的组件；找不到返回 `default(T)`。命中即返回，不看登记顺序以外的任何东西 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`ScreenComponent` 是 `TaleWorlds.ScreenSystem/ScreenComponent.cs:6` 的 `public class ScreenComponent`——**全文只有 9 行（一个 BOM + 三个 using/namespace 头），类体里只有一个 `{}`**。
+
+**它是命名空间级的占位标记，不是一个能拿来继承或实例化的基类。** 在 1.4.6 的 `TaleWorlds.ScreenSystem` 工程里，你能看到它只有这一个文件，`ScreenBase`（`ScreenBase.cs:9`）和 `ScreenLayer`（`ScreenLayer.cs:10`）**都不继承它**。
+
+它的实际用途是给 UI 代码做**分类标记**：接口型成员（`ScreenBase.OnLayerAddedEvent`、`ScreenBase.OnLayerRemovedEvent` 分别是 `:14`、`:19` 的事件委托类型）以及 `ScreenBase.OnAddLayer` / `ScreenBase.OnRemoveLayer` 两个事件的参数类型，都以它为命名锚点。模组侧如果要给某个自定义屏幕做「这是什么组件」的判定，惯例是写 `class MyThing : ScreenComponent`。
+
+**它没有任何成员、没有生命周期钩子、没有构造器逻辑。** 想在屏幕上挂行为，你要么派生 [ScreenBase](../ScreenBase)，要么往 `ScreenBase.Layers`（`ScreenBase.cs:33`）里加一个 [ScreenLayer](../ScreenLayer)。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.ScreenSystem;
+
+// 它是个空标记类：继承它只是为了分类
+public class MyTradePanel : ScreenComponent      // ScreenComponent.cs:6
+{
+    public string PanelId;
+}
+
+// 真正的 UI 行为仍然靠 ScreenBase / ScreenLayer
+public class MyScreen : ScreenBase
+{
+    public override void OnInitialize()
+    {
+        base.OnInitialize();
+        Layers.Add(new MyHudLayer("hud", localOrder: 0));    // ScreenBase.cs:33
+    }
+}
+
+// 判定某个对象是不是这一族
+bool isUiComponent = obj is ScreenComponent;       // 可用，但要注意它没有任何可调成员
+```
+
+### 最容易踩的坑
+
+**把 `ScreenComponent` 当成「屏幕组件基类」，继承它然后指望能有 `OnInitialize` 之类的钩子被调用。** 它是空的——**一个字都没有**，不是「钩子是空的」，是「没有钩子」。你派生出来的类永远不会被任何生命周期调用，因为没有任何代码会去调它。后果是「我的组件写了初始化逻辑但永远不执行」，而编译器、运行时、界面都不会给你任何提示。
+
+第二个坑是**把它和 `ScreenBase`（`ScreenBase.cs:9`）、`ScreenLayer`（`ScreenLayer.cs:10`）当成同一族做类型判断**。这三者之间**没有任何继承关系**。所以 `if (x is ScreenBase)` 和 `if (x is ScreenComponent)` 对同一个对象给出的答案毫无关联；如果你想判断「这是不是一个 UI 元素」，单独用 `ScreenComponent` 会漏掉所有真正的 `ScreenBase` 屏幕。
+
+第三，`ScreenComponent` 是 `public class` 而非 `abstract`，所以你**可以** `new ScreenComponent()` 得到一个毫无用处的实例——这个 API 不会阻止你写无意义的代码。
+
 ## 真实示例
 
 组件本身——这里演示它作为「共享选中状态」的用法，字段与方法都是读者侧自己声明的：

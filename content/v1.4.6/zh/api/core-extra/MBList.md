@@ -40,6 +40,44 @@ description: "TaleWorlds.Library 的泛型列表容器：派生自 MBReadOnlyLis
 | 继承而来 | `Add` / `Remove` / `Clear` / `Count` / 索引器 / 枚举器 | 全部来自 `List<T>`。**没有任何只读约束。** |
 | 配套扩展 | `ToMBList<T>(this T[])` / `ToMBList<T>(this List<T>)` / `ToMBList<T>(this IEnumerable<T>)`（`TaleWorlds.Library.Extensions`） | 三个重载把序列转成 `MBList<T>`。前两个按长度 / 计数预分配容量，第三个先做类型判定再转发。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`MBList<T>` 是 `public class MBList<T> : MBReadOnlyList<T>`（`TaleWorlds.Library/MBList.cs:7`），全文 33 行、四个构造器：`MBList()`（`:10`）、`MBList(int capacity)`（`:15`）、`MBList(IEnumerable<T> collection)`（`:21`）、`MBList(List<T> collection)`（`:27`），每个都 `: base(...)` 转给基类。
+
+**先破一个名字误会：它不是只读列表。** 基类 `MBReadOnlyList<T>` 的声明是 `public class MBReadOnlyList<T> : List<T>`（`TaleWorlds.Library/MBReadOnlyList.cs:7`），而它的三个构造器（`:10`、`:15`、`:21`）同样只是转给 `List<T>`。所以整条继承链是 `MBList<T> → MBReadOnlyList<T> → List<T>`——`Add` / `Remove` / `Clear` / 索引器全部可用。`MBList.cs` 里一个方法都没声明，公开成员表上只有那四个构造器不代表它不可写。
+
+那它存在的意义是什么？**存档系统按类型名特判它**：`TaleWorlds.SaveSystem/Definition/DefinitionContext.cs:444` 为 `typeof(MBList<>).MakeGenericType(...)` 注册 `ContainerType.CustomList`，`TaleWorlds.SaveSystem/TypeExtensions.cs:34` 用 `genericTypeDefinition == typeof(MBList<>)` 识别，`TaleWorlds.SaveSystem/Load/LoadContext.cs:302` 在反序列化时用 `Activator.CreateInstance(typeof(MBList<>))...` 造目标（`TaleWorlds.SaveSystem/Load/ContainerHeaderLoadData.cs:70`）。引擎 API 也一律用它作返回类型，例如 `public MBList<Hero> Children`（`Hero.cs:1739`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Library;
+using System.Collections.Generic;
+
+// 存档字段声明成 MBList，序列化器才认
+public MBList<int> Scores = new MBList<int>();                  // MBList.cs:10
+public MBList<string> Tags = new MBList<string>(capacity: 8);    // :15
+public MBList<Hero> Members = new MBList<Hero>(sourceList);      // :21，List<T> 的拷贝语义，元素是复制而非共享引用
+
+// 可写：Add/Remove/索引器全部来自 List<T>（MBReadOnlyList.cs:7）
+Members.Add(newHero);
+int n = Members.Count;
+
+// 引擎返回的就是 MBList，直接接
+MBList<Hero> siblings = hero.Children;                           // Hero.cs:1739
+
+// 向上转型成 List<T> 也合法（因为基类链）
+List<Hero> asPlain = Members;
+```
+
+### 最容易踩的坑
+
+**给存档字段声明成 `List<T>`，然后发现读档后数据全丢。** 序列化器是在 `typeof(MBList<>)` 上特判的（`TaleWorlds.SaveSystem/Definition/DefinitionContext.cs:444`、`TaleWorlds.SaveSystem/TypeExtensions.cs:34`），读档侧也是拿 `typeof(MBList<>)` 反射造实例（`TaleWorlds.SaveSystem/Load/LoadContext.cs:302`、`TaleWorlds.SaveSystem/Load/ContainerHeaderLoadData.cs:70`）。声明成 `List<T>` 编译能过、运行期不报错，但存档里就是没有这个字段——**症状是读档后它回到字段初始值，而不是你存进去的值**，而且只在真正读一次旧存档时才暴露。模组里凡是标了 `[SaveableField]` / `[SaveableProperty]` 的集合字段，必须是 `MBList<T>`。
+
+第二个坑是**因为名字而误判可写性**：看到 `MBReadOnlyList<Hero>` 作为静态类型（`MBObjectManager.GetObjectTypeList<T>()` 返回的就是它，`MBObjectManager.cs:473`）就以为不能 `Add`，于是绕道去改源集合——而实际上 `MBReadOnlyList<T>` 的 setter 能力一路继承自 `List<T>`，强转一下就能改。判断可写性要看**实际继承链**，不要看类名。
+
 ## 真实示例
 
 内部集合字段的标准写法（预分配容量，然后逐个填充）：
@@ -73,6 +111,8 @@ public class MyModifierRegistry
 
 从数组或列表转换（两条路径都会预分配容量）：
 
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 using System.Collections.Generic;
 using TaleWorlds.Core;

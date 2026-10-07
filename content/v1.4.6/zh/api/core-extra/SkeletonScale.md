@@ -50,10 +50,56 @@ description: "骨骼缩放定义：按骨骼名给三维骨骼逐根缩放，供
 | `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)` | 先 `base.Deserialize`，读 `skeleton` / `mount_sit_bone_scale` / `mount_radius_adder`，再遍历子节点找 `BoneScales` → `BoneScale` 逐条填 `BoneNames` 与 `Scales`。**`Initialize` 在本类没被重写。** |
 | `SetBoneIndices` | `public void SetBoneIndices(sbyte[])`（形参是索引数组） | 写入 骨骼索引数组 并把 `BoneNames` 置 null。**不做长度校验**——传入长度与 `Scales` 不一致时后续按下标配对会越界。 |
 
-## 真实示例
+## 怎么用
+
+### 怎么拿到它
+
+`SkeletonScale` 是 `public sealed class SkeletonScale : MBObjectBase`（`TaleWorlds.Core/SkeletonScale.cs:10`）——**sealed**，XML 对象，由 `Game.LoadBasicFiles()` 里的 `this.ObjectManager.LoadXML("SkeletonScales", false);`（`Game.cs:598`）加载。
+
+构造器 `public SkeletonScale()`（`:43`），反序列化靠 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`（`:49`）。拿现成实例：`MBObjectManager.Instance.GetObject<SkeletonScale>("骨骼表的 id")`。
+
+三个公开可写的口子：
+
+- `public Vec3[] Scales { get; private set; }`（`:30`）与 `public List<string> BoneNames { get; private set; }`（`:35`）——由 `Deserialize` 填。
+- `public sbyte[] BoneIndices { get; private set; }`（`:40`）——**唯一有公开写方法的一个**：`public void SetBoneIndices(sbyte[] boneIndices)`（`:110`），实现只有两行 `this.BoneIndices = boneIndices; this.BoneNames = null;`（`:111-112`）。
+
+其余全是只读：`SkeletonModel`（`:15`）、`MountSitBoneScale`（`:20`）、`MountRadiusAdder`（`:25`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+SkeletonScale scale = MBObjectManager.Instance.GetObject<SkeletonScale>("npc_skeleton_scale");   // MBObjectManager.cs:288
+string model = scale.SkeletonModel;                       // SkeletonScale.cs:15
+Vec3[] all = scale.Scales;                                // :30
+List<string> names = scale.BoneNames;                      // :35
+Vec3 sit = scale.MountSitBoneScale;                       // :20
+
+// 改骨骼索引：这是唯一被允许的写操作
+var compact = new sbyte[] { 0, 1, 2, 3 };
+scale.SetBoneIndices(compact);                             // :110
+
+// 读回来时必须判 null
+sbyte[] idx = scale.BoneIndices;
+if (idx != null)
+{
+    Debug.Print("bone count = " + idx.Length, 0);
+}
+```
+
+### 最容易踩的坑
+
+**调了 `SetBoneIndices` 之后直接读 `BoneNames`，结果拿到 null。** `SetBoneIndices` 的实现是 `this.BoneIndices = boneIndices; this.BoneNames = null;`（`SkeletonScale.cs:111-112`）——**它主动把 `BoneNames` 清成 null**，因为骨骼名数组和索引数组在 `Deserialize`（`:49`）里是互斥的两条解析路径，设了索引就不再保留名字。这不是 bug 而是刻意的互斥设计，但后果是：任何同时依赖「按名字找骨骼」和「按索引找骨骼」的代码，在改过索引之后就拿不到名字了，表现为 `BoneNames.Count` 空引用或者循环体一次都不执行。**要么全程用 `BoneIndices`，要么全程用 `BoneNames`，不要在中间切换。**
+
+第二个坑是 `BoneIndices` 的元素类型是 **`sbyte`**（`:40`）而不是 `byte`。骨骼索引超过 127 时 `sbyte` 会变负数，所以字面量必须显式转换：`new sbyte[] { 0, (sbyte)200 }`——直接写 `200` 编译不过，写 `(byte)200` 则是错误的意图。同样 `SetBoneIndices` 的参数类型也是 `sbyte[]`，传 `byte[]` 编译失败，这是好事。
 
 按 id 取一份骨骼缩放定义，先判断处在哪个阶段（**`BoneNames` 与 骨骼索引数组 二选一**）：
 
+## 真实示例
+
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 SkeletonScale scale = MBObjectManager.Instance.GetObject<SkeletonScale>("human_scale_settlement");
 

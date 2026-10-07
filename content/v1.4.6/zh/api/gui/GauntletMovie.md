@@ -74,6 +74,59 @@ description: "一份已加载的 XML prefab 界面实例：持有根视图与 Vi
 | `GetViewModelAtPath` | `internal object GetViewModelAtPath(BindingPath, bool)` | 绑定路径解析，尾参表示该路径是否应指向一个列表。路径为 null 或 `_viewModel` 为 null 时返回 null，否则先 `Simplify()` 再转发 |
 | `OnItemRemoved` | `internal void OnItemRemoved(string type)` | 转发 `WidgetFactory.OnUnload(type)`。**internal，mod 调不到** |
 
+## 怎么用
+
+### 怎么拿到它
+
+`GauntletMovie` 是 `TaleWorlds.GauntletUI.Data/GauntletMovie.cs:10` 的 `public class GauntletMovie : IGauntletMovie`——它实现接口，所以你在代码里面对的通常是 `IGauntletMovie`。
+
+**构造器是 `private GauntletMovie(string movieName, UIContext context, WidgetFactory widgetFactory, IViewModel viewModel, bool hotReloadEnabled)`（`:74`）**——外部 new 不了。两条创建路径：
+
+- **正式入口**：`public static IGauntletMovie Load(UIContext context, WidgetFactory widgetFactory, string movieName, IViewModel datasource, bool doNotUseGeneratedPrefabs, bool hotReloadEnabled)`（`:185`）。它先试生成式 prefab（`:189`），拿不到才 `new GauntletMovie(...)` 并紧接 `gauntletMovie2.LoadMovie();`（`:206-207`）。
+- **模组侧包装**：`GauntletLayer.LoadMovie(string movieName, ViewModel dataSource)`（`GauntletLayer.cs:130`），返回 `GauntletMovieIdentifier`。引擎自己的用法就是这样（`BannerEditorView.cs:155`、`CharacterCreationCultureStageView.cs:39`）。
+
+`private void LoadMovie()`（`:122`）才是真正加载的那一步：`_moviePrefab = this.WidgetFactory.GetCustomType(this.MovieName);`（`:124`），**为 null 就直接 `return`（`:126-128`）——此时 `IsLoaded` 保持 false**；成功才 `IsLoaded = true; IsReleased = false;`（`:129-130`）。
+
+构造器本身（`:74-93`）做了六件你必须知道的事：存下 `WidgetFactory` / `BrushFactory`（`context.BrushFactory`）/ `Context`；**订阅两个热重载事件** `WidgetFactory.PrefabChange += this.OnResourceChanged;` 和 `BrushFactory.BrushChange += this.OnResourceChanged;`（`:79-80`）；`new Widget(this.Context)` 造 `_movieRootNode` 并 `this.Context.Root.AddChild(...)`（`:82-83`）；把它设成固定尺寸、铺满 `Context.TwoDimensionContext`（`:84-87`）；最后 `this.IsLoaded = false; this.IsReleased = false;`（`:91-92`）。
+
+**注意 `IsLoaded` 和 `IsReleased` 刚构造完都是 `false`**（`:91-92`）——movie 要等 `LoadMovie()` 才 loaded，而 `LoadMovie` 在 prefab 找不到时**提前返回、永远不置 `IsLoaded`**。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.GauntletUI;
+using TaleWorlds.GauntletUI.Data;
+
+// 创建：构造器是 private（:74），走静态 Load 或模组包装的 GauntletLayer.LoadMovie
+UIContext ctx = ...;
+IGauntletMovie movie = GauntletMovie.Load(ctx, widgetFactory, "MyMovie", viewModel,
+                                        doNotUseGeneratedPrefabs: false, hotReloadEnabled: false);   // :185
+// 模组里更常见的写法（引擎自己也这么用）：
+// var movie = this.GauntletLayer.LoadMovie("MyMovie", viewModel);   // GauntletLayer.cs:130
+
+// 等 loaded 再动控件；IsLoaded 为 false 通常意味着 prefab 没找到（:126-128）
+if (movie.IsLoaded)                                    // GauntletMovie.cs:64
+{
+    Widget root = movie.RootWidget;                    // :49，内部 RootView?.Target
+    GauntletView view = movie.RootView;                // :45
+    string name = movie.MovieName;                     // :40
+}
+
+// 换 ViewModel 并重绑
+movie.RefreshDataSource(newViewModel);                 // :94，内部 RefreshBindingWithChildren()
+
+// 必须释放：它订阅了 PrefabChange / BrushChange
+movie.Release();                                       // :142，会 -= 两个事件并从 Context.Root 摘下节点
+```
+
+### 最容易踩的坑
+
+**不调 `Release()`，或者重复调。** `Release()`（`:142-159`）是唯一会退订那两个热重载事件的代码：`this.WidgetFactory.PrefabChange -= this.OnResourceChanged;` 和 `this.BrushFactory.BrushChange -= this.OnResourceChanged;`（`:155-156`）。漏掉它，**你 release 掉的 movie 仍然挂在工厂的热重载事件上**，于是开发模式下改一次 prefab 就去操作一个已经释放的对象；正式模式下则是 `Context.Root` 里留下孤儿节点，`_movieRootNode.ParentWidget = null;`（`:158`）没被执行，整棵 UI 树泄漏。症状是「开一次界面涨一点内存，跑久了帧率崩」。
+
+第二个坑是 `Release()` **不幂等**。它无条件执行 `this._moviePrefab.OnRelease();`（`:152`）和 `this.WidgetFactory.OnUnload(this.MovieName);`（`:153`），结束时把 `IsLoaded = false; IsReleased = true;`（`:159-160`）。所以第二次调用会在已释放的 `_moviePrefab` 上再调一次 `OnRelease()`。**用 `if (!movie.IsReleased) movie.Release();` 包一层。**
+
+第三，`RootWidget`（`:49`）的 getter 是 `if (this.RootView == null) return null; return this.RootView.Target;`——**RootView 为 null 时返回 null 而不是抛异常**。在 `LoadMovie()` 之前或 `Release()` 之后读它都是 null（并且 prefab 缺失时 `IsLoaded` 也一直是 false，`RootWidget` 同样为 null），所以拿它做后续操作必须判空。
+
 ## 真实示例
 
 直接加载并按帧维护尺寸：

@@ -82,6 +82,62 @@ description: "游戏状态基类：地图、锻造、部队、王国等界面各
 | `Level` | `public int Level;` | **公开可写字段**，栈层级。`GameStateManager` 用它决定前驱与批量弹出范围。默认 0。 |
 | `NumberOfListenerActivations` | `public static int NumberOfListenerActivations;` | 静态计数器，重入抑制用。`HandleActivate` 开头归零。**跨所有状态共享，不要当自己的状态用。** |
 
+## 怎么用
+
+### 怎么拿到它
+
+`GameState` 是 `public abstract class GameState : MBObjectBase`（`TaleWorlds.Core/GameState.cs:9`）——**抽象类**，而且**构造器是 `protected GameState()`（`:67`）**，外部连 `new` 都不行。它只做一件事 `new List<IGameStateListener>()`（`:68`）。
+
+它是 UI / 逻辑状态栈的元素。用法是：
+
+- 继承它，覆写 `protected virtual void OnInitialize()`（`:121`）、`OnActivate()`（`:172`）、`OnDeactivate()`（`:188`）、`OnTick(float dt)`（`:194`）、`OnIdleTick(float dt)`（`:199`）、`OnFinalize()`（`:138`）、以及继承自 [MBObjectBase](../../campaign-ext/MBObjectBase) 的 `GetName()`。
+- **自己 `new` 出一个实例，再交给 [GameStateManager](../GameStateManager) 压栈**：`public void PushState(GameState gameState, int level = 0)`（`GameStateManager.cs:235`）和 `public void CleanAndPushState(GameState gameState, int level = 0)`（`GameStateManager.cs:259`）。两个方法都会先用 `Debug.FailedAssert("State should be changed from main thread", ...)` 检查线程（`GameStateManager.cs:239`）。
+
+它自己也有两个**跨状态**的字段：`Predecessor`（`:13`）指向上一个状态，`IsActive`（`:23`）由 `Activated { get; private set; }`（`:169`）驱动——`OnActivate()`（`:172-175`）置 true，`OnDeactivate()`（`:188-191`）置 false。
+
+对外部代码来说最有用的两个方法：`RegisterListener(IGameStateListener)`（`:73`）和 `UnregisterListener(...)`（`:88`），以及按类型找监听器的 `GetListenerOfType<T>()`（`:94`）。
+
+### 典型用法
+
+定义一个自己的状态，并监听它的进入 / 离开：
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.Library;
+
+public class MyCraftingState : GameState
+{
+    protected override TextObject GetName() { return new TextObject("{=craft}锻造"); }   // MBObjectBase.cs:112
+
+    protected override void OnInitialize()
+    {
+        base.OnInitialize();                    // GameState.cs:121
+        Game.Current.GameStateManager.PopState();   // GameStateManager.cs:247，签名 PopState(int level = 0)
+    }
+
+    protected override void OnActivate()         // :172，会把 Activated 置 true
+    {
+        base.OnActivate();
+    }
+
+    protected internal override void OnTick(float dt)   // :194，注意是 protected internal
+    {
+        base.OnTick(dt);
+    }
+}
+
+// 注册监听器：内部先查重，重复注册返回 false
+bool ok = state.RegisterListener(myListener);     // :73
+state.UnregisterListener(myListener);             // :88
+MyListener found = state.GetListenerOfType<MyListener>();   // :94
+```
+
+### 最容易踩的坑
+
+**重复 `RegisterListener` 以为它会叠加，实际上第二次直接返回 `false`；而 `null` 传进去只会断言不会抛异常。** `RegisterListener`（`:73-87`）的实现是：`if (listener == null) Debug.FailedAssert("Can not register null listener to game state.", ...);` 然后**没有 return，继续往下走**——接着 `this._listeners.Contains(listener)` 对 null 求值、`Add(null)`。也就是说传 null 时断言只打日志，**null 照样被加进监听器列表**，之后每次广播都会调到它并空引用。必须自己先判 null。
+
+第二个坑是 `OnTick(float dt)` 与 `OnIdleTick(float dt)` 的可访问性：它们声明为 `protected internal virtual`（`:194`、`:199`），不是纯 `protected` 也不是 `public`。你的子类能覆写，但**同一程序集外的代码无法从外部调用它们**——tick 完全由 `GameStateManager` 驱动。相应地，`Activated`（`:169`）是 `{ get; private set; }` 且只由 `OnActivate` / `OnDeactivate` 改（`:175`、`:191`），**不要用它在 `OnTick` 里做每帧刷新**，它只在状态切换那一刻变。
+
 ## 真实示例
 
 派生一个自定义状态（覆写钩子时务必调基类，否则 `Activated` 标志不准）：

@@ -96,6 +96,58 @@ description: "脸型与体型的静态外观门面：把种族、发色、纹身
 | `MonsterSuffixSettlementFast` | `public const string MonsterSuffixSettlementFast = "_settlement_fast"` | 聚落「快」变体后缀。 |
 | `MonsterSuffixChild` | `public const string MonsterSuffixChild = "_child"` | 孩童怪物 id 后缀。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`FaceGen` 是 `public static class FaceGen`（`TaleWorlds.Core/FaceGen.cs:6`）——**纯静态类，不能实例化**。全文 219 行。
+
+它是一个**转发层**：内部私有字段 `_instance` 指向 `IFaceGen` 实现，唯一的注入点是 `public static void SetInstance(IFaceGen faceGen)`（`:9-12`），引擎启动时用它装入真正的实现。每个方法都是同一形状的判空转发，例如 `GetMonster`：
+
+```
+IFaceGen instance = FaceGen._instance;
+if (instance == null) { return null; }
+return instance.GetMonster(monsterID);       // FaceGen.cs:61-69
+```
+
+注意 `GetRandomBodyProperties(...)`（`:15`）的形状不同：它检查 `_instance != null` 后转发，但**没有 else 分支**——instance 为 null 时方法体直接走完，返回 `default(BodyProperties)`。
+
+三个种族查询：`GetRaceCount()`（`:25`）、`GetRaceOrDefault(string raceId)`（`:36`）、`GetRaceNames()`（`:54`）。三个怪物查询：`GetMonster(string)`（`:61`）、`GetMonsterWithSuffix(int race, string suffix)`（`:72`）、`GetBaseMonsterFromRace(int race)`（`:83`）。
+
+四个 `ref` 改写器：`GenerateParentKey(..., ref mother, ref father)`（`:94`）、`SetHair(ref bodyProperties, int hair, int beard, int tattoo)`（`:105`）、`SetBody(ref bodyProperties, int build, int weight)`（`:116`）、`SetPigmentation(ref bodyProperties, int skinColor, int hairColor, int eyeColor)`（`:127`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+// 所有调用都要先确认 faceGen 已注入；否则返回 null / default
+int races = FaceGen.GetRaceCount();                      // FaceGen.cs:25
+string[] names = FaceGen.GetRaceNames();                 // :54
+Monster baseRace = FaceGen.GetBaseMonsterFromRace(0);    // :83，instance 为 null 时返回 null
+if (baseRace != null) { /* 用 baseRace.ActionSetCode 等 */ }
+
+// 生成一个随机外观
+BodyProperties bp = FaceGen.GetRandomBodyProperties(
+    race: 0, isFemale: false,
+    bodyPropertiesMin, bodyPropertiesMax,
+    hairCoverType, seed: 12345,
+    hairTags: null, beardTags: null, tatooTags: null, variationAmount: 1f);   // :15
+
+// 改写器都是 ref：调用后原变量被就地改掉
+FaceGen.SetHair(ref bp, hair: 3, beard: 0, tattoo: 1);    // :105
+FaceGen.SetBody(ref bp, build: 0.7f, weight: 0.5f);        // :116
+FaceGen.SetPigmentation(ref bp, skinColor: 2, hairColor: 1, eyeColor: 4);   // :127
+```
+
+### 最容易踩的坑
+
+**在 `SetInstance` 被引擎调用之前用 `FaceGen` 的任何方法，然后把返回值当有效数据。** 判空分支**一律是 `return null` 或静默走完**，没有异常、没有断言。所以 `GetMonster` 系列返回 null（`:67`、`:78`、`:89`），而 `GetRandomBodyProperties`（`:15`）返回的是 `default(BodyProperties)`——即 `StaticProperties` 的八个 `KeyPart` 全 0、`DynamicProperties` 的 Age/Weight/Build 全 0。用它去生成角色，得到的会是「所有 key 都是 0」的退化外观，**不报错、不崩溃，只是所有人长得一样**。在编辑器、战役尚未建立、或用模组自带的自定义人种时更容易撞上——务必判 null。
+
+第二个坑是 `GetRandomBodyProperties` 的参数数量与顺序：它有 **10 个参数**（`race, isFemale, bodyPropertiesMin, bodyPropertiesMax, hairCoverType, seed, hairTags, beardTags, tatooTags, variationAmount`，`:15`），其中三个 tag 是 `string`。如果照着名字猜位置把 `variationAmount` 放到最后是碰巧对的，但 `hairCoverType` 在第五位、`seed` 在第六位——**seed 前的 `hairCoverType` 传错类型会直接编译失败，这是好事；反之传了字面量 0 就会被当成合法值**。
+
+第三，`FaceGen` 的常量 `MonsterSuffixSettlement = "_settlement"`（`:198`）、`MonsterSuffixSettlementSlow = "_settlement_slow"`（`:201`）配合 `GetMonsterWithSuffix`（`:72`）使用，**拼接方向由引擎决定**，mod 侧不要自己拼字符串。
+
 ## 真实示例
 
 先探活再干活（`GetRaceCount() == 0` 即未装实例）：

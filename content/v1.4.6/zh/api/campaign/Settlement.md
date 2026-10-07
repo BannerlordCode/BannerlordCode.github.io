@@ -186,6 +186,52 @@ description: "sealed 的定居点实体：城镇/城堡/村庄/据点统一容�
 | `StartFindingLocatablesAroundPosition` | `public static LocatableSearchData<Settlement> StartFindingLocatablesAroundPosition(Vec2 position, float radius)` | 开始一次「按位置找附近聚落」的迭代搜索，返回游标数据 |
 | `FindNextLocatable` | `public static Settlement FindNextLocatable(ref LocatableSearchData<Settlement> data)` | 沿上一步的游标取下一个结果；耗尽返回 null。**必须配对使用** |
 
+## 怎么用
+
+### 怎么拿到它
+
+`Settlement` 是 `public sealed class Settlement : MBObjectBase, ILocatable<Settlement>, ...`（`TaleWorlds.CampaignSystem/Settlements/Settlement.cs:27`）。战役里的聚落全部走 XML，所以 mod 正常**只读不建**：唯一该用的构造器是 `public Settlement(TextObject name, LocationComplex locationComplex, PartyTemplateObject pt)`（`:923`），无参重载 `public Settlement()`（`:917`）只是转给它并塞一个 `"{=!}unnamed"` 占位名。
+
+读取出口分两类：
+
+- 按 id：`public static Settlement Find(string idString)`（`:1370`），实现只有一行 `MBObjectManager.Instance.GetObject<Settlement>(idString)`，**找不到返回 null**。
+- 按条件：`public static MBReadOnlyList<Settlement> All`（`:1389`，内部 `Campaign.Current.Settlements`）、`FindFirst(Func<Settlement,bool>)`（`:1376`，`FirstOrDefault`，找不到 null）、`FindAll(...)`（`:1382`）、`GetFirst`（`:1399`）。
+- 「玩家现在在哪」：`public static Settlement CurrentSettlement`（`:952`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+// 按 XML id 取（城镇 / 城堡 / 村庄共用一张表，id 前缀分别是 twn_ / cas_ / vil_）
+Settlement capital = Settlement.Find("twn_calradia");           // Settlement.cs:1370
+if (capital == null) { /* id 写错或该聚落不在当前战役 */ }
+
+// 条件查询：所有被玩家敌对的城镇
+foreach (Settlement s in Settlement.FindAll(x => x.IsFortification && x.SiegeEvent != null))   // :1382，IsFortification 见 :824
+{
+    Debug.Print(s.Name.ToString() + " hp=" + s.SettlementHitPoints, 0);   // :475（setter 是 internal）
+    s.SetWallSectionHitPointsRatioAtIndex(0, 0.5f);                       // :461
+    float full = s.SettlementTotalWallHitPoints;                          // :433
+    float maxOne = s.MaxHitPointsOfOneWallSection;                        // :448
+    float worth = s.GetSettlementValueForEnemyHero(Hero.MainHero);       // :939，走 Campaign.Models.SettlementValueModel
+}
+
+// 玩家所在聚落（可能是被俘时的关押处，不一定是 CurrentSettlement 那个分支）
+Settlement here = Settlement.CurrentSettlement;                          // :952
+if (here != null && here.IsFortification && here.HasVisited) { /* ... */ }
+
+// 找最近的聚落，走 locatable 迭代器而不是 All 全表扫
+LocatableSearchData<Settlement> data = Settlement.StartFindingLocatablesAroundPosition(pos, 40f);   // :1408
+Settlement near = Settlement.FindNextLocatable(ref data);                                          // :1414
+```
+
+### 最容易踩的坑
+
+**拿 `Settlement.Find(id)` 的结果不判空就开始用。** 它就是 `MBObjectManager.Instance.GetObject<Settlement>(idString)` 的透传（`Settlement.cs:1370-1372`），而 `MBObjectManager.GetObject<T>(string)` 找不到时 `return default(T)`（`MBObjectManager.cs:315-317`），**不抛异常也不打日志**。所以 mod 里最常见的现象是 `capital` 为 null，紧接着 `capital.Party` 空引用，而控制台没有一行提示告诉你 id 拼错了——尤其在 mod 只往部分地图里加聚落、或读的是另一个战役的存档时。同理 `Settlement.All`（`:1389`）在战役未建立时会直接让 `Campaign.Current` 空引用。
+
+第二个坑是 `SettlementHitPoints`（`:475`）的 **setter 是 `internal`**——mod 读得到、改不了。想改变城墙血量只能用 `SetWallSectionHitPointsRatioAtIndex(int index, float hitPointsRatio)`（`:461`，按分段比例写），或者走 `SiegeEvent` 的官方攻城动作；直接赋值会编译不过，这也是为什么改血量类 mod 几乎都得改 XML 初始值而不是改运行时数值。
+
 ## 真实示例
 
 ```csharp

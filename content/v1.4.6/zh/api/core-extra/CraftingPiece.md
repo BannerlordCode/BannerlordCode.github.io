@@ -98,10 +98,52 @@ description: "单个锻造零件的 XML 定义对象：一块刀刃/护手/握�
 | `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)` | **唯一写入口**。第一行 `this.IsValid = true`。处理根属性 + 六个子节点 `<StatContributions>` / `<BladeData>` / `<BuildData>` / `<Materials>` / `<Flags>` / `<CraftingTemplates>`。 |
 | `OnLoad` | `[LoadInitializationCallback] private void OnLoad(MetaData metaData)` | 读档时重建 `_materialCosts` / `_materialsUsed`。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`CraftingPiece` 是 `public sealed class CraftingPiece : MBObjectBase`（`TaleWorlds.Core/CraftingPiece.cs:14`），`sealed`。它有两个来路，必须分清：
+
+- **真实的部件**：由 `Game.LoadBasicFiles()` → `MBObjectManager.LoadXML("CraftingPieces", ...)` 加载，`MBObjectManager.Instance.GetObject<CraftingPiece>("piece_xxx")` 取出。公开构造器 `public CraftingPiece()`（`:29`）。
+- **无效部件哨兵**：`public static CraftingPiece GetInvalidCraftingPiece(CraftingPiece.PieceTypes pieceType)`（`:53`）——它懒构造一个长度为 4 的静态数组 `_invalidCraftingPiece`，按 `pieceType` 作下标，每个类型最多 new 一个，内容是 `PieceType = pieceType`、`Name = new TextObject("{=!}Invalid", null)`、**`IsValid = false`**。返回的是**缓存的共享实例**，每次调用拿到的是同一个对象。
+
+`IsValid`（`:74`）是判别真实/哨兵的唯一标志。所有数值属性（`MeshName` `:89`、`Culture` `:94`、`Length` `:99`、`DistanceToNextPiece` `:104`、`DistanceToPreviousPiece` `:109`、`PieceOffset` `:114`）都是 `{ get; private set; }`，由 `Deserialize` 写。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+using System.Collections.Generic;
+
+// 真实部件：从 XML 表取
+CraftingPiece blade = MBObjectManager.Instance.GetObject<CraftingPiece>("piece_blade_1");
+
+// 扫描某类型的全部部件（CraftingPiece 没有 GetObjects 快捷法，用 MBObjectManager 的泛型查询）
+MBReadOnlyList<CraftingPiece> all = MBObjectManager.Instance.GetObjects<CraftingPiece>(
+    p => p.PieceType == CraftingPiece.PieceTypes.Blade);              // MBObjectManager.cs:257
+foreach (CraftingPiece p in all)
+{
+    if (!p.IsValid) { continue; }                                     // :74
+    Debug.Print(p.Name + " len=" + p.Length + " mesh=" + p.MeshName, 0);
+}
+
+// 取哨兵：找不到某类型的部件时用它占位，绝不要 new 一个来冒充
+CraftingPiece missing = CraftingPiece.GetInvalidCraftingPiece(CraftingPiece.PieceTypes.Guard);  // :53
+if (!missing.IsValid) { /* 走降级分支，例如不渲染护手 */ }
+```
+
+### 最容易踩的坑
+
+**拿到哨兵就直接读 `Length` / `MeshName`。** `GetInvalidCraftingPiece`（`:53-70`）只设了 `PieceType`、`Name`、`IsValid = false`——`MeshName` 保持 null、`Length` 保持 0、`Culture` 保持 null、`DistanceToNextPiece` 之类也是 0，而且**它不会抛任何异常**。锻造流程拿它占位是引擎的设计，但你如果把哨兵传进 [Crafting](../Crafting) 的 `UsablePiecesList` 或丢给 mesh 加载，得到的会是 null 网格名或长度 0 的部件，最终渲染成一个塌在原点的模型，或者直接空引用。**每次拿到 `CraftingPiece` 先读 `IsValid`**。
+
+第二个坑是这个缓存的**共享**性质：`GetInvalidCraftingPiece` 返回的是静态数组里那个单例（`:57-66`），不是副本。因为它的属性全是 `private set`，你改不了，所以比 [Banner](../Banner) 那种值对象安全——但要注意**不要用引用相等（`==` / `ReferenceEquals`）去判断「两个部件是不是同一个」，因为所有 `GetInvalidCraftingPiece(同一个 pieceType)` 调用返回的都是同一个引用**，而不同类型的哨兵彼此不同。判别请一律用 `IsValid` 加 `PieceType`。
+
 ## 真实示例
 
 按 id 取零件并核对它的几何与经济数据：
 
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 CraftingPiece blade = MBObjectManager.Instance.GetObject<CraftingPiece>("pm_blade_1");
 if (blade == null || !blade.IsValid)

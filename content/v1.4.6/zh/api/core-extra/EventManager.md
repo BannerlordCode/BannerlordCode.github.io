@@ -56,6 +56,55 @@ EventBase evt = new MyEvent();
 | `Clear` | `public void Clear()` | 清空全部订阅。**一次性退订所有类型**——[Game](../Game) 的 `Destroy()` 就是这么做的。 |
 | `GetCloneOfEventDictionary` | `public IDictionary<Type, object> GetCloneOfEventDictionary()` | 拿一份订阅字典的浅拷贝（`new Dictionary<Type, object>`）。**值里的 `List<Action<T>>` 是共享引用**，改副本里的列表会改到原字典。用来做「订阅有没有变」的比较是安全的。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+这一页的 `EventManager` 是 **UI 事件**那一支：`TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/EventManager.cs`，`public class EventManager`（`:14`），1506 行。唯一入口是 `public static EventManager UIEventManager { get; private set; }`（`:44`）——全局单例，setter 是 private，由引擎在 UI 初始化时写入。
+
+注意它和 `TaleWorlds.Library/EventSystem/EventManager.cs` 的同名类型**完全无关**：后者是给 `EventBase` 派生的自定义事件用的 `RegisterEvent` / `TriggerEvent` 总线，两者没有继承关系也没有互相引用。引用时要用完整命名空间消歧。
+
+它持有的是「当前这一帧的 UI 输入状态」：可点击区域（`UsableArea` `:24`、`LeftUsableAreaStart` `:29`、`TopUsableAreaStart` `:34`、`PageSize` `:39`）、指针（`MousePositionInReferenceResolution` `:48`、`IsControllerActive` `:59`）、控件栈（`Root` `:79`、`FocusedWidget` `:84`、`HoveredWidget` `:133`、`MouseOveredWidgets` `:167`、`DraggedWidget` `:221` 等），以及两个公开事件 `OnDragStarted`（`:69`）/ `OnDragEnded`（`:74`）。
+
+### 典型用法
+
+在自定义 ViewModel 或 ScreenComponent 里读当前输入状态，决定是否消费这次点击：
+
+```csharp
+using TaleWorlds.GauntletUI;
+
+EventManager ui = EventManager.UIEventManager;       // EventManager.cs:44，单例
+
+// 焦点在哪个控件上
+Widget focused = ui.FocusedWidget;                    // EventManager.cs:84
+bool modal = (focused != null) && focused.IsEnabled;  // Widget.cs:1178
+
+// 指针在可点击区域内吗（不是绝对坐标，是参考分辨率下的）
+Vector2 pointer = ui.MousePositionInReferenceResolution;          // :48
+if (ui.UsableArea.Contains(pointer))                             // :24
+{
+    // 当前悬停 / 正在拖拽的控件才是真正能拿到输入的那个
+    Widget target = ui.DraggedWidget ?? ui.HoveredWidget ?? ui.FocusedWidget;   // :221 / :133 / :84
+    if (target != null && target.IsVisible)                      // Widget.cs:1319
+    {
+        Debug.Print("hit " + target.Id, 0);
+    }
+}
+
+// 手柄 / 鼠标模式切换时重新绑定 UI
+ui.OnDragStarted += OnDragStarted;                     // :69
+ui.OnDragEnded += OnDragEnded;                         // :74
+
+// 上下文要自己从别处拿，不在它身上
+UIContext ctx = ui.Context;                            // :64
+```
+
+### 最容易踩的坑
+
+**把 `UIEventManager` 当成可以自己 new 的对象，或者在 UI 尚未初始化时读它。** 它只有 `public static EventManager UIEventManager { get; private set; }`（`:44`）这一个出口，没有公开构造器可用、setter 是 private。也就是说：**UI 起来之前它是 null，UI 拆掉之后也变回 null**。而它承载的字段（`FocusedWidget`、`HoveredWidget`、`DraggedWidget`、`MouseOveredWidgets`）全是「当前帧」的瞬时值——把任何一个缓存下来跨帧使用，拿到的就是过期状态，表现是 UI 反应慢半拍或者在高亮的控件上做操作。
+
+更实际的坑：`OnDragStarted` / `OnDragEnded`（`:69`、`:74`）是**公开事件而不是委托字段**，这意味着退订只能用 `-=` 并且**必须传出与订阅时同一个委托实例**——如果你在订阅时写了一个 lambda（`ui.OnDragStarted += () => {...}`），退订时再写一个等价的 lambda 是**另一个对象**，`-=` 不会生效，处理器就永久留在了总线上，每开一次界面多挂一层。而且这两个事件是挂在全局单例上的，跨界面不自动清理。
+
 ## 真实示例
 
 声明事件并走完订阅 / 发布 / 退订：

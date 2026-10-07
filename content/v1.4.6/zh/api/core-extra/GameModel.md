@@ -43,6 +43,54 @@ mod 写自定义模型的典型顺序：
 | --- | --- | --- |
 | （无） | `public abstract class GameModel` | 模型层根标记。为 [GameModelsManager](../GameModelsManager) 的 `GetGameModel<T>() where T : GameModel` 提供泛型约束上限，使 `this._gameModels[i] as T` 的转换在编译期合法。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`GameModel` 是 `public abstract class GameModel`（`TaleWorlds.Core/GameModel.cs:6`）——**全文 10 行，声明后面直接就是一个空的花括号 `{}`，一个成员都没有**。它不继承任何东西，连 `MBObjectBase` 都不是。
+
+所以「怎么拿到它」完全取决于引擎怎么传递它：
+
+- **注册**：`IGameStarter.AddModel(GameModel)`（`IGameStarter.cs:12`），通常在 `MBGameManager.OnGameInitializationFinished` 里。
+- **汇总**：`Game.SetBasicModels(campaignGameStarter.Models)`（`Campaign.cs:1915`）与 `Game.AddGameModelsManager<GameModels>(campaignGameStarter.Models)`（`Campaign.cs:1916`）把集合变成 [GameModelsManager](../GameModelsManager)。
+- **取用**：`Campaign.Current.Models` 这类强类型入口最终调用 `GameModelsManager.GetGameModel<T>()`（`GameModelsManager.cs:17`），或 `Game.Current.DefaultSkills` 那样直接持有。
+
+它**没有构造器**（隐式无参）、没有生命周期回调、没有 `Initialize`。模型之间要互相引用，惯例是**在自己派生类的构造器里接收其它 `GameModel` 作为参数**。
+
+### 典型用法
+
+定义一个时间加速模型，并在消费端从 `GameModelsManager` 里取：
+
+```csharp
+using TaleWorlds.Core;
+
+// 一个只有纯计算的模型：不继承任何东西，自己拿依赖
+public class TimeCompressionModel : GameModel          // GameModel.cs:6，空基类
+{
+    public float Scale { get; private set; }
+    public void SetScale(float s) { Scale = s; }
+}
+
+// 注册
+public override void OnGameInitializationFinished(Game game, IGameStarter gameStarter)
+{
+    gameStarter.AddModel(new TimeCompressionModel());  // IGameStarter.cs:12
+}
+
+// 取用：GetGameModel<T> 从后往前找，找不到返回 null
+GameModelsManager mgr = game.GetGameModelsManager<GameModels>();
+TimeCompressionModel mine = mgr.GetGameModel<TimeCompressionModel>();   // GameModelsManager.cs:17
+if (mine != null) { mine.SetScale(2f); }
+```
+
+### 最容易踩的坑
+
+**因为 `GameModel` 是空类，就以为可以随便写一个 `class Mine : GameModel` 然后在别处 `new` 出来直接用。** 它的生命周期完全由注册与汇总链决定：`AddModel`（`IGameStarter.cs:12`）只是把实例放进 `Models` 集合，真正让它可用的是 `Game.SetBasicModels` / `AddGameModelsManager`（`Campaign.cs:1915-1916`）。你手动 `new` 出来的那个实例**不在集合里**，`GetGameModel<T>()`（`GameModelsManager.cs:17`）从集合尾部往前扫，永远扫不到它——于是 `Campaign.Current.Models.你的模型` 是 null，而你自己手里那个实例明明有数据。表现是「同一个模型有两份，其中一份完全不生效」。
+
+第二个坑在 `GetGameModel<T>()`（`GameModelsManager.cs:17-29`）的查找方向和失败行为：实现是 `for (int i = this._gameModels.Count - 1; i >= 0; i--) { if ((t = this._gameModels[i] as T) != null) return t; } return default(T);`——**倒序扫描，所以列表里靠后的同类型模型赢**；找不到返回 `null` 而不是抛异常。后果是如果两个 mod 都注册了同类型模型，加载顺序决定你拿到谁的，覆盖行为静默发生。
+
+第三，`GameModelsManager` 的构造器是 `protected GameModelsManager(IEnumerable<GameModel> inputComponents)`（`:11`），内部 `inputComponents.ToMBList<GameModel>()`（`:12`）——**它在构造时就做了拷贝**。所以注册之后、汇总之前往 `IGameStarter.Models` 里加东西，取决于汇总发生在哪一步（`Campaign.cs:1915`）。
+
 ## 真实示例
 
 mod 注册一个自定义估值模型并取回（`MBGameModel<T>` 是官方带委托的实现基类）：

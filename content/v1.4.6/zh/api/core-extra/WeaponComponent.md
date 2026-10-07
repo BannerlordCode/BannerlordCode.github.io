@@ -48,10 +48,55 @@ description: "物品的武器组件：持有一组 WeaponComponentData（每件�
 
 继承自 [ItemComponent](../ItemComponent)（未重复列出）：`public ItemObject Item { get; set; }`、`public ItemModifierGroup ItemModifierGroup { get; protected set; }`、`public override void Deserialize(MBObjectManager, XmlNode)`。
 
-## 真实示例
+## 怎么用
+
+### 怎么拿到它
+
+`WeaponComponent` 是 `public class WeaponComponent : ItemComponent`（`TaleWorlds.Core/WeaponComponent.cs:10`）。构造器 `public WeaponComponent(ItemObject item)`（`:58`）。
+
+内部只有一个字段 `private readonly MBList<WeaponComponentData> _weaponList = new MBList<WeaponComponentData>();`（`:85`）——**初始化在字段声明处，所以构造器不用管**。它对外暴露两个只读口：`public MBReadOnlyList<WeaponComponentData> Weapons`（`:26`，getter 返回 `_weaponList`）和 `public WeaponComponentData PrimaryWeapon`（`:36`，getter 是 `this._weaponList[0];`——`:40`）。
+
+写入只有 `public void AddWeapon(WeaponComponentData weaponComponentData, ItemModifierGroup itemModifierGroup)`（`:45`），实现两行：`base.ItemModifierGroup = itemModifierGroup;` 然后 `this._weaponList.Add(weaponComponentData);`（`:46-47`）。**注意它顺带改了基类的 `ItemModifierGroup`**——因为那个属性的 setter 是 `protected`（`ItemComponent.cs:25`），所以只有子类做得到。
+
+XML 路径：`public override void Deserialize(MBObjectManager objectManager, XmlNode node)`（`:70`）先 `base.Deserialize` 读 `modifier_group` 属性（`:71-76`），然后 `new WeaponComponentData(base.Item, WeaponClass.Undefined, (WeaponFlags)0UL)` 并 `Deserialize`，**只加一条**（`:77-79`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+ItemObject sword = MBObjectManager.Instance.GetObject<ItemObject>("sword_1");   // MBObjectManager.cs:288
+
+var wc = sword.ItemComponent as WeaponComponent;      // as，类型不对是 null
+if (wc != null)
+{
+    WeaponComponentData primary = wc.PrimaryWeapon;   // WeaponComponent.cs:36，内部 _weaponList[0]
+    int thrust = primary.ThrustDamage;                // WeaponComponentData.cs:85
+    DamageTypes type = primary.ThrustDamageType;      // :90
+    int handling = primary.Handling;                  // :160
+
+    // 多形态武器（刀 / 剑 / 矛）
+    MBReadOnlyList<WeaponComponentData> all = wc.Weapons;   // :26
+
+    // 代码里追加一条形态，会同时改掉 ItemModifierGroup
+    wc.AddWeapon(otherData, myModifierGroup);               // :45
+}
+```
+
+### 最容易踩的坑
+
+**读 `PrimaryWeapon` 而不先确认 `_weaponList` 非空。** `PrimaryWeapon` 的 getter 是裸的 `this._weaponList[0];`（`:40`）——**没有长度检查**。而 `ItemComponent` 的单槽限制意味着你可能拿到一个 `WeaponComponent` 却从没往里加过任何 `WeaponComponentData`：比如自己 `new WeaponComponent(item)` 然后只调 `GetCopy()`（`GetCopy()` 的实现是 `new WeaponComponent(base.Item)`，`:52-55`——**它只回填了 `Item`，列表是空的**）。后果是第一次读 `PrimaryWeapon` 就 `ArgumentOutOfRangeException`，而报错点离真正的原因（没调 `AddWeapon`）很远。
+
+第二个坑正是 `GetCopy()` 本身：它返回的 `WeaponComponent` **不包含任何武器形态**（`:52-55`），也不复制 `ItemModifierGroup`。所以拿一个 `WeaponComponent.GetCopy()` 的结果去当「原装备的副本」用，得到的是一个壳——形态列表空、词缀组 null，武器完全打不出伤害。要真正复制形态，必须自己遍历 `Weapons`（`:26`）逐条 `AddWeapon`（`:45`）。
+
+第三，`AddWeapon` 的第二个参数会**无条件覆盖** `base.ItemModifierGroup`（`:46`）——用不同词缀组连续调两次，只有最后一次生效。
 
 从物品上取主武器与全部形态（先判 `HasWeaponComponent` 再取）：
 
+## 真实示例
+
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 ItemObject axe = MBObjectManager.Instance.GetObject<ItemObject>("heavy_bearded_axe");
 

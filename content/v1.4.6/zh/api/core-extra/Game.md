@@ -87,6 +87,62 @@ description: "一次游戏会话的根对象：持有 MBObjectManager、GameStat
 | `OnFinalize` | `public void OnFinalize()` | `CurrentState = Destroying` 后 `GameStateManager.Current.CleanStates(0)`，清空全局状态栈。 |
 | `State` | `public enum State { Running, Destroying, Destroyed }` | 嵌套枚举，描述 `CurrentState` 的三阶段。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`Game` 是「当前这场游戏」的根对象。**它没有公开构造器**——`private Game(...)` 只被两个静态工厂调用。
+
+两个入口，**选哪个决定了后面一整套顺序**：
+
+- `public static Game CreateGame(GameType gameType, GameManagerBase gameManager)`（`Game.cs`）——新开局。内部顺序：`MBObjectManager.Init()` → `Game.RegisterTypes(gameType, objectManager, gameManager)`（`:438`）→ 私有构造 `private Game(GameType gameType, GameManagerBase gameManager, MBObjectManager objectManager)`（`:261`，构造器里写 `Game.Current`、`GameType.CurrentGame`、把自己塞给 `GameManager.Game` 并触发 `GameManager.Initialize()`、最后 `InitializeParameters()`）。
+- `public static Game LoadSaveGame(LoadResult loadResult, GameManagerBase gameManager)`（`Game.cs`）——读档，**七步顺序不可重排**：`MBSaveLoad.OnStartGame` → `MBObjectManager.Init()` → 从 `loadResult.Root` 取出反序列化好的 `Game` → `RegisterTypes`（`:438`）→ `loadResult.InitializeObjects()` → `MBObjectManager.Instance.ReInitialize()` → `loadResult.AfterInitializeObjects()` → `private void BeginLoading(GameManagerBase gameManager)`（`:309`）。
+
+之后你才需要 `public void CreateGameManager()`（`:394`，建本局的 `GameStateManager`）→ `public void Initialize()`（`:424`）→ `public void InitializeDefaultGameObjects()`（`:584`）→ `public void LoadBasicFiles()`（`:595`）。**前两步回调跑完之前不要碰 `Game.Current` 的派生状态。**
+
+日常读取靠 `Game.Current`（`public static Game Current { get; internal set; }`），以及四个子服务：`ObjectManager`（`MBObjectManager`）、`GameStateManager`、`GameTextManager`、`GameManager`（`GameManagerBase`）。
+
+### 典型用法
+
+写一个最小的 [GameManagerBase](../GameManagerBase) 派生类，开一局，取用局内对象：
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
+
+public class MyGameManager : GameManagerBase
+{
+    public override void OnGameStart(Game game, IGameStarter gameStarter) { }
+    public override void BeginGameStart(Game game) { }
+    public override void RegisterSubModuleTypes() { }
+    public override void RegisterSubModuleObjects(bool isSavedCampaign) { }
+    public override float ApplicationTime => 0f;
+    public override bool CheatMode => false;
+    // ... 其余抽象成员见 GameManagerBase 一页
+}
+
+// 建局：返回的实例已写入 Game.Current
+Game game = Game.CreateGame(new Campaign(), new MyGameManager());
+game.CreateGameManager();          // 之后才能 PushState
+game.Initialize();
+game.InitializeDefaultGameObjects();
+game.LoadBasicFiles();
+
+MBObjectManager om = game.ObjectManager;          // 本局的 MBObjectManager 单例
+Monster first = om.GetFirstObject<Monster>();     // 找不到返回 null
+
+// 挂一个 GameHandler（AddGameHandler<T> 在 :406）
+Game.Current.AddGameHandler<MyLedgerGameHandler>();
+```
+
+### 最容易踩的坑
+
+**在 `MBObjectManager.Init()` 之前、或 `RegisterTypes` 之前就去用 `Game.Current.ObjectManager`。** `ObjectManager` 是由 `MBObjectManager.Init()` 建出来的那一个实例（`Game.CreateGame` 的第一步），而**类型注册必须走在 `Game.RegisterTypes(gameType, objectManager, gameManager)` 之后**——它注册核心 16 个类型（id 2–53），你的 `MBObjectManager.RegisterType<T>` 要排在它后面。抢在前面注册会导致 `RegisterType` 找不到可用的类型槽，你自己的 `MBObjectBase` 派生类永远不会被 `LoadXML` 实例化。
+
+第二个坑是 **`Game.OnTick` 会把 GameHandler 的异常吞掉**。每个 `GameHandler.OnTick` 被 try/catch 包住，异常只 `Debug.Print`。所以你的 handler 崩了不会有任何显眼征兆，只有日志——而模组里「逻辑偶发不生效」的第一排查对象就是它。
+
+第三，`Current` 的 setter 是 **internal**（只在 `CreateGame` / `BeginLoading` / `Destroy` 里写），但每次赋值都会触发静态事件 `OnGameCreated`——**包括 `Destroy()` 把它置 null 的那一次**。所以处理器必须能容忍参数是 null，不能假设「收到 OnGameCreated 就是新局开始」。
+
 ## 真实示例
 
 写一个最小的 `MBGameManager` 派生类，然后开一局并取用局内对象：

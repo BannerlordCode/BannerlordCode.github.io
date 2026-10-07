@@ -99,10 +99,60 @@ description: "怪物/骨架定义：XML 里 Monsters 目录的条目，承载碰
 | `GetBoneHasParentBone` | `public static Func<string, sbyte, bool> GetBoneHasParentBone;` | 同上的第二个注入点，用于校验骨骼是否有父骨。为 null 时校验被跳过。 |
 | `.ctor` | `public Monster()` | 无参构造。**正式实例由 `LoadXML("Monsters", false)` 产出**，`sealed` 且不可继承。 |
 
-## 真实示例
+## 怎么用
+
+### 怎么拿到它
+
+`Monster` 是 `public sealed class Monster : MBObjectBase`（`TaleWorlds.Core/Monster.cs:11`），1009 行、90 个公开成员。**sealed**。XML 对象，由 `Game.LoadBasicFiles()` 的 `this.ObjectManager.LoadXML("Monsters", false);`（`Game.cs:597`）加载。
+
+入口有三个：
+
+- 按 id：`MBObjectManager.Instance.GetObject<Monster>("monster id")`
+- 取默认：`Game.Current.DefaultMonster`（`Game.cs:39`）——懒加载第一个 `Monster` 并缓存
+- 按人种 / 后缀：`FaceGen.GetMonster(string monsterID)`（`FaceGen.cs:61`）、`FaceGen.GetBaseMonsterFromRace(int race)`（`FaceGen.cs:83`）、`FaceGen.GetMonsterWithSuffix(int race, string suffix)`（`FaceGen.cs:72`）——这三个在 `FaceGen._instance` 为 null 时返回 null。
+
+**它没有任何公开构造器**，只有 `public override void Deserialize(MBObjectManager objectManager, XmlNode node)`（`:450`）。所以自定义怪物**只能靠加 XML 行**，不能代码 new。
+
+成员几乎全是 `{ get; private set; }`，分三类：胶囊体（`BodyCapsuleRadius` `:21`、`BodyCapsulePoint1` `:26`、`BodyCapsulePoint2` `:31`，蹲下版 `:36`-`:46`）、运动参数（`NumPaces` `:76`、`WalkingSpeedLimit` `:86`、`CrouchWalkingSpeedLimit` `:91`、`JumpAcceleration` `:96`、`AbsorbedDamageRatio` `:101`）、以及**大量 `sbyte` 骨骼下标**（`RiderSitBoneIndex` `:391`、`PrimaryFootBoneIndex` `:316`、`ReinHeadBoneIndex` `:411` 等，密集分布在 `:280`-`:431`）。
+
+两个静态委托是给 native 侧回填用的钩子：`public static Func<string, string, sbyte> GetBoneIndexWithId;`（`:999`）、`public static Func<string, sbyte, bool> GetBoneHasParentBone;`（`:1002`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+// 取一个怪物定义
+Monster m = MBObjectManager.Instance.GetObject<Monster>("monster_human");   // MBObjectManager.cs:288
+if (m == null) { m = Game.Current.DefaultMonster; }   // Game.cs:39
+
+int hp = m.HitPoints;                     // Monster.cs:61
+int weight = m.Weight;                    // :56
+string actions = m.ActionSetCode;         // :66
+AgentFlag flags = m.Flags;                // :51
+float radius = m.BodyCapsuleRadius;       // :21
+Vec3 p1 = m.BodyCapsulePoint1;            // :26
+
+// 骨骼下标全是 sbyte，负值就是「没有」
+sbyte sitBone = m.RiderSitBoneIndex;      // :391
+if (sitBone >= 0) { /* 这只怪物支持骑乘 */ }
+
+// 静态委托是 native 回填的钩子，通常由引擎自己设
+Monster.GetBoneIndexWithId = (skeleton, boneId) => 3;
+```
+
+### 最容易踩的坑
+
+**把 `sbyte` 骨骼下标当成「不存在就是 0」。** 90 个成员里有几十个是 `sbyte`（`:296` 到 `:431`），默认值 0 是一个**合法且常见**的骨骼下标，所以「读到 0」和「这一项没配置」在数值上分不开。真正可靠的判据是读 `IsRideable` 这类已经算好的布尔属性，或者在 XML 里确认——`rider_sit_bone_index` 缺失时会得到 0，于是你以为骑乘绑定到根骨而不是「不可骑乘」。表现是骑手模型穿过马背、马匹姿态完全错乱，而不是任何报错。
+
+第二个坑是这个类型**只能来自 XML**。没有公开构造器、`sealed`、`Deserialize`（`:450`）是唯一的填充入口——所以「在代码里造一个新怪物类型」根本做不到，只能在 `monsters` 表里加一行再让引擎加载。模组里想在运行期改某个怪物的数值也做不到，因为所有成员都是 `{ get; private set; }`。
 
 按 id 取怪物并读碰撞胶囊与体型（三组尺寸都要按姿态选）：
 
+## 真实示例
+
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 Monster orc = MBObjectManager.Instance.GetObject<Monster>("orc");
 

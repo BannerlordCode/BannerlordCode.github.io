@@ -512,6 +512,68 @@ AI 侧走 `AIStateFlags`（同样是位域，`AlarmStateMask = 3` 用来取警�
 | `LockAgentReplicationTableDataWithCurrentReliableSequenceNo` | `public void LockAgentReplicationTableDataWithCurrentReliableSequenceNo(NetworkCommunicator peer)` | 锁定复制表数据。多人大规模同步用 |
 | `Agent.IsActive()` 与 `IsReleasingChainAttackInMultiplayer()` | 见上 | 与上文同，不重复列 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`Agent` 是 `TaleWorlds.MountAndBlade/Agent.cs:15` 的 `public sealed class Agent : DotNetObject, IAgent, IFocusable, IUsable, IFormationUnit, ITrackableBase`——**sealed**。它继承 `DotNetObject`，所以有 `GetPtr()`，很多行为最终转给 `MBAPI.IMBAgent.*`。
+
+**它由 native 侧创建，模组永远不 new。** 取用的四条路：
+
+- `public static Agent Main`（`:19`）——getter 先 `Mission mission = Mission.Current; if (mission == null) return null;` 再 `return mission.MainAgent;`（`:21-28`）。**所以战斗之外它返回 null。**
+- 从 [Team](../../mission-ext/Team) / [Formation](../Formation) 反查：`Team` 有按 Agent 找的查询，`Formation` 的 `OnUnitAdded` 事件会给你实例。
+- 从 [MissionBehavior](../MissionBehavior) 的回调参数拿：`OnAgentCreated(Agent agent)`（`MissionBehavior.cs:78`）、`OnAgentHit(Agent affectedAgent, Agent affectorAgent, ...)`（`:98`）等，这些参数就是现成的。
+- 从物品/装备交互：`Formation` 那一层的 pickup 事件。
+
+常用成员：`public Team Team { get; private set; }`（`:665`）、`public int KillCount { get; set; }`（`:669`）、`public float Health`（`:1558`）、`public float HealthLimit { get; set; }`（`:690`）、`public IAgentOriginBase Origin { get; set; }`（`:660`）。
+
+**注意两个判断方法是方法而不是属性**：`public bool IsActive()`（`:3565`，实现是 `return this.State == AgentState.Active;`）、`IsRetreating()`（`:3572`）、`IsFadingOut()`（`:3578`）、`CanTeleport()`（`:3560`）。写成 `agent.IsActive` 会编译失败——这挡住了一类 bug。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.MountAndBlade;
+using TaleWorlds.Core;
+
+// 玩家角色：战斗外是 null
+Agent player = Agent.Main;                                   // Agent.cs:19
+if (player != null && player.IsActive())                     // :3565，注意是方法
+{
+    float hp = player.Health;                                 // :1558
+    float max = player.HealthLimit;                           // :690
+    Team t = player.Team;                                     // :665
+    int kills = player.KillCount;                             // :669
+}
+
+// 更可靠的做法：在 MissionBehavior 里挂回调拿实例
+public class MyLogic : MissionBehavior
+{
+    public override MissionBehaviorType BehaviorType => MissionBehaviorType.Logic;
+
+    public override void OnAgentCreated(Agent agent)          // MissionBehavior.cs:78
+    {
+        if (agent == Agent.Main)
+        {
+            Debug.Print("player hp = " + agent.Health, 0);
+        }
+    }
+
+    public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent,
+                                    in MissionWeapon affectorWeapon, in Blow blow,
+                                    in AttackCollisionData attackCollisionData) { }   // :98
+}
+```
+
+### 最容易踩的坑
+
+**把 `Agent` 的引用跨战斗缓存。** 它是 `DotNetObject` 的一层包装，底层是 native 指针——战斗结束、mission 卸载之后，这个引用指向的对象已经没了。缓存它再在下一次战斗里读 `Health`，得到的是上一场的数据或直接崩。`Agent.Main`（`:19`）的实现也印证了这一点：**它每次都先取 `Mission.Current`，`Mission.Current` 为 null 就返回 null**（`:22-25`）——这个 getter 本身就承认「引用不该被留住」。
+
+第二个坑是把 `IsActive()` 当属性用，或者——更实际的问题——**用 `IsActive()` 当「这个单位还活着」的判断**。它只是 `State == AgentState.Active`（`:3567`），而 `AgentState` 至少还有 `Dead`、`Deleted`、`Disabled` 之类。单位死了但还没从 mission 里清理时，`State` 已经是别的值；反过来，**已经被删除的 Agent 对象上调用任何方法都不保证安全**。判断存活请组合 `State` 与 mission 的清理时机，不要只靠 `IsActive()`。
+
+第三，`Team`（`:665`）和 `HealthLimit`（`:690`）的属性不同——前者 setter 是 **private**（队伍分配完就不能改），后者是 **public set**（`:690` 就是 `{ get; set; }`）。想手动改某个 Agent 的血量上限可以走 `HealthLimit`，但改队伍归属**编译期就不允许**。
+
+第四，`CanTeleport()`（`:3560`）内部读 `this.Mission.IsTeleportingAgents` 和 `this.Formation`——**mission 或 formation 为 null 时它就空引用**，而不是返回 false。它在你准备做传送逻辑之前是个必须先判空的前置条件。
+
 ## 真实示例
 
 ```csharp

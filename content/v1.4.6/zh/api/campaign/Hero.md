@@ -1,6 +1,6 @@
 ---
 title: "Hero"
-description: "sealed 的领主实体：身份与状态（CharacterStates）、属性技能特质、家��队伍、财富关系，以及一整套可触发的否决查询。"
+description: "sealed 的领主实体：身份与状态（CharacterStates）、属性技能特质、家族、队伍、财富关系，以及一整套可触发的否决查询。"
 ---
 # Hero
 
@@ -172,7 +172,7 @@ description: "sealed 的领主实体：身份与状态（CharacterStates）、�
 | --- | --- | --- |
 | `Gold` | `public int Gold` | 个人财富 |
 | `ChangeHeroGold` | `public void ChangeHeroGold(int changeAmount)` | 增减财富。`changeAmount` 为负时会触发破产处理 |
-| `AddInfluenceWithKingdom` | `public void AddInfluenceWithKingdom(float additionalInfluence)` | 增加对本王国的影�� |
+| `AddInfluenceWithKingdom` | `public void AddInfluenceWithKingdom(float additionalInfluence)` | 增加对本王国的影响力 |
 | `Power` | `public float Power` | 领主权重，影响征召与关系衰减 |
 | `AddPower` | `public void AddPower(float value)` | 增减权重 |
 | `PowerModifier` | `public float PowerModifier` | 权重修正系数 |
@@ -256,6 +256,51 @@ description: "sealed 的领主实体：身份与状态（CharacterStates）、�
 | `GetName` | `public override TextObject GetName()` | 返回 `Name`，覆盖基类的 `StringId` 兜底实现 |
 | `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)` | 从 XML 读取该领主定义。必须调 `base` 否则 `IsInitialized` 不会被置位 |
 | `ToString` | `public override string ToString()` | 调试用字符串表示 |
+
+## 怎么用
+
+### 怎么拿到它
+
+`Hero` 有三个公开构造器：`public Hero(string stringId, CharacterObject characterObject, CampaignTime birthDay)`（`TaleWorlds.CampaignSystem/Hero.cs:1905`）、带死亡时间的重载（`:1915`）、以及 `public Hero()`（`:1927`）。mod 建新领主时必须用前两个并自己保证 `characterObject.IsHero`——因为 `Hero.MainHero` 之类的读取路径是**从 `CharacterObject` 反查**的。
+
+mod 日常拿到的都是现成实例，走静态出口：
+
+- `public static Hero MainHero`（`:2680`），getter 是 `CharacterObject.PlayerCharacter.HeroObject`。
+- `public static MBReadOnlyList<Hero> AllAliveHeroes`（`:2660`）、`DeadOrDisabledHeroes`（`:2670`），分别是 `Campaign.Current.AliveHeroes` / `DeadOrDisabledHeroes`。
+- 查询：`Find(string stringId)`（`:2645`，内部 `Campaign.Current.CampaignObjectManager.Find<Hero>`）、`FindFirst(Func<Hero,bool>)`（`:2634`）、`FindAll(...)`（`:2651`）。注意 `FindFirst` 的实现是 `Campaign.Current.Characters.FirstOrDefault(x => x.IsHero && predicate(x.HeroObject))`，找不到返回 null。
+- `OneToOneConversationHero`（`:2690`）、`IsMainHeroIll`（`:2700`）、`SetHeroEncyclopediaTextAndLinks(Hero o)`（`:2331`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+// 找一个符合条件的领主；找不到是 null，不是异常
+Hero smith = Hero.FindFirst(h => h.IsAlive && h.IsNotable && h.HomeSettlement != null);   // Hero.cs:2634
+if (smith != null)
+{
+    smith.ChangeHeroGold(200);           // :2869，内部有 int.MaxValue 溢出夹取；注意直接写 Gold 只会 MathF.Max(0,value) 夹到 0
+    smith.AddInfluenceWithKingdom(30f);       // :2523，内部转 ChangeClanInfluenceAction.Apply(Clan, int)，注意它**截断成整数**
+    float value = smith.Gold;                 // int，setter 是 MathF.Max(0, value)（:1618-1626）
+    TextObject name = smith.Name;             // 委托到 HeroObject.Name
+}
+
+// 遍历活着的领主做自己的筛选
+foreach (Hero h in Hero.AllAliveHeroes)      // :2660 → Campaign.Current.AliveHeroes
+{
+    if (h.Clan == Clan.PlayerClan && h.IsNotable) { /* ... */ }   // IsNotable 见 :1040
+}
+
+// 新建一个领主：stringId 必须全campaign 唯一
+CharacterObject co = CharacterObject.CreateFrom(someTemplateCharacter);   // CharacterObject.cs:368
+Hero newHero = new Hero("my_mod_hero_1", co, Campaign.Current.Today);      // :1905
+```
+
+### 最容易踩的坑
+
+**把 `Hero.MainHero` 当成一个稳定的全局量直接缓存，或者在战役未建立时读它。** 它的 getter 是两跳：`CharacterObject.PlayerCharacter.HeroObject`（`Hero.cs:2680-2683`），而 `CharacterObject.PlayerCharacter` 内部又是 `Game.Current.PlayerTroop as CharacterObject`（`CharacterObject.cs:396-401`）。三个后果：战役没建起来时 `Game.Current` 为 null 直接空引用；玩家角色是普通 troop 而非 hero 时 `HeroObject` 为 null；以及**换局后缓存下来的 `MainHero` 指向已经销毁的战役**。每次现取，或者只把它当方法参数传递。
+
+第二个坑是 `AddInfluenceWithKingdom(float additionalInfluence)`（`:2523-2527`）：它先抽一个 `MBRandom.RandomFloat`，然后 `ChangeClanInfluenceAction.Apply(this.Clan, (float)((int)additionalInfluence + (randomFloat < additionalInfluence - MathF.Floor(additionalInfluence) ? 1 : 0)))`——也就是**取整（带一点向上取整的随机项）后再按家族影响力入账**。传 30.7f 不会加 30.7。影响力挂在 `this.Clan` 上而不是领主身上，所以在无家族（`Clan` 为 null）的领主上调它会空引用。
 
 ## 真实示例
 

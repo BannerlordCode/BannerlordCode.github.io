@@ -41,6 +41,60 @@ description: "模型集合的持有者：构造时快照一批 GameModel，按�
 | `GetGameModels` | `public MBReadOnlyList<GameModel> GetGameModels()` | 返回整个模型的只读视图。调试、遍历、统计用。**返回的是内部 `MBList` 的只读包装，不是副本**——但因为没有写入通道，所以只读性是真实成立的。 |
 | （继承自 `Object`） | `ToString` / `Equals` / `GetHashCode` | 基类实现，本类未覆写。管理器之间按引用比较。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`GameModelsManager` 是 `public abstract class GameModelsManager`（`TaleWorlds.Core/GameModelsManager.cs:8`），全文 40 行。
+
+**构造器是 `protected GameModelsManager(IEnumerable<GameModel> inputComponents)`（`:11`）**，而且它**当场做一次拷贝**：`this._gameModels = inputComponents.ToMBList<GameModel>();`（`:12`）——存进私有只读字段 `private readonly MBList<GameModel> _gameModels;`（`:39`）。所以构造完成之后，外部再往源集合里加东西**不会**影响它。
+
+实例由 [Game](../Game) 反射创建：`Game.AddGameModelsManager<T>(IEnumerable<GameModel> inputComponents) where T : GameModelsManager` 和它的便捷包装 `SetBasicModels(IEnumerable<GameModel> models)`。战役侧则是 `Game.AddGameModelsManager<GameModels>(campaignGameStarter.Models)`（`Campaign.cs:1916`）。
+
+两个取用方法：`protected T GetGameModel<T>() where T : GameModel`（`:17`）——**protected，外部拿不到，只能在自己的派生类里包一层**；`public MBReadOnlyList<GameModel> GetGameModels()`（`:31`）——返回只读列表。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+using System.Collections.Generic;
+
+// 典型形状：在派生类里把依赖收集好，对外开强类型属性
+public class BasicGameModels : GameModelsManager        // GameModelsManager.cs:8
+{
+    public BasicGameModels(IEnumerable<GameModel> input) : base(input) { }   // :11
+
+    private TimeCompressionModel _time;
+
+    public TimeCompressionModel TimeModel
+    {
+        get { return this._time; }
+    }
+
+    // GetGameModel<T> 是 protected（:17），只能在派生类里调
+    public bool Resolve()
+    {
+        _time = GetGameModel<TimeCompressionModel>();     // :17
+        return _time != null;
+    }
+}
+
+// 注册（由 Game 反射构造并塞进字典）
+Game.Current.SetBasicModels(startedModels);             // 便捷包装，内部 AddGameModelsManager<BasicGameModels>
+
+// 读：要么用自己的属性，要么走公开的列表
+MBReadOnlyList<GameModel> all = basicModels.GetGameModels();   // :31
+GameModel any = all.Count > 0 ? all[0] : null;
+```
+
+### 最容易踩的坑
+
+**指望 `SetField` 式的「晚绑定」——在构造之后往源集合加模型，然后指望 `GetGameModel<T>()` 能找到。** 构造器（`:11-13`）在第一句就 `ToMBList<GameModel>()` 把输入拷进自己的 `_gameModels`（`:12`），而且这个字段是 `readonly`（`:39`），**没有任何 Add 方法**。所以汇总时机之后注册的模型永远不会进到这个 manager 里，`GetGameModel<T>()`（`:17`）返回 null——不报错，只是「静默没生效」。注册必须发生在 [IGameStarter](../IGameStarter) 阶段，也就是 `Campaign.cs:1915-1916` 汇总之前。
+
+第二个坑是 `GetGameModel<T>()`（`:17-29`）的**倒序查找**：`for (int i = this._gameModels.Count - 1; i >= 0; i--)`，先注册同类型模型会被后注册的遮蔽。两个 mod 都注册同一类型时，最终生效的那个取决于它们在 `IGameStarter.Models` 里的顺序，而 `CampaignGameStarter.AddModel` 的调用顺序又取决于 `MBGameManager` 回调的执行顺序。**同名覆盖是静默的**，所以自定义模型请用一个别的 mod 不会碰的类型名。
+
+第三，`GetGameModel<T>()` 是 `protected`（`:17`）。如果你想在 `CampaignBehaviorBase` 里直接调它，编译不过——必须在 `GameModelsManager` 派生类里包一个公开成员出来。
+
 ## 真实示例
 
 继承一个管理器并把查找包成公开属性（官方 `BasicGameModels` 的标准形状）：

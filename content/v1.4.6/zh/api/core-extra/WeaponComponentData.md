@@ -110,10 +110,60 @@ description: "一把武器形态的完整参数表：伤害、速度、手感、
 | `SetDamageFactors` | `private void SetDamageFactors(float weight)` | 私有派生内核。弓 / 弩 / 飞斧 / 飞刀 / 标枪 / 箭 / 弩箭直接双因子置 1；否则按 `Sqrt(Sqrt(weight / (WeaponLength * 0.01f)))` 与伤害类型系数算出，**再统一乘 0.8**。 |
 | `WeaponTiers` | `public enum WeaponTiers` | 嵌套枚举：`Tier1` / `Tier2` / `Tier3` / `Tier4` / `Special`。 |
 
-## 真实示例
+## 怎么用
+
+### 怎么拿到它
+
+`WeaponComponentData` 是 `public class WeaponComponentData`（`TaleWorlds.Core/WeaponComponentData.cs:9`）——**它不继承 `MBObjectBase`**，是 726 行、59 个公开成员的纯值对象，一个 `WeaponComponent`（`WeaponComponent.cs:10`）内部可以挂好几条。
+
+构造器 `public WeaponComponentData(ItemObject item, WeaponClass weaponClass = WeaponClass.Undefined, WeaponFlags weaponFlags = (WeaponFlags)0UL)`（`:476`），三个参数都有默认值——而且构造器体**逐个给二十多个字段赋初值**（`:477` 起，`BodyArmor = 0`、`PhysicsMaterial = ""`、`ItemUsage = null`…），不是留 0。填充靠 `public void Deserialize(ItemObject item, XmlNode node)`（`:501`）——注意**签名是 `(ItemObject, XmlNode)` 而不是基类那一套 `(MBObjectManager, XmlNode)`**，它根本没有基类。
+
+绝大多数成员是 `{ get; private set; }` 且只有一条 XML 读取路径，所以运行期几乎全部只读。常用字段：`WeaponTier`（`:25`）、`WeaponDescriptionId`（`:30`）、`ThrustDamage`（`:85`）/ `ThrustDamageType`（`:90`）、`SwingDamage`（`:95`）/ `SwingDamageType`（`:100`）、`WeaponClass`（`:115`）、`Handling`（`:160`）、`WeaponLength`（`:75`）、`WeaponBalance`（`:80`）、`Accuracy`（`:110`）。
+
+唯一的例外是 `public int MissileDamage`（`:124`）——它有 getter 也有计算逻辑，不是单纯的 `{ get; private set; }`。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+ItemObject sword = MBObjectManager.Instance.GetObject<ItemObject>("sword_1");   // MBObjectManager.cs:288
+var wc = sword.ItemComponent as WeaponComponent;      // WeaponComponent.cs:10
+if (wc != null)
+{
+    foreach (WeaponComponentData data in wc.Weapons)   // WeaponComponent.cs:26
+    {
+        int total = data.ThrustDamage + data.SwingDamage;          // :85 / :95
+        DamageTypes thrustType = data.ThrustDamageType;            // :90
+        WeaponClass cls = data.WeaponClass;                        // :115
+        int thrustSpeed = data.ThrustSpeed;                        // :60
+        int fire = data.FireDamage;                               // :105
+        string usage = data.ItemUsage;                            // :55
+        float inertia = data.TotalInertia;                        // :135
+    }
+    WeaponComponentData primary = wc.PrimaryWeapon;                // WeaponComponent.cs:36
+}
+
+// 自己造一条并注册进组件
+var mine = new WeaponComponentData(sword, WeaponClass.OneHandedSword, default(WeaponFlags));   // :476，WeaponClass 见 WeaponClass.cs:6
+mine.Deserialize(sword, node);                                   // :501，(ItemObject, XmlNode)
+wc.AddWeapon(mine, someModifierGroup);                           // WeaponComponent.cs:45
+```
+
+### 最容易踩的坑
+
+**把 `Deserialize` 当成统一约定去调 `Deserialize(objectManager, node)`。** 它在 `WeaponComponentData` 上的签名是 `public void Deserialize(ItemObject item, XmlNode node)`（`:501`）——**第一个参数是 `ItemObject` 不是 `MBObjectManager`**，而且这是唯一的重载，没有别的形状可选。写成 `(objectManager, node)` 直接编译不过，这反而是好事；真正会出事的是反过来的场景——在你自己的组件类里按基类习惯写 `override void Deserialize(MBObjectManager, XmlNode)`，结果 `WeaponComponentData` 这一条永远不会被填充，所有伤害字段停在构造时的默认值 0，武器拿在手里打不出伤害而**没有任何报错**。
+
+第二个坑是它**没有任何公开 setter**，59 个成员几乎全是 `{ get; private set; }`（`:25` 起）。想改数值只能 `Deserialize`（`:501`）或者用 `new` 造一条新的——所以「运行时调平衡」这类需求不能靠改属性，只能重新 `Deserialize` 一遍改过的 XML 节点。
+
+第三，`WeaponComponent.PrimaryWeapon`（`WeaponComponent.cs:36`）在 `_weaponList` 为空时是 `ArgumentOutOfRangeException`，因为 getter 是裸的 `_weaponList[0]`（`WeaponComponent.cs:40`）——而 `WeaponComponent.GetCopy()` 返回的组件恰好是空的。
 
 从物品取一把武器形态并读手感（`item.Weapons` 是正确入口，不是 `MBObjectManager`）：
 
+## 真实示例
+
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 ItemObject axe = MBObjectManager.Instance.GetObject<ItemObject>("heavy_bearded_axe");
 

@@ -79,6 +79,50 @@ description: "锻造会话对象：持有一个 WeaponDesign、可用部件表�
 | `GenerateCraftedItem` | `public static ItemObject GenerateCraftedItem(ItemObject item, WeaponDesign weaponDesign, ItemModifierGroup itemModifierGroup)` | 静态便捷入口，产出合成后的 `ItemObject`。 |
 | `FillWeapon` | `public static void FillWeapon(ItemObject item, WeaponDescription weaponDescription, WeaponFlags weaponFlags, bool isAlternative, out WeaponComponentData filledWeapon)` | 用武器描述 + 标志构造一份 `WeaponComponentData` 并通过 `out` 返回。`isAlternative` 控制是否走替代形态。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`Crafting` 是 `public class Crafting`（`TaleWorlds.Core/Crafting.cs:11`），**唯一构造器是 `public Crafting(CraftingTemplate craftingTemplate, BasicCultureObject culture, TextObject name)`**（`:14`）——它只把三个参数赋给 `CraftedWeaponName` / `CurrentCraftingTemplate` / `CurrentCulture`，**不做任何初始化**。
+
+必须紧接着调 `public void Init()`（`:55`）。这一步才是真正的构造函数：它建 `_history`、建长度 **4** 的 `UsablePiecesList`（`:58`，对应 `PieceTypes` 的 `Blade/Guard/Handle/Pommel` 四个真实值，`Invalid = -1` 不占槽），按 `CurrentCraftingTemplate.Pieces` 过滤出 `BuildOrders` 里出现过的类型，为每个类型建候选列表（`:62-73`），然后给每个槽位挑一个默认件——**挑不到就用 `WeaponDesignElement.GetInvalidPieceForType(...)` 占位**（`:81`），最后 `new WeaponDesign(...)` 并压入历史（`:84-85`）。
+
+模板从 `CraftingTemplate.GetTemplateFromId(string templateId)`（`CraftingTemplate.cs:307`）或 `CraftingTemplate.All`（`:298`）拿。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+// 1) 造一个锻造会话，必须 Init
+CraftingTemplate tpl = CraftingTemplate.GetTemplateFromId("one_handed_sword");   // CraftingTemplate.cs:307
+var crafting = new Crafting(tpl, BasicCharacterObject.ActivePlayerCulture, new TextObject("{=crafted}我的剑"));   // Crafting.cs:14
+crafting.Init();                                                                 // :55，不要漏
+
+// 2) 换件：SwitchToPiece 会校验该类型确实是模板允许的
+crafting.SwitchToPiece(crafting.UsablePiecesList[0][3]);                         // :147
+crafting.ScaleThePiece(CraftingPiece.PieceTypes.Blade, 120);                     // :172
+crafting.ReIndex();                                                               // :189
+
+// 3) 出货：内部把 CurrentItemModifierGroup 传给 GenerateItem（Crafting.cs:304）
+ItemObject item = crafting.GetCurrentCraftedItemObject();                         // :309
+
+// 4) 离线生成一把（不需要会话，直接给设计）
+ItemObject offline = null;
+Crafting.GenerateItem(weaponDesign, name, culture, group, ref offline);           // :255，itemObject 为 null 时内部 new ItemObject()
+
+// 5) 随机一把：会同时改动当前设计
+crafting.Randomize();                                                             // :135
+```
+
+### 最容易踩的坑
+
+**`new Crafting(...)` 之后忘了调 `Init()`，直接访问 `UsablePiecesList` 或 `CurrentWeaponDesign`。** 构造器（`:14-19`）只赋三个字段，`UsablePiecesList`（`:94`）和 `CurrentWeaponDesign`（`:32`）**仍然是 null**。后果是首次 `crafting.UsablePiecesList[0]` 就空引用，而报错信息完全没提「忘了 Init」；更糟的情况是你在 `Init()` 之前往 `SwitchToPiece`（`:147`）里塞值，它依赖 `CurrentWeaponDesign`，同样直接崩。**`Init()` 是强制的一步，不是可选的优化。**
+
+第二个坑是无效占位件：`Init()` 在某个 `PieceTypes` 没有可用部件时会填 `WeaponDesignElement.GetInvalidPieceForType((PieceTypes)i)`（`:81`），所以 `UsablePiecesList[i]` 里的元素**不保证每个都是 `IsValid`**——选件逻辑里 `UsablePiecesList[i].First(p => !p.CraftingPiece.IsHiddenOnDesigner)`（`:77`）就会踩到无效件。遍历时按 [CraftingPiece](../CraftingPiece) 那一页说的那样先判 `IsValid`。
+
+第三个坑：`CurrentItemModifierGroup`（`:37`）是 `{ get; private set; }`，**公开面没有任何 setter**——整个类里唯一的赋值点在一个静态工厂的 `crafting.CurrentItemModifierGroup = itemModifierGroup;`（`:559`）。所以你没法在 `new Crafting(...)` 之后换词缀组，只能要么在那个工厂里走，要么自己在调用 `GenerateItem`（`:255`）时把 `itemModifierGroup` 作为参数传进去。
+
 ## 真实示例
 
 完整锻造会话（注意 `Init` 与 `UpdateHistory` 的位置）：

@@ -115,6 +115,57 @@ description: "全局静态界面栈：PushScreen / PopScreen 管理界面顺序�
 | `OnControllerDisconnectedEvent` | `public delegate void OnControllerDisconnectedEvent()` | 无参委托 |
 | `OnPlatformTextRequestedDelegate` | `public delegate bool OnPlatformTextRequestedDelegate(string initialText, string descriptionText, int maxLength, int keyboardTypeEnum)` | 软键盘请求的委托签名，返回 true 表示已处理 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`ScreenManager` 是 `TaleWorlds.ScreenSystem/ScreenManager.cs:14` 的 `public static class ScreenManager`——**纯静态类**，所有成员都是 static，没有构造器也不能实例化。
+
+它由引擎在 UI 起来之前注入：`public static void Initialize(IScreenManagerEngineConnection engineInterface)`（`:154`），实现只有一句 `ScreenManager._engineInterface = engineInterface;`（`:155`）。**在你自己的代码里没有、也不该有构造它的机会**——用它的静态成员就行。
+
+常用的静态出口：
+
+- **栈**：`TopScreen`（`:124`）、`FocusedLayer`（`:129`）、`FirstHitLayer`（`:134`）、`SortedLayers`（`:82`）
+- **压栈**：`PushScreen(ScreenBase screen)`（`:606`）、`CleanAndPushScreen(ScreenBase screen)`（`:541`）、`ReplaceTopScreen(ScreenBase screen)`（`:480`）
+- **全局层**：`AddGlobalLayer(GlobalLayer layer, bool isFocusable)`（`:208`）、`RemoveGlobalLayer(GlobalLayer layer)`（`:199`）
+- **每帧**：`Tick(float dt)`（`:312`）、`LateTick(float dt)`（`:369`）、`UpdateLayout()`（`:250`）
+- **状态**：`Scale`（`:29`，`{ get; private set; } = 1f`）、`UsableArea`（`:34`）、`IsEnterButtonRDown`（`:52`）、`IsLateTickInProgress`（`:63`）
+- **六个静态事件**：`OnPushScreen`（`:68`）、`OnPopScreen`（`:73`）、`OnControllerDisconnected`（`:78`）、`FocusGained`（`:472`）、`PlatformTextRequested`（`:477`），以及 `ScreenManager.OnPushScreenEvent` 这类委托类型
+
+### 典型用法
+
+```csharp
+using TaleWorlds.ScreenSystem;
+
+// 压一个自定义界面
+ScreenManager.PushScreen(myScreen);                       // ScreenManager.cs:606
+ScreenManager.CleanAndPushScreen(myScreen);               // :541，清空栈后压
+
+// 全局 HUD 层：挂在所有 Screen 之上。GlobalLayer 包一个 ScreenLayer，Layer 是 protected set
+var gl = new GlobalLayer(new MyHudLayer("hud", localOrder: 0));      // GlobalLayer.cs:7，Layer 属性 :12
+ScreenManager.AddGlobalLayer(gl, isFocusable: false);     // ScreenManager.cs:208
+// ... 用完
+ScreenManager.RemoveGlobalLayer(gl);                      // :199
+
+// 监听栈变化（注意是静态事件）
+ScreenManager.OnPushScreen += OnPush;                     // :68
+void OnPush(ScreenBase screen) { Debug.Print(screen.ToString(), 0); }
+
+// 读当前状态
+ScreenBase top = ScreenManager.TopScreen;                // :124
+ScreenLayer focused = ScreenManager.FocusedLayer;        // :129
+float uiScale = ScreenManager.Scale;                     // :29
+bool rightDown = ScreenManager.IsEnterButtonRDown;       // :52
+```
+
+### 最容易踩的坑
+
+**以为 `AddGlobalLayer` 只是「登记一下」，结果它的实现会重排整个全局层列表。** `:208` 起的循环比较的是 `ScreenManager._globalLayers[i].Layer.InputRestrictions.Order >= layer.Layer.InputRestrictions.Order`——**插入位置由 `InputRestrictions.Order` 决定，而那个值是在 [ScreenLayer](../ScreenLayer) 构造器里用 `new InputRestrictions(localOrder)` 定的**（`ScreenLayer.cs:94`）。后果是：`localOrder` 不是你想插的层级时，层会被排到完全不同的位置（输入优先级错乱），或者因为 Order 与已有层相同而被排到它后面。**Order 是输入优先级，不是 z-index**——这两件事在 Bannerlord 里恰好都用这一个数字，所以特别容易搞错。
+
+第二个坑是退订。`AddGlobalLayer` / `RemoveGlobalLayer`（`:208`、`:199`）在实现里都会 `Debug.Print` 并置 `_globalOrderDirty = true`（`:203`），而 `OnPushScreen`（`:68`）等六个事件都是 `public static event`——**跨 Screen 存活**。你如果在初始化时 `OnPushScreen += ...` 而从不 `-=`，每压一次界面就多一层处理器。退订必须传同一个委托实例，写 lambda 退不掉。
+
+第三，`SortedLayers`（`:82`）的 getter 带缓存：它先看 `_isSortedActiveLayersDirty`，并在计算时按 `topScreen.Layers.Count` 与 `_globalLayers.Count` 预分配数组（`:88-92`）。**所以刚 `PushScreen` 之后立刻读 `SortedLayers`，拿到的可能是上一次的顺序**——层顺序是懒刷新的，不是即时的。
+
 ## 真实示例
 
 ```csharp

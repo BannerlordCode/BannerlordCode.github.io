@@ -46,10 +46,54 @@ description: "旗帜效果条目：三个等级各一条百分比加成，按旗
 | 三级加成数组 | `private readonly float[3]`（字段初始化时即分配） | 三个等级的加成，字段初始化时就已分配。**只有 `Initialize` 会写它。** |
 | `ToString` | `public override string ToString()` | 返回 `base.Name.ToString()`，即**本地化名称而不是 id**。日志里看到的是显示名。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`BannerEffect` 是 `public sealed class BannerEffect : PropertyObject`（`TaleWorlds.Core/BannerEffect.cs:8`），`PropertyObject` 又继承 `MBObjectBase`（`PropertyObject.cs:9`），所以它是**真正的 XML 对象**：由 `Game.LoadBasicFiles()` → `MBObjectManager.LoadXML(...)` 加载，在 `banners_effects.xml` 这类表里一行一个。
+
+入口两条：
+
+- 按 id 查：`MBObjectManager.Instance.GetObject<BannerEffect>(stringId)`——这也是 [BannerComponent](../BannerComponent) 反序列化时用的方式（`BannerComponent.cs:48`）。
+- 按类型扫：`MBObjectManager.Instance.GetObjectTypeList<BannerEffect>()`。
+
+构造器 `public BannerEffect(string stringId)`（`:16`）只赋 `StringId`；真正的三个等级加成由 `public void Initialize(string name, string description, float level1Bonus, float level2Bonus, float level3Bonus, EffectIncrementType incrementType)`（`:22`）填入。读取一律走 `GetBonusAtLevel(int bannerLevel)`（`:34`）、`GetBonusStringAtLevel(int)`（`:42`）、`GetDescription(int)`（`:49`）、`ToString()`（`:63`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+using System.Collections.Generic;
+
+// 扫描全部旗帜效果
+foreach (BannerEffect be in MBObjectManager.Instance.GetObjectTypeList<BannerEffect>())
+{
+    Debug.Print(be.StringId + " lvl3=" + be.GetBonusStringAtLevel(3), 0);   // BannerEffect.cs:42
+    TextObject d1 = be.GetDescription(1);                                    // :49
+    EffectIncrementType how = be.IncrementType;                              // :13
+}
+
+// 代码里建一个（不写 XML）
+var custom = new BannerEffect("my_mod_effect");
+custom.Initialize("单挑加成", "单挑伤害提高", 0.05f, 0.10f, 0.15f, EffectIncrementType.Add);   // :22
+MBObjectManager.Instance.RegisterObject<BannerEffect>(custom);               // MBObjectManager.cs:147
+
+// 消费端：拿到等级就用，绝不自己索引数组
+float value = custom.GetBonusAtLevel(2);      // :34，内部做了 MBMath.ClampIndex
+```
+
+### 最容易踩的坑
+
+**以为 `GetBonusAtLevel` 传任何等级都对应你写的三个数，于是写 `bannerLevel = 0` 或让 `BannerLevel` 跑到 4 以上。** 实现是 `int num = bannerLevel - 1; num = MBMath.ClampIndex(num, 0, this._levelBonuses.Length); return this._levelBonuses[num];`（`BannerEffect.cs:34-39`）——**越界不是报错，而是静默夹到端点**。传 0 得到的是第 1 级的加成，传 99 得到的也是第 3 级。所以一个 `banner_level` 写错成 `7` 的自定义旗帜物品不会崩，只会静默按满级生效；反过来如果你以为「超出范围返回 0」，判断逻辑就永远走不到拒绝分支。
+
+第二个坑：`Initialize`（`:22`）可以在运行期被重复调用而不报错，`IncrementType` 和三个加成会被整组覆盖，但已经缓存过 `BannerEffect` 引用的地方（比如某个 `BannerComponent.BannerEffect`）会立刻看到新值——包括已经入队的存档数据。改加成要放在注册阶段（`MBSubModuleBase.RegisterSubModuleObjects` / `OnGameInitializationFinished`），不要放在读档后的回调里。
+
 ## 真实示例
 
 按旗帜等级取加成（先看越界会被夹到哪里）：
 
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 BannerEffect effect = MBObjectManager.Instance.GetObject<BannerEffect>("increased_melee_damage");
 

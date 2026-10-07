@@ -86,6 +86,63 @@ description: "一局游戏的驱动骨架：组件容器 + 七步加载状态机
 | `IsEditModeOn` | `public abstract bool IsEditModeOn { get; }` | 抽象。编辑器模式。 |
 | `UnitSpawnPrioritization` | `public abstract UnitSpawnPrioritizations UnitSpawnPrioritization { get; }` | 抽象。单位刷出优先级。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`GameManagerBase` 是 `TaleWorlds.Core/GameManagerBase.cs:7` 的 `public abstract class GameManagerBase`，335 行、41 个公开成员——**它是模组必须派生并实现的那一层**。
+
+**构造器是 `protected GameManagerBase()`（`:46`）**，而且它第一句就是 `GameManagerBase.Current = this;`（`:47`）——**静态单例是在构造器里写入的**，所以只要你 new 出来，`Current` 就是你。剩下两句建 `_entitySystem = new EntitySystem<GameManagerComponent>()`（`:48`）并把 `_stepNo` 置 `GameManagerLoadingSteps.PreInitializeZerothStep`（`:49`）。
+
+**16 个抽象成员必须全部实现**：11 个方法 `OnGameStart(Game, IGameStarter)`（`:262`）、`BeginGameStart(Game)`（`:265`）、`OnNewCampaignStart(Game, object)`（`:268`）、`OnAfterCampaignStart(Game)`（`:271`）、`RegisterSubModuleObjects(bool)`（`:274`）、`AfterRegisterSubModuleObjects(bool)`（`:277`）、`OnGameInitializationFinished(Game)`（`:280`）、`OnNewGameCreated(Game, object)`（`:283`）、`OnGameLoaded(Game, object)`（`:286`）、`OnAfterGameLoaded(Game)`（`:289`）、`OnAfterGameInitializationFinished(Game, object)`（`:292`）、`RegisterSubModuleTypes()`（`:295`），加上 5 个抽象属性 `ApplicationTime`（`:304`）、`CheatMode`（`:308`）、`IsDevelopmentMode`（`:312`）、`IsEditModeOn`（`:316`）、`UnitSpawnPrioritization`（`:320`）。
+
+组件系统是它的第二条扩展线：`AddComponent<T>() where T : GameManagerComponent, new()`（`:72`）、`GetComponent<T>()`（`:84`，找不到返回 null）、`GetComponents<T>()`（`:90`）、`RemoveComponent<T>()`（`:96`）、以及只读的 `Components`（`:55`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+public class MyGameManager : GameManagerBase          // GameManagerBase.cs:7
+{
+    public override void RegisterSubModuleTypes() { }           // :295
+    public override void RegisterSubModuleObjects(bool isSavedCampaign) { }   // :274
+    public override void AfterRegisterSubModuleObjects(bool isSavedCampaign) { }
+    public override void OnGameStart(Game game, IGameStarter gameStarter) { }   // :262
+    public override void BeginGameStart(Game game) { }
+    public override void OnNewCampaignStart(Game game, object starterObject) { }
+    public override void OnAfterCampaignStart(Game game) { }
+    public override void OnGameInitializationFinished(Game game) { }
+    public override void OnNewGameCreated(Game game, object initializerObject) { }
+    public override void OnGameLoaded(Game game, object initializerObject) { }
+    public override void OnAfterGameLoaded(Game game) { }
+    public override void OnAfterGameInitializationFinished(Game game, object initializerObject) { }
+
+    public override float ApplicationTime => 0f;                 // :304
+    public override bool CheatMode => false;                     // :308
+    public override bool IsDevelopmentMode => false;             // :312
+    public override bool IsEditModeOn => false;                  // :316
+    public override UnitSpawnPrioritizations UnitSpawnPrioritization
+        => UnitSpawnPrioritizations.Default;                     // :320
+}
+
+// 全局读
+GameManagerBase.Current;                  // :12，构造器里写入（:47）
+GameManagerBase.Current.Initialize();     // :37
+
+// 组件
+GameManagerComponent c = GameManagerBase.Current.AddComponent<MyComponent>();   // :72
+MyComponent got = GameManagerBase.Current.GetComponent<MyComponent>();          // :84，找不到是 null
+```
+
+### 最容易踩的坑
+
+**把 `CheatMode` / `IsDevelopmentMode` 当成发布门控。** 它们是抽象属性（`:308`、`:312`），要**你自己实现**——返回值完全取决于你的 mod，不是引擎环境决定的诊断信号。于是「`if (GameManagerBase.Current.IsDevelopmentMode)` 才跑调试代码」在别的 mod 写出的 manager 里可能是 `false`，你的调试分支永远不进；反过来你为了方便返回 `true`，发布版就会带上调试逻辑。**这五个属性的正确实现是常量**，把它们当环境查询用是误用。
+
+第二个坑是 `Initialize()`（`:37-42`）看起来像个正常的幂等初始化，但它只是 `if (!this._initialized) { this._initialized = true; }`——**没有任何实际工作**，也不设默认值。你若以为「调了 Initialize 一切就绪了」，后面读 `Game`（`:17`）拿到的是 null。
+
+第三，`OnTick(float dt)`（`:109`）的广播顺序是：先遍历 `_entitySystem.Components` 逐个 `OnTick()`（`:110-113`），**再** `if (this.Game != null) this.Game.OnTick(dt);`（`:114-117`）。所以组件 tick 里 `Game.Current` 已经是本局对象；但 `GameManagerBase.Current` 在**换局时会指向新的 manager**（因为 `Current = this` 在构造器里，`:47`），缓存它的代码在换局后拿到的是新实例，而旧实例的组件还在被旧局 tick。
+
 ## 真实示例
 
 派生一个管理器：实现全部抽象成员，组件在 `BeginGameStart` 里挂：

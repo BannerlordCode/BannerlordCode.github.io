@@ -148,10 +148,66 @@ description: "物品定义对象：XML 加载的核心数据类，承载 mesh/�
 | `ItemTypeEnum` | `public enum ItemTypeEnum` | 物品大类（`OneHandedWeapon` / `Polearm` / `Horse` / `Cape` / `Goods` / `Banner` / `Arrows` / `Bolts` / `Bullets` / `SlingStones` / `Thrown` / `HorseHarness` / `HeadArmor` / `BodyArmor` / `LegArmor` / `ArmArmor` …）。`IsItemFitsToSlot` 与 `GetAmmoTypeForItemType` 都按它 switch。 |
 | `ItemTiers` | `public enum ItemTiers` | 物品品阶（Tier1 … Tier6）。`Tier` 属性的 `ClampInt(..., 0, 6) - 1` 与它对应。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`ItemObject` 是 `TaleWorlds.Core/ItemObject.cs:15` 的 `public sealed class ItemObject : MBObjectBase`——**sealed**。物品表的每一行都是一个它。
+
+三个构造器：`public ItemObject()`（`:438`，空）、`public ItemObject(string stringId) : base(stringId)`（`:443`）、`public ItemObject(ItemObject itemToCopy) : base(itemToCopy)`（`:449`）。第三个是拷贝构造器，**`:450` 起逐字段搬 `ItemComponent`、各种 MeshName、`ItemHolsters`、`HolsterPositionShift`、`BodyName`、`SkeletonName`……**——注意 `this.ItemComponent = itemToCopy.ItemComponent;`（`:451`）是**按引用搬**，不是深拷贝。
+
+拿实例的四条路：
+
+- **XML**：`Game.LoadBasicFiles()` → `MBObjectManager.LoadXML(...)`，物品表由 `MBGameManager.RegisterSubModuleObjects` 一侧加载。
+- **按 id**：`MBObjectManager.Instance.GetObject<ItemObject>("剑的 id")`
+- **代码建**：`public static ItemObject InitializeTradeGood(ItemObject item, TextObject name, string meshName, ItemCategory category, int value, float weight, ItemObject.ItemTypeEnum itemType, bool isFood = false)`（`:489`）——九个参数，模组造交易品走这条。
+- **锻造产物**：`public static ItemObject GetCraftedItemObjectFromHashedCode(string hashedCode)`（`:558`），内部对应 [Crafting](../Crafting) 的 `GenerateItem`。
+- **武器类别**：`public static ItemObject GetItemFromWeaponKind(int weaponKind)`（`:999`）、`GetAmmoTypeForItemType(ItemObject.ItemTypeEnum)`（`:1056`）。
+
+**单槽组件**：`public ItemComponent ItemComponent { get; private set; }`（`:32`，setter private）。配套的便利属性全是 `as` 转型：`ArmorComponent`（`:359`）、`BannerComponent`（`:379`）、`HasArmorComponent`（`:369`）、`HasBannerComponent`（`:389`）。`public ItemObject.ItemTypeEnum Type;`（`:1283`）是**公开字段**。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+// 查
+ItemObject wine = MBObjectManager.Instance.GetObject<ItemObject>("trade_goods_wine");   // MBObjectManager.cs:288
+
+// 分类：Type 是公开字段，组件是单槽
+ItemObject.ItemTypeEnum kind = wine.Type;                 // ItemObject.cs:1283
+var armor = wine.ItemComponent as ArmorComponent;         // :32 → as 转型，可能 null
+if (wine.HasArmorComponent)                              // :369
+{
+    int head = armor.HeadArmor;                          // ArmorComponent.cs:15
+}
+var banner = wine.ItemComponent as BannerComponent;      // :379
+
+// 代码造一件交易品（九个参数）
+var myGood = ItemObject.InitializeTradeGood(
+    item: null, name: new TextObject("{=mygood}我的货"),
+    meshName: "my_good_mesh", category: someItemCategory,
+    value: 250, weight: 1.5f,
+    itemType: ItemObject.ItemTypeEnum.Goods, isFood: false);   // :489
+
+// 拷贝（注意组件是共享引用）
+ItemObject clone = new ItemObject(myGood);                // :449，:451 按引用搬 ItemComponent
+```
+
+### 最容易踩的坑
+
+**用拷贝构造器 `new ItemObject(itemToCopy)`（`:449`）之后，改副本的组件，结果原件也跟着变。** `this.ItemComponent = itemToCopy.ItemComponent;`（`:451`）**是按引用赋值**，不是深拷贝。后果是给 `clone.ArmorComponent` 改护甲值会同时改到 `myGood` 以及所有从它拷贝出来的实例——而 `ItemComponent` 的所有属性几乎都是 `{ get; private set; }`，你无法「就地换掉」一个组件，只能改它的数值，所以这个共享污染很难避免。**要做真正独立的副本，构造完 `clone` 之后自己重新赋一份 `GetCopy()` 的结果**（注意 [WeaponComponent](../WeaponComponent) 的 `GetCopy()` 返回的是空壳，见那一页）。
+
+第二个坑是 `ItemComponent` 的 setter 是 **private**（`:32`）且**单槽**。所以「给一个物品加第二个组件」在运行期做不到——组件类型在反序列化时按 `Type` 一次定好（见 `ItemObject.cs:784` 的 `new BannerComponent(this)`、`:809` 的 `new ArmorComponent(this)`）。想改物品类别必须改 XML 并重启。
+
+第三，**`Type`（`:1283`）是公开可写字段**。改它不会触发任何重算——`ArmorComponent` / `WeaponComponent` 已经按旧类型建好了。于是物品的类型显示与实际组件不一致，表现为「显示成护甲但打不出伤害」或反之。
+
 ## 真实示例
 
 按 StringId 取物品并安全访问组件：
 
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 ItemObject axe = MBObjectManager.Instance.GetObject<ItemObject>("heavy_bearded_axe");
 

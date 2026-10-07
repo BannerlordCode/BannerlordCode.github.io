@@ -120,6 +120,73 @@ Agent 的生命周期钩子另成一条线：`OnAgentCreated` → `OnAgentBuild`
 | `OnAddTeam` | `public virtual void OnAddTeam(Team team)` | 队伍刚被加入，成员尚未填齐 |
 | `AfterAddTeam` | `public virtual void AfterAddTeam(Team team)` | 队伍成员已填齐。是遍历 `Team.Troops` 的正确时机 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`MissionBehavior` 是 `TaleWorlds.MountAndBlade/MissionBehavior.cs:11` 的 `public abstract class MissionBehavior : IMissionBehavior`，326 行、**62 个公开成员**——它是 mod 写战斗逻辑最主要的扩展点。
+
+**唯一注册入口是 `Mission.AddMissionBehavior(MissionBehavior missionBehavior)`（`Mission.cs:4454`）**，而且它的实现决定了你必须遵守什么顺序：
+
+```
+this.MissionBehaviors.Add(missionBehavior);      // Mission.cs:4456
+missionBehavior.Mission = this;                   // :4457  ← 回指被注入
+MissionBehaviorType behaviorType = missionBehavior.BehaviorType;   // :4458
+... 按 BehaviorType 分流到 _otherMissionBehaviors 或 MissionLogics ...
+missionBehavior.OnCreated();                      // :4468  ← 注册的同一刻就回调
+```
+
+三件事因此是强制的：必须走 `AddMissionBehavior`（否则 `Mission` 属性是 null、且 `OnCreated` 不会被调）、**必须在 `OnCreated` 之前不能假设 `Mission` 可用**、以及 `public abstract MissionBehaviorType BehaviorType { get; }`（`:30`）**是抽象成员，每个子类都必须实现**——它决定你被分流到哪个集合，影响 tick 与广播顺序。
+
+`public Mission Mission { get; internal set; }`（`:16`）的 setter 是 internal，**只有 `AddMissionBehavior` 写得进去**。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.MountAndBlade;
+
+public class MyBattleLogic : MissionBehavior          // MissionBehavior.cs:11
+{
+    public override MissionBehaviorType BehaviorType => MissionBehaviorType.Logic;   // :30，抽象成员
+
+    private int _kills;
+
+    // OnCreated 在 AddMissionBehavior 里就会被调（Mission.cs:4468）
+    public override void OnCreated()
+    {
+        base.OnCreated();
+        Mission.Current.AddMissionBehavior(new MyBattleLogic());   // 用 Mission 而不是写死引用
+    }
+
+    public override void OnAgentRemoved(Agent affectedAgent, Agent affectorAgent,
+                                        AgentState agentState, KillingBlow blow)   // :113
+    {
+        if (blow.AttackerAgent == affectedAgent)
+        {
+            _kills++;
+        }
+    }
+
+    public override void OnAgentHit(Agent affectedAgent, Agent affectorAgent,
+                                    in MissionWeapon affectorWeapon, in Blow blow,
+                                    in AttackCollisionData attackCollisionData)      // :98
+    {
+        Debug.Print("hit " + affectedAgent.Id, 0);
+    }
+}
+
+// 取回
+MyBattleLogic mine = Mission.Current.GetMissionBehavior<MyBattleLogic>();
+```
+
+### 最容易踩的坑
+
+**在构造函数里读 `Mission`。** `Mission`（`:16`）是在 `AddMissionBehavior` 的第三句才被赋值（`Mission.cs:4457`），而你的构造器一定跑在 `new` 的那一刻、早于 `AddMissionBehavior`。结果就是构造函数里的 `this.Mission.Xxx` 读到 null 空引用。所有需要 `Mission` 的初始化都应放进 `OnCreated()`（`Mission.cs:4468`）或 `OnBehaviorInitialize()`（`MissionBehavior.cs:38`）。
+
+第二个坑是**忘了实现 `BehaviorType`**（`:30` 是 abstract）。这在编译期就会挡住你——但它的后果往往被误解：实现成 `MissionBehaviorType.Logic` 会走 `this.MissionLogics.Add(missionBehavior as MissionLogic);`（`Mission.cs:4465`），而**你的类不是 `MissionLogic`**，这个 `as` 返回 null，于是你在 `MissionLogics` 里塞了一个 null；而 `MissionBehaviorType.Other` 则进 `_otherMissionBehaviors`（`:4462`）。选错分支不会报错，但行为在某些广播路径里被跳过。
+
+第三，62 个虚方法里大量使用 `in` 参数（`:98` 的 `in MissionWeapon`、`in Blow`、`in AttackCollisionData`）。覆写时**必须原样保留 `in`**，去掉它签名就不匹配、覆写静默失效——`OnAgentHit` 永远不会被调，而编译器和运行时都不给你任何提示。
+
 ## 真实示例
 
 ```csharp

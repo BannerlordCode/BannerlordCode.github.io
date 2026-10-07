@@ -61,6 +61,65 @@ description: "存档类型定义的抽象基类：mod 靠子类向 DefinitionCon
 | `AddEnumDefinition` | `protected void AddEnumDefinition(Type type, int saveId, IEnumResolver enumResolver = null)` | 注册枚举定义。`enumResolver` 用于老档枚举值含义变更时的兼容。 |
 | `ConstructContainerDefinition` | `protected void ConstructContainerDefinition(Type type)` | 声明集合类型定义。**注意语义不同**：若 `HasDefinition(type)` 已为真，会打 `Debug.FailedAssert("There is duplicate definition for {type}")`，而不是像 `Add*` 那样抛异常。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`SaveableTypeDefiner` 是 `public abstract class SaveableTypeDefiner`（`TaleWorlds.SaveSystem/SaveableTypeDefiner.cs:11`）——**抽象类**，而且它的构造器是 `protected SaveableTypeDefiner(int saveBaseId)`（`:14`），只做一件事 `this._saveBaseId = saveBaseId;`（`:15`）。它不是用 `new` 得到的，而是引擎在构建定义上下文时 `internal void Initialize(DefinitionContext definitionContext)`（`:19`）注入的。
+
+**它的核心机制是一个 `saveBaseId` 偏移量。** 所有 `Add*Definition` 方法都把 `saveBaseId + saveId` 传给 `DefinitionContext`——看 `AddClassDefinition`（`:101`）的 `new TypeDefinition(type, this._saveBaseId + saveId, resolver)`（`:102`）、`AddConflictResolver`（`:95`）的 `new TypeSaveId(this._saveBaseId + saveId)`（`:96`）。所以你在自己的 definer 里写的 `saveId` 是**模块内相对编号**，引擎用一个模块专属的 base 把它们推到全局唯一区间。这就是为什么各模块的 definer 都能从 `saveId = 0` 开始数。
+
+你的子类要覆写的是那八个 `protected internal virtual void Define*()` 空方法（`:26` 的 `DefineBasicTypes` 到 `:71` 的 `DefineContainerDefinitions`），并在对应位置调 `Add*`。这些方法的可见性是 `protected internal`——**外部程序集继承时只能改写、不能直接调用**，引擎侧才是调用方。
+
+### 典型用法
+
+为一个模组写一个 definer，告诉存档系统它的类型：
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.SaveSystem;
+using System;
+using System.Collections.Generic;
+
+public class MyModTypeDefiner : SaveableTypeDefiner
+{
+    // saveBaseId 由引擎决定，不要自己挑
+    public MyModTypeDefiner(int saveBaseId) : base(saveBaseId) { }   // SaveableTypeDefiner.cs:14
+
+    protected internal override void DefineClassTypes()
+    {
+        base.DefineClassTypes();
+        AddClassDefinition(typeof(Monster), 0);        // :101，实际 id = saveBaseId + 0
+        AddClassDefinition(typeof(ItemObject), 1);     // :101，实际 id = saveBaseId + 1
+    }
+
+    protected internal override void DefineStructTypes()
+    {
+        base.DefineStructTypes();
+        AddStructDefinition(typeof(EquipmentElement), 0, null);      // :137
+
+        // 自定义字段版：把「成员名 + short 编号」交给它
+        AddClassDefinitionWithCustomFields(typeof(TavernLedger), 2,
+            new List<Tuple<string, short>>
+            {
+                Tuple.Create("Visits", (short)0),     // 对应 [SaveableProperty(0)]
+                Tuple.Create("DebtGold", (short)1),    // 对应 [SaveableField(1)]
+            });                                        // :108，内部逐条 typeDefinition.AddCustomField
+    }
+
+    protected internal override void DefineEnumTypes()
+    {
+        AddEnumDefinition(typeof(EquipmentIndex), 0);  // :151
+    }
+}
+```
+
+### 最容易踩的坑
+
+**在自己写的 definer 里直接用全局编号，而不是相对编号。** 每个 `Add*` 都会把 `this._saveBaseId + saveId` 当作真正的存档 id（`:96`、`:102`）。如果你从别处抄来一段 `AddClassDefinition(typeof(Hero), 13000)` 这种「全局号」写进自己的 definer，实际生效的是 `你的 base + 13000`——一个完全不同的、很可能和别的模块撞上的号。后果是**读别人的存档时你的字段被解析成别人的类型**，或者反过来：你的数据写进去后别人的存档解析器认出它、然后按错误的类型去构造对象。这类冲突在开发期完全看不出来，只有在读取别人的存档时才炸。
+
+第二个坑是 `saveId` 从 0 开始写满但漏掉了某个类型。存档类型表是**紧凑索引**——`:102` 把 `base + saveId` 作为定义上下文的键，漏掉的号就是空洞，不会自动补位。所以「0、1、3」比「0、1、2」更危险：2 号位空着不会有任何提示，但等你在后续版本想补一个类型时，如果补的就是 2，那一切正常——**真正的风险是你以为编号连续、实际某个号被引擎的其它定义占用了**。写完 definer 一定要用 `SaveManager.CheckSaveableTypes()`（`SaveManager.cs:28`）跑一遍检查。
+
 ## 真实示例
 
 一个完整的 mod definer：公开无参构造、独立号段、重写 `DefineClassTypes` 登记引用类型与根类型：

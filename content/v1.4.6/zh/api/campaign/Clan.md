@@ -172,6 +172,49 @@ description: "sealed 的家族实体：同时是势力（IFaction）与领主容
 | `Deserialize` | `public override void Deserialize(MBObjectManager objectManager, XmlNode node)` | 从 XML 装载家族定义 |
 | `ClanLeaveKingdom` | `public void ClanLeaveKingdom(bool)` | 退出王国，布尔参数表示是否归还封地。先用 `ChangeClanInfluenceAction.Apply(this, -Influence)` 清空影响力，再把名下城镇的归属逐一交还 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`Clan` 有公开的无参构造器 `public Clan()`（`TaleWorlds.CampaignSystem/Clan.cs:1033`），但**你不要直接 new**——它只做初始化（`InitMembers()`、`_isEliminated = false`、`NotAttackableByPlayerUntilTime = CampaignTime.Zero`），不进世界列表。官方入口是：
+
+`public static Clan CreateClan(string stringID)`（`Clan.cs:1041`），三步：先 `Campaign.Current.CampaignObjectManager.FindNextUniqueStringId<Clan>(stringID)` 拿到不重复的 id，再 `new Clan()`，最后 `Campaign.Current.CampaignObjectManager.AddClan(clan)`。也就是说**它必须在战役已建立时调用**。
+
+现成的家族：静态属性 `public static Clan PlayerClan`（`:694`，内部就是 `Campaign.Current.PlayerDefaultFaction`）、`public static MBReadOnlyList<Clan> All`（`:1466`，内部 `Campaign.Current.Clans`）、`NonBanditFactions`（`:1476`）、`BanditFactions`（`:1506`）。查询用 `public static Clan FindFirst(Predicate<Clan> predicate)`（`:1447`，`FirstOrDefault`，找不到返回 null）和 `public static IEnumerable<Clan> FindAll(Predicate<Clan> predicate)`（`:1459`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.CampaignSystem;
+using System.Collections.Generic;
+
+// 建一个新家族（必须在战役里）
+Clan rebels = Clan.CreateClan("my_mod_rebels");                 // Clan.cs:1041
+
+Clan player = Clan.PlayerClan;                                 // :694
+
+int allClans = Clan.All.Count;                                  // :1466 → Campaign.Current.Clans
+
+// 查家族
+Clan target = Clan.FindFirst(c => c.IsBanditFaction && !c.IsEliminated);   // :1447
+if (target != null)
+{
+    // 影响力：有副作用的 setter，见下方「坑」
+    target.Influence += 50f;                                      // :529
+    target.AddRenown(100, Hero.MainHero);                          // 见页面成员表
+    Hero leader = target.Leader;                                   // :705
+}
+
+// 两个家族之间的关系
+int rel = player.GetRelationWithClan(target);                     // :1269
+```
+
+### 最容易踩的坑
+
+**用 `new Clan()` 或直接写 `clan.Influence = x` 来改数值。** `Influence` 的 setter 带副作用：`if (value < this._influence && this.Leader != null) SkillLevelingManager.OnInfluenceSpent(this.Leader, value - this._influence);`（`Clan.cs:535-542`）。也就是说**只要把影响力调低**（不是调高），引擎就会拿 `Leader` 去走一整套技能结算；`Leader` 为 null 时这段被跳过，但 `Leader` 非 null 时你的 mod 会意外触发领主技能提升/AI 回调，而调用点完全看不出来。正确做法是走引擎的动作类（例如 `ChangeClanInfluenceAction.Apply(...)`）或 `AddRenown` 这类语义方法，让关系变化经由官方的 `CampaignEvents.HeroRelationChanged`（`CampaignEvents.cs:519`）广播出去，否则你的数值变了、各处缓存和 UI 却不知道。
+
+第二个坑：`new Clan()` 出来的实例**不在 `Campaign.Current.Clans` 里**，`Clan.All`（`:1466`）、`FindFirst`/`FindAll`（`:1447`/`:1459`）全都看不到它，`GetRelationWithClan` 之类的关系计算也因为它不在世界列表而失效。要让它生效只能走 `CreateClan`（`:1041`）或 `CreateSettlementRebelClan` / `CreateCompanionToLordClan`（`:1722`/`:1756`）这类内部已经调过 `AddClan` 的工厂。
+
 ## 真实示例
 
 每日按家族影响力排序，给前十名发奖励。三个坑都在这段里：`Influence` 的 setter 有副作用所以用 `AddRenown` 之外的方式时要小心、`Tier` 只能通过声望改、`Gold` 在无主家族上会静默给 0：

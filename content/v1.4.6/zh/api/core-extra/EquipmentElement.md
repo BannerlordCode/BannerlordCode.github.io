@@ -111,6 +111,57 @@ description: "装备槽载荷结构体：ItemObject 加 ItemModifier 加 Cosmeti
 | `ISerializableObject.SerializeTo` | `void ISerializableObject.SerializeTo(IWriter writer)` | 先写词缀 StringId（无词缀写空串），再写 `Item.Id.InternalValue`（无物品写 `0U`）。**`CosmeticItem` 与 `IsQuestItem` 不写。** |
 | `ISavedStruct.IsDefault` | `bool ISavedStruct.IsDefault()` | `Item == null && ItemModifier == null`。**显式接口实现，外部要访问得先转 `ISavedStruct`。** |
 
+## 怎么用
+
+### 怎么拿到它
+
+`EquipmentElement` 是 `public struct EquipmentElement : ISerializableObject, ISavedStruct`（`TaleWorlds.Core/EquipmentElement.cs:11`）——**结构体 + 两个序列化接口**，这是它能进 [Equipment](../Equipment) 和存档的原因。
+
+两个构造器：`public EquipmentElement(ItemObject item, ItemModifier itemModifier = null, ItemObject cosmeticItem = null, bool isQuestItem = false)`（`:117`）和拷贝构造器 `public EquipmentElement(EquipmentElement other)`（`:126`）。
+
+实例来自两个方向：
+
+- **读**：`Equipment.GetEquipmentFromSlot(EquipmentIndex)`（`Equipment.cs:635`）或索引器 `equipment[index]`（`Equipment.cs:106`/`:120`）。
+- **写**：`Equipment.AddEquipmentToSlotWithoutAgent(EquipmentIndex, EquipmentElement)`（`Equipment.cs:629`）。
+- **清空位**：静态哨兵 `public static readonly EquipmentElement Invalid = new EquipmentElement(null, null, null, false);`（`:546`），以及 `public void Clear()`（`:138`）。
+
+判空有三个不同的语义，别混：`IsEmpty`（`:64`）、`IsVisualEmpty`（`:74`，只看外观物品）、`IsInvalid()`（`:406`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+// 造一个格子
+var slot = new EquipmentElement(swordItemObject, someItemModifier, cosmeticSwordItem, isQuestItem: false);   // EquipmentElement.cs:117
+
+// 装上
+eq.AddEquipmentToSlotWithoutAgent(EquipmentIndex.Weapon0, slot);       // Equipment.cs:629
+
+// 读回来并判断
+EquipmentElement got = eq.GetEquipmentFromSlot(EquipmentIndex.Weapon0);
+if (got.IsEmpty)         { /* 没有物品 */ }                            // :64
+if (got.IsVisualEmpty)   { /* 只有数据、没有模型 */ }                     // :74
+if (got.IsInvalid())     { /* 是 Invalid 哨兵 */ }                       // :406
+
+// 数值永远用 GetModified* 系列，不要直接读 Item 的属性
+int armor = got.GetModifiedBodyArmor();          // :178
+int thrust = got.GetModifiedThrustDamageForUsage(usageIndex);   // :310，usageIndex 对应武器描述
+int stack  = got.GetModifiedStackCountForUsage(usageIndex);      // :352，返回 short
+float w = got.GetEquipmentElementWeight();       // :392
+int value = got.GetBaseValue();                  // :358
+
+// 换词缀 / 清空
+got.SetModifier(otherModifier);                   // :132
+got.Clear();                                      // :138
+```
+
+### 最容易踩的坑
+
+**直接读 `slot.Item.<属性>` 来算战斗数值，从而绕过词缀。** `EquipmentElement` 的存在意义就是「物品 + `ItemModifier` + 外观物品」这个组合，所有带修正的数值都只在 `GetModified*` 系列里：`GetModifiedBodyArmor()`（`:178`）、`GetModifiedStealthFactor()`（`:264`）、`GetModifiedThrustDamageForUsage(int usageIndex)`（`:310`）、`GetModifiedMaximumHitPointsForUsage(int)`（`:283`，返回 `short`）。直接读 `slot.Item.BodyArmor` 拿到的是**未加词缀的裸值**，表现是「我改了词缀但面板和实战数值不变」——因为引擎内部算伤害时走的是 `GetModified*`，两边对不上。
+
+第二个坑是三个判空方法语义不同而返回值都像 bool：`IsEmpty`（`:64`）、`IsVisualEmpty`（`:74`）、`IsInvalid()`（`:406`）。**`IsInvalid()` 才是用来识别 `Invalid` 哨兵（`:546`）的那个**，它是个方法不是属性；用 `IsEmpty` 去判断「这个槽是不是没初始化」会把 `Equipment.Clone(true)` 填进去的 `Invalid` 和真正的空槽混为一谈（`Equipment.cs:151` 正是用 `EquipmentElement.Invalid` 填武器位的），于是在只想要护甲的拷贝上，你仍然会看到武器槽“有东西”。
+
 ## 真实示例
 
 安全遍历一整套装备（**先 `IsVisualEmpty` 再 `IsEmpty`**）：
@@ -165,6 +216,8 @@ if (!mount.IsEmpty && mount.Item.HasHorseComponent)
 
 装填槽位并按品质挑词缀：
 
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 ItemModifier legendary = MBObjectManager.Instance.GetObject<ItemModifier>("legendary_modifier_1");
 EquipmentElement slot = new EquipmentElement(hero.BattleEquipment.GetEquipmentFromSlot(EquipmentIndex.Weapon0).Item, legendary);

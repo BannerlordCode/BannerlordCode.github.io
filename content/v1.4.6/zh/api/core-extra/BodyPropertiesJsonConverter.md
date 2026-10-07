@@ -45,6 +45,39 @@ description: "让 BodyProperties 结构体能进 Newtonsoft JSON 的转换器：
 | `WriteJson` | `public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)` | `new JProperty("_data", ((BodyProperties)value).ToString())` → 包进 `new JObject` → `WriteTo(writer, Array.Empty<JsonConverter>())`。**`value` 为 null 且开启 `SerializeNulls` 时拆箱 NRE。`serializer` 参数完全没用。** |
 | `.ctor` | `public BodyPropertiesJsonConverter()`（编译器生成） | 源码里没写构造器，用默认的无参构造。无状态，可安全复用。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`BodyPropertiesJsonConverter` 是 `public class BodyPropertiesJsonConverter : JsonConverter`（`TaleWorlds.Core/BodyPropertiesJsonConverter.cs:8`），它继承的是 **Newtonsoft.Json 的 `JsonConverter`**，不是 `System.Text.Json` 里的任何类型。它是一个挂载式转换器，**本身没有构造参数也没有静态单例**——要让 Newtonsoft 用上它，得把它实例化并挂到 `JsonSerializerSettings.Converters` 上。
+
+挂载后它接管的条件是 `CanConvert`：`typeof(BodyProperties).IsAssignableFrom(objectType)`（`:11-14`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+using Newtonsoft.Json;
+
+// 挂到 settings 上（放进一个共用的 mod 序列化配置里）
+var settings = new JsonSerializerSettings();
+settings.Converters.Add(new BodyPropertiesJsonConverter());     // BodyPropertiesJsonConverter.cs:8
+
+BodyProperties bp = BodyProperties.Default;                     // BodyProperties.cs:330
+string json = JsonConvert.SerializeObject(bp, settings);
+
+// 序列化后的形状固定为 { "_data": "<BodyProperties ... />" }
+BodyProperties back = JsonConvert.DeserializeObject<BodyProperties>(json, settings);
+```
+
+### 最容易踩的坑
+
+**直接用 `BodyProperties.ToString()` 的输出当 JSON 写盘，或者假设 JSON 里就是一个扁平的数字对象。** `WriteJson` 的实现是 `new JObject { new JProperty("_data", ((BodyProperties)value).ToString()) }.WriteTo(...)`（`:36-38`）——它把整个外观压成**一个字符串字段 `_data`**，里面装的是 `BodyProperties.ToString()` 生成的 `<BodyProperties ... />` XML 片段。所以序列化结果是 `{"_data":"<BodyProperties age=\"20\" ... />"}` 这种形状，而不是你可能预期的 `{"age":20,...}`。
+
+对应地，`ReadJson` 是 `(string)JObject.Load(reader)["_data"]` 后交给 `BodyProperties.FromString`（`:18-21`）——**它硬编码了字段名 `_data`**，而且是**强制转型 `(string)`**。后果有两个：一是任何不是通过这个转换器写出来的 JSON（比如别的工具生成的 `{"age":20}`）在这里会被 `NullReferenceException` 而不是友好的解析错误；二是 `FromString` 要求字符串以 `<BodyProperties ` 或 `<BodyPropertiesMax ` 开头（`BodyProperties.cs:182`），否则返回 false，而 `ReadJson` **根本不检查这个返回值**（`:19`）——解析失败时它照样把 `default(BodyProperties)` 返回给你，调用方拿到的是一个全 0 的外观而无任何提示。
+
+另外注意 `CanWrite` 被显式覆写为 `true`（`:26-30`）而不是 Newtonsoft 默认的「不写自定义转换结果」，所以 `WriteJson` 一定会生效；如果你想跳过它，只能在构造 `JsonSerializer` 时传 `settings`，没有全局开关。
+
 ## 真实示例
 
 直接序列化一个 [BodyProperties](../BodyProperties)（自动生效，无需注册）：

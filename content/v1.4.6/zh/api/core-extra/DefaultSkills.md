@@ -78,6 +78,49 @@ description: "十八个内置技能的门面：Game 构造时 new 出一个实�
 | `InitializeAll` | `private void InitializeAll()` | 给每个 `SkillObject` 调 `Initialize(TextObject name, TextObject description, CharacterAttribute[] attributes)`。**属性名与展示名不一致的唯一一处是 `Crafting` / `Smithing`。** |
 | `_skillOneHanded` … `_skillEngineering` | `private SkillObject` 字段，18 个 | 真实数据存储。**全部私有，没有任何公开的技能清单属性**——想枚举全部十八个只能自己列。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`DefaultSkills`（`TaleWorlds.Core/DefaultSkills.cs:7`）是一个**只装静态属性的容器**——公开成员里只有 20 个 `public static SkillObject` 和一个 `public DefaultSkills()` 构造器（`:229`）。
+
+它的静态属性背后是 `private static DefaultSkills Instance { get { return Game.Current.DefaultSkills; } }`（`:11-16`），所以**每一个 `DefaultSkills.Xxx` 都是对 `Game.Current` 的一次即时解引用**。19 个技能的 getter 长这样：`public static SkillObject OneHanded { get { return DefaultSkills.Instance._skillOneHanded; } }`（`:21-27`）。
+
+实例本身由 `Game.InitializeDefaultGameObjects()` 里的 `this.DefaultSkills = new DefaultSkills();`（`Game.cs:587`）创建，构造器立刻调 `RegisterAll()`（`:229-231`），后者对每个技能执行 `Create(string stringId)`，实现是 `Game.Current.ObjectManager.RegisterPresumedObject<SkillObject>(new SkillObject(stringId))`（`:200-203`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.CampaignSystem;
+
+// 静态属性直接拿，不缓存到字段
+SkillObject tactics = DefaultSkills.Tactics;      // DefaultSkills.cs:111
+SkillObject smithing = DefaultSkills.Engineering;  // :191
+
+// 给玩家加技能：走 Hero 的技能对象，不是 DefaultSkills
+Hero hero = Hero.MainHero;
+int before = hero.Skills.GetSkillValue(Tactics);
+
+// 技能本体属性
+CharacterAttribute[] attrs = tactics.Attributes;   // SkillObject.cs:25
+TextObject howTo = tactics.HowToLearnSkillText;    // SkillObject.cs:51
+```
+
+### 最容易踩的坑
+
+**在任何战役上下文之前读 `DefaultSkills.Xxx`，或者把结果缓存进静态字段跨局复用。** getter 是 `Game.Current.DefaultSkills`（`:11-16`），所以：主菜单、`MBSubModuleBase.OnSubModuleLoad`、甚至 `OnGameInitializationFinished` 之前去读，都是 `Game.Current` 为 null 的空引用；战役拆掉之后 `Game.Current.DefaultSkills` 也随 `Game` 一起没了。更麻烦的是 `DefaultSkills` 的构造器内部还要用 `Game.Current.ObjectManager`（`:202`）——**这意味着 `new DefaultSkills()` 只能在 `Game` 已经建好之后做**，不能在静态初始化里。
+
+正确做法是现取现用，不要缓存：
+
+```csharp
+// 别这样：private static SkillObject _tactics = DefaultSkills.Tactics;
+// 要这样：
+SkillObject tactics = DefaultSkills.Tactics;   // 每次现取
+```
+
+第二个坑：这些静态属性返回的是**引擎内置的 `SkillObject` 实例本身**，不是副本。它们的属性（`Attributes`、`HowToLearnSkillText`）虽然都是 `{ get; private set; }`（`SkillObject.cs:25`/`:51`），但对象本身是共享单例；用 `Initialize(...)`（`SkillObject.cs:41`）去改它会影响到**所有**用到这个技能的领主和 UI 文本——所以自定义技能要 `new SkillObject("my_skill")` 自己注册，而不是改内置的。
+
 ## 真实示例
 
 在战斗逻辑里取对应技能（先确认 `Game.Current` 与模型已就绪）：
@@ -122,6 +165,8 @@ Debug.Print("undefined maps to null: " + (undefinedSkill == null), 0);
 
 按物品类别查对应技能（马匹物品走 `Riding`，其它无主武器返回 null）：
 
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 ItemObject horse = MBObjectManager.Instance.GetObject<ItemObject>("horse_empire_1");
 ItemObject plate = MBObjectManager.Instance.GetObject<ItemObject>("plate_unicorn_1");

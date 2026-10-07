@@ -55,6 +55,55 @@ description: "字符串键值参数袋：启动参数、XML 覆写值、平衡�
 | `Iterator` | `public IEnumerable<KeyValuePair<string, string>> Iterator { get; }` | 返回内部字典本身（类型是 `IEnumerable`）。遍历期间**不要调 `AddParameter`**，会抛 `InvalidOperationException`。 |
 | `Clone` | `public ParameterContainer Clone()` | 逐项复制出一个全新实例。**值是字符串，天然深拷贝**，无共享引用问题。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`ParameterContainer` 是 `TaleWorlds.Library/ParameterContainer.cs` 里的 `public class ParameterContainer`（`:8`），**全文只有一个字典**：私有字段 `private Dictionary<string, string> _parameters;`（`:226`）。没有公开构造器以外的东西要初始化——`public ParameterContainer()`（`:11`）把字典建好。
+
+它就是一个 `string → string` 的袋子，键值都是字符串（`:226`），所以**写入时不做类型检查**。取值有两个完全不同的家族：
+
+- **会抛**：`public string GetParameter(string key)`（`:196`），实现就是 `return this._parameters[key];`（`:198`）——key 不存在就是 `KeyNotFoundException`。
+- **不抛**：九个 `TryGetParameterAs*`（`:79` bool、`:85` bool、`:98` int、`:111` ushort、`:124` float、`:137` byte、`:150` sbyte、`:163` Vec3、`:180` Vec2）加 `TryGetParameter`（`:79`），全部返回 `bool`。
+
+整份内容的遍历口是 `public IEnumerable<KeyValuePair<string, string>> Iterator`（`:203`，getter 直接返回字典本身）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Library;
+
+// 写：第三个参数决定 key 已存在时怎么办
+var pc = new ParameterContainer();                    // ParameterContainer.cs:11
+pc.AddParameter("faction_id", "empire", false);       // :17，overwriteIfExists=false 时重复写是静默 no-op
+
+// 读：优先用 Try* 系列
+string raw;
+if (pc.TryGetParameter("faction_id", out raw))       // :79
+{
+    int id;
+    if (pc.TryGetParameterAsInt("faction_id", out id)) { /* :98 */ }
+}
+
+// 遍历全部
+foreach (KeyValuePair<string, string> kv in pc.Iterator)   // :203
+{
+    Debug.Print(kv.Key + "=" + kv.Value, 0);
+}
+
+// 独立副本：逐项复制，值仍是 string（共享引用）
+ParameterContainer copy = pc.Clone();                // :212
+copy.AddParameter("faction_id", "others", true);     // :17，overwriteIfExists=true 才真的覆盖
+```
+
+### 最容易踩的坑
+
+**用 `GetParameter` 取一个可能不存在的 key，然后被 `KeyNotFoundException` 打断。** 它是裸的 `this._parameters[key]`（`:198`），没有任何默认值、没有 `TryGetValue` 包装，也没有断言提示是哪个 key 缺失。参数容器的典型来源是 mod 之间的自定义数据——对方没写这个 key 是完全正常的情况——但你这边会直接抛异常。
+
+第二个坑是 `AddParameter(string key, string value, bool overwriteIfExists)`（`:17`）的第三个参数语义很容易看反：key **已存在**且 `overwriteIfExists == false` 时，方法走完 `if` 分支后**既不覆盖也不新增、什么都不做**（`:19-25`）——是静默失败，不是异常。用 `false` 来「保护原值」时必须自己先 `TryGetParameter` 判断，否则你以为写进去了其实没有。
+
+另外 `Clone()`（`:212-220`）是逐项 `Add` 复制，**值是 `string` 所以引用共享**——副本和源指向同一个字符串对象。字符串不可变所以这不会出事，但它也意味着 `Clone` 是浅拷贝：想真正隔离只能改 key。
+
 ## 真实示例
 
 灌一批参数再按强类型取（推荐形状）：

@@ -52,6 +52,61 @@ description: "装备槽位枚举：12 个装备槽的整数编号表，Equipment
 | `HorseHarness` | `HorseHarness`（11） | 马具/马鞍槽。数组下标 11。 |
 | `NumEquipmentSetSlots` | `NumEquipmentSetSlots`（隐式 **12**） | 整套装备的槽位总数。**必须等于 `Equipment.EquipmentSlotLength = 12`**，它就是那个数组的长度。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`EquipmentIndex` 是 `TaleWorlds.Core/EquipmentIndex.cs` 里**全文 52 行、只有一个声明**的东西：
+
+```
+public enum EquipmentIndex      // EquipmentIndex.cs:6
+```
+
+所以「怎么拿到它」的答案就是：它是一个编译期常量枚举，不需要任何实例。真正要记的是它的取值布局（`EquipmentIndex.cs:8-50`）：
+
+| 段 | 取值 | 成员 |
+| --- | --- | --- |
+| 哨兵 | `None = -1` | `:9` |
+| 武器段 | `Weapon0 = 0` 到 `ExtraWeaponSlot = 4` | `:13`-`:19` |
+| 计数常量 | `NumAllWeaponSlots = 5`、`NumPrimaryWeaponSlots = 4` | `:21`、`:23` |
+| 段标记 | `WeaponItemBeginSlot = 0`、`NonWeaponItemBeginSlot` | `:11`、`:25` |
+| 护甲段 | `ArmorItemBeginSlot = 5`、`Head = 5`、`Body`、`Leg`、`Gloves`、`Cape`、`ArmorItemEndSlot` | `:27`-`:35` |
+| 计数常量 | `NumAllArmorSlots = 5` | `:37` |
+| 马匹段 | `Horse = 10`、`HorseHarness = 11`、`NumEquipmentSetSlots` | `:39`-`:43` |
+
+注意它是**一个扁平枚举，不是嵌套**——武器槽在护甲槽之前，中间的 5/6/7/8/9 是段标记与计数常量，**马匹槽直接跳到了 10**。
+
+### 典型用法
+
+按槽位读写装备，以及用枚举自带的下标做区间判断：
+
+```csharp
+using TaleWorlds.Core;
+
+Equipment eq = hero.CharacterObject.Equipment;
+
+// 读写单个槽位（Equipment.cs:629 / :635）
+eq.AddEquipmentToSlotWithoutAgent(EquipmentIndex.Body, new EquipmentElement(armorItem));
+EquipmentElement head = eq.GetEquipmentFromSlot(EquipmentIndex.Head);
+EquipmentElement horse = eq[EquipmentIndex.Horse];          // Equipment.cs:120 的枚举索引器
+
+// 武器在 0..4，护甲在 5..9，马匹在 10..11 —— 判断某槽是不是武器位
+bool isWeaponSlot = (int)index >= (int)EquipmentIndex.WeaponItemBeginSlot
+                 && (int)index <  (int)EquipmentIndex.NumAllWeaponSlots;
+
+// 判有效
+if (index != EquipmentIndex.None) { /* ... */ }             // None = -1，:9
+
+// 兼容旧存档里的下标名
+EquipmentIndex parsed = Equipment.GetEquipmentIndexFromOldEquipmentIndexName("weapon0");   // Equipment.cs:205
+```
+
+### 最容易踩的坑
+
+**把 `EquipmentIndex` 当成连续下标去 `for` 循环整个枚举。** 它里面有大量**不占槽位的哨兵与常量**：`None = -1`（`:9`）、`NumAllWeaponSlots = 5` 和 `NumPrimaryWeaponSlots = 4` 都等于武器段末尾的真实槽位、`ArmorItemEndSlot`（`:35`）等于 `Cape`、`NumAllArmorSlots = 5`（`:37`）**等于 `Head` 的值 5 而不是槽位数量**。后果是 `foreach (EquipmentIndex i in Enum.GetValues(typeof(EquipmentIndex)))` 会在同一个槽位上反复迭代（`ArmorItemEndSlot` 和 `NumAllArmorSlots` 都是 5），而 `+1` 循环则会撞进马匹段（10）与武器段（0）之间的空洞。**遍历请显式写死区间**：武器 `0..4`、护甲 `(int)ArmorItemBeginSlot..(int)Cape`、马匹 `(int)Horse..(int)HorseHarness`。
+
+第二个坑是 `NumAllArmorSlots = 5`（`:37`）这个命名极具误导性：它看着像「护甲槽有 5 个」，但它的值是 **5**，也就是**护甲段的起始下标**（与 `ArmorItemBeginSlot`、`Head` 同值），而护甲槽实际是 `Head/Body/Leg/Gloves/Cape` 五个——值等于数量纯属巧合。写 `for (int i = 0; i < (int)EquipmentIndex.NumAllArmorSlots; i++)` 去取护甲会只取到 `Head`。武器段的 `NumAllWeaponSlots = 5`（`:21`）才是真正的数量（`Weapon0`..`ExtraWeaponSlot` 共 5 个）。**同一个命名习惯在同一个枚举里含义相反，必须逐个核对。**
+
 ## 真实示例
 
 按枚举名取槽位内容（`GetEquipmentFromSlot` 是官方的读取入口，内部走 `Equipment` 索引器）：

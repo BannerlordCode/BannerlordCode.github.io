@@ -35,6 +35,56 @@ description: "标注一个私有字段参与序列化，告诉保存系统这个
 | `.ctor` | `public SaveableFieldAttribute(short localSaveId)` | 唯一构造函数，把传入的槽位号写进 `LocalSaveId`。特性参数在语法上是常量，所以 `localSaveId` 必须是编译期常量，不能拼接。 |
 | `LocalSaveId` | `public short LocalSaveId { get; set; }` | 本类型内部的字段槽位号。保存系统按这个号寻址，而不是按字段名——**改名安全，改号不安全**。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`SaveableFieldAttribute` 是 `TaleWorlds.SaveSystem/SaveableFieldAttribute.cs:7` 的 `public class SaveableFieldAttribute : Attribute`——**全文 21 行、两个成员**：
+
+```
+public SaveableFieldAttribute(short localSaveId)   // SaveableFieldAttribute.cs:15
+public short LocalSaveId { get; set; }            // :12
+```
+
+它是**纯元数据**——挂上去什么都不做，只提供一个 `short` 编号给存档系统读。用来标记的是**私有字段**。
+
+它的孪生兄弟是 [SaveablePropertyAttribute](../SaveablePropertyAttribute)，两者结构完全一样，区别是前者标记字段、后者标记属性。
+
+两者的编号都由 `SaveableTypeDefiner` 的 `AddClassDefinitionWithCustomFields(Type type, int saveId, IEnumerable<Tuple<string, short>> fields, IObjectResolver resolver = null)`（`SaveableTypeDefiner.cs:108`）消费——那个 `fields` 参数就是「成员名 + `short` 编号」的元组序列。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.SaveSystem;
+
+public class TavernLedger : MBObjectBase
+{
+    public TavernLedger(string stringId) : base(stringId) { }
+
+    [SaveableField(0)]                              // SaveableFieldAttribute.cs:15，0 号
+    private int _debtGold;
+
+    [SaveableField(1)]                              // 1 号
+    private string _lastTavernName;
+
+    [SaveableProperty(2)]                           // 属性用另一个 attribute，SaveablePropertyAttribute.cs:15
+    public int Visits { get; set; }
+
+    public int Debt => _debtGold;                    // 属性也可以有公开 getter
+}
+```
+
+### 最容易踩的坑
+
+**以为编号可以随便填，或者可以从 1 开始。** `LocalSaveId` 是 `short`（`:12`），它是存档格式的一部分：存盘时按编号写出，读档时**按同一个编号读回**。所以编号一旦定下就不能改——把 `[SaveableField(0)]` 改成 `[SaveableField(3)]` 不会重新编号，而是让这个字段去占用 3 号槽、原来 3 号的字段去占 0。后果是**所有旧存档里这两个字段的值被互换**，而不是「版本升级后自动兼容」。
+
+第二个坑是编号必须**在同一个类型内唯一**，且要覆盖 0 起始的连续区间。重复用同一个编号，存档系统只能二选一写出去，读回来时另一个字段永远是默认值——症状是「保存前正常，读档后有一个字段被清零」，而控制台不会有重复编号的断言。
+
+第三，`short` 的上限 32767：编号本身够用，但如果误把一个大数值当编号写进去（比如复制粘贴时带上了别的数字），超过 32767 会静默溢出成负数，同样是静默错位。
+
+最后，**这个 attribute 只能加在字段上**。加到属性上能编译通过（`Attribute` 默认 `AllowMultiple = false`、`Inherited = true`，不校验目标），但存档系统不会收集它——那个字段永远存不进去。属性请用 `SaveablePropertyAttribute`。
+
 ## 真实示例
 
 一个 mod 自定义的可保存类型，字段 + definer 成对出现：

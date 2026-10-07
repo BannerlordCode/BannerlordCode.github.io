@@ -86,6 +86,60 @@ description: "旗号数据容器：有序的 BannerData 列表（0 号是背景�
 | `MaxSize` / `BannerFullSize` / `BannerEditableAreaSize` / `MaxIconCount` | `public const int MaxSize = 8000` / `BannerFullSize = 1528` / `BannerEditableAreaSize = 512` / `MaxIconCount = 32` | 尺寸与数量上限常量。`CreateRandomBannerInternal` 里构造背景数据时用的是字面量 `1528f` / `764f` 而不是这些常量。 |
 | `BackgroundDataIndex` / `BannerIconDataIndex` | `public const int BackgroundDataIndex = 0` / `BannerIconDataIndex = 1` | 索引语义常量，**但方法体里大量地方直接写死 `0` 和 `1` 而不是用它们**。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`Banner` 是 `public class Banner`（`TaleWorlds.Core/Banner.cs:10`），**不继承 `MBObjectBase`**——它不是 XML 对象，而是挂在 `Clan.Banner` / `Hero.BannerItem` 这类宿主上的一个纯值对象。四个公开构造器：`Banner()`（`:53`）、`Banner(Banner banner)`（`:59`）、`Banner(Banner banner, uint color1, uint color2)`（`:70`）、`Banner(string bannerKey)`（`:78`）与 `Banner(string bannerKey, uint color1, uint color2)`（`:90`）。
+
+现成的实例有两个来源：
+
+- **`public static Banner CreateRandomClanBanner(int seed = -1)`**（`:324`）和 `CreateRandomBanner()`（`:330`）——建新家族的旗帜。
+- **序列化码**：`public string Serialize()`（`:268`）/ `Deserialize(string message)`（`:274`）/ `static string GetBannerCodeFromBannerDataList(MBList<BannerData>)`（`:569`）/ `static bool IsValidBannerCode(string)`（`:605`）/ `static bool TryGetBannerDataFromCode(string, out List<BannerData>)`（`:612`）。`TryGet...` 用 `out` 返回值表示成功与否，mod 之间传旗帜就用这条路。
+
+尺寸常量是公开的：`MaxSize = 8000`（`:664`）、`BannerFullSize = 1528`（`:667`）、`BannerEditableAreaSize = 512`（`:670`）、`MaxIconCount = 32`（`:673`）、`BackgroundDataIndex = 0`（`:679`）、`BannerIconDataIndex = 1`（`:682`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+using System.Collections.Generic;
+
+// 给新家族配一面随机旗帜
+Banner flag = Banner.CreateRandomClanBanner();            // Banner.cs:324
+Clan myClan = Clan.CreateClan("my_mod_rebels");            // CampaignSystem/Clan.cs:1041
+myClan.Banner = flag;
+
+// 改配色（Change* 系列直接写颜色值；Set*Id 系列走颜色表索引）
+flag.ChangePrimaryColor(0xA02020u);                        // :179
+flag.ChangeBackgroundColor(0x204080u, 0xF0F0F0u);          // :192
+flag.ChangeIconColors(0xFFC000u);                          // :210
+flag.RotateBackgroundToRight();                            // :226
+
+// 图标层：索引 0 恒为背景，1 起是图标，上限 MaxIconCount = 32（:673）
+flag.AddIconData(new BannerData(iconMeshId, iconColor, iconColor2,
+                               new Vec2(size, size), new Vec2(posX, posY),
+                               drawStroke: false, mirror: false, rotationValue: 0f), 1);   // :306
+int count = flag.GetBannerDataListCount();                 // :115
+BannerData first = flag.GetBannerDataAtIndex(0);           // :104
+flag.RemoveIconDataAtIndex(1);                             // :315
+
+// 传给另一个 mod：用序列化码，别直接传引用
+string code = flag.Serialize();                             // :268
+if (Banner.IsValidBannerCode(code))                        // :605
+{
+    List<BannerData> parsed;
+    Banner.TryGetBannerDataFromCode(code, out parsed);      // :612
+    var rebuilt = new Banner(code);                         // :78
+}
+```
+
+### 最容易踩的坑
+
+**把 `Banner` 当成可自由读写的普通字段对象，直接改 `BannerDataList` 或把一个实例同时挂给两个 `Clan`。** 它没有任何引用计数或拷贝保护：`Banner(Banner banner)`（`:59`）和 `Banner(Banner banner, uint color1, uint color2)`（`:70`）是浅拷贝，而 `MBReadOnlyList<BannerData> BannerDataList`（`:29`）只是**只读视图**——想改内容必须走 `AddIconData` / `RemoveIconDataAtIndex` / `ChangePrimaryColor` 这些会同步维护序列化码的方法。直接拿 `Banner` 引用赋值给两个家族，后调 `ChangeIconColors` 会让两个家族的旗帜一起变；保存时 `Serialize()`（`:268`）读的是 `BannerCode` 字段，所以「引用共享」和「存档里的码」会不一致，读档后表现成旗帜突然变回旧图案。
+
+另一个容易踩的是往图标列表里塞超量数据：`MaxIconCount = 32`（`:673`）是硬上限，`AddIconData(BannerData, int index)`（`:306`）不替你检查，写 33 个图标后 `Serialize()` 出来的码在别处解析会失败，而 `Deserialize` 只在 `IsValidBannerCode`（`:605`）先跑过的情况下才安全。
+
 ## 真实示例
 
 从旗号代码恢复并检查有效性（返回值才代表成功）：

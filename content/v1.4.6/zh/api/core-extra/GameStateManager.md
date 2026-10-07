@@ -70,6 +70,59 @@ description: "状态栈管理器：维护有序的 GameState 列表，负责 pus
 
 `OnPushState` / `OnPopState` / `OnCleanAndPushState` / `OnCleanStates` 这四个状态迁移方法都是 `private`；`IGameStateManagerListener` 的 `OnCreateState` / `OnPushState` / `OnPopState` / `OnCleanStates` / `OnSavedGameLoadFinished` 是外部可见的挂载点。
 
+## 怎么用
+
+### 怎么拿到它
+
+`GameStateManager` 是 `TaleWorlds.Core/GameStateManager.cs:9` 的 `public class GameStateManager`，**不继承 `MBObjectBase`**——它是 [GameState](../GameState) 栈的管理者。
+
+公开构造器 `public GameStateManager(IGameStateManagerOwner owner, GameStateManager.GameStateManagerType gameStateManagerType)`（`:86`）。两个出口：
+
+- `public static GameStateManager Current`（`:14`）
+- `Game.GameStateManager` 属性——`Game.CreateGameManager()` 建的正是**局内私有那一档** `new GameStateManager(this, GameStateManagerType.Game)`；跨局的全局栈在 `Module.GlobalGameStateManager` 上。
+
+**创建状态必须走它，不能自己 new。** `public T CreateState<T>() where T : GameState, new()`（`:181`）先 `new T()` 再 `HandleCreateState(t)`；`public T CreateState<T>(params object[] parameters)`（`:189`）走 `Activator.CreateInstance(typeof(T), parameters)`。`HandleCreateState`（`:203`）做两件事：`state.GameStateManager = this;` 然后广播 `OnCreateState`。**漏掉这一步，新状态的 `GameStateManager`（`GameState.cs:44`，setter 是 internal）就是 null**，之后所有压栈/弹栈都会失效。
+
+两个类型判定：`public GameState ActiveState`（`:73`）和 `public IEnumerable<GameState> GameStates`（`:53`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+GameStateManager mgr = Game.Current.GameStateManager;
+
+// 创建：必须用 CreateState，让 HandleCreateState 注入 GameStateManager 并广播（:181）
+MyState st = mgr.CreateState<MyState>();                 // GameStateManager.cs:181
+
+// 带参数创建：约束仍然是 new()，但走 Activator（:189）
+MyState withArgs = mgr.CreateState<MyState>(someArg);
+
+// 压栈/弹栈：先自己 newGameStateManager 不行
+mgr.PushState(st);                                       // :235，内部先断言主线程（:239）
+mgr.PopState();                                          // :247，签名 PopState(int level = 0)
+
+// 读当前状态；ActiveState 可能为 null
+GameState top = mgr.ActiveState;                         // :73
+foreach (GameState s in mgr.GameStates) { /* :53 */ }
+```
+
+### 最容易踩的坑
+
+**自己 `new MyState()` 然后压栈。** `GameState` 的构造器是 `protected`（`GameState.cs:67`），外部 new 不了——这挡住了最直接的错法。真正的陷阱是：如果你把状态**从一个别的 `GameStateManager` 里 `CreateState` 出来**再压进当前栈，`HandleCreateState`（`:203`）已经把 `state.GameStateManager` 指向了那个**另一个 manager**，而 `GameState.GameStateManager`（`GameState.cs:44`）的 setter 是 internal、**没有任何公开修正途径**。后果是这个状态的弹栈、tick 都作用到错误的栈上，表现为「界面关不掉」或「界面跳了两层」。
+
+第二个坑是 `OnTick(float dt)`（`:208`）里 `ActiveStateDisabledByUser` 的分支：
+
+```
+this.CleanRequests();
+if (this.ActiveState != null) {
+    if (this.ActiveStateDisabledByUser) { this.ActiveState.OnIdleTick(dt); return; }
+```
+
+也就是说 `ActiveStateDisabledByUser` 为真时**只跑 `OnIdleTick`、直接 return**——你的状态的 `OnTick` 不会被调，界面完全不动但 `OnIdleTick` 还在跑。这正是「加了模组后游戏不暂停但界面卡住」的成因：有人在调 `RegisterActiveStateDisableRequest`（`:143`）却没配对调 `UnregisterActiveStateDisableRequest`（`:152`）。
+
+第三，`RegisterListener`（`:109-118`）**重复注册返回 false**，而 `GameState.RegisterListener`（`GameState.cs:73`）遇到 null 只断言不返回——两者行为不同，不要混用。
+
 ## 真实示例
 
 一个带层级的自定义 state 栈操作（列表页、覆盖层、任务）：

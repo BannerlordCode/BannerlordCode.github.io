@@ -105,8 +105,50 @@ description: "全局对象注册表：按类型与 StringId 登记所有 MBObjec
 | `DebugDump` | `public string DebugDump()` | 返回一份完整的对象表文本快照 |
 | `GetObjectTypeIds` | `public string GetObjectTypeIds()` | 返回「类型前缀 → typeId」的可读清单，核对存档兼容性时最有用 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`MBObjectManager` 是 `sealed class`（`TaleWorlds.ObjectSystem/MBObjectManager.cs:18`），**没有公开构造器**，唯一合法入口是静态属性 `public static MBObjectManager Instance { get; private set; }`（`:23`）。它由 `public static MBObjectManager Init()`（`:31`）创建——注意这个方法**不接收参数、内部就是 `Instance = new MBObjectManager()`**，而 `Game.CreateGame(...)` 内部第一步就会调它（见 [Game](../../core-extra/Game) 的 `RegisterTypes` 前置流程）。`Game` 也持有同实例的引用 `Game.ObjectManager`。
+
+生命周期上是：`MBObjectManager.Init()` → `Game.RegisterTypes(gameType, objectManager, gameManager)`（注册核心 16 个类型，id 2–53）→ 之后 mod 才能 `RegisterType<T>` 自己的类型。销毁走 `public void Destroy()`（`:39`），读档/开局后走 `public void ReInitialize()`（`:1469`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.ObjectSystem;
+
+// 1) 注册自己的 MBObjectBase 派生类型（必须在 Game.RegisterTypes 之后）
+MBObjectManager om = MBObjectManager.Instance;
+if (!om.HasType<MyFaction>())                       // MBObjectManager.cs:80
+{
+    om.RegisterType<MyFaction>("my_faction", "my_factions", 5100);
+}
+
+// 2) 从模块 XML 加载数据；第二个参数是 isDevelopment，第三个是 gameType
+om.LoadXML("MyFactions", true, "Campaign");         // MBObjectManager.cs:530
+
+// 3) 查单个 / 批量 / 按类型枚举。三个方法找不到时都返回 null 或空表，不抛异常
+MyFaction one  = om.GetObject<MyFaction>("my_faction_empire");          // :288
+Monster first   = om.GetFirstObject<Monster>();                           // :319
+bool has        = om.ContainsObject<MyFaction>("my_faction_empire");     // :350
+MBReadOnlyList<MyFaction> all = om.GetObjectTypeList<MyFaction>();       // :473
+
+// 4) 代码里临时造一个（要求 T : MBObjectBase, new()）
+MyFaction runtime = om.CreateObject<MyFaction>("my_faction_runtime");    // :1405
+runtime.IsReady = true;
+```
+
+### 最容易踩的坑
+
+**在 `Game.RegisterTypes` 之前就 `RegisterType<T>`，或者重复注册。** `RegisterType<T>(string classPrefix, string classListPrefix, uint typeId, bool autoCreateInstance = true, bool isTemporary = false)`（`MBObjectManager.cs:70`）的 `classPrefix` 是全局的 XML 元素名——它同时决定 `LoadXML` 时哪些节点会实例化你的类，也是 `FindRegisteredType(string classPrefix)`（`:133`）和 `FindRegisteredClassPrefix(Type type)`（`:119`）的查找键。**两个 mod 用了同一个 `classPrefix`，后来的注册会让前一个的实例化路径整个失效**：XML 节点被建成后者的对象，前者的对象再也不会被创建，而 `FindRegisteredType` 只 `Debug.FailedAssert` 后 `return null`（`:130-133`），不抛异常，于是表现是「我的物品表全是空的」。`typeId` 撞号的后果更隐蔽，它被 `ObjectTypeRecord.GetNewId()` 拼进 `new MBGUID(typeNo, num)`（`:1680-1686`）作为 MBGUID 的高位类型索引，撞号会让两类的 id 互相错位。
+
+同一类的第二个坑：`RegisterObject<T>(T obj)`（`:147`）在底层按 `obj.StringId` 查重（`:1781-1800`），冲突时它**直接改写 `obj.StringId`** 而不抛异常，所以「注册完再 `GetObject<T>(我写的id)` 拿不到自己」通常不是查询写错，是 id 已经被改名了。
+
 ## 真实示例
 
+<!-- xml-id-unverifiable: v1.4.6 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.6 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 // 1. 按 StringId 取对象
 Settlement capital = MBObjectManager.Instance.GetObject<Settlement>("empire_west_capital");

@@ -272,6 +272,60 @@ description: "sealed 的战斗阵型对象：把一批 Agent 组织成有序队�
 | `Formation.FormationIntegrityDataGroup` | `public struct FormationIntegrityDataGroup`，构造签名 `FormationIntegrityDataGroup(Vec2 averageVelocityExcludeFarAgents, float deviationOfPositionsExcludeFarAgents, float maxDeviationOfPositionExcludeFarAgents, float averageMaxUnlimitedSpeedExcludeFarAgents)` | 阵型一致性统计组。四个公开字段分别是排除远端后的平均速度、位置偏差、最大偏差、平均最大速度 |
 | `Formation.AgentArrangementData` | `public class AgentArrangementData(int index, IFormationArrangement arrangement)`，属性 `IsPlayerUnit` | 记录某个 Agent 在排队算法中的位置信息 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`Formation` 是 `TaleWorlds.MountAndBlade/Formation.cs:16` 的 `public sealed class Formation : IFormation`——**sealed**，3840 行、**212 个公开成员**，是战斗里最大的一个类型。
+
+**不要自己 new。** 构造器 `public Formation(Team team, int index)`（`:837`）是 public，但 `Team.Initialize()` 会在 `Mission` 建立时为每个队伍建**十个** Formation 并塞进 `FormationsIncludingSpecialAndEmpty`——索引 0..7 进 `FormationsIncludingEmpty`，全部十个进前者（General 与 Bodyguard 只在前者）。所以：
+
+- `Team.FormationsIncludingSpecialAndEmpty`（`Team.cs:52`）——完整的十个
+- `Team.FormationsIncludingEmpty`（`Team.cs:47`）——只有前八个
+- `Team.GetFormation(FormationClass formationIndex)`（`Team.cs:696`）——按阵型类取
+
+构造器本身（`:837-844`）只做四件事：`this.Team = team;`、`this.Index = index;`、`this.FormationIndex = (FormationClass)index;`、`this.IsSpawning = false;`，最后 **`this.Reset();`**——所以构造完就是已重置状态。
+
+三个身份字段是 **`public readonly`** 而不是属性：`public readonly Team Team;`（`:3613`）、`public readonly int Index;`（`:3616`）、`public readonly FormationClass FormationIndex;`（`:3619`）——**编译期就不能改**，这一点反而是判断「阵型归哪个队伍」最可靠的依据。
+
+尺寸：`CountOfUnits`（`:100`）、`CountOfDetachedUnits`（`:110`）、`CountOfUndetachableNonPlayerUnits`（`:120`）、`CountOfUnitsWithoutDetachedOnes`（`:130`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.MountAndBlade;
+
+// 从队伍取阵型
+Team team = Mission.Current.Teams[BattleSideEnum.Attacker];        // Mission.cs:1615
+Formation infantry = team.GetFormation(FormationClass.Infantry);   // Team.cs:696
+
+// 遍历十个槽位时用完整的那个集合
+foreach (Formation f in team.FormationsIncludingSpecialAndEmpty)  // Team.cs:52
+{
+    int n = f.CountOfUnits;                                        // Formation.cs:100
+    int idx = f.Index;                                          // :3616，public readonly int
+    FormationClass cls = f.FormationIndex;                       // :3619，构造器 :842 由 index 转的
+    Team owner = f.Team;                                         // :3613，public readonly Team
+}
+
+// 监听（注意退订要同一委托实例）
+System.Action<Formation, Agent> onAdded = OnUnitAdded;
+infantry.OnUnitAdded += onAdded;                                   // :21，Action<Formation, Agent>
+infantry.OnUnitAdded -= onAdded;
+
+// 单位增减
+System.Action<Formation> onCount = OnUnitCountChanged;
+infantry.OnUnitCountChanged += onCount;                            // :36
+```
+
+### 最容易踩的坑
+
+**自己 `new Formation(team, index)`，然后把结果当作第十个阵型用。** 构造器是 public 且合法，但它**完全绕过了 `Team.Initialize()`（`Team.cs:293`）的登记流程**——Team 内部的 `FormationsIncludingEmpty` / `FormationsIncludingSpecialAndEmpty` 两个列表里没有它，AI、订单系统、`Team.GetFormation` 全部看不见它。更糟的是它和真阵型共享同一个 `(FormationClass)index`（`:842`），于是 `Team.GetFormation(FormationClass.Infantry)` 返回的仍是引擎那个，你写在假阵型上的改动**永远不生效**。需要额外阵型时，正确位置是 [MissionBehavior](../MissionBehavior) 里通过 `Team` / `Mission` 提供的正规通道处理，而不是造一个平行对象。
+
+第二个坑是**在十个槽位上循环时用了 `FormationsIncludingEmpty`（八个）却按十来做算术**。这两个集合的差别正是 General 与 Bodyguard（`Team.cs:52` 与 `:47` 的说明）。用错集合会在 `i == 8` 时越界，或者——更常见——漏掉 General 让守卫单位的命令不生效。
+
+第三，212 个成员里大量是**事件**，而且都是 `Action<...>` 委托（`:21` 的 `OnUnitAdded`、`:26` 的 `OnUnitRemoved`、`:31` 的 `OnUnitAttached`、`:36` 的 `OnUnitCountChanged`、`:41` 的 `OnUnitSpacingChanged`、`:46` 的 `OnTick`、`:51` 的 `OnWidthChanged`、`:56` 的 `OnBeforeMovementOrderApplied`、`:61` 的 `OnAfterArrangementOrderApplied`）。退订必须传**同一个委托实例**——`f.OnUnitAdded += (a, b) => {...}` 之后再写一个等价的 lambda 去 `-=`，退不掉，处理器就永久挂在阵型上。阵型跨整个战斗存活，所以这个泄漏是「每场战斗多一份」。
+
 ## 真实示例
 
 ```csharp

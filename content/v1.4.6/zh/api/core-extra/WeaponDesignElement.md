@@ -79,6 +79,50 @@ description: "合成武器设计里的单个槽位：包住一个 CraftingPiece 
 | `GetInvalidPieceForType` | `public static WeaponDesignElement GetInvalidPieceForType(CraftingPiece.PieceTypes pieceType)` | 给数组补洞用。内部 `CraftingPiece.GetInvalidCraftingPiece(pieceType)`，缩放固定 100。 |
 | `GetCopy` | `public WeaponDesignElement GetCopy()` | 造一个同零件、同百分比的新元素对象。**`CraftingPiece` 是同一个引用，不是深拷贝。** [Crafting](../Crafting) 的 `SwitchToPiece` / `GetRandomPieceOfType` / `SwitchToCraftedItem` 全用它来避免槽位与候选池共享对象。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`WeaponDesignElement` 是 `TaleWorlds.Core/WeaponDesignElement.cs:8` 的 `public class WeaponDesignElement`，251 行。
+
+**注意它的构造器全是 `private`**（`private WeaponDesignElement(CraftingPiece craftingPiece, int scalePercentage = 100)`，`:217`）。所以实例只能从工厂来：
+
+- `public static WeaponDesignElement CreateUsablePiece(CraftingPiece craftingPiece, int scalePercentage = 100)`（`:230`）
+- `public static WeaponDesignElement GetInvalidPieceForType(CraftingPiece.PieceTypes pieceType)`（`:224`）——内部是 `new WeaponDesignElement(CraftingPiece.GetInvalidCraftingPiece(pieceType), 100)`，也就是拿 [CraftingPiece](../CraftingPiece) 的哨兵包一层
+- `public WeaponDesignElement GetCopy()`（`:221`）——`new WeaponDesignElement(this.CraftingPiece, this.ScalePercentage)`
+
+尺寸属性是一整族：`ScaledLength`（`:86`）、`ScaledWeight`（`:100`）、`ScaledCenterOfMass`（`:115`）、`ScaledDistanceToNextPiece`（`:129`）、`ScaledDistanceToPreviousPiece`（`:143`）、`ScaledBladeLength`（`:157`）、`ScaledPieceOffset`（`:171`）、`ScaledPreviousPieceOffset`（`:185`）、`ScaledNextPieceOffset`（`:199`）。配套的未缩放量是 `ScalePercentage`（`:36`）、`ScaleFactor`（`:46`）、`IsPieceScaled`（`:56`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+// 只能通过工厂拿
+CraftingPiece blade = MBObjectManager.Instance.GetObject<CraftingPiece>("piece_blade_1");   // MBObjectManager.cs:288
+WeaponDesignElement elem = WeaponDesignElement.CreateUsablePiece(blade);                  // WeaponDesignElement.cs:230
+elem.SetScale(120);                                                                       // :212，只写 _scalePercentage
+
+WeaponDesignElement copy = elem.GetCopy();                                                 // :221
+WeaponDesignElement missing = WeaponDesignElement.GetInvalidPieceForType(CraftingPiece.PieceTypes.Guard);   // :224
+
+// 有效性与尺寸
+if (elem.IsValid)                          // :76
+{
+    float len = elem.ScaledLength;          // :86
+    float mass = elem.ScaledCenterOfMass;   // :115
+    int pct = elem.ScalePercentage;         // :36
+}
+```
+
+### 最容易踩的坑
+
+**改完 `SetScale` 就直接读 `ScaledLength`，结果拿到的是缩放前的旧值。** `SetScale(int scalePercentage)`（`:212-215`）的实现只有一句 `this._scalePercentage = scalePercentage;`——**它只写私有的 `_scalePercentage`，不刷新任何缓存**。那一族 `Scaled*` 属性是由 `_scalePercentage` 与 `CraftingPiece` 的原始值现算出来的派生量（`ScaleFactor` `:46`、`IsPieceScaled` `:56` 都是同理）。所以顺序必须是：先 `SetScale`，再读 `Scaled*`；反过来读到的就是旧尺寸。
+
+第二个坑是 `GetInvalidPieceForType`（`:224`）返回的对象**不是 null**。它内部包的是 `CraftingPiece.GetInvalidCraftingPiece(pieceType)`（`CraftingPiece.cs:53`）那个 `IsValid = false` 的共享哨兵，于是 `elem.CraftingPiece` 非 null、`elem.IsValid` 为 false。所以 `if (elem == null)` **挡不住无效件**，必须读 `IsValid`（`:76`）。而 [Crafting](../Crafting) 的 `Init()` 在某个 `PieceTypes` 没有可用部件时正是填的这个（`Crafting.cs:81`）。
+
+第三，[Crafting](../Crafting) 的 `Init()` 挑默认件时用 `UsablePiecesList[i].First(p => !p.CraftingPiece.IsHiddenOnDesigner)`——注意它读的是 `CraftingPiece.IsHiddenOnDesigner`，**不是** `WeaponDesignElement.IsValid`。这两个是不同判断，所以「不可见」和「无效」要分别查。
+
 ## 真实示例
 
 摆满 4 个槽并检查有效性：

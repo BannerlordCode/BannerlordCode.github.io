@@ -63,6 +63,48 @@ GauntletUI 绑定系统里描述「从根 ViewModel 走到某个属性」的一�
 | `operator !=` | `public static bool operator !=(BindingPath a, BindingPath b)` | `!(a == b)`。 |
 | `ToString` | `public override string ToString()` | 返回 `Path`。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`BindingPath` 是 `TaleWorlds.Library` 里的 `public class BindingPath`（`TaleWorlds.Library/BindingPath.cs:8`），用来表达 ViewModel 的属性绑定路径。三个构造器：`BindingPath(string path)`（`:57`）按 `,` 或 `.` 切分字符串、`BindingPath(int path)`（`:64`）给下标路径、`BindingPath(IEnumerable<string> nodes)`（`:77`）直接给节点数组。
+
+派生形式只有两个方向：`public BindingPath SubPath`（`:124`，**去掉第一个节点**，也就是往深处一层）和 `public BindingPath ParentPath`（`:148`，回到上一层）。没有任意层数的切片。
+
+判断两个路径是否同源用 `public bool IsRelatedWith(BindingPath referencePath)`（`:209`），以及它的两个静态包装 `IsRelatedWithPath(string path, BindingPath referencePath)`（`:203`）、`IsRelatedWithPathAsString(string path, string referencePath)`（`:197`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Library;
+using System.Collections.Generic;
+
+BindingPath hp = new BindingPath("MyVm.Health");        // BindingPath.cs:57
+BindingPath hp2 = new BindingPath(new[] { "MyVm", "Health" });   // :77
+
+// 沿路径下钻一层
+BindingPath deeper = hp.SubPath;                        // :124
+BindingPath back   = hp.ParentPath;                     // :148
+
+// 判断某个绑定是不是挂在 hp 底下（子路径也算）
+if (hp.IsRelatedWith(new BindingPath("MyVm")))           // :209
+{
+    Debug.Print(hp.FirstNode + " -> " + hp.LastNode, 0);  // :27 / :37
+}
+
+// 相对判断：字符串版给 UI 声明用
+if (BindingPath.IsRelatedWithPathAsString("MyVm.Health.Max", hp.Path))   // :197
+{
+    // 命中
+}
+```
+
+### 最容易踩的坑
+
+**以为 `SubPath` / `ParentPath` 是可以任意叠加的切片，然后在一层路径上连续调三次 `SubPath` 取到想要的那一段。** `SubPath`（`:124`）和 `ParentPath`（`:148`）是**一次性各剥一个节点**，没有偏移量参数，也没有 `GetRange`。在只有两个节点的 `"MyVm.Health"` 上连调两次 `SubPath` 得到的是空路径而不是异常，于是后面拿它去 `Equals`（`:176`）比较时永远不相等，`IsRelatedWith`（`:209`）也恒为 false——现象是「绑定没生效」而不是报错。
+
+第二个坑是这个类型**重载了 `==` / `!=`**（`:183` / `:191`）。`BindingPath` 同时又覆写了 `Equals(object)`（`:176`）和 `GetHashCode()`（`:170`），所以 `==` 和 `Equals` 在正常用法下一致；但如果你把它放进 `Dictionary` 的键（`GetHashCode` 参与分桶）同时又用 `==` 去比对两组节点顺序不同的路径，它们不相等而 `ToString()`（`:255`）打出来可能看起来一样。**节点顺序必须和构造时完全一致**，不要依赖字符串比较做等价判断。
+
 ## 真实示例
 
 构造、遍历、拼接（注意分隔符是反斜杠）：

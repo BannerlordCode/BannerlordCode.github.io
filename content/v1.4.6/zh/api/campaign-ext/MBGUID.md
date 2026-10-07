@@ -64,6 +64,68 @@ description: "把类型编号与类型内序号压进一个 uint 的跨存档标
 | --- | --- | --- |
 | `_internalValue` | `private readonly uint _internalValue`，带 `[CachedData]` 与 `[SaveableField(1)]` | 唯一的状态字段。`readonly` 加 `[SaveableField(1)]` 意味着它就是本类型在存档里出现的全部内容——4 个字节，`SaveableObjectSystemTypeDefiner` 注册的 saveId 是 1005，序列化器 `MBGUIDBasicTypeSerializer` 只做一次 `WriteUInt` / `ReadUInt` |
 
+## 怎么用
+
+### 怎么拿到它
+
+`MBGUID` 是 `TaleWorlds.ObjectSystem` 里的 `readonly struct`（`MBObjectSystem/MBGUID.cs:8`），内部只有一个 `[CachedData] [SaveableField(1)] private readonly uint _internalValue`（`MBGUID.cs:158-160`）。它**不会自己出现在业务代码的视野里**，只有三条入口：
+
+- 从对象上读：`MBObjectBase.Id`（`MBObjectBase.cs:23`）——这是绝大多数情况，拿到对象就等于拿到它的 id。
+- 按 id 反查对象：`MBObjectManager.GetObject(MBGUID objectId)`（`MBObjectManager.cs:419`），拿的是 `MBObjectBase`，需要自己再 cast 成具体类型。
+- 自己造：`new MBGUID(uint id)`（`MBGUID.cs:11`，直接塞进 `_internalValue`）或 `new MBGUID(uint objType, uint subId)`（`MBGUID.cs:17`，按 `(objType << 26) | subId` 拼）。只有在写存档兼容层或自己实现一个 `IObjectManagerHandler` 时才会走第二条路；正常 mod 不要自己编码。
+
+### 典型用法
+
+把 id 当字典键缓存自定义数据，并在读档后按 id 回填：
+
+```csharp
+using TaleWorlds.ObjectSystem;
+
+private readonly Dictionary<MBGUID, int> _killCounts = new Dictionary<MBGUID, int>();
+
+public void RecordKill(Hero dead)
+{
+    MBGUID key = dead.Id;                  // MBObjectBase.Id，MBObjectBase.cs:23
+    int next;
+    _killCounts.TryGetValue(key, out next);
+    _killCounts[key] = next + 1;
+}
+
+public MBReadOnlyList<Hero> FindCheaters()
+{
+    // MBObjectManager.cs:419 返回 MBObjectBase，这里统一 cast 回 Hero
+    var hits = new List<Hero>();
+    foreach (KeyValuePair<MBGUID, int> pair in _killCounts)
+    {
+        var hero = MBObjectManager.Instance.GetObject(pair.Key) as Hero;
+        if (hero != null && pair.Value > 50)
+        {
+            hits.Add(hero);
+        }
+    }
+    return hits;
+}
+```
+
+需要打印或排序时，用它自己带的比较运算（`MBGUID.cs:47-81`）和 `CompareTo(object)`（`MBGUID.cs:97`）：
+
+```csharp
+// == 比较的是 _internalValue（MBGUID.cs:47），GetTypeIndex() 是高位 >>26（MBGUID.cs:115）
+if (candidate.Id == hero.Id)
+{
+    Debug.Print("type index = " + candidate.Id.GetTypeIndex(), 0);
+}
+
+// GetHash2 会先自行交换顺序（MBGUID.cs:83-92），两个 id 可以随便传
+long pairHash = MBGUID.GetHash2(hero.Id, victim.Id);
+```
+
+### 最容易踩的坑
+
+**用双参数构造器自己编码 id，却以为 `objType` 也会被校验。** `new MBGUID(uint objType, uint subId)` 只对 `subId` 做范围检查——`subId < 0U || subId > 67108863U` 时抛 `MBOutOfRangeException`（`MBGUID.cs:19-22`）；`objType` 是直接 `objType << 26`（`MBGUID.cs:24`），完全没有校验。类型位只有 6 位（`private const int ObjectIdNumBits = 26;` / `ObjectIdBitFlag = 67108863`，`MBGUID.cs:154-157`），所以一旦 `objType >= 64`，高位会被挤掉，`GetTypeIndex()`（`MBGUID.cs:115`，即 `_internalValue >> 26`）读回来的类型索引不是你写的那个数，和别的已注册类型的 id 直接重号；后续 `MBObjectManager.GetObject(MBGUID)` 按 `InternalValue` 查会拿到**另一个类型或 null**，而且因为整个过程不抛异常，错误会一路漂到读档时才暴露。
+
+顺带两个同源陷阱：`default(MBGUID)` 的 `InternalValue` 是 `0`，`ToString()` 也返回 `"0"`（`MBGUID.cs:127-130`），拿它当「无 id」判断可以，但它和任何真实 id 都 `!=`，不要指望它等于某个默认对象；而 `CompareTo(object a)` 在参数不是 `MBGUID` 时**抛 `MBTypeMismatchException`**（`MBGUID.cs:98-100`），注意这个类型只实现了非泛型 `IComparable`（`MBGUID.cs:8`），排序时不要顺手传错类型。
+
 ## 真实示例
 
 手工构一个标识并拆开看：

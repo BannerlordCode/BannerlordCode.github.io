@@ -235,6 +235,55 @@ description: "战役运行时根对象：Current 单例持有全部管理器、�
 | `Campaign.PartyRestFlags` | `None = 0` / `SafeMode = 1`，底层类型 `uint` | 队伍休息标志。`SafeMode` 表示处于安全休息（不掉士气） |
 | `PartyRestFlags` 使用 | 由休息系统消费 | 不由 mod 直接设置 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`Campaign` 没有公开构造器，mod 侧**只通过静态属性 `public static Campaign Current { get; private set; }` 拿到它**（`TaleWorlds.CampaignSystem/Campaign.cs:508`，3000 行的大类）。setter 是 `private`，全文件只有两处写它：
+
+- `public void SetLoadingParameters(Campaign.GameLoadingType gameLoadingType)`（`Campaign.cs:1871`）里第一句就是 `Campaign.Current = this;`（`:1873`），并且只有 `gameLoadingType == Campaign.GameLoadingType.SavedCampaign` 时才额外置 `GameStarted = true`（`:1876`）。
+- 拆局路径把它置回 null（`Campaign.cs:1646`）。
+
+构造与初始化在 `protected override void OnInitialize()`（`Campaign.cs:1889`）里，顺序对 mod 很重要：`new CampaignEvents()`（`:1891`）→ `new CampaignEventDispatcher(...)`（`:1892`）→ `new CampaignGameStarter(this.GameMenuManager, this.ConversationManager)`（`:1905`）→ `GameManager.InitializeGameStarter(game, campaignGameStarter)`（`:1907`，**这里才回调到 mod**）→ `SetBasicModels(campaignGameStarter.Models)`（`:1915`）→ `CreateGameManager()`（`:1920`）→ 按开新局/读档两条分支把 behaviors 交给 `CampaignBehaviorManager`（`:1945` 或 `:1949-1952`）。
+
+派生侧常用出口：`Campaign.Current.GetCampaignBehavior<T>()`、`Campaign.Current.AddCampaignEventReceiver(CampaignEventReceiver)`（`:1882`）、`Campaign.Current.QuestManager` / `SettlementManager` 等由 `CreateManagers()`（`:1903`）建立的子系统。
+
+### 典型用法
+
+在 `MBGameManager` 的战役钩子里拿 `Campaign.Current`，并注册自己的事件接收器：
+
+```csharp
+using TaleWorlds.CampaignSystem;
+
+public class MyCampaignBehaviour : CampaignEventReceiver
+{
+    public override void OnHeroWounded(Hero woundedHero)      // CampaignEventReceiver.cs
+    {
+        Debug.Print("wounded: " + woundedHero.Name.ToString(), 0);
+    }
+}
+
+public override void OnGameStart(Game game, IGameStarter gameStarter)
+{
+    // 此时 Campaign.Current 已由 SetLoadingParameters 写入（Campaign.cs:1873）
+    Campaign campaign = Campaign.Current;
+    campaign.AddCampaignEventReceiver(new MyCampaignBehaviour());   // Campaign.cs:1882
+}
+
+public override void OnGameInitializationFinished(Game game, object starterObject)
+{
+    // starterObject 就是 Campaign.cs:1905 建出来的那个 CampaignGameStarter
+    var starter = (CampaignGameStarter)starterObject;
+    starter.AddBehavior(new MyPersistentBehaviour());
+}
+```
+
+### 最容易踩的坑
+
+**在 `Campaign.Current` 还是 null 的阶段就去取它。** 它只在 `SetLoadingParameters`（`Campaign.cs:1871-1873`）里被赋值，所以 `MBSubModuleBase.OnSubModuleLoad`、`OnGameInitializationFinished` 之前这些都拿不到值；反过来它又在拆局时被置 null（`Campaign.cs:1646`），所以任何把 `Campaign.Current` 缓存进静态字段的代码在**换局之后就是悬空引用**——第二次进战役时你的 mod 会拿着上一局的 `Campaign` 去查 `Settlement`，查到的是已经销毁的世界。正确做法是每次现取，或者把缓存挂在 [CampaignBehaviorBase](../CampaignBehaviorBase) 实例上（它随局重建）。
+
+同一个时间窗还有第二个坑：`Campaign.Models` 走的是 `SetBasicModels(campaignGameStarter.Models)`（`Campaign.cs:1915`），在**这行之前**读 `Campaign.Models` 拿到的是未初始化引用；`CreateGameManager()`（`:1920`）之前 `Game.Current.GameStateManager` 也还不存在。
+
 ## 真实示例
 
 ```csharp

@@ -55,6 +55,57 @@ description: "角色体型数据：动态参数（年龄/体重/体型）+ 8 个
 | `operator ==` | `public static bool operator ==(BodyProperties a, BodyProperties b)` | `a == b || (a != null && b != null && a._staticBodyProperties == b._staticBodyProperties && a._dynamicBodyProperties == b._dynamicBodyProperties)`。对值类型 `a != null` 恒真，实际等价于两字段比较。 |
 | `operator !=` | `public static bool operator !=(BodyProperties a, BodyProperties b)` | `!(a == b)`。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`BodyProperties` 是 `public struct BodyProperties`（`TaleWorlds.Core/BodyProperties.cs:12`）——**结构体，不是类**。它把外观数据拆成两半：`public StaticBodyProperties StaticProperties`（`:16`，不可变的脸型 key，8 个 `ulong`）和 `public DynamicBodyProperties DynamicProperties`（`:26`，年龄/体重/体型三个 float）。另外直接平铺了 `Age`（`:36`）、`Weight`（`:46`）、`Build`（`:56`）——**这三个是 `DynamicProperties` 的镜像字段，两边要同步改**。
+
+四个来源入口：
+
+- `public static BodyProperties Default`（`:330`）——静态只读默认值。
+- `public static bool FromXmlNode(XmlNode node, out BodyProperties bodyProperties)`（`:152`）：`age`/`weight`/`build` 三个属性用 `float.TryParse` 读、**读不到就保留 30f / 0.5f / 0.5f 的初值**（`:153-155`），脸型走 `StaticBodyProperties.FromXmlNode`，后者失败则整体 `bodyProperties = default(BodyProperties)` 并 `return false`（`:172-176`）。
+- `public static bool FromString(string keyValue, out BodyProperties bodyProperties)`（`:181`）：要求字符串以 `<BodyProperties ` 或 `<BodyPropertiesMax ` 开头（`:182`），内部 `LoadXml`，`XmlException` 时 `return false`（`:188-191`）。
+- `public static BodyProperties GetRandomBodyProperties(int race, bool isFemale, BodyProperties bodyPropertiesMin, BodyProperties bodyPropertiesMax, int hairCoverType, ...)`（`:225`）。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+using System.Xml;
+
+// 从角色 XML 读；失败时 out 参数是 default(BodyProperties)，不是 null
+BodyProperties bp;
+XmlNode node = doc.SelectSingleNode("//NPC");
+if (BodyProperties.FromXmlNode(node, out bp))                  // BodyProperties.cs:152
+{
+    bp.DynamicProperties.Age = 31f;
+    // 同步平铺字段，否则两边不一致
+    bp.Age = 31f;                                            // :36
+    bp.Weight = 0.62f;                                        // :46
+    bp.Build = 0.55f;                                         // :56
+
+    // 结构体默认值可取
+    BodyProperties fallback = BodyProperties.Default;         // :330
+}
+
+// 从字符串（存档 / mod 通信）读
+BodyProperties fromText;
+bool ok = BodyProperties.FromString("<BodyProperties age=\"28\" weight=\"0.5\" build=\"0.5\" />", out fromText);  // :181
+
+// 随机生成一个体型区间内的人
+BodyProperties rnd = BodyProperties.GetRandomBodyProperties(race, isFemale, min, max, hairCoverType);   // :225
+
+// 比较用重载的 ==，它比的是全部字段
+if (bp == fallback) { /* ... */ }                             // :232
+```
+
+### 最容易踩的坑
+
+**只改了 `DynamicProperties` 里的值，忘了外面那三个平铺字段。** `BodyProperties` 同时暴露 `DynamicProperties.Age`（`DynamicBodyProperties.cs:70`）和顶层的 `BodyProperties.Age`（`BodyProperties.cs:36`），它们是两份独立的存储。`GetRandomBodyProperties`（`:225`）内部会把两者一起填好，但**你手写赋值时不会自动同步**。后果是下游按顶层字段读的那条路径（网格选择、年龄相关的骨骼缩放）看到的是旧值，而按 `DynamicProperties` 读的那条看到新值——同一个人物在不同系统里表现出两个年龄，典型现象是「脸变了但体型没变」。要么两处都写，要么只从 `DynamicProperties` 复制一份出来用。
+
+第二个坑是 `FromXmlNode` 失败时**不抛异常**：`StaticBodyProperties.FromXmlNode` 失败会走 `bodyProperties = default(BodyProperties); return false;`（`:172-176`），于是 `bp` 的静态部分全是 `default`，也就是 `KeyPart1..KeyPart8` 全 0。直接拿它去渲染会得到「没有脸的模型」而不是错误。所有 `From*` 都返回 `bool`，务必检查返回值再使用 `out` 参数。
+
 ## 真实示例
 
 从 XML 定义解析（注意返回值才代表成功，`default` 是合法值）：

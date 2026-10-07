@@ -59,6 +59,53 @@ movie 的加载是显式的：在 `OnActivate`（或更早的 `OnInitialize`）�
 | `UpdateLayout` | `public override void UpdateLayout()` | 重算布局。分辨率或 `ScreenManager.Scale` 变化时被引擎调 |
 | `DrawDebugInfo` | `public override void DrawDebugInfo()` | 在调试构建里画出命中盒与焦点信息 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`GauntletLayer` 是 `TaleWorlds.Engine.GauntletUI/GauntletLayer.cs:15` 的 `public class GauntletLayer : ScreenLayer`——**继承 [ScreenLayer](../../gui/ScreenLayer)**，是引擎把 Gauntlet UI 挂到屏幕系统上的那一层。
+
+构造器**是 public**：`public GauntletLayer(string name, int localOrder, bool shouldClear = false)`（`:86`）。它 `: base(name, localOrder)` 之后连做五件事（`:87-99`）：建 `_movieIdentifiers = new MBList<GauntletMovieIdentifier>()`；取 `UIResourceManager.ResourceDepot`；`TwoDimensionView.CreateTwoDimension(name)`；按 `shouldClear` 设清除色与 `View.ViewRenderOptions.ClearColor`（`:93-96`）；建 `TwoDimensionEnginePlatform` 与 `TwoDimensionContext`，最后 `this.InitializeContext();`（`:99`）。
+
+**这意味着 `new GauntletLayer(...)` 会立刻创建渲染资源**——所以它通常不是你自己 new，而是引擎在需要时建的；自己建必须在 Screen 初始化流程里做，并确保对应的 `Release`。
+
+核心 API 是成对的：
+
+- `public GauntletMovieIdentifier LoadMovie(string movieName, ViewModel dataSource)`（`:130`）——建标识符、内部 `LoadMovie(identifier)` 并 `RefreshContextName()`。引擎自己的用法见 `BannerEditorView.cs:155`、`CharacterCreationCultureStageView.cs:39`。
+- `public void ReleaseMovie(GauntletMovieIdentifier identifier)`（`:154`）——**它自己判重**：`if (this._movieIdentifiers.Contains(identifier))` 才走释放，否则 `Debug.FailedAssert("Failed to release movie from gauntlet layer: " + identifier.MovieName, ...)`（`:164`）。
+- `public GauntletMovieIdentifier GetMovieIdentifier(string movieName)`（`:117`）
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Engine.GauntletUI;
+using TaleWorlds.GauntletUI.Data;
+
+// 建层并挂 movie
+var layer = new GauntletLayer("my_layer", localOrder: 0, shouldClear: false);   // GauntletLayer.cs:86
+GauntletMovieIdentifier id = layer.LoadMovie("MyMovie", myViewModel);            // :130
+IGauntletMovie movie = id.Movie;                                                // :133 内部 LoadMovieAux → GauntletMovie.Load
+//   GauntletMovieIdentifier.Movie 是 { get; set; }（GauntletMovieIdentifier.cs:25），
+//   MovieName 是 { get; internal set; }（:20），而它的构造器是 internal（:11）——外部不能自己造。
+
+// 重新取已加载的 movie
+GauntletMovieIdentifier again = layer.GetMovieIdentifier("MyMovie");             // :117
+
+// 释放：传回当初那个 identifier，不要自己 new 一个
+if (movie.IsLoaded && !movie.IsReleased)                                       // GauntletMovie.cs:64 / :69
+{
+    layer.ReleaseMovie(id);                                                      // :154
+}
+```
+
+### 最容易踩的坑
+
+**释放时传了一个自己 `new` 出来的 `GauntletMovieIdentifier`，而不是 `LoadMovie` 返回的那个。** `ReleaseMovie`（`:154-166`）第一步就是 `if (this._movieIdentifiers.Contains(identifier))`——内部列表存的是**对象引用**，`GauntletMovieIdentifier` 没有值相等重载。所以新 new 出来的标识符不在列表里，走 else 分支 `Debug.FailedAssert(...)`（`:164`）**然后直接返回，movie 根本没有被释放**。后果就是 [GauntletMovie](../../gui/GauntletMovie) 那边的 `PrefabChange` / `BrushChange` 订阅永久留存（`GauntletMovie.cs:79-80` 订阅，`:155-156` 退订），每开一次界面泄漏一次 movie 树和它的两个事件处理器。**必须保存并回传 `LoadMovie` 的返回值。**
+
+第二个坑是 `LoadMovie` 的返回值**不等于加载成功**。`:131` 无条件 `new GauntletMovieIdentifier(movieName, dataSource)` 并返回，真正的加载在 `LoadMovieAux`（`:175`）里转给 `GauntletMovie.Load(...)`，而 [GauntletMovie](../../gui/GauntletMovie) 的 `Load` 在 prefab 找不到时会把 `IsLoaded` 留在 false（`GauntletMovie.cs:126-130`）。所以拿到 identifier 不代表界面出来了——**必须再判 `id.Movie.IsLoaded`**，否则你在 `RootWidget`（可能是 null）上做操作。
+
+第三，构造器会立刻建 `TwoDimensionView` / `TwoDimensionPlatform` / `TwoDimensionContext`（`:90`、`:97`、`:98`）。`shouldClear: true` 还会改全局渲染选项（`:94-95`）。所以在不该建层的时机（比如已经有层在渲染时）new 一个出来，会造成**两个 2D 上下文并存**。
+
 ## 真实示例
 
 ```csharp

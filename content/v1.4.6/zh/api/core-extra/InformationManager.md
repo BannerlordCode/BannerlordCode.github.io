@@ -66,6 +66,52 @@ description: "纯静态的信息通道：所有游戏方法都是对一组静态
 | `TooltipRegistry` | `public struct TooltipRegistry { public Type TooltipType; public object OnRefreshData; public string MovieName; }` | tooltip 注册记录。`OnRefreshData` 存的是 `object`（实际是 `Action<TTooltip, object[]>`），要用得自己转型。 |
 | `TooltipRegistry` | `public TooltipRegistry(Type tooltipType, object onRefreshData, string movieName)` | 结构体构造，字段式存储，赋值即可。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`InformationManager` 是 `TaleWorlds.Library/InformationManager.cs:7` 的 `public static class InformationManager`——**纯静态类**，全部成员都是 static。
+
+它同时是**事件的消费者和事件的拥有者**，两种用法：
+
+- **调它**（UI 侧）：`DisplayMessage(InformationMessage)`（`:71`）、`HideAllMessages()`（`:82`）、`ClearAllMessages()`（`:93`）、`AddSystemNotification(string)`（`:104`）、`ShowTooltip(Type, params object[])`（`:115`）、`HideTooltip()`（`:126`）、`ShowInquiry(InquiryData, bool pauseGameActiveState = false, bool prioritize = false)`（`:137`）、`ShowTextInquiry(...)`（`:148`）、`HideInquiry()`（`:159`），以及查询 `IsAnyInquiryActive()`（`:65`）、`GetIsAnyTooltipActive()`（`:170`）。
+- **订阅它**（想接管 UI 的人）：九个静态事件，`DisplayMessageInternal`（`:12`）、`ClearAllMessagesInternal`（`:17`）、`HideAllMessagesInternal`（`:22`）、`OnAddSystemNotification`（`:27`）、`OnShowTooltip`（`:32`）、`OnHideTooltip`（`:37`）、`OnShowInquiry`（`:42`）、`OnShowTextInquiry`（`:47`）、`OnHideInquiry`（`:52`）。
+
+**每个调用的实现都是同一个形状**——`DisplayMessage`（`:71-80`）：
+
+```
+Action<InformationMessage> displayMessageInternal = InformationManager.DisplayMessageInternal;
+if (displayMessageInternal == null) { return; }
+displayMessageInternal(message);
+```
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Library;
+
+// 发消息：UI 没起来时静默丢弃，不报错
+InformationManager.DisplayMessage(new InformationMessage("你获得了一把剑。"));   // InformationManager.cs:71
+InformationManager.AddSystemNotification("存档已覆盖");                          // :104
+
+// 询问框（第三个参数是 pauseGameActiveState）
+var inquiry = new InquiryData("确认？", true);
+if (InformationManager.IsAnyInquiryActive()) { InformationManager.HideInquiry(); }   // :65 / :159
+InformationManager.ShowInquiry(inquiry, pauseGameActiveState: true);                  // :137
+
+// 接管显示：订阅内部事件。注意是静态事件，不退订就永久挂着
+InformationManager.DisplayMessageInternal += OnShowMessage;      // :12
+void OnShowMessage(InformationMessage msg) { Debug.Print(msg.ToString(), 0); }
+```
+
+### 最容易踩的坑
+
+**在 UI 尚未初始化时发消息，然后以为「消息丢了是 bug」。** `DisplayMessage`（`:71-80`）第一句取出 `DisplayMessageInternal`，**为 null 就 `return`**——没有异常、没有排队、没有日志。所有 `Show*` / `Hide*` / `Display*` 都是这个形状。所以战斗逻辑在菜单界面触发的消息、在 `OnSubModuleLoad` 阶段发的提示，都会无声消失。判断依据是那个事件有没有被 UI 订阅：`if (InformationManager.DisplayMessageInternal != null)` 只能说明「有人订阅」，不能说明「UI 在显示」。
+
+第二个坑是这九个事件都是 `public static event`，**生命周期跟进程走**。如果你的 mod 在初始化时 `+=` 而从不 `-=`，那么每次重新加载战役（甚至重新进入菜单）都会多挂一层处理器。后果：一条消息触发 N 次、弹 N 个窗、以及旧 lambda 捕获的 ViewModel 无法回收。退订必须传出**同一个委托实例**——写成 `e => {...}` 就退不掉。
+
+第三，`ShowTooltip(Type type, params object[] args)`（`:115`）的签名是 `params object[]`，**编译期不做类型检查**。传错参数个数或顺序不会报错，只会在 UI 侧的强制转换里炸，位置离调用点很远。
+
 ## 真实示例
 
 发消息与弹确认框（无 UI 订阅时全部是安全 no-op）：

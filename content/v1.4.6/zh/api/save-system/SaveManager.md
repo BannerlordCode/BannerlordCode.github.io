@@ -39,6 +39,57 @@ description: "存档流程总管：建立 DefinitionContext、收集对象图交
 | `Load` | `public static LoadResult Load(string saveName, ISaveDriver driver)` | 两参重载，等价于 `Load(saveName, driver, false)`。返回 `LoadResult`，`Root` 为还原出的根对象。 |
 | `Load` | `public static LoadResult Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)` | 三参重载。新建 `DefinitionContext` 并 `FillWithCurrentTypes()`，读 `LoadData`，交给 `LoadContext.Load`。`loadAsLateInitialize` 为 true 时成功结果携带 `LoadCallbackInitializator`，需调用方后续执行。加载失败时返回 `LoadResult.CreateFailed` 带一条 `"Not implemented"` 的 `LoadError`。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`SaveManager` 是 `public static class SaveManager`（`TaleWorlds.SaveSystem/SaveManager.cs:14`）——**纯静态类，全部成员都是 static**，没有构造器也不能实例化。
+
+六个公开方法加一个常量：
+
+- `public static SaveOutput Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`（`:69`）
+- `public static LoadResult Load(string saveName, ISaveDriver driver)`（`:149`）与三参数重载 `Load(string saveName, ISaveDriver driver, bool loadAsLateInitialize)`（`:155`）
+- `public static MetaData LoadMetaData(string saveName, ISaveDriver driver)`（`:143`）
+- `public static void InitializeGlobalDefinitionContext()`（`:17`）
+- `public static List<Type> CheckSaveableTypes()`（`:28`）
+- `public static bool ShouldResolveConflicts()`（`:137`）
+- `public const string SaveFileExtension = "sav";`（`:186`）
+
+**但存档通常不直接从这里调。** [Game](../../core-extra/Game) 有一层包装：`Game.Save(MetaData metaData, string saveName, ISaveDriver driver, Action<SaveResult> onSaveCompleted)` 会先广播 `GameHandler.OnBeforeSave()`，再转调 `SaveManager.Save`；读档则是 `Game.LoadSaveGame(LoadResult loadResult, GameManagerBase gameManager)` 完成全套后初始化。模组从 `MBGameManager` 或 `CampaignBehaviorBase` 里触发的存档，**应当走 Game 那一层**——只有自定义存档界面、或者需要在 Game 包住的动作之外插入逻辑时，才直接用 `SaveManager`。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.SaveSystem;
+
+// 存：target 通常就是 Game.Current
+SaveOutput output = SaveManager.Save(Game.Current, metaData, "slot_1", driver);   // SaveManager.cs:69
+if (!output.Successful)                                       // Save/SaveOutput.cs:29
+{
+    foreach (SaveError err in output.Errors) { Debug.Print(err.ToString(), 0); }   // :25
+}
+
+// 读：先用轻量的元信息版本
+MetaData meta = SaveManager.LoadMetaData("slot_1", driver);    // :143
+ApplicationVersion ver = meta.GetApplicationVersion();          // :143 内部就是 driver.LoadMetaData
+
+LoadResult result = SaveManager.Load("slot_1", driver);         // :149，内部转 :155（loadAsLateInitialize = false）
+if (!result.Successful) { Debug.Print(result.Errors.Length + " 个错误", 0); }   // Load/LoadResult.cs:18 / :23
+
+// 开发期自检：确认自己的类型表没问题
+List<Type> missing = SaveManager.CheckSaveableTypes();          // :28
+
+string ext = SaveManager.SaveFileExtension;                     // :186 → "sav"
+```
+
+### 最容易踩的坑
+
+**跳过 `Game` 那层直接调 `SaveManager.Save`，于是自己的数据没存进去。** `Game.Save(...)` 会先广播 `GameHandler.OnBeforeSave()`——模组的持久化通常挂在 `CampaignBehaviorBase.SyncData(IDataStore)` 上，而那条链是由 `CampaignBehaviorDataStore.SaveBehaviorData` 驱动的，它需要 Game 层已经把状态准备好。直接调 `SaveManager.Save(Game.Current, ...)`（`:69`）时 `GameHandler.OnBeforeSave()` 没跑，你的 handler 里「把运行时状态刷进可存字段」的逻辑就不会执行——**存档能写成功，但字段是上一次的旧值**，而且不会有任何报错。
+
+第二个坑是 `Load` 的**两个重载**。`Load(saveName, driver)`（`:149`）内部是 `return SaveManager.Load(saveName, driver, false);`——**`loadAsLateInitialize` 为 false**。传 `true` 时（`:155`）会多走一步：`loadContext.CreateLoadCallbackInitializator(loadData)` 并把回调塞进 `LoadResult`（`:167-170`），反序列化被推迟到稍后。后果是：如果你自己用 `true` 然后**忘了执行那个回调**，所有 `[LoadInitializationCallback]` 标记的方法（包括 [MBObjectBase](../../campaign-ext/MBObjectBase) 的 `BeforeLoad`，`MBObjectBase.cs:96`）都不会跑，对象停留在未初始化状态。
+
+第三，`InitializeGlobalDefinitionContext()`（`:17`）会把错误**只打印不抛出**：`foreach (string text in Errors) Debug.Print(text, ...)`（`:20-23`）。类型定义冲突因此只会出现在日志里。所以写了 [SaveableTypeDefiner](../SaveableTypeDefiner) 之后必须主动调 `CheckSaveableTypes()`（`:28`）去查，不要指望存档时自动失败。
+
 ## 真实示例
 
 `MetaData` 与 `ISaveDriver` 由游戏的存档层提供；下面这段展示的是 mod 自己做「定义检查 → 保存 → 读回」时的实际调用形状。

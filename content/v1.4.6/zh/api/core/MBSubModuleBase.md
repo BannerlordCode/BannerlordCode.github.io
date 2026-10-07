@@ -68,6 +68,55 @@ description: "每个 mod 继承的基类：30 个空实现的生命周期回调�
 | `OnSubModuleDeactivated` | `public virtual void OnSubModuleDeactivated()` | 对应 `DeactiveModule(moduleId)`：本模块被停用。**与 `OnSubModuleUnloaded` 不同**——这是模块级开关，不是程序集卸载。 |
 | `InitializeSubModuleGameObjects` | `public virtual void InitializeSubModuleGameObjects(Game game)` | 由 [Game](../../core-extra/Game) 的 `InitializeDefaultGameObjects()` 末尾调用，建 mod 的默认对象。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`MBSubModuleBase` 是 `TaleWorlds.MountAndBlade/MBSubModuleBase.cs:8` 的 `public abstract class MBSubModuleBase`，162 行、31 个公开成员。**这是整个模组 API 的入口类型**——每个模组的 `SubModule.cs` 都继承它。
+
+**构造器是隐式无参的，实例由 [Module](../Module) 反射创建。** 宿主侧是 `public MBReadOnlyList<MBSubModuleBase> CollectSubModules()`（`Module.cs:97`，内部遍历 `moduleInfo.SubModules`），然后 `Module.cs:548`、`:565` 那两处 `foreach (MBSubModuleBase mbsubModuleBase in this.CollectSubModules())` 反射回调每一个。**所以你永远不 new 它，也拿不到一个稳定的引用。**
+
+**可见性分成两派，这是这一页最容易漏掉的事**：
+
+- `protected internal virtual`：`OnSubModuleLoad()`（`:11`）、`OnSubModuleUnloaded()`（`:16`）、`OnBeforeInitialModuleScreenSetAsRoot()`（`:21`）、`RegisterSubModuleTypes()`（`:26`）、`OnNewModuleLoad()`（`:31`）、`OnBeforeGameStart(MBGameManager, List<string>)`（`:41`）、`OnGameStart(Game, IGameStarter)`（`:46`）、`OnApplicationTick(float)`（`:51`）、`AfterAsyncTickTick(float)`（`:56`）、`InitializeGameStarter(Game, IGameStarter)`（`:61`）
+- 纯 `public virtual`：`OnConfigChanged()`（`:36`）、`OnGameLoaded(Game, object)`（`:66`）、`OnAfterGameLoaded(Game)`（`:71`）、`OnNewGameCreated(Game, object)`（`:76`）、`BeginGameStart(Game)`（`:81`）、`OnCampaignStart(Game, object)`（`:86`）、`RegisterSubModuleObjects(bool)`（`:91`）、`AfterRegisterSubModuleObjects(bool)`（`:96`）、`OnGameInitializationFinished(Game)`（`:108`）、`DoLoading(Game)`（`:118`）、`OnGameEnd(Game)`（`:122`）、`OnMissionBehaviorInitialize(Mission)`（`:127`）……
+
+还有一个 `public virtual bool DoLoading(Game game)`（`:118`），**基类实现 `return true;`**——你可以覆写它来做「本帧是否还在加载」的判定。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+using TaleWorlds.Library;
+using TaleWorlds.MountAndBlade;
+
+public class MySubModule : MBSubModuleBase           // MBSubModuleBase.cs:8
+{
+    public override void OnSubModuleLoad() { }                   // :11，模块 DLL 加载时，最早
+    public override void RegisterSubModuleTypes() { }             // :26，登记 MBObjectBase 类型
+    public override void OnNewGameCreated(Game game, object initializerObject) { }   // :76
+
+    public override void OnGameStart(Game game, IGameStarter gameStarterObject)      // :46
+    {
+        // 此时 Campaign 可能还没建立；只做与战役无关的初始化
+    }
+
+    public override void RegisterSubModuleObjects(bool isSavedCampaign) { }          // :91
+    public override void OnGameInitializationFinished(Game game) { }                 // :108
+
+    public override bool DoLoading(Game game) { return true; }      // :118，基类就是 true
+    public override void OnGameEnd(Game game) { }                   // :122
+}
+```
+
+### 最容易踩的坑
+
+**在 `OnSubModuleLoad()`（`:11`）里读 `Game.Current` 或 `Campaign.Current`。** 这是最早的钩子，`Module` 还没建出任何 `Game`——所以那两处都是 null 空引用。同理 `OnNewModuleLoad()`（`:31`）也不行。`Game.Current` 要等 [Game](../../core-extra/Game) 的 `CreateGame`，`Campaign.Current` 要等 `SetLoadingParameters`（`Campaign.cs:1873`）。
+
+**但反过来，最常见的真实事故是在 `OnGameStart(Game game, IGameStarter gameStarterObject)`（`:46`）里读 `Campaign.Current`。** 这个钩子由 `GameType` 驱动，时机早于战役初始化完成——此时读到的 `Campaign.Current` 要么是 null，要么是一个还没跑完 `OnInitialize()` 的半成品（`Campaign.OnInitialize()` 在 `Campaign.cs:1889` 起才建 `CampaignEvents`、`GameMenuManager`、各子系统）。后果是你在 `Campaign.MenuManager` 上拿到 null 而报错点完全看不出是时机问题。**战役相关的东西一律放到 `OnCampaignStart(Game, object)`（`:86`）或之后的钩子。**
+
+第二个坑是 `protected internal` 那一派。外部程序集继承时能覆写它们，但**不能从外部代码直接调用**——引擎侧才是调用方。所以你没法在 mod 里手动触发一次 `OnSubModuleLoad()` 来「重跑初始化」，只能等引擎在正确的时机调。
+
 ## 真实示例
 
 一个完整的 mod 子模块，覆写最有价值的几个钩子：

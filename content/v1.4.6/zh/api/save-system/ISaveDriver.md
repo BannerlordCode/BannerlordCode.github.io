@@ -68,6 +68,60 @@ description: "存档后端的抽象接口：八个方法覆盖落盘、列档、
 | --- | --- | --- |
 | `IsWorkingAsync` | `bool IsWorkingAsync()` | 本驱动的 `Save` 是否会挂起。`FileDriver` 与 `InMemDriver` 返回 false；`AsyncFileSaveDriver` 用显式接口实现返回 true，**只能通过接口引用调用** |
 
+## 怎么用
+
+### 怎么拿到它
+
+`ISaveDriver` 是 `TaleWorlds.SaveSystem/ISaveDriver.cs:8` 的接口，**全文 35 行、八个成员**，没有实现类在 `TaleWorlds.SaveSystem` 里——真正的实现由游戏本体提供，mod 侧拿到的是现成实例。
+
+它八个成员的形状很不齐，注意 `Save` 是异步的：
+
+- `Task<SaveResultWithMessage> Save(string saveName, int version, MetaData metaData, GameData gameData)`（`:11`）——**返回 `Task`**，其余全是同步 `bool` / 引用类型。
+- `SaveGameFileInfo[] GetSaveGameFileInfos()`（`:15`）、`string[] GetSaveGameFileNames()`（`:18`）
+- `MetaData LoadMetaData(string saveName)`（`:21`）
+- `LoadData Load(string saveName)`（`:24`）
+- `bool Delete(string saveName)`（`:27`）、`bool IsSaveGameFileExists(string saveName)`（`:30`）
+- `bool IsWorkingAsync()`（`:33`）
+
+**你拿它的场景是「存档 UI」而不是「写存档」。** [SaveManager](../SaveManager) 的 `Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`（`SaveManager.cs:69`）和 `Load(string saveName, ISaveDriver driver)`（`:149`）都只接受 `ISaveDriver`，而 `Game.Save(...)`（`Game.cs`）也会把它往下传。所以写存档时你**不需要自己实现它**——引擎已经把 driver 传下去了。
+
+自定义存档界面（列档、删档）才是实现它的场景。
+
+### 典型用法
+
+列出存档、删档、读元信息——这些是同步的，可以直接调：
+
+```csharp
+using TaleWorlds.SaveSystem;
+
+ISaveDriver driver = theEngineSaveDriver;      // 引擎给的实例，mod 不自己 new
+
+foreach (SaveGameFileInfo info in driver.GetSaveGameFileInfos())      // ISaveDriver.cs:15
+{
+    MetaData meta = driver.LoadMetaData(info.SaveName);               // :21
+    Debug.Print(meta.GetApplicationVersion().ToString(), 0);
+}
+
+// 删除（删前先判存在）
+if (driver.IsSaveGameFileExists("slot_1"))                              // :30
+{
+    bool ok = driver.Delete("slot_1");                                 // :27
+}
+```
+
+写存档用 [SaveManager](../SaveManager) 而不是直接调 driver：
+
+```csharp
+SaveOutput output = SaveManager.Save(Game.Current, metaData, "slot_1", driver);   // SaveManager.cs:69
+// Save 内部的 driver.Save 是 Task<...>，由 SaveManager 驱动，不要自己 await
+```
+
+### 最容易踩的坑
+
+**把 `Save` 当同步方法用，或者自己 `await` 它。** `Task<SaveResultWithMessage> Save(...)`（`ISaveDriver.cs:11`）返回的是 `Task`，但整个存档流程已经被上层包好了：`SaveManager.Save(...)`（`SaveManager.cs:69`）内部建 `SaveContext` 并驱动它，返回给调用方的是 `SaveOutput` 而不是 `Task`。你在模组里如果绕过 `SaveManager` 直接调 `driver.Save(...)`，拿到的是一个**没人 await 的 Task**——文件可能根本没落盘，或者你在后台线程上收到了完成回调。正确路径是 `Game.Current.Save(...)`（[Game](../../core-extra/Game) 里那个带 `Action<SaveResult>` 回调的重载）或 `SaveManager.Save(...)`。
+
+第二个坑是 `IsWorkingAsync()`（`:33`）——它反映的是 driver **当前是否正忙**。它在存档进行中返回 true，而 `Delete`（`:27`）、`Save`（`:11`）都不会因为忙而拒绝你（接口层没有断言）。后果是你在自动存档进行中删档，得到一个静默失败的 `false`，没有任何错误信息。存档 UI 里必须自己先查 `IsWorkingAsync()` 再决定按钮是否可点。
+
 ## 真实示例
 
 同步驱动下的保存—读回：

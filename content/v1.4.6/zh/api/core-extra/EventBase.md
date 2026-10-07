@@ -14,7 +14,7 @@ description: "事件系统的事件类型标记基类：EventManager 只接受�
 
 整个文件只有 9 行、一个空类、零字段零属性零方法。它存在的唯一意义是给 [EventManager](../EventManager) 提供一个**类型约束标记**：`EventManager.RegisterEvent<T>` 与 `UnregisterEvent<T>` 的方法体第一件事就是 `typeof(T).IsSubclassOf(typeof(EventBase))`，不成立就 `Debug.FailedAssert("Events have to derived from EventSystemBase")`。
 
-也就是说，事件总线的"钥匙孔"就是 `EventBase`。你写一个 `class MyEvent : EventBase`，它就自动获得被 `RegisterEvent` / `TriggerEvent` 接受��资格；你写一个不继承它的类，调用会被拒绝并打断言。注意断言**不 return**——`RegisterEvent` 在断言之后没有 else 分支，直接结束方法体，事件不会被注册。
+也就是说，事件总线的"钥匙孔"就是 `EventBase`。你写一个 `class MyEvent : EventBase`，它就自动获得被 `RegisterEvent` / `TriggerEvent` 接受的资格；你写一个不继承它的类，调用会被拒绝并打断言。注意断言**不 return**——`RegisterEvent` 在断言之后没有 else 分支，直接结束方法体，事件不会被注册。
 
 它与 CampaignSystem 里的 `IMbEvent`/`MbEvent<T>` 是两套独立机制：`IMbEventBase` 是接口，走 `Campaign`'s 自己的事件通道；`EventBase` 是类，走 `TaleWorlds.Library.EventSystem`。两者不通用。
 
@@ -36,6 +36,54 @@ description: "事件系统的事件类型标记基类：EventManager 只接受�
 | 成员 | 签名 | 作用 |
 | --- | --- | --- |
 | （无） | `public class EventBase` | 纯类型标记。唯一作用是让 `EventManager.RegisterEvent<T>` / `UnregisterEvent<T>` 的 `typeof(T).IsSubclassOf(typeof(EventBase))` 检查通过。 |
+
+## 怎么用
+
+### 怎么拿到它
+
+`EventBase` 在 `TaleWorlds.Library.EventSystem` 里，**整个文件只有 10 行、一个声明**：
+
+```
+public class EventBase          // TaleWorlds.Library/EventSystem/EventBase.cs:6
+```
+
+没有成员、没有方法、没有属性。它唯一的作用是**当类型标记用**——判定某个事件的类型是否受认可。
+
+配套的总线是同目录的 `TaleWorlds.Library/EventSystem/EventManager.cs` 里的 `public class EventManager`（`EventManager.cs:7`），它有公开构造器 `public EventManager()`（`:10`，内部 `new DictionaryByType()`），四个方法：`RegisterEvent<T>(Action<T>)`（`:16`）、`UnregisterEvent<T>(Action<T>)`（`:27`）、`TriggerEvent<T>(T)`（`:38`）、`Clear()`（`:44`）。
+
+注意别和 `TaleWorlds.GauntletUI/TaleWorlds/GauntletUI/EventManager.cs` 搞混——那是 1506 行的 UI 事件管理器（处理鼠标、焦点、拖拽），里面**没有** `RegisterEvent` / `TriggerEvent`。这一页讲的是 `TaleWorlds.Library` 那一个。
+
+### 典型用法
+
+自定义一个事件类型，让它成为总线认可的形状，然后注册与触发：
+
+```csharp
+using TaleWorlds.Library.EventSystem;
+
+public class MyPanelOpenedEvent : EventBase     // 必须继承 EventBase
+{
+    public readonly string PanelId;
+    public MyPanelOpenedEvent(string panelId) { PanelId = panelId; }
+}
+
+// 总线是普通对象，自己持有
+var bus = new EventManager();                  // EventManager.cs:10
+
+void OnPanelOpened(MyPanelOpenedEvent e) { Debug.Print(e.PanelId, 0); }
+
+bus.RegisterEvent<MyPanelOpenedEvent>(OnPanelOpened);   // :16
+bus.TriggerEvent(new MyPanelOpenedEvent("trade"));       // :38
+
+// 退订要传同一个委托实例
+bus.UnregisterEvent<MyPanelOpenedEvent>(OnPanelOpened); // :27
+bus.Clear();                                           // :44 清空全部
+```
+
+### 最容易踩的坑
+
+**事件类型忘了继承 `EventBase`。** `RegisterEvent<T>` 的实现是 `if (typeof(T).IsSubclassOf(typeof(EventBase))) { _eventsByType.Add<T>(eventObjType); return; } Debug.FailedAssert("Events have to derived from EventSystemBase", ...)`（`EventManager.cs:16-25`）——断言之后**没有 else、没有 return、也没有抛异常**，方法就那么结束了。所以注册静默失败：不报错、不进字典，之后 `TriggerEvent` 什么都不会触发。`UnregisterEvent<T>`（`:27-36`）是同一形状的守卫，同样只断言。`TriggerEvent<T>`（`:38-41`）则**根本没有类型检查**，直接 `_eventsByType.InvokeActions<T>(eventObj)`——也就是说触发端不校验，校验只发生在注册端，错误会显得莫名其妙（「广播了但没人收」）。
+
+第二个坑是注册端检查的是 `IsSubclassOf` 而不是 `IsAssignableFrom`，所以 `EventBase` 自己本身不算合法事件类型——如果你打算拿 `EventBase` 当通用事件参数（`RegisterEvent<EventBase>(...)`），它同样会被断言拦下，而且同样静默。
 
 ## 真实示例
 

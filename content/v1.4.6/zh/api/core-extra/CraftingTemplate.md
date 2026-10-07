@@ -74,6 +74,53 @@ description: "锻造模板的 XML 数据对象：声明哪些部件类型可装�
 | `OnLoad` | `[LoadInitializationCallback] private void OnLoad(MetaData metaData)` | 读档时保证 `Pieces` 非 null（为 null 就补一个空 `List`）。**只保 `Pieces`，不保 `BuildOrders`。** |
 | `CraftingStatTypes` | `public enum CraftingStatTypes` | 12 个值：`Weight` / `WeaponReach` / `ThrustSpeed` / `SwingSpeed` / `ThrustDamage` / `SwingDamage` / `Handling` / `MissileDamage` / `MissileSpeed` / `Accuracy` / `StackAmount` / `NumStatTypes`。`NumStatTypes` 是哨兵。XML 里未填的项写 `float.MinValue`。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`CraftingTemplate` 是 `public class CraftingTemplate : MBObjectBase`（`TaleWorlds.Core/CraftingTemplate.cs:14`），XML 对象，由 `Game.LoadBasicFiles()` 里的 `CraftingTemplates` 加载。
+
+两个静态出口足够覆盖全部需求：
+
+- `public static MBReadOnlyList<CraftingTemplate> All`（`:298`）——getter 是 `MBObjectManager.Instance.GetObjectTypeList<CraftingTemplate>()`。
+- `public static CraftingTemplate GetTemplateFromId(string templateId)`（`:307`）——内部 `MBObjectManager.Instance.GetObject<CraftingTemplate>(templateId)`，**找不到返回 null**。
+
+两个公开构造器 `CraftingTemplate()`（`:84`）/ `CraftingTemplate(string stringId)`（`:90`）存在，但 mod 一般用不到——模板必须和 `BuildOrders`（`:31`）、`Pieces`（`:41`）这些 XML 数据配套，自己 new 一个空的只会让锻造器拿到空列表。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+using System.Collections.Generic;
+
+// 取模板；找不到是 null
+CraftingTemplate tpl = CraftingTemplate.GetTemplateFromId("two_handed_sword");   // CraftingTemplate.cs:307
+
+// 这个模板能用哪几种部件（BuildOrders 里出现过的）
+foreach (CraftingPiece p in tpl.Pieces)                                            // CraftingTemplate.cs:41
+{
+    if (tpl.IsPieceTypeUsable(p.PieceType)) { /* 可选 */ }                          // :153
+}
+
+// 按武器描述取数值；thrust/swing 是从 BladeData 传来的
+foreach (KeyValuePair<CraftingTemplate.CraftingStatTypes, float> stat
+         in tpl.GetStatDatas("sword", DamageTypes.Blunt, DamageTypes.Cutting))     // :118
+{
+    Debug.Print(stat.Key + " = " + stat.Value, 0);
+}
+
+// 握持（角色手上/背上的摆放）
+string[] holsters = tpl.ItemHolsters;                                              // :56
+Vec3 shift = tpl.ItemHolsterPositionShift;                                         // :61
+bool hidden = tpl.IsPieceTypeHiddenOnHolster(CraftingPiece.PieceTypes.Pommel);     // :112
+```
+
+### 最容易踩的坑
+
+**拿 `GetTemplateFromId` 的返回值直接用，或者更隐蔽地——给一个不存在的模板 id，然后让 [Crafting](../Crafting) 的 `Init()` 去处理它。** `GetTemplateFromId`（`:307-310`）是 `GetObject<CraftingTemplate>` 的透传，找不到时返回 `default(T)` 即 null，**不抛异常也不打日志**。然后 `new Crafting(null, culture, name)` 不会立刻崩（构造器只是赋值），直到 `Init()` 里第一次解引用 `CurrentCraftingTemplate.Pieces`（`:62`）才空引用——报错点离真正的原因（模板 id 拼错了）隔了三层，排查成本很高。**先判 `tpl != null` 再进锻造流程。**
+
+第二个坑是 `IsPieceTypeUsable`（`:153`）和 `IsPieceTypeHiddenOnHolster`（`:112`）问的是两件不同的事：前者是「这个模板的 `BuildOrders` 里有没有这一类部件」，后者是「这一类部件要不要在握持模型里隐藏」。把后者当成前者，会让你认为某个部件类型不可用、结果在锻造界面上根本不显示它——反过来则会让不该出现的部件出现在刀镡位上。
+
 ## 真实示例
 
 按 id 取模板并问它支不支持某类零件：

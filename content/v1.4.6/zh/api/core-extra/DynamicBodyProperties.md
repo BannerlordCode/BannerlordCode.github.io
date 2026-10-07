@@ -66,6 +66,46 @@ description: "角色体型的可变部分：年龄、体重、体型三个 float
 | `operator ==` / `operator !=` | `public static bool operator ==(DynamicBodyProperties a, DynamicBodyProperties b)` / `operator !=` | **反编译产物里 `==` 的方法体首项就是 `a == b`（自身调用）**；`!=` 是 `!(a == b)`。原始 C# 极可能是「装箱引用比较 + 逐字段比较」的两段式，反编译渲染成了自身调用。**未核实，用 `Equals`。** |
 | `ToString` | `public override string ToString()` | 通过 `MBStringBuilder`（`Initialize(150, "ToString")`）输出 `age="20" weight="0.5" build="0.5" `。`age` 用 `"0.##"` 格式（两位小数），`weight` / `build` 用 `"0.####"`（四位）。**末尾带一个空格。** 这个格式正是 [BodyProperties](../BodyProperties).ToString 的动态部分。 |
 
+## 怎么用
+
+### 怎么拿到它
+
+`DynamicBodyProperties` 是 `public struct DynamicBodyProperties`（`TaleWorlds.Core/DynamicBodyProperties.cs:8`），全文 85 行，公开面极小：
+
+- 构造器 `public DynamicBodyProperties(float age, float weight, float build)`（`:11`）
+- 三个公开字段 `Age`（`:70`）、`Weight`（`:73`）、`Build`（:76）——**是字段不是属性，可以直接赋值**
+- 两个静态只读：`public static readonly DynamicBodyProperties Invalid`（`:79`）和 `public static readonly DynamicBodyProperties Default = new DynamicBodyProperties(20f, 0.5f, 0.5f)`（`:82`）
+- 两个上限常量：`MaxAge = 128f`（`:64`）、`MaxAgeTeenager = 21f`（`:67`）
+
+它是 [BodyProperties](../BodyProperties) 的组成部分，只能通过 `BodyProperties.DynamicProperties`（`BodyProperties.cs:26`）拿到，也可以直接从 `BodyProperties.FromXmlNode`（`BodyProperties.cs:152`）里经过。
+
+### 典型用法
+
+```csharp
+using TaleWorlds.Core;
+
+// 独立使用：年龄 / 体重 / 体型三分量
+var dyn = new DynamicBodyProperties(age: 34f, weight: 0.55f, build: 0.62f);   // DynamicBodyProperties.cs:11
+dyn.Age = 35f;                        // 字段，可直接写（:70）
+
+// 默认值：20 岁、中等体重与体型
+Debug.Print(DynamicBodyProperties.Default.Age, 0);      // :82 → 20
+
+// 夹上限——常量自己不会自动生效，得你自己比
+if (dyn.Age > DynamicBodyProperties.MaxAge) dyn.Age = DynamicBodyProperties.MaxAge;        // :64 → 128
+bool isTeen = dyn.Age < DynamicBodyProperties.MaxAgeTeenager;                              // :67 → 21
+
+// 装进 BodyProperties
+BodyProperties bp = new BodyProperties(dyn, staticBodyProperties);                          // BodyProperties.cs:145
+if (dyn == DynamicBodyProperties.Invalid) { /* 不合法 */ }                                  // :79，重载 == 在 :19
+```
+
+### 最容易踩的坑
+
+**以为赋值时年龄会被自动夹到 `MaxAge`，结果做出一个 300 岁的角色。** `MaxAge = 128f`（`:64`）和 `MaxAgeTeenager = 21f`（`:67`）只是两个 `const float`，**构造器（`:11`）和三个公开字段都不做任何校验**。`new DynamicBodyProperties(300f, 1f, 1f)` 完全合法，`dyn.Age = 300f` 也完全合法。下游的骨骼缩放 / 年龄相关 mesh 在这种值下通常不是报错，而是渲染出一个畸形的模型或直接不出模型。**自己写 `Math.Clamp`。**
+
+第二个坑是它和 `BodyProperties` 顶层的镜像字段不同步：`BodyProperties` 同时有 `BodyProperties.Age`（`BodyProperties.cs:36`）和 `BodyProperties.DynamicProperties.Age`（这里是 `:70`），是两份独立存储。改 `DynamicBodyProperties` 的字段**不会**让 `BodyProperties.Age` 跟着变，反之亦然——同一个人的年龄在两条读取路径下可能不一致。
+
 ## 真实示例
 
 造一个新角色的体型并改一个字段：

@@ -1,0 +1,1205 @@
+{
+ "seed": 20261007,
+ "n": 60,
+ "source": "phaseC-layer1.json",
+ "source_sha256": "3b38ee9240052915a94ed03159d1ae0f87cb33406981f7b147e076dc3640dd86",
+ "distinct_pool": 1314,
+ "rows": [
+  {
+   "ident": "AddDynamicEntityInfo",
+   "page": "v1.3.0/zh/api/mission/Mission.md",
+   "ver": "bannerlord-1.3.0",
+   "tree": "bannerlord-1.3.0",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "bf1e537f97e11eacae006ca895557fada054a3c03092da9a4c40047bd7cb6ef8",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 93,
+     "t": "| `MissilesList` / `CorpseAgentInfos` | `public MBReadOnlyList<Mission.Missile> MissilesList` / `MBReadOnlyList<Mission.CorpseAgentInfo> CorpseAgentInfos` | 投射物与尸体账本，都只读暴露但**只有 `AddDynamicEntityInfo` 一类内部方法能写**。 |"
+    }
+   ]
+  },
+  {
+   "ident": "AddModule",
+   "page": "v1.4.5/en/api/campaign-ext/ModuleHelper.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 2,
+   "n_pages": 2,
+   "in_phaseD": true,
+   "page_sha256": "36c7303391fe44879257498fa4480fd11ccce72d3871b001240f79142ce44d65",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 198,
+     "t": "- **v1.4.5:** there is no member named `LoadModule`, `UnloadModule` or `AddModule`. Module set changes are a launcher/launch-time concept; this class only exposes activation toggles for already-known modules."
+    }
+   ]
+  },
+  {
+   "ident": "AgentLookDirection",
+   "page": "v1.3.0/zh/api/core-extra/Vec3.md",
+   "ver": "bannerlord-1.3.0",
+   "tree": "bannerlord-1.3.0",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "65735722086408f728846d438cbb15d03e87a2c566cf5fb4cf49d534e8add45a",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 16,
+     "t": "`Vec3` 是引擎全部三维运算的载体：`Agent.Position`、`MatrixFrame.origin`、`AgentLookDirection`、`Settlement` 的空间位置、物品 XML 里的位置偏移，都是它。源码 749 行里 public 成员超过 70 个，是本桶里最大的单个类型。"
+    }
+   ]
+  },
+  {
+   "ident": "AgentOriginType",
+   "page": "v1.4.7/en/api/core-extra/_index.md",
+   "ver": "bannerlord-1.4.7",
+   "tree": "bannerlord-1.4.7",
+   "n_occ": 2,
+   "n_pages": 2,
+   "in_phaseD": true,
+   "page_sha256": "a956a20f1c0aafce9d58d459c41b94f0ebc487fd0d0358beb267db15b511c4ea",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 31,
+     "t": "- **Core enums and data**: `AgentState`, `AgentFlag`, `AgentMovementMode`, `AgentOriginType`, `ArmorComponent`, `Banner`, `ItemQuality` and a batch of other enums shared across layers."
+    }
+   ]
+  },
+  {
+   "ident": "AlphaBlendMode",
+   "page": "v1.3.15/zh/api/engine/Material.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "e867180ef4ec67c42abc8c93f98d1f44947c5214422d5dc3f4930fb60fd214f6",
+   "page_line_count": 3,
+   "page_context": [
+    {
+     "n": 31,
+     "t": "| `SetAlphaBlendMode(MBAlphaBlendMode)` / `GetAlphaBlendMode()` | 控制半透明混合方式（NoAlphaBlend / Modulate / Add / Multiply 等） |"
+    },
+    {
+     "n": 46,
+     "t": "material.SetAlphaBlendMode(Material.MBAlphaBlendMode.Modulate);"
+    },
+    {
+     "n": 58,
+     "t": "- **`AlphaBlendMode` 用枚举而非字符串。** 错误的值（如越界）会被强转为 `MBAlphaBlendMode` 字节，可能产生未定义混合行为。"
+    }
+   ]
+  },
+  {
+   "ident": "BeginHintEvent",
+   "page": "v1.3.15/en/api/viewmodel/HintViewModel.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": true,
+   "page_sha256": "be6195538b18bfbd868658d36b2fef8fa771cecf55caa1b182b45bfada3bbe19",
+   "page_line_count": 3,
+   "page_context": [
+    {
+     "n": 24,
+     "t": "`HintViewModel` is a **one-shot, read-only projection** type of ViewModel: it does not hold game state, it only holds one already-localized hint string (`HintText`), and it exposes two commands for XML to call when `BeginHintEvent` / `EndHintEvent` fire. It is"
+    },
+    {
+     "n": 84,
+     "t": "- `public void ExecuteBeginHint()`: when `!TextObject.IsNullOrEmpty(HintText)` it calls `MBInformationManager.ShowHint(HintText.ToString())`; otherwise it does nothing. Fired by the control's `BeginHintEvent` through `ExecuteCommand`; the mapped command name i"
+    },
+    {
+     "n": 129,
+     "t": "The corresponding Gauntlet control binds via `DataSource=\"{AddFocusHint}\"`, and maps `BeginHintEvent` / `EndHintEvent` to the `BeginHint` / `EndHint` commands, so the hint shows on hover and hides on leave."
+    }
+   ]
+  },
+  {
+   "ident": "CanBeShown",
+   "page": "v1.4.5/zh/api/campaign-ext/Tutorial/_index.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "02a642d74c936c60f573ba990410f8a70e0d2ccad2fbea2c68c4cdb9a7de53eb",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 111,
+     "t": "- **重复触发**：教学按类型名做一次性/条件激活，若触发条件写得过宽会在每次进入情境时反复弹窗，干扰玩家；用 `CanBeShown` 之类守卫控制。"
+    }
+   ]
+  },
+  {
+   "ident": "ChangeKingdom",
+   "page": "v1.4.5/en/api/campaign/DiplomacyModel.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 2,
+   "n_pages": 2,
+   "in_phaseD": true,
+   "page_sha256": "34de70cd6893ea103103bbf2ec7f37f88095feb57ab11bb66d362067a3677fbf",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 178,
+     "t": "| `GetScoreOfClanToJoinKingdom(Clan, Kingdom)` / `GetScoreOfClanToLeaveKingdom(Clan, Kingdom)` | Scores a Clan joining or leaving a Kingdom for negotiation or decisions; it does not perform `ChangeKingdom`. |"
+    }
+   ]
+  },
+  {
+   "ident": "ChangeOverlayWidget",
+   "page": "v1.4.5/zh/api/mission-ext/MultiplayerScoreboardAnimatedFillBarWidget.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "3f8e0689ff091e097aa34ea2d6b38cf611ea0d8f52e618abc78b0de7fd89a29c",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 29,
+     "t": "| `ChangeOverlayWidget` | `public Widget ChangeOverlayWidget { get; set; }` |"
+    }
+   ]
+  },
+  {
+   "ident": "CheckBesiegerPartiesAndMakeThemLeave",
+   "page": "v1.3.15/en/api/campaign-ext/SiegeEvent.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 2,
+   "n_pages": 2,
+   "in_phaseD": true,
+   "page_sha256": "2a730004ca621122fc826fa8c1e5893f8a2e4f143df56817ff6c27ad73f671a9",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 140,
+     "t": "Called by `SiegeEventManager` on the daily campaign tick to advance the whole siege: first `CheckBesiegerPartiesAndMakeThemLeave`, then — if `!ReadyToBeRemoved` — runs `AdvanceStrategy` → `ConstructionTick` → `BombardTick` for both attacker and defender. **Sid"
+    }
+   ]
+  },
+  {
+   "ident": "CheckpointCampaignLogic",
+   "page": "v1.3.0/zh/api/core-extra/AgentSaveData.md",
+   "ver": "bannerlord-1.3.0",
+   "tree": "bannerlord-1.3.0",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "268240fb3cf2559b47e0a754ecdcc4b51f0138e6fb81c395698264c1c2327993",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 204,
+     "t": "- **`Mission.Current` 与 `Campaign.Current` 的隐式依赖。** 复现路径同时用到 `MBObjectManager.Instance`（读对象）、`Campaign.Current`（读 `CorpseList`，由 `CheckpointCampaignLogic` 构造器捕获）、`Mission.Current`（生成 agent）。**在任务外调用这些方法会 NRE**，它是纯任务期 + 战役期的桥接结构。"
+    }
+   ]
+  },
+  {
+   "ident": "Detach",
+   "page": "v1.3.15/en/api/campaign-ext/CampaignEventDispatcher.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": true,
+   "page_sha256": "b00abeddd95c5c9bbd5aad5f6fc5fba52003221130fd1baaf115a072b5447310",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 152,
+     "t": "public void Detach()"
+    },
+    {
+     "n": 163,
+     "t": "`CampaignEventDispatcher.Instance` is the real runtime lookup path; `Detach` clears listeners owned by this behavior. It does not retract a receiver appended through `Campaign.Current.AddCampaignEventReceiver(...)`, so infrastructure using that public method m"
+    }
+   ]
+  },
+  {
+   "ident": "EXCEPTION_ROUTINE",
+   "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": false,
+   "page_sha256": "675c4c20f505a3bd6596d981aabb3801d22be00f24a09a622cb5cd41d3ef1d9c",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 135,
+     "t": "| 1163 | `PEXCEPTION_ROUTINE` | `EXCEPTION_ROUTINE *` |"
+    },
+    {
+     "n": 166,
+     "t": "| 1056 | `EXCEPTION_ROUTINE` | `EXCEPTION_DISPOSITION (*)(struct _EXCEPTION_RECORD *, PVOID, struct _CONTEXT *, PVOID)` |"
+    }
+   ]
+  },
+  {
+   "ident": "ElapsedXxx",
+   "page": "v1.3.15/en/api/campaign-ext/CampaignTime.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": true,
+   "page_sha256": "a2d7fab40677b5e127025a518dfc87de41e7e5674427405ba5e25ed6d3fafe4e",
+   "page_line_count": 5,
+   "page_context": [
+    {
+     "n": 65,
+     "t": "- `Never` — `long.MaxValue`, the \"no deadline / infinite future\" sentinel. Never do arithmetic or `ElapsedXxx` on `Never`; it overflows."
+    },
+    {
+     "n": 91,
+     "t": "> Convention: `CampaignTime.Zero` is the campaign start (equals `CampaignStartTime`); `CampaignTime.Never` is `long.MaxValue`, used for \"no deadline / never\". Do not do arithmetic or `ElapsedXxx` on `Never` — it overflows."
+    },
+    {
+     "n": 118,
+     "t": "> **`Elapsed...` vs `To...`:** `ElapsedDaysUntilNow` answers \"how many days ago was this moment?\" (relative to now), while `ToDays` answers \"what is this moment's tick count expressed in days?\" (absolute). Mixing them up is a common bug — use `ElapsedXxx` for "
+    }
+   ]
+  },
+  {
+   "ident": "FemaleChild",
+   "page": "v1.3.15/en/api/campaign-ext/CultureObject.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 4,
+   "n_pages": 4,
+   "in_phaseD": true,
+   "page_sha256": "8121d0d6d7bfd531456b98f5e34da9be953dcedfbc0db0c54f4653bd1d5b9d81",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 102,
+     "t": "`TournamentMaster`, `Villager`, `CaravanMaster`, `CaravanGuard`, `PrisonGuard`, `Guard`, `Blacksmith`, `Weaponsmith`, `Townswoman` (with `Infant` / `Child` / `Teenager` variants), `Townsman` (with `Infant` / `Child` / `Teenager`), `VillageWoman`, `Villager` (w"
+    }
+   ]
+  },
+  {
+   "ident": "GetModifiedXxx",
+   "page": "v1.3.0/zh/api/core-extra/Equipment.md",
+   "ver": "bannerlord-1.3.0",
+   "tree": "bannerlord-1.3.0",
+   "n_occ": 2,
+   "n_pages": 2,
+   "in_phaseD": true,
+   "page_sha256": "490791071501fda73c11a7995ed75d7c92b04e4a9abe86be9b0c7bd5f817295f",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 219,
+     "t": "- **`GetXxxSum` 系列的名字有误导性。** 四个护甲 Sum 方法循环范围完全相同（5..9 整块护甲区），差别只在调哪个 `GetModifiedXxxArmor()`。`GetHorseArmorSum()` 反而不循环，只看 `HorseHarness` 一个槽。"
+    },
+    {
+     "n": 270,
+     "t": "- 槽位内容：[EquipmentElement](../EquipmentElement) 是每个槽的实际载荷（`Item` / `ItemModifier` / `CosmeticItem` / `IsQuestItem` 与全部 `GetModifiedXxx` 计算）"
+    }
+   ]
+  },
+  {
+   "ident": "GetNearbyEnemyAgentsCount",
+   "page": "v1.4.7/zh/api/mission/Mission.md",
+   "ver": "bannerlord-1.4.7",
+   "tree": "bannerlord-1.4.7",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "1a1bd2b0243a7714a6950d6c10045937a44e123f4754cf7df12e521ae835ffe4",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 93,
+     "t": "| `Agent[] GetNearbyEnemyAgents(Agent agent, float radius)` / `GetNearbyAllyAgents` / `GetNearbyAllyAgentsCount` / `GetNearbyEnemyAgentsCount` | 半径范围内的敌 / 友集合。**比遍历全表快得多**。 |"
+    }
+   ]
+  },
+  {
+   "ident": "GetPlayerTroopReceivedDamage",
+   "page": "v1.4.5/zh/api/campaign/CampaignOptions.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "dcad0e4988db965f22265d7747753ee5561fad39d3eb97e80b012297b29e8bbe",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 35,
+     "t": "- [DefaultDifficultyModel](../DefaultDifficultyModel) —— 在 `GetPlayerTroopReceivedDamage` / `GetRecruitmentDifficulty` / `GetPlayerMapMovementSpeed` / `GetStealthAndDisguiseDifficulty` 等方法中 `switch` 读取 `PlayerTroopsReceivedDamage`、`RecruitmentDifficulty`、`Play"
+    },
+    {
+     "n": 75,
+     "t": "- 用途：玩家部队受到的伤害档位。`DefaultDifficultyModel.GetPlayerTroopReceivedDamage` 把 `VeryEasy→0.5`、`Easy→0.75`、`Realistic→1.0` 换算为伤害倍率。"
+    }
+   ]
+  },
+  {
+   "ident": "GetX",
+   "page": "v1.4.5/en/api/mission/IMBBannerlordConfig.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "a6c48844c6c814f311f2ceb5854feedd4eda10b5ec68c16338d15714e627ef5b",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 93,
+     "t": "| Any getter (`GetOption`, `GetX`) | **UNRESOLVED — absent in v1.4.5** | `IMBBannerlordConfig.cs` declares 1 `EngineMethod` attribute total. Native's option values are never surfaced through this bridge; read them from `BannerlordConfig`'s public managed prope"
+    }
+   ]
+  },
+  {
+   "ident": "GlobalFrame",
+   "page": "v1.3.15/zh/api/engine/GameEntity.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "dcb551d39ccf9c6aa7c9b32f0d66f7074e7df88f8541d3eb43b21eaed8f26104",
+   "page_line_count": 4,
+   "page_context": [
+    {
+     "n": 19,
+     "t": "`GameEntity` 是场景图里的最小可摆放节点，所有可见几何、碰撞体、光照、粒子与脚本都挂在某个 `GameEntity` 上。它并不直接存储网格顶点，而是聚合 `MetaMesh`、`Light`、`ParticleSystem`、`ScriptComponent` 等子组件，并通过 `Parent`/`Child` 形成一棵挂在 `Scene` 上的树。你在战役或任务里拿到的实体几乎都来自 `Mission.Current.Scene` 或各类工厂方法：要凭空新建就用 `GameEntity.Create"
+    },
+    {
+     "n": 28,
+     "t": "| `GlobalPosition` | 实体的世界坐标（取自 `GlobalFrame.origin`） |"
+    },
+    {
+     "n": 54,
+     "t": "- **`GlobalFrame` 与 `LocalFrame` 的区别。** 设置 `SetGlobalFrame`（相对世界）与 `SetLocalFrame`（相对父节点）效果不同；在有父节点时直接用 `SetGlobalFrame` 会被折算回本地坐标。"
+    }
+   ]
+  },
+  {
+   "ident": "GoldGainAction",
+   "page": "v1.3.15/en/api/campaign-ext/CampaignEvents.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 4,
+   "n_pages": 4,
+   "in_phaseD": true,
+   "page_sha256": "fb1b32ccdda8212efcdc9ff67018e7cc9f99fe26fc0119229f940d680694dbca",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 51,
+     "t": "- Changing the world. An event is only a *notification*. To change the world, call the matching `*Action.Apply` (e.g. if you want to give the player gold after a lord dies, call `ChangeHeroGold` / `GoldGainAction` inside the `HeroKilledEvent` handler — don't m"
+    }
+   ]
+  },
+  {
+   "ident": "HMODULE",
+   "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": false,
+   "page_sha256": "675c4c20f505a3bd6596d981aabb3801d22be00f24a09a622cb5cd41d3ef1d9c",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 154,
+     "t": "| 1253 | `HMODULE` | `HINSTANCE` |"
+    }
+   ]
+  },
+  {
+   "ident": "IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion",
+   "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": true,
+   "page_sha256": "675c4c20f505a3bd6596d981aabb3801d22be00f24a09a622cb5cd41d3ef1d9c",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 863,
+     "t": "### 3.4 `IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion` (Line 97)"
+    },
+    {
+     "n": 865,
+     "t": "union IMAGE_RESOURCE_DIRECTORY_ENTRY_DirectoryUnion {"
+    }
+   ]
+  },
+  {
+   "ident": "IsAvailableForGamepadNavigation",
+   "page": "v1.4.7/zh/api/engine/GauntletLayer.md",
+   "ver": "bannerlord-1.4.7",
+   "tree": "bannerlord-1.4.7",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "5300413cc812992099822eba7c274dabb47951579cd261dec98d73cbd32d9d96",
+   "page_line_count": 5,
+   "page_context": [
+    {
+     "n": 17,
+     "t": "它做四件事：**加载与释放 movie**（`LoadMovie` / `ReleaseMovie`，`GauntletMovieIdentifier` 是句柄）、**驱动渲染与布局**（`RenderTick` / `UpdateLayout`）、**把 2D 输入转成 UI 事件**（`ProcessEvents` / `HitTest`）、以及**手柄导航**（`GamepadNavigationContext`、`GetIsAvailableForGamepadNavigation`）。`UIContext"
+    },
+    {
+     "n": 33,
+     "t": "**心智模型三：`IsAvailableForGamepadNavigation` 决定手柄能不能用。** 返回 false 时，UI 只响应鼠标。这是主机 / PC 差异最容易踩的坑——UI 在 PC 上能用手柄，在手柄断开时又不行。"
+    },
+    {
+     "n": 41,
+     "t": "- **使用**：需要手柄导航的界面（检查 `GetIsAvailableForGamepadNavigation`）。"
+    }
+   ]
+  },
+  {
+   "ident": "IsCivilianEquipment",
+   "page": "v1.3.0/zh/api/core-extra/AgentData.md",
+   "ver": "bannerlord-1.3.0",
+   "tree": "bannerlord-1.3.0",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "9347c5b65b9dc5b02159e8fa6753cfa4154ca4d2fc45a79e3cc20f3a4c056bdf",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 194,
+     "t": "- **`IsCivilianEquipment` 与 `LocationCharacter` 的 `useCivilianEquipment` 是两个开关。** 前者是 `AgentData` 上的属性，后者是 `LocationCharacter` 构造函数第 7 个形参。官方 `GuardsCampaignBehavior.cs:386` 传的是 `false`（不用平民装备），而 `.CivilianEquipment(true)` 也要单独调。**两个都不设就是「用 AgentData 的默认」。**"
+    }
+   ]
+  },
+  {
+   "ident": "IsTableauEnabled",
+   "page": "v1.3.15/en/api/viewmodel/CharacterViewModel.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 2,
+   "n_pages": 2,
+   "in_phaseD": true,
+   "page_sha256": "914e9cb2a0ae0acb408a780916595bf47defb7731163c32f794756a2c0fdfa1d",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 94,
+     "t": "All public fields are marked `[DataSourceProperty]`; the setter notifies the binding layer with `OnPropertyChangedWithValue(value, \"fieldName\")` when the value changes. Notably: `StanceIndex` is `private set` (only fixed at construction), and `IsTableauEnabled"
+    },
+    {
+     "n": 150,
+     "t": "- **`IsTableauEnabled` property**: appears as a `[DataSourceProperty]` in 1.4.5 source but is absent in 1.3.15 source; if your target version is 1.3.15, do not depend on it and do not bind it in XML."
+    }
+   ]
+  },
+  {
+   "ident": "IsXSelected",
+   "page": "v1.4.5/en/api/viewmodel/ArmyManagementSortControllerVM.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 2,
+   "n_pages": 2,
+   "in_phaseD": true,
+   "page_sha256": "b712027fdf244f0808de6529137c57a085eaff209231ea0b87d1423d3a989814",
+   "page_line_count": 6,
+   "page_context": [
+    {
+     "n": 3,
+     "t": "description: \"The view model behind the army management list's column headers. It holds one mutable comparer per column, exposes a tri-state int per column plus a bool 'IsXSelected' per column for the widget, and implements the cycle Default → Ascending → Desc"
+    },
+    {
+     "n": 19,
+     "t": "Each `ExecuteSortByX()` method follows an identical five-step shape. Read the current state, call `SetAllStates(CampaignUIHelper.SortState.Default)` to zero every column and clear every `IsXSelected`, advance `(previous + 1) % 3` and bump `0` up to `1` so the "
+    },
+    {
+     "n": 50,
+     "t": "- **Side effect:** none beyond holding the reference — no sort is performed, no state is set. All six `State` properties start at `0` and all six `IsXSelected` at `false`."
+    }
+   ]
+  },
+  {
+   "ident": "ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_ClanManagement_Categories",
+   "page": "v1.3.0/en/api/viewmodel/clanmanagement/_index.md",
+   "ver": "bannerlord-1.3.0",
+   "tree": "bannerlord-1.3.0",
+   "n_occ": 2,
+   "n_pages": 2,
+   "in_phaseD": true,
+   "page_sha256": "9f938c9ac91134773f714734565a4a64b05c9e6d7fbd46eda381c78e1c016683",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 65,
+     "t": "| [`ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_ClanManagement_Categories`](../ItemNameComparer__TaleWorlds_CampaignSystem_ViewModelCollection_ClanManagement_Categories/) | ItemNameComparer is a public type in TaleWorlds.CampaignSystem.View"
+    }
+   ]
+  },
+  {
+   "ident": "MMRESULT",
+   "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": false,
+   "page_sha256": "675c4c20f505a3bd6596d981aabb3801d22be00f24a09a622cb5cd41d3ef1d9c",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 98,
+     "t": "| 1593 | `MMRESULT` | `UINT` |"
+    }
+   ]
+  },
+  {
+   "ident": "MbSubModuleBase",
+   "page": "v1.3.15/zh/api/campaign-ext/CampaignBehaviorBase.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": true,
+   "page_sha256": "ed13ed73d13a06c86fd453d06499e77a531f6cde40479ac98f8be0e203171c3e",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 43,
+     "t": "通常在 `CampaignGameStarter`（或 `MbSubModuleBase` 的 `OnGameStart`）里注册："
+    }
+   ]
+  },
+  {
+   "ident": "MinQ",
+   "page": "v1.3.0/zh/api/campaign-ext/LinQuick.md",
+   "ver": "bannerlord-1.3.0",
+   "tree": "bannerlord-1.3.0",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "8377a9c5a6120eb7361fe6ace1bd872c2db20d8c99d4f220934f25753d64deb2",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 148,
+     "t": "- **全类没有 `MinQ`。** 也没有 `Aggregate`、`Zip`、`Distinct`、`GroupBy`、`First`、`Last`、`ElementAt`、`Reverse`、`OrderByDescending`、`ThenBy`、`Skip` / `Take`。找不到的动词不是「漏了」，是这个类本来就没有——用 LINQ 就行。"
+    },
+    {
+     "n": 231,
+     "t": "- **这意味着纯升级不需要改代码。** 但反过来说，如果你在某个更新里没找到某个方法，它在 1.3.0 也没有——不要指望升级能带来 `MinQ`。"
+    }
+   ]
+  },
+  {
+   "ident": "MyMobilePartyMoraleModel",
+   "page": "v1.3.15/zh/api/campaign-ext/MobilePartyMoraleModel.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 2,
+   "n_pages": 2,
+   "in_phaseD": true,
+   "page_sha256": "9ec94bb0c31d2c4befe78e9dc09205d3519e7e4e329bc799d0207bfe6b737b00",
+   "page_line_count": 3,
+   "page_context": [
+    {
+     "n": 92,
+     "t": "public class MyMobilePartyMoraleModel : MobilePartyMoraleModel"
+    },
+    {
+     "n": 106,
+     "t": "// 注册：在 SubModule 初始化时通过 Campaign.Current.Models 的注册入口登记 MyMobilePartyMoraleModel。"
+    },
+    {
+     "n": 122,
+     "t": "1. 继承并实现两个抽象方法（见上方最小真实示例中的 `MyMobilePartyMoraleModel`）。"
+    }
+   ]
+  },
+  {
+   "ident": "NewName",
+   "page": "v1.3.15/zh/api/save-system/IEnumResolver.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "ad16c795103ba972dad2ecb71bce1837d7f7a4b0e48c7d67d27b21e72e5a4ba6",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 16,
+     "t": "`IEnumResolver` 是保存系统提供的**枚举跨版本兼容钩子**，只有一个方法：`string ResolveObject(string originalObject)`。它的职责是在**加载旧档**时，把存档里记录的枚举“原始表示”（通常是枚举成员名或序列化字符串）翻译为当前游戏版本里**对应的枚举表示**。当官方或 mod 在某次更新中重命名、合并或重排了某个枚举的成员（例如把 `OldName` 改为 `NewName`），`IEnumResolver` 就是让旧档中的枚举值仍能正确还原的“翻译层”"
+    }
+   ]
+  },
+  {
+   "ident": "OnGameInitializationStart",
+   "page": "v1.4.5/en/api/campaign/ArmyNeedsSuppliesIssueBehavior.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 5,
+   "n_pages": 5,
+   "in_phaseD": true,
+   "page_sha256": "9b55d25a5f6b839b4d398144caddb403d7d27821b0a6984c5dd40c063d8cd6b2",
+   "page_line_count": 4,
+   "page_context": [
+    {
+     "n": 76,
+     "t": "Register the behavior, taking the `CampaignGameStarter` from `OnGameInitializationStart` the way `SandBoxManager.cs:162` does:"
+    },
+    {
+     "n": 85,
+     "t": "public override void OnGameInitializationStart()"
+    },
+    {
+     "n": 87,
+     "t": "base.OnGameInitializationStart();"
+    }
+   ]
+  },
+  {
+   "ident": "PCWSTR",
+   "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": false,
+   "page_sha256": "675c4c20f505a3bd6596d981aabb3801d22be00f24a09a622cb5cd41d3ef1d9c",
+   "page_line_count": 4,
+   "page_context": [
+    {
+     "n": 106,
+     "t": "| 865 | `LPCWSTR` | `WCHAR *` |"
+    },
+    {
+     "n": 108,
+     "t": "| 1042 | `PCWSTR` | `WCHAR *` |"
+    },
+    {
+     "n": 626,
+     "t": "LPCWSTR lpszMenuName;"
+    }
+   ]
+  },
+  {
+   "ident": "PUINT",
+   "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": false,
+   "page_sha256": "675c4c20f505a3bd6596d981aabb3801d22be00f24a09a622cb5cd41d3ef1d9c",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 142,
+     "t": "| 1249 | `PUINT` | `uint *` |"
+    }
+   ]
+  },
+  {
+   "ident": "RelicInfo",
+   "page": "v1.3.15/en/api/save-system/SaveablePropertyAttribute.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": true,
+   "page_sha256": "e373910c3f2703a1a1be0c421ad1014dd3f82ddd470212ec7fc1f0c626d26189",
+   "page_line_count": 5,
+   "page_context": [
+    {
+     "n": 52,
+     "t": "public sealed class RelicInfo"
+    },
+    {
+     "n": 60,
+     "t": "public RelicInfo(TextObject name, Hero owner)"
+    },
+    {
+     "n": 73,
+     "t": "AddClassDefinition(typeof(RelicInfo), 1);"
+    }
+   ]
+  },
+  {
+   "ident": "RelicObject",
+   "page": "v1.3.15/en/api/campaign-ext/MBObjectBase.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 4,
+   "n_pages": 4,
+   "in_phaseD": true,
+   "page_sha256": "0d952683eb151aca6b5badb2fdf5a0ad21dc166deaba4a52b0394e07998bd25a",
+   "page_line_count": 7,
+   "page_context": [
+    {
+     "n": 68,
+     "t": "public sealed class RelicObject : MBObjectBase"
+    },
+    {
+     "n": 73,
+     "t": "public RelicObject() { }"
+    },
+    {
+     "n": 75,
+     "t": "public RelicObject(string stringId) : base(stringId) { }"
+    }
+   ]
+  },
+  {
+   "ident": "RemoveHeroPartyRole",
+   "page": "v1.4.5/zh/architecture/version-delta.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "b35e0ef1d9eadc4cc2bad9a1af3409d7e24d4ccde7f96e354a8ee4853689334c",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 89,
+     "t": "| [`MobileParty`](../../../../versions/MobileParty/) | `GetHeroPartyRole`, `RemoveHeroPartyRole` | 使用新的 FirstMate/Navigator API |"
+    }
+   ]
+  },
+  {
+   "ident": "ReplaceState",
+   "page": "v1.5.3/zh/api/mission/MissionState.md",
+   "ver": "bannerlord-1.5.3",
+   "tree": "bannerlord-1.5.3",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "262926bdb3878e439a15da2eb9b8c5a67f4ee9f0ce253e8bc505177495b25eae",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 43,
+     "t": "4. **重复 `OpenNew`**：每次调用都创建一个新状态并压栈。若上一个任务没弹栈，栈会失衡。用 `PopState` / `ReplaceState` 而不是重复 push。"
+    }
+   ]
+  },
+  {
+   "ident": "SetTime",
+   "page": "v1.3.0/zh/api/gui/BrushAnimationKeyFrame.md",
+   "ver": "bannerlord-1.3.0",
+   "tree": "bannerlord-1.3.0",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "2ca1f504e53b3b329ca5ff9e57ddbe7fd7f7d308a05a1409ec22ada43c5a4acd",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 151,
+     "t": "- **没有 `SetTime` / `SetIndex`。** `Time` 与 `Index` 都是 `private set`，外部代码唯一能改 `Time` 的路径就是再调一次 `InitializeAsXxx`（会连带改标签和值），改 `Index` 的唯一路径是 `InitializeIndex`。"
+    }
+   ]
+  },
+  {
+   "ident": "SetXAsClient",
+   "page": "v1.4.7/en/api/mission/Agent.md",
+   "ver": "bannerlord-1.4.7",
+   "tree": "bannerlord-1.4.7",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "a0cc8592949eb5f064ae123823826610fbf3a89338cd8a5e21efe318f4cb5e6e",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 27,
+     "t": "**`SetX` versus `SetXAsClient` is the multiplayer rule, and getting it wrong is the classic \"works solo, does nothing online\" bug.**"
+    },
+    {
+     "n": 30,
+     "t": "- `SetXAsClient(...)` pushes a presentation value — pose, ammo count, reload phase — to clients. It is called on the server *to sync*."
+    }
+   ]
+  },
+  {
+   "ident": "SortComponents",
+   "page": "v1.3.0/zh/api/core-extra/EntitySystem.md",
+   "ver": "bannerlord-1.3.0",
+   "tree": "bannerlord-1.3.0",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "eab2d62e02e1a3c3c40f28993b2b9bf1534cdd76040bf63f48bbb0844b0189f6",
+   "page_line_count": 4,
+   "page_context": [
+    {
+     "n": 240,
+     "t": "public void SortComponents<TComponent>(Comparison<T> comparison) where TComponent : class, T"
+    },
+    {
+     "n": 243,
+     "t": "1.3.0 **没有** `SortComponents`。字节数也从 4095 / 146 行涨到 4294 / 149 行，`1.3.15`、`1.4.6`、`1.4.7`、`1.5.3` 四棵树完全一致（都是 4294 字节 / 149 行）。除这个方法外，本类的 public 成员集合在这五个版本之间**没有任何增删**——基类链登记的 `while` 循环、`GetComponent` 取 `list[0]` 的语义、`SaveableCoreTypeDefiner` 里的版本号 `15`，全部一字未改。"
+    },
+    {
+     "n": 245,
+     "t": "`SortComponents` 补上的正是本页指出的那个痛点：1.3.0 的 `GetComponents<T>()` 返回内部列表但**不给排序手段**，想要按某个键排序只能拿到列表后自己 `Sort`，那会同时打乱 `_components` 的注册顺序，进而影响 `GetComponent<T>()` 返回「第一个」的行为。1.3.15 起的做法是让注册表自己排，不打乱主列表。"
+    }
+   ]
+  },
+  {
+   "ident": "SubModuleBase",
+   "page": "v1.5.3/zh/api/core/MBSubModuleBase.md",
+   "ver": "bannerlord-1.5.3",
+   "tree": "bannerlord-1.5.3",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "beb4a7b6dea1071c6168e81c405b0cbff8f92a402c1437248eafd39d3a5d2dba",
+   "page_line_count": 11,
+   "page_context": [
+    {
+     "n": 2,
+     "t": "title: \"MBSubModuleBase\""
+    },
+    {
+     "n": 6,
+     "t": "# MBSubModuleBase"
+    },
+    {
+     "n": 10,
+     "t": "**Type:** `public abstract class MBSubModuleBase`"
+    }
+   ]
+  },
+  {
+   "ident": "UnopenedPerksNumForOtherChars",
+   "page": "v1.4.5/zh/api/campaign-ext/CharacterDeveloperVM.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "b755e41a75a7444d4fd7e582a1db6d9be5af598b7af5331d2a8dea91ad733e49",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 45,
+     "t": "| `UnopenedPerksNumForOtherChars` | `public int UnopenedPerksNumForOtherChars { get; set; }` |"
+    }
+   ]
+  },
+  {
+   "ident": "WarDeclarationScorePenaltyAgainstTradePartners",
+   "page": "v1.3.15/en/architecture/version-delta.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "7e0919f348436a72bbf6117ebbc0fcead9c3a6d5e32cf469ac60867f0f8e7c34",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 83,
+     "t": "| [DiplomacyModel](/versions/DiplomacyModel) | `WarDeclarationScorePenaltyAgainstTradePartners` | New war-declaration scoring dimension |"
+    }
+   ]
+  },
+  {
+   "ident": "WithDoubleValue",
+   "page": "v1.3.0/zh/api/core-extra/ViewModel.md",
+   "ver": "bannerlord-1.3.0",
+   "tree": "bannerlord-1.3.0",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "ca4400aac14919515baca5e47a73832d8afc0449d74803f3f3821b3a6d89bc3b",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 18,
+     "t": "**一是通知。** 十个 `PropertyChanged*` 事件——一个标准的 `PropertyChanged` 加九个类型化版本（`WithValue` / `WithBoolValue` / `WithIntValue` / `WithFloatValue` / `WithUIntValue` / `WithColorValue` / `WithDoubleValue` / `WithVec2Value`，以及泛型 `OnPropertyChangedWithValue<T>`）。类型化版本存在的意义是*"
+    },
+    {
+     "n": 134,
+     "t": "| `PropertyChangedWithBoolValue` / `WithIntValue` / `WithFloatValue` / `WithUIntValue` / `WithColorValue` / `WithDoubleValue` / `WithVec2Value` | `public event PropertyChangedWithXXXValueEventHandler ...` | 每种值类型一个事件，避免装箱。**全部懒建各自独立的 `List<T>`。** |"
+    }
+   ]
+  },
+  {
+   "ident": "XxxData",
+   "page": "v1.4.5/en/api/mission-ext/AgentVisualsData.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "72116219999ace99bfcb2399862251069acad2ed8b1f1357ac4e7d151ab71d73",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 41,
+     "t": "| `AgentVisuals` | `public MBAgentVisuals AgentVisuals;` | The only **public field** in the class, and the only one not following the `XxxData` naming rule. A plain field with no setter and no getter. It is the native handle the visual wraps, and the copy cons"
+    }
+   ]
+  },
+  {
+   "ident": "XxxNarrativeOptionOnSelect",
+   "page": "v1.5.3/zh/api/storymode/StoryModeCharacterCreationCampaignBehavior.md",
+   "ver": "bannerlord-1.5.3",
+   "tree": "bannerlord-1.5.3",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": true,
+   "page_sha256": "3c330e770052f36785498a3eb3ddd2506ff5983f5af3f07fd67e2d4c69bf24e7",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 117,
+     "t": "- 私有 `GetXxxNarrativeOptionArgs(NarrativeMenuOptionArgs args)` × 6 与 `XxxNarrativeOptionOnCondition` / `XxxNarrativeOptionOnSelect` × 6"
+    }
+   ]
+  },
+  {
+   "ident": "_MEMORYSTATUSEX",
+   "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": false,
+   "page_sha256": "675c4c20f505a3bd6596d981aabb3801d22be00f24a09a622cb5cd41d3ef1d9c",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 462,
+     "t": "#### `_MEMORYSTATUSEX` (Line 215)"
+    },
+    {
+     "n": 464,
+     "t": "struct _MEMORYSTATUSEX {"
+    }
+   ]
+  },
+  {
+   "ident": "_RTL_CRITICAL_SECTION_DEBUG",
+   "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": false,
+   "page_sha256": "675c4c20f505a3bd6596d981aabb3801d22be00f24a09a622cb5cd41d3ef1d9c",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 661,
+     "t": "#### `_RTL_CRITICAL_SECTION_DEBUG` (Line 434)"
+    },
+    {
+     "n": 663,
+     "t": "struct _RTL_CRITICAL_SECTION_DEBUG {"
+    }
+   ]
+  },
+  {
+   "ident": "_idle",
+   "page": "v1.4.5/zh/api/mission/ActionIndexCache.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": false,
+   "page_sha256": "3afd82b5f6516598ceb468be315b6d5b1c68e9628d53dcb9eeed32e9d7febd7a",
+   "page_line_count": 6,
+   "page_context": [
+    {
+     "n": 16,
+     "t": "原生动画系统里，一个动作是用字符串名（如 `act_idle_unarmed_1`）在 C++ 侧登记的，但每帧都拿字符串去比对太慢。`ActionIndexCache` 就是在托管侧做一次名称→整数的翻译，并把结果包成一个 `readonly struct`：整个类只有一个数据成员 `Index`（`ActionIndexCache.cs:437`，`public int Index { get; }`），以及约 210 个在静态构造里预先解析好的 `act_*` 字段（`ActionIndexCache.cs:"
+    },
+    {
+     "n": 28,
+     "t": "第二，**`act_*` 字段是在类型首次被触碰时一次性解析的**。它们是 `static readonly`（`:7`–`:434`），赋值全部发生在静态构造 `static ActionIndexCache()`（`:492`）里。这意味着 `ActionIndexCache.act_idle_unarmed_1` 第一次被读时会触发整个表的解析，包含两百多次跨 P/Invoke 进 native 的调用。**在静态初始化敏感的地方（另一个类型的静态构造里）读 `act_*` 有触发类型初始化死锁的风险。**"
+    },
+    {
+     "n": 40,
+     "t": "1. **直接用静态字段**（绝大多数情况）。`ActionIndexCache.act_idle_unarmed_1`，定义在 `ActionIndexCache.cs:431`。这是唯一零成本、不触发运行时查找的用法。"
+    }
+   ]
+  },
+  {
+   "ident": "_s_TryBlockMapEntry",
+   "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": false,
+   "page_sha256": "675c4c20f505a3bd6596d981aabb3801d22be00f24a09a622cb5cd41d3ef1d9c",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 260,
+     "t": "#### `_s_TryBlockMapEntry` (Line 167)"
+    },
+    {
+     "n": 262,
+     "t": "struct _s_TryBlockMapEntry {"
+    }
+   ]
+  },
+  {
+   "ident": "_with_suffix",
+   "page": "v1.4.5/en/api/core-extra/AgentData.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 2,
+   "n_pages": 2,
+   "in_phaseD": false,
+   "page_sha256": "4b1f47635e9531f80cc7bf45d14880a92264fea107d909474980f2523c9229c0",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 34,
+     "t": "| `Character` / `Monster` | `public AgentData Character(BasicCharacterObject)` / `public AgentData Monster(Monster)` | Override the character and the monster body. **`Character` is the trap**: it rewrites only `AgentCharacter` and never recomputes `AgentRace` "
+    }
+   ]
+  },
+  {
+   "ident": "e43f39c3",
+   "page": "v1.3.0/zh/api/gui/AnimatedNumberTextWidget.md",
+   "ver": "bannerlord-1.3.0",
+   "tree": "bannerlord-1.3.0",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": false,
+   "page_sha256": "07bb0f82b4f88708cd0c83222ce728b95e17f71980d87ff51e1926be16b078d9",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 151,
+     "t": "对 `bannerlord-1.3.0` / `1.3.15` / `1.4.6` / `1.4.7` / `1.5.3` 五棵树的 public/protected 签名集合做比对：10 条签名在 1.3.15 / 1.4.6 / 1.4.7 上**与 1.3.0 完全一致（增减 0）**，1.5.3 也一致。字节哈希显示 1.3.0 是 `e43f39c3`、1.3.15 起统一变成 `06150050` 并一直保持到 1.4.7，1.5.3 又是 `4c64ec60`。"
+    }
+   ]
+  },
+  {
+   "ident": "gui",
+   "page": "v1.3.0/zh/api/campaign-ext/Canvas.md",
+   "ver": "bannerlord-1.3.0",
+   "tree": "bannerlord-1.3.0",
+   "n_occ": 26,
+   "n_pages": 26,
+   "in_phaseD": false,
+   "page_sha256": "dee43099dc3debd0eeabc56ed6007d2aebb94d84e343dd21484279975a1c6e15",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 297,
+     "t": "`FontFactory` 与 `SpriteData` 这两个依赖类型在 1.5.3 上仍然存在（`FontFactory` 在 `gui` 桶有独立页面），所以**删除的是画布子系统本身，不是它的资源依赖**。"
+    },
+    {
+     "n": 309,
+     "t": "- 资源依赖：`SpriteData`（无文档页，来自 `EventManager.Context`）与 [FontFactory](../../gui/FontFactory)（1.5.3 上仍在）"
+    }
+   ]
+  },
+  {
+   "ident": "misc",
+   "page": "v1.4.5/en/api/final/_index.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 2,
+   "n_pages": 2,
+   "in_phaseD": false,
+   "page_sha256": "8b8dadfec20ed587acd0c289df29e8f3357e23aebcaa5e0329c00435f5959e5d",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 19,
+     "t": "- [Campaignsystem Misc](campaignsystem-misc/) — `campaignsystem-misc`"
+    },
+    {
+     "n": 32,
+     "t": "- [Misc](misc/) — `misc`"
+    }
+   ]
+  },
+  {
+   "ident": "my_mod_escape",
+   "page": "v1.4.5/zh/api/localization/TextIdExpression.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": false,
+   "page_sha256": "46446cd3b50baad8564247812954aef5a26ff1d65571b3ac1bc098a9bd73d0e3",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 43,
+     "t": "TextObject line = new TextObject(\"{=my_mod_escape}{HERO.NAME} has just escaped from her captors.\");"
+    },
+    {
+     "n": 59,
+     "t": "| `TextIdExpression(string)` | `public TextIdExpression(string innerText)` | 唯一构造器，第 11 行 `base.RawValue = innerText`，存的是**key 原文**（如 `my_mod_escape`）。**全树唯一调用点 `MBTextParser.cs:45`。** 传 null 不报错，但 `RawValue` 变 null。 |"
+    }
+   ]
+  },
+  {
+   "ident": "sizeof",
+   "page": "v1.4.5/en/api/mission/IMBBannerlordChecker.md",
+   "ver": "bannerlord-1.4.5",
+   "tree": "bannerlord-1.4.5",
+   "n_occ": 1,
+   "n_pages": 1,
+   "in_phaseD": false,
+   "page_sha256": "e5a78e0bc83eb1ffa916c99d25f993e39440143a764d75e55f1080a24c4acc5e",
+   "page_line_count": 2,
+   "page_context": [
+    {
+     "n": 25,
+     "t": "- `SizeChecker.cs` makes the shape unmistakable: the managed side passes its own `sizeof` result as `managedSize`, and the call is *named* `GetEngineStructSize` — the native side answers with the native size. The comparison logic that would act on a mismatch i"
+    },
+    {
+     "n": 88,
+     "t": "| A managed-side layout reader | **UNRESOLVED — not this bridge's job** | The managed value comes from the caller's own `sizeof`; this interface only ever answers with the native value. |"
+    }
+   ]
+  },
+  {
+   "ident": "undefined6",
+   "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+   "ver": "bannerlord-1.3.15",
+   "tree": "bannerlord-1.3.15",
+   "n_occ": 3,
+   "n_pages": 3,
+   "in_phaseD": false,
+   "page_sha256": "675c4c20f505a3bd6596d981aabb3801d22be00f24a09a622cb5cd41d3ef1d9c",
+   "page_line_count": 1,
+   "page_context": [
+    {
+     "n": 60,
+     "t": "| 18 | `undefined6` | `unsigned long long` |"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,2154 @@
+[
+ {
+  "ident": "GetClosestAgent",
+  "page": "v1.4.5/zh/api/mission-ext/AgentController.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/zh/api/mission-ext/AgentController.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "9078 2026-10-03T13:41:29.068Z",
+  "pageSha": "860c55d8334ee8bec2fbaf301c2ac67eabfd4152355d5c18a973bfb85a20e4bd",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'GetClosestAgent' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "ChannelMessage",
+  "page": "v1.4.5/zh/api/campaign-ext/ChannelMessage.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/ChannelMessage.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "1197 2026-08-14T00:35:33.632Z",
+  "pageSha": "5f47c9c1e94cb71e7391068134672950f93cbd61e32914f22b7cb147f8595c83",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'ChannelMessage' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "OutOf",
+  "page": "v1.3.0/zh/api/mission-ext/AgentBuildData.md",
+  "ver": "bannerlord-1.3.0",
+  "allOccurrences": [
+   {
+    "page": "v1.3.0/zh/api/mission-ext/AgentBuildData.md",
+    "ver": "bannerlord-1.3.0"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "20278 2026-10-04T21:12:50.116Z",
+  "pageSha": "0b368a546fa5369152a045aea867128d48999c184ff744d6d8dca8f4d468bd70",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.0",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'OutOf' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.0\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "AddSerializedListener",
+  "page": "v1.4.5/zh/api/campaign/CampaignWarManagerBehavior.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/zh/api/campaign/CampaignWarManagerBehavior.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "12841 2026-10-04T23:06:48.503Z",
+  "pageSha": "14b9a56d990094f1d86385bc18ced3eab6f08f317520dde9d74c60ad0315da28",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'AddSerializedListener' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "ClanMilestoneModel",
+  "page": "v1.5.3/zh/api/campaign/GameModels.md",
+  "ver": "bannerlord-1.5.3",
+  "allOccurrences": [
+   {
+    "page": "v1.5.3/zh/api/campaign/GameModels.md",
+    "ver": "bannerlord-1.5.3"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "9957 2026-10-04T14:07:43.388Z",
+  "pageSha": "6746f8d970c93d242fbbef48bb4721e4924d6bdb09486f5d84a0870169c98ba3",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.5.3",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'ClanMilestoneModel' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.5.3\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "CampaignBehavior",
+  "page": "v1.3.0/zh/api/core-extra/AgentData.md",
+  "ver": "bannerlord-1.3.0",
+  "allOccurrences": [
+   {
+    "page": "v1.3.0/zh/api/core-extra/AgentData.md",
+    "ver": "bannerlord-1.3.0"
+   },
+   {
+    "page": "v1.3.15/en/api/campaign-ext/Army.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/en/api/campaign-ext/CampaignEvents.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/en/api/campaign-ext/CampaignInformationManager.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/en/api/campaign-ext/CultureObject.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/en/api/campaign-ext/GameMenuManager.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/en/api/campaign-ext/GameMenuOption.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/en/api/campaign-ext/IssueBase.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/en/api/campaign-ext/KingdomDecision.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/en/api/campaign-ext/PolicyObject.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/en/api/campaign-ext/SettlementSecurityModel.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/en/architecture/crash-boundaries.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/BarterData.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/BarterManager.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/CampaignEvents.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/CampaignInformationManager.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/CampaignObjectManager.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/ChangeClanLeaderAction.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/ChangeCrimeRatingAction.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/ChangeRomanticStateAction.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/ChangeRulingClanAction.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/ChangeVillageStateAction.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/CultureObject.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/EncounterManager.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/GameMenuManager.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/IssueManager.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/MapEventManager.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/PartyHealingModel.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/PolicyObject.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/SandBoxManager.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/SettlementSecurityModel.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/TournamentManager.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/core-extra/InformationManager.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/save-system/_index.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/architecture/sandbox-native-policy.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/architecture/sdk-overview.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.4.5/en/api/campaign/Campaign.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/en/api/campaign/SiegeEventManager.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/en/api/campaign-ext/CampaignEvents.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/en/api/campaign-ext/CultureObject.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/en/architecture/_index.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/boardgames/_index.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/BehaviorSaveData.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/CachedPartyVariables.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/Campaign.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/CampaignCheats.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/CombatXpModel.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/FakeMarketData.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/HeroRelations.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/IssueState.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/KingdomDecisionMapNotification.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/LocatorGrid.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/MapTimeTracker.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/MenuContextState.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/MobileParty.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/PreconditionFlags.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/Pregnancy.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/SettlementGarrisonModel.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/SiegeEventManager.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/StanceType.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/BarberCampaignBehavior.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/BarterData.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/BarterManager.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/CampaignEvents.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/CampaignInformationManager.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/CampaignObjectManager.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/ChangeClanLeaderAction.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/ChangeCrimeRatingAction.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/ChangeRomanticStateAction.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/ChangeRulingClanAction.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/ChangeVillageStateAction.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/CultureObject.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/EncounterManager.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/GameMenuManager.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/IssueManager.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/MapEventManager.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/PartyHealingModel.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/PolicyObject.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/SandBoxManager.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/SettlementSecurityModel.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/StealthCharactersCampaignBehavior.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/TournamentManager.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/save-system/_index.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/architecture/module-system.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/architecture/sandbox-native-policy.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.5.3/en/architecture/sdk-overview.md",
+    "ver": "bannerlord-1.5.3"
+   },
+   {
+    "page": "v1.5.3/zh/api/storymode/StoryModePartySizeLimitModel.md",
+    "ver": "bannerlord-1.5.3"
+   },
+   {
+    "page": "v1.5.3/zh/architecture/sdk-overview.md",
+    "ver": "bannerlord-1.5.3"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "24904 2026-10-04T21:09:10.297Z",
+  "pageSha": "9347c5b65b9dc5b02159e8fa6753cfa4154ca4d2fc45a79e3cc20f3a4c056bdf",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.0",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'CampaignBehavior' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.0\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "ForFaction",
+  "page": "v1.4.5/zh/api/campaign/SettlementValueModel.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/zh/api/campaign/SettlementValueModel.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "14420 2026-10-04T22:53:12.452Z",
+  "pageSha": "775d758e0ae16280b6804a1498e52cd1fb5379aa08ccd8979a40aeafed80fe53",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'ForFaction' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "CheckpointCampaignLogic",
+  "page": "v1.3.0/zh/api/core-extra/AgentSaveData.md",
+  "ver": "bannerlord-1.3.0",
+  "allOccurrences": [
+   {
+    "page": "v1.3.0/zh/api/core-extra/AgentSaveData.md",
+    "ver": "bannerlord-1.3.0"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "21993 2026-10-04T21:26:11.903Z",
+  "pageSha": "268240fb3cf2559b47e0a754ecdcc4b51f0138e6fb81c395698264c1c2327993",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.0",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'CheckpointCampaignLogic' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.0\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "ImageBaseOffset32",
+  "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/native-1.3.15-src/COMPLETE-TYPES.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.4.5/zh/native-1.3.15-src/COMPLETE-TYPES.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "28633 2026-06-25T17:20:01.455Z",
+  "pageSha": "675c4c20f505a3bd6596d981aabb3801d22be00f24a09a622cb5cd41d3ef1d9c",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'ImageBaseOffset32' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "FortificationPortPatrolDistanceAsDays",
+  "page": "v1.3.15/en/api/campaign-ext/MobilePartyAIModel.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/api/campaign-ext/MobilePartyAIModel.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/MobilePartyAIModel.md",
+    "ver": "bannerlord-1.3.15"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "19677 2026-08-12T09:21:38.235Z",
+  "pageSha": "00c989cf370bfec4005e21a3e3e4f3275f19a16cc1bd330bbb398e50e6232300",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'FortificationPortPatrolDistanceAsDays' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "FastModeSubModule",
+  "page": "v1.5.3/en/architecture/migration-from-1.4.5.md",
+  "ver": "bannerlord-1.5.3",
+  "allOccurrences": [
+   {
+    "page": "v1.5.3/en/architecture/migration-from-1.4.5.md",
+    "ver": "bannerlord-1.5.3"
+   },
+   {
+    "page": "v1.5.3/zh/architecture/migration-from-1.4.5.md",
+    "ver": "bannerlord-1.5.3"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "23993 2026-10-02T11:49:02.321Z",
+  "pageSha": "cfe5efe14cc06fbb7399905204637e6b1aef259b30d92f8a7711f210812a95d5",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.5.3",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'FastModeSubModule' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.5.3\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "ReadObject",
+  "page": "v1.3.15/en/architecture/save-object-graph.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/architecture/save-object-graph.md",
+    "ver": "bannerlord-1.3.15"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "11802 2026-10-07T09:20:01.836Z",
+  "pageSha": "691586f93d5e3f0c2a9048474b62802b4dc87258bce55d8eb14d4f5e3a2f0cf5",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'ReadObject' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "ICustomManager",
+  "page": "v1.4.6/zh/api/campaign/Campaign.md",
+  "ver": "bannerlord-1.4.6",
+  "allOccurrences": [
+   {
+    "page": "v1.4.6/zh/api/campaign/Campaign.md",
+    "ver": "bannerlord-1.4.6"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "33285 2026-10-04T13:55:48.267Z",
+  "pageSha": "e71080680c5e0eff4e47b6b3692750636489f1d4a5ce7d3e793e940fb17dd720",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.6",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'ICustomManager' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.6\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "GauntletSystem",
+  "page": "v1.3.0/zh/architecture/module-system.md",
+  "ver": "bannerlord-1.3.0",
+  "allOccurrences": [
+   {
+    "page": "v1.3.0/zh/architecture/module-system.md",
+    "ver": "bannerlord-1.3.0"
+   },
+   {
+    "page": "v1.3.15/en/guide/gauntlet-ui.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/guide/gauntlet-ui.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.4.5/zh/architecture/module-system.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/guide/gauntlet-ui.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "7739 2026-07-28T09:25:40.341Z",
+  "pageSha": "3b70128f6be924e0a2a88e83eaf0ba32fe2e112f5e60998178bd13053dc17393",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.0",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'GauntletSystem' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.0\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "RaisePropertyChanged",
+  "page": "v1.3.15/en/api/engine/GauntletLayer.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/api/engine/GauntletLayer.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/engine/GauntletLayer.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.4.7/zh/api/core-extra/ViewModel.md",
+    "ver": "bannerlord-1.4.7"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "18559 2026-08-03T08:19:27.492Z",
+  "pageSha": "c5886959881f93ab34fe571639a2f77c2793fc884db6c06ce706aa156315309a",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'RaisePropertyChanged' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "WarDeclaredEvent",
+  "page": "v1.5.3/zh/api/campaign/CampaignEvents.md",
+  "ver": "bannerlord-1.5.3",
+  "allOccurrences": [
+   {
+    "page": "v1.5.3/zh/api/campaign/CampaignEvents.md",
+    "ver": "bannerlord-1.5.3"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "11448 2026-10-04T14:09:33.910Z",
+  "pageSha": "4d7527d9d02c55e29a159a499535ac6cca366de6f1951eff2c958b418b501f71",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.5.3",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'WarDeclaredEvent' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.5.3\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "Fortification",
+  "page": "v1.3.15/en/api/campaign-ext/MobilePartyAIModel.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/api/campaign-ext/MobilePartyAIModel.md",
+    "ver": "bannerlord-1.3.15"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "19677 2026-08-12T09:21:38.235Z",
+  "pageSha": "00c989cf370bfec4005e21a3e3e4f3275f19a16cc1bd330bbb398e50e6232300",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'Fortification' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "MaximumHitPoints",
+  "page": "v1.4.5/zh/api/core-extra/EquipmentElement.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/zh/api/core-extra/EquipmentElement.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "20252 2026-08-18T10:14:37.635Z",
+  "pageSha": "4409d2ed0ffbf4bfc04382f4cd4561c58bb17244dfc779ae219afdb7f3919d32",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'MaximumHitPoints' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "ConnectionRequest",
+  "page": "v1.4.7/en/api/network/_index.md",
+  "ver": "bannerlord-1.4.7",
+  "allOccurrences": [
+   {
+    "page": "v1.4.7/en/api/network/_index.md",
+    "ver": "bannerlord-1.4.7"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "2618 2026-10-02T11:50:10.864Z",
+  "pageSha": "83ed74595f6014d4c76c23a15234c35954b4534983204b8ac6a2b66cb7eb7e39",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.7",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'ConnectionRequest' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.7\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "IsMovementEnabled",
+  "page": "v1.4.5/zh/api/mission-ext/LauncherCircleLoadingAnimWidget.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/zh/api/mission-ext/LauncherCircleLoadingAnimWidget.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "1689 2026-08-14T00:35:36.770Z",
+  "pageSha": "4636eb0650e178a92216144a7555403d508fe61a85d8f6e8c76a421d23f2dbde",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'IsMovementEnabled' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "FromNow",
+  "page": "v1.4.5/en/api/campaign/CampaignTime.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/en/api/campaign/CampaignTime.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign/CampaignTime.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "7859 2026-08-12T04:06:11.077Z",
+  "pageSha": "2f29458b879a9659212606905c4bd53b320c7c55a68336c5ad50b05c5ae29ec0",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'FromNow' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "AutoGeneratedGetMemberValueKeyPartN",
+  "page": "v1.4.6/zh/api/core-extra/StaticBodyProperties.md",
+  "ver": "bannerlord-1.4.6",
+  "allOccurrences": [
+   {
+    "page": "v1.4.6/zh/api/core-extra/StaticBodyProperties.md",
+    "ver": "bannerlord-1.4.6"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "17373 2026-10-04T14:53:09.576Z",
+  "pageSha": "d54c4b74442ee15a212b5cca3572e9b1f87a2e13073bd4584a0ac1c60c9c939b",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.6",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'AutoGeneratedGetMemberValueKeyPartN' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.6\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "FemaleTeenager",
+  "page": "v1.3.15/en/api/campaign-ext/CultureObject.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/api/campaign-ext/CultureObject.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/CultureObject.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.4.5/en/api/campaign-ext/CultureObject.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/CultureObject.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "21209 2026-10-04T15:09:43.602Z",
+  "pageSha": "8121d0d6d7bfd531456b98f5e34da9be953dcedfbc0db0c54f4653bd1d5b9d81",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'FemaleTeenager' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "AssertLayout",
+  "page": "v1.4.5/en/api/mission/IMBBannerlordChecker.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/en/api/mission/IMBBannerlordChecker.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "13894 2026-10-04T14:42:23.955Z",
+  "pageSha": "e5a78e0bc83eb1ffa916c99d25f993e39440143a764d75e55f1080a24c4acc5e",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'AssertLayout' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "WithValue",
+  "page": "v1.3.0/zh/api/core-extra/ViewModel.md",
+  "ver": "bannerlord-1.3.0",
+  "allOccurrences": [
+   {
+    "page": "v1.3.0/zh/api/core-extra/ViewModel.md",
+    "ver": "bannerlord-1.3.0"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "21137 2026-10-03T03:56:11.716Z",
+  "pageSha": "ca4400aac14919515baca5e47a73832d8afc0449d74803f3f3821b3a6d89bc3b",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.0",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'WithValue' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.0\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "XxxIssue",
+  "page": "v1.4.5/zh/api/campaign-ext/issues/_index.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/issues/_index.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "10125 2026-08-14T12:07:34.609Z",
+  "pageSha": "5b26f787e58f866f192eea2ee059ad57f29939273052d062eb5ee0dcb66e8625",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'XxxIssue' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "ItemEquipmentType",
+  "page": "v1.3.0/zh/api/core-extra/Equipment.md",
+  "ver": "bannerlord-1.3.0",
+  "allOccurrences": [
+   {
+    "page": "v1.3.0/zh/api/core-extra/Equipment.md",
+    "ver": "bannerlord-1.3.0"
+   },
+   {
+    "page": "v1.3.15/en/api/core-extra/Equipment.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/core-extra/Equipment.md",
+    "ver": "bannerlord-1.3.15"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "32051 2026-10-04T21:36:10.826Z",
+  "pageSha": "490791071501fda73c11a7995ed75d7c92b04e4a9abe86be9b0c7bd5f817295f",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.0",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'ItemEquipmentType' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.0\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "ByRealBoneIndex",
+  "page": "v1.4.5/en/api/mission/IMBAgentVisuals.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/en/api/mission/IMBAgentVisuals.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "33905 2026-10-04T16:13:58.529Z",
+  "pageSha": "569a97a516b4abee2859d8bf6b665fb324a2edc72d2db0d71c7a17c139394d1d",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'ByRealBoneIndex' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "SandBoxAgentApplyDamageModel",
+  "page": "v1.3.0/zh/api/mission-ext/AgentApplyDamageModel.md",
+  "ver": "bannerlord-1.3.0",
+  "allOccurrences": [
+   {
+    "page": "v1.3.0/zh/api/mission-ext/AgentApplyDamageModel.md",
+    "ver": "bannerlord-1.3.0"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "25497 2026-10-04T21:12:39.033Z",
+  "pageSha": "d16aaf49e76e5928080d7066611835cbccfa0b1bbe0d457c31da5b0280c929c9",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.0",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'SandBoxAgentApplyDamageModel' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.0\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "MyBehavior",
+  "page": "v1.3.15/en/api/core/MBSubModuleBase.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/api/core/MBSubModuleBase.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.4.7/en/api/engine/MBDebug.md",
+    "ver": "bannerlord-1.4.7"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "7965 2026-08-12T04:06:10.880Z",
+  "pageSha": "5bfc6ea75957b5aa6e7edcfbdd5622ba7c28ddcb681959e93156db325278f038",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'MyBehavior' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "SaveableEntry",
+  "page": "v1.4.7/zh/api/save-system/_index.md",
+  "ver": "bannerlord-1.4.7",
+  "allOccurrences": [
+   {
+    "page": "v1.4.7/zh/api/save-system/_index.md",
+    "ver": "bannerlord-1.4.7"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "3314 2026-10-02T11:41:07.009Z",
+  "pageSha": "13c2574ff1756ebf35bce9c3c6d607c3f18926fdb21bb3aa714e4b9911c675fc",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.7",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'SaveableEntry' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.7\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "TournamentCancelledEvent",
+  "page": "v1.5.3/zh/api/campaign/CampaignEvents.md",
+  "ver": "bannerlord-1.5.3",
+  "allOccurrences": [
+   {
+    "page": "v1.5.3/zh/api/campaign/CampaignEvents.md",
+    "ver": "bannerlord-1.5.3"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "11448 2026-10-04T14:09:33.910Z",
+  "pageSha": "4d7527d9d02c55e29a159a499535ac6cca366de6f1951eff2c958b418b501f71",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.5.3",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'TournamentCancelledEvent' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.5.3\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "PxTransform",
+  "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/native-1.3.15-src/COMPLETE-TYPES.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/native-1.3.15-src/COMPLETE-TYPES.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.4.5/zh/native-1.3.15-src/COMPLETE-TYPES.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "28633 2026-06-25T17:20:01.455Z",
+  "pageSha": "675c4c20f505a3bd6596d981aabb3801d22be00f24a09a622cb5cd41d3ef1d9c",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'PxTransform' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "IsReverse",
+  "page": "v1.4.5/zh/api/mission-ext/LauncherCircleLoadingAnimWidget.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/zh/api/mission-ext/LauncherCircleLoadingAnimWidget.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "1689 2026-08-14T00:35:36.770Z",
+  "pageSha": "4636eb0650e178a92216144a7555403d508fe61a85d8f6e8c76a421d23f2dbde",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'IsReverse' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "EffectiveNavigator",
+  "page": "v1.3.15/en/architecture/version-delta.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/architecture/version-delta.md",
+    "ver": "bannerlord-1.3.15"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "7336 2026-06-25T08:50:54.696Z",
+  "pageSha": "15c0d9aae4376462653d115d3725478483cbfe347b2a6556e3dc1a9c5cc9f391",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'EffectiveNavigator' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "MyModCampaignState",
+  "page": "v1.3.15/zh/api/save-system/IConflictResolver.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/zh/api/save-system/IConflictResolver.md",
+    "ver": "bannerlord-1.3.15"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "6723 2026-08-19T20:39:59.806Z",
+  "pageSha": "983e54f71773586f90ba19ae7a7c19375f25da4e91a03efa146119a7c7cf9b63",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'MyModCampaignState' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "HoveredView",
+  "page": "v1.4.5/zh/api/campaign-ext/EventManager.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/EventManager.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "5071 2026-08-14T00:35:34.067Z",
+  "pageSha": "d682e9a764ce31c68b5921dff08c794685127cedc6f7cf1a36de9a9bf1fb8bed",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'HoveredView' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "SubModuleBase",
+  "page": "v1.5.3/zh/api/core/MBSubModuleBase.md",
+  "ver": "bannerlord-1.5.3",
+  "allOccurrences": [
+   {
+    "page": "v1.5.3/zh/api/core/MBSubModuleBase.md",
+    "ver": "bannerlord-1.5.3"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "13035 2026-10-04T14:29:16.765Z",
+  "pageSha": "beb4a7b6dea1071c6168e81c405b0cbff8f92a402c1437248eafd39d3a5d2dba",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.5.3",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'SubModuleBase' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.5.3\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "IsRunningMissionAfterScreen",
+  "page": "v1.4.5/en/api/mission-ext/BarterView.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/en/api/mission-ext/BarterView.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "12906 2026-10-04T14:33:51.892Z",
+  "pageSha": "612a96c9905b7cb31cd8e6063f7af81cf6d4dc852843f2acb0cb15c9584fb3e2",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'IsRunningMissionAfterScreen' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "SmithingBehavior",
+  "page": "v1.3.15/en/api/campaign-ext/SmithingModel.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/api/campaign-ext/SmithingModel.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/SmithingModel.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/SmithingModel.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "17199 2026-08-12T05:47:22.176Z",
+  "pageSha": "b65ec3a6167696184404b23d39dd5e483dcb51d749c019c54fe51f09fab0672b",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'SmithingBehavior' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "EndDebugDraw",
+  "page": "v1.4.5/en/api/mission/IMBDebugExtensions.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/en/api/mission/IMBDebugExtensions.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "17015 2026-10-04T14:42:23.992Z",
+  "pageSha": "2a0dd156eff50469024d9a2b00293ea42a1f319edefb14b212291495a56e5007",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'EndDebugDraw' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements",
+  "page": "v1.3.0/en/api/viewmodel/kingdommanagement/_index.md",
+  "ver": "bannerlord-1.3.0",
+  "allOccurrences": [
+   {
+    "page": "v1.3.0/en/api/viewmodel/kingdommanagement/_index.md",
+    "ver": "bannerlord-1.3.0"
+   },
+   {
+    "page": "v1.3.0/zh/api/viewmodel/kingdommanagement/_index.md",
+    "ver": "bannerlord-1.3.0"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "14937 2026-07-28T09:25:40.237Z",
+  "pageSha": "519133b82880db0924281d5e6a55fa9a0ef9e0c698ffe59363319e3bf32f396d",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.0",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'ItemTypeComparer__TaleWorlds_CampaignSystem_ViewModelCollection_KingdomManagement_Settlements' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.0\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "CurrentVelocity",
+  "page": "v1.4.5/en/api/mission/IMBAgent.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/en/api/mission/IMBAgent.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "43389 2026-10-04T16:49:27.775Z",
+  "pageSha": "27047e4f6fd3d15113b4b11820d693ab8822f65484508d722db988d1596e44af",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'CurrentVelocity' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "IISceneView",
+  "page": "v1.4.5/zh/api/engine/ISceneView.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/zh/api/engine/ISceneView.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "6236 2026-08-17T12:49:19.408Z",
+  "pageSha": "7fa9f4e285b913fbeef0695215cae683c362d11eca47f542d07847c50633d43c",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'IISceneView' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "NormalAlpha",
+  "page": "v1.4.5/zh/api/mission-ext/LauncherCircleLoadingAnimWidget.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/zh/api/mission-ext/LauncherCircleLoadingAnimWidget.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "1689 2026-08-14T00:35:36.770Z",
+  "pageSha": "4636eb0650e178a92216144a7555403d508fe61a85d8f6e8c76a421d23f2dbde",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'NormalAlpha' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "EncyclopediaVM",
+  "page": "v1.4.6/zh/api/viewmodel/_index.md",
+  "ver": "bannerlord-1.4.6",
+  "allOccurrences": [
+   {
+    "page": "v1.4.6/zh/api/viewmodel/_index.md",
+    "ver": "bannerlord-1.4.6"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "10627 2026-10-02T16:41:25.724Z",
+  "pageSha": "0f2c042d503b779a111f03fcb77657b80421784103386ecc40c0e2406ed7f2ff",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.6",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'EncyclopediaVM' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.6\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "NumericOption",
+  "page": "v1.3.0/zh/api/viewmodel/ActionCampaignOptionData.md",
+  "ver": "bannerlord-1.3.0",
+  "allOccurrences": [
+   {
+    "page": "v1.3.0/zh/api/viewmodel/ActionCampaignOptionData.md",
+    "ver": "bannerlord-1.3.0"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "11823 2026-10-03T07:10:36.891Z",
+  "pageSha": "240d504863abde7ffad2cab3b646949722164656463260d34fe57996cb50764e",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.0",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'NumericOption' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.0\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "RefreshAdoptionUi",
+  "page": "v1.3.15/en/api/campaign-ext/AdoptHeroAction.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/api/campaign-ext/AdoptHeroAction.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/AdoptHeroAction.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/AdoptHeroAction.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "5420 2026-08-15T00:37:46.334Z",
+  "pageSha": "9f3e3c51c4531c176c9905f07784eb786e47e5629fa5e3b12815646e9d1c8c84",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'RefreshAdoptionUi' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "ApplyXxx",
+  "page": "v1.3.15/en/architecture/action-family.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/architecture/action-family.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/architecture/action-family.md",
+    "ver": "bannerlord-1.3.15"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "13619 2026-10-07T09:09:16.370Z",
+  "pageSha": "1cc8b409f956d334b0547fa5ebd822c3023a835156de8d19dd48b04fca91754c",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'ApplyXxx' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "DailyGoldBehavior",
+  "page": "v1.3.15/zh/api/campaign-ext/CampaignGameStarter.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/CampaignGameStarter.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.4.5/en/api/campaign-ext/CampaignGameStarter.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/CampaignGameStarter.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "16700 2026-08-12T04:06:10.916Z",
+  "pageSha": "4090f29110e1d4c2e82cda0f88f7f5c4a00841b8acdbf67ddf0f2756dcadba8f",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'DailyGoldBehavior' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "CampaignMissionComponent",
+  "page": "v1.3.15/en/api/campaign-ext/CampaignMission.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/api/campaign-ext/CampaignMission.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/CampaignMission.md",
+    "ver": "bannerlord-1.3.15"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "21369 2026-08-15T00:37:46.350Z",
+  "pageSha": "4826f4cf7affbafde75ba926d7c10403364389411b8eb444a3304422fd983e5e",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'CampaignMissionComponent' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "PlayerMetHero",
+  "page": "v1.5.3/zh/api/campaign/CampaignEvents.md",
+  "ver": "bannerlord-1.5.3",
+  "allOccurrences": [
+   {
+    "page": "v1.5.3/zh/api/campaign/CampaignEvents.md",
+    "ver": "bannerlord-1.5.3"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "11448 2026-10-04T14:09:33.910Z",
+  "pageSha": "4d7527d9d02c55e29a159a499535ac6cca366de6f1951eff2c958b418b501f71",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.5.3",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'PlayerMetHero' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.5.3\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "OnWorkshopInitializedEvent",
+  "page": "v1.3.15/zh/api/campaign-ext/CampaignEvents.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/zh/api/campaign-ext/CampaignEvents.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.4.5/en/api/campaign-ext/CampaignEvents.md",
+    "ver": "bannerlord-1.4.5"
+   },
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/CampaignEvents.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "31111 2026-08-02T14:59:10.858Z",
+  "pageSha": "cb90b4b93f06707aade7efc54969bb1e2b4701aef9699b3531a872de5c3bbaeb",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'OnWorkshopInitializedEvent' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "MyLayer",
+  "page": "v1.4.6/zh/api/engine/GauntletLayer.md",
+  "ver": "bannerlord-1.4.6",
+  "allOccurrences": [
+   {
+    "page": "v1.4.6/zh/api/engine/GauntletLayer.md",
+    "ver": "bannerlord-1.4.6"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "16664 2026-10-04T16:20:51.479Z",
+  "pageSha": "fa9202508e50715bc19e982a9fd4320c9e9192c07f084ef7d1fb140bebc78247",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.6",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'MyLayer' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.6\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "SlowAgingModel",
+  "page": "v1.3.0/zh/api/campaign/AgeModel.md",
+  "ver": "bannerlord-1.3.0",
+  "allOccurrences": [
+   {
+    "page": "v1.3.0/zh/api/campaign/AgeModel.md",
+    "ver": "bannerlord-1.3.0"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "20951 2026-10-04T21:57:27.061Z",
+  "pageSha": "682779f1e21db3b3e1c82fa707bf60a78778f1834790c78d59555793e64e76ae",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.0",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'SlowAgingModel' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.0\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "MapEntityVisuals",
+  "page": "v1.3.0/en/api/campaign-ext/SettlementVisual.md",
+  "ver": "bannerlord-1.3.0",
+  "allOccurrences": [
+   {
+    "page": "v1.3.0/en/api/campaign-ext/SettlementVisual.md",
+    "ver": "bannerlord-1.3.0"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "11522 2026-10-02T10:00:39.903Z",
+  "pageSha": "a8b5996a64e4c881bd9c69b5025d77a60feda179c5953409dde5db2c504e3a15",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.0",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'MapEntityVisuals' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.0\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "IsDiscardDonating",
+  "page": "v1.4.5/zh/api/campaign-ext/InventoryLogic.md",
+  "ver": "bannerlord-1.4.5",
+  "allOccurrences": [
+   {
+    "page": "v1.4.5/zh/api/campaign-ext/InventoryLogic.md",
+    "ver": "bannerlord-1.4.5"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "19389 2026-08-14T00:35:34.395Z",
+  "pageSha": "144b8cdd6e3525aff57ae2e8cec3f4ec1b5e7fd0f43ae877685d0e4088199bbe",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'IsDiscardDonating' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.4.5\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "RecalculateRenownAndInfluenceValuesOnPartyInvolved",
+  "page": "v1.3.15/en/api/campaign/MapEvent.md",
+  "ver": "bannerlord-1.3.15",
+  "allOccurrences": [
+   {
+    "page": "v1.3.15/en/api/campaign/MapEvent.md",
+    "ver": "bannerlord-1.3.15"
+   },
+   {
+    "page": "v1.3.15/zh/api/campaign/MapEvent.md",
+    "ver": "bannerlord-1.3.15"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "22682 2026-08-03T08:20:39.274Z",
+  "pageSha": "c9f2975e5ff4d4968ad1a638d31891941df35f05303d9361c0c0118c97afb7e8",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.15",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'RecalculateRenownAndInfluenceValuesOnPartyInvolved' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.15\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "AddFlag",
+  "page": "v1.3.0/zh/api/core-extra/AgentFlag.md",
+  "ver": "bannerlord-1.3.0",
+  "allOccurrences": [
+   {
+    "page": "v1.3.0/zh/api/core-extra/AgentFlag.md",
+    "ver": "bannerlord-1.3.0"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "20162 2026-10-04T21:09:19.356Z",
+  "pageSha": "60d9127a65c8d53be4413a80b64be8eb2cbba400326d7c1908402d5489fa9b6e",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.3.0",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'AddFlag' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.3.0\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ },
+ {
+  "ident": "OnSessionStartEvent",
+  "page": "v1.5.3/zh/api/campaign/CampaignEvents.md",
+  "ver": "bannerlord-1.5.3",
+  "allOccurrences": [
+   {
+    "page": "v1.5.3/zh/api/campaign/CampaignEvents.md",
+    "ver": "bannerlord-1.5.3"
+   }
+  ],
+  "pageExists": true,
+  "pageStat": "11448 2026-10-04T14:09:33.910Z",
+  "pageSha": "4d7527d9d02c55e29a159a499535ac6cca366de6f1951eff2c958b418b501f71",
+  "pageGit": "(clean)",
+  "grepOutput": "(NO HIT ON PAGE)",
+  "treePath": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.5.3",
+  "treeExists": true,
+  "treeHitCount": null,
+  "treeSample": "(tree grep error: Command failed: grep -rPw 'OnSessionStartEvent' \"C:\\\\WorkSpace\\\\Bannerlord\\\\bannerlord-1.5.3\" --include='*.cs' -l 2>/dev/null | wc -l\nϵͳ�Ҳ���ָ����·����\r\n)",
+  "crossVer": {
+   "bannerlord-1.3.0": -1,
+   "bannerlord-1.3.15": -1,
+   "bannerlord-1.4.5": -1,
+   "bannerlord-1.4.6": -1,
+   "bannerlord-1.4.7": -1,
+   "bannerlord-1.5.3": -1
+  }
+ }
+]

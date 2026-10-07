@@ -148,7 +148,24 @@ const STATIC_ROOT = join(REPO, 'static');
 
 const SECTIONS = ['概述', '心智模型', '怎么用', '关键成员', '真实示例', '导航'];
 // 参见族：boss-3 #12561 裁定，出处 DISPATCH-TEMPLATE.md §0.0 的共现证据
-const SEE_FAMILY = ['参见', '依赖关系', '依赖图', '依赖'];
+// 参见族：boss-3 #12561 裁定（中文别名）+ #16510（★ 必须含英文形式）
+//   ★ 为什么必须含英文：`J10` 的判据是「链接只许出现在参见/导航节内」。
+//     若只认中文字面，则【每一个英文页都会构造性地 FAIL】——而且它报的是
+//     「links-outside-see/nav」，看起来像【真缺陷】（链接放错位置），实则是【不认英文节名】。
+//     实例：content/v1.3.15/en/architecture/save-object-graph.md 报 J10 stray=15，
+//     而那 15 条链接全部正确地位于 `## See Also` 内（该页的节名是
+//     Overview/Mental Model/How To Use/Key Members/Real Examples/See Also/Navigation
+//     —— 七节契约的英文镜像）。
+//   ★ 对齐依据：tools/lib/handwritten-policy.mjs 自己的 DEP_OR_SEE_HEADING_RE 已含
+//     `Dependencies|Dependency|See\s*Also|Related` ⇒ 本尺之前比项目自己的政策【更窄】。
+const SEE_FAMILY_EXACT = ['参见', '依赖关系', '依赖图', '依赖关联', '依赖', 'References'];
+const SEE_FAMILY_RE = /^(?:Dependencies|Dependency|See\s*Also|Related|References)$/i;
+function isSeeFamily(h) {
+  const t = String(h || '').trim();
+  return SEE_FAMILY_EXACT.includes(t) || SEE_FAMILY_RE.test(t);
+}
+// 保留旧名以便其它处引用（仅用于“列出中文别名”的场景）
+const SEE_FAMILY = SEE_FAMILY_EXACT;
 // 导航槽候选名（J10 用；声明了 schema 时按声明判，见 §30.6）
 const NAV_RE = /导航|Navigation|Where to Go/i;
 
@@ -371,7 +388,7 @@ function judge(pageRel, mode) {
   const h2ForCompare = h2.filter((h) => !DECL_HEADING_RE.test(h));
   out.checks.J2_declared = decl ? { source: decl.source, names: decl.names } : null;
   const missing = [];
-  let seeMatched = SEE_FAMILY.filter((s) => h2.includes(s));
+  let seeMatched = h2.filter(isSeeFamily);
   if (decl) {
     const miss = decl.names.filter((s) => !h2ForCompare.includes(s));
     const extra = h2ForCompare.filter((s) => !decl.names.includes(s));
@@ -381,7 +398,7 @@ function judge(pageRel, mode) {
       out.fail.push(`J2 declared-schema mismatch (${decl.source}): missing=[${miss.join(',')}] extra=[${extra.join(',')}]`);
     }
     seeMatched = SEE_FAMILY.filter((s) => h2.includes(s));
-    if (!seeMatched.length && !decl.names.some((n) => SEE_FAMILY.includes(n))) {
+    if (!seeMatched.length && !decl.names.some(isSeeFamily)) {
       out.warn.push('J2 声明 schema 里没有参见族槽位');
     }
   } else {
@@ -392,8 +409,17 @@ function judge(pageRel, mode) {
       //   `gamemodel-decorator.md`（5 个 H2、无声明）当真实语料正控制）：
       //   · 类页缺节 ⇒ 补那几节（写内容）
       //   · hub 形页无声明 ⇒ 【补声明】，而不是把 hub 硬写成类页七节
+      //   ★ 语言中立的 hub 判定（boss-3 #16510 实例驱动）：
+      //     一个 `**Type:**` 行若【不是 C# 声明】（不含 `public `/`class `/`enum `/`struct `/`interface `），
+      //     那它就是 hub/主题页而不是类页。
+      //     实例：`content/v1.3.15/en/architecture/save-object-graph.md` 写的是
+      //       `**Type:** Architecture topic page — spanning SaveManager / …`
+      //     —— 旧的「无 Type 行」启发式抓不到它（它有 Type 行），而中文 hub 标记也抓不到（它是英文页）。
+      const typeLine = (text.match(/^\*\*(?:Type|类型)[：:]\*\*\s*(.+)$/m) || [])[1] || '';
+      const typeIsCsharpDecl = /\b(?:public|internal|protected)\b[\s\S]*\b(?:class|enum|struct|interface|delegate)\b/.test(typeLine);
       const looksHub = h2.some((h) => /一句话定位|大局观|任务地图|常见误用|真实最小示例/.test(h))
-        || !/^\*\*(?:Type|类型)[：:]/m.test(text);
+        || !/^\*\*(?:Type|类型)[：:]/m.test(text)
+        || (typeLine !== '' && !typeIsCsharpDecl);
       if (looksHub) {
         out.fail.push(`J2 hub-shaped page WITHOUT schema declaration: missing=[${missing.join(',')}]`
           + '（修法：【补声明】—— 在页内加 `## 节 schema 声明` 块，或 frontmatter 加 `schema_sections`，而不是把 hub 硬写成类页七节）');
@@ -405,8 +431,12 @@ function judge(pageRel, mode) {
   out.checks.J2_h2 = h2;
   out.checks.J2_missing = missing;
   out.checks.J2_see_via = seeMatched;
-  // 导航槽：有声明按声明，无声明仍认 `导航`
-  const navNames = decl ? h2.filter((h) => NAV_RE.test(h)) : ['导航'];
+  // 导航槽：★ 一律从【实际标题】取（而不是硬编码 `导航`）——
+  //   与参见族同一个道理：硬编码一个语言的字面，就会让另一种语言的页【构造性地 FAIL】。
+  //   实例：`content/v1.3.15/en/architecture/save-object-graph.md` 的导航节叫 `Navigation`，
+  //   而旧实现只认 `导航` ⇒ 该节里 6 条正确链接被报成 `links-outside-see/nav`。
+  //   声明了 schema 时同样成立（声明只会【缩窄】可接受范围，不会改变“从实际标题取”这个动作）。
+  const navNames = h2.filter((h) => NAV_RE.test(h));
   out.checks.J2_nav_slots = navNames;
 
   // J3 / J4（★ 归属规则已收紧：裸 `:N` 只在【同一块】内归给最近一个完整引用，否则 UNCHECKABLE）
@@ -568,7 +598,7 @@ function judge(pageRel, mode) {
       const h = line.match(/^##\s+(.+?)\s*$/);
       if (h) { cur = h[1].trim(); continue; }
       if (!cur) continue;
-      if (SEE_FAMILY.includes(cur) || navNames.includes(cur)) continue;
+      if (isSeeFamily(cur) || navNames.includes(cur)) continue;
       LINK_ONLY.lastIndex = 0;
       let m;
       while ((m = LINK_ONLY.exec(line))) stray.push(`${cur}: ${m[1]}`);

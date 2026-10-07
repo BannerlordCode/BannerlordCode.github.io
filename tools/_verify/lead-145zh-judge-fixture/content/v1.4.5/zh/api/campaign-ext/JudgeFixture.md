@@ -1,13 +1,13 @@
 ---
 title: "JudgeFixture"
-description: "判分器正向对照夹具：不是 content/ 下的文档，只用来证明 lead-145zh-judge.mjs 能给出 PASS。"
+description: "判分器正向对照夹具：不在站点 content/ 下，只用来证明 lead-145zh-judge.mjs 能给出 PASS。"
 ---
 # JudgeFixture
 
-**Namespace:** TaleWorlds.CampaignSystem.Actions
-**Module:** TaleWorlds.CampaignSystem
+**命名空间：** `TaleWorlds.CampaignSystem.Actions`
+**模块：** `TaleWorlds.CampaignSystem`
 **类型：** `public static class`
-**源文件:** `TaleWorlds.CampaignSystem/Actions/DestroyShipAction.cs`
+**源文件：** `TaleWorlds.CampaignSystem/Actions/DestroyShipAction.cs`
 
 ## 概述
 
@@ -53,7 +53,7 @@ public static void ScuttleMainPartyShip()
 
 ## 参见
 
-- [TakePrisonerAction](./TakePrisonerAction)
+- [TakePrisonerAction](../TakePrisonerAction)
 - [CampaignEvents](../CampaignEvents)
 
 ## 导航

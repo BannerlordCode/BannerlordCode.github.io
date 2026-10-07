@@ -1,0 +1,12 @@
+# N=5 sampled=2026-10-07T06:52:00Z frozen=lead-145zh-b02 v1.4.5/zh campaign-ext Actions (NOT DISPATCHED — held for boss-3 unlock)
+# 状态：清单已冻结，但【未派单】。boss-3 #12321 硬停机要求「解禁三条件」全满足才可开工：
+#   ① BROKEN_LINKS=0 / FILES_WITH_BROKEN=0  ② 无跨页链接政策落实  ③ 批报告含批前/批后两套门禁数
+# 来源：lead6-w63-batch06.pages.txt 中仍未执行的 Action 项（4 项）+ 上一轮交付但未达标的修复项（1 项）
+# 每行必须可解析为仓库相对路径；本清单只被 lead-145zh 消费，worker 不得改写。
+# 5 页均已存在于 content/v1.4.5/zh/api/campaign-ext/_index.md 的机械子页清单（行 1620/1915/2819/2919/1280）
+# ⇒ 本批不需要补父索引链、不得改 _index.md。
+content/v1.4.5/zh/api/campaign-ext/InitializeWorkshopAction.md
+content/v1.4.5/zh/api/campaign-ext/MakeHeroFugitiveAction.md
+content/v1.4.5/zh/api/campaign-ext/SiegeAftermathAction.md
+content/v1.4.5/zh/api/campaign-ext/StartMercenaryServiceAction.md
+content/v1.4.5/zh/api/campaign-ext/GainRenownAction.md

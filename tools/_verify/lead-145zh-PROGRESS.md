@@ -142,4 +142,196 @@ v1.4.5/zh/api 的 862 张 deep 页里，单节占比：
 
 | 批次 | 清单 | 行数 | 冻结时刻 | 完成页数 | 七节齐全数 | 引用数 | BROKEN_LINKS 批前→批后 | orphans 批前→批后 | 未完成项 |
 | --- | --- | ---: | --- | ---: | ---: | ---: | --- | --- | --- |
-| b01 | `tools/_verify/lead-145zh-b01.pages.txt` | 5 | 2026-10-07T06:32:54Z | 派单中 | — | — | 0 → 待测 | 0 → 待测 | — |
+| b01 | `tools/_verify/lead-145zh-b01.pages.txt` | 5 | 2026-10-07T06:32:54Z | **4** | 4（七节齐全） | 86（20+29+31+6） | 0 → 39（**b01 贡献 0**，见 §5） | 0 → 0 | `InitializeWorkshopAction.md` 未开始（停机令） |
+
+### b01 干预记录 ①（2026-10-07T06:42Z）— ★ 一次【归因错】，已自我更正
+
+**先说结论：这一格不是「worker 零产出」，是我【读磁盘读早了】。**
+
+经过：派单 06:35Z；06:41Z 收到两个 worker 的 `settled and is idle` 事件；我在 **06:41:5x**
+跑 `ls`，看到 5 页 mtime 全部停在 2026-08-14、judge `pass=0 fail=5`，
+于是向两个 worker 各发一条硬指令，并写成「两个 worker 首次派单零产出」。
+
+**worker-152 的实际时间线（从它的 session jsonl 读出，不是转述）：**
+
+```
+2026-10-07T06:41:52.778Z   write  content/v1.4.5/zh/api/campaign-ext/DestroyShipAction.md  (5901B)
+2026-10-07T06:42:01.681Z   bash   lead-145zh-judge.mjs DestroyShipAction.md
+                           → PASS  J2 missing=[] · J3 cites=20 bad=0 · J6=deep_pass · J7 markers=0 · J8 5682B/8 · J9 csharp=16
+2026-10-07T06:43:37.800Z   write  content/v1.4.5/zh/api/campaign-ext/DisableHeroAction.md  (6898B)
+```
+
+⇒ **我的 `ls` 比它的第一次 write 早了几秒。** 06:43:41Z 复测：
+
+```
+-rw-r--r-- 5901  2026-10-07 14:41:52  DestroyShipAction.md
+-rw-r--r-- 6898  2026-10-07 14:43:37  DisableHeroAction.md
+$ node tools/_verify/lead-145zh-judge.mjs --manifest tools/_verify/lead-145zh-b01.pages.txt
+JUDGE total=5 pass=2 fail=3
+```
+
+**⇒ worker-152 一页一写一验，节奏完全正确，前两页 judge=PASS。**
+（第 3 页 EndMercenaryServiceAction.md 当时仍在写；worker-153 的 2 页当时确实未落盘，
+但它仍在 `running`（r3），未被证明停手。）
+
+**已做的更正：**
+- 向 worker-152 发更正（#12282），明确告知前两页已 PASS、**不许回滚重做**；
+- 向 worker-153 发更正（#12283），把「一个字都没写」改回「此刻还没读到你的产出」；
+- 本文件与 wiki observation 同步更正。
+
+**★ 可复用的判据修正（比那条错误结论值钱）：**
+
+```
+错：worker 报 settled and is idle  ⇒  它已经停手了  ⇒  磁盘没变 = 零产出
+对：settled 是【轮与轮之间】的状态，不是停止信号。
+    判「有没有产出」只能看 mtime + judge 读数，
+    并且必须先用 team_list 看 state 是不是 running —— 它可能正写在半路。
+```
+
+这与我原以为自己避开的那条错误是**镜像关系**：
+原教训是「按计划名误判零产出」；我犯的是「在它落笔前读盘，误判零产出」。
+两者都是**用一次观测代替一段时间**。
+
+### b01 干预记录 ②（2026-10-07T06:45Z）— boss-3 硬停机 #12321
+
+全站门禁恶化 `BROKEN_LINKS 0→3→19→34→53` / `FILES_WITH_BROKEN 1→2→3→4`，
+boss-3 下令**停止一切 content/ 写作**，解禁三条件：① 全站 `BROKEN_LINKS=0 / FILES_WITH_BROKEN=0`；
+② 无跨页链接政策落实；③ 批报告含批前/批后两套门禁数。
+
+**已执行：**
+- worker-152：3 页全完，停。
+- worker-153：写完当前页 `IncreaseSettlementHealthAction.md` 并自检，停；第 2 页未开始。
+- 未派新写作 worker。
+
+---
+
+## 5. ★★ 断链归属：b01 贡献 0 条（全量证据，可复算）
+
+```
+$ node tools/audit-links.mjs 2>&1 | sed -n '/FILES_WITH_BROKEN/,$p'
+FILES_WITH_BROKEN=2
+## v1.3.0/zh/api/campaign/DefaultArmyManagementCalculationModel.md  (15)   -> ./SandBoxManager ./GameModels ./Army ...
+## v1.3.0/zh/api/campaign/DefaultClanFinanceModel.md                (14)   -> ./SandBoxManager ./GameModels ./Clan ...
+```
+
+峰值时的完整明细（06:47Z，`BROKEN_LINKS=53`）：
+
+| 文件 | 断链数 | mtime (+0800) | 形态 |
+| --- | ---: | --- | --- |
+| `v1.3.0/zh/api/campaign/DefaultClanFinanceModel.md` | 14 | 14:43:34 | 全为 `./X` |
+| `v1.3.0/zh/api/campaign/DefaultEncounter.md` | 10 | 14:41:56 | 全为 `./X` |
+| `v1.3.0/zh/api/campaign/DefaultCharacterStatsModel.md` | 7 | 14:40:55 | 全为 `./X` |
+| `v1.3.0/zh/api/campaign/DefaultPartyTradeModel.md` | 4 | 14:41:35 | 全为 `./X` |
+
+**四个文件全部在 `v1.3.0/zh/api/campaign/`，形态全部是叶子页 `./X`**（= boss-3 #12289 清单第 ④ 项）。
+它们的 mtime 与 b01 的写入（06:41:52 / 06:43:37 / 06:45:20 / 06:46:39Z）**交错但集合不相交**。
+
+```
+$ node tools/audit-links.mjs 2>&1 | sed -n '/FILES_WITH_BROKEN/,$p' | grep -c "v1.4.5/zh/api/campaign-ext/\(DestroyShip\|DisableHero\|EndMercenary\|IncreaseSettlementHealth\)"
+0
+```
+
+**⇒ b01 的 4 页在断链明细里出现 0 次。**
+⇒ 建议停机/修链优先级指向 `v1.3.0/zh` 正文线，而不是 `v1.4.5/zh`。
+
+---
+
+## 6. ★★ 政策 #12289 与机械判据 `deep_pass` 互斥（已在磁盘上物化）
+
+`tools/lib/handwritten-policy.mjs` 的 `deep_pass` **硬要求 `参见/依赖` 小节 >=2 条 markdown 链接**
+（理由串 `dependency-section-no-links` / `weak-deps`）。boss-3 #12289 禁止跨页链接 ⇒ **两者不可同时成立。**
+
+同一批里已出现两把尺并存：
+
+| 页 | 写于政策 | 页内链接 | `classifyPage` | census `tier` |
+| --- | --- | ---: | --- | --- |
+| DestroyShipAction / DisableHeroAction / EndMercenaryServiceAction | 政策前 | 8 / 8 / 8 | `deep_pass` | `handwritten_deep` |
+| IncreaseSettlementHealthAction（曾按政策删链） | 政策后 | 0 | `stub` | `handwritten_deep` |
+| IncreaseSettlementHealthAction（worker-153 恢复链接后） | — | 5 | `deep_pass` | `handwritten_deep` |
+
+**⇒ 不裁定会出现「`tier=deep` 涨了 N 页、`deep_pass` 涨了 N-1 页」而无人能解释差的那一页。**
+**已请 boss-3 二选一**：(a) 给 `参见` 开窄豁免（只允许目标已存在的 2 条）；(b) 全按政策、接受本轮 `deep_pass` 不可达。
+
+### 6.1 判分器已按「两个口径」重标定（不依赖裁定）
+
+`--links off`（默认，与当前政策一致）/ `--links require`（政策解除后恢复原判据）。
+**两个模式都额外打印 `deepPass` 与 `tier` 两个口径，永不合并。**
+
+---
+
+## 7. ★ 判分器的洞已补：J5R 链接解析（本条是本轮最值钱的修复）
+
+**洞：** 原 `J5` 只查**链接形态**（`](./`、`_index.md`），**不查链接能否解析**。
+⇒ 我的页能过我的尺，而全站门禁是红的；这正是我没能在第一时间讲清 §5 归属的原因。
+
+**补法：** 新增 `J5R`，复刻 `tools/audit-links.mjs` 的解析（URL 口径 + static 回退）。
+
+**为什么不 import 而是副本：** `audit-links.mjs` 是三条内容线共用的门禁，`_HANDOFF.md` §11 明确「改它需要窗口，不能赶」。
+**副本会漂移 ⇒ 用 `--cross-check` 拿真门禁对账**（真跑一次 `audit-links.mjs`，逐文件比对两边集合）：
+
+```
+$ node tools/_verify/lead-145zh-judge.mjs --manifest tools/_verify/lead-145zh-b01.pages.txt --cross-check
+# CROSS-CHECK vs tools/audit-links.mjs (authoritative)
+#   gate says broken among judged files: (none)
+#   J5R says unresolved among judged files: (none)
+#   verdict: AGREE
+```
+
+**权威读数永远是 `audit-links.mjs`，不是本判分器。**
+
+### 7.1 对照（重标定后重做，6 条，全部生效）
+
+夹具已改成 **content 形状的树** `tools/_verify/lead-145zh-judge-fixture/content/...`
+（旧版平铺在 `tools/` 下，`J5R` 永远解析不了自己的链接 ⇒ **正向对照永远 PASS 不了，那种「对照通过」是空话**）。
+测试钩子：`LEAD145ZH_CONTENT_ROOT`（仅夹具使用，验收 `content/` 时绝不设置）。
+
+| 夹具 | 破坏的判据 | 实测 |
+| --- | --- | --- |
+| `JudgeFixture.md` | —（正向） | **PASS** · J5R unresolved=0 · J6=deep_pass |
+| `JudgeBadHeading.md` | 删 `## 导航` | FAIL `J2 missing=导航` |
+| `JudgeBadCitation.md` | `:22` → `:9999` | FAIL `J3 bad-citations=2` |
+| `JudgeBadLinkForm.md` | `](./X)` | FAIL `J5 dot-slash-links=1` + `J5R unresolved-links=1` |
+| `JudgeBadMarker.md` | 塞回生成标记 | FAIL `J7 gen-marker=…` |
+| `JudgeBadUnresolved.md` | **形态完全正确、目标不存在**（`../NoSuchPageHere`） | FAIL `J5R unresolved-links=1` ← **只有 J5R 能咬住** |
+
+---
+
+## 8. b01 最终读数（冻结）
+
+```
+$ node tools/_verify/lead-145zh-judge.mjs --manifest tools/_verify/lead-145zh-b01.pages.txt
+JUDGE total=5 pass=4 fail=1
+# 两个口径（必须分开报）: deep_pass=4/5 · tier=handwritten_deep=4/5
+```
+
+| # | 页 | 字节 | cites | J6 | tier | 状态 |
+| --- | --- | ---: | ---: | --- | --- | --- |
+| 1 | DestroyShipAction | 5,901 | 20 | deep_pass | handwritten_deep | PASS |
+| 2 | DisableHeroAction | 6,898 | 29 | deep_pass | handwritten_deep | PASS |
+| 3 | EndMercenaryServiceAction | 6,935 | 31 | deep_pass | handwritten_deep | PASS |
+| 4 | IncreaseSettlementHealthAction | 7,190 | 6 | deep_pass | handwritten_deep | PASS |
+| 5 | InitializeWorkshopAction | 969 | 0 | stub | generated | **未开始**（按停机令停手） |
+
+**批前门禁**（06:33Z，任何 content/ 改动之前）：`BROKEN_LINKS=0 · FILES_WITH_BROKEN=0 · orphans=0`
+**批后门禁**（06:52Z）：`BROKEN_LINKS=39 · FILES_WITH_BROKEN=2`（**全部来自 `v1.3.0/zh`，b01 贡献 0**）· `orphans=0 · total_pages=39037`
+
+---
+
+## 9. b02（已冻结，**未派单**，等 boss-3 解禁）
+
+`tools/_verify/lead-145zh-b02.pages.txt` · **N=5** · 冻结 2026-10-07T06:52:00Z · sha256 `557b647e219a…`
+（快照副本 `lead-145zh-b02.pages.frozen`，与清单 sha256 相同）
+
+| # | 页 | 源码行数 | 已核实入口 / 调用点 |
+| --- | --- | ---: | --- |
+| 1 | InitializeWorkshopAction | 14 | `ApplyByNewGame` `:7`；`WorkshopsCampaignBehavior.cs:1274` |
+| 2 | MakeHeroFugitiveAction | 34 | `Hero.cs:1630` · `Hero.cs:1640` · `ApplyHeirSelectionAction.cs:60` · `EndCaptivityAction.cs:53` |
+| 3 | SiegeAftermathAction | 25 | 事件链 `CampaignEvents.cs:379`/`:933` · `CampaignEventReceiver.cs:717` · `CampaignEventDispatcher.cs:1575` |
+| 4 | StartMercenaryServiceAction | 30 | 事件链 `CampaignEvents.cs:241`/`:799` · `CampaignEventReceiver.cs:1061` · `CampaignEventDispatcher.cs:2358` |
+| 5 | GainRenownAction（**修复项**） | 18 | `Apply` `:14`；`CampaignCheats.cs:1478` · `IssuesCampaignBehavior.cs:400` · `CharacterCreationContent.cs:112` · `IncidentEffect.cs:356` · `ArmyNeedsSuppliesIssueBehavior.cs:359`/`:372` |
+
+第 5 页是修复项：上一轮把它列为 done，但它只有 848B / `tier=generated` / `classifyPage=stub`
+（`missing-mental-model-section, no-real-example, weak-mental`），深页版本从未落到 `content/`。
+
+**5 页均已在** `_index.md` 机械子页清单（行 1620 / 1915 / 2819 / 2919 / 1280）⇒ 不需补父索引链。
+

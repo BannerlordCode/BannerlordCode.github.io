@@ -1676,6 +1676,69 @@ worker-208（b06/W-N）开工前报「派单链接事实错误」：
 | §29 的 `../../api/` | **Lead（我）** | 把子集读数当全树，断言了一个合法种群是错的 |
 | §36 的 `../campaign/` | **worker** | 用文件路径代替 route 做心算，少算一层 |
 
+---
+
+## 37. ★★ `J13`：行号在界内但指错行 —— 在我自己的已冻结批次里抓到 12 条
+
+### 37.1 来源
+
+lead-22 #15360 ② 提出一个新类别（它自己刚踩）：
+```
+页里写 DefinitionContext.cs:278 — private void CollectTypes(Assembly assembly)
+真值 278 行 = // Token: 0x0600031A RID: 794 …（注释）；真声明在 279 行
+⇒ 278 <= 文件行数 ⇒ J3 判 IN_RANGE ⇒ 【假 PASS】
+```
+**⇒ 这是 J3 结构上抓不到的一类，而假 PASS 比假 FAIL 危险。**
+
+### 37.2 实现（`J13`，口径故意很窄）
+
+```
+只报：被引行是【空行】/【纯注释】/【纯括号标点】
+【不】要求被引行必须是声明行 —— 因为合法引用经常指向方法体内的一条语句
+   （如 `Campaign.Current = null;`、`LeaveSettlementAction.ApplyForCharacterOnly(...)`）
+现为 WARN（观察项）；待后续批次数据再决定是否升 FAIL（不重犯 J4 一刀切的错）
+```
+
+### 37.3 ★ 实测：30 页里 3 页、共 12 条真缺陷
+
+```
+InitializeWorkshopAction.md  (b01/b02 共用) → 3 条
+    WorkshopsCampaignBehavior.cs:1253 ← 实际是 `}`
+    WorkshopsCampaignBehavior.cs:1265 ← 实际是 `{` ×2
+MakeHeroFugitiveAction.md    (b02)          → 3 条
+    MakeHeroFugitiveAction.cs:25      ← 实际是 `}` ×2
+    MakeHeroFugitiveAction.cs:10      ← 实际是 `{`
+AgentBehaviorGroup.md        (b06)          → 6 条
+    SandBoxHelpers.cs:99              ← 【空行】（SpawnPlayer 在 :100）
+    AgentNavigator.cs:170 / :194 / …  ← 括号行
+```
+**⇒ 这 12 条全部 `N <= 行数` ⇒ J3 判 IN_RANGE ⇒ 假 PASS。**
+
+### 37.4 ★ 三句边界升级为四句
+
+```
+旧（不充分）：① 边界：554 条全部核界（J3 bad=0）—— 全量，已核
+新（四句）：
+  ① 边界：N <= 文件行数，554/554 全量已核（J3 bad=0）
+  ② 归属：554/554 有确定归属来源（full 410 + inBlock 26 + subject 118），0 ambiguous
+  ③ ★ 行号指向正确性：J13 已核 —— 30 页中 3 页共 12 条指向空行/注释/括号行（正在修）
+  ④ 语义正确性：未核（0/554）
+```
+**⇒ 「边界全量已核」与「行号指对了地方」是两件事** —— 本会话第四次同一形态：**判据的覆盖面与判据的强度是两回事。**
+
+### 37.5 处置
+
+```
+· 派 bounded 修复单元（worker-211）：只改这 12 条行号，逐一读源码定正确行；不改任何其它文字
+· 修完 J13 须 =0、J3 须 bad=0
+· 那三批按 REV 2 重新宣告（新时刻 + 新逐页 sha + 尺 sha），并逐页列出「哪些 sha 变了」
+```
+**⇒ 一条对判据本身的结论：**
+```
+一个只在别人线上抓到的判据，价值有限；
+一个在【提出者自己的线上】与【另一条线上】都抓到真缺陷的判据，才是判据。
+```
+
 **已派 `worker-175`（#13161）**做 b01 的 4 页收尾（6 处字符串替换），brief 里明确列出**不许动**的
 `](../../campaign/)` 与 `](../)`。
 

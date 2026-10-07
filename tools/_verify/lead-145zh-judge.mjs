@@ -29,6 +29,13 @@
 //   J5R ★ 链接解析: 页内每条 markdown 链接必须真的能解析（见下方「解析算法是副本」）
 //   J10 ★ 链接位置: markdown 链接只允许出现在【参见族】与【导航】小节里。
 //       其余位置（正文叙述）写链接 = FAIL —— 这是政策 #12761 的机械形式。
+//   J13 ★ 可疑引用行（lead-22 #15360 ②）：行号【在界内】但那一行是【空行 / 纯注释 / 只剩括号标点】。
+//       为什么需要它：`N <= 行数` 对这类引用会给出【假 PASS】，而假 PASS 比假 FAIL 危险。
+//       实例（lead-22 自己踩的）：`DefinitionContext.cs:278` 写的是 `private void CollectTypes(...)`，
+//         而 278 行实际是注释（`// Token: 0x0600031A …`），真声明在 279 行。
+//       口径（故意很窄）：只报「空行 / 纯注释 / 纯标点」——
+//         【不】要求被引行必须是声明行，因为合法引用经常指向方法体内的一条语句（如 `Campaign.Current = null;`）。
+//       它现在报 WARN（观察项）；待多批数据后再决定是否升为 FAIL。
 //   J11 ★ 链接形态: 【叶子目标】不得带尾斜杠（写 `../X` 而非 `../X/`）。
 //       但【节索引】带尾斜杠是对的（`../`、`../../<桶>/`）—— 所以判据不是「不能有斜杠」，
 //       而是「去掉尾斜杠后若存在同名叶子页 `X.md` ⇒ 该目标本就是叶子 ⇒ 尾斜杠是缺陷」。
@@ -458,6 +465,30 @@ function judge(pageRel, mode) {
   for (const c of fullRefs) check(c, 'full');
   for (const c of bareResolved) check(c, 'bare-in-block');
   for (const c of bareSubject) check(c, 'bare-subject-file');
+
+  // J13：可疑引用行（行号在界内但那一行是空行 / 纯注释 / 纯标点）
+  const suspicious = [];
+  if (src.root) {
+    const scanJ13 = (c) => {
+      const r = resolveSource(c);
+      if (r.kind !== 'ok') return;
+      if (c.line > lineCount(r.abs)) return;      // 越界交给 J3
+      const line = readFileSync(r.abs, 'utf8').split(/\r?\n/)[c.line - 1];
+      if (line === undefined) return;
+      const t = line.trim();
+      if (t === '' || /^\/\//.test(t) || /^[{}()\[\];,]+$/.test(t)) {
+        const why = t === '' ? 'blank' : (/^\/\//.test(t) ? 'a comment' : 'punctuation only');
+        suspicious.push(`${c.file}:${c.line} (line is ${why})`);
+      }
+    };
+    for (const c of fullRefs) scanJ13(c);
+    for (const c of bareResolved) scanJ13(c);
+    for (const c of bareSubject) scanJ13(c);
+  }
+  out.checks.J13_suspicious_lines = suspicious;
+  if (suspicious.length) {
+    out.warn.push(`J13 suspicious-citation-lines=${suspicious.length} [${suspicious.slice(0, 3).join('; ')}]`);
+  }
   out.checks.J3_citations = fullRefs.length;
   out.checks.J3_bare_resolved = bareResolved.length;
   out.checks.J3_bare_unique_file = bareSubject.length;
@@ -682,7 +713,7 @@ for (const r of results) {
   console.log(`      J6=${r.checks.J6_classifyPage?.status} · deepPass=${r.checks.deepPass} · tier=${r.checks.tier} · J7 markers=${(r.checks.J7_gen_markers || []).length}`);
   if (r.checks.J2_h2?.length) console.log(`      H2: ${r.checks.J2_h2.join(' | ')}`);
   if (r.checks.J2_declared) console.log(`      J2 declared schema via ${r.checks.J2_declared.source} (${r.checks.J2_declared.names.length} names)`);
-  console.log(`      J12 inconsistent-text=${(r.checks.J12_inconsistent_text || []).length} · navSlots=[${(r.checks.J2_nav_slots || []).join(',')}]`);
+  console.log(`      J12 inconsistent-text=${(r.checks.J12_inconsistent_text || []).length} · navSlots=[${(r.checks.J2_nav_slots || []).join(',')}] · J13 suspicious-lines=${(r.checks.J13_suspicious_lines || []).length}`);
   if (r.checks.J2_see_via?.length) console.log(`      J2 参见族 via=[${r.checks.J2_see_via.join(',')}]${r.checks.J2_see_via.includes('参见') ? '' : '  ← 别名命中（页里没有 `参见` 标题）'}`);
   for (const f of r.fail) console.log(`      ✗ ${f}`);
   for (const w of r.warn) console.log(`      ! ${w}`);

@@ -1,0 +1,352 @@
+{
+  "judgedAt": "2026-10-07T11:05:04.021Z",
+  "judgeSha256": "16e9b98fb19b8eb479ae983c0045401cc776fcfff6f3f14125edcbc1445be23a",
+  "mode": "require",
+  "total": 5,
+  "pass": 5,
+  "deepPass": 5,
+  "tierDeep": 5,
+  "crossCheckAgree": null,
+  "results": [
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/AgentStealthOffenseType.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_declared": null,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J2_nav_slots": [
+          "导航"
+        ],
+        "J3_subject_file": "MissionDisguiseMarkerItemVM.cs",
+        "J3_src_tree": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5\\Bannerlord.Source",
+        "J3_src_unavailable": null,
+        "J3_tree_tag": "bannerlord-1.4.5",
+        "J13_suspicious_lines": [],
+        "J3_citations": 77,
+        "J3_bare_resolved": 0,
+        "J3_bare_unique_file": 0,
+        "J3_checked_total": 77,
+        "J3_uncheckable_no_tree": 0,
+        "J3_unattributable_bare": 0,
+        "J3_ambiguous_basename": 0,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J12_inconsistent_text": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=8",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=8",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 17029,
+        "J8_h2h3": 18,
+        "J9_csharp_lines": 42
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/AgentTrackTypes.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_declared": null,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J2_nav_slots": [
+          "导航"
+        ],
+        "J3_subject_file": "VisualTrackerMissionBehavior.cs",
+        "J3_src_tree": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5\\Bannerlord.Source",
+        "J3_src_unavailable": null,
+        "J3_tree_tag": "bannerlord-1.4.5",
+        "J13_suspicious_lines": [],
+        "J3_citations": 101,
+        "J3_bare_resolved": 0,
+        "J3_bare_unique_file": 0,
+        "J3_checked_total": 101,
+        "J3_uncheckable_no_tree": 0,
+        "J3_unattributable_bare": 0,
+        "J3_ambiguous_basename": 0,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J12_inconsistent_text": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=8",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=8",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 17755,
+        "J8_h2h3": 22,
+        "J9_csharp_lines": 28
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/AgingCampaignBehavior.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_declared": null,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J2_nav_slots": [
+          "导航"
+        ],
+        "J3_subject_file": "AgingCampaignBehavior.cs",
+        "J3_src_tree": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5\\Bannerlord.Source",
+        "J3_src_unavailable": null,
+        "J3_tree_tag": "bannerlord-1.4.5",
+        "J13_suspicious_lines": [],
+        "J3_citations": 22,
+        "J3_bare_resolved": 0,
+        "J3_bare_unique_file": 10,
+        "J3_checked_total": 32,
+        "J3_uncheckable_no_tree": 0,
+        "J3_unattributable_bare": 0,
+        "J3_ambiguous_basename": 0,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J12_inconsistent_text": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=4",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=4",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 13027,
+        "J8_h2h3": 29,
+        "J9_csharp_lines": 18
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/AiArmyMemberBehavior.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_declared": null,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J2_nav_slots": [
+          "导航"
+        ],
+        "J3_subject_file": "AiArmyMemberBehavior.cs",
+        "J3_src_tree": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5\\Bannerlord.Source",
+        "J3_src_unavailable": null,
+        "J3_tree_tag": "bannerlord-1.4.5",
+        "J13_suspicious_lines": [],
+        "J3_citations": 11,
+        "J3_bare_resolved": 1,
+        "J3_bare_unique_file": 1,
+        "J3_checked_total": 13,
+        "J3_uncheckable_no_tree": 0,
+        "J3_unattributable_bare": 0,
+        "J3_ambiguous_basename": 0,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J12_inconsistent_text": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=5",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=5",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 10615,
+        "J8_h2h3": 17,
+        "J9_csharp_lines": 33
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/AiBehavior.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_declared": null,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J2_nav_slots": [
+          "导航"
+        ],
+        "J3_subject_file": "AiBehavior.cs",
+        "J3_src_tree": "C:\\WorkSpace\\Bannerlord\\bannerlord-1.4.5\\Bannerlord.Source",
+        "J3_src_unavailable": null,
+        "J3_tree_tag": "bannerlord-1.4.5",
+        "J13_suspicious_lines": [],
+        "J3_citations": 260,
+        "J3_bare_resolved": 0,
+        "J3_bare_unique_file": 0,
+        "J3_checked_total": 260,
+        "J3_uncheckable_no_tree": 0,
+        "J3_unattributable_bare": 0,
+        "J3_ambiguous_basename": 0,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J11_trailing_slash": [],
+        "J12_inconsistent_text": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=10",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=10",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 24857,
+        "J8_h2h3": 29,
+        "J9_csharp_lines": 40
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    }
+  ]
+}

@@ -11,7 +11,7 @@ description: "Bannerlord save system's object graph serialization architecture: 
 **Source files:** `TaleWorlds.SaveSystem/SaveManager.cs` · `TaleWorlds.SaveSystem/Definition/DefinitionContext.cs` · `TaleWorlds.SaveSystem/SaveableTypeDefiner.cs` · `TaleWorlds.SaveSystem/Save/SaveContext.cs` · `TaleWorlds.SaveSystem/Load/LoadContext.cs` · `TaleWorlds.CampaignSystem/SaveableCampaignTypeDefiner.cs`  
 **Line-number basis:** every `X.cs:N` on this page refers to the **v1.3.15** source tree (`bannerlord-1.3.15/`).
 
-> Section schema: this page uses the canonical seven sections (Overview / Mental Model / How To Use / Key Members / Real Example / See Also / Navigation).
+> Section schema: this page uses the canonical seven sections (Overview / Mental Model / How To Use / Key Members / Real Examples / See Also / Navigation).
 
 ## Overview
 

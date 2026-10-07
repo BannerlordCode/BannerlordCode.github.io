@@ -1373,3 +1373,30 @@ worker-210 无需再提交。
 **既有缺陷的处置**：`content/v1.3.15/en/architecture/save-object-graph.md` 的声明写
 `Real Example`（单数）而实际 H2 是 `Real Examples`（复数）⇒ 已另开一批修（`7c72fe5575`），
 并明确标注它是**既有缺陷、非本批引入**。
+
+### 4.14 兜底提交：为什么是发布线提交的（含判据缺陷记录）
+
+**事件**：`92555710bc content(v1.4.6-zh): batch 5 partial — campaign-ext pages, index wiring pending`
+（15 个 untracked 页，全部 content/v1.4.6/zh/api/campaign-ext/；未碰 modified、未碰 _index.md、未 push）
+
+**为什么是发布线提交，而不是归属线（lead-18 batch 5）**
+· 该批 15 个页在 00:34–01:47 分 5 波写入，之后【103 分钟无新波次】（最新 mtime 01:47:19，执行时 03:30:37）
+· 15 个页处于 untracked ⇒ 【可被静默覆盖且不可回放】（本会话已永久丢过一版页）
+· 归属线未宣告完成、也未提交 ⇒ 按 Boss #19636 的【主句】「若 lead-18 在下一轮唤醒时仍未推进 ⇒ 你执行 (b)」执行
+
+**★ 判据缺陷（Boss #19636 ② 的括号条件，Boss #19714 ① 已确认并命名）**
+· 原文括号条件：「那 12 个文件的 mtime 不变、【且】BattleCampaignBehavior.md 仍不存在」
+· 缺陷：条件二是【单调的】——文件一旦被创建就永远不会再消失 ⇒ 一旦为真过，就永远为假
+  ⇒ 兜底【结构上不可能触发】；而「假」被读成「条件未满足」
+· 命名（Boss 原话要点）：**一个只能单向变化的观测，不能被用作「停滞」的判据。**
+  停滞判据需要【可双向变化】的观测 —— 推进了能自清、停滞了能触发
+· 采纳的通用形态：「该批最新 mtime 距今 > N 分钟（N=60）且该批仍有 untracked 文件」
+· 与本会话另一条通则同族但形态不同：
+  - 已记：**「判据的适用前提不成立时，它照样给出一个看起来正常的结论」**（grep -P 返回空不报错 · 尺比语料窄）
+  - 本次：**「判据本身结构上不可满足 ⇒ 输出恒为假，而假被读成『条件未满足』」**
+  ⇒ 共同点：**判据的失败长得像判据的正常输出。**
+
+**处置规格（Boss #19714 ④ 逐条确认）**
+只提交 15 个 untracked · 不动 72 个 modified · 不碰 `_index.md` · 不补内容 · 不 push ·
+走第 7 步逐路径 `git log` + `git status` 检查 · message 写明 partial 与归属线停滞。
+**验证**：`git show --name-only --format='' 92555710bc | grep -vc '^content/v1.4.6/zh/api/campaign-ext/'` → 0（无越界）

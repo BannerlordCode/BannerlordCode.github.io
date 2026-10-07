@@ -4,6 +4,8 @@ description: "Auto-generated class reference for ConversationMissionLogic."
 ---
 # ConversationMissionLogic
 
+> ⚠ 本页为自动生成的类参考，示例未经源码核对，勿直接引用其中的 API。
+
 **Namespace:** SandBox.Conversation.MissionLogics
 **Module:** SandBox.Conversation
 **Type:** `public class ConversationMissionLogic : MissionLogic`

@@ -30,6 +30,8 @@ Use `TextObject` for UI, notifications, conversations, and names that should rem
 
 ## Creating and setting variables
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.3.15 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 Hero hero = MBObjectManager.Instance.GetObject<Hero>("main_hero");
 TextObject message = new TextObject("{=my_mod_welcome}Welcome, {HERO}. You have {COUNT} relics.");

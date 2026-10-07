@@ -132,6 +132,8 @@ party.SetPositionAfterMapChange(new CampaignVec2(100f, 200f));
 ### `public void AddElementToMemberRoster(CharacterObject element, int numberToAdd, bool insertAtFront = false)`
 Add troops to the member roster.
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.3.15 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 CharacterObject recruit = MBObjectManager.Instance.GetObject<CharacterObject>("imperial_recruit");
 party.MemberRoster.AddToCounts(recruit, 10);

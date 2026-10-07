@@ -223,6 +223,8 @@ foreach (CultureObject culture in MBObjectManager.Instance.GetObjectTypeList<Cul
 
 ### 示例 3：按 id / 从其他对象取得文化（常用获取路径汇总）
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.3.15 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 // 1) 按字符串 id 直接取（原版文化 id 如 "empire"、"aserai"、"vlandia"、"sturgia"、"khuzait"、"battania"、"nord"、"neutral_culture"）
 CultureObject empire = MBObjectManager.Instance.GetObject<CultureObject>("empire");

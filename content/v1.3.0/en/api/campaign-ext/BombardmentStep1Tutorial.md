@@ -4,6 +4,8 @@ description: "Auto-generated class reference for BombardmentStep1Tutorial."
 ---
 # BombardmentStep1Tutorial
 
+> ⚠ 本页为自动生成的类参考，示例未经源码核对，勿直接引用其中的 API。
+
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class BombardmentStep1Tutorial : TutorialItemBase`

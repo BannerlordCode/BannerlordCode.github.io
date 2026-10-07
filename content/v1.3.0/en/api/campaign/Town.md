@@ -243,6 +243,8 @@ public static string BuildingEffectSummary(Town town)
 
 ### Example 3: price with and without the trading party's margin
 
+<!-- xml-id-unverifiable: v1.3.0 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.3.0 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem;

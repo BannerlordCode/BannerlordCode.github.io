@@ -89,6 +89,8 @@ if (!mainHand.IsEmpty && candidate.GetTotalWeightOfWeapons() > 0f)
 
 Construct an `EquipmentElement` from a registered definition, validate with `IsItemFitsToSlot` first, then write into an independent copy. This operation is still only a configuration change; to actually make a Party gain / lose an item, you must also sync its `ItemRoster` or go through the inventory flow:
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ Unverifiable: every string id on this page (in the code examples below) cannot be checked against the v1.4.5 source tree, because that version ships no XML corpus.
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;

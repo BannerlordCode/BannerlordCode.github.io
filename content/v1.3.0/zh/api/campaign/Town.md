@@ -243,6 +243,8 @@ public static string BuildingEffectSummary(Town town)
 
 ### 示例 3：分别计算买入价与卖出价
 
+<!-- xml-id-unverifiable: v1.3.0 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.3.0 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party;

@@ -4,6 +4,8 @@ description: "Auto-generated class reference for FollowMeVisualOrder."
 ---
 # FollowMeVisualOrder
 
+> ⚠ 本页为自动生成的类参考，示例未经源码核对，勿直接引用其中的 API。
+
 **Namespace:** TaleWorlds.MountAndBlade.ViewModelCollection.Order.Visual.Default.Orders.MovementOrders
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class FollowMeVisualOrder : VisualOrder`

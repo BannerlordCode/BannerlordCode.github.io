@@ -4,6 +4,8 @@ description: "Auto-generated class reference for BoardGameAIPuluc."
 ---
 # BoardGameAIPuluc
 
+> ⚠ 本页为自动生成的类参考，示例未经源码核对，勿直接引用其中的 API。
+
 **Namespace:** SandBox.BoardGames.AI
 **Module:** SandBox.BoardGames
 **Type:** `public class BoardGameAIPuluc : BoardGameAIBase`

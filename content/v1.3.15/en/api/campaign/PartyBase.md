@@ -174,6 +174,8 @@ void Inspect(PartyBase p)
 
 ### Example 1: Add recruits to the player party
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.3.15 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 if (Campaign.Current == null)
 {

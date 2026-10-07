@@ -64,6 +64,8 @@ description: "潜行/伪装探员注入器：当城镇 Location 场景报出 ste
 
 复刻官方「按 `stealth_agent` tag 注入带潜行 AI 的 stealth_character」的核心逻辑（可直接放进你自己的 `CampaignBehavior`）：
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 public override void RegisterEvents()
 {

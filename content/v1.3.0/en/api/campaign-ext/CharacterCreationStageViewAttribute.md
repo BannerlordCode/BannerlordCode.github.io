@@ -4,6 +4,8 @@ description: "Auto-generated class reference for CharacterCreationStageViewAttri
 ---
 # CharacterCreationStageViewAttribute
 
+> ⚠ 本页为自动生成的类参考，示例未经源码核对，勿直接引用其中的 API。
+
 **Namespace:** SandBox.View.CharacterCreation
 **Module:** SandBox.View
 **Type:** `public sealed class CharacterCreationStageViewAttribute : Attribute`

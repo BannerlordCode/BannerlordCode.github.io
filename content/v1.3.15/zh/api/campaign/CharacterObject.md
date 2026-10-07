@@ -267,6 +267,8 @@ if (troop != null && troop.IsRegular)
 
 ### 示例 2：克隆共享模板以定制一支专属部队（避免污染原模板）
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.3.15 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 // 直接改 Clan.PlayerClan.BasicTroop 会影响所有用到基础兵的地方——先克隆
 CharacterObject customTroop = CharacterObject.CreateFrom(Clan.PlayerClan.BasicTroop);

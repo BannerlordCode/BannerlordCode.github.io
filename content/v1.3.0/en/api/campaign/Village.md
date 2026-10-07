@@ -203,6 +203,8 @@ public sealed class VillageWatchBehavior : CampaignBehaviorBase
 
 ### Example 2: is this village actually feeding its fief?
 
+<!-- xml-id-unverifiable: v1.3.0 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.3.0 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 using TaleWorlds.Core;
 using TaleWorlds.CampaignSystem.Settlements;

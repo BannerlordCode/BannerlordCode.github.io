@@ -82,6 +82,8 @@ MobileParty.MainParty.ItemRoster.AddToCounts(grain, 5);
 
 对于由 XML 或其他模块注册的物品，必须在对象加载完成后通过稳定 ID 查找，并检查返回值：
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;

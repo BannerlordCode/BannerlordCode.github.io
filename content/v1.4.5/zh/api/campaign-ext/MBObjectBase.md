@@ -62,6 +62,8 @@ if (lord != null && sword != null && lord.IsReady)
 
 下面的调用形状对应 `MBObjectManager.RegisterType<T>` 和 `CreateObject<T>(string)` 的真实 API。类型注册应放在游戏的 `OnRegisterTypes`/等价注册阶段；对象创建则放在对象类型已经登记之后。
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 public sealed class RelicObject : MBObjectBase
 {

@@ -56,6 +56,8 @@ public override void SyncData(IDataStore dataStore)
 
 The source's `AllianceCampaignBehavior` and `IncidentsCampaignBehavior` both register fields with individual `dataStore.SyncData` calls. The following is the same contract from a mod behavior:
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.3.15 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 public sealed class RelicTrackerBehavior : CampaignBehaviorBase
 {

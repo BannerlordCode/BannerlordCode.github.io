@@ -35,6 +35,8 @@ description: "Bannerlord 里“商品/物品类别”这条数据的本体：每
 
 ## 如何获取 ItemCategory
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 // 路径 1：从物品直接读它的类别（最常见）
 ItemObject sword = MBObjectManager.Instance.GetObject<ItemObject>("iron_sword_a");

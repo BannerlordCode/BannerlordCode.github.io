@@ -157,6 +157,8 @@ if (troop != null && troop.IsRegular)
 
 ### Example 2 — Clone a shared template to customize an exclusive troop (avoid polluting the original)
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.3.15 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 // Editing Clan.PlayerClan.BasicTroop directly would change every place that basic troop is used — clone first.
 CharacterObject customTroop = CharacterObject.CreateFrom(Clan.PlayerClan.BasicTroop);

@@ -4,6 +4,8 @@ description: "Auto-generated class reference for GenderEnum."
 ---
 # GenderEnum
 
+> ⚠ 本页为自动生成的类参考，示例未经源码核对，勿直接引用其中的 API。
+
 **Namespace:** SandBox.View.Missions
 **Module:** SandBox.View
 **Type:** `public enum GenderEnum`

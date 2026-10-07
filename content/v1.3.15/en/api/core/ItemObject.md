@@ -206,6 +206,8 @@ public ItemObject FindCheapTradeGood(int maxValue)
 | Quest reward unique items | Prefer existing ids or module-XML new ids; crafted items restore via hash |
 | "Can this feed the party?" | `IsFood` or `HasFoodComponent`, then party food tick |
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.3.15 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Party;

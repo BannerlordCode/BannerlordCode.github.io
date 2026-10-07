@@ -41,6 +41,8 @@ Three practical conclusions follow. First, **it is a bypassable cache**: `BasicB
 
 Forward inference: deciding whether a freshly-built character counts as ranged and whether it wears heavy armour (shape taken from `BasicBattleAgentOrigin.cs:43-47`):
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ Unverifiable: every string id on this page (in the code examples below) cannot be checked against the v1.4.5 source tree, because that version ships no XML corpus.
 ```csharp
 BasicCharacterObject troop = MBObjectManager.Instance.GetObject<BasicCharacterObject>("heavy_infantry");
 if (troop == null)

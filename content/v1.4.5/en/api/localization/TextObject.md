@@ -31,6 +31,8 @@ Use `TextObject` to pass UI, notifications, dialogues, and names that should be 
 
 ## Creation and Variables
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ Unverifiable: every string id on this page (in the code examples below) cannot be checked against the v1.4.5 source tree, because that version ships no XML corpus.
 ```csharp
 Hero hero = MBObjectManager.Instance.GetObject<Hero>("main_hero");
 TextObject message = new TextObject("{=my_mod_welcome}Welcome, {HERO}. You have {COUNT} relics.");

@@ -4,6 +4,8 @@ description: "Auto-generated class reference for EncyclopediaFogOfWarTutorial."
 ---
 # EncyclopediaFogOfWarTutorial
 
+> ⚠ 本页为自动生成的类参考，示例未经源码核对，勿直接引用其中的 API。
+
 **Namespace:** StoryMode.GauntletUI.Tutorial
 **Module:** StoryMode.GauntletUI
 **Type:** `public class EncyclopediaFogOfWarTutorial : TutorialItemBase`

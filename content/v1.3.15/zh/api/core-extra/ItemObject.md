@@ -35,6 +35,8 @@ description: "一件装备/物品/贸易品的静态定义对象：承载名称�
 
 ## 如何获取 ItemObject
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.3.15 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 using TaleWorlds.CampaignSystem.Extensions;
 using TaleWorlds.ObjectSystem;

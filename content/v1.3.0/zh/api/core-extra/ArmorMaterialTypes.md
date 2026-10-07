@@ -60,6 +60,8 @@ this.MaterialType = ((node.Attributes["material_type"] != null)
 
 读一件护甲的材质，并换算成引擎实际用的声音参数（照 [Agent](../../mission/Agent) 的算法）：
 
+<!-- xml-id-unverifiable: v1.3.0 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.3.0 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 ItemObject item = MBObjectManager.Instance.GetObject<ItemObject>("northern_heavy_armor");
 if (item == null || !item.HasArmorComponent)

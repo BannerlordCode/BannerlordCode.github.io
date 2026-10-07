@@ -4,6 +4,8 @@ description: "Auto-generated class reference for PerkAssemblyCollection."
 ---
 # PerkAssemblyCollection
 
+> ⚠ 本页为自动生成的类参考，示例未经源码核对，勿直接引用其中的 API。
+
 **Namespace:** TaleWorlds.MountAndBlade.Network.Gameplay.Perks
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `internal static class PerkAssemblyCollection`

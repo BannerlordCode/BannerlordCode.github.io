@@ -90,6 +90,8 @@ description: "TaleWorlds.ObjectSystem 中所有 MB 对象的根基类：统一�
 
 通过 `StringId` 解析模块物品对象（真实获取路径，已对照 `MBObjectManager.GetObject<T>(string)` 源码）：
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 // 在模组运行期（例如 SubModule 的 OnGameInitializationFinished，或某个 CampaignBehavior 中）
 // 通过全局 MBObjectManager 按 StringId 取出物品对象

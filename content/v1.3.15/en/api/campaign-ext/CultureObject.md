@@ -232,6 +232,8 @@ foreach (CultureObject culture in MBObjectManager.Instance.GetObjectTypeList<Cul
 
 ### Example 3: acquisition paths by id / from other objects
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.3.15 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 // 1) by string id (vanilla ids: "empire", "aserai", "vlandia", "sturgia", "khuzait", "battania", "nord", "neutral_culture")
 CultureObject empire = MBObjectManager.Instance.GetObject<CultureObject>("empire");

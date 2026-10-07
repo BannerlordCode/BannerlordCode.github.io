@@ -41,6 +41,8 @@ description: "两个纯静态推断函数：GetDefaultTraitsMask 把 IAgentOrigi
 
 正向推断：给一个刚造好的角色判断它算不算远程兵种、以及有没有重甲（结构照 `BasicBattleAgentOrigin.cs:43-47`）：
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 BasicCharacterObject troop = MBObjectManager.Instance.GetObject<BasicCharacterObject>("heavy_infantry");
 if (troop == null)

@@ -63,6 +63,8 @@ During XML loading, the base `Deserialize` calls `Initialize()` and writes `Stri
 
 The call shapes below correspond to the real `MBObjectManager.RegisterType<T>` and `CreateObject<T>(string)` APIs. Type registration belongs in the game's `OnRegisterTypes` / equivalent registration phase; object creation must run after the type is registered.
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ Unverifiable: every string id on this page (in the code examples below) cannot be checked against the v1.4.5 source tree, because that version ships no XML corpus.
 ```csharp
 public sealed class RelicObject : MBObjectBase
 {

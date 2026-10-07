@@ -135,6 +135,8 @@ public static class VillageTypeInspection
 
 需要按 ID 或静态入口取得特定类型时，应在模块加载完成后执行：
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 using TaleWorlds.CampaignSystem.Settlements;
 

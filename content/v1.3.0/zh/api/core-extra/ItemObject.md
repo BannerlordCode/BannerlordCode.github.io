@@ -193,6 +193,8 @@ public static string Describe(ItemObject item)
 
 手工造一件贸易品，这是唯一正规的构造路径：
 
+<!-- xml-id-unverifiable: v1.3.0 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.3.0 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 using TaleWorlds.Core;
 using TaleWorlds.Localization;

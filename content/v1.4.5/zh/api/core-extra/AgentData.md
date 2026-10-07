@@ -77,6 +77,8 @@ Debug.Print("spawned agent index = " + spawned.Index, 0);
 
 本页最重要的两处陷阱，单独演示：
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 BasicCharacterObject worker = MBObjectManager.Instance.GetObject<BasicCharacterObject>("artisan");
 Monster orc = MBObjectManager.Instance.GetObject<Monster>("orc");

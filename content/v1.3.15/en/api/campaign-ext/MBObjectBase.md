@@ -62,6 +62,8 @@ For XML, the base `Deserialize` calls `Initialize` and reads the `id` attribute 
 
 The following uses the real `RegisterType<T>` and `CreateObject<T>(string)` shapes. Type registration belongs in the game's `OnRegisterTypes` or equivalent registration stage; object creation belongs after that type is registered.
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.3.15 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 public sealed class RelicObject : MBObjectBase
 {

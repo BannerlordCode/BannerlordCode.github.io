@@ -82,6 +82,8 @@ MobileParty.MainParty.ItemRoster.AddToCounts(grain, 5);
 
 For an item registered by XML or another module, resolve it after content loading and check the result:
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ Unverifiable: every string id on this page (in the code examples below) cannot be checked against the v1.4.5 source tree, because that version ships no XML corpus.
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;

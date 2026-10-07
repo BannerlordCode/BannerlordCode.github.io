@@ -222,6 +222,8 @@ description: "Bannerlord 中一切物品（武器、护甲、坐骑、贸易品�
 
 向某支队伍的物品清单追加补给（真实调用形态，见 `DisruptSupplyLinesConspiracyQuest` 等任务代码）：按 `StringId` 取出物品后直接交给名册累加数量：
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 // 商队/任务队伍补给：按 StringId 取出物品并追加到 ItemRoster
 _questCaravanMobileParty.ItemRoster.AddToCounts(

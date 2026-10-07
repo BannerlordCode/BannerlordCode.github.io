@@ -4,6 +4,8 @@ description: "Auto-generated class reference for ToggleFacingVisualOrder."
 ---
 # ToggleFacingVisualOrder
 
+> ⚠ 本页为自动生成的类参考，示例未经源码核对，勿直接引用其中的 API。
+
 **Namespace:** TaleWorlds.MountAndBlade.View.VisualOrders.Orders.ToggleOrders
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class ToggleFacingVisualOrder : VisualOrder`

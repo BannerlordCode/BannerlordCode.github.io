@@ -136,6 +136,8 @@ string label = DescribeFaction(playerClan);
 
 `GetStanceWith` 在没有外交记录时返回 `null`，必须先判空再取关系值。
 
+<!-- xml-id-unverifiable: v1.4.7 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.7 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.ObjectSystem;

@@ -4,6 +4,8 @@ description: "Auto-generated class reference for MultiThreadedStressTestsScreen.
 ---
 # MultiThreadedStressTestsScreen
 
+> ⚠ 本页为自动生成的类参考，示例未经源码核对，勿直接引用其中的 API。
+
 **Namespace:** TaleWorlds.MountAndBlade.View.Screens.Scripts
 **Module:** TaleWorlds.MountAndBlade
 **Type:** `public class MultiThreadedStressTestsScreen : ScreenBase`

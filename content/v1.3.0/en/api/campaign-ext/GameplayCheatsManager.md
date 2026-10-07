@@ -4,6 +4,8 @@ description: "Auto-generated class reference for GameplayCheatsManager."
 ---
 # GameplayCheatsManager
 
+> ⚠ 本页为自动生成的类参考，示例未经源码核对，勿直接引用其中的 API。
+
 **Namespace:** SandBox
 **Module:** SandBox
 **Type:** `public static class GameplayCheatsManager`

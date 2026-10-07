@@ -50,6 +50,8 @@ Four conclusions follow, and they are the ones to memorise. First, **the canonic
 
 Read a monster template's capabilities, testing bits by AND-against-zero (the pattern from `Agent.cs:640-642`):
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ Unverifiable: every string id on this page (in the code examples below) cannot be checked against the v1.4.5 source tree, because that version ships no XML corpus.
 ```csharp
 Monster monster = MBObjectManager.Instance.GetObject<Monster>("human");
 if (monster == null)

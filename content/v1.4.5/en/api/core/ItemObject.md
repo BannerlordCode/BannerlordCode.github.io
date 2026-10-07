@@ -32,6 +32,8 @@ Think of `ItemObject` as **"the item blueprint / template"**:
 
 ## How to Obtain ItemObject
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ Unverifiable: every string id on this page (in the code examples below) cannot be checked against the v1.4.5 source tree, because that version ships no XML corpus.
 ```csharp
 // Read by game object ID
 ItemObject grain = MBObjectManager.Instance.GetObject<ItemObject>("grain");

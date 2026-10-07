@@ -44,6 +44,8 @@ Four consequences follow, and they are where mods get hurt. First, **there is a 
 
 The commonest single step: fetch monster data, then ask `MBGlobals` for the action set, taking the suffix from this table (`MBGlobals.cs:29-31` defines `GetActionSetWithSuffix` as `GenerateActionSetNameWithSuffix` plus `GetActionSet`):
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ Unverifiable: every string id on this page (in the code examples below) cannot be checked against the v1.4.5 source tree, because that version ships no XML corpus.
 ```csharp
 Monster monster = MBObjectManager.Instance.GetObject<Monster>("spider");
 if (monster == null)

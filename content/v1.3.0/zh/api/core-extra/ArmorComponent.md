@@ -80,6 +80,8 @@ if (!flag4) { this.MeshesMask |= SkinMask.LegsVisible; }
 
 读一件护甲的四个数值与材质（**先用 `HasArmorComponent` 判存在**，因为 `ItemObject.ArmorComponent` 是一次 `as` 转型，失败返回 null）：
 
+<!-- xml-id-unverifiable: v1.3.0 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.3.0 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 ItemObject helm = MBObjectManager.Instance.GetObject<ItemObject>("empire_helmet_a");
 if (helm == null || !helm.HasArmorComponent)

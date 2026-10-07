@@ -59,6 +59,8 @@ Three practical conclusions follow. First, **there is no fluent construction ent
 
 Reading the component off an item — **check `HasArmorComponent` before using it**, which is the house pattern (exactly the order used at `TooltipRefresherCollection.cs:520`):
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ Unverifiable: every string id on this page (in the code examples below) cannot be checked against the v1.4.5 source tree, because that version ships no XML corpus.
 ```csharp
 ItemObject helmet = MBObjectManager.Instance.GetObject<ItemObject>("empire_helmet");
 if (helmet == null || !helmet.HasArmorComponent)

@@ -117,6 +117,8 @@ public class MyItemDef : MBObjectBase
 
 ### Example 2: Registering and using a custom definition
 
+<!-- xml-id-unverifiable: v1.4.7 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.4.7 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;

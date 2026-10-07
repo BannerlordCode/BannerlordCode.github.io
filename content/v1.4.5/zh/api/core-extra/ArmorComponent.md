@@ -59,6 +59,8 @@ if (!flag3) { MeshesMask |= SkinMask.LegsVisible; }
 
 从物品上读组件——**先判 `HasArmorComponent` 再用**，这是全树的标准写法（`TooltipRefresherCollection.cs:520` 就是这个顺序）：
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 ItemObject helmet = MBObjectManager.Instance.GetObject<ItemObject>("empire_helmet");
 if (helmet == null || !helmet.HasArmorComponent)

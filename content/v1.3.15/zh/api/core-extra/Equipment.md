@@ -190,6 +190,8 @@ baseCivilian[EquipmentIndex.Body] = new EquipmentElement(cleanTunic);
 
 直接改 `Hero.BattleEquipment` 会写进存档，因此这里用 `Clone()` 拿副本做演示；若要真正持久换装，请用 `EquipmentHelper.AssignHeroEquipmentFromEquipment`。
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.3.15 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 // 玩家英雄的战斗装备（真实获取路径：Hero.MainHero）
 Equipment battleEq = Hero.MainHero.BattleEquipment;

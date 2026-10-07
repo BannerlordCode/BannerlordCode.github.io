@@ -35,6 +35,8 @@ Think of it as the **"economic ID card stuck on an item,"** not a flow or compon
 
 ## How to get an ItemCategory
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.3.15 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 // Path 1: read an item's category directly (most common)
 ItemObject sword = MBObjectManager.Instance.GetObject<ItemObject>("iron_sword_a");

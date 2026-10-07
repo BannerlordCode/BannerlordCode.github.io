@@ -44,6 +44,8 @@ description: "动作集命名表：47 个角色/场景后缀常量，加上唯�
 
 最常见的一步：拿到怪物数据后直接向 `MBGlobals` 要动作集，后缀从本表取（`MBGlobals.cs:29-31` 的 `GetActionSetWithSuffix` 就是 `GenerateActionSetNameWithSuffix` + `GetActionSet` 的组合）：
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 Monster monster = MBObjectManager.Instance.GetObject<Monster>("spider");
 if (monster == null)

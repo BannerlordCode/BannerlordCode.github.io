@@ -135,6 +135,8 @@ string label = DescribeFaction(playerClan);
 
 `GetStanceWith` returns null when there is no diplomatic record, so check before reading the stance value.
 
+<!-- xml-id-unverifiable: v1.4.7 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.4.7 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.ObjectSystem;

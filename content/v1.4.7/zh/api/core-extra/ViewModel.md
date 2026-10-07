@@ -32,6 +32,8 @@ description: "Gauntlet UI 的数据绑定基类：实现 INotifyPropertyChanged�
 
 ## 何时使用 / 何时不要使用
 
+- **怎么拿到它**：`ViewModel` 的构造函数是 `protected ViewModel()`（`ViewModel.cs:211`），所以只能派生、不能直接 `new`。实例由你自己的 `GauntletLayer` 子类持有，并在加载 movie 时当作数据源交进去：`GauntletLayer.LoadMovie(string movieName, ViewModel dataSource)`（`GauntletLayer.cs:130`）。引擎自己的写法可以直接照搬结构——先 `this._dataSource = new BoardGameVM();`（`MissionGauntletBoardGameView.cs:95`），紧接着 `this._gauntletLayer.LoadMovie("BoardGame", this._dataSource);`（`MissionGauntletBoardGameView.cs:98`）；VM 的存活期就等于它被持有的那个 layer。
+- **典型用法**：派生类里用 `SetField<T>(ref T field, T value, string propertyName)`（`ViewModel.cs:237`）改值，值真变了才通知；prefab 通过绑定路径读属性；命令侧由 `ExecuteCommand(string commandName, object[] parameters)`（`ViewModel.cs:482`）派发。挂到界面上的完整顺序是 `LoadMovie("MyPanel", new MyVM())` → `ScreenBase.AddLayer(layer)`（`ScreenBase.cs:344`）→ `ScreenManager.TrySetFocus(layer)`（`ScreenManager.cs:984`），收尾时对同一个 identifier 调 `ReleaseMovie`（`GauntletLayer.cs:154`）。
 - **使用**：实现任何自定义 Gauntlet 面板的数据侧。
 - **使用**：在 VM 里暴露计算属性供 Prefab 绑定（例如 `public string PriceText => _price + " 文"`——但每次读取都算，注意性能）。
 - **使用**：用 `ExecuteCommand` 的命令派发替代直接挂事件（更适合 MVVM，也更容易被 UI 重用）。

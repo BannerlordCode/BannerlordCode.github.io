@@ -4,6 +4,8 @@ description: "Auto-generated class reference for BoardGameAgentBehavior."
 ---
 # BoardGameAgentBehavior
 
+> ⚠ 本页为自动生成的类参考，示例未经源码核对，勿直接引用其中的 API。
+
 **Namespace:** SandBox.Source.Missions.AgentBehaviors
 **Module:** SandBox.Source
 **Type:** `public class BoardGameAgentBehavior : AgentBehavior`

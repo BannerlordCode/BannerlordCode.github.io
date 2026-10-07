@@ -90,6 +90,8 @@ It is the common root of every game object that is *registered, name-lookupable,
 
 Resolving a module item object by `StringId` (real acquisition path, verified against `MBObjectManager.GetObject<T>(string)` source):
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ Unverifiable: every string id on this page (in the code examples below) cannot be checked against the v1.4.5 source tree, because that version ships no XML corpus.
 ```csharp
 // At runtime (e.g. inside a SubModule's OnGameInitializationFinished, or a CampaignBehavior)
 // fetch the item object by StringId through the global MBObjectManager

@@ -4,6 +4,8 @@ description: "Auto-generated class reference for INameMarkerProviderContext."
 ---
 # INameMarkerProviderContext
 
+> ⚠ 本页为自动生成的类参考，示例未经源码核对，勿直接引用其中的 API。
+
 **Namespace:** SandBox.ViewModelCollection.Missions.NameMarker
 **Module:** SandBox.ViewModelCollection
 **Type:** `public interface INameMarkerProviderContext`

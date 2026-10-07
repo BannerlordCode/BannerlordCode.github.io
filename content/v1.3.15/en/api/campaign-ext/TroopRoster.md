@@ -172,6 +172,8 @@ Compares `Count` / `OwnerParty` / `VersionNo` and per-entry `Character` + `Numbe
 
 ### Example 1: Reinforce the main party with recruits and grant XP
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ Unverifiable: the string ids on this page (in the code examples below) cannot be cross-checked against the v1.3.15 source tree — no version tree in this repo ships an XML corpus, so they have no ground truth here.
 ```csharp
 MobileParty party = MobileParty.MainParty;
 TroopRoster roster = party.MemberRoster; // same as party.Party.MemberRoster

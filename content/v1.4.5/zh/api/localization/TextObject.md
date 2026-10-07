@@ -30,6 +30,8 @@ description: "Bannerlord 本地化文本的值与变量容器：保存文本 ID�
 
 ## 创建与变量
 
+<!-- xml-id-unverifiable: v1.4.5 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.4.5 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 Hero hero = MBObjectManager.Instance.GetObject<Hero>("main_hero");
 TextObject message = new TextObject("{=my_mod_welcome}Welcome, {HERO}. You have {COUNT} relics.");

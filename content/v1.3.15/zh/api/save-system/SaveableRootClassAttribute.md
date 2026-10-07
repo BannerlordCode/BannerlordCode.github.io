@@ -66,6 +66,8 @@ description: "标记一个类为可持久化存档根容器的 Attribute；构�
 
 ## 示例
 
+<!-- xml-id-unverifiable: v1.3.15 -->
+> ⚠️ 不可验证：本页全部字符串 id（下方代码示例中的）在 v1.3.15 源码树均无法核对——该版本未随附 XML 语料。
 ```csharp
 using TaleWorlds.SaveSystem;
 using TaleWorlds.Core;

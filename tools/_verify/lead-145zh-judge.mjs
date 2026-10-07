@@ -22,8 +22,9 @@
 //         它指同一页上文最近一个完整 `X.cs:N` 的同一个文件。
 //         ⇒ J3 现在按文档顺序跟踪【当前文件】，把裸 `:N` 归到它并核界。
 //         这比「要求把 71 处裸引用改成完整形态」好：它【不改内容】，而是【补上尺的覆盖面】。
-//   J4 裸行号: 【归不到文件】的裸 `:N`（即出现在任何完整引用之前）才判 FAIL。
-//       携带上下文后能核界的裸引用不算缺陷（它们只是写法简短）。
+//   J4 裸行号: 【覆盖率指标】—— 归不到文件的裸 `:N` 条数。
+//       ★ 2026-10-07 由 FAIL 撤回为 WARN（boss-3 #15013 ①）：实测裸引用全部在界内，
+//         把它判 FAIL 会产出假 FAIL。它现在只作每批的一行覆盖率读数。
 //   J5 链接形态: 正文不得出现 `](./`；不得直接链 `_index.md`；`_index.md` 自身豁免
 //   J5R ★ 链接解析: 页内每条 markdown 链接必须真的能解析（见下方「解析算法是副本」）
 //   J10 ★ 链接位置: markdown 链接只允许出现在【参见族】与【导航】小节里。
@@ -230,6 +231,17 @@ function existsAsStatic(t) {
   try { return existsSync(normalize(join(STATIC_ROOT, rel))); } catch { return false; }
 }
 
+// ---- 页面主语源文件（裸 `:N` 归属的首选依据；lead-20 #14961 建议） ----
+//   全仓 97.6% 的页在头部声明了它（`**Source:**` / `**源文件:**` / `**File:**` 等）。
+function subjectFile(text) {
+  // ★ 不能带 `$` 锚定：语料写作 `**源文件：** `path`（935 行）`，行尾还有「（N 行）」等后缀。
+  //   （本会话真的因为 `$` 锚定导致多页 subject=- ，进而把 33 条可归属的裸引用误报成 unattributable。）
+  const m = text.match(/^\*\*(?:源树路径|源文件|源码|Source file|Source|File|文件)[：:]\*\*\s*`?([^`\n]+?)`?\s*(?:[（(]|$)/im);
+  if (!m) return null;
+  const b = m[1].trim().split('/').pop().split('\\').pop();
+  return b.endsWith('.cs') ? b : null;
+}
+
 const LINK_RE = /\[([^\]]*)\]\(([^)\s]+)\)/g;
 function relativeLinks(text) {
   const out = [];
@@ -339,20 +351,59 @@ function judge(pageRel, mode) {
   const navNames = decl ? h2.filter((h) => NAV_RE.test(h)) : ['导航'];
   out.checks.J2_nav_slots = navNames;
 
-  // J3 / J4（J3 跟踪「当前文件」把裸 :N 一并核界；J4 只判【归不到文件】的裸引用）
+  // J3 / J4（★ 归属规则已收紧：裸 `:N` 只在【同一块】内归给最近一个完整引用，否则 UNCHECKABLE）
+  //   lead-20 #14961 证实旧规则（跨全文归给最近一个完整引用）会【双向】出错：
+  //     假阳性：把长文件的引用拿短文件核 ⇒ 报越界（实例 Campaign.md 12 条）
+  //     假阴性：把短文件的引用拿长文件核 ⇒ 真越界被静默放过
+  //   核心命题：「行号在界内」只有在【归属正确】时才有意义 ⇒ 不确实则报 UNCHECKABLE，【不猜】。
   const REF_RE = /([A-Za-z_][\w.]*\.cs):(\d+)|(?<![A-Za-z0-9_.]):(\d+)(?![0-9])/g;
   const fullRefs = [];
   const bareResolved = [];
   const bareUnresolved = [];
-  let currentFile = null;
-  for (const m of text.matchAll(REF_RE)) {
-    if (m[1]) {
-      currentFile = m[1];
-      fullRefs.push({ file: m[1], line: Number(m[2]) });
-    } else if (currentFile) {
-      bareResolved.push({ file: currentFile, line: Number(m[3]) });
-    } else {
-      bareUnresolved.push(Number(m[3]));
+  const bareSubject = [];
+  // 分块：空行分段；代码围栏自成一整块
+  const blocks = [];
+  {
+    let cur = [];
+    let inFence = false;
+    for (const line of body.split(/\r?\n/)) {
+      if (/^\s*```/.test(line)) {
+        inFence = !inFence;
+        cur.push(line);
+        if (!inFence) { blocks.push(cur.join('\n')); cur = []; }
+        continue;
+      }
+      if (!inFence && line.trim() === '') { if (cur.length) { blocks.push(cur.join('\n')); cur = []; } continue; }
+      cur.push(line);
+    }
+    if (cur.length) blocks.push(cur.join('\n'));
+  }
+  const seenFiles = new Set();
+  const subj = subjectFile(text);
+  out.checks.J3_subject_file = subj;
+  for (const block of blocks) {
+    // 本块内出现的完整引用文件集合
+    const blockFiles = new Set();
+    REF_RE.lastIndex = 0;
+    let m;
+    while ((m = REF_RE.exec(block))) if (m[1]) blockFiles.add(m[1]);
+    // 归属规则（从确定到不确定）：
+    //   ① 本块只有一个文件 ⇒ 用块上下文（最可靠）
+    //   ② 本块多个文件 / 本块无完整引用 ⇒ 用【页面主语文件】
+    //   ③ 两者都不可用 ⇒ UNCHECKABLE（不猜）
+    const blockFile = blockFiles.size === 1 ? [...blockFiles][0] : null;
+    REF_RE.lastIndex = 0;
+    while ((m = REF_RE.exec(block))) {
+      if (m[1]) {
+        seenFiles.add(m[1]);
+        fullRefs.push({ file: m[1], line: Number(m[2]) });
+      } else if (blockFile) {
+        bareResolved.push({ file: blockFile, line: Number(m[3]) });
+      } else if (subj) {
+        bareSubject.push({ file: subj, line: Number(m[3]) });
+      } else {
+        bareUnresolved.push({ line: Number(m[3]), block: block.slice(0, 40).replace(/\s+/g, ' ') });
+      }
     }
   }
   const src = srcRootFor(pageRel);
@@ -371,11 +422,14 @@ function judge(pageRel, mode) {
     }
   };
   for (const c of fullRefs) check(c, 'full');
-  for (const c of bareResolved) check(c, 'bare-resolved');
+  for (const c of bareResolved) check(c, 'bare-in-block');
+  for (const c of bareSubject) check(c, 'bare-subject-file');
   out.checks.J3_citations = fullRefs.length;
   out.checks.J3_bare_resolved = bareResolved.length;
-  out.checks.J3_checked_total = fullRefs.length + bareResolved.length;
+  out.checks.J3_bare_unique_file = bareSubject.length;
+  out.checks.J3_checked_total = fullRefs.length + bareResolved.length + bareSubject.length;
   out.checks.J3_uncheckable_no_tree = uncheckable;
+  out.checks.J3_unattributable_bare = bareUnresolved.length;
   out.checks.J3_bad = bad;
   if (src.reason) {
     out.fail.push(`J3 cannot bounds-check: ${src.reason} ⇒ ${uncheckable} refs UNCHECKABLE（本尺绝不静默用别的版本树顶替）`);
@@ -383,8 +437,13 @@ function judge(pageRel, mode) {
     out.fail.push(`J3 bad-citations=${bad.length} [${bad.slice(0, 4).join('; ')}]`);
   }
 
+  // J4 裸行号 —— ★ 已按 boss-3 #15013 ① 从 FAIL 撤回为【覆盖率指标】。
+  //   理由（实测）：裸引用在 b01/b02/b03 里【全部在界内】⇒ 把它判 FAIL 会产出一批假 FAIL，
+  //   然后有人据此派修。⇒ 保留为【读数】（每批报一行），不作缺陷判据。
   out.checks.J4_bare_line_refs = bareUnresolved.length;
-  if (bareUnresolved.length) out.fail.push(`J4 bare-line-refs=${bareUnresolved.length}（无前文文件上下文，无法核界）[${bareUnresolved.slice(0, 6).join(',')}]`);
+  if (bareUnresolved.length > 0) {
+    out.warn.push(`J4 coverage: unattributable-bare=${bareUnresolved.length}（本块多文件且页面未声明主语源文件 ⇒ 无法归属；【覆盖率读数，不判 FAIL】）`);
+  }
 
   // J5
   if (!isIndex) {
@@ -583,7 +642,7 @@ console.log(`# judge mtime  = ${statSync(fileURLToPath(import.meta.url)).mtime.t
 const results = pages.map((p) => judge(p, mode));
 for (const r of results) {
   console.log(`${r.pass ? 'PASS' : 'FAIL'}  ${r.page}`);
-  console.log(`      J1 fffd=${r.checks.J1_fffd} · J2 missing=[${(r.checks.J2_missing || []).join(',')}] · J3 tree=${r.checks.J3_src_tree || ('UNCHECKABLE:' + r.checks.J3_src_unavailable)} checked=${r.checks.J3_checked_total} (full=${r.checks.J3_citations} + bare-resolved=${r.checks.J3_bare_resolved}) bad=${(r.checks.J3_bad || []).length} · J4 uncheckable-bare=${r.checks.J4_bare_line_refs}`);
+  console.log(`      J1 fffd=${r.checks.J1_fffd} · J2 missing=[${(r.checks.J2_missing || []).join(',')}] · J3 tree=${r.checks.J3_src_tree || ('UNCHECKABLE:' + r.checks.J3_src_unavailable)} subject=${r.checks.J3_subject_file || '-'} checked=${r.checks.J3_checked_total} (full=${r.checks.J3_citations} + inBlock=${r.checks.J3_bare_resolved} + subject=${r.checks.J3_bare_unique_file}) bad=${(r.checks.J3_bad || []).length} · J4 unattributable=${r.checks.J4_bare_line_refs}`);
   console.log(`      J5 dotSlash=${r.checks.J5_dot_slash ?? 'n/a'} indexLinks=${r.checks.J5_index_links ?? 'n/a'} · J5R unresolved=${(r.checks.J5R_unresolved || []).length} · J10 stray=${(r.checks.J10_stray_links || []).length} · J11 trailSlash=${(r.checks.J11_trailing_slash || []).length} · J8 ${r.checks.J8_bodyBytes}B/${r.checks.J8_h2h3} · J9 csharp=${r.checks.J9_csharp_lines}`);
   console.log(`      J6=${r.checks.J6_classifyPage?.status} · deepPass=${r.checks.deepPass} · tier=${r.checks.tier} · J7 markers=${(r.checks.J7_gen_markers || []).length}`);
   if (r.checks.J2_h2?.length) console.log(`      H2: ${r.checks.J2_h2.join(' | ')}`);

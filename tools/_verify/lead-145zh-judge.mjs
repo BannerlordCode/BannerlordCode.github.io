@@ -21,7 +21,9 @@
 //   J4 裸行号: 未落文件名的 `:N` 引用数（WARN）
 //   J5 链接形态: 正文不得出现 `](./`；不得直接链 `_index.md`；`_index.md` 自身豁免
 //   J5R ★ 链接解析: 页内每条 markdown 链接必须真的能解析（见下方「解析算法是副本」）
-//   J6 机械深页: classifyPage() === deep_pass（`--links off` 时见下方「政策模式」）
+//   J10 ★ 链接位置: markdown 链接只允许出现在【参见族】与【导航】小节里。
+//       其余位置（正文叙述）写链接 = FAIL —— 这是政策 #12761 的机械形式。
+//   J6 机械深页: classifyPage() === deep_pass
 //   J7 脱离自动档: 全文不得含生成标记
 //   J8 体量: 正文（frontmatter 之后）字节 > 2500 且 H2/H3 >= 1
 //   J9 真实示例: ```csharp 代码块总有效行 >= 3
@@ -39,16 +41,17 @@
 // 机制② classifyPage 的 deep_pass 要求【参见/依赖 小节里 >=2 条 markdown 链接】。
 //   ⇒ 写了「依赖」小节但一条链接都没有 = 判不过（理由串 `dependency-section-no-links`）。
 //   实例：MakePregnantAction / SellItemsAction / SellGoodsForTradeAction 三页的失败原因。
-//   本判分器的 J6 就是这条的机械形式；
-//   而 `--links off`（政策 #12289：不写跨页链接）下，J6 只允许「链接族」理由。
+//   本判分器的 J6 就是这条的机械形式。
 // ---------------------------------------------------------------------------
-//   本轮写作不写跨页 markdown 链接，一律反引号代码片段。
-//   但 tools/lib/handwritten-policy.mjs 的 deep_pass **硬要求 参见/依赖 小节 >=2 条链接**
-//   ⇒ 政策与 deep_pass 互斥。故本判分器在此模式下：
-//     - J6 改为「除【链接族】理由外不得有其他 stub 理由」；
-//     - **始终额外记录 `deepPass`（真值）与 `tier`（census 档）**，两个口径分开报，
-//       避免出现「tier=deep 涨了 N 页而 deep_pass 涨了 N-1 页」而无人能解释。
-//   默认模式 = off（与当前政策一致）。政策解除后用 `--links require` 恢复原判据。
+// ★ 政策史（`--links` 默认值随政策变，两次都记下来）
+//   2026-10-07 早（#12289）：本轮不写任何跨页链接。
+//     ⇒ 与 deep_pass 互斥（后者硬要求参见槽 ≥2 条链接）。曾用 `--links off` 过渡。
+//   2026-10-07 晚（#12761，boss-3）：【细化并覆盖】——
+//     `参见` 槽位【允许并应当】写跨页链接（每页 ≥2 条，逐条先 find 定桶、只链已存在的目标）；
+//     `导航` 保留 `../`；**其余所有位置仍不写链接，用反引号代码片段**；
+//     每批收尾报 audit-links 批前/批后两套数，本批不得让 BROKEN_LINKS 上升。
+//     ⇒ 默认模式恢复为 `require`，且新增 J10 把「其余位置不写链接」也机器化。
+//   `--links off` 仍保留，但它是【过渡态】，不应长期使用。
 // ---------------------------------------------------------------------------
 // ★ 解析算法是【副本】（重要）
 //   J5R 复刻 tools/audit-links.mjs 的解析（URL 口径 + static 回退）。
@@ -272,6 +275,24 @@ function judge(pageRel, mode) {
   out.checks.J5R_unresolved = unresolved;
   if (unresolved.length) out.fail.push(`J5R unresolved-links=${unresolved.length} [${[...new Set(unresolved)].join(', ')}]`);
 
+  // J10：链接只允许出现在【参见族】与【导航】小节（政策 #12761 的机械形式）
+  if (!isIndex) {
+    let cur = '';
+    const stray = [];
+    const LINK_ONLY = /\[[^\]]*\]\(([^)\s]+)\)/g;
+    for (const line of body.split(/\r?\n/)) {
+      const h = line.match(/^##\s+(.+?)\s*$/);
+      if (h) { cur = h[1].trim(); continue; }
+      if (!cur) continue;
+      if (SEE_FAMILY.includes(cur) || cur === '导航') continue;
+      LINK_ONLY.lastIndex = 0;
+      let m;
+      while ((m = LINK_ONLY.exec(line))) stray.push(`${cur}: ${m[1]}`);
+    }
+    out.checks.J10_stray_links = stray;
+    if (stray.length) out.fail.push(`J10 links-outside-see/nav=${stray.length} [${stray.slice(0, 4).join('; ')}]`);
+  }
+
   // J6 + 两个口径
   const cp = classifyPage(pageRel, text);
   const nonLinkReasons = cp.reasons.filter((r) => !LINK_FAMILY_REASONS.includes(r));
@@ -349,7 +370,7 @@ function crossCheck(results) {
 const argv = process.argv.slice(2);
 let pages = [];
 let jsonOut = null;
-let mode = 'off';
+let mode = 'require';
 let doCross = false;
 for (let i = 0; i < argv.length; i++) {
   if (argv[i] === '--manifest') {
@@ -389,7 +410,7 @@ const results = pages.map((p) => judge(p, mode));
 for (const r of results) {
   console.log(`${r.pass ? 'PASS' : 'FAIL'}  ${r.page}`);
   console.log(`      J1 fffd=${r.checks.J1_fffd} · J2 missing=[${(r.checks.J2_missing || []).join(',')}] · J3 cites=${r.checks.J3_citations} bad=${(r.checks.J3_bad || []).length} · J4 bare=${r.checks.J4_bare_line_refs}`);
-  console.log(`      J5 dotSlash=${r.checks.J5_dot_slash ?? 'n/a'} indexLinks=${r.checks.J5_index_links ?? 'n/a'} · J5R unresolved=${(r.checks.J5R_unresolved || []).length} · J8 ${r.checks.J8_bodyBytes}B/${r.checks.J8_h2h3} · J9 csharp=${r.checks.J9_csharp_lines}`);
+  console.log(`      J5 dotSlash=${r.checks.J5_dot_slash ?? 'n/a'} indexLinks=${r.checks.J5_index_links ?? 'n/a'} · J5R unresolved=${(r.checks.J5R_unresolved || []).length} · J10 stray=${(r.checks.J10_stray_links || []).length} · J8 ${r.checks.J8_bodyBytes}B/${r.checks.J8_h2h3} · J9 csharp=${r.checks.J9_csharp_lines}`);
   console.log(`      J6=${r.checks.J6_classifyPage?.status} · deepPass=${r.checks.deepPass} · tier=${r.checks.tier} · J7 markers=${(r.checks.J7_gen_markers || []).length}`);
   if (r.checks.J2_h2?.length) console.log(`      H2: ${r.checks.J2_h2.join(' | ')}`);
   if (r.checks.J2_see_via?.length) console.log(`      J2 参见族 via=[${r.checks.J2_see_via.join(',')}]${r.checks.J2_see_via.includes('参见') ? '' : '  ← 别名命中（页里没有 `参见` 标题）'}`);

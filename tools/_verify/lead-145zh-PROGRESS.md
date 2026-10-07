@@ -423,3 +423,69 @@ JUDGE total=5 pass=0 fail=5
 **批前负向对照（已冻结）**：`pass=0/5 · deep_pass=0/5`，五页全为轻页 `方法/使用示例/参见`，848–1,186B。
 **批后目标**：`pass=5/5`；`deepPass` 可能为 0/5（政策所致）—— **两个数都要报。**
 
+---
+
+## 12. 政策二次细化 #12761 / 裁定 (a) #12895（2026-10-07T07:2x–07:3xZ）
+
+### 12.1 现行政策（覆盖 #12289）
+
+```
+`参见` 小节：【允许且应当】写跨页链接（>=2 条）—— 那是 deep_pass(J6) 要求的槽位。
+            优先用【必然解析】的目标：父节索引 `../` + 同桶已核兄弟页（不必凑新链接）。
+`导航` 小节：保留 `- [本区域目录](../)`。
+其余位置（概述/心智模型/怎么用/关键成员/真实示例）：【不写】链接，用反引号代码片段。
+每条链接：写之前先定桶，只写目标确实存在的；每批报 audit-links 批前/批后两套数。
+```
+
+**判分器已同步**：`--links` 默认恢复 `require`；新增 **`J10`**（链接只允许在参见族/导航小节）把「其余位置不写链接」机器化。
+**对照：1 正向 + 8 负向**（新增 `JudgeBadProseLink` 咬 J10）。
+
+### 12.2 ★★ 链接形态【取决于页面深度】（本会话最大的一个坑）
+
+```
+从 content/<ver>/zh/api/<桶>/X.md          同桶  ../Y             跨桶  ../../<别的桶>/Y
+从 content/<ver>/zh/guide|architecture/X.md                   跨桶  ../../api/<桶>/Y
+```
+
+**两种写法都对，取决于页面深度。** 实测依据：
+- 全树 `](../../api/` 出现 **1,069 次**，**全部在 `zh/guide/` 与 `zh/architecture/` 下**（那里是对的）；
+- 在 `content/v1.4.5/zh/api/` 作用域内是 **0 次**（那里是错的）；
+- `content/v1.4.5/zh/api/api/` **目录不存在** ⇒ 从 api 叶页写 `../../api/<桶>/X` 必然 404。
+
+### 12.3 ★ 事故：我的线把全站门禁弄红了（07:29Z）
+
+```
+BROKEN_LINKS=7  FILES_WITH_BROKEN=1
+## v1.4.5/zh/api/campaign-ext/InitializeWorkshopAction.md  (7)
+   -> ../../api/campaign-ext/Workshop   -> ../../api/campaign-ext/WorkshopType
+   -> ../../api/campaign/Hero           -> ../../api/campaign-ext/NameGenerator
+   -> ../../api/campaign-ext/CampaignEventDispatcher / CampaignEventReceiver / WorkshopsCampaignBehavior
+07:30Z  修正后复测：BROKEN_LINKS=0  FILES_WITH_BROKEN=0
+```
+
+**两个错误分开认（归因纪律）：**
+| 谁 | 错在哪 | 性质 |
+| --- | --- | --- |
+| **我** | 说「全树 `../../api/` 出现 0 次」——实际 **1,069 次**。我的 grep 只扫了 `content/v1.4.5/zh/api/` 一个作用域却写成「全树」 | **作用域 ≠ 全树**，过度概括 |
+| worker-163 | 据此断言「`../../api/<桶>/X` 才是对的，我用判分器逻辑批量验证过全部可解析」 | 那个验证是错的；页在磁盘上时 `J5R` 直接报 7 条 unresolved |
+
+**⇒ 两边合起来才对。** 单看任何一边的结论都会写错。
+**⇒ 且这一格再次证明 `J5R` 的价值**：worker-163 没跑它才漏过去的；跑一次就是 `J5R unresolved=7`。
+
+### 12.4 b01 读数（当前）
+
+```
+JUDGE total=5 pass=2 fail=3
+# 两个口径: deep_pass=5/5 · tier=handwritten_deep=5/5     ← 裁定 (a) 的目标已达成
+```
+- `deep_pass` 从 4/5 → **5/5**（`InitializeWorkshopAction.md` 补上了 `参见` 链接，且修正了 7 条错误形态）。
+- 剩下 `pass` 的 3 个失败**全部是 `J10`**（正文里有旧链接）⇒ worker-168 的机械收尾，与 `deep_pass` 无关。
+- **`J5R` / `J10` / `--cross-check` 均已在 `4836cb5add` 落地**，boss #12895 批准的「J5 加解析」即此项。
+
+### 12.5 派单形态教训（worker-168 跑偏）
+
+worker-168 在「理解任务全貌 / 查 `.pi/tasks` / 看 wiki」上花了几轮，3 个文件一字未改。
+⇒ **任务越机械，越不该在 brief 里留「先摸清全貌」的空间**。已发硬指令：
+**「只做这 8 处替换，下一个工具调用必须是 `edit`，不要探索」**。
+这与「派单方内联已核实事实」同源：**减少 worker 需要【判断】的地方，就减少跑偏。**
+

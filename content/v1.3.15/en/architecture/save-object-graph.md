@@ -33,10 +33,10 @@ Key insight: **object references are replaced with integer IDs**. If two fields 
 
 ### Save Flow
 
-1. Call `SaveManager.SaveGame(string saveName)` to trigger a save.
+1. Call `SaveManager.Save(object target, MetaData metaData, string saveName, ISaveDriver driver)` (`SaveManager.cs:69`) to trigger a save; `target` is the root of the object graph.
 2. `SaveManager` creates a `SaveContext` with the target file stream.
 3. `DefinitionContext.FillWithCurrentTypes()` (`DefinitionContext.cs:173`) performs type collection and ID allocation once at startup.
-4. `SaveManager` pushes the root object into the `_objectsToIterate` work queue (`SaveContext.cs:116`) and processes nodes one by one.
+4. `SaveContext` records the root (`this.RootObject = target;`, `SaveContext.cs:289`) and pushes it into the `_objectsToIterate` work queue (`SaveContext.cs:116`), then processes nodes one by one.
 5. Each node's members are written according to its registered definition; references are deduplicated by object id, so a shared object is serialized once.
 6. Once everything is written, `SaveContext` closes the stream and the save is complete.
 
@@ -62,60 +62,60 @@ To make a custom class participate in save/load:
 
 ### SaveManager
 
-The facade of the save system, coordinating the complete save and load pipeline.
+The facade of the save system.
 
-- `SaveManager.cs:14` — Class declaration, inherits from `SaveManagerBase`.
-- `SaveManager.cs:17` — Static instance access point, the global entry.
-- `SaveManager.cs:69` — `SaveGame` method implementation, creates `SaveContext` and starts serialization.
+- `SaveManager.cs:14` — `public static class SaveManager`: the entry class of the save system. **It is a static class, with no base class and no `Instance` property.**
+- `SaveManager.cs:17` — `public static void InitializeGlobalDefinitionContext()`: initializes `DefinitionContext` once at startup and calls `FillWithCurrentTypes()`.
+- `SaveManager.cs:69` — `public static SaveOutput Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`: the save entry point.
 - `SaveManager.cs:149` — `public static LoadResult Load(string saveName, ISaveDriver driver)`: the load entry point.
 
 ### DefinitionContext
 
-Type definition context, responsible for scanning and registering all encountered types before serialization.
+The type definition center, maintaining the "type → definition" mapping.
 
-- `DefinitionContext.cs:10` — Class declaration, maintains the type ID mapping table.
-- `DefinitionContext.cs:68` — `DefineTypes` entry point, traverses the object graph to collect types.
-- `DefinitionContext.cs:173` — Type registration logic, assigns a unique ID to each new type.
-- `DefinitionContext.cs:278` — Type lookup, retrieves metadata by ID or type name.
-- `DefinitionContext.cs:283` — Version compatibility check, handles type additions and removals.
-- `DefinitionContext.cs:285` — Type alias mapping, supports cross-version type renaming.
+- `DefinitionContext.cs:10` — `public class DefinitionContext`: the definition context body.
+- `DefinitionContext.cs:68` — `internal void AddClassDefinition(TypeDefinition classDefinition)`: registers a type definition into the context.
+- `DefinitionContext.cs:173` — `public void FillWithCurrentTypes()`: scans assemblies at startup and collects all type definitions.
+- `DefinitionContext.cs:278` — `private void CollectTypes(Assembly assembly)`: performs reflection collection on a single assembly.
+- `DefinitionContext.cs:283` — `if (typeof(SaveableTypeDefiner).IsAssignableFrom(type) && !type.IsAbstract)`: filters out non-abstract `SaveableTypeDefiner` subclasses.
+- `DefinitionContext.cs:285` — `SaveableTypeDefiner saveableTypeDefiner = (SaveableTypeDefiner)Activator.CreateInstance(type);`: reflectively instantiates the Definer — **this is why you "do not need and cannot manually Register"**.
 
 ### SaveableTypeDefiner
 
-A utility class that defines serializable types for a specific module.
+The base class for defining serializable types for a module.
 
-- `SaveableTypeDefiner.cs:10` — Base class declaration, provides type definition infrastructure.
-- `SaveableTypeDefiner.cs:13` — Constructor, receives `DefinitionContext`.
-- `SaveableTypeDefiner.cs:30` — `DefineTypes` virtual method, overridden by subclasses to register types.
-- `SaveableTypeDefiner.cs:70` — Type registration helper, simplifies the registration flow.
-- `SaveableTypeDefiner.cs:100` — Registers a class definition and assigns it a unique small id under the Definer's base id (see the official example at `SaveableCampaignTypeDefiner.cs:52`).
-- `SaveableTypeDefiner.cs:157` — Nested type registration, handles inner classes.
+- `SaveableTypeDefiner.cs:10` — `public abstract class SaveableTypeDefiner`: base class declaration.
+- `SaveableTypeDefiner.cs:13` — `protected SaveableTypeDefiner(int saveBaseId)`: constructor receives only the **base id** (not `DefinitionContext`).
+- `SaveableTypeDefiner.cs:30` — `protected internal virtual void DefineClassTypes()`: override it to register classes.
+- `SaveableTypeDefiner.cs:70` — `protected internal virtual void DefineContainerDefinitions()`: override it to register container types.
+- `SaveableTypeDefiner.cs:100` — `protected void AddClassDefinition(Type type, int saveId, IObjectResolver resolver = null)`: registers a class definition and assigns a small id.
+- `SaveableTypeDefiner.cs:157` — `protected void ConstructContainerDefinition(Type type)`: constructs a definition for a container type.
 
 ### SaveContext
 
-The write channel during save, providing a type-safe serialization API.
+The write context during save.
 
-- `SaveContext.cs:12` — Class declaration, wraps the underlying binary writer.
+- `SaveContext.cs:12` — `public class SaveContext : ISaveContext`: class declaration.
 - `SaveContext.cs:27` — `public DefinitionContext DefinitionContext { get; private set; }`: the context used to look up type definitions while saving.
-- `SaveContext.cs:46` — `Write` generic method, writes primitive type fields.
-- `SaveContext.cs:278` — Reference table management, records IDs of already-written objects.
+- `SaveContext.cs:46` — `public SaveContext(DefinitionContext definitionContext)`: constructor.
+- `SaveContext.cs:278` — `public bool Save(object target, MetaData metaData, out string errorMessage)`: performs the actual write.
 
 ### LoadContext
 
-The read channel during load, providing a type-safe deserialization API.
+The read context during load.
 
-- `LoadContext.cs:11` — Class declaration, wraps the underlying binary reader.
+- `LoadContext.cs:11` — `public class LoadContext`: class declaration.
 - `LoadContext.cs:31` — `public DefinitionContext DefinitionContext { get; private set; }`: the context used to look up type definitions while loading.
-- `LoadContext.cs:64` — `Read` generic method, reads primitive type fields.
+- `LoadContext.cs:64` — `public bool Load(LoadData loadData, bool loadAsLateInitialize)`: performs the actual read.
 
 ### SaveableCampaignTypeDefiner
 
-The type definitioner for the Campaign module, registering all Campaign-related serializable types.
+The type definitioner for the Campaign module.
 
-- `SaveableCampaignTypeDefiner.cs:41` — Class declaration, inherits from `SaveableTypeDefiner`.
-- `SaveableCampaignTypeDefiner.cs:44` — `DefineTypes` implementation, registers Campaign core types.
-- `SaveableCampaignTypeDefiner.cs:50` — Registers Party-related types.
-- `SaveableCampaignTypeDefiner.cs:52` — Registers Settlement-related types.
+- `SaveableCampaignTypeDefiner.cs:41` — `public class SaveableCampaignTypeDefiner : SaveableTypeDefiner`: class declaration.
+- `SaveableCampaignTypeDefiner.cs:44` — `public SaveableCampaignTypeDefiner()`: parameterless constructor, base id passed in `base(...)`.
+- `SaveableCampaignTypeDefiner.cs:50` — `protected override void DefineClassTypes()`: registers all Campaign saveable classes.
+- `SaveableCampaignTypeDefiner.cs:52` — `base.AddClassDefinition(typeof(Army), 3, null);`: the first line of the official example, registering `Army`.
 
 ## Real Examples
 

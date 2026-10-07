@@ -59,60 +59,60 @@ Bannerlord 的存档系统基于**对象图序列化**模型。`SaveManager` 是
 
 ### SaveManager
 
-存档系统门面，协调存档与读档的完整流程。
+存档系统门面。
 
-- `SaveManager.cs:14` — 类声明，继承自 `SaveManagerBase`。
-- `SaveManager.cs:17` — 静态实例访问点，全局唯一入口。
-- `SaveManager.cs:69` — `SaveGame` 方法实现，创建 `SaveContext` 并启动序列化。
+- `SaveManager.cs:14` — `public static class SaveManager`：存档系统入口类。**是静态类，没有基类、也没有 `Instance` 属性。**
+- `SaveManager.cs:17` — `public static void InitializeGlobalDefinitionContext()`：启动期一次性初始化 `DefinitionContext` 并调用 `FillWithCurrentTypes()`。
+- `SaveManager.cs:69` — `public static SaveOutput Save(object target, MetaData metaData, string saveName, ISaveDriver driver)`：存档入口。
 - `SaveManager.cs:149` — `public static LoadResult Load(string saveName, ISaveDriver driver)`：读档入口。
 
 ### DefinitionContext
 
-类型定义上下文，负责在序列化前扫描并注册所有遇到的类型。
+类型定义中心，维护「类型 → 定义」的映射。
 
-- `DefinitionContext.cs:10` — 类声明，维护类型 ID 映射表。
-- `DefinitionContext.cs:68` — `DefineTypes` 入口，遍历对象图收集类型。
-- `DefinitionContext.cs:173` — 类型注册逻辑，为每个新类型分配唯一 ID。
-- `DefinitionContext.cs:278` — 类型查找，通过 ID 或类型名获取元数据。
-- `DefinitionContext.cs:283` — 版本兼容检查，处理类型增删。
-- `DefinitionContext.cs:285` — 类型别名映射，支持跨版本类型重命名。
+- `DefinitionContext.cs:10` — `public class DefinitionContext`：定义上下文本体。
+- `DefinitionContext.cs:68` — `internal void AddClassDefinition(TypeDefinition classDefinition)`：把一个类型定义登记进上下文。
+- `DefinitionContext.cs:173` — `public void FillWithCurrentTypes()`：启动期扫描程序集、收齐全部类型定义。
+- `DefinitionContext.cs:278` — `private void CollectTypes(Assembly assembly)`：对单个程序集做反射收集。
+- `DefinitionContext.cs:283` — `if (typeof(SaveableTypeDefiner).IsAssignableFrom(type) && !type.IsAbstract)`：筛出非抽象的 `SaveableTypeDefiner` 子类。
+- `DefinitionContext.cs:285` — `SaveableTypeDefiner saveableTypeDefiner = (SaveableTypeDefiner)Activator.CreateInstance(type);`：反射实例化 Definer —— **这就是「不需要也不能手动 Register」的原因**。
 
 ### SaveableTypeDefiner
 
-为特定模块定义可序列化类型的工具类。
+为某个模块定义可序列化类型的基类。
 
-- `SaveableTypeDefiner.cs:10` — 基类声明，提供类型定义基础设施。
-- `SaveableTypeDefiner.cs:13` — 构造函数，接收 `DefinitionContext`。
-- `SaveableTypeDefiner.cs:30` — `DefineTypes` 虚方法，子类重写以注册类型。
-- `SaveableTypeDefiner.cs:70` — 类型注册辅助方法，简化注册流程。
-- `SaveableTypeDefiner.cs:100` — 注册一个类定义，并给它分配在该 Definer 基号下唯一的小 id（见 `SaveableCampaignTypeDefiner.cs:52` 的官方范本）。
-- `SaveableTypeDefiner.cs:157` — 嵌套类型注册，处理内部类。
+- `SaveableTypeDefiner.cs:10` — `public abstract class SaveableTypeDefiner`：基类声明。
+- `SaveableTypeDefiner.cs:13` — `protected SaveableTypeDefiner(int saveBaseId)`：构造只接收**基号**（不是 `DefinitionContext`）。
+- `SaveableTypeDefiner.cs:30` — `protected internal virtual void DefineClassTypes()`：重写它来注册类。
+- `SaveableTypeDefiner.cs:70` — `protected internal virtual void DefineContainerDefinitions()`：重写它来注册容器类型。
+- `SaveableTypeDefiner.cs:100` — `protected void AddClassDefinition(Type type, int saveId, IObjectResolver resolver = null)`：注册一个类定义并分配小 id。
+- `SaveableTypeDefiner.cs:157` — `protected void ConstructContainerDefinition(Type type)`：为一个容器类型构造定义。
 
 ### SaveContext
 
-存档时的写入通道，提供类型安全的序列化 API。
+存档时的写入上下文。
 
-- `SaveContext.cs:12` — 类声明，封装底层二进制写入。
+- `SaveContext.cs:12` — `public class SaveContext : ISaveContext`：类声明。
 - `SaveContext.cs:27` — `public DefinitionContext DefinitionContext { get; private set; }`：存档时查类型定义用的上下文。
-- `SaveContext.cs:46` — `Write` 泛型方法，写入基本类型字段。
-- `SaveContext.cs:278` — 引用表管理，记录已写入对象的 ID。
+- `SaveContext.cs:46` — `public SaveContext(DefinitionContext definitionContext)`：构造函数。
+- `SaveContext.cs:278` — `public bool Save(object target, MetaData metaData, out string errorMessage)`：真正执行写入。
 
 ### LoadContext
 
-读档时的读取通道，提供类型安全的反序列化 API。
+读档时的读取上下文。
 
-- `LoadContext.cs:11` — 类声明，封装底层二进制读取。
+- `LoadContext.cs:11` — `public class LoadContext`：类声明。
 - `LoadContext.cs:31` — `public DefinitionContext DefinitionContext { get; private set; }`：读档时查类型定义用的上下文。
-- `LoadContext.cs:64` — `Read` 泛型方法，读取基本类型字段。
+- `LoadContext.cs:64` — `public bool Load(LoadData loadData, bool loadAsLateInitialize)`：真正执行读取。
 
 ### SaveableCampaignTypeDefiner
 
-Campaign 模块的类型定义器，注册所有 Campaign 相关的可序列化类型。
+Campaign 模块的类型定义器。
 
-- `SaveableCampaignTypeDefiner.cs:41` — 类声明，继承自 `SaveableTypeDefiner`。
-- `SaveableCampaignTypeDefiner.cs:44` — `DefineTypes` 实现，注册 Campaign 核心类型。
-- `SaveableCampaignTypeDefiner.cs:50` — 注册 Party 相关类型。
-- `SaveableCampaignTypeDefiner.cs:52` — 注册 Settlement 相关类型。
+- `SaveableCampaignTypeDefiner.cs:41` — `public class SaveableCampaignTypeDefiner : SaveableTypeDefiner`：类声明。
+- `SaveableCampaignTypeDefiner.cs:44` — `public SaveableCampaignTypeDefiner()`：无参构造，基号在 `base(...)` 里传。
+- `SaveableCampaignTypeDefiner.cs:50` — `protected override void DefineClassTypes()`：注册 Campaign 全部可存档类。
+- `SaveableCampaignTypeDefiner.cs:52` — `base.AddClassDefinition(typeof(Army), 3, null);`：官方范本的第一行注册，注册的是 `Army`。
 
 ## 真实示例
 

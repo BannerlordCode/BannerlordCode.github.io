@@ -750,6 +750,22 @@ console.log(`# mode=--links ${mode}${doCross ? ' +cross-check' : ''}`);
 const SELF_SHA = createHash('sha256').update(readFileSync(fileURLToPath(import.meta.url))).digest('hex');
 console.log(`# judge sha256 = ${SELF_SHA}`);
 console.log(`# judge mtime  = ${statSync(fileURLToPath(import.meta.url)).mtime.toISOString()}`);
+// ★★ 自身工作区状态自检（lead-20 #16102 ③ 的机械形式）
+//   背景：有一个尺版本 `3dc897bc91f672dd` 【从未进入 git】（未提交的工作区状态），
+//         却对已冻结批次 b05 出了 4/5 的判决 ⇒ 而三个【已提交】版本都判 5/5。
+//   ⇒ 规则：【判据文件的未提交工作区状态，不得用于产出对外判决】。
+//   这里把它做成“忘不掉的动作”：尺自己检测并打印，而不是靠人记得先跑 git status。
+let selfDirty = false;
+try {
+  const rel = toPosix(fileURLToPath(import.meta.url)).replace(toPosix(REPO) + '/', '');
+  execFileSync('git', ['diff', '--quiet', 'HEAD', '--', rel], { cwd: REPO, stdio: 'ignore' });
+} catch { selfDirty = true; }
+if (selfDirty) {
+  console.log('# ⚠ judge working-tree = DIRTY（本文件与 HEAD 不同）⇒ 【本读数不得作为对外判决使用】');
+  console.log('#   请先 commit 本文件，再用已提交的那一版重跑。');
+} else {
+  console.log('# judge working-tree = clean（与 HEAD 一致）');
+}
 const results = pages.map((p) => judge(p, mode));
 for (const r of results) {
   console.log(`${r.pass ? 'PASS' : 'FAIL'}  ${r.page}`);

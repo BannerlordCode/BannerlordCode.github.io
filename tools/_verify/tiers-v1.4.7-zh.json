@@ -1,0 +1,1050 @@
+{
+  "tree": "v1.4.7",
+  "language": "zh",
+  "generatedAt": "2026-10-07T04:58:18.431Z",
+  "pageCount": 48,
+  "criteria": {
+    "generationMarkers": [
+      "的自动生成类参考",
+      "Auto-generated class reference",
+      "的自动生成战役动作参考",
+      "Auto-generated campaign action reference"
+    ],
+    "skeletonCommentRegex": "<!--\\s*v.*-skeleton\\s*-->",
+    "emptyShellSignatures": [
+      "它有什么状态",
+      "它允许你做什么",
+      "它保存的状态"
+    ],
+    "descriptionAutoMarkers": [
+      "的自动生成类参考。",
+      "Auto-generated"
+    ],
+    "deepPageRule": "classifyPage status === 'deep_pass' OR (bodyBytes > 2500 AND h2h3Sections >= 1)",
+    "bodyDefinition": "file text after the closing frontmatter delimiter; bytes = UTF-8 byte length",
+    "h2h3Definition": "count of body lines matching /^#{2,3}\\s+/m",
+    "tierOrder": [
+      "generated",
+      "empty_shell",
+      "handwritten_deep",
+      "other"
+    ]
+  },
+  "summary": {
+    "total": 48,
+    "handwritten_deep": 41,
+    "generated": 0,
+    "empty_shell": 0,
+    "other": 7
+  },
+  "classifyPageStatusCounts": {
+    "noise": 25,
+    "deep_pass": 23
+  },
+  "pages": [
+    {
+      "path": "content/v1.4.7/zh/_index.md",
+      "bytes": 6789,
+      "bodyBytes": 6585,
+      "h2h3": 9,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/_index.md",
+      "bytes": 5657,
+      "bodyBytes": 5436,
+      "h2h3": 5,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/achievementsystem/_index.md",
+      "bytes": 1889,
+      "bodyBytes": 1735,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "other",
+      "evidence": [
+        "no-marker+not-deep+not-empty-shell"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/activitysystem/_index.md",
+      "bytes": 2590,
+      "bodyBytes": 2409,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "other",
+      "evidence": [
+        "no-marker+not-deep+not-empty-shell"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/campaign-ext/MBObjectBase.md",
+      "bytes": 13227,
+      "bodyBytes": 12960,
+      "h2h3": 14,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=6",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/campaign-ext/MBObjectManager.md",
+      "bytes": 16617,
+      "bodyBytes": 16327,
+      "h2h3": 18,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=8",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/campaign-ext/_index.md",
+      "bytes": 3384,
+      "bodyBytes": 3141,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/campaign/Campaign.md",
+      "bytes": 21539,
+      "bodyBytes": 21215,
+      "h2h3": 17,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=10",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/campaign/CampaignBehaviorBase.md",
+      "bytes": 11266,
+      "bodyBytes": 11029,
+      "h2h3": 10,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=9",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/campaign/CampaignEvents.md",
+      "bytes": 28979,
+      "bodyBytes": 28680,
+      "h2h3": 23,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=5",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/campaign/CampaignGameStarter.md",
+      "bytes": 15136,
+      "bodyBytes": 14900,
+      "h2h3": 15,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=5",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/campaign/IFaction.md",
+      "bytes": 14660,
+      "bodyBytes": 14381,
+      "h2h3": 15,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=4",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/campaign/_index.md",
+      "bytes": 3372,
+      "bodyBytes": 3182,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/core-extra/Game.md",
+      "bytes": 13772,
+      "bodyBytes": 13503,
+      "h2h3": 16,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=8",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/core-extra/ViewModel.md",
+      "bytes": 12883,
+      "bodyBytes": 12609,
+      "h2h3": 16,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=6",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/core-extra/_index.md",
+      "bytes": 3033,
+      "bodyBytes": 2784,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/core/MBSubModuleBase.md",
+      "bytes": 15421,
+      "bodyBytes": 15153,
+      "h2h3": 17,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=10",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/core/Module.md",
+      "bytes": 13209,
+      "bodyBytes": 12919,
+      "h2h3": 16,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=6",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/core/_index.md",
+      "bytes": 2222,
+      "bodyBytes": 2066,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "other",
+      "evidence": [
+        "no-marker+not-deep+not-empty-shell"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/custombattle/_index.md",
+      "bytes": 2760,
+      "bodyBytes": 2535,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/engine/GauntletLayer.md",
+      "bytes": 12277,
+      "bodyBytes": 12051,
+      "h2h3": 16,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=6",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/engine/MBDebug.md",
+      "bytes": 15165,
+      "bodyBytes": 14948,
+      "h2h3": 16,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=5",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/engine/_index.md",
+      "bytes": 3413,
+      "bodyBytes": 3160,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/gui/ScreenBase.md",
+      "bytes": 11858,
+      "bodyBytes": 11619,
+      "h2h3": 15,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=5",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/gui/ScreenLayer.md",
+      "bytes": 12370,
+      "bodyBytes": 12108,
+      "h2h3": 14,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=4",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/gui/ScreenManager.md",
+      "bytes": 13926,
+      "bodyBytes": 13664,
+      "h2h3": 17,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=6",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/gui/_index.md",
+      "bytes": 2823,
+      "bodyBytes": 2630,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/mission-ext/_index.md",
+      "bytes": 3123,
+      "bodyBytes": 2915,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/mission/Agent.md",
+      "bytes": 17716,
+      "bodyBytes": 17444,
+      "h2h3": 19,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=2",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/mission/Mission.md",
+      "bytes": 21526,
+      "bodyBytes": 21243,
+      "h2h3": 21,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=4",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/mission/MissionBehavior.md",
+      "bytes": 17514,
+      "bodyBytes": 17236,
+      "h2h3": 17,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=2",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/mission/MissionState.md",
+      "bytes": 10632,
+      "bodyBytes": 10376,
+      "h2h3": 11,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=4",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/mission/_index.md",
+      "bytes": 2258,
+      "bodyBytes": 2090,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "other",
+      "evidence": [
+        "no-marker+not-deep+not-empty-shell"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/modulemanager/_index.md",
+      "bytes": 2455,
+      "bodyBytes": 2263,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "other",
+      "evidence": [
+        "no-marker+not-deep+not-empty-shell"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/network/_index.md",
+      "bytes": 2601,
+      "bodyBytes": 2375,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "other",
+      "evidence": [
+        "no-marker+not-deep+not-empty-shell"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/sandbox/_index.md",
+      "bytes": 2759,
+      "bodyBytes": 2547,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/save-system/LoadContext.md",
+      "bytes": 9919,
+      "bodyBytes": 9656,
+      "h2h3": 15,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=6",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/save-system/SaveContext.md",
+      "bytes": 11118,
+      "bodyBytes": 10835,
+      "h2h3": 16,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=6",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/save-system/SaveManager.md",
+      "bytes": 9573,
+      "bodyBytes": 9331,
+      "h2h3": 11,
+      "classifyPage": {
+        "status": "deep_pass",
+        "reasons": [
+          "mental>80",
+          "dep-or-see-links=6",
+          "real-csharp-example",
+          "overview-ok"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "classifyPage:deep_pass",
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/save-system/_index.md",
+      "bytes": 3314,
+      "bodyBytes": 3119,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/system/_index.md",
+      "bytes": 2494,
+      "bodyBytes": 2272,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "other",
+      "evidence": [
+        "no-marker+not-deep+not-empty-shell"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/api/viewmodel/_index.md",
+      "bytes": 2935,
+      "bodyBytes": 2749,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/architecture/_index.md",
+      "bytes": 3942,
+      "bodyBytes": 3727,
+      "h2h3": 4,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/architecture/module-system.md",
+      "bytes": 7790,
+      "bodyBytes": 7548,
+      "h2h3": 11,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "no-type-metadata"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/architecture/save-system.md",
+      "bytes": 6260,
+      "bodyBytes": 6006,
+      "h2h3": 8,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "no-type-metadata"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/architecture/sdk-overview.md",
+      "bytes": 7107,
+      "bodyBytes": 6880,
+      "h2h3": 6,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "no-type-metadata"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/architecture/ui-stack.md",
+      "bytes": 8481,
+      "bodyBytes": 8220,
+      "h2h3": 8,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "no-type-metadata"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.4.7/zh/architecture/version-delta.md",
+      "bytes": 7623,
+      "bodyBytes": 7365,
+      "h2h3": 9,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "no-type-metadata"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    }
+  ]
+}

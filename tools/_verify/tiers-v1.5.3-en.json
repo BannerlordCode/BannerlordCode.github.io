@@ -1,0 +1,160 @@
+{
+  "tree": "v1.5.3",
+  "language": "en",
+  "generatedAt": "2026-10-07T04:58:18.431Z",
+  "pageCount": 6,
+  "criteria": {
+    "generationMarkers": [
+      "的自动生成类参考",
+      "Auto-generated class reference",
+      "的自动生成战役动作参考",
+      "Auto-generated campaign action reference"
+    ],
+    "skeletonCommentRegex": "<!--\\s*v.*-skeleton\\s*-->",
+    "emptyShellSignatures": [
+      "它有什么状态",
+      "它允许你做什么",
+      "它保存的状态"
+    ],
+    "descriptionAutoMarkers": [
+      "的自动生成类参考。",
+      "Auto-generated"
+    ],
+    "deepPageRule": "classifyPage status === 'deep_pass' OR (bodyBytes > 2500 AND h2h3Sections >= 1)",
+    "bodyDefinition": "file text after the closing frontmatter delimiter; bytes = UTF-8 byte length",
+    "h2h3Definition": "count of body lines matching /^#{2,3}\\s+/m",
+    "tierOrder": [
+      "generated",
+      "empty_shell",
+      "handwritten_deep",
+      "other"
+    ]
+  },
+  "summary": {
+    "total": 6,
+    "handwritten_deep": 5,
+    "generated": 0,
+    "empty_shell": 0,
+    "other": 1
+  },
+  "classifyPageStatusCounts": {
+    "family_entry_pass": 1,
+    "noise": 5
+  },
+  "pages": [
+    {
+      "path": "content/v1.5.3/en/_index.md",
+      "bytes": 12643,
+      "bodyBytes": 12374,
+      "h2h3": 10,
+      "classifyPage": {
+        "status": "family_entry_pass",
+        "reasons": [
+          "family-index-with-purpose-entries"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.5.3/en/api/_index.md",
+      "bytes": 9200,
+      "bodyBytes": 8900,
+      "h2h3": 5,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.5.3/en/architecture/_index.md",
+      "bytes": 1752,
+      "bodyBytes": 1572,
+      "h2h3": 3,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "section-index-or-family-shell"
+        ]
+      },
+      "tier": "other",
+      "evidence": [
+        "no-marker+not-deep+not-empty-shell"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.5.3/en/architecture/migration-from-1.4.5.md",
+      "bytes": 23993,
+      "bodyBytes": 23731,
+      "h2h3": 22,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "no-type-metadata"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.5.3/en/architecture/module-map.md",
+      "bytes": 10141,
+      "bodyBytes": 9911,
+      "h2h3": 5,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "no-type-metadata"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    },
+    {
+      "path": "content/v1.5.3/en/architecture/sdk-overview.md",
+      "bytes": 12614,
+      "bodyBytes": 12369,
+      "h2h3": 6,
+      "classifyPage": {
+        "status": "noise",
+        "reasons": [
+          "no-type-metadata"
+        ]
+      },
+      "tier": "handwritten_deep",
+      "evidence": [
+        "body>2500B+h2h3"
+      ],
+      "markerHits": [],
+      "descAutoHits": [],
+      "sigHits": []
+    }
+  ]
+}

@@ -2,6 +2,28 @@
 
 **Added by lead-20 at 2026-10-07T10:15Z, after the report was committed (`a2fd18e329`).**
 
+## ⚠⚠ SECOND, INDEPENDENT REASON THIS READING IS NOT VALID FOR THE REPO
+
+**The measured object was NOT the repository's object — even at the time it was measured.**
+
+```
+The worker's perf-site used a SENTINEL-MODIFIED copy of templates/macros/page-navigation.html
+  · required to make the build succeed at all (the withdrawn variant crashed on missing keys)
+  · the same sentinel fix was applied to BOTH A and B, so the A/B *difference* is still one-line
+    (18.8 MB vs empty JSON) — the delta is meaningful
+  · but the *absolute* times are of a template that is NOT byte-identical to any repo version
+⇒ Therefore: the delta (65.4 ms/page) describes the load cost of that variant;
+  the absolute times (162.3 s / 71.5 s) describe a template that exists nowhere in the repo.
+```
+**Why this is placed at the TOP and not in a trailing "unverified" list:** a reader who sees the report
+without this would reasonably assume the measured template is the one in the repo. It is not, and that
+difference is a **precondition of the measurement's validity**, not a footnote.
+
+**Rule (same family as the rest of this file):** before measuring, confirm the object being measured is
+*currently on disk* AND *the one you claim it is*.
+
+---
+
 ## The report measured an implementation that was NEVER COMMITTED
 
 ```

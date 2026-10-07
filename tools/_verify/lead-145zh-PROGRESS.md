@@ -1626,6 +1626,56 @@ d844164e(07:45) → de072002(08:19) → ff5e35e7(09:06) → df895016(09:11 ★�
 **⇒ lead-22 的推论我采纳：读数报告应直接引用判分器自己打在头部的 `# judge sha256 = …`，**
 **而不是引用外部冻结值** —— 否则冻结值一旦落后于文件，报告与读数就脱钩。
 
+---
+
+## 36. ★★ 第一次【worker 质疑错了】—— 与 §29 的 `../../api/` 互为镜像
+
+### 36.1 事件
+
+worker-208（b06/W-N）开工前报「派单链接事实错误」：
+> `ls content/v1.4.5/zh/` 只有 `api/ architecture/ …`，**没有 `zh/campaign/`** ⇒ 所以应为 `../campaign/Hero`
+
+**它的前半句对，后半句的推理错。**
+
+### 36.2 错因：用【文件路径】心算，而解析用的是【页面 route】
+
+```
+页面文件： content/v1.4.5/zh/api/campaign-ext/X.md
+它的 route：/v1.4.5/zh/api/campaign-ext/X/     ← clean URL，末尾多一层
+⇒ 从 route 出发要【两个 ..】才回到 zh/api/：
+   .. → /v1.4.5/zh/api/campaign-ext/
+   .. → /v1.4.5/zh/api/            ← 到这里才对
+```
+**门禁与尺都用 URL 口径**（`audit-links.mjs` 默认 `AUDIT_MODE=url`）。
+
+### 36.3 决定性证据（两条）
+
+```
+① 解析到哪：
+   ../campaign/Hero    → content/v1.4.5/zh/api/campaign-ext/campaign/Hero.md   MISSING ❌
+   ../../campaign/Hero → content/v1.4.5/zh/api/campaign/Hero.md                EXISTS  ✅
+② 本线已冻结的 25 页：
+   ../../campaign/* 出现 500+ 次（MobileParty 110 · Campaign 108 · Hero 96 · Settlement 84…）
+   ../campaign/（一级）出现 0 次
+   而这 25 页全部 PASS、J5R unresolved=0
+```
+
+### 36.4 ★ 处置与可复用判据
+
+**已向 worker-208 发出更正（#15324），并明确告知：继续质疑，不要因为这次错了就不质疑。**
+因为**上一个单元的 worker 用同样方式抓到了我一个真的错**（§22.3 的 `:52/:54/:56`）。
+
+**⇒ 两边合起来得到一条可复用判据（比“谁对”更重要）：**
+```
+把解析器的数学在【真实树】上复算一遍 —— 谁的说法与它对不上，谁就错。
+不以权威定对错（无论权威是 Lead 还是 worker）。
+```
+**⇒ 而这是「相对链接形态取决于页面深度」的又一个实例 —— 只不过这次错的是【深度口径本身】。**
+| 案例 | 谁错 | 错在哪 |
+| --- | --- | --- |
+| §29 的 `../../api/` | **Lead（我）** | 把子集读数当全树，断言了一个合法种群是错的 |
+| §36 的 `../campaign/` | **worker** | 用文件路径代替 route 做心算，少算一层 |
+
 **已派 `worker-175`（#13161）**做 b01 的 4 页收尾（6 处字符串替换），brief 里明确列出**不许动**的
 `](../../campaign/)` 与 `](../)`。
 

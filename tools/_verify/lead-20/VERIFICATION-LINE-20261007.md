@@ -1932,3 +1932,60 @@ tools/_verify/lead-20/wH-grep.mjs · wH-sample.mjs
 
 **⇒ Boss 同时更正了它自己的归因**：它先前说「我跑了不带 pathspec 的 git commit」是**替别人认领成因**，
 依据只是「我记得我提交过 tools 文件」，**没有 `git log -1` 核 subject** ⇒ 又一次「没先取数就归因」。
+
+---
+
+## 65. SRC_ROOT 回归夹具：**已完成**（Boss #17786 ⑥③ 的指示，本线早已交付）
+
+```
+tools/_verify/lead-20/srcroot-regression.mjs
+  size=5,726 B · mtime=2026-10-07T11:20:42Z · sha256_16=271cbcedbf0020bc
+  commit f0c5c9df52 · git status = clean（已入库）
+  运行：node tools/_verify/lead-20/srcroot-regression.mjs
+  ⇒ 17 PASS / 0 FAIL / 【ALL ASSERTIONS HOLD】· exit 0
+断言（15 条逻辑断言，展开为 17 行 PASS）：
+  A1 MissionState.cs 六棵树 = 421/408/356/410/410/412；且 :4512 在【每棵树】都越界
+  A2 Hero.cs @1.3.15 = 3151（:2500 在界内）· @1.4.5 = 2406（:2500 越界）· 两树判决必须不同
+  A3 Mission.cs:4315 在两树里是不同代码（1.3.15 = `public void EndMission()`）
+  A4 判分器逐页推导：v1.3.15 页 → bannerlord-1.3.15 · v1.4.5 页 → bannerlord-1.4.5\Bannerlord.Source
+★ 脚本内写明路径前提（repo 绝对路径，不用 cwd）—— 即 §53 那条坑的直接应用。
+```
+
+---
+
+## 66. ★ 两条新原则（Boss #17786）
+
+### ① 「同一产物存在两份」不是冗余，是【两个都会过期的东西】
+```
+★ 派单必须给【绝对路径】，或明确写「所有路径以仓库根 BannerlordCode.github.io 为基准」。
+★ 只保留仓库内那一份为正本；cwd 根那份若是 harness 检查器所需，应为【指针/说明文件】而非副本。
+⇒ 理由：cwd 根那份【在 git 之外】⇒ 两份将来会静默漂移，而漂移不会被任何判据发现。
+⇒ Boss 同时更正了自己的诊断：它早先报的「arch-topic-evidence.tsv 在仓库外还有一个 1201 B 版本」
+   不是【同一文件的两个版本】，是【两个同名的树】。
+⇒ 它也因此说明「相对路径」那条规则的理由说窄了：
+   不是「会报写完但磁盘没变」，而是 **「会写到【另一个同名树】里，那棵树 git 看不见、别人复核不到」**
+   —— 比「没变」更危险，因为它【确实写了】。
+```
+
+### ② 「尺盲」与「页有缺陷」可以【同时成立且不矛盾】
+```
+同一页 IGameStateManagerListener：
+  · lead-23 说「被判 stub 是尺的盲区」（对：尺的 `hasRealCsharpExample` 太窄）
+  · W-G 说「页确实有缺陷」（对：代码块无真实调用）
+⇒ 【两个都对，且不矛盾】—— 尺盲 ≠ 页无缺陷。
+⇒ 这又一次证明：「报告整体可信/不可信」是错误的分法，必须【逐条裁定】。
+```
+
+---
+
+## 67. Layer 1 线【关闭】（Boss #17786 ④ 裁定，本线确认不重开）
+
+```
+裁定：那条线【已关闭，不再开 worker】。
+理由：Layer 1 的证据文件 shape-valid but value-empty
+      （每个 grepOutput = "(NO HIT ON PAGE)" · 每个 treeHitCount = null · treeSample = "(tree grep error…)")
+⇒ 依据「载体撤回后针对它的一切测量（含结构性结论）同时失效」
+   + 「代理指标报 0 ⇒ 只能说『该代理未发现』」
+⇒ 所以它不是「待做」，是【不可测量】⇒ 记 UNMEASURED 并关线。
+⇒ 本线已执行：worker-228 已取消；其真发现（version-skew 15% · substring fragment）已保留在 §63。
+```

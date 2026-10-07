@@ -568,10 +568,23 @@ function judge(pageRel, mode) {
     if (trailing.length) out.fail.push(`J11 leaf-link-with-trailing-slash=${trailing.length} [${[...new Set(trailing)].join(', ')}]`);
   }
 
-  // J12：同一页内【同一链接文字】的所有出现必须使用【同一 href】
-  //   （boss-3 #14814 提出的「单页自检」升级为判据：同页两条指向同一类的链接一对一错
-  //     的实例就是 InformationData 在 155 行与 166 行 href 不同）
+  // J12：同一页内【同一链接文字】的所有出现必须指向【同一目标】
+  //   ★ boss-3 #15943 精化：比【归一化后的目标】，不是比 href 字符串。
+  //   理由：`../Foo` / `./Foo` / `../Foo.md` / `../Foo/` 四种写法若指向同一目标，
+  //         应视为【同一个目标】；页内混用两种写法 ⇒ 也应 FAIL。
+  //   旧实现只比 href 字符串 ⇒ 会【漏掉】 `../Foo` vs `../Foo.md`（字符串不同、目标相同）
+  //         —— 而那正是今天另一批 8 条「多余 .md 后缀」的形态。
+  //   归一化：按页面 URL 目录求目标路径 → 去尾斜杠 → 去 `.md`
+  //   ⇒ J12 同时覆盖三类：① 同目标两种 href ② 同目标一种带 `.md` ③ 同目标多/少一层 `../`
+  //   豁免：`## 导航` 的回程链接（`../` / `../../`）与正文链接【文字不同】⇒ 不会误撞。
+  //         已知无「同文字但语义上应指向不同目标」的合法情形；若出现，在此登记豁免与理由。
   if (!isIndex) {
+    const fromUrl12 = pageFromUrl(pageRel);
+    const normTarget = (href) => {
+      const t = resolveTarget(fromUrl12, href);
+      if (t === null) return null;
+      return normalize(t).replace(/[\\/]+$/, '').replace(/\.md$/, '');
+    };
     const byText = new Map();
     const re12 = /\[([^\]]*)\]\(([^)\s]+)\)/g;
     let m12;
@@ -579,14 +592,26 @@ function judge(pageRel, mode) {
       const label = m12[1].trim();
       const href = m12[2].split('#')[0];
       if (!label || href.startsWith('http') || href.startsWith('mailto:')) continue;
-      if (!byText.has(label)) byText.set(label, new Set());
-      byText.get(label).add(href);
+      if (!byText.has(label)) byText.set(label, { targets: new Map(), hrefs: new Set() });
+      const rec = byText.get(label);
+      rec.hrefs.add(href);
+      const key = normTarget(href);
+      if (key !== null) rec.targets.set(key, href);
     }
-    const inconsistent = [...byText.entries()].filter(([, set]) => set.size > 1)
-      .map(([label, set]) => `${label} -> [${[...set].join(' | ')}]`);
+    // ★ 两个条件任一成立即违规（boss-3 #15943 的完整意图）：
+    //   · targets.size > 1 ⇒ 同文字指向了【不同目标】（含多/少一层 ../ 的变体）
+    //   · hrefs.size   > 1 ⇒ 同文字用了【不同写法】（含 `.md` 后缀、`./`、尾斜杠的变体）
+    //     注：后者必须单独判 —— 因为归一化会把 `../Foo` 与 `../Foo.md` 归为同一目标，
+    //         只看归一化目标就会【漏掉】那 8 条「多余 .md 后缀」的形态。
+    const inconsistent = [...byText.entries()]
+      .filter(([, rec]) => rec.targets.size > 1 || rec.hrefs.size > 1)
+      .map(([label, rec]) => {
+        const why = rec.targets.size > 1 ? 'different targets' : 'same target, different spellings';
+        return `${label} -> [${[...rec.hrefs].join(' | ')}] (${why})`;
+      });
     out.checks.J12_inconsistent_text = inconsistent;
     if (inconsistent.length) {
-      out.fail.push(`J12 same-link-text-different-href=${inconsistent.length} [${inconsistent.slice(0, 3).join('; ')}]`);
+      out.fail.push(`J12 same-link-text-different-target=${inconsistent.length} [${inconsistent.slice(0, 3).join('; ')}]`);
     }
   }
 

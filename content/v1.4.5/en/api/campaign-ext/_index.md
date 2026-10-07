@@ -224,6 +224,7 @@ Use `Mission.Current` only inside an already-created Mission, and prefer the Mis
 The existing child pages below form a complete identity index for known type names. Use it for lookup; it is not a substitute for the workflow, risk boundaries, or completion status of those leaf pages.
 
 <!-- BEGIN SECTION INDEX -->
+> 共 1641 个子页
 
 ## Parent Navigation
 
@@ -341,6 +342,7 @@ The existing child pages below form a complete identity index for known type nam
 - [BarberCampaignBehavior](./BarberCampaignBehavior)
 - [BarkAgent](./BarkAgent)
 - [BarkSelected](./BarkSelected)
+- [Army](./Army)
 - [BarrierInfo](./BarrierInfo)
 - [BasicAreaIndicator](./BasicAreaIndicator)
 - [BattleAgentLogic](./BattleAgentLogic)
@@ -760,6 +762,11 @@ The existing child pages below form a complete identity index for known type nam
 - [GauntletInventoryScreen](./GauntletInventoryScreen)
 - [GauntletKingdomScreen](./GauntletKingdomScreen)
 - [GauntletMainAgentDetectionView](./GauntletMainAgentDetectionView)
+- [CampaignBehaviorBase](./CampaignBehaviorBase)
+- [CampaignEventReceiver](./CampaignEventReceiver)
+- [CampaignEvents](./CampaignEvents)
+- [CampaignGameStarter](./CampaignGameStarter)
+- [CultureObject](./CultureObject)
 - [GauntletMapBarGlobalLayer](./GauntletMapBarGlobalLayer)
 - [GauntletMapBarView](./GauntletMapBarView)
 - [GauntletMapBasicView](./GauntletMapBasicView)
@@ -1631,6 +1638,7 @@ The existing child pages below form a complete identity index for known type nam
 - [SetWieldedItemIndex](./SetWieldedItemIndex)
 - [ShadowingAgentOffenseInfo](./ShadowingAgentOffenseInfo)
 - [ShadowingSecureZoneUsePoint](./ShadowingSecureZoneUsePoint)
+- [ItemRoster](./ItemRoster)
 - [ShipDestroyDetail](./ShipDestroyDetail)
 - [ShipOwnerChangeDetail](./ShipOwnerChangeDetail)
 - [ShipSoldNotificationItemVM](./ShipSoldNotificationItemVM)
@@ -1936,4 +1944,7 @@ The existing child pages below form a complete identity index for known type nam
 - [XsdElement](./XsdElement)
 
 
+- [ScreenBase](./ScreenBase)
+- [SiegeEvent](./SiegeEvent)
+- [TroopRoster](./TroopRoster)
 <!-- END SECTION INDEX -->

@@ -28,6 +28,7 @@ description: 本地化系统类参考目录
 `localization` 是展示层的"词源"。任何要把文字抛给玩家的地方都会用到它：例如 [core-extra](../core-extra/) 里的 [InformationManager](../core-extra/InformationManager/) 显示系统消息时，传入的就是 `TextObject` 经 `ToString()` 渲染后的字符串；英雄、道具等名称本身即 `TextObject`，由 `campaign`、`core` 等桶产出后再交本地化管线显示。它也是崩溃边界上的一环——详见 [崩溃边界](../../architecture/crash-boundaries/)：在 `GameTextManager` 尚未初始化的阶段调用 `GameTexts.FindText` 会拿到错误文本乃至抛 `NullReferenceException`，因此在游戏启动前解析本地化文本是常见踩坑点。
 
 <!-- BEGIN SECTION INDEX -->
+> 共 54 个子页
 
 ## ↑ 上级导航
 

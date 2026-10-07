@@ -3,6 +3,7 @@ title: "gui index"
 description: Gauntlet UI system class reference index
 ---
 <!-- BEGIN SECTION INDEX -->
+> 共 321 个子页
 
 ## Parent Navigation
 

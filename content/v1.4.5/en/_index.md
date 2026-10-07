@@ -66,4 +66,12 @@ bannerlord-1.4.5/Bannerlord.Source/
 - [v1.4.5 Architecture](./architecture/) — Module structure and developer entry points for Bannerlord v1.4.5
 - [XML Reference](./xml-reference/) — XML configuration schemas: module.xml, submodules, game menus, conversations, settlements, items
 
+### N
+
+- [native](./native/)
+
+### G
+
+- [guide](./guide/)
+
 <!-- END SECTION INDEX -->

@@ -44,6 +44,7 @@ description: Gauntlet UI 系统类参考目录
 | TaleWorlds.GauntletUI.Data | [ViewBindCommandInfo](./ViewBindCommandInfo) | 描述 Movie 数据层发现的命令绑定。 | ViewModel 绑定期间。 |
 
 <!-- BEGIN SECTION INDEX -->
+> 共 326 个子页
 
 ## ↑ 上级导航
 

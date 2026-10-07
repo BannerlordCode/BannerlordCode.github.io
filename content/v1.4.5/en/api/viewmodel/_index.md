@@ -3,6 +3,7 @@ title: "viewmodel index"
 description: ViewModel class reference index
 ---
 <!-- BEGIN SECTION INDEX -->
+> 共 600 个子页
 
 ## Parent Navigation
 

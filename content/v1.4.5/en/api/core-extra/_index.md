@@ -3,6 +3,7 @@ title: "core-extra index"
 description: Core / Library extension class reference index
 ---
 <!-- BEGIN SECTION INDEX -->
+> 共 530 个子页
 
 ## Parent Navigation
 

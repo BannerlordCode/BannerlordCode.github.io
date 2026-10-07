@@ -112,6 +112,7 @@ int count = objArray.Count;
 4. **线程安全** - 原生接口通过 static 字段访问，需要注意线程安全
 
 <!-- BEGIN SECTION INDEX -->
+> 共 7 个子页
 
 ## ↑ 上级导航
 

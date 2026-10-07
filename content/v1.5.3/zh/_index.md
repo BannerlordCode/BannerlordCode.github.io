@@ -1,6 +1,6 @@
 ---
 title: Bannerlord v1.5.3 文档
-description: Bannerlord v1.5.3 模块编辑文档 — 分层架构大局观、当前已手写的 27 篇类型深写页清单、以及按桶给出的诚实覆盖缺口。
+description: Bannerlord v1.5.3 模块编辑文档 — 分层架构大局观、当前已手写的 187 篇类型深写页清单、以及按桶给出的诚实覆盖缺口。
 ---
 
 # Bannerlord v1.5.3 / 骑砍2 v1.5.3
@@ -33,22 +33,38 @@ v1.5.3 是一个**源码完整**的版本：`bannerlord-1.5.3/` 根目录下有 
 
 ## 这棵树现在有什么
 
-**27 篇逐页手写的类型深写页**，全部在 `api/` 下 8 个桶里。每篇都不是签名清单，
+**187 篇逐页手写的类型深写页**，全在 `api/` 下 10 个桶里。每篇都不是签名清单，
 而是「这个类负责什么 → 每个成员是干什么用的 → 心智模型 → 可运行的例子」。
-下表按桶列出，并给出 1.5.3 源码里的真实路径，可逐行核对。
+下表按桶给出**精确页数**（磁盘实测，命令可重跑）与源码位置。
 
-| 桶 | 类型页（链到该页） | 源码路径（`bannerlord-1.5.3/` 下） |
-|---|---|---|
-| `campaign` (12) | [Campaign](./api/campaign/Campaign) · [CampaignData](./api/campaign/CampaignData) · [CampaignGameStarter](./api/campaign/CampaignGameStarter) · [CampaignGameMode](./api/campaign/CampaignGameMode) · [CampaignBehaviorBase](./api/campaign/CampaignBehaviorBase) · [ICampaignBehavior](./api/campaign/ICampaignBehavior) · [GameModels](./api/campaign/GameModels) · [CampaignEventDispatcher](./api/campaign/CampaignEventDispatcher) · [CampaignEventReceiver](./api/campaign/CampaignEventReceiver) · [CampaignPeriodicEventManager](./api/campaign/CampaignPeriodicEventManager) · [MBCampaignEvent](./api/campaign/MBCampaignEvent) · [CampaignEvents](./api/campaign/CampaignEvents) | `TaleWorlds.CampaignSystem/{Campaign,CampaignData,CampaignGameStarter,CampaignGameMode,CampaignBehaviorBase,ICampaignBehavior,GameModels,CampaignEventDispatcher,CampaignEventReceiver,CampaignPeriodicEventManager,MBCampaignEvent,CampaignEvents}.cs` |
-| `campaign-ext` (2) | [CampaignBehaviorManager](./api/campaign-ext/CampaignBehaviorManager) · [DefaultSettlementProsperityModel](./api/campaign-ext/DefaultSettlementProsperityModel) | `TaleWorlds.CampaignSystem/CampaignBehaviors/CampaignBehaviorManager.cs`、`GameComponents/DefaultSettlementProsperityModel.cs` |
-| `core-extra` (3) | [GameModel](./api/core-extra/GameModel) · [MBGameModel](./api/core-extra/MBGameModel) · [GameModelsManager](./api/core-extra/GameModelsManager) | `TaleWorlds.Core/{GameModel,MBGameModel,GameModelsManager}.cs` |
-| `core` (1) | [MBSubModuleBase](./api/core/MBSubModuleBase) | `TaleWorlds.MountAndBlade/MBSubModuleBase.cs` |
-| `mission` (2) | [Mission](./api/mission/Mission) · [MissionState](./api/mission/MissionState) | `TaleWorlds.MountAndBlade/{Mission,MissionState}.cs` |
-| `gui` (2) | [ScreenManager](./api/gui/ScreenManager) · [ScreenBase](./api/gui/ScreenBase) | `TaleWorlds.ScreenSystem/{ScreenManager,ScreenBase}.cs` |
-| `engine` (1) | [GauntletLayer](./api/engine/GauntletLayer) | `TaleWorlds.Engine.GauntletUI/GauntletLayer.cs` |
-| `save-system` (4) | [SaveManager](./api/save-system/SaveManager) · [ISaveDriver](./api/save-system/ISaveDriver) · [SaveContext](./api/save-system/SaveContext) · [SaveableTypeDefiner](./api/save-system/SaveableTypeDefiner) | `TaleWorlds.SaveSystem/SaveManager.cs`、`ISaveDriver.cs`、`Save/SaveContext.cs`、`SaveableTypeDefiner.cs` |
+★ **完整页面清单不在这张表里。** `api/` 下那 8 个没有桶索引的桶（`campaign/`、`campaign-ext/`、`core-extra/`、`gui/`、
+`engine/`、`save-system/`、`mission/`、`core/`）不是 Zola section，它们的类型页都算 `api/` section 的页面，
+所以 [/api/](./api/) 会在正文下方**自动列出全部 187 篇**（一行一个链接）。这正是为什么本表只给数字 ——
+把 187 条链接手抄一份到这里，只会重复一遍并且多出 187 个可能打错的机会。
 
-加上本页与 [架构](./architecture/) 下 4 页，本版本一共 **37 个页面**。
+| 桶 | 已撰写页 | 这一桶在源码里的什么位置 |
+|---|---:|---|
+| `campaign` | 14 | `TaleWorlds.CampaignSystem` 根命名空间，加 `Actions` / `MapEvents` / `Settlements` / `Party` / `Roster` / `Election` / `GameMenus` / `CharacterDevelopment` 等子命名空间 |
+| `campaign-ext` | 8 | `TaleWorlds.CampaignSystem` 的 `CampaignBehaviors` / `Issues` / `ComponentInterfaces` / `GameComponents` / `Conversation.*`，加 `TaleWorlds.ObjectSystem` |
+| `core-extra` | 44 | `TaleWorlds.Core` / `TaleWorlds.Library` / `TaleWorlds.DotNet` 及其子命名空间 |
+| `storymode` | 92 | `StoryMode` / `StoryMode.GameComponents` / `StoryMode.StoryModePhases` / `StoryMode.Quests.*` / `StoryMode.GauntletUI.Tutorial` / `StoryMode.ViewModelCollection.Missions` |
+| `localization` | 19 | `TaleWorlds.Localization` / `.TextProcessor` / `.TextProcessor.LanguageProcessors` |
+| `save-system` | 4 | `TaleWorlds.SaveSystem` / `.Definition` / `.Save` / `.Load` / `.Resolvers` |
+| `gui` | 2 | `TaleWorlds.ScreenSystem` / `TaleWorlds.GauntletUI` / `TaleWorlds.TwoDimension` |
+| `mission` | 2 | `TaleWorlds.MountAndBlade`（5 个战斗门面类的 carve-out） |
+| `engine` | 1 | `TaleWorlds.Engine` / `TaleWorlds.Diamond` |
+| `core` | 1 | `TaleWorlds.MountAndBlade`（程序集入口 carve-out） |
+| **合计** | **187** | 另有 **9 个桶页数为 0**：`mission-ext` / `sandbox` / `viewmodel` / `custombattle` / `network` / `system` / `modulemanager` / `activitysystem` / `achievementsystem`。完整 19 桶缺口表见下 |
+
+**先读这 6 张**（入口级；其余 181 篇从 [/api/](./api/) 的自动清单进）：
+[MBSubModuleBase](./api/core/MBSubModuleBase) ·
+[Campaign](./api/campaign/Campaign) ·
+[CampaignBehaviorBase](./api/campaign/CampaignBehaviorBase) ·
+[CampaignGameStarter](./api/campaign/CampaignGameStarter) ·
+[GameModels](./api/campaign/GameModels) ·
+[SaveManager](./api/save-system/SaveManager)
+
+本树 `content/v1.5.3/zh/` 下共 **195 个 `.md`**：**190 篇内容页**（`api/` 187 篇 + `architecture/` 3 篇）加 **5 个 `_index.md`**。
 
 ## 这棵树现在没有什么
 
@@ -56,53 +72,57 @@ v1.5.3 是一个**源码完整**的版本：`bannerlord-1.5.3/` 根目录下有 
 
 - 1.5.3 源码在排除噪声命名空间（`AutoGenerated`、`obj/` 等）后扫描到 **6 824 个类型**
   （class 5 621 / enum 610 / struct 322 / interface 242 / delegate 29）。
-- 本树只覆盖了其中 **27 个**门面类，也就是 **0.4%**。
-- 其余 **6 797 个类型尚未撰写**。不是「即将到来」，也不是「按需生成」——
-  就是目前没有对应页面。你在 `api/` 下的 8 个有页的桶里找不到的类型，都属于这一批。
-- **桶索引页不存在。** `api/<桶>/` 这种目录索引页（`mission-ext/`、`sandbox/`、`viewmodel/` 等）
-  同样**尚未撰写**，所以站内没有任何链接指向它们。旧版本文档里那种「点桶名进目录」的走法在 v1.5.3 下走不通，
-  请从本页或 [模块地图](./architecture/module-map) 进。
+- 本树已覆盖其中 **187 个**类型，也就是 **2.7%**。
+- 其余 **6 637 个类型尚未撰写**。不是「即将到来」，也不是「按需生成」——
+  就是目前没有对应页面。你在 `api/` 下的 10 个有页的桶里找不到的类型，都属于这一批。
+- **桶索引页只有 2 个，不是 19 个。** v1.5.3 全树共 9 个 `_index.md`，其中只有
+  [api/localization/](./api/localization/) 与 [api/storymode/](./api/storymode/) 两个桶目录有自己的 `_index.md`，
+  可以点进去；其余 8 个有页面的桶（`campaign/`、`campaign-ext/`、`core-extra/`、`gui/`、`engine/`、`save-system/`、
+  `mission/`、`core/`）与 9 个尚无页面的桶都没有，**点它们的桶名会 404**。
+  旧版本文档里那种「点桶名进目录」的走法对这 17 个桶走不通，请从 [/api/](./api/)（自动列出全部 187 篇）、
+  本页或 [模块地图](./architecture/module-map) 进。
 
 ### 缺口按桶分布
 
 数字来源：`tools/_v153_inventory.json`（只读报告型数据，字段 `types[].dir`，实跑
 `tools/_v153_inventory.mjs` 生成于 `../bannerlord-1.5.3`）。「已撰写」列是本树 `content/v1.5.3/zh/api/`
-下实际存在的 `.md` 文件数。「尚未撰写」按「类型数 − 已撰写页数」估，假定一类型一页 —— 这是本站的约定，
+下实际存在的**叶子页**数（不含 `_index.md`）。「尚未撰写」按「类型数 − 已撰写页数」估，假定一类型一页 —— 这是本站的约定，
 不是逐类型核对的结果。
 
 | 桶 | 1.5.3 类型数 | 已撰写页 | 尚未撰写 |
 |---|---:|---:|---:|
 | `mission-ext` | 2 065 | 0 | 2 065 |
 | `sandbox` | 1 247 | 0 | 1 247 |
-| `campaign-ext` | 771 | 2 | 769 |
-| `campaign` | 706 | 12 | 694 |
+| `campaign-ext` | 771 | 8 | 763 |
+| `campaign` | 706 | 14 | 692 |
 | `viewmodel` | 653 | 0 | 653 |
-| `core-extra` | 516 | 3 | 513 |
+| `core-extra` | 516 | 44 | 472 |
 | `gui` | 273 | 2 | 271 |
 | `engine` | 216 | 1 | 215 |
-| `storymode` | 183 | 0 | 183 |
+| `storymode` | 183 | 92 | 91 |
 | `save-system` | 56 | 4 | 52 |
 | `custombattle` | 40 | 0 | 40 |
 | `network` | 32 | 0 | 32 |
-| `localization` | 21 | 0 | 21 |
+| `localization` | 21 | 19 | 2 |
 | `system` | 19 | 0 | 19 |
 | `modulemanager` | 9 | 0 | 9 |
 | `activitysystem` | 6 | 0 | 6 |
 | `mission` | 5 | 2 | 3 |
 | `achievementsystem` | 4 | 0 | 4 |
 | `core` | 2 | 1 | 1 |
-| **合计** | **6 824** | **27** | **6 797** |
+| **合计** | **6 824** | **187** | **6 637** |
 
 三个值得记住的结论：
 
-1. **缺口不是均匀的。** `mission-ext` 一个桶就占了 2 065 个未撰写类型（占全部缺口的 30%），
+1. **缺口不是均匀的。** `mission-ext` 一个桶就占了 2 065 个未撰写类型（占全部缺口的 31%），
    它是 `TaleWorlds.MountAndBlade` 里除三个战斗门面以外的全部 —— 战斗控件、`MissionBehavior`、
    `MissionLogic`、多人全都在这里。
-2. **已写的 27 篇全在「谁调用我」的位置上** —— 模块入口、战役根对象、事件派发器、行为管理器、
-   屏幕管理器、存档总管。它们是 mod 必然要碰到的那一层，而这一层的类型总数其实不大
-   （`core` 2 个、`mission` 5 个、`campaign-ext` 里被选中的 2 个都是入口级）。
-3. **`sandbox` / `storymode` 是整桶空白**（1 247 + 183）。这两个是可玩战役模块，
+2. **已写的 187 篇分布极不均**：`storymode` 一个桶就占 92 篇（主线剧情完整实现），`core-extra` 44 篇，
+   `localization` 19 篇，而 `mission-ext` / `sandbox` / `viewmodel` 三个大桶仍是 **0 页**。
+   换句话说：**这棵树不是「按重要性从高到低写的」，而是按桶写的**，读覆盖面时要看桶，不要看总数。
+3. **`sandbox` 是整桶空白**（1 247 个类型 0 页），它是可玩战役模块，
    具体实现类（`SandBoxGameManager` 等）在源码树里存在，但本树尚未撰写它们的类型页。
+   `storymode`（183 个类型）则相反 —— 已有 **92 页**，是覆盖最多的桶。
 
 ### 分桶归属不是主观判断
 

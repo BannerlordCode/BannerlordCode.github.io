@@ -1,6 +1,6 @@
 ---
 title: "API 参考 — 已手写覆盖到哪里"
-description: "v1.5.3 的 API 类参考层：8 个有页面的桶、76 篇手写类型深写页的按任务阅读路径，以及 6 824 个类型下的诚实缺口。"
+description: "v1.5.3 的 API 类参考层：10 个有页面的桶、76 篇手写类型深写页的按任务阅读路径，以及 6 824 个类型下的诚实缺口。"
 ---
 
 # API 参考：已手写覆盖到哪里
@@ -12,12 +12,14 @@ description: "v1.5.3 的 API 类参考层：8 个有页面的桶、76 篇手写�
 1. **上一级是 [架构](../architecture/)。** 先在大局观里确认两件事：这个对象活多久（`Game` / `Campaign` / `Mission` 各是哪个生命周期）、
    该引哪个程序集。分不清这两件事就直接翻类型页，会在「为什么我的 Behavior 没被调用」上卡很久。
    模块地图见 [模块地图](../architecture/module-map)，跨版本差异见 [从 1.4.5 迁移](../architecture/migration-from-1.4.5)。
-2. **同级的 [版本首页](../)。** 19 个桶的完整缺口表在那里，本页只讲「哪 8 个桶已经有页」。
+2. **同级的 [版本首页](../)。** 19 个桶的完整缺口表在那里，本页只讲「哪 10 个桶已经有页」。
 3. **这一层之下是具体类型页。** 目前 **76 篇**，全部手写，每篇是「这个类负责什么 → 每个成员干什么用 → 心智模型 → 能跑的示例」。
 
-> **桶索引页不存在。** `api/<桶>/` 这种目录索引页（`mission-ext/`、`sandbox/`、`viewmodel/` 等）在 v1.5.3 下
-> **一张都没有**，所以本页所有链接直接落到类型页，桶名不可点。旧版本文档里「点桶名进目录」的走法在这里走不通，
-> 要确认某个类型属于哪一桶，去 [模块地图](../architecture/module-map) 查。
+> **桶索引页只有 2 个，不是 19 个。** v1.5.3 全树共 9 个 `_index.md`，其中只有 `api/localization/` 与 `api/storymode/`
+> 两个桶目录有自己的 `_index.md`；其余 8 个有页面的桶（`campaign/`、`campaign-ext/`、`core-extra/`、`gui/`、`engine/`、
+> `save-system/`、`mission/`、`core/`）以及 9 个尚无页面的桶都没有，所以那 8 个**桶名不可点** —— 点它们会 404。
+> 本页所有链接因此直接落到类型页；要确认某个类型属于哪一桶，去 [模块地图](../architecture/module-map) 查。
+> 另外：因为那 8 个桶不是 Zola section，它们的类型页都算 `api/` 这个 section 的页面，**本站会在本页正文下方自动列出全部 76 篇**。
 
 ## mod 作者从哪进（按任务）
 
@@ -88,7 +90,7 @@ description: "v1.5.3 的 API 类参考层：8 个有页面的桶、76 篇手写�
 [CampaignBehaviorBase](./campaign/CampaignBehaviorBase)（行为什么时候被回调）、[SaveManager](./save-system/SaveManager)（字段怎么进存档），
 加上作为上下文的 [Mission](./mission/Mission)、[Campaign](./campaign/Campaign)、[ScreenManager](./gui/ScreenManager)。
 
-## 8 个有页面的桶
+## 10 个有页面的桶
 
 「1.5.3 类型数」来自只读实测报告 `tools/_v153_inventory.json`（生成于 `bannerlord-1.5.3/`，
 按权威桶表 `tools/_dir-map-canonical.json` 的命名空间规则归桶）。
@@ -104,6 +106,8 @@ description: "v1.5.3 的 API 类参考层：8 个有页面的桶、76 篇手写�
 | `save-system` | 4 | 56 | `TaleWorlds.SaveSystem`(27)、`.Definition`(15)、`.Save`(5)、`.Load`(6)、`.Resolvers`(3) —— **存档的一条纵切链**：类型定义 → 序列化/反序列化上下文 → 读写驱动。 |
 | `mission` | 2 | 5 | **刻意的入口类 carve-out**：`TaleWorlds.MountAndBlade` 里的 5 个战斗门面类 `Mission` / `MissionState` / `MissionBehavior` / `Agent` / `Formation`。只留「谁调用我」的那一层；战斗控件、`MissionLogic`、`Behavior*`、多人组件全在 `mission-ext` 桶（本树**尚无任何页面**）。 |
 | `core` | 1 | 2 | **刻意的入口类 carve-out**：`TaleWorlds.MountAndBlade` 里的 `MBSubModuleBase` / `Module`，即 mod 的程序集入口。`core-extra` 才是 `TaleWorlds.Core` / `TaleWorlds.Library` 的地盘，两个桶名字像、装的东西完全不同。 |
+| `storymode` | 92 | 183 | `StoryMode`(17)、`StoryMode.GameComponents`(18，含 `.CampaignBehaviors` 11)、`StoryMode.StoryModePhases`(5)、`StoryMode.Quests.*`(FirstPhase 9 / SecondPhase 8 / ThirdPhase 3 / TutorialPhase 8 / PlayerClanQuests 4 / ConspiracyQuests 3)、`StoryMode.GauntletUI.Tutorial`(72)、`StoryMode.ViewModelCollection.Missions`(9) —— **主线剧情的完整实现**：`StoryModeManager`、三阶段主线、各任务与任务行为、StoryMode 覆写的战役模型、教程链路。是 10 个有页面的桶里覆盖最多的一个。 |
+| `localization` | 19 | 21 | `TaleWorlds.Localization`(8)、`.TextProcessor`(5)、`.TextProcessor.LanguageProcessors`(8) —— **文本对象与本地化管线**：`TextObject`、`MBTextManager`、`LocalizedTextManager`、各语言 `TextProcessor`、语音与语法处理器。每个 mod 写界面文本都会碰到它。 |
 
 `mission-ext` 与 `core-extra` 是本任务里最容易被误解的两个名字：前者的完整 API 尚未撰写，后者的桶本身也只有 44 页。
 
@@ -116,7 +120,7 @@ description: "v1.5.3 的 API 类参考层：8 个有页面的桶、76 篇手写�
 - 它默认**一类型一页**。而 `GameModels`、`CampaignEvents` 这类是**门面聚合页**，一页覆盖多个类型
   （例如 `GameModels` 一页串起战役侧所有模型类型的注册与取用路径），所以 76 页实际覆盖的类型数 > 76。
 - 因此**真实缺口页数只会比 6 748 更小，不会更大**。1.1% 是页数占比，不是类型覆盖率。
-- 逐桶的完整缺口表在 [版本首页](../)，那里 19 个桶全列了；本页只覆盖有页面的 8 个。
+- 逐桶的完整缺口表在 [版本首页](../)，那里 19 个桶全列了；本页只覆盖有页面的 10 个。
 
 ## 四个已裁决的归属问题（省得你按名字找错桶）
 

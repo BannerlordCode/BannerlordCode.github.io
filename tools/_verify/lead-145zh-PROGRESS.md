@@ -1962,6 +1962,89 @@ crash-boundaries.md       numstat 2 0  → +> Section schema: … uses 13 sectio
 
 ---
 
+## 51. ★★ 新指派：接手 v1.4.6 整棵树（boss-3 #17223）—— 三条实情
+
+### 51.1 ★ 实情 A：这不是「重写」，是【从零建树】——已验证流水线不直接迁移
+
+```
+v1.4.6/zh 现有  105 个 .md     v1.4.5/zh 有 9,477 个
+v1.4.6/en 现有    6 个 .md     v1.4.5/en 有 7,193 个
+⇒ 11,175「缺页」= 整棵树几乎不存在，不是「壳页待改写」
+⇒ 我的形态（读现有页取 metadata → 重写正文）在这里【无现有页可读】
+⇒ 新增风险（改写时不存在）：
+   ① 桶/路径分配  ② frontmatter 与 metadata 块约定  ③ 父索引条目（不接进 _index.md 就是 orphan）
+```
+**⇒ 三件都有权威工具（已核）：**
+```
+tools/_dir-map-canonical.json（17,654 B）— 【规范】namespace→bucket
+   · 自述「Authoritative for v1.4.6 / v1.4.7 / v1.5.3」「Boss-owned; Leads apply it verbatim」
+   · matchSemantics = 【longest-prefix-wins，不是 first-match】
+   · defaultDir = core-extra · collisionRule = 同桶同名 ⇒ `<NamespaceLeaf>__<TypeName>.md`
+   · schemaVersion 5 + `_parseContract` 要求消费方【FAIL-CLOSED 断言 ===5】
+   · ★ 它自己警告：「legacy v1.4.5 树不是安全真值源」（2,199 类型名跨桶重复；171/513 命名空间被拆）
+tools/_dir_map_contract.mjs    — 上述契约的 fail-closed 消费器
+tools/_verify/types-1.4.6.json（2.9 MB，13,164 个类型，每个带 {namespace,name,kind,file}）
+```
+**⇒ 除「正文」外全部可机械确定。**
+
+### 51.2 ★ 实情 B：规模是「一个程序」，不是一个会话
+
+```
+zh 5,551 + en 5,621 = 11,172 页；按已验证的 5 页/批 ⇒ 约 2,235 批
+⇒ 不承诺「做完」，承诺：【把 create-from-scratch 流水线跑通 + 交尽可能多的批】
+```
+
+### 51.3 ★ 实情 C：我自己先踩了一次同族陷阱（自查抓出）
+
+```
+第一遍把队列条目读成【裸类型名】⇒ 报「393/400 无法解析」——【假的】
+实际是 `Namespace.Type`（如 `SandBox.CampaignBehaviors.AlleyCampaignBehavior`）
+⇒ 按 `Namespace.Type` 重算：5,551/5,551 【全部】可解析到源文件（0 个无法解析）
+⇒ 与今天那条同族：判据假设了一个形态，而语料是另一个
+```
+
+### 51.4 队列与桶分布（选批依据）
+
+```
+tools/_verify/missing-types-1.4.6-zh.txt   5,552 行（5,551 条目 + 1 注释）
+tools/_verify/missing-types-1.4.6-en.txt   5,622 行（5,621 条目 + 1 注释）
+首行：# N=5551 sampled=2026-10-07T11:09:55.594Z cmd: node tools/_verify/make-coverage-census.mjs [R1-filtered]
+
+全队列按 dir-map 解析后的桶分布：
+  mission-ext 1629 · campaign-ext 751 · campaign 640 · sandbox 631 · viewmodel 604
+  core-extra 554 · gui 259 · storymode 180 · engine 136 · save-system 49
+  custombattle 40 · network 32 · localization 20 · system 18 · modulemanager 8
+```
+
+### 51.5 工具链已在 v1.4.6 上验过
+
+```
+content/v1.4.6/zh/api/campaign/Campaign.md → J3 tree=…\bannerlord-1.4.6  ✅ 真的落到那棵树
+content/v1.4.5/…（同名类型）              → J3 tree=…\bannerlord-1.4.5\Bannerlord.Source ✅ 两树分开
+布局差异已处理：1.4.6/1.4.7/1.5.3 都【没有】Bannerlord.Source 这一层 ⇒ srcRootFor 自动用 base
+```
+
+### 51.6 第一批（最小桶 `modulemanager`，共 8 条，该桶现仅 `_index.md`）
+
+```
+content/v1.4.6/zh/api/modulemanager/DependedModule.md             <= TaleWorlds.ModuleManager/DependedModule.cs (struct)
+content/v1.4.6/zh/api/modulemanager/IPlatformModuleExtension.md   <= …/IPlatformModuleExtension.cs (interface)
+content/v1.4.6/zh/api/modulemanager/ModuleCategory.md             <= …/ModuleCategory.cs (enum)
+content/v1.4.6/zh/api/modulemanager/ModuleHelper.md               <= …/ModuleHelper.cs (class)
+content/v1.4.6/zh/api/modulemanager/ModuleInfo.md                 <= …/ModuleInfo.cs (class)
+（同桶剩余 3 条：ModuleType · SubModuleInfo · SubModuleTags ⇒ 下一批）
+```
+**worker 切分**：2 个（并发 ≤2）— W-A 3 页 · W-B 2 页
+**推进顺序**：modulemanager 8 → system 18 → localization 20 → network 32 → custombattle 40 → save-system 49 → …
+
+### 51.7 开工前待确认两件（不阻塞）
+```
+① v1.4.6 的父索引 _index.md 是否已备好接收新页？（新页不接进去就是 orphan ⇒ 打算同批补链）
+② 沿用 v1.4.6 现有 105 页的 metadata 形态（【英文】`**Source:**`）还是 v1.4.5 的中文 `**源文件：**`？
+```
+
+---
+
 ## 37. ★★ `J13`：行号在界内但指错行 —— 在我自己的已冻结批次里抓到 12 条
 
 ### 37.1 来源

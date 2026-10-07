@@ -601,7 +601,7 @@ staged = 0
 | `RELEASE-CONTENT-COMMIT-GATE.md` | 288 | 已开文件核；BANNER 2194（75 例外）/ NONBANNER 1201（21 结构例外） |
 | `NAV-REWORK-QUEUE.md` | — | **已独立复核 3 条关键断言，全部成立** |
 | `RELEASE-TOOLS-CLASSIFY.md` | 273 | 已开文件核；112 行中仅 29 行实测，**83 行标 NOT MEASURED** |
-| `RELEASE-CONFLICT-TEMPLATES.md` | — | **失败：worker-71 两次 settle 从未写出文件，已放弃** |
+| `RELEASE-CONFLICT-TEMPLATES.md` | — | **不单独创建（Boss #10710 裁定）**：该计划名的内容已由 `NAV-REWORK-QUEUE.md` 交付（55 行，worker-85，Boss 已验收）——它就是「6 个冲突文件的差分 + 丢失导航行为逐项登记（文件/宏位置 + 读者后果）」。**不再派 worker 造第二个文件，避免重复。** 原 worker-71 两次 settle 未落盘，已放弃。 |
 
 **worker 失败统计（如实）**：tools 分类任务换了 3 个 worker（worker-74 → 放弃；worker-91 成功但只测 29/112）。
 失败形态是「无限采集、不落盘」，不是环境报错。

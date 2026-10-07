@@ -910,6 +910,49 @@ Boss #11446 报 `BROKEN_LINKS=65 / FILES_WITH_BROKEN=7`；本线在 HEAD=`62926c
 差异**不是矛盾**：写作线在并发修链（Boss 也报了 112→65 的下降），这是移动靶。
 ⇒ 引用时**必须带 SHA 与时点**；Boss 要求的「65 → 63」应以**同一时刻的两把尺**重测。
 
+### 3.25 证据入库 checkpoint（Boss #11545 / #11639）
+
+**动机**（Boss 立规则的触发事件）：`nav-I-scope-decisions.md` 被孤儿角色 worker-110 覆盖后**不可回放**
+（从未进 git、无副本）。规则：**凡下一轮会被引用的产物必须在产出后尽快提交，或改版即改名留档。**
+
+**4 个主题批次，`content/**` 全程为 0**（每批提交后用 `git show --name-only | grep -c '^content/'` 自检，均为 0）：
+
+| 批 | 主题 | SHA | 文件数 | message 首行 |
+|---|---|---|---|---|
+| A | 导航线 | `d24dc2db7d` | 54 | `evidence(nav): checkpoint the navigation line's evidence, reports and writer` |
+| B | 普查线 | `5634731afe` | 54 | `evidence(census): checkpoint the coverage census, type/tier inventories and queues` |
+| C | 架构线 | `7b0a77df0c` | 4 | `evidence(arch): checkpoint the architecture plan and its census/evidence tables` |
+| D | 发布线（分类背书数据） | `b3aba09401` | 6 | `evidence(release): checkpoint the backing data for the content commit gate` |
+| E | H0 执行器 | 见下 | 1 | `chore(tools): land the H0 policy executor so the writing lines' checks are reproducible` |
+
+**E 批（Boss #11639 点名）**：`tools/lib/handwritten-policy.mjs`（91+/3−）单独提交。
+另外两个点名文件的**实测状态**（不是转述）：
+```
+tools/nav-section-index.mjs   在 HEAD? YES   （已随 A 批 d24dc2db7d 入库，现已 clean）
+tools/nav-orphans.mjs         在 HEAD? YES   （已随 2a2e94118d 入库，keyOf 命中 9 处）
+```
+⇒ 写作线「补链」与 H0 检查所需的三个工具**现在都可从干净检出复现**。
+
+**未提交且按裁定保持 untracked**：`tools/gen-nav-graph.mjs`（裁定「不采纳」；它仍在工作区，本线**未动、未提交**）。
+`data/nav-graph.json`（33MB）已由 lead-13 删除，本线未重新生成。
+
+**故意排除（并说明理由，避免被读成遗漏）**：
+```
+.cg-banner-diff.txt (1.0MB) / .cg-banner-sigs.txt (375KB) —— 纯 scratch，可由 .cg-numstat.txt 重生
+nul / _zola_*.log / _tmp_ab.mjs / _probe_af.mjs / .rev145tmp/ —— STRAY，按裁定不提交、不删除
+其他线的旧脚本（_contract-*、_ledger-*、_docs-review-*、_evidence-* 等）—— 不在 Boss 点名的主题内，未动
+worker 临时文件（.tg-*、.audit-*）—— 本线 scratch，已自行清理
+```
+
+### 3.26 ⚠️ 顺序提醒（Boss #11639，直接影响 content 批次）
+
+```
+nav-section-index.mjs --dry-run 目前提议的新增项是那个【重复页】./campaign-events
+⇒ 在 lead-13 删掉重复页之前，不要让任何 --apply 跑过 content/v1.3.15/*/architecture/，
+  否则会把重复页接进索引（把一个待删页变成已入链页）。删完再 apply。
+```
+本线**不会**自己跑 `--apply`（写 content/ 不在本线授权内）；此条登记为顺序约束。
+
 ### 3.13 本轮结论（按覆盖边界写，不用「全部完成」）
 **覆盖了**：merge 落地并推送（merge commit `55658f4d9d`，双 parent）；用户两个生产修复语义保留并核对；
 台账/快照/门禁读数/分类产物落盘并推送（`b46a3cfdc5`、`3ca61ac8eb`、`7b8b9880d2`）；

@@ -223,6 +223,7 @@ C:\Users\<用户名>\Documents\Mount & Blade II Bannerlord\logs\rgl_log.txt
 3. 测试所有功能
 
 <!-- BEGIN SECTION INDEX -->
+> 共 5 个子页
 
 ## ↑ 上级导航
 

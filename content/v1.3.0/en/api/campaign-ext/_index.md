@@ -3,6 +3,7 @@ title: "campaign-ext index"
 description: Campaign extension class reference index
 ---
 <!-- BEGIN SECTION INDEX -->
+> 共 1223 个子页
 
 ## Parent Navigation
 
@@ -99,6 +100,7 @@ description: Campaign extension class reference index
 - [BarberCampaignBehavior](./BarberCampaignBehavior)
 - [BarkAgent](./BarkAgent)
 - [BarkSelected](./BarkSelected)
+- [actions](./actions/)
 - [BarrierInfo](./BarrierInfo)
 - [BasicAreaIndicator](./BasicAreaIndicator)
 - [BattleAgentLogic](./BattleAgentLogic)
@@ -854,6 +856,7 @@ description: Campaign extension class reference index
 - [ProdigalSonIssue](./ProdigalSonIssue)
 - [ProdigalSonIssueBehavior](./ProdigalSonIssueBehavior)
 - [ProdigalSonIssueQuest](./ProdigalSonIssueQuest)
+- [global](./global/)
 - [ProdigalSonIssueTypeDefiner](./ProdigalSonIssueTypeDefiner)
 - [PSAccessObject](./PSAccessObject)
 - [PurchaseGrainTutorialQuest](./PurchaseGrainTutorialQuest)
@@ -1297,4 +1300,9 @@ description: Campaign extension class reference index
 - [WoundAllEnemiesCheat](./WoundAllEnemiesCheat)
 
 
+- [networkmessages](./networkmessages/)
+- [root](./root/)
+- [sandbox](./sandbox/)
+- [storymode](./storymode/)
+- [taleworlds](./taleworlds/)
 <!-- END SECTION INDEX -->

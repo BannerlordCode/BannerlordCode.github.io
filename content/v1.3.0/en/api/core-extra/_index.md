@@ -3,6 +3,7 @@ title: "core-extra index"
 description: Core / Library extension class reference index
 ---
 <!-- BEGIN SECTION INDEX -->
+> 共 528 个子页
 
 ## Parent Navigation
 
@@ -195,6 +196,7 @@ description: Core / Library extension class reference index
 - [GameStateManager](./GameStateManager)
 - [GameStateManagerType](./GameStateManagerType)
 - [GameText](./GameText)
+- [codegeneration](./codegeneration/)
 - [GameTextHelper](./GameTextHelper)
 - [GameTextManager](./GameTextManager)
 - [GameTexts](./GameTexts)
@@ -307,6 +309,7 @@ description: Core / Library extension class reference index
 
 ### J
 
+- [eventsystem](./eventsystem/)
 - [JobType](./JobType)
 
 ### L
@@ -383,6 +386,7 @@ description: Core / Library extension class reference index
 - [MultiSelectionInquiryData](./MultiSelectionInquiryData)
 
 ### N
+- [graph](./graph/)
 
 - [NamespaceCode](./NamespaceCode)
 - [NauticalInformation](./NauticalInformation)
@@ -428,6 +432,7 @@ description: Core / Library extension class reference index
 - [Property](./Property)
 - [PropertyBasedTooltipVM](./PropertyBasedTooltipVM)
 - [PropertyChangedWithBoolValueEventArgs](./PropertyChangedWithBoolValueEventArgs)
+- [http](./http/)
 - [PropertyChangedWithColorValueEventArgs](./PropertyChangedWithColorValueEventArgs)
 - [PropertyChangedWithDoubleValueEventArgs](./PropertyChangedWithDoubleValueEventArgs)
 - [PropertyChangedWithFloatValueEventArgs](./PropertyChangedWithFloatValueEventArgs)
@@ -524,6 +529,7 @@ description: Core / Library extension class reference index
 - [SunInformation](./SunInformation)
 
 ### T
+- [imageidentifiers](./imageidentifiers/)
 
 - [TeamSideEnum](./TeamSideEnum)
 - [TeamSideEnumExtensions](./TeamSideEnumExtensions)
@@ -601,4 +607,7 @@ description: Core / Library extension class reference index
 - [XmlHelper](./XmlHelper)
 
 
+- [newsmanager](./newsmanager/)
+- [root](./root/)
+- [viewmodelcollection](./viewmodelcollection/)
 <!-- END SECTION INDEX -->

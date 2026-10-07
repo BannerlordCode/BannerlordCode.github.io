@@ -3,6 +3,7 @@ title: "campaign-ext 目录"
 description: 战役扩展类（Settlement/Workshop/PartyTemplate 等）参考目录
 ---
 <!-- BEGIN SECTION INDEX -->
+> 共 1223 个子页
 
 ## ↑ 上级导航
 
@@ -99,6 +100,7 @@ description: 战役扩展类（Settlement/Workshop/PartyTemplate 等）参考目
 - [BarberCampaignBehavior](./BarberCampaignBehavior)
 - [BarkAgent](./BarkAgent)
 - [BarkSelected](./BarkSelected)
+- [actions](./actions/)
 - [BarrierInfo](./BarrierInfo)
 - [BasicAreaIndicator](./BasicAreaIndicator)
 - [BattleAgentLogic](./BattleAgentLogic)
@@ -854,6 +856,7 @@ description: 战役扩展类（Settlement/Workshop/PartyTemplate 等）参考目
 - [ProdigalSonIssue](./ProdigalSonIssue)
 - [ProdigalSonIssueBehavior](./ProdigalSonIssueBehavior)
 - [ProdigalSonIssueQuest](./ProdigalSonIssueQuest)
+- [global](./global/)
 - [ProdigalSonIssueTypeDefiner](./ProdigalSonIssueTypeDefiner)
 - [PSAccessObject](./PSAccessObject)
 - [PurchaseGrainTutorialQuest](./PurchaseGrainTutorialQuest)
@@ -1297,4 +1300,9 @@ description: 战役扩展类（Settlement/Workshop/PartyTemplate 等）参考目
 - [WoundAllEnemiesCheat](./WoundAllEnemiesCheat)
 
 
+- [networkmessages](./networkmessages/)
+- [root](./root/)
+- [sandbox](./sandbox/)
+- [storymode](./storymode/)
+- [taleworlds](./taleworlds/)
 <!-- END SECTION INDEX -->

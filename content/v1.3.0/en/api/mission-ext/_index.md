@@ -3,6 +3,7 @@ title: "mission-ext index"
 description: Mission extension class reference index
 ---
 <!-- BEGIN SECTION INDEX -->
+> 共 1115 个子页
 
 ## Parent Navigation
 
@@ -513,6 +514,7 @@ description: Mission extension class reference index
 - [IFormationDeploymentPlan](./IFormationDeploymentPlan)
 - [IFormationUnit](./IFormationUnit)
 - [IGameNetworkHandler](./IGameNetworkHandler)
+- [componentinterfaces](./componentinterfaces/)
 - [ImageIdentifierTextureProvider](./ImageIdentifierTextureProvider)
 - [IMissionAgentSpawnLogic](./IMissionAgentSpawnLogic)
 - [IMissionBehavior](./IMissionBehavior)
@@ -891,6 +893,7 @@ description: Mission extension class reference index
 - [OrderFlag](./OrderFlag)
 - [OrderOfBattleFormationExtensions](./OrderOfBattleFormationExtensions)
 - [OrderOfBattleHotKeyCategory](./OrderOfBattleHotKeyCategory)
+- [gauntletui](./gauntletui/)
 - [OrderOfBattleSounds](./OrderOfBattleSounds)
 - [OrderTroopPlacer](./OrderTroopPlacer)
 - [OrderType](./OrderType)
@@ -1187,4 +1190,14 @@ description: Mission extension class reference index
 - [XmlInformationType](./XmlInformationType)
 
 
+- [missionrepresentatives](./missionrepresentatives/)
+- [missions](./missions/)
+- [missionspawnhandlers](./missionspawnhandlers/)
+- [network](./network/)
+- [objects](./objects/)
+- [options](./options/)
+- [root](./root/)
+- [source](./source/)
+- [view](./view/)
+- [viewmodelcollection](./viewmodelcollection/)
 <!-- END SECTION INDEX -->

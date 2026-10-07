@@ -734,6 +734,74 @@ FILES_WITH_BROKEN=7
 
 前一对不属本门禁范围（不叫 `_index.md`）；后一对才是门禁的 2 个 NEW（新建整页 = 写正文，窄口外）。
 
+### 3.18 known-failures 登记（Boss #10920/#11090 派单，已完成）
+
+**提交：`aa49698fb6`**（单独一个 commit，遵该文件自己的 `$how_to_raise`：「commit that single file on its own」）。
+手写登记，**不是 `--emit-baseline`**：只写目标真的存在于 `static/` 的那 2 条。
+
+**登记理由的验证方式（不是信文档，是阳性对照）**：
+
+```
+先试了「看构建产物」： public/v1.3.15/{en,zh}/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt 不存在
+  ⇒ 但进一步查： public/ 里连 shell.css 都没有，static/ 一个文件都没被拷进去
+  ⇒ 当前 public/ 是一次【被杀掉的构建】的残留（zola 把 static 拷贝放在最后），
+    所以它【两边都不能作证】。这个发现本身要记下来。
+再跑阳性对照（最小 fixture，秒级）：
+  static/probe.txt + static/sub/dir/nested.txt  →  zola build  →
+    public/probe.txt 与 public/sub/dir/nested.txt 逐字节相同（zola 0.22.1）
+  ⇒ 证实 zola 【确实】把 static/ 原样发布（含子目录）
+  ⇒ 所以 static/v1.3.15/{en,zh}/native-1.3.15-src/ALL-FUNCTIONS-LIST.txt（166,428 B）
+    在【完整构建】里确实可达；两把尺都只在 content/ 里解析目标，是尺的覆盖缺口。
+```
+
+**登记前 / 登记后（两套数，都是实测）**：
+
+```
+                          before            after
+_check_links_exist.mjs    net new dead=35   net new dead=33
+                          registered=0      registered=2
+                          51 total dead     51 total dead (35 unique pairs)
+                          35 unique pairs
+
+audit-links.mjs           BROKEN_LINKS=51   BROKEN_LINKS=51   ← 【未变，设计使然】
+```
+
+**「只有这 2 条被新解析掉」的证明**：登记后仍是 `51 total dead (35 unique pairs)`，
+只有 `registered` 从 0 变 2、`net new` 从 35 降 33 —— 即**只有这 2 对**改了状态，其余 33 对仍是 net-new。
+
+### 3.19 🔴 两条必须更正 Boss 前提的事实
+
+1. **`audit-links.mjs` 读【没有任何】baseline 通道，所以「登记后 BROKEN_LINKS=0」不可达**。
+   ```
+   $ grep -nE 'known|baseline|allow|failures' tools/audit-links.mjs
+   （无任何匹配）
+   ```
+   baseline 属于**另一把尺** `tools/_check_links_exist.mjs`（`BASELINE_FILE = tools/data/known-failures-links.json`，
+   `_check_links_exist.mjs:88`）。两把尺的谓词也不同：audit-links 数 `BROKEN_LINKS`；
+   `_check_links_exist` 判「dead 不增长」（net_new = 当前集 MINUS 基线集，按 (page,href) 逐项比）。
+   ⇒ 登记能让**后者**的 net_new 降 2，**永远不能**让前者的 BROKEN_LINKS 归零。
+   要让 audit-links 归零，只有两条路：真修好那 47 条，或给 audit-links 新增 baseline 通道（= 改判据，Boss 已要求先报不自行改）。
+2. **计数在【上升】，不是快归零**。本线在同一个登记 commit 前后数分钟内测到：
+   ```
+   _check_links_exist net new dead:  35  →  33（登记生效）  →  38（几分钟后，写作线继续写新页）
+   total dead unique pairs:          35  →  35            →  40
+   audit-links BROKEN_LINKS:         51  →  51            →  （同步上升）
+   ```
+   ⇒ 「47 条写作线新页断链」也是一个**移动靶**。任何「登记后应为 0」的验收都需带时点与 SHA。
+
+### 3.20 CRLF 修复的边界（Boss #11226 要求带纪律）
+
+Boss 担心「CRLF 修复会把真缺陷也一起修掉」。**不会，且可证明**：
+本线的 CRLF 修复只动 `tools/_verify/check-section-index-scope.mjs`（`_index.md` 作用域门禁），
+**与 `audit-links.mjs` 无关**——后者本线一字未改（`git log -- tools/audit-links.mjs` 无本线提交）。
+
+```
+修前/修后对 31 个 _index.md 的判定【完全相同】：23 IN-SCOPE / 6 OUT-OF-SCOPE / 2 NEW
+变的只有报告的行号与理由：
+  campaign/_index.md: 「第 1 行」→ 「第 103 行」（第 1 行是 CRLF 假阳性）
+未改任何阈值/白名单（该文件里没有阈值可改）。
+```
+
 ### 3.13 本轮结论（按覆盖边界写，不用「全部完成」）
 **覆盖了**：merge 落地并推送（merge commit `55658f4d9d`，双 parent）；用户两个生产修复语义保留并核对；
 台账/快照/门禁读数/分类产物落盘并推送（`b46a3cfdc5`、`3ca61ac8eb`、`7b8b9880d2`）；

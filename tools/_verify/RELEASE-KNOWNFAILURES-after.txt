@@ -1,0 +1,21 @@
+# AFTER REGISTRATION (final, note corrected to cite the fixture control)
+# at_utc: 2026-10-07T05:54:41Z
+# HEAD: fe8190ea1756ad71806cb0e9b3ce6e2d07365170
+
+## node tools/_check_links_exist.mjs
+
+RESULT: FAIL (net new dead = 33; 51 total dead (35 unique pairs), of which 2 were already registered as known failures)
+
+## node tools/audit-links.mjs (UNCHANGED, by design)
+FILES=39031
+TOTAL_LINKS=149079
+AUDIT_MODE=url
+BROKEN_LINKS=51
+RESOLVE_OK_URL=148842
+RESOLVE_OK_FILE=110151
+RESOLVE_OK_EITHER=148886
+RESOLVE_OK_BOTH=110107
+RESOLVE_URL_ONLY=38735
+RESOLVE_FILE_ONLY=44
+RESOLVE_NEITHER=7
+FILES_WITH_BROKEN=7

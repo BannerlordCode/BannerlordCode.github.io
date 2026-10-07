@@ -148,3 +148,111 @@ lead-18 的冻结宣告里 9 个字节数与我实测**全部不符**（差 198�
 - `BROKEN_LINKS>0` ⇒ **非零退出**，可直接作写作线的**批级门禁**
 - 上线后第一个动作即抓到 §1 那条真 404（全站门禁只报「有 1 条」，它直接给出文件与目标）
 - 已知失败模式（已在文件头记录）：git 返回**仓库相对**路径，若与**绝对** root 前缀比对会得到 `CHANGED_FILES=0` 的假读数
+
+---
+
+## 8. Boss 裁定（2026-10-07，第 3 次重申，最短可执行版）
+
+```
+裁定 1：七节模板 = 【仅新页标准】（批次尺），不是全站标准。
+  ⇒ J2 / J10 从【站点缺陷口径】剔除；只在「本会话产出的批次」上使用。
+  ⇒ 不派任何基于 J2 的修复；不做几千页改名工程。
+  ⇒ 依据：## 导航 采用率 v1.3.0/zh 4/5300 · v1.3.15/zh 231/5690 · v1.4.5/zh 344/9477 · v1.4.7/zh 0/48；
+         且那 4 页实质内容在、只是节名不同（主要方法≈关键成员、使用示例≈真实示例）。
+
+裁定 2：783 页无回程链接 —— 【清单保留，不派逐页修复】。
+  ⇒ 修法在【模板层】：页面布局渲染 breadcrumb / 父级链接 ⇒ 一次覆盖全部 39k 页，不碰正文。
+  ⇒ 归属：并入 lead-13 正在重做的模板工作（它因「缺失 route 崩溃 + 每页 18.8MB」被要求撤下重做）。
+  ⇒ 本线不需要写 content/**；清单作为【分母与范围】保留。
+```
+
+**⇒ 因此本线不得据此派任何修复。** 清单与口径保留在 §3 与 `nav-up-link-gap.tsv`。
+
+---
+
+## 9. 判分器的「归属规则」缺陷：12 条假阳性（已证，且已被 lead-18 部分修掉）
+
+`content/v1.5.3/zh/api/campaign/Campaign.md`，`J3 bad=12`。逐条核源码后判定**页面是对的、尺是错的**：
+
+```
+页第 41 行：`new CampaignGameStarter(...)`（`:1952`）
+  bannerlord-1.5.3 Campaign.cs:1952 = CampaignGameStarter campaignGameStarter = new CampaignGameStarter(this.GameMenuManager, …)  ← 与页述完全一致
+页第 39 行：`Campaign.Current = null`（`:1694`）
+  Campaign.cs:1694 = Campaign.Current = null;                                                                                     ← 与页述完全一致
+Campaign.cs 共 3064 行 ⇒ 二者都在界内；尺却拿 EditorSceneMissionManager.cs（126 行）去核
+```
+
+**根因**：裸 `:N` 归给「最近一个完整引用」的文件，太粗。该页先引 `EditorSceneMissionManager.cs:45`，于是后续指回 `Campaign.cs` 的裸引用全被归错。
+**双向危害**：长文件引用拿短文件核 ⇒ 假阳性；短文件引用拿长文件核 ⇒ 真越界被静默放过。
+**核心命题：`行号在界内` 只有在【归属正确】时才有意义。** 与 `SRC_ROOT` 硬编码同族 —— 都发生在「引用该归属到哪棵树/哪个文件」这一步。
+
+**修前/修后（lead-18 的 `3dc897bc` 已把「不猜」做进去）**：
+```
+改前 127ee75a: J3 checked=25 (full=9 + bare-resolved=16) bad=12   ← 12 条谎报越界
+改后 3dc897bc: J3 checked=14 (full=9 + inBlock=5 + uniqFile=0) bad=1 · J4 unattributable=11
+```
+⇒ 从「12 条谎报」变成「1 条 + 11 条诚实地说『无法归属，不猜』」。
+**残留 1 条**：同块规则下 `:1694` 仍归到 `EditorSceneMissionManager.cs`。**「同块」优于「最近前一个」，但同块内存在多个不同 `.cs` 时仍会归错。**
+
+---
+
+## 10. ⚠ 尺的 sha churn 已造成**实际后果**：b05 读数不可复现
+
+```
+b05 冻结宣告用的尺：127ee75ae9c20d93  （= commit da1dfa7461 的 blob，按 git 逐版本核对）
+现在盘上的尺：      3dc897bc91f672dd  （= commit 984a6cc155 "declared-schema judging and J12, effective from b06"）
+```
+**同一批 5 页：**
+```
+127ee75a → JUDGE total=5 pass=5 fail=0     （lead-18 宣告的读数）
+3dc897bc → JUDGE total=5 pass=4 fail=1     （现在盘上的尺）
+   FAIL ActionCampaignOptionData.md  ✗ J4 unattributable-bare=6
+   deep_pass=5/5 · tier=handwritten_deep=5/5  （这两个口径未变）
+```
+**⇒ `984a6cc155` 标为「对 b06 及以后生效」，但它在判 b05 的页 ⇒ 生效范围的声明与实际行为不一致。**
+**⇒ 本线判定：这是【尺自身没守住「一个数必须说清它描述的是哪个瞬间/哪把尺」】，不是内容缺陷。** 需 lead-18 二选一：(a) 用新尺重判 b05 并重发冻结宣告；(b) 让尺可切换、b05 仍绑旧 sha。
+
+**附：本线自己也踩了重名 basename 的坑** —— 首次跑 b05 时用 `find` 抓到 7 个文件而非 5 个（`ActionNotes.md`、`ActionCampaignOptionData.md` 在多个桶下重名）。已改为显式路径。**「重名 basename 必须限定在页面自己的版本树/桶内」这条，本线刚警告过别人就自己踩了。**
+
+---
+
+## 11. 编造 API 检测（W-E / worker-202）· 中间读数 + 精度警告
+
+```
+phaseC-summary.json:
+  pages_scanned=39039 · pages_uncheckable=29（全部是 versions/* 与根 _index.md —— 无版本树）
+  identifiers_extracted=268430
+  layer1_flagged=2746   (distinct 1314)
+  layer2_flagged=2447   (distinct 1369)
+phaseE-layer2-hard.json = []  ·  phaseF-verify.json: 每棵树 index_gap=0
+```
+
+**★ 精度警告（必须与上面的数字同时引用）**：W-E 自己的 `sample_genuine` 列表里，大量条目**不是编造**：
+```
+InvalidCastException · StackOverflowException        ← .NET BCL 类型（本就不该出现在游戏源码里）
+OnShipXxx · AddXxx · XxxModel · OnXxx · TOther        ← 占位/模式记号，不是真实标识符
+MyDefectionModel · SettlementXxxModel                 ← 占位符，意为「你自己的模型」
+Extensions__TaleWorlds_Core · DependantModules        ← 配置键 / 模块字段
+```
+**⇒ `index_gap=0` 是对的（它们确实不在树里）；但「不在树里」≠「编造」。**
+**⇒ 因此 `layer1_flagged=2746` 在给出假阳性率之前【不得作为缺陷数使用】。**
+
+**已确认的真案例**：
+- **Layer 1（词边界全树 0 命中）**：`SaveManagerBase` · `ISaveable` · `DefineTypes` · `SetViewModel` · `LoadGame` · `ReadObject` · `WriteObject`
+- **Layer 2（存在但归属错）**：`SaveGame` 只存在于 `MBSaveLoad.cs`，页把它归属到 `SaveManager`
+- **反向前控制（必须抓不到，抓到即假阳性）**：`SaveableCampaignTypeDefiner.cs:52` —— 行号对、标识符对、**描述错**（页说注册 `Settlement`，真身注册 `Army`）
+
+**⇒ 能力边界（必须显式写明，不得留成隐含假设）**：机械手段可覆盖「名字是否真实」（③），**不能覆盖「描述是否属实」（⑤）**。后者只有人眼。
+
+---
+
+## 12. 四道判据的分工（本线整理）
+
+```
+① 断链            守【可达】            —— 已有，绿
+② 引用边界         守【行号不越界】       —— 已有，绿；但 in-bounds ≠ correct，且归属必须正确
+③ 标识符存在+归属   守【名字是否真实】     —— 无人守；词边界匹配，两层（W-E 测量中）
+④ 孤儿/回程         守【能走回去】        —— 已有弱口径 self-link-counts-as-inbound
+⑤ 语义正确性       守【描述是否属实】     —— ★ 机械不可覆盖，只有人眼
+```
+**任何一道绿都不代表另外三道绿。** 本日全部误判都来自把其中一道的绿当成全部。

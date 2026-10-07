@@ -1,0 +1,5 @@
+content/v1.4.5/zh/api/campaign-ext/AchievementsCampaignBehavior.md
+content/v1.4.5/zh/api/campaign-ext/ActionCampaignOptionData.md
+content/v1.4.5/zh/api/campaign-ext/ActionNotes.md
+content/v1.4.5/zh/api/campaign-ext/Add1000GoldCheat.md
+content/v1.4.5/zh/api/campaign-ext/Add100InfluenceCheat.md

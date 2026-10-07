@@ -1412,6 +1412,71 @@ node tools/audit-links.mjs > /tmp/gate.txt 2>&1
    `ActionCampaignOptionData` 26 条里 **19 条是裸 `:N`** —— **若没做 §20 的「J3 加上下文」扩展，
    这两页的引用覆盖面只有 2/37 与 7/26**。⇒ 那次扩展在这批直接体现价值。
 
+---
+
+## 33. ★★ 两项判据改动已落地（标为对 b06 起生效）
+
+**新尺 sha256 `ec583b0bb84b22eabe61294c8f67a1a0db0df028be4c1878e901ad5c970f6745`**
+**旧尺 `127ee75ae9c20d93` 仍可回放 b01–b05**（本批读数不改）。
+
+### 33.1 改动一：schema 声明式判定（boss-3 #14698）
+
+```
+· 声明来源：frontmatter `schema_sections: [A, B]` 或 页内 `## 节 schema 声明` + 项目列表
+· 有声明 ⇒ 判【声明 == 实际 H2 集合】（精确匹配；多一节或少一节都 FAIL）
+· 无声明 ⇒ 按类页七节判（= 现有严格度，一字不放）
+· 导航槽：有声明按声明（`NAV_RE = /导航|Navigation|Where to Go/`），无声明仍认 `导航`
+· J10 的允许链接小节 = 参见族 + 导航槽
+```
+
+### 33.2 改动二：`J12`（boss-3 #14814）
+
+```
+同一页内【同一链接文字】的所有出现必须使用【同一 href】
+实例：`InformationData` 在 155 行与 166 行 href 不同 ⇒ FAIL
+```
+
+### 33.3 ★★ 对照：**3 正向 + 10 负向**（全部逐条实测）
+
+| 类型 | 夹具 | 结果 | 隔离的判据 |
+| --- | --- | --- | --- |
+| 正向 | JudgeFixture | PASS | 类页模式（无声明 + 七节） |
+| 正向 | JudgeAliasSee | PASS | 参见族别名 |
+| 正向 | **JudgeDeclaredMatch** | PASS | ★ 声明 == 实际 |
+| 负向 | JudgeDeclaredMismatch | FAIL | ★ `missing=[摘要] extra=[概述]` |
+| 负向 | JudgeBadSameText | FAIL | ★ `J12 ... [TakePrisonerAction -> [../TakePrisonerAction \| ../CampaignEvents]]` |
+| 负向 | JudgeNoSee / JudgeBadHeading / JudgeBadCitation / JudgeBadLinkForm / JudgeBadMarker / JudgeBadUnresolved / JudgeBadProseLink / JudgeBadTrailingSlash | FAIL | 各自隔离一条 |
+
+### 33.4 ★ 无判定影响已证
+
+```
+b01 / b02 / b03 / b04 / b05  均 5/5 · deep_pass=5/5 · tier=5/5   （改前 = 改后）
+J12 inconsistent-text=0 （全部 25 页）· 无任何页使用声明式 schema（所以走的是类页模式，与改前等价）
+```
+
+### 33.5 ★★ 对照抓到了两个真缺陷（**这是本节最重要的部分**）
+
+**缺陷 1：我自己早先的 `SRC_ROOT` 改动（§25）就已经把正向对照打坏了，而我没发现。**
+```
+症状：JudgeFixture 在改 schema/J12 后 FAIL，报
+      J3 cannot bounds-check: page-not-under-content-<ver> ⇒ 5 refs UNCHECKABLE
+错因：versionOf() 用了 `^content/(v[\d.]+)/` 锚定；而夹具路径是
+      tools/_verify/lead-145zh-judge-fixture/content/v1.4.5/…  ⇒ ^ 锚定推不出版本树
+修法：改为匹配路径中【任意位置】的 content/<ver>/ 段
+⇒ 夹具 J3 tree 已恢复：bannerlord-1.4.5\Bannerlord.Source checked=5
+```
+**根因不是锚定写法，而是流程**：我在 §25 改了 `SRC_ROOT` 之后**只跑了 b01–b04 的无判定影响检查，没有重跑全部对照**。
+**⇒ 教训：改尺后必须重跑【全部对照】，不能只跑「无判定影响」那几批页。**
+（无判定影响只证明「对已有批次不变」，不证明「对照仍生效」。）
+
+**缺陷 2：声明小节自身是一个 H2，会让「声明 == 实际」永远不可能成立。**
+```
+`## 节 schema 声明` 本身就是 H2 ⇒ 它总会被算作 extra ⇒ 声明永远匹配不上
+修法：比较时从实际集合里剔除声明小节名（DECL_HEADING_RE）
+```
+**⇒ 这个缺陷是在【设计对照】时想出来的**：为了写「声明匹配应 PASS」的夹具，必须先回答「声明小节算不算实际 H2」。
+**⇒ 又一例：「先写对照」能把实现里的洞提前逼出来。**
+
 **已派 `worker-175`（#13161）**做 b01 的 4 页收尾（6 处字符串替换），brief 里明确列出**不许动**的
 `](../../campaign/)` 与 `](../)`。
 

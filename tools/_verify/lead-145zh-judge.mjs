@@ -90,7 +90,10 @@ const SRC_ROOT_V145 = resolve(REPO, '..', 'bannerlord-1.4.5', 'Bannerlord.Source
 //     bannerlord-1.3.0/**  bannerlord-1.3.15/**  bannerlord-1.4.6/**  bannerlord-1.4.7/**  bannerlord-1.5.3/**
 //   ⇒ 本尺【绝不静默回退到别的树】：推不出源根就报 UNCHECKABLE，而不是拿 1.4.5 顶替。
 function versionOf(pageRel) {
-  const m = toPosix(pageRel).match(/^content\/(v[\d.]+)\//);
+  // ★ 不能用 ^content/ 锚定：夹具在 tools/_verify/lead-145zh-judge-fixture/content/v1.4.5/…，
+  //   那时 ^ 锚定会推不出版本树 ⇒ 夹具的正向对照永远 FAIL（本会话真的踩到过）。
+  //   ⇒ 改为匹配路径中【任意位置】的 content/<ver>/ 段。
+  const m = toPosix(pageRel).match(/(?:^|\/)content\/(v[\d.]+)\//);
   return m ? m[1] : null;
 }
 const SRC_ROOT_CACHE = new Map();
@@ -118,6 +121,28 @@ const STATIC_ROOT = join(REPO, 'static');
 const SECTIONS = ['概述', '心智模型', '怎么用', '关键成员', '真实示例', '导航'];
 // 参见族：boss-3 #12561 裁定，出处 DISPATCH-TEMPLATE.md §0.0 的共现证据
 const SEE_FAMILY = ['参见', '依赖关系', '依赖图', '依赖'];
+// 导航槽候选名（J10 用；声明了 schema 时按声明判，见 §30.6）
+const NAV_RE = /导航|Navigation|Where to Go/i;
+
+// ---- 页内【声明的】schema（boss-3 #14698 裁定：声明==实际；未声明 ⇒ 走类页七节） ----
+function declaredSchema(text, body) {
+  const { frontmatter } = splitFrontmatter(text);
+  const mList = frontmatter.match(/^schema_sections:\s*\[(.*?)\]/m);
+  if (mList) {
+    const names = mList[1].split(',').map((s) => s.trim().replace(/^["']|[\"']$/g, '')).filter(Boolean);
+    if (names.length) return { names, source: 'frontmatter:schema_sections' };
+  }
+  const secRe = /^##\s*节\s*schema\s*声明\s*$/im;
+  const m = body.match(secRe);
+  if (m) {
+    const rest = body.slice(m.index + m[0].length);
+    const next = rest.search(/^##\s+/m);
+    const block = next < 0 ? rest : rest.slice(0, next);
+    const names = [...block.matchAll(/^\s*[-*]\s*`?([^`\n]+?)`?\s*$/gm)].map((x) => x[1].trim()).filter(Boolean);
+    if (names.length) return { names, source: '## 节 schema 声明' };
+  }
+  return null;
+}
 const GEN_MARKERS = [
   '的自动生成类参考',
   '的自动生成战役动作参考',
@@ -280,15 +305,39 @@ function judge(pageRel, mode) {
   out.checks.J1_fffd = fffd;
   if (fffd !== 0) out.fail.push(`J1 fffd=${fffd}`);
 
-  // J2（七节；参见族见 SEE_FAMILY）
+  // J2（有声明 ⇒ 判「声明 == 实际」；无声明 ⇒ 类页七节，严格度不变）
   const h2 = (body.match(/^##\s+(.+?)\s*$/gm) || []).map((l) => l.replace(/^##\s+/, '').trim());
-  const missing = SECTIONS.filter((s) => !h2.includes(s));
-  const seeMatched = SEE_FAMILY.filter((s) => h2.includes(s));
-  if (!seeMatched.length) missing.push('参见族(参见|依赖关系|依赖图|依赖)');
+  const decl = declaredSchema(text, body);
+  // ★ 声明小节【自身】也是一个 H2 ⇒ 比较时必须从实际集合里剔除它，
+  //   否则「声明 == 实际」永远不可能成立（声明节总是多出来的那一个）。
+  const DECL_HEADING_RE = /^节\s*schema\s*声明$/i;
+  const h2ForCompare = h2.filter((h) => !DECL_HEADING_RE.test(h));
+  out.checks.J2_declared = decl ? { source: decl.source, names: decl.names } : null;
+  const missing = [];
+  let seeMatched = SEE_FAMILY.filter((s) => h2.includes(s));
+  if (decl) {
+    const miss = decl.names.filter((s) => !h2ForCompare.includes(s));
+    const extra = h2ForCompare.filter((s) => !decl.names.includes(s));
+    out.checks.J2_declared_missing = miss;
+    out.checks.J2_declared_extra = extra;
+    if (miss.length || extra.length) {
+      out.fail.push(`J2 declared-schema mismatch (${decl.source}): missing=[${miss.join(',')}] extra=[${extra.join(',')}]`);
+    }
+    seeMatched = SEE_FAMILY.filter((s) => h2.includes(s));
+    if (!seeMatched.length && !decl.names.some((n) => SEE_FAMILY.includes(n))) {
+      out.warn.push('J2 声明 schema 里没有参见族槽位');
+    }
+  } else {
+    for (const s of SECTIONS) if (!h2.includes(s)) missing.push(s);
+    if (!seeMatched.length) missing.push('参见族(参见|依赖关系|依赖图|依赖)');
+    if (missing.length) out.fail.push(`J2 missing=${missing.join(',')}`);
+  }
   out.checks.J2_h2 = h2;
   out.checks.J2_missing = missing;
   out.checks.J2_see_via = seeMatched;
-  if (missing.length) out.fail.push(`J2 missing=${missing.join(',')}`);
+  // 导航槽：有声明按声明，无声明仍认 `导航`
+  const navNames = decl ? h2.filter((h) => NAV_RE.test(h)) : ['导航'];
+  out.checks.J2_nav_slots = navNames;
 
   // J3 / J4（J3 跟踪「当前文件」把裸 :N 一并核界；J4 只判【归不到文件】的裸引用）
   const REF_RE = /([A-Za-z_][\w.]*\.cs):(\d+)|(?<![A-Za-z0-9_.]):(\d+)(?![0-9])/g;
@@ -361,7 +410,7 @@ function judge(pageRel, mode) {
       const h = line.match(/^##\s+(.+?)\s*$/);
       if (h) { cur = h[1].trim(); continue; }
       if (!cur) continue;
-      if (SEE_FAMILY.includes(cur) || cur === '导航') continue;
+      if (SEE_FAMILY.includes(cur) || navNames.includes(cur)) continue;
       LINK_ONLY.lastIndex = 0;
       let m;
       while ((m = LINK_ONLY.exec(line))) stray.push(`${cur}: ${m[1]}`);
@@ -385,6 +434,28 @@ function judge(pageRel, mode) {
     }
     out.checks.J11_trailing_slash = trailing;
     if (trailing.length) out.fail.push(`J11 leaf-link-with-trailing-slash=${trailing.length} [${[...new Set(trailing)].join(', ')}]`);
+  }
+
+  // J12：同一页内【同一链接文字】的所有出现必须使用【同一 href】
+  //   （boss-3 #14814 提出的「单页自检」升级为判据：同页两条指向同一类的链接一对一错
+  //     的实例就是 InformationData 在 155 行与 166 行 href 不同）
+  if (!isIndex) {
+    const byText = new Map();
+    const re12 = /\[([^\]]*)\]\(([^)\s]+)\)/g;
+    let m12;
+    while ((m12 = re12.exec(body))) {
+      const label = m12[1].trim();
+      const href = m12[2].split('#')[0];
+      if (!label || href.startsWith('http') || href.startsWith('mailto:')) continue;
+      if (!byText.has(label)) byText.set(label, new Set());
+      byText.get(label).add(href);
+    }
+    const inconsistent = [...byText.entries()].filter(([, set]) => set.size > 1)
+      .map(([label, set]) => `${label} -> [${[...set].join(' | ')}]`);
+    out.checks.J12_inconsistent_text = inconsistent;
+    if (inconsistent.length) {
+      out.fail.push(`J12 same-link-text-different-href=${inconsistent.length} [${inconsistent.slice(0, 3).join('; ')}]`);
+    }
   }
 
   // J6 + 两个口径
@@ -516,6 +587,8 @@ for (const r of results) {
   console.log(`      J5 dotSlash=${r.checks.J5_dot_slash ?? 'n/a'} indexLinks=${r.checks.J5_index_links ?? 'n/a'} · J5R unresolved=${(r.checks.J5R_unresolved || []).length} · J10 stray=${(r.checks.J10_stray_links || []).length} · J11 trailSlash=${(r.checks.J11_trailing_slash || []).length} · J8 ${r.checks.J8_bodyBytes}B/${r.checks.J8_h2h3} · J9 csharp=${r.checks.J9_csharp_lines}`);
   console.log(`      J6=${r.checks.J6_classifyPage?.status} · deepPass=${r.checks.deepPass} · tier=${r.checks.tier} · J7 markers=${(r.checks.J7_gen_markers || []).length}`);
   if (r.checks.J2_h2?.length) console.log(`      H2: ${r.checks.J2_h2.join(' | ')}`);
+  if (r.checks.J2_declared) console.log(`      J2 declared schema via ${r.checks.J2_declared.source} (${r.checks.J2_declared.names.length} names)`);
+  console.log(`      J12 inconsistent-text=${(r.checks.J12_inconsistent_text || []).length} · navSlots=[${(r.checks.J2_nav_slots || []).join(',')}]`);
   if (r.checks.J2_see_via?.length) console.log(`      J2 参见族 via=[${r.checks.J2_see_via.join(',')}]${r.checks.J2_see_via.includes('参见') ? '' : '  ← 别名命中（页里没有 `参见` 标题）'}`);
   for (const f of r.fail) console.log(`      ✗ ${f}`);
   for (const w of r.warn) console.log(`      ! ${w}`);

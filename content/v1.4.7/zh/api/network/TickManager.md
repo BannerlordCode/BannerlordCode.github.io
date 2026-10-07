@@ -54,13 +54,26 @@ while (running)
 
 ## 真实示例
 
+创建 TickManager 并按固定频率调用：
+
 ```csharp
-var tm = new TickManager(30, () => Console.WriteLine("tick"));
+var tm = new TickManager(30, OnTick);
 while (running)
 {
     tm.Tick();
     await Task.Delay(16);
 }
+
+void OnTick()
+{
+    Console.WriteLine("tick");
+}
+```
+
+停止时释放引用：
+
+```csharp
+tm = null;
 ```
 
 ## 参见

@@ -58,6 +58,8 @@ description: "TaleWorlds.Network 的服务器端会话抽象类，承接客户�
 
 ## 真实示例
 
+实现一个服务器端会话：
+
 ```csharp
 public sealed class GameServerSession : ServersideSession
 {
@@ -80,11 +82,16 @@ public sealed class GameServerSession : ServersideSession
     {
         SendDisconnectMessage();
     }
-
-    private void OnLobbyMessage(LobbyMessage message)
-    {
-    }
 }
+```
+
+使用会话广播消息：
+
+```csharp
+var session = new GameServerSession();
+session.OnAccepted();
+session.Broadcast("welcome");
+session.TickSession();
 ```
 
 ## 参见

@@ -59,6 +59,8 @@ description: "TaleWorlds.Network 的客户端会话抽象类，负责发起连�
 
 ## 真实示例
 
+实现一个客户端会话：
+
 ```csharp
 public sealed class GameClientSession : ClientsideSession
 {
@@ -83,11 +85,16 @@ public sealed class GameClientSession : ClientsideSession
     {
         SendDisconnectMessage();
     }
-
-    private void OnLobbyMessage(LobbyMessage message)
-    {
-    }
 }
+```
+
+使用会话发送消息：
+
+```csharp
+var session = new GameClientSession();
+session.Startup();
+session.Say("hello");
+session.Tick();
 ```
 
 ## 参见

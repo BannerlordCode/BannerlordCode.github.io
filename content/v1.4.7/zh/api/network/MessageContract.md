@@ -66,31 +66,34 @@ description: "TaleWorlds.Network 中定义消息如何序列化到 NetworkMessag
 
 ## 真实示例
 
+定义一条自定义消息契约：
+
 ```csharp
-// 一条自定义消息：玩家金币发生变化
 public class GoldChangedMessage : MessageContract
 {
     public int PlayerId;
     public int Gold;
 
-    // 装箱：顺序即协议，MessageContract.cs:84
     public override void SerializeToNetworkMessage(INetworkMessageWriter writer)
     {
         writer.Write(PlayerId);
         writer.Write(Gold);
     }
 
-    // 拆箱：必须与写入顺序完全一致，MessageContract.cs:87
     public override void DeserializeFromNetworkMessage(INetworkMessageReader reader)
     {
         PlayerId = reader.ReadInt32();
         Gold = reader.ReadInt32();
     }
 }
+```
 
-// 反序列化端按类型创建实例，MessageContract.cs:77
+反序列化端按类型创建实例并读取：
+
+```csharp
 MessageContract contract = MessageContract.CreateMessageContract(typeof(GoldChangedMessage));
 contract.DeserializeFromNetworkMessage(reader);
+int gold = ((GoldChangedMessage)contract).Gold;
 ```
 
 ## 参见

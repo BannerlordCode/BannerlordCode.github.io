@@ -1,0 +1,272 @@
+{
+  "judgedAt": "2026-10-07T07:35:58.893Z",
+  "mode": "require",
+  "total": 5,
+  "pass": 5,
+  "deepPass": 5,
+  "tierDeep": 5,
+  "crossCheckAgree": null,
+  "results": [
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/InitializeWorkshopAction.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_citations": 41,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=7",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=7",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 9203,
+        "J8_h2h3": 10,
+        "J9_csharp_lines": 10
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/MakeHeroFugitiveAction.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_citations": 62,
+        "J3_bad": [],
+        "J4_bare_line_refs": 0,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=6",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=6",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 9897,
+        "J8_h2h3": 10,
+        "J9_csharp_lines": 12
+      },
+      "fail": [],
+      "warn": [],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/SiegeAftermathAction.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_citations": 49,
+        "J3_bad": [],
+        "J4_bare_line_refs": 5,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=6",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=6",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 9476,
+        "J8_h2h3": 10,
+        "J9_csharp_lines": 15
+      },
+      "fail": [],
+      "warn": [
+        "J4 bare-line-refs=5（须写成 `X.cs:N`）"
+      ],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/StartMercenaryServiceAction.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_citations": 5,
+        "J3_bad": [],
+        "J4_bare_line_refs": 11,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=3",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=3",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 6711,
+        "J8_h2h3": 10,
+        "J9_csharp_lines": 16
+      },
+      "fail": [],
+      "warn": [
+        "J4 bare-line-refs=11（须写成 `X.cs:N`）"
+      ],
+      "pass": true
+    },
+    {
+      "page": "content/v1.4.5/zh/api/campaign-ext/GainRenownAction.md",
+      "checks": {
+        "J1_fffd": 0,
+        "J2_h2": [
+          "概述",
+          "心智模型",
+          "怎么用",
+          "关键成员",
+          "真实示例",
+          "参见",
+          "导航"
+        ],
+        "J2_missing": [],
+        "J2_see_via": [
+          "参见"
+        ],
+        "J3_citations": 4,
+        "J3_bad": [],
+        "J4_bare_line_refs": 5,
+        "J5_dot_slash": 0,
+        "J5_index_links": 0,
+        "J5R_unresolved": [],
+        "J10_stray_links": [],
+        "J6_classifyPage": {
+          "status": "deep_pass",
+          "reasons": [
+            "mental>80",
+            "dep-or-see-links=3",
+            "real-csharp-example",
+            "overview-ok"
+          ]
+        },
+        "J6_nonLinkReasons": [
+          "mental>80",
+          "dep-or-see-links=3",
+          "real-csharp-example",
+          "overview-ok"
+        ],
+        "J6_linkOnlyStub": false,
+        "deepPass": true,
+        "tier": "handwritten_deep",
+        "J7_gen_markers": [],
+        "J8_bodyBytes": 4796,
+        "J8_h2h3": 10,
+        "J9_csharp_lines": 10
+      },
+      "fail": [],
+      "warn": [
+        "J4 bare-line-refs=5（须写成 `X.cs:N`）"
+      ],
+      "pass": true
+    }
+  ]
+}

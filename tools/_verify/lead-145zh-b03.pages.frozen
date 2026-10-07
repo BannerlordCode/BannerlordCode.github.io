@@ -1,0 +1,27 @@
+# N=5 sampled=2026-10-07T07:40:00Z frozen=lead-145zh-b03 (REV 2) v1.4.5/zh campaign-ext (alphabetical continuation)
+# 来源：batch06 未执行项已于 b01/b02 用尽 ⇒ 本批改为【campaign-ext 桶按字母序续】。
+# 选取规则（可复算，两条过滤都用项目自己的规则，不用我的判断）：
+#   ① 列 content/v1.4.5/zh/api/campaign-ext/*.md（排除 _index.md），按文件名排序；
+#   ② 跳过 census tier = handwritten_deep 的页；
+#   ③ 跳过 tools/lib/handwritten-policy.mjs classifyPage() = noise 的页（noise 页永远拿不到 deep_pass）；
+#   ④ 跳过 isR1TargetType() = false 的页（项目自己的 R1-extra 噪声规则）。
+#   取通过全部四条的前 5 个。实测背景：campaign-ext 共 3,666 页，非 deep 3,434 页。
+#
+# ★ REV 2 改版理由（N-frozen §⑤ 要求逐页写明；本批【尚未派单】，故可在派单前改版）
+#   剔除：content/v1.4.5/zh/api/campaign-ext/AcceptClanCreationRequestMessage.md
+#     理由：其源码在 TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/，
+#       命中项目自己的 isR1ExtraNoiseNamespace（正则 /\.Diamond(\.|$)/）⇒ 项目已判定为 R1-extra 噪声。
+#       证据：该页 Namespace 行为 Messages.FromClient.ToLobbyServer，源码文件仅 10 行。
+#       ★ 附带缺陷（另报）：该页 metadata 写 Module = TaleWorlds.CampaignSystem，而源码实际属于
+#         TaleWorlds.MountAndBlade.Diamond —— 页面的 Module 元数据与源码位置矛盾。
+#   新增：content/v1.4.5/zh/api/campaign-ext/AcceptingCallToWarAgreementDecisionItemVM.md
+#     理由：按同一字母序继续，通过全部四条过滤（2,486B，ViewModelCollection.KingdomManagement.Decisions.ItemTypes）。
+#   同批被同一规则剔除的还有 AcceptClanInvitationMessage / AcceptJoinPremadeGameRequestMessage /
+#     AcceptPartyInvitationMessage / AcceptPartyJoinRequestMessage（均为 Messages.FromClient.ToLobbyServer）。
+#
+# 每行必须可解析为仓库相对路径；本清单只被 lead-145zh 消费，worker 不得改写。
+content/v1.4.5/zh/api/campaign-ext/AcceptCallToWarAgreementDecision.md
+content/v1.4.5/zh/api/campaign-ext/AcceptCallToWarAgreementDecisionOutcome.md
+content/v1.4.5/zh/api/campaign-ext/AcceptCallToWarOfferMapNotification.md
+content/v1.4.5/zh/api/campaign-ext/AcceptCallToWarOfferNotificationItemVM.md
+content/v1.4.5/zh/api/campaign-ext/AcceptingCallToWarAgreementDecisionItemVM.md

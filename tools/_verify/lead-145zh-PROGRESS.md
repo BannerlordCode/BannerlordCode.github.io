@@ -531,3 +531,78 @@ b01 FINAL: total=5 pass=5 deepPass=5 tierDeep=5
 阶段 3 的 `deep_pass=5/5` 看起来是「全好」，而 `pass=2/5` 才是真读数。
 **⇒ 这就是「两个口径必须分开报且永不合并」的实证依据，不是教条。**
 
+---
+
+## 14. ★ b02 完成（2026-10-07T07:38Z）—— 三个口径全部 5/5
+
+```
+b02 FINAL: total=5 pass=5 deepPass=5 tierDeep=5
+```
+
+| # | 页 | 正文 | cites | J5R | J10 | deepPass |
+| --- | --- | ---: | ---: | ---: | ---: | --- |
+| 1 | InitializeWorkshopAction | 9,203B | 41 | 0 | 0 | true |
+| 2 | MakeHeroFugitiveAction | 9,897B | 62 | 0 | 0 | true |
+| 3 | SiegeAftermathAction | 9,476B | 49 | 0 | 0 | true |
+| 4 | StartMercenaryServiceAction | 6,711B | 5 | 0 | 0 | true |
+| 5 | GainRenownAction | 4,796B | 4 | 0 | 0 | true |
+| | **合计** | | **161** | | | **5/5** |
+
+**引用边界：161 条全部在界内** · 每页 `U+FFFD=0` · 每页 `J10 stray=0`
+**批前门禁** 0/0/orphans=0 → **批后门禁** 0/0/orphans=0（total_pages=39037）
+
+**b01 + b02 合计**：10 页 · **288 条引用**全部在界内 · `deep_pass` 10/10 · `tier` 10/10。
+
+### 14.1 b02 的两处派单改进（都是上一轮教训的直接产物）
+1. **把 5 个源码文件的正文/声明行/调用点/事件链全部内联进派单** ⇒ b02 **一轮零退回**（b01 花了三轮）。
+2. **对机械任务不留探索空间**：worker-168 在「理解任务全貌」上白烧几轮 ⇒ 重发时写成
+   「只做这 8 处替换，下一个工具调用必须是 `edit`，不许探索」⇒ 当场完成。
+
+---
+
+## 15. b03 已冻结（REV 2）—— **未派单**
+
+`tools/_verify/lead-145zh-b03.pages.txt` · **N=5** · 采样 2026-10-07T07:40:00Z ·
+sha256 `f8df63e364ad7ca4d697da1419353446ec0616a0abf00cc4a851905808175f3b`
+
+**选取规则（四条过滤，全部用项目自己的规则，不用我的判断）：**
+1. 列 `content/v1.4.5/zh/api/campaign-ext/*.md`（排除 `_index.md`），按文件名排序
+2. 跳过 census `tier = handwritten_deep`
+3. 跳过 `classifyPage() = noise`（noise 页永远拿不到 `deep_pass`）
+4. 跳过 `isR1TargetType() = false`（**项目自己的 R1-extra 噪声规则**）
+
+**实测背景**：campaign-ext 共 **3,666** 页，其中非 deep **3,434** 页。
+
+### 15.1 REV 2 改版（派单前改版，理由逐页写明）
+
+- **剔除** `AcceptClanCreationRequestMessage.md`：源码在 `TaleWorlds.MountAndBlade.Diamond/Messages.FromClient.ToLobbyServer/`，
+  命中项目自己的 `isR1ExtraNoiseNamespace`（正则 `/\\.Diamond(\\.|$)/`）⇒ **项目已判定为 R1-extra 噪声**。
+- **新增** `AcceptingCallToWarAgreementDecisionItemVM.md`：同字母序继续，过全部四条过滤。
+- 同规则被剔除的还有 `AcceptClanInvitationMessage` / `AcceptJoinPremadeGameRequestMessage` /
+  `AcceptPartyInvitationMessage` / `AcceptPartyJoinRequestMessage`（均为 `Messages.FromClient.ToLobbyServer`）。
+
+### 15.2 ★ 附带发现的 metadata 缺陷（另报）
+
+`AcceptClanCreationRequestMessage.md` 的 `Module` 写作 `TaleWorlds.CampaignSystem`，
+而源码实际属于 `TaleWorlds.MountAndBlade.Diamond` ⇒ **页面的 Module 元数据与源码位置矛盾**。
+（该页现已不在 b03 内，但缺陷本身仍在站点上。）
+
+### 15.3 b03 批前读数（负向对照）
+
+```
+$ node tools/_verify/lead-145zh-judge.mjs --manifest tools/_verify/lead-145zh-b03.pages.txt
+JUDGE total=5 pass=0 fail=5
+# 两个口径: deep_pass=0/5 · tier=handwritten_deep=0/5
+```
+**批前门禁**：`BROKEN_LINKS=0 · FILES_WITH_BROKEN=0 · orphans=0 · total_pages=39037`
+
+### 15.4 b03 五页的已核实源码事实（派单时已内联）
+
+| # | 页 | 源码 | 行数 | 关键事实 |
+| --- | --- | --- | ---: | --- |
+| 1 | AcceptCallToWarAgreementDecision | `…CampaignSystem.Election/AcceptCallToWarAgreementDecision.cs` | 324 | 类 `:14 : KingdomDecision` |
+| 2 | AcceptCallToWarAgreementDecisionOutcome | **同文件** | 324 | ★ **嵌套类** `:16 : DecisionOutcome`（**无独立文件**） |
+| 3 | AcceptCallToWarOfferMapNotification | `…MapNotificationTypes/AcceptCallToWarOfferMapNotification.cs` | 68 | 类 `:8 : InformationData` |
+| 4 | AcceptCallToWarOfferNotificationItemVM | `…Map.MapNotificationTypes/…ItemVM.cs` | 116 | 类 `:12 : MapNotificationItemBaseVM` |
+| 5 | AcceptingCallToWarAgreementDecisionItemVM | `…KingdomManagement.Decisions.ItemTypes/…ItemVM.cs` | 247 | 类 `:12 : DecisionItemBaseVM` |
+

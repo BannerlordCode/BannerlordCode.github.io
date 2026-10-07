@@ -374,7 +374,20 @@ function judge(pageRel, mode) {
   } else {
     for (const s of SECTIONS) if (!h2.includes(s)) missing.push(s);
     if (!seeMatched.length) missing.push('参见族(参见|依赖关系|依赖图|依赖)');
-    if (missing.length) out.fail.push(`J2 missing=${missing.join(',')}`);
+    if (missing.length) {
+      // ★ 区分【两种缺法】，因为【修法不同】（boss-3 #15974 要求把
+      //   `gamemodel-decorator.md`（5 个 H2、无声明）当真实语料正控制）：
+      //   · 类页缺节 ⇒ 补那几节（写内容）
+      //   · hub 形页无声明 ⇒ 【补声明】，而不是把 hub 硬写成类页七节
+      const looksHub = h2.some((h) => /一句话定位|大局观|任务地图|常见误用|真实最小示例/.test(h))
+        || !/^\*\*(?:Type|类型)[：:]/m.test(text);
+      if (looksHub) {
+        out.fail.push(`J2 hub-shaped page WITHOUT schema declaration: missing=[${missing.join(',')}]`
+          + '（修法：【补声明】—— 在页内加 `## 节 schema 声明` 块，或 frontmatter 加 `schema_sections`，而不是把 hub 硬写成类页七节）');
+      } else {
+        out.fail.push(`J2 missing=${missing.join(',')}`);
+      }
+    }
   }
   out.checks.J2_h2 = h2;
   out.checks.J2_missing = missing;

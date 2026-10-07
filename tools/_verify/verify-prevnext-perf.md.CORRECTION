@@ -36,6 +36,23 @@ implementation). It is not in any commit.**
   All 323 missing are newer than the JSON (staleness, not a generation bug); 3 further routes
   (`xml-reference/bugs`) legitimately have no prev/next as singletons.
 
+## ★ What this reading IS allowed to be used for (scope statement)
+
+> **The A-side of this A/B is the R2 implementation (reading the 18.8 MB monolithic
+> `page-navigation.json`). That implementation has been withdrawn.**
+>
+> **This reading's valid use is to inform the choice of DATA FORM for a future prev/next
+> implementation.** Its conclusion there is clear and useful: **do not use a monolithic 18.8 MB
+> file — use shards**, which serve both speed and freshness (all 323 missing routes are newer
+> than the JSON, so a monolithic file re-stales on every batch of new pages).
+>
+> **It must NOT be used to support "the current state needs fixing".** The current committed state
+> has no performance problem — it simply **does not have this feature**. The user shell removed
+> prev/next deliberately (comment: scanning every sibling in Tera is quadratic and pushes a full
+> build past GitHub's 6-hour limit).
+>
+> Without this scope note, the next reader will use it to fix a performance defect that does not exist.
+
 ## Why this happened (and it is the same failure I had just diagnosed elsewhere)
 
 Earlier the same session I established that a **never-committed** ruler version (`3dc897bc`) had judged a
